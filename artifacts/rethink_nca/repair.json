@@ -1,0 +1,891 @@
+{
+ "n_targets": 18,
+ "repairs": [
+  {
+   "req": 3,
+   "knob": "domain_length",
+   "found": {
+    "knob": "domain_length",
+    "r": 9,
+    "d": 10.0,
+    "gamma": 0.5270462766947299,
+    "mode": 3
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 4,
+     "lam": 14.137166941154069,
+     "amp": 0.27087610292465736,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 14.137166941154069,
+     "amp": 0.27087610292460607,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 4,
+     "lam": 14.137166941154069,
+     "amp": 0.2708761029245391,
+     "patterned": true
+    }
+   ],
+   "success": 0.0
+  },
+  {
+   "req": 3,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 10,
+    "d": 11.0,
+    "gamma": 0.5175251495136003,
+    "mode": 3
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3780882568477942,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3780882568477964,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3780882568477753,
+     "patterned": true
+    }
+   ],
+   "success": 0.0
+  },
+  {
+   "req": 7,
+   "knob": "domain_length",
+   "found": {
+    "knob": "domain_length",
+    "r": 21,
+    "d": 10.0,
+    "gamma": 0.5270462766947299,
+    "mode": 7
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 9,
+     "lam": 14.660765716752369,
+     "amp": 0.2912780674027992,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 9,
+     "lam": 14.660765716752369,
+     "amp": 0.2912846220559056,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 8,
+     "lam": 16.493361431346415,
+     "amp": 0.30529324686144477,
+     "patterned": true
+    }
+   ],
+   "success": 0.0
+  },
+  {
+   "req": 7,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 20,
+    "d": 11.0,
+    "gamma": 0.5175251495136003,
+    "mode": 6
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.378087664782366,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.3780882490697735,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.37808821219793426,
+     "patterned": true
+    }
+   ],
+   "success": 0.0
+  },
+  {
+   "req": 32,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 32,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 10,
+    "d": 9.0,
+    "gamma": 1.92,
+    "mode": 8
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.17865951902228216,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.1792900144707217,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.1795439109795204,
+     "patterned": true
+    }
+   ],
+   "success": 1.0
+  },
+  {
+   "req": 33,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 33,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 10,
+    "d": 9.0,
+    "gamma": 1.0799999999999998,
+    "mode": 6
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.1498720242550795,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.1779939543847373,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.17951386547167145,
+     "patterned": true
+    }
+   ],
+   "success": 1.0
+  },
+  {
+   "req": 34,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 34,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 10,
+    "d": 9.0,
+    "gamma": 0.5572091146125063,
+    "mode": 4
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.02458793048907032,
+     "patterned": false
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.15281465547351855,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.0749252435385463,
+     "patterned": false
+    }
+   ],
+   "success": 0.3333333333333333
+  },
+  {
+   "req": 35,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 35,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 10,
+    "d": 11.0,
+    "gamma": 0.5175251495136003,
+    "mode": 3
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3780882568477942,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3780882568477964,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3780882568477753,
+     "patterned": true
+    }
+   ],
+   "success": 0.0
+  },
+  {
+   "req": 36,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 36,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 20,
+    "d": 9.0,
+    "gamma": 1.92,
+    "mode": 16
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 16,
+     "lam": 7.853981633974483,
+     "amp": 0.1771773088301451,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 7.391982714328925,
+     "amp": 0.14058392811977297,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 16,
+     "lam": 7.853981633974483,
+     "amp": 0.17941467499123362,
+     "patterned": true
+    }
+   ],
+   "success": 1.0
+  },
+  {
+   "req": 37,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 37,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 20,
+    "d": 9.0,
+    "gamma": 0.9075,
+    "mode": 11
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.16115931970382508,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.17970891815561083,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.17939226859343613,
+     "patterned": true
+    }
+   ],
+   "success": 1.0
+  },
+  {
+   "req": 38,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 38,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 20,
+    "d": 9.0,
+    "gamma": 0.5572091146125063,
+    "mode": 8
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.16332808097769955,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.1610227119202677,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.15820204611169555,
+     "patterned": true
+    }
+   ],
+   "success": 1.0
+  },
+  {
+   "req": 39,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 39,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 20,
+    "d": 11.0,
+    "gamma": 0.5175251495136003,
+    "mode": 6
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.378087664782366,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.3780882490697735,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.37808821219793426,
+     "patterned": true
+    }
+   ],
+   "success": 0.0
+  },
+  {
+   "req": 40,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 40,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 30,
+    "d": 9.0,
+    "gamma": 1.92,
+    "mode": 24
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.1756371781267424,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 23,
+     "lam": 8.1954590963212,
+     "amp": 0.16986047490308215,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.16134371461268873,
+     "patterned": true
+    }
+   ],
+   "success": 1.0
+  },
+  {
+   "req": 41,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 41,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 30,
+    "d": 9.0,
+    "gamma": 0.9633333333333333,
+    "mode": 17
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 17,
+     "lam": 11.087974071493386,
+     "amp": 0.16428460660794691,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 11.087974071493386,
+     "amp": 0.1792526977267234,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 17,
+     "lam": 11.087974071493386,
+     "amp": 0.17818087321297602,
+     "patterned": true
+    }
+   ],
+   "success": 1.0
+  },
+  {
+   "req": 42,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 42,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 30,
+    "d": 9.0,
+    "gamma": 0.6036432074968818,
+    "mode": 13
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.1773622104864528,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.17800265747033864,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.15381529976188915,
+     "patterned": true
+    }
+   ],
+   "success": 1.0
+  },
+  {
+   "req": 43,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 43,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 30,
+    "d": 10.0,
+    "gamma": 0.5270462766947299,
+    "mode": 10
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.2858822607698617,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.2858295679656555,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.28589189441188173,
+     "patterned": true
+    }
+   ],
+   "success": 0.0
+  },
+  {
+   "req": 44,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 44,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 40,
+    "d": 9.0,
+    "gamma": 1.8018750000000001,
+    "mode": 31
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 31,
+     "lam": 8.107335880231725,
+     "amp": 0.17836709857074068,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 30,
+     "lam": 8.377580409572781,
+     "amp": 0.17629778086140044,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 32,
+     "lam": 7.853981633974483,
+     "amp": 0.16498086294275235,
+     "patterned": true
+    }
+   ],
+   "success": 1.0
+  },
+  {
+   "req": 45,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 45,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 40,
+    "d": 9.0,
+    "gamma": 0.991875,
+    "mode": 23
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.17646280065127035,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.17943858847009017,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.17925950127810725,
+     "patterned": true
+    }
+   ],
+   "success": 1.0
+  },
+  {
+   "req": 46,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 46,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 40,
+    "d": 9.0,
+    "gamma": 0.5920346842757879,
+    "mode": 17
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 18,
+     "lam": 13.962634015954636,
+     "amp": 0.17479335029802004,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.17301090668151642,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 18,
+     "lam": 13.962634015954636,
+     "amp": 0.1560798891628598,
+     "patterned": true
+    }
+   ],
+   "success": 1.0
+  },
+  {
+   "req": 47,
+   "knob": "domain_length",
+   "found": null
+  },
+  {
+   "req": 47,
+   "knob": "diffusion_ratio",
+   "found": {
+    "knob": "diffusion_ratio",
+    "r": 40,
+    "d": 10.0,
+    "gamma": 0.5138701197773616,
+    "mode": 13
+   },
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.30669843324621593,
+     "patterned": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.28911942159804077,
+     "patterned": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 15,
+     "lam": 16.755160819145562,
+     "amp": 0.3044645054054066,
+     "patterned": true
+    }
+   ],
+   "success": 0.0
+  }
+ ],
+ "unrepaired_C0_success": {
+  "3": 1.0,
+  "7": 1.0,
+  "32": 0.0,
+  "33": 0.0,
+  "34": 0.0,
+  "35": 0.0,
+  "36": 0.0,
+  "37": 0.0,
+  "38": 0.0,
+  "39": 0.0,
+  "40": 0.0,
+  "41": 0.0,
+  "42": 0.0,
+  "43": 0.0,
+  "44": 0.0,
+  "45": 0.0,
+  "46": 0.0,
+  "47": 0.0
+ },
+ "summary": {
+  "domain_length/treatment_refused": {
+   "requests": 2,
+   "repair_found": 2,
+   "repaired_success_mean_over_found": 0.0,
+   "unrepaired_C0_success_mean": 1.0
+  },
+  "domain_length/control_d1": {
+   "requests": 16,
+   "repair_found": 0,
+   "repaired_success_mean_over_found": null,
+   "unrepaired_C0_success_mean": 0.0
+  },
+  "diffusion_ratio/treatment_refused": {
+   "requests": 2,
+   "repair_found": 2,
+   "repaired_success_mean_over_found": 0.0,
+   "unrepaired_C0_success_mean": 1.0
+  },
+  "diffusion_ratio/control_d1": {
+   "requests": 16,
+   "repair_found": 16,
+   "repaired_success_mean_over_found": 0.7083333333333333,
+   "unrepaired_C0_success_mean": 0.0
+  }
+ }
+}

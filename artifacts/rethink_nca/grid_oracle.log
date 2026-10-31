@@ -1,0 +1,11 @@
+eval_batch r=10 samples=384
+eval_batch r=20 samples=384
+eval_batch r=30 samples=384
+eval_batch r=40 samples=384
+{
+ "label": "POST HOC control",
+ "random_gamma_success_treatment": 0.22916666666666669,
+ "random_gamma_success_held_out": 0.19270833333333334,
+ "feasible_requests": 25,
+ "of": 32
+}

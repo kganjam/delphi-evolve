@@ -1,0 +1,22 @@
+{
+ "nca_seed0": {
+  "final_loss_mean_last50": 0.0002450351863808464,
+  "first_loss_mean_first50": 0.004927877791596984,
+  "wall_s": 198.8591320514679
+ },
+ "nca_seed1": {
+  "final_loss_mean_last50": 0.0002634085778845474,
+  "first_loss_mean_first50": 0.004622469194582663,
+  "wall_s": 225.0208990573883
+ },
+ "nca_seed2": {
+  "final_loss_mean_last50": 0.0002696927235228941,
+  "first_loss_mean_first50": 0.004364100422753836,
+  "wall_s": 252.15394759178162
+ },
+ "nshuf_seed0": {
+  "final_loss_mean_last50": 0.00035484093197737823,
+  "first_loss_mean_first50": 0.005494274041266181,
+  "wall_s": 189.81584906578064
+ }
+}

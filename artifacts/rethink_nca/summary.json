@@ -1,0 +1,437 @@
+{
+ "strata_sizes": {
+  "treatment": 32,
+  "near_onset_d10": 16,
+  "far_d20": 16,
+  "held_out": 24,
+  "control_d1": 16
+ },
+ "arms": {
+  "C0": {
+   "treatment": {
+    "success_mean": 0.9583333333333333,
+    "success_per_seed": null,
+    "accepted_mean": 32.0,
+    "refused_or_abstained_mean": 0.0,
+    "success_among_accepted_mean": 0.9583333333333333,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": null
+   },
+   "near_onset_d10": {
+    "success_mean": 1.0,
+    "success_per_seed": null,
+    "accepted_mean": 16.0,
+    "refused_or_abstained_mean": 0.0,
+    "success_among_accepted_mean": 1.0,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": null
+   },
+   "far_d20": {
+    "success_mean": 0.9166666666666666,
+    "success_per_seed": null,
+    "accepted_mean": 16.0,
+    "refused_or_abstained_mean": 0.0,
+    "success_among_accepted_mean": 0.9166666666666666,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": null
+   },
+   "held_out": {
+    "success_mean": 0.9722222222222222,
+    "success_per_seed": null,
+    "accepted_mean": 24.0,
+    "refused_or_abstained_mean": 0.0,
+    "success_among_accepted_mean": 0.9722222222222222,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": null
+   },
+   "control_d1": {
+    "success_mean": 0.0,
+    "success_per_seed": null,
+    "accepted_mean": 16.0,
+    "refused_or_abstained_mean": 0.0,
+    "success_among_accepted_mean": 0.0,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": null
+   }
+  },
+  "D": {
+   "treatment": {
+    "success_mean": 0.6979166666666667,
+    "success_per_seed": null,
+    "accepted_mean": 32.0,
+    "refused_or_abstained_mean": 0.0,
+    "success_among_accepted_mean": 0.6979166666666667,
+    "sims_total_mean": 384.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": 0.78125
+   },
+   "near_onset_d10": {
+    "success_mean": 0.75,
+    "success_per_seed": null,
+    "accepted_mean": 16.0,
+    "refused_or_abstained_mean": 0.0,
+    "success_among_accepted_mean": 0.75,
+    "sims_total_mean": 192.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": 0.75
+   },
+   "far_d20": {
+    "success_mean": 0.6458333333333333,
+    "success_per_seed": null,
+    "accepted_mean": 16.0,
+    "refused_or_abstained_mean": 0.0,
+    "success_among_accepted_mean": 0.6458333333333333,
+    "sims_total_mean": 192.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": 0.8125
+   },
+   "held_out": {
+    "success_mean": 0.6666666666666666,
+    "success_per_seed": null,
+    "accepted_mean": 24.0,
+    "refused_or_abstained_mean": 0.0,
+    "success_among_accepted_mean": 0.6666666666666666,
+    "sims_total_mean": 288.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": 0.7083333333333334
+   },
+   "control_d1": {
+    "success_mean": 0.0,
+    "success_per_seed": null,
+    "accepted_mean": 0.0,
+    "refused_or_abstained_mean": 16.0,
+    "success_among_accepted_mean": null,
+    "sims_total_mean": 192.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": null
+   }
+  },
+  "G": {
+   "treatment": {
+    "success_mean": 0.6354166666666666,
+    "success_per_seed": null,
+    "accepted_mean": 30.0,
+    "refused_or_abstained_mean": 2.0,
+    "success_among_accepted_mean": 0.6777777777777777,
+    "sims_total_mean": 263.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": 0.45454545454545453
+   },
+   "near_onset_d10": {
+    "success_mean": 0.75,
+    "success_per_seed": null,
+    "accepted_mean": 14.0,
+    "refused_or_abstained_mean": 2.0,
+    "success_among_accepted_mean": 0.8571428571428571,
+    "sims_total_mean": 72.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": 0.6666666666666666
+   },
+   "far_d20": {
+    "success_mean": 0.5208333333333333,
+    "success_per_seed": null,
+    "accepted_mean": 16.0,
+    "refused_or_abstained_mean": 0.0,
+    "success_among_accepted_mean": 0.5208333333333333,
+    "sims_total_mean": 191.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": 0.375
+   },
+   "held_out": {
+    "success_mean": 0.5555555555555556,
+    "success_per_seed": null,
+    "accepted_mean": 22.0,
+    "refused_or_abstained_mean": 2.0,
+    "success_among_accepted_mean": 0.6060606060606061,
+    "sims_total_mean": 191.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": 0.25
+   },
+   "control_d1": {
+    "success_mean": 0.0,
+    "success_per_seed": null,
+    "accepted_mean": 0.0,
+    "refused_or_abstained_mean": 16.0,
+    "success_among_accepted_mean": null,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": null
+   }
+  },
+  "Gmis": {
+   "treatment": {
+    "success_mean": 0.6770833333333333,
+    "success_per_seed": null,
+    "accepted_mean": 28.0,
+    "refused_or_abstained_mean": 4.0,
+    "success_among_accepted_mean": 0.773809523809524,
+    "sims_total_mean": 336.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": 0.8928571428571429
+   },
+   "near_onset_d10": {
+    "success_mean": 0.7291666666666666,
+    "success_per_seed": null,
+    "accepted_mean": 12.0,
+    "refused_or_abstained_mean": 4.0,
+    "success_among_accepted_mean": 0.9722222222222222,
+    "sims_total_mean": 144.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": 1.0
+   },
+   "far_d20": {
+    "success_mean": 0.625,
+    "success_per_seed": null,
+    "accepted_mean": 16.0,
+    "refused_or_abstained_mean": 0.0,
+    "success_among_accepted_mean": 0.625,
+    "sims_total_mean": 192.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": 0.8125
+   },
+   "held_out": {
+    "success_mean": 0.6527777777777778,
+    "success_per_seed": null,
+    "accepted_mean": 20.0,
+    "refused_or_abstained_mean": 4.0,
+    "success_among_accepted_mean": 0.7833333333333332,
+    "sims_total_mean": 240.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": 0.85
+   },
+   "control_d1": {
+    "success_mean": 0.0,
+    "success_per_seed": null,
+    "accepted_mean": 0.0,
+    "refused_or_abstained_mean": 16.0,
+    "success_among_accepted_mean": null,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 0.0,
+    "design_world_ok_among_accepted_mean": null
+   }
+  },
+  "N": {
+   "treatment": {
+    "success_mean": 0.14930555555555555,
+    "success_per_seed": [
+     0.0,
+     0.20833333333333331,
+     0.23958333333333331
+    ],
+    "accepted_mean": 21.333333333333332,
+    "refused_or_abstained_mean": 10.666666666666666,
+    "success_among_accepted_mean": 0.22395833333333331,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 512.0,
+    "design_world_ok_among_accepted_mean": 0.0625
+   },
+   "near_onset_d10": {
+    "success_mean": 0.14583333333333334,
+    "success_per_seed": [
+     0.0,
+     0.1875,
+     0.25
+    ],
+    "accepted_mean": 10.666666666666666,
+    "refused_or_abstained_mean": 5.333333333333333,
+    "success_among_accepted_mean": 0.21875,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 256.0,
+    "design_world_ok_among_accepted_mean": 0.09375
+   },
+   "far_d20": {
+    "success_mean": 0.15277777777777776,
+    "success_per_seed": [
+     0.0,
+     0.22916666666666666,
+     0.22916666666666666
+    ],
+    "accepted_mean": 10.666666666666666,
+    "refused_or_abstained_mean": 5.333333333333333,
+    "success_among_accepted_mean": 0.22916666666666666,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 256.0,
+    "design_world_ok_among_accepted_mean": 0.03125
+   },
+   "held_out": {
+    "success_mean": 0.17129629629629628,
+    "success_per_seed": [
+     0.0,
+     0.23611111111111108,
+     0.27777777777777773
+    ],
+    "accepted_mean": 16.0,
+    "refused_or_abstained_mean": 8.0,
+    "success_among_accepted_mean": 0.2569444444444444,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 384.0,
+    "design_world_ok_among_accepted_mean": 0.0625
+   },
+   "control_d1": {
+    "success_mean": 0.0,
+    "success_per_seed": null,
+    "accepted_mean": 0.0,
+    "refused_or_abstained_mean": 16.0,
+    "success_among_accepted_mean": null,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 256.0,
+    "design_world_ok_among_accepted_mean": null
+   }
+  },
+  "Nshuf": {
+   "treatment": {
+    "success_mean": 0.0,
+    "success_per_seed": null,
+    "accepted_mean": 0.0,
+    "refused_or_abstained_mean": 32.0,
+    "success_among_accepted_mean": null,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 512.0,
+    "design_world_ok_among_accepted_mean": null
+   },
+   "near_onset_d10": {
+    "success_mean": 0.0,
+    "success_per_seed": null,
+    "accepted_mean": 0.0,
+    "refused_or_abstained_mean": 16.0,
+    "success_among_accepted_mean": null,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 256.0,
+    "design_world_ok_among_accepted_mean": null
+   },
+   "far_d20": {
+    "success_mean": 0.0,
+    "success_per_seed": null,
+    "accepted_mean": 0.0,
+    "refused_or_abstained_mean": 16.0,
+    "success_among_accepted_mean": null,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 256.0,
+    "design_world_ok_among_accepted_mean": null
+   },
+   "held_out": {
+    "success_mean": 0.0,
+    "success_per_seed": null,
+    "accepted_mean": 0.0,
+    "refused_or_abstained_mean": 24.0,
+    "success_among_accepted_mean": null,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 384.0,
+    "design_world_ok_among_accepted_mean": null
+   },
+   "control_d1": {
+    "success_mean": 0.0,
+    "success_per_seed": null,
+    "accepted_mean": 0.0,
+    "refused_or_abstained_mean": 16.0,
+    "success_among_accepted_mean": null,
+    "sims_total_mean": 0.0,
+    "nca_queries_total_mean": 256.0,
+    "design_world_ok_among_accepted_mean": null
+   }
+  }
+ },
+ "paired_N_minus_D_treatment": {
+  "mean_diff": -0.5486111111111112,
+  "requests_N_better": 1,
+  "requests_N_worse": 25,
+  "requests_tied": 6
+ },
+ "treatment_requests_solved_by_at_least_one_arm": 31,
+ "G_refusals_on_treatment": [
+  {
+   "req": 3,
+   "d": 10,
+   "r": 10,
+   "lam": 22,
+   "decision": "refuse_no_mode",
+   "solved_by_other_arm": true
+  },
+  {
+   "req": 7,
+   "d": 10,
+   "r": 20,
+   "lam": 22,
+   "decision": "refuse_no_mode",
+   "solved_by_other_arm": true
+  }
+ ],
+ "G_vs_D_on_G_accepted": {
+  "n": 30,
+  "G_success": 0.6777777777777777,
+  "D_success": 0.7444444444444444,
+  "G_sims": 263,
+  "D_sims": 360,
+  "G_analytic_route": 8
+ },
+ "claim_record_changed_refusals": {
+  "refused": 48,
+  "of": 48
+ },
+ "controls_C0_hallucinated_success_requests": 0,
+ "controls_pattern_count_by_arm_seeds": {
+  "C0": 0,
+  "D": 0,
+  "G": 0,
+  "Gmis": 0,
+  "N0": 0,
+  "N1": 0,
+  "N2": 0,
+  "Nshuf0": 0
+ },
+ "decision_rules_NCA": {
+  "N_ge_D_minus_0.05_treatment": {
+   "N": 0.14930555555555555,
+   "D": 0.6979166666666667,
+   "pass": false
+  },
+  "N_ge_D_minus_0.05_held_out": {
+   "N": 0.17129629629629628,
+   "D": 0.6666666666666666,
+   "pass": false
+  },
+  "self_consistent_minus_independent_le_0.10": {
+   "self_consistent_among_accepted": 0.0625,
+   "independent_among_accepted": 0.22395833333333331,
+   "pass": true
+  },
+  "Nshuf_le_N_minus_0.20": {
+   "Nshuf": 0.0,
+   "N": 0.14930555555555555,
+   "pass": false
+  },
+  "NCA_GO_overall": false
+ },
+ "decision_rules_gated_claim": {
+  "controls_G_refuses_all_C0_accepts_all_C0_no_success": {
+   "G_refused": 16.0,
+   "of": 16,
+   "C0_accepted": 16.0,
+   "C0_success": 0.0,
+   "pass": true
+  },
+  "G_coverage_ge_50pct_of_treatment": {
+   "accepted": 30,
+   "of": 32,
+   "pass": true
+  },
+  "G_ge_D_minus_0.05_on_accepted_with_le_half_sims": {
+   "G": 0.6777777777777777,
+   "D": 0.7444444444444444,
+   "G_sims": 263,
+   "D_sims": 360,
+   "pass": false
+  },
+  "record_changed_refuses_all": {
+   "refused": 48,
+   "of": 48,
+   "pass": true
+  },
+  "GATED_CLAIM_GO_overall": false
+ }
+}

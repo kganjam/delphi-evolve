@@ -1,0 +1,24 @@
+convergence dt_half r=10 12
+convergence dt_half r=20 6
+convergence dt_half r=30 6
+convergence dt_half r=40 9
+convergence res_double r=10 12
+convergence res_double r=20 6
+convergence res_double r=30 6
+convergence res_double r=40 9
+{
+ "dt_half": {
+  "n": 33,
+  "success_flag_agreement": 1.0,
+  "dominant_mode_agreement": 1.0,
+  "base_success": 0.696969696969697,
+  "variant_success": 0.696969696969697
+ },
+ "res_double": {
+  "n": 33,
+  "success_flag_agreement": 0.8181818181818182,
+  "dominant_mode_agreement": 0.45454545454545453,
+  "base_success": 0.696969696969697,
+  "variant_success": 0.696969696969697
+ }
+}

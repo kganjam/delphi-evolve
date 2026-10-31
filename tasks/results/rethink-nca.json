@@ -1,0 +1,65 @@
+{
+ "role": "nca",
+ "status": "first_go_no_go_pushed; v2 post-hoc NCA variant pending (see next_steps)",
+ "goal": "NCA/amorphous inverse-design proposal + decisive feasibility experiment (see planning/rethink/nca.md)",
+ "model": "Claude Sonnet 5.5 (subscription; metered charge not known; no GPU used)",
+ "branch": "work/rethink-nca",
+ "frozen_commits": [
+  "8fcefde",
+  "e7838b3",
+  "7ee95dc"
+ ],
+ "scored_run_commit": "237f85b",
+ "started_seattle": "2026-10-31 05:58 PDT",
+ "recommendation": "NO-GO NCA as headline; narrow conditional GO for claim-licensed Turing check+repair as a component only",
+ "headline_numbers": {
+  "independent_success_treatment": {
+   "C0": 0.958,
+   "D": 0.698,
+   "G": 0.635,
+   "Gmis": 0.677,
+   "N": 0.149,
+   "Nshuf": 0.0
+  },
+  "random_gamma_baseline_post_hoc": 0.229,
+  "nca_go_rule": false,
+  "gated_claim_go_rule": false,
+  "repair_controls_success_mean": 0.708,
+  "controls_gate_refusals": "16/16",
+  "record_changed_refusals": "48/48",
+  "convergence_dt_half_flag_agreement": 1.0,
+  "convergence_res_double_flag_agreement": 0.818,
+  "noise_baseline_flag_agreement": 0.758
+ },
+ "commands_actually_run": [
+  "python3 -m experiments.rethink_nca.train_models (systemd-run scope TasksMax=128 MemoryMax=4G; first attempts exited 1: -I import path, then a SyntaxError in train_models.py; fixed; final run exit 0)",
+  "python3 -m experiments.rethink_nca.run_probe design (first attempt exit 1: fraction-string parse bug; fixed; rerun exit 0)",
+  "python3 -m experiments.rethink_nca.run_probe evaluate (exit 0)",
+  "python3 -m experiments.rethink_nca.summarize (first attempt KeyError on control rows for NCA seeds 1,2; fixed; exit 0)",
+  "python3 -m experiments.rethink_nca.run_probe convergence ; repair ; noise_baseline (exit 0)",
+  "python3 -m experiments.rethink_nca.grid_oracle (post hoc; exit 0)",
+  "python3 -m experiments.rethink_nca.viz (exit 0)",
+  "python3 -m pytest tests/test_rethink_nca.py -q (6 passed)",
+  "curl Dryad API files 18559-18563 download -> HTTP 401 bearer token required (no credentials sought)"
+ ],
+ "artifacts": [
+  "planning/rethink/nca.md",
+  "experiments/rethink_nca/",
+  "artifacts/rethink_nca/{designs,evaluated,summary,convergence,repair,noise_baseline,grid_oracle}.json",
+  "artifacts/rethink_nca/diagnostic.png",
+  "artifacts/rethink_nca/models/"
+ ],
+ "limitations": [
+  "model-only (Schnakenberg, 1-D Neumann); no measurement",
+  "3 noise seeds, 3 NCA seeds; no confidence intervals",
+  "evaluator resolution-doubling agreement 0.818 < preregistered 0.90 (noise realisation dominates; noise baseline 0.758)",
+  "NCA recipe short (1000 iters, K=16, hidden channels); v1 models diverge",
+  "G refusals partly caused by declared gamma>=0.5 bound",
+  "post-hoc controls (grid_oracle, noise_baseline, nca_v2) are not frozen decision rules",
+  "no GPU, no outside contact, no multi-agent contribution claimed"
+ ],
+ "next_steps": [
+  "finish post-hoc NCA v2 (no hidden channels, K=32) and report",
+  "if director selects this line: test NCA only where no closed form exists (growing or irregular domain) with an independent target"
+ ]
+}
