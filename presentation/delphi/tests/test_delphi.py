@@ -148,3 +148,22 @@ def test_site_numbers_are_accounted_for():
         if miss:
             left[name] = miss
     assert not left, left
+
+
+HARD_BANNED = [r"no machine[- ]checked", r"did not find a prior machine", r"nobody has (?:a )?(?:gate|library|checked)", r"Arcuri", r"PMC9884266",
+               r"Villar-Sepulveda", r"solved (?:the )?navier", r"navier[- ]stokes", r"prove2\.me"]
+
+
+def test_hard_banned_claims_and_citations_absent_everywhere():
+    """Not negation-aware: these strings must not appear at all (ATLAS exists; the two citations were wrong; prove2.me is not to be visited)."""
+    bad = [(n, p) for n, t in _texts().items() for p in HARD_BANNED if re.search(p, t, re.I)]
+    assert not bad, bad
+
+
+def test_atlas_is_credited_and_misprediction_map_is_pending():
+    t = _texts()
+    assert "atlas-lean" in t["deck slide 6"] and "atlas-lean" in t["site/index.html"] and "atlas-lean" in t["site/blog.html"]
+    s5 = t["deck slide 5"]
+    m = re.search(r"over a large ensemble: (\S+)", s5)
+    assert m and m.group(1).lower() == "pending"
+    assert re.search(r"98\.3|0\.4 ?%", " ".join(t.values())) is None  # toy-ensemble figures are not shown

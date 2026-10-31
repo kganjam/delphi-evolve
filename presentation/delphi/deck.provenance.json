@@ -1,13 +1,16 @@
 {
- "built": "2026-10-31 07:28 PDT",
+ "built": "2026-10-31 07:38 PDT",
  "root": "/data/worktrees/delphi-evolve/submit",
  "git": {
-  "head": "e897b65c4be27f80ca88c8979942ce9afc5dee5b",
+  "head": "47590e9530d42a8e79033f4c618853cb0625eec3",
   "branch": "work/submit",
-  "inputs_untracked_or_modified": []
+  "inputs_untracked_or_modified": [
+   "presentation/delphi/sources.md"
+  ]
  },
  "sha256": {
   "planning/rethink/CLAIM-LEDGER.md": "cebdc32d10a522b9b9398ae49b0eb6c6e102369bb2d8b53af5387e034afe490f",
+  "presentation/delphi/sources.md": "d1a8beddf1d7e64b08b9d342bb11c286c0e30003fa42b971336b7773174da324",
   "artifacts/integration/codex-api/price-probe.json": "513bc9173014f4effdbd76e9b30f52c7dcdc8924d69e1d9692974b2d826eb5da",
   "experiments/price_probe/Price.lean": "a5d38f136fb214367203dfe5974155ab894dbf3a861412c084d39c389cf8fd0a",
   "experiments/price_probe/Witnesses.lean.inc": "7e29341d65ea9968d192c7c0ead754984126ad288926eb547ca228c3d43d1715",
@@ -61,14 +64,14 @@
   "R02"
  ],
  "spoken_words": {
-  "total": 398,
+  "total": 397,
   "per_slide": [
-   61,
-   70,
-   64,
+   59,
+   75,
+   57,
    71,
-   63,
-   69
+   65,
+   70
   ]
  }
 }

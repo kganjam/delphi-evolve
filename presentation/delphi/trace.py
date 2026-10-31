@@ -62,6 +62,21 @@ def register():
     claim(2, "det(J − qD) = (5q-1)(2q-1), so the continuum band is 1/5 < q < 1/2", [RES],
           lambda: f"det(J − qD) = ({f1[0]}q-{f1[1]})({f2[0]}q-{f2[1]}), so the continuum band is {r1} < q < {r2}")
 
+    def window():
+        c_lo, c_hi = 1 / r2, 1 / r1  # mode n grows iff r1 < n^2/k^2 < r2  <=>  c_lo n^2 < k^2 < c_hi n^2, k = L/pi
+        assert (c_lo, c_hi) == (2, 5)
+        # exact checks on the claimed structure (integers only):
+        for n in range(2, 500):
+            assert c_hi * n * n > c_lo * (n + 1) ** 2          # intervals overlap from n = 2 on: growth for every k^2 > 4 c_lo
+        assert c_hi * 1 < c_lo * 4                               # the gap [sqrt(c_hi), 2 sqrt(c_lo)] is non-empty
+        for k2 in (F(5), F(6), F(15, 2), F(8)):                  # sample stable points inside the gap: no mode grows
+            assert not any(c_lo * n * n < k2 < c_hi * n * n for n in range(0, 300))
+        for k2 in (F(2) + F(1, 100), F(9, 2), F(81, 8), F(8) + F(1, 100)):  # samples outside: some mode grows
+            assert any(c_lo * n * n < k2 < c_hi * n * n for n in range(1, 300))
+        return (f"The algorithm is trivial: count admissible modes in the band; exact for rational L/π. The offer is a certificate and packaging, not new mathematics. "
+                f"Exactly, mode n grows iff {c_lo}n² < (L/π)² < {c_hi}n²: growth for L/π in (√{c_lo}, √{c_hi}) and every L/π above 2√{c_lo}; stable window √{c_hi} ≤ L/π ≤ 2√{c_lo}.")
+    claim(2, "The algorithm is trivial: count admissible modes in the band; exact for rational L/π. The offer is a certificate and packaging, not new mathematics. Exactly, mode n grows iff 2n² < (L/π)² < 5n²: growth for L/π in (√2, √5) and every L/π above 2√2; stable window √5 ≤ L/π ≤ 2√2.", [RES], window)
+
     def strip():
         hd, vd = [], []
         for row in res["length_scan"]:
@@ -114,6 +129,14 @@ def register():
     claim(3, "Lean exit 0; axioms: propext, Classical.choice, Quot.sound only. 4 witness controls exit 0. 2 changed-target mutants rejected (exit 1).", [PJ], receipt)
     claim(3, "(source sha a5d38f13…)", [PJ], lambda: f"(source sha {pj['source_sha256'][:8]}…)", kind="fn")
 
+    SRC = "presentation/delphi/sources.md"
+
+    def atlas3():
+        t = (R / SRC).read_text()
+        assert "facebookresearch/atlas-lean" in t and "unchecked" in t
+        return "Whether the ATLAS biology library (facebookresearch/atlas-lean) already covers Price or Hamilton is unchecked."
+    claim(3, "Whether the ATLAS biology library (facebookresearch/atlas-lean) already covers Price or Hamilton is unchecked.", [SRC], atlas3)
+
     def biblio_price():
         return "Price 1970; the Price–Fisher–Hamilton link is in Frank 1997." if ("Price 1970" in (R / "planning/rethink/DECISION.md").read_text()
                                                                                     and "Frank (1997)" in (R / "planning/rethink/PRICE-PRIOR-ART-AND-PROBE.md").read_text()) else "MISMATCH"
@@ -164,6 +187,11 @@ def register():
     PA = (R / "planning/rethink/PRIOR-ART-VERDICT.md").read_text()
     claim(6, "Prove2Me (arXiv 2608.28433)", ["planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md"],
           lambda: "Prove2Me (arXiv %s)" % re.search(r"arxiv\.org/html/(\d{4}\.\d{5})", AD).group(1))
+    def atlas6():
+        t = (R / SRC).read_text()
+        assert "MathlibExt/Biology" in t and "WantedExt" in t
+        return "ATLAS (facebookresearch/atlas-lean, MathlibExt/Biology)"
+    claim(6, "ATLAS (facebookresearch/atlas-lean, MathlibExt/Biology)", [SRC], atlas6)
     claim(6, "Rashid et al. 2017 (HOL Light)", ["planning/rethink/PRIOR-ART-VERDICT.md"],
           lambda: "Rashid et al. %s (HOL Light)" % re.search(r"Rashid et al\., PLOS ONE (\d{4})", PA).group(1) if "HOL Light" in PA else "MISMATCH")
     claim(6, "Ripple (arXiv 2607.13531)", ["planning/rethink/PRIOR-ART-VERDICT.md"],
@@ -253,7 +281,8 @@ def main():
     # benchmark/agent metrics must be pending, never numeric, on slide 5
     s5 = slides[4]["html"]
     for label in ("compiled with proof, axiom audit and a failing mutant", "excluded, with reasons", "source-correspondence review",
-                  "benchmark freeze", "agent arms and matched budgets", "coverage, false acceptance, false refusal"):
+                  "benchmark freeze", "agent arms and matched budgets", "coverage, false acceptance, false refusal",
+                  "fraction that are stable on a finite domain of length L, over a large ensemble:"):
         m = re.search(re.escape(label) + r" (\S+)", s5)
         if not m or m.group(1).lower() != "pending":
             errors.append(f"slide 5: metric {label!r} must read 'pending', found {m.group(1) if m else None!r}")

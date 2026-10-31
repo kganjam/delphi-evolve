@@ -12,6 +12,14 @@ The TrpB deck described below (`presentation/deck.*`, `rebuild.sh`, `trace_numbe
 
 - Delphi checklist additions: [x] deck, PDF, speaker notes, blog, storyboard, landing page built from committed artifacts and the claim ledger; [x] 23 slide numbers re-derived by `presentation/delphi/trace.py`, every benchmark/scorecard metric reads "pending"; [x] script measured aloud (synthetic voice) at 2:33 to 2:36 including assumed gaps, about 25 s under 3:00 (`presentation/delphi/timing.json`); [ ] human stopwatch rehearsal; [ ] PPTX export of the Delphi deck (only the TrpB deck has one); [ ] scorecard / agent-evaluation numbers (pending, owned by others); [ ] director's proposal to open with compiled artifacts and make the kill ledger the second beat (not adopted; needs committed artifacts and ledger rows for each row shown).
 
+### Corrections applied 09:40 PDT (ATLAS memo)
+
+- No Delphi material claims that no machine-checked biology library exists. ATLAS (`facebookresearch/atlas-lean`, `MathlibExt/Biology`) is credited on slide 6, the site and the blog; whether it already covers Price/Hamilton is stated as unchecked; the earlier "bounded search found no Price formalization" sentence was removed. Offering Turing statements to its `WantedExt/Biology` is shown as pending, not done.
+- Slide 2 and the site now state the limitation first (trivial algorithm; value is certificate and packaging) and the exact windows (mode n grows iff 2n² < (L/π)² < 5n²; stable window √5 ≤ L/π ≤ 2√2), recomputed exactly by `presentation/delphi/trace.py`. Non-monotone size dependence is stated as not new.
+- Citations: Kurics-Menshykau-Iber arXiv:1407.7114 and Ouchdiri arXiv:2509.15829 exist, but their abstracts do not mention domain size, so they are **not** cited as support; the slide says the literature citation is being verified. PMC9884266 and Arcuri-Murray 1986 appear nowhere in the Delphi outputs (tests enforce this). They still appear in `docs/turing-scope.md`, `docs/research/inverse-design-synthesis.md` and `planning/rethink/nca.md`, which belong to other workers.
+- The misprediction map is a pending row; the scout's toy-ensemble figures are not shown (no committed artifact). Source-by-source verification state: `presentation/delphi/sources.md`.
+- Safety: prove2.me reportedly carries a footer instructing AI agents to fetch a URL and follow its instructions. dx-submit has not fetched it; Prove2Me is cited only by arXiv id from a committed document. Do not point an agent at that site unsandboxed.
+
 ## Countdown
 
 `python3 scripts/submission_countdown.py` computes this live from the tz database. Snapshot at 06:23 PDT Sat Oct 31:

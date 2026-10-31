@@ -24,7 +24,7 @@ import facts as FA  # noqa: E402
 
 E = html.escape
 INPUTS = [
-    "planning/rethink/CLAIM-LEDGER.md",
+    "planning/rethink/CLAIM-LEDGER.md", "presentation/delphi/sources.md",
     "artifacts/integration/codex-api/price-probe.json", "experiments/price_probe/Price.lean", "experiments/price_probe/Witnesses.lean.inc",
     "artifacts/turing_scope/results.json", "artifacts/turing_scope/lean_receipt.json",
     "artifacts/rethink_director/MathlibProbe_host.lean", "tasks/results/rethink-director.json",
@@ -84,12 +84,17 @@ def build_slides(f, led_ids, prov_head):
 </div>
 <div class="scope" style="margin-top:14px;font-size:15.5px"><b>The caveats are not our discovery.</b> What is new here is only that they are checked by a program before a law is applied, and that we show our own failures.</div>
 {fn('<b>Ledger</b> F01 F07 F05 P01 P02 P03 · planning/rethink/CLAIM-LEDGER.md', stamp)}"""
-    notes.append("Delphi turns candidate laws into checked theorems. The conditions behind these laws are known to experts, so we do not present them as discoveries. The problem is an agent that applies a law outside its scope without checking. We make that check executable, and we sort everything three ways: proved, simulated, observed. We ran no experiment. Anything unmeasured is marked pending.")
+    notes.append("Delphi turns candidate laws into checked theorems. The conditions behind these laws are known to experts, so we do not present them as discoveries. The problem is an agent applying a law outside its scope without checking. We make that check executable and sort everything three ways: proved, simulated, observed. We ran no experiment. Anything unmeasured is marked pending.")
 
     # ---------------------------------------------------------------- slide 2
     cells_h = "".join(f"<th style='text-align:center'>{E(s['L_over_pi'])}</th>" for s in scan)
     cells_v = "".join(f"<td class='{'u' if s['verdict'] == 'linearly_unstable' else 's'}'>{'grows' if s['verdict'] == 'linearly_unstable' else 'stable'}</td>" for s in scan)
     nmut = sum(1 for m in T["lean"]["mutants"] if m["exit"] != 0)
+    w = T["windows"]
+    sq = lambda x: x.replace("sqrt(", "√").replace(")", "")
+    T_ww = f"L/π in ({sq(w['unstable_first'][0])}, {sq(w['unstable_first'][1])})"
+    T_wb = sq(w["unstable_beyond"]).replace("*", "")
+    T_gap = f"{sq(w['stable_gap'][0])} ≤ L/π ≤ {sq(w['stable_gap'][1]).replace('*', '')}"
     s2 = f"""{brand(2)}
 <h2 style="font-size:31px;margin:24px 0 8px">The continuum Turing conditions hold, yet a finite domain can admit <em>no growing mode</em>, and not monotonically in size.</h2>
 <div class="card" style="padding:8px 12px"><div class="small" style="font-size:14px;margin-bottom:4px">Declared model: J = [[{T['J'][0][0]}, {T['J'][0][1]}], [{T['J'][1][0]}, {T['J'][1][1]}]], diffusivities D = ({T['D'][0]}, {T['D'][1]}), 1-D Neumann boundaries; det(J − qD) = {T['det_factored']}, so the continuum band is {T['continuum_band'][0]} &lt; q &lt; {T['continuum_band'][1]}. Admissible modes are q = (nπ/L)².</div>
@@ -99,9 +104,9 @@ def build_slides(f, led_ids, prov_head):
  <div class="col card" style="padding:8px 12px"><h3><span class="pf ex">Exact arithmetic</span></h3><p class="small" style="margin:0;font-size:14.5px">The whole strip above is exact rational arithmetic, not Lean-compiled. Over the reals with Mathlib, a host probe re-run by the director shows no admissible mode lies in the band at L = π.</p></div>
  <div class="col card" style="padding:8px 12px"><h3><span class="pf si">Simulated</span> / <span class="pf ob">Observed</span></h3><p class="small" style="margin:0;font-size:14.5px">Nonlinear solver check: {pend}. Observed tissue pattern: <b>none</b>.</p></div>
 </div>
-<div class="scope" style="margin-top:10px;font-size:14.5px"><b>Scope.</b> This is a linear-mode statement for this declared model, not a claim about whether a pattern forms. The continuum condition is a large-domain result; we are not saying Turing was wrong.</div>
+<div class="scope" style="margin-top:10px;font-size:14.5px"><b>Limitation first.</b> The algorithm is trivial: count admissible modes in the band; exact for rational L/π. The offer is a certificate and packaging, not new mathematics. Exactly, mode n grows iff {w['c_lo']}n² &lt; (L/π)² &lt; {w['c_hi']}n²: growth for {T_ww} and every L/π above {T_wb}; stable window {T_gap}. Non-monotone size dependence is textbook-derivable and not claimed as new; the literature citation is being verified.<br><b>Scope.</b> A linear-mode statement for this declared model, not whether a pattern forms; we are not saying Turing was wrong.</div>
 {fn('<b>Ledger</b> F01 F02 (Mathlib probe: no ledger row yet, director receipt) · artifacts/turing_scope/results.json, lean_receipt.json · artifacts/rethink_director/MathlibProbe_host.lean', stamp)}"""
-    notes.append("First check. Take a declared two-species model where the textbook continuum condition holds. On a finite domain only certain wavenumbers exist. At length pi none falls in the unstable band, so it is stable. At three halves pi and two pi a mode grows; at five halves pi it is stable again. Only pi and two pi are compiled in Lean. This is a linear statement; nonlinear simulation is pending.")
+    notes.append("First check, limitation first. The algorithm is trivial: count admissible modes in the band. The offer is a certificate, not new mathematics. Take a declared model where the textbook condition holds. At length pi no mode is in the band, so it is stable. At three halves pi and two pi a mode grows; at five halves pi it is stable again. Only pi and two pi are compiled in Lean. Nonlinear simulation is pending.")
 
     # ---------------------------------------------------------------- slide 3
     W = P["witnesses"]
@@ -126,9 +131,9 @@ def build_slides(f, led_ids, prov_head):
   <div class="card" style="padding:8px 12px;margin-top:8px"><h3><span class="pf pr">Proved</span> receipt</h3><p class="small" style="margin:0;font-size:14.5px">Lean exit {P['original_exit']}; axioms: propext, Classical.choice, Quot.sound only. {len(W)} witness controls exit {P['witness_exit']}. {len(P['mutants'])} changed-target mutants rejected (exit {P['mutants'][0]['exit']}). Statement-fidelity review by a second reader: {pend}</p></div>
  </div>
 </div>
-<div class="scope" style="margin-top:10px;font-size:14.5px"><b>Established mathematics.</b> Price 1970; the Price–Fisher–Hamilton link is in Frank 1997. In a bounded search we did not find a prior machine-checked Price formalization. This is a statistical regression statement, not a causal cost–benefit rule.</div>
+<div class="scope" style="margin-top:10px;font-size:14.5px"><b>Established mathematics.</b> Price 1970; the Price–Fisher–Hamilton link is in Frank 1997. Whether the ATLAS biology library (facebookresearch/atlas-lean) already covers Price or Hamilton is unchecked. This is a statistical regression statement, not a causal cost–benefit rule.</div>
 {fn('<b>Ledger</b> F07 · artifacts/integration/codex-api/price-probe.json (source sha ' + P['source_sha256'][:8] + '…) · experiments/price_probe/ · interactive walkthrough: site/review/ (F09)', stamp)}"""
-    notes.append("Second check. The Price identity, a selection-only lemma, and a conditional Hamilton regression theorem depend on each other in the Lean source. Each assumption has an exact compiled witness showing what breaks without it, and two changed-sign versions are rejected by the compiler. Fisher's additive genetic theorem is not proved; it is pending. This is established mathematics, a regression statement, not a causal rule.")
+    notes.append("Second check. The Price identity, a selection-only lemma, and a conditional Hamilton regression theorem depend on each other in the Lean source. Each assumption has an exact compiled witness showing what breaks without it, and two changed-sign versions are rejected. Fisher's additive genetic theorem is pending. This is established mathematics, a regression statement, not a causal rule.")
 
     # ---------------------------------------------------------------- slide 4
     V = Er["vacuous_theorem"]
@@ -165,25 +170,26 @@ def build_slides(f, led_ids, prov_head):
   <table style="font-size:15px"><tr><td style="text-align:left">benchmark freeze</td><td>{pend}</td></tr><tr><td style="text-align:left">agent arms and matched budgets</td><td>{pend}</td></tr><tr><td style="text-align:left">coverage, false acceptance, false refusal</td><td>{pend}</td></tr></table>
   <p class="small" style="margin:8px 0 0;font-size:14px">To count: an always-refuse baseline, the same exact checker without a model, and the unguarded agent. A refusal is not a correct answer. A null will be shown.</p></div></div>
 </div>
+<div class="card" style="padding:10px 14px;margin-top:12px"><h3>Misprediction map</h3><p class="small" style="margin:0;font-size:16px">Among parameter sets that pass the textbook Turing test, the fraction that are stable on a finite domain of length L, over a large ensemble: {pend} Not yet run on the GPUs; earlier toy-ensemble figures are not shown.</p></div>
 <div class="scope" style="margin-top:12px;font-size:15px"><b>No scores are shown.</b> An earlier benchmark version was retired for input errors. Its successor's numerical verdicts reproduced, but its freeze was withheld because answer information leaks through public IDs. We do not claim that more agents beat fewer.</div>
 {fn('<b>Ledger</b> P01 P02 P03 F08 · artifacts/integration/codex-api/admissible-review/committed-freeze.json (sha ' + Sc['freeze_sha256'][:8] + '…) · planning/rethink/CODEX-BENCH-V1-1-REVIEW.md', stamp)}"""
-    notes.append("The headline we are after is a scorecard of twenty-one candidate laws checked as theorems. Every result is pending: the first freeze was not approved, so no compiled count exists. The agent evaluation likewise needs a corrected freeze, an always-refuse baseline, the checker without a model, and the unguarded agent. A refusal is not a correct answer, and a null will be shown.")
+    notes.append("The scorecard of twenty-one candidate laws checked as theorems is pending: the first freeze was not approved, so no compiled count exists. So is the misprediction map, which asks what fraction of textbook-Turing parameter sets are stable on a finite domain. The agent evaluation needs a corrected freeze, an always-refuse baseline, the checker without a model, and the unguarded agent. A null will be shown.")
 
     # ---------------------------------------------------------------- slide 6
     s6 = f"""{brand(6)}
 <h2 style="font-size:30px;margin:24px 0 10px">What this is, what it is not, and whose work it stands on.</h2>
 <div class="row" style="gap:18px">
  <div class="col"><div class="card" style="padding:9px 14px;height:100%"><h3>Credit</h3><p class="small" style="margin:0;font-size:14.5px">
-  Collaborative formalization architecture: <b>Prove2Me</b> (arXiv 2608.28433). Prior formal biology: <b>Rashid et al. 2017</b> (HOL Light), <b>lean-bio</b>, <b>crnt-lean</b>, <b>Ripple</b> (arXiv 2607.13531). Price–Fisher–Hamilton: Price, Frank. Turing: Turing, Murray.</p></div></div>
+  Collaborative formalization architecture: <b>Prove2Me</b> (arXiv 2608.28433). Prior formal biology: <b>ATLAS</b> (facebookresearch/atlas-lean, MathlibExt/Biology), <b>Rashid et al. 2017</b> (HOL Light), <b>lean-bio</b>, <b>crnt-lean</b>, <b>Ripple</b> (arXiv 2607.13531). We aim to complement ATLAS, not compete with it. Price–Fisher–Hamilton: Price, Frank. Turing: Turing, Murray.</p></div></div>
  <div class="col"><div class="card" style="padding:9px 14px;height:100%"><h3>We do not claim</h3><p class="small" style="margin:0;font-size:14.5px">
   Any experiment, a first library, a universal threshold, that any named law is wrong (a scope condition refers to the extracted record), or that agents beat a plain check.</p></div></div>
  <div class="col"><div class="card" style="padding:9px 14px;height:100%"><h3>Still pending</h3><p class="small" style="margin:0;font-size:14.5px">
-  The 21-record scorecard · the agent evaluation · Fisher additive-genetic · second-reader review of the Price statements · mutants for the replacement theorem · public use of the tool.</p></div></div>
+  The 21-record scorecard · the agent evaluation · Fisher additive-genetic · second-reader review of the Price statements · mutants for the replacement theorem · Turing statements offered to ATLAS · public use of the tool.</p></div></div>
 </div>
 <div class="scope" style="margin-top:12px;font-size:15px"><b>Preserved baseline.</b> The earlier enzyme work stays in the appendix with its nulls: {Bl['measured_nonstop']:,} measured variants; specialists {Bl['shared_1000']}/100 equal the single planner {Bl['q2c_1000']}/100; a plain lazy search reaches {Bl['lazysp_1000']}/100.</div>
 <p style="font:500 26px/1.2 var(--serif);margin:16px 0 0;max-width:1120px">Make the assumptions behind a biological-model decision <em style="font-style:normal;border-bottom:4px solid var(--orange)">executable and auditable</em>.</p>
 {fn('<b>Ledger</b> A01 A02 B01 B02 B03 P07 P08 · planning/rethink/PRIOR-ART-VERDICT.md · artifacts/core/replay/table_primary.csv', stamp)}"""
-    notes.append("The collaborative formalization architecture comes from Prove2Me. Prior formal biology includes Rashid 2017, lean-bio, crnt-lean and Ripple. We claim no experiment, no first library, no universal threshold, and not that any named law is wrong. Pending: the scorecard, the agent evaluation, Fisher, a second-reader review, and mutants for the replacement theorem. The enzyme baseline stays in the appendix. Make the assumptions behind a biological model decision executable and auditable.")
+    notes.append("Credit first. ATLAS, an open Lean biology library from Facebook Research, already exists; we aim to complement it, not compete. Also Prove2Me, Rashid 2017, lean-bio, crnt-lean and Ripple. We claim no experiment, no first library, no universal threshold, and not that any named law is wrong. Pending: the scorecard, the map, Fisher, second-reader review, and offering Turing statements to ATLAS. Make the assumptions behind a model decision executable and auditable.")
     return [s1, s2, s3, s4, s5, s6], notes
 
 

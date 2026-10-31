@@ -161,14 +161,33 @@
    "no submission receipt"
   ],
   "artifacts": {
-   "presentation/delphi/deck.pdf": "054cfb42c2fbe9e937ef9d907f3fb44409205a6872c369fb251b01455739fe48",
-   "presentation/delphi/deck.html": "69b9a0747d846ce946d1bf378f961eaa06d29e929711bc6789cc14eaddac656c",
-   "presentation/delphi/speaker-notes.md": "d8740a16f93af3889801a8d7db1eabdd504dc88dc35704dbdf08a8363db8a6b9",
-   "presentation/delphi/timing.json": "3e36a312c61506b7ea7ae03421d7791242c4092c928b3a32af03d03d1272ab18",
-   "presentation/delphi/number_trace.json": "2e350a85c41fe3c1a941aa2f3c89ef438e3f3edee29bbda0ec95dafb10cf43a6",
-   "site/delphi/index.html": "c05d72a5539ede81424a2fe4765098ab85a2089a223b8aefd3e128f1e90423a3",
-   "site/delphi/appendix.html": "19b4b5b56fdfb2d69dba823476feaa3dbdf3ab00fb6f11ab9b3fd365245c0978",
-   "site/delphi/blog.html": "cfa21204636f161d907143c2410756e47b63ba7060aa3ec12acba2d119487091"
+   "presentation/delphi/deck.pdf": "eae9700e2b3c0e0d005576b812aeda1649d8bd6e4c23f5d60aa38850fbc2e172",
+   "presentation/delphi/deck.html": "5eb23a3a4e24dde45573db9c9a8c9e92801369f521fb48408b5be6f7f0d310d2",
+   "presentation/delphi/speaker-notes.md": "3a99bfb3ca8eb2592072d5ad147407fcc560223d0be9e7a2b3269706920d81c6",
+   "presentation/delphi/timing.json": "154e23889e4fb4972d9c90a5d61d3002e2cd8f4e3bacb15602ec2039a4a6c26b",
+   "presentation/delphi/number_trace.json": "ee0b171529868ed16ba5fd6aaa5f1c4aa6f2389995581577c2b9847cd58039a5",
+   "presentation/delphi/sources.md": "d1a8beddf1d7e64b08b9d342bb11c286c0e30003fa42b971336b7773174da324",
+   "site/delphi/index.html": "5a8336e53526d143d65532bd98719c7373a9b3a0b343311aa7551b1f64a7e8c0",
+   "site/delphi/appendix.html": "bed13954892c587f5b028865bd3df22a8170c4d4c4f33b056901aacb5993638b",
+   "site/delphi/blog.html": "0fd44e0036e8dc48c87fb1de8e0560ddbf8331b238453060111e58daf222e540"
+  },
+  "corrections_0940": {
+   "trigger": "messages/2026-10-31-ATLAS-and-the-surviving-claim.md (pasted by user)",
+   "done": [
+    "ATLAS credited (deck, site, blog); Price 'bounded search' sentence removed; no 'no machine-checked library' claim anywhere (hard-banned by test)",
+    "limitation first + exact stable window added and exactly recomputed in trace.py (26 claims, 0 errors)",
+    "misprediction map added as a pending row; toy-ensemble numbers not shown",
+    "Arcuri/PMC9884266/Villar-Sepulveda absent from Delphi outputs (test); three other-owner files still cite them and were not edited",
+    "arXiv 1407.7114 and 2509.15829 verified to exist but their abstracts do not discuss domain size, so they are not cited as support",
+    "presentation/delphi/sources.md records what was verified; prove2.me not visited"
+   ],
+   "not_done": [
+    "no contribution to ATLAS WantedExt (pending, shown as pending)",
+    "no mispredication-map run (GPU worker/scale owns compute; no committed artifact)",
+    "no spine change adopted: the memo's build proposal (certified checker + GPU map) is not mine to adopt; deck frames it as the pending pairing"
+   ],
+   "tests": "pytest presentation/delphi/tests: 11 passed",
+   "timing": "2:33-2:34 (synthetic voice)"
   }
  }
 }

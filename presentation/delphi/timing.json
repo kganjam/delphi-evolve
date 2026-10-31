@@ -1,9 +1,9 @@
 {
- "measured_at": "2026-10-31 07:27 PDT",
+ "measured_at": "2026-10-31 07:38 PDT",
  "method": "Piper neural TTS read-through of presentation/speaker-notes.md, duration from ffprobe on the rendered audio",
  "voice": "en_US-lessac-medium.onnx",
  "voice_sha256": "5efe09e69902187827af646e1a6e9d269dee769f9877d17b16b1b46eeaaf019f",
- "spoken_text_sha256": "e29db7254b486baa3132e88fd3eac9b69220f592cc69e7b64ea0919983edc55b",
+ "spoken_text_sha256": "6d59104fbb66bb985af660d1732df097c159a03ba3bcd88c386d7f2e2b805c44",
  "spoken_text_note": "hash of the six spoken paragraphs only (the build stamp line is excluded so a rebuild alone does not invalidate the timing)",
  "synthetic_voice": true,
  "human_rehearsal": null,
@@ -13,52 +13,52 @@
  "per_slide": [
   {
    "slide": 1,
-   "words": 61,
-   "seconds": 21.23,
-   "words_per_minute": 172.4,
+   "words": 59,
+   "seconds": 20.64,
+   "words_per_minute": 171.5,
    "starts_at_s": 0.0
   },
   {
    "slide": 2,
-   "words": 70,
-   "seconds": 22.84,
-   "words_per_minute": 183.9,
-   "starts_at_s": 22.7
+   "words": 75,
+   "seconds": 23.87,
+   "words_per_minute": 188.5,
+   "starts_at_s": 22.1
   },
   {
    "slide": 3,
-   "words": 64,
-   "seconds": 24.07,
-   "words_per_minute": 159.6,
-   "starts_at_s": 47.1
+   "words": 57,
+   "seconds": 21.59,
+   "words_per_minute": 158.4,
+   "starts_at_s": 47.5
   },
   {
    "slide": 4,
    "words": 71,
-   "seconds": 24.96,
-   "words_per_minute": 170.7,
-   "starts_at_s": 72.6
+   "seconds": 25.21,
+   "words_per_minute": 169.0,
+   "starts_at_s": 70.6
   },
   {
    "slide": 5,
-   "words": 63,
-   "seconds": 22.7,
-   "words_per_minute": 166.5,
-   "starts_at_s": 99.1
+   "words": 65,
+   "seconds": 23.67,
+   "words_per_minute": 164.7,
+   "starts_at_s": 97.3
   },
   {
    "slide": 6,
-   "words": 69,
-   "seconds": 31.53,
-   "words_per_minute": 131.3,
-   "starts_at_s": 123.3
+   "words": 70,
+   "seconds": 31.5,
+   "words_per_minute": 133.3,
+   "starts_at_s": 122.5
   }
  ],
- "speech_seconds": 147.3,
- "total_with_transitions_s": 154.8,
- "total_mm_ss": "2:34",
- "margin_to_limit_s": 25.2,
- "total_words": 398,
+ "speech_seconds": 146.5,
+ "total_with_transitions_s": 154.0,
+ "total_mm_ss": "2:33",
+ "margin_to_limit_s": 26.0,
+ "total_words": 397,
  "cuts": {
   "all six slides": {
    "slides": [
@@ -69,8 +69,8 @@
     5,
     6
    ],
-   "seconds": 154.8,
-   "mm_ss": "2:34"
+   "seconds": 154.0,
+   "mm_ss": "2:33"
   },
   "drop slide 5 (scorecard, all pending)": {
    "slides": [
@@ -80,8 +80,8 @@
     4,
     6
    ],
-   "seconds": 130.6,
-   "mm_ss": "2:10"
+   "seconds": 128.8,
+   "mm_ss": "2:08"
   },
   "drop slides 3 and 5": {
    "slides": [
@@ -90,7 +90,7 @@
     4,
     6
    ],
-   "seconds": 105.1,
+   "seconds": 105.7,
    "mm_ss": "1:45"
   }
  },

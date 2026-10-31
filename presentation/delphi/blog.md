@@ -4,15 +4,15 @@ Experts know the conditions that bound a law. An agent that reads a textbook ine
 
 ## What we are not claiming
 
-The caveats we check are known to experts. We do not present them as discoveries, we ran no experiment, and we do not say that any named law is wrong: a scope condition we supply refers to the extracted record of the claim, not to the law's author. We did not set out to build the first library of formal biology; Prove2Me (arXiv 2608.28433), Rashid et al. 2017, lean-bio, crnt-lean and Ripple (arXiv 2607.13531) got there first at their own scope.
+The caveats we check are known to experts. We do not present them as discoveries, we ran no experiment, and we do not say that any named law is wrong: a scope condition we supply refers to the extracted record of the claim, not to the law's author. We did not set out to build the first library of formal biology. ATLAS (facebookresearch/atlas-lean, MathlibExt/Biology) already holds a large body of exact biology statements with cited sources and non-vacuity witnesses, and Prove2Me (arXiv 2608.28433), Rashid et al. 2017, lean-bio, crnt-lean and Ripple (arXiv 2607.13531) came before at their own scope. We aim to complement ATLAS, not compete with it.
 
 ## Check one: a finite domain with no growing mode
 
-Take a declared two-species linear model, J = [[1, -2], [2, -3]] with diffusivities (1, 10) and Neumann boundaries. The continuum Turing condition holds: det(J − qD) = (5q-1)(2q-1) is negative for 1/5 < q < 1/2. On a finite domain only q = (nπ/L)² exist. At L = π none lies in the band; at 3π/2 and 2π one does; at 5π/2 none does again. Lean 4.35.0 compiles the L = π and L = 2π cases and rejects 3 mutants. The other lengths are exact rational arithmetic, not Lean. This is a linear-mode statement; whether a pattern forms is a nonlinear question we have not simulated yet (pending).
+Take a declared two-species linear model, J = [[1, -2], [2, -3]] with diffusivities (1, 10) and Neumann boundaries. The continuum Turing condition holds: det(J − qD) = (5q-1)(2q-1) is negative for 1/5 < q < 1/2. On a finite domain only q = (nπ/L)² exist. At L = π none lies in the band; at 3π/2 and 2π one does; at 5π/2 none does again. Lean 4.35.0 compiles the L = π and L = 2π cases and rejects 3 mutants. The other lengths are exact rational arithmetic, not Lean. The algorithm is trivial, counting admissible modes in a band, so what we offer is a certificate and packaging, not new mathematics; non-monotone dependence on size is textbook-derivable and not claimed as new. This is a linear-mode statement; whether a pattern forms is a nonlinear question we have not simulated yet (pending).
 
 ## Check two: Price to Hamilton, with the assumptions attached
 
-We compiled the finite Price identity, a selection-only lemma that depends on it, and a conditional Hamilton regression theorem that depends on that lemma. Lean exits 0, the axioms are propext, Classical.choice and Quot.sound only, 4 witness controls exit 0, and 2 changed-target mutants are rejected. Each assumption (perfect transmission, residual orthogonality, the sign of the cost term) has an exact witness showing what fails without it. This is established mathematics; Price and Frank did the science. It is a regression statement, not a causal cost-benefit rule. Fisher's additive-genetic theorem is not proved (pending), and a second reader has not yet reviewed the statements (pending).
+We compiled the finite Price identity, a selection-only lemma that depends on it, and a conditional Hamilton regression theorem that depends on that lemma. Lean exits 0, the axioms are propext, Classical.choice and Quot.sound only, 4 witness controls exit 0, and 2 changed-target mutants are rejected. Each assumption (perfect transmission, residual orthogonality, the sign of the cost term) has an exact witness showing what fails without it. This is established mathematics; Price and Frank did the science, and whether ATLAS already covers it is unchecked. It is a regression statement, not a causal cost-benefit rule. Fisher's additive-genetic theorem is not proved (pending), and a second reader has not yet reviewed the statements (pending).
 
 ## Our own near-vacuous theorem
 
@@ -20,7 +20,7 @@ One of our theorems, finite_domain_stable, assumed that no admissible mode has n
 
 ## What is pending
 
-The scorecard of 21 candidate laws checked as theorems has no compiled count yet. The agent evaluation needs a corrected benchmark freeze, an always-refuse baseline, the same checker without a model, and the unguarded agent. A refusal is not a correct answer, and a null will be shown. We do not claim that more agents beat fewer.
+The scorecard of 21 candidate laws checked as theorems has no compiled count yet, and the misprediction map (what fraction of parameter sets passing the textbook Turing test are stable on a finite domain, over a large ensemble) has not been run. The agent evaluation needs a corrected benchmark freeze, an always-refuse baseline, the same checker without a model, and the unguarded agent. A refusal is not a correct answer, and a null will be shown. We do not claim that more agents beat fewer.
 
 ## Appendix material
 

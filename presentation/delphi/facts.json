@@ -109,6 +109,19 @@
   "fisher_additive_genetic": "PENDING"
  },
  "turing": {
+  "windows": {
+   "unstable_first": [
+    "sqrt(2)",
+    "sqrt(5)"
+   ],
+   "stable_gap": [
+    "sqrt(5)",
+    "2*sqrt(2)"
+   ],
+   "unstable_beyond": "2*sqrt(2)",
+   "c_lo": 2,
+   "c_hi": 5
+  },
   "ledger": "F01/F02",
   "artifact": "artifacts/turing_scope/results.json",
   "lean_receipt": "artifacts/turing_scope/lean_receipt.json",

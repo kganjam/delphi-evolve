@@ -1,9 +1,9 @@
 {
  "deck": "presentation/delphi/deck.html",
- "claims_checked": 23,
- "inputs_hash_checked": 21,
+ "claims_checked": 26,
+ "inputs_hash_checked": 22,
  "pdf_pages_checked": 6,
- "provenance_head": "e897b65c4be27f80ca88c8979942ce9afc5dee5b",
+ "provenance_head": "47590e9530d42a8e79033f4c618853cb0625eec3",
  "ok": true,
  "errors": [],
  "trace": [
@@ -43,6 +43,17 @@
   {
    "slide": 2,
    "shown": "det(J − qD) = (5q-1)(2q-1), so the continuum band is 1/5 < q < 1/2",
+   "where": "html",
+   "files": [
+    "artifacts/turing_scope/results.json"
+   ],
+   "sha256": {
+    "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "The algorithm is trivial: count admissible modes in the band; exact for rational L/π. The offer is a certificate and packaging, not new mathematics. Exactly, mode n grows iff 2n² < (L/π)² < 5n²: growth for L/π in (√2, √5) and every L/π above 2√2; stable window √5 ≤ L/π ≤ 2√2.",
    "where": "html",
    "files": [
     "artifacts/turing_scope/results.json"
@@ -140,6 +151,17 @@
   },
   {
    "slide": 3,
+   "shown": "Whether the ATLAS biology library (facebookresearch/atlas-lean) already covers Price or Hamilton is unchecked.",
+   "where": "html",
+   "files": [
+    "presentation/delphi/sources.md"
+   ],
+   "sha256": {
+    "presentation/delphi/sources.md": "d1a8beddf1d7e64b08b9d342bb11c286c0e30003fa42b971336b7773174da324"
+   }
+  },
+  {
+   "slide": 3,
    "shown": "Price 1970; the Price–Fisher–Hamilton link is in Frank 1997.",
    "where": "html",
    "files": [
@@ -230,6 +252,17 @@
    ],
    "sha256": {
     "planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md": "85f1a26a466b3b31ce766d92250deb90b80032e038111c3bccd0aa63baa90efb"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "ATLAS (facebookresearch/atlas-lean, MathlibExt/Biology)",
+   "where": "html",
+   "files": [
+    "presentation/delphi/sources.md"
+   ],
+   "sha256": {
+    "presentation/delphi/sources.md": "d1a8beddf1d7e64b08b9d342bb11c286c0e30003fa42b971336b7773174da324"
    }
   },
   {

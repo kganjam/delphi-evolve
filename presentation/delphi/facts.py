@@ -138,7 +138,17 @@ def turing_facts():
     host = J("tasks/results/rethink-director.json")
     probe = next(c for c in host["commands_actually_run"] if "MathlibProbe.lean" in c["cmd"])
     lean_ver = re.search(r"version ([0-9.]+)", lr["lean_version"]).group(1)
+    # exact finite-domain windows: mode n grows iff r1 < n^2/k^2 < r2  <=>  c_lo n^2 < k^2 < c_hi n^2 (k = L/pi)
+    r1, r2 = band
+    c_lo, c_hi = 1 / r2, 1 / r1
+    assert (c_lo, c_hi) == (2, 5)
+    for n in range(2, 400):  # consecutive intervals overlap from n = 2 on: c_hi n^2 > c_lo (n+1)^2
+        assert c_hi * n * n > c_lo * (n + 1) ** 2
+    assert c_hi * 1 < c_lo * 4  # gap between n=1 upper (sqrt5) and n=2 lower (2 sqrt2) is real
+    windows = {"unstable_first": ["sqrt(%s)" % c_lo, "sqrt(%s)" % c_hi], "stable_gap": ["sqrt(%s)" % c_hi, "2*sqrt(%s)" % c_lo],
+               "unstable_beyond": "2*sqrt(%s)" % c_lo, "c_lo": int(c_lo), "c_hi": int(c_hi)}
     return {
+        "windows": windows,
         "ledger": "F01/F02", "artifact": "artifacts/turing_scope/results.json", "lean_receipt": "artifacts/turing_scope/lean_receipt.json",
         "J": [[str(x) for x in r] for r in Jm], "D": [str(Du), str(Dv)], "det_factored": "(5q-1)(2q-1)", "continuum_band": [str(band[0]), str(band[1])],
         "scan": scan, "scan_non_monotone_in_size": non_monotone,
