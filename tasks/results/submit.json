@@ -247,6 +247,30 @@
    "claims_traced": 41,
    "tests": "13 passed",
    "script": "399 words, 2:35-2:36 synthetic voice"
-  }
+  },
+  "video_bundle_rehearsal": {
+   "video": {
+    "file": "presentation/delphi/video/delphi-90s-captioned.mp4",
+    "sha256": "141f45efa4a6e3761d5fc57271bae91aedf3b0f5d7195b3c0f3ff01c7974c9fc",
+    "duration_s": 90.72,
+    "audio": "none",
+    "manifest": "presentation/delphi/video/manifest.json"
+   },
+   "bundle": {
+    "zip": "/data/artifacts/delphi-evolve-submit/dist/delphi-bundle.zip",
+    "sha256": "5ab6bbb581093917db09cd1e70e4bb3fd9a742a95f349f0a33b4984a92b78397",
+    "bytes": 5772325,
+    "n_files": 132,
+    "manifest": "presentation/delphi/dist/bundle-manifest.json",
+    "verified": "unzipped and re-hashed all files, 0 mismatches"
+   },
+   "rehearsal": "presentation/delphi/REHEARSAL.md (no human rehearsal done)",
+   "final_cut": "bash presentation/delphi/final_cut.sh at 18:00 PDT from the integrated tree",
+   "deck_pptx": "presentation/delphi/deck.pptx (image-only fallback)",
+   "tests": "17 passed",
+   "claims_traced": 41
+  },
+  "host_integration_note": "Host (claude-15) note: kill_ledger.json at critic 4ea95fe is what slide 4 reads (rows unchanged); delphi-frontier ledger row 16 (validator over seed questions, 0 of 7 bounded) is in a separate repo my gate cannot read, so it is NOT cited; R09 is stated as a mismatched run, not a measured null.",
+  "review_status": "Unreviewed items labelled 'single-reader, not Codex-reviewed' on every slide footnote and the landing page; nothing marked accepted; REVIEW-BRIEF.md for the fresh read-only reviewer; 18 tests pass; 41 claims traced."
  }
 }

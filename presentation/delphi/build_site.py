@@ -82,6 +82,7 @@ def landing(f, commit, review_exists):
     return f"""
 <p class="status">Draft · built from commit {E(commit[:8])} · items marked pending are not results · owner-private review copy</p>
 <h1>Delphi: from candidate laws to checked theorems</h1>
+<div class="scope"><b>Review status.</b> The independent reviewer that covered earlier receipts is unavailable, so anything without a recorded independent review is labelled <b>single-reader, not Codex-reviewed</b>: the repair demo and nonlinear grid, the checker-versus-key recomputation, the kill ledger rows (Codex corrected only R06), the scorecard statuses, the headroom check and the proof-search pilot. A fresh read-only review of the final materials is planned after the final cut; nothing here has been marked accepted.</div>
 <p class="lede">The textbook inequality is green. A program checks whether it applies to the model in front of you, returns a witness when it does not, and proposes a repair. Below: what runs, then what did not survive.</p>
 <nav><a href="#reveal">Reveal</a><a href="#repair">Check and repair</a><a href="#nodes">Compiled nodes and test set</a><a href="#ledger">Ledger</a><a href="#collective">Collective</a><a href="#close">Close</a><a href="appendix.html">Appendix</a><a href="blog.html">Blog</a></nav>
 <div class="grid3">
@@ -122,6 +123,7 @@ def landing(f, commit, review_exists):
 <h2 id="ledger">4. The ledger: claims we held that did not survive</h2>
 <div class="scope">{Kl['n_rows']} rows. {Kl['independent']} were caught by an independent reviewer or a measurement, {Kl['author_only']} by the author's own check. <b>There is no control arm: this compares independent audit with self-audit. It is not a measurement of collective intelligence.</b> Kinds are kept separate: prior art {kc['prior art']}, counterexample {kc['counterexample']}, measured {kc['measured']}, mis-operationalised {kc['mis-operationalised']}, convention defect {kc['convention defect']}, process defect {kc['process defect']}. One team, one day: this is a hit rate for us, not a rate for the field.</div>
 <div class="scroll"><table><tr><th>id</th><th>claim we held</th><th>kind</th><th>caught by</th><th>allowed wording now</th><th>claim stated (PDT)</th><th>kill recorded (PDT)</th><th>min</th></tr>{lrows}</table></div>
+<p><b>R09 is not a measured null.</b> Its kind label reads "measured null (on a mismatched run)" in the critic's ledger, and it is counted among the measured rows, but the run asked a nonlinear question and was scored against linear-mode labels. It shows neither accuracy nor a ceiling, and the headroom check on the frozen key is the measurement that survives.</p>
 <p><b>Timing caveats, printed.</b> Times are file modification times or git commit times, so durations are rough: a commit time is not the moment of an utterance, and rows differ in kind (lookups, audits, measurements). {Kl['n_with_both_times']} of {Kl['n_rows']} rows have both times derivable; the rest read "not derivable". No median is shown. R06 (our theorem <span class="mono">{E(V['name'])}</span>): its premise, determinant non-negativity at every admissible mode, was advertised as stability. The premise holds for unstable systems; the critic's analytic witness, not Lean-compiled, is J = diag(2, 2) with equal unit diffusivities on L = π, where D(q) = (2 − q)² is never negative yet mode n = 1 has two growth eigenvalues. A revised module compiles a stronger statement (ledger F10), with determinant positivity assumed and no new mutants.</p>
 <p>Source: <span class="mono">scopedesk/ledger/KILL-LEDGER.md</span> and <span class="mono">kill_ledger.json</span> (critic).</p>
 
@@ -204,6 +206,9 @@ def render_blog_md(parts):
     return "\n\n".join(("# " if t == "h1" else "## " if t == "h2" else "") + x for t, x in parts) + "\n"
 
 
+CAPS = {}
+
+
 def storyboard(f, timing):
     ps = {r["slide"]: r for r in timing["per_slide"]}
     mm = lambda t: f"{int(t // 60)}:{int(t % 60):02d}"
@@ -213,14 +218,16 @@ def storyboard(f, timing):
         (2, "Request, refusal with witness, repair, independent solver", "Step the four boxes left to right; hold on the printed caveats.",
          "'Limitation first: the algorithm is trivial. The offer is the certificate, the refusal and the repair.'", "deck slide 2; site/delphi#repair"),
         (3, "Compiled nodes and the test set", "Trace price, selection_only, hamilton_regression; point at the ATLAS note; then the four-row table and its caveat.",
-         "'Not external validation. Not frozen.'", "deck slide 3; site/delphi#nodes"),
+         "'Frozen test set. Agreement with our own key is not external validation.'", "deck slide 3; site/delphi#nodes"),
         (4, "The ledger", "Five rows with witnesses, then the 17 and 3 line and the no-control-arm sentence.",
          "'Audit versus self-audit, not collective intelligence. One team, one day.'", "deck slide 4; site/delphi#ledger"),
-        (5, "What the collective measured", "Three bars; hold on 'No collective advantage'; then the two pending cards.",
-         "'Null stated as a null.'", "deck slide 5; site/delphi#collective"),
+        (5, "What the collective measured", "Three bars; then the headroom card (checker-tool arm not run) and the proof-pilot ceiling.",
+         "'More agents did not help. A ceiling and a missing arm, stated as such.'", "deck slide 5; site/delphi#collective"),
         (6, "Close: reusable now, next as a proposal, credit", "Hold on the three cards, then the closing line.",
          "'Outside use: none observed yet. Nothing deployed.'", "deck slide 6; site/delphi#close"),
     ]
+    CAPS.clear()
+    CAPS.update({n: cap.strip("'") for n, shot, act, cap, src in shots})
     out = ["# Video storyboard: Delphi, three-minute walkthrough", "",
            f"Built to `planning/rethink/PITCH-OUTLINE.md`. Start times are the measured per-slide starts of a synthetic-voice read-through (`timing.json`, total {timing['total_mm_ss']}); a human presenter will differ. No narration audio and no video has been recorded; this is a shot list. Backup if the live demo fails: a captioned recording made from the same artifacts.", "",
            "| Start | Slide | Shot | Action | Caption | Source |", "|---|---|---|---|---|---|"]
@@ -251,6 +258,11 @@ def main():
     (HERE / "blog.md").write_text(render_blog_md(parts))
     if (HERE / "timing.json").exists():
         (HERE / "storyboard.md").write_text(storyboard(f, json.loads((HERE / "timing.json").read_text())))
+    if CAPS:
+        (HERE / "video").mkdir(exist_ok=True)
+        (HERE / "video" / "captions.json").write_text(json.dumps({"deck_slide_captions": {str(k): v for k, v in sorted(CAPS.items())},
+            "site_ledger_caption": "The ledger on the landing page: every row with its witness, kind, and printed timing caveats.",
+            "persistent_tag": "Draft. Declared-model statements only. We ran no experiment. Pending items are not results."}, indent=1) + "\n")
     for src, dst in (("deck.pdf", "deck.pdf"), ("deck.html", "deck.html"), ("speaker-notes.md", "speaker-notes.md")):
         shutil.copyfile(HERE / src, out / "assets" / dst)
     print("site written:", sorted(p.name for p in out.iterdir()), "review linked" if review else "review pending")

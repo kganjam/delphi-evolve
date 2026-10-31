@@ -107,6 +107,10 @@ rows = [
       claim_ref=(F, "2026-10-31-DECISION-settled-science.md"), kill_ref=(C, "5586efc"),
       witness="planning/rethink/wildcard/turing_scope_prevalence.json: 10,000,000 2x2 Turing screens in 15.5 s on one CPU thread; pde_cost_probe.json: 100 nonlinear solves to T=1000 in 20.4 s (unrefined)", caught_by="author-run measurement",
       allowed="Closed-form and 2x2 checks do not need GPUs; GPUs are justified only for workloads a CPU cannot do in time."),
+ dict(id="R21", claim="Our Frontier seed questions and the morphoswarm open-problems register are actionable research content", stated_by="codex-api (the seeds); host (the register framing)", kind="design defect (measured against our own schema; single-reader, NOT Codex-reviewed)",
+      claim_ref=(C, "5165177", "rethink-critic"), kill_ref=(C, "4e10ce0", "../delphi-frontier/foundation"),
+      witness="repo kganjam/delphi-frontier (local /data/worktrees/delphi-frontier/foundation), commit 4e10ce0: seeds/frontier-problems.json, git blob eeb8ccb033c4322a9a10e777363421c49f416c54, sha256 3bf14a9cfafcf44b348508914f00ff932254d3825be8c2f6a809cc26cc4e12ee (critic re-hashed both from the commit); ledger/README.md row 16 carries the reproduction command (dx-market validator, work/market). Reported by the host, not re-run by the critic: validator returns 0 of 7 bounded, 0 ready, 0 with a consequence estimate, 105 issues (missing 49, bad_enum 14, untyped_edge 14, bad_ref 14, unpinned 7, bad_estimate 7); at 4e10ce0, 0 of 250 morphoswarm register problems could enter the Problem model (it required acceptance_criteria, falsifiers, next_action, cost_stop_bounds, none of which the register has; extra=forbid; no unlocks field). Host correction (the earlier relay said every one of the 250 carried a pmcid, locator and verbatim quote: FALSE): register sha256 a0155552a2bcda40688d38e95c4069828922d21042c87c9c6cf96311de94f7d7; 34 carry why_source with locator/quote, 68 only a references list, 148 no source (critic re-counted from the YAML: 34/68/148); after kganjam/delphi-frontier 42cd967 (09:41:15) 250 of 250 import as 'recorded' and 0 are 'actionable'; that commit's message says '250 sourced', which the counts contradict. The 148 unsourced are curator statements, not sourced open problems. Claim time = seeds authored 5165177 (work/codex-api, 08:20:56); kill time = commit 4e10ce0 (row recorded 09:30:48), i.e. when the finding was recorded, not when the validator first ran.", caught_by="independent worker's validator (dx-market), re-run by host",
+      allowed="Says nothing about whether the 250 problems are good problems and nothing about any model's accuracy; a schema/curation defect in our own artifact, not a scientific finding."),
 ]
 controlled = [
  dict(id="M1", claim="Original query-to-certify planner vs a LazySP-style baseline at 1,000 additional assays", result="LazySP-style 96/100 vs original Q2C 78/100 (gain concentrated in one repeated pair; difference interval includes zero)",
@@ -116,6 +120,7 @@ controlled = [
       witness="docs/novelty.md; artifacts/core/replay/table_primary.csv", record_ref=(A, "docs/novelty.md"),
       allowed="No collective completion advantage was demonstrated in this replay."),
 ]
+CLASS = {"R09": "mixed", "R15": "mixed", "R17": "author", "R18": "author", "R20": "author"}   # every other row: independent reviewer / validator / scout
 def iso(x): return x.isoformat(timespec="seconds") if x else "not derivable"
 out_rows, durs = [], []
 for r in rows:
@@ -130,8 +135,10 @@ vals = [d for _, d in durs]
 summary = {"n_rows": len(rows), "n_with_both_times": len(vals), "method": "kill_recorded - claim_stated in minutes, only where both times are derivable and ordered; times are file mtimes (messages) or git commit times; mtime = last modification, commit time = commit not utterance, so durations are rough, may be inflated or deflated, and rows differ in kind (prior-art lookups, audits, measurements)",
            "durations_min_by_row": dict(durs), "median_min": (statistics.median(vals) if vals else "not derivable"), "min_min": (min(vals) if vals else None), "max_min": (max(vals) if vals else None),
            "reading": "descriptive of THIS team on THIS day; not a rate, not generalisable; do not put the median on a slide without n and method and without the not-derivable rows",
-           "kind_counts": {k: sum(r["kind"].startswith(k) for r in rows) for k in ("prior art", "counterexample", "measured", "mis-operationalised", "convention defect", "process defect")},
-           "caught_by_independent_vs_author": {"independent": sum("independent" in r["caught_by"] for r in rows), "author_only": sum("independent" not in r["caught_by"] for r in rows)}}
+           "kind_counts": {k: sum(r["kind"].startswith(k) for r in rows) for k in ("prior art", "counterexample", "measured", "mis-operationalised", "convention defect", "process defect", "design defect")},
+           "caught_by_class": {c: sum(CLASS.get(r["id"], "independent") == c for r in rows) for c in ("independent", "mixed", "author")},
+           "caught_by_class_rows": CLASS,
+           "caught_by_class_note": "explicit per-row classification (v2): substring matching on caught_by text was wrong (R18 'not independently confirmed' matched 'independent'). author = caught only by the author's own measurement or rule (all three are measurements/rules, not reviews); mixed = author found it and an independent hold/review also applied"}
 os.makedirs(sys.argv[1], exist_ok=True)
 json.dump({"rows": out_rows, "measured_matched_control": ctrl, "summary": summary,
            "notes": ["Message files have only mtimes; THE-REFRAME's own text labels itself '09:05 PDT' but its mtime is 07:27; use mtimes/commit times, not labels inside files.",
@@ -148,5 +155,5 @@ with open(os.path.join(sys.argv[1], "KILL-LEDGER.md"), "w") as f:
     f.write("\n" + "\n".join(f"- {m['id']} witness: {m['witness']}" for m in ctrl) + "\n")
     s = summary
     f.write(f"\n## Timing summary (descriptive)\nn rows = {s['n_rows']}; rows with both times derivable = {s['n_with_both_times']}; method: {s['method']}.\nDurations (min): {s['durations_min_by_row']}. Median over these {s['n_with_both_times']} rows = {s['median_min']} min (min {s['min_min']}, max {s['max_min']}). {s['reading']}.\n")
-    f.write(f"Kill-type counts (prefix match): {s['kind_counts']}. Caught by an independent reviewer: {s['caught_by_independent_vs_author']['independent']} rows; by the author's own check only: {s['caught_by_independent_vs_author']['author_only']} rows (no control arm; this supports 'independent audit caught what authors missed', not a collective-vs-single comparison).\n\n## Notes\n" + "\n".join("- " + n for n in json.load(open(os.path.join(sys.argv[1], 'kill_ledger.json')))["notes"]) + "\n")
+    f.write(f"Kill-type counts (prefix match): {s['kind_counts']}. Caught by an independent reviewer/validator/scout: {s['caught_by_class']['independent']} rows; mixed (author found it, independent hold also applied; R09, R15): {s['caught_by_class']['mixed']} rows; by the author's own measurement or rule only (R17, R18, R20; all three are measurements, not reviews): {s['caught_by_class']['author']} rows (no control arm; this supports 'independent audit caught what authors missed', not a collective-vs-single comparison).\n\n## Notes\n" + "\n".join("- " + n for n in json.load(open(os.path.join(sys.argv[1], 'kill_ledger.json')))["notes"]) + "\n")
 print(json.dumps(summary)[:1500])

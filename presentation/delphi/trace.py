@@ -214,8 +214,10 @@ def register():
     def r06():
         r = rows["R06"]
         assert "NOT vacuous" in r["kind"] and "advertised" in r["allowed"] and "holds for unstable systems" in r["allowed"]
-        return "Also in the ledger: our theorem advertised as stability whose premise, determinant non-negativity, also holds for unstable systems (R06); a stronger statement now compiles (F10)."
-    claim(4, "Also in the ledger: our theorem advertised as stability whose premise, determinant non-negativity, also holds for unstable systems (R06); a stronger statement now compiles (F10).", [KL], r06)
+        assert "nonlinear prompts scored against linear labels" in rows["R09"]["witness"] and "not a ceiling" in rows["R09"]["allowed"]
+        return ("Also in the ledger: our theorem advertised as stability whose premise, determinant non-negativity, also holds for unstable systems (R06); a stronger statement now compiles (F10). "
+                "Row R09, counted as measured, is a mismatched run (nonlinear prompts scored against linear labels), not a measured null.")
+    claim(4, "Also in the ledger: our theorem advertised as stability whose premise, determinant non-negativity, also holds for unstable systems (R06); a stronger statement now compiles (F10). Row R09, counted as measured, is a mismatched run (nonlinear prompts scored against linear labels), not a measured null.", [KL], r06)
     claim(4, "20 ledger rows: 17 were caught by an independent reviewer or a measurement, 3 by the author's own check.", [KL],
           lambda: _caught(kl))
     claim(4, "Kinds: prior art 7, counterexample 1, measured 4, mis-operationalised 3, convention defect 4, process defect 1.", [KL], lambda: _kinds(kl))

@@ -12,6 +12,7 @@ if [ -n "$(git status --porcelain -- artifacts planning/rethink/CLAIM-LEDGER.md 
   echo "REFUSING: uncommitted inputs (ALLOW_DIRTY=1 to override, never for the final build)" >&2; exit 3; fi
 bounded python3 presentation/delphi/build_deck.py
 bounded python3 presentation/export_pdf.py presentation/delphi/deck.html --shots presentation/delphi/screenshots
+bounded python3 presentation/export_pptx.py presentation/delphi/deck.html
 bounded python3 presentation/delphi/build_site.py
 bounded python3 presentation/delphi/trace.py
 bounded python3 -m pytest -q -p no:cacheprovider presentation/delphi/tests
