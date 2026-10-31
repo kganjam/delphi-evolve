@@ -12,6 +12,6 @@
     "ALDE (PMC11739421) already uses TrpB and GB1 four-residue landscapes in simulation with greedy/UCB/Thompson acquisition; ALDE does not address certificates, path reachability or assay selection for a decision. Novelty claim must be limited to query-to-certify, never 'ML-guided TrpB optimisation'."
   ],
   "artifacts": ["scripts/audit_data.py"],
-  "limitations": ["Workers have no commits yet at 00:20 PDT; no worker output has been checked."],
+  "limitations": ["Workers have no commits yet at 00:08 PDT; no worker output has been checked."],
   "next_steps": ["Fetch worker branches, merge, run checklist items, fresh-checkout reproduction."]
 }
