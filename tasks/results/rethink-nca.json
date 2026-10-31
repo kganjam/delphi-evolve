@@ -289,12 +289,18 @@
  "frontier_glide_simulation": {
   "repo": "kganjam/delphi-frontier",
   "branch": "work/nca-glide",
-  "commit": "4dee158",
+  "commit": "87e72f9fbc29bf97452af249fe1ba7bf48ae9dcc",
   "files": "engineering/simulation/*, tests/test_simulation.py",
   "protocol_frozen_commit": "b5458ba",
   "results": "720 designs converged, 48 Pareto, 0 stalls; controls pass; 21 tests pass",
   "caveats": "mass drops out at fixed WL/AR; release-speed convention dominates range; coefficients are design assumptions; Park/Choi PDF unreachable; no biological or tissue claim",
   "gpu": "not used",
-  "interface": "messages/glide-interface-to-guilds.md"
+  "interface": "messages/glide-interface-to-guilds.md",
+  "protocol_controlled_frozen_commit": "c0b918d",
+  "controlled_comparison": "0 robust winners of 144 variants (62 win in >=1 of 6 scenarios, all flip); robust effect: equilibrium sink falls with area and AR; baselines Fish 1990 Table I fits; guilds z3 witness checked (not a print candidate)",
+  "selection": "messages/nca-to-print.md and nca-to-claude05.md (comparison set A/B/C at 0.05 kg, not an optimum)",
+  "animations": "engineering/simulation/video/{glide_fixed_launch.mp4,rd_fields.mp4,posters,manifests}; RD frames from a bounded rerun reproducing frozen rows to 1e-14",
+  "sources": "Park&Choi 2010 unreadable (403 / expired TLS not bypassed / abstract only); ICB 2022 text readable, no numeric polar in text; no calibrated claim",
+  "tests": "tests/test_simulation.py 26 passed"
  }
 }
