@@ -43,6 +43,7 @@ out = {"source_tables": ["artifacts/core/replay/table_primary.csv", "artifacts/c
        "protocol_panel_sha256": proto.get("panel_sha256"), "frozen_policies": sorted(frozen), "policies": pol, "paired_contrasts": contr,
        "uncertainty_procedure": "paired differences on identical episodes; percentile bootstrap over the 20 seeds as clusters; descriptive, not a coverage claim",
        "caveats": ["20 seeds; family B repeats one start and four targets, so its 80 episodes are not independent pairs",
+                   "every episode starts with the start and target labels revealed free, plus 96 random observations, identically for all policies; family B targets are the published top variants of this same table, fixed by published biology and not by this replay",
                    "family A has 8 blocked pairs; blocked certification is the same for all policies because a cut needs every neighbour assayed",
                    "false certificates are 0 by construction (certificates use only revealed labels), so that column is a check, not a finding",
                    "policies marked post-hoc were added after the first results and are exploratory; best-of-several selection is optimistic",
