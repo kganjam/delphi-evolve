@@ -1,34 +1,5 @@
 {
- "dirty": [
-  "presentation/delphi/REHEARSAL.md",
-  "presentation/delphi/blog.md",
-  "presentation/delphi/build_deck.py",
-  "presentation/delphi/build_site.py",
-  "presentation/delphi/deck.html",
-  "presentation/delphi/deck.pdf",
-  "presentation/delphi/deck.pptx",
-  "presentation/delphi/deck.provenance.json",
-  "presentation/delphi/facts.json",
-  "presentation/delphi/facts.py",
-  "presentation/delphi/number_trace.json",
-  "presentation/delphi/screenshots/deck-slide1.png",
-  "presentation/delphi/screenshots/deck-slide2.png",
-  "presentation/delphi/screenshots/deck-slide3.png",
-  "presentation/delphi/screenshots/deck-slide4.png",
-  "presentation/delphi/screenshots/deck-slide5.png",
-  "presentation/delphi/screenshots/deck-slide6.png",
-  "presentation/delphi/sources.md",
-  "presentation/delphi/speaker-notes.md",
-  "presentation/delphi/trace.py",
-  "presentation/delphi/video/delphi-90s-captioned.mp4",
-  "presentation/delphi/video/manifest.json",
-  "site/delphi/appendix.html",
-  "site/delphi/assets/deck.html",
-  "site/delphi/assets/deck.pdf",
-  "site/delphi/assets/speaker-notes.md",
-  "site/delphi/blog.html",
-  "site/delphi/index.html"
- ],
+ "dirty": [],
  "files": {
   "artifacts/bench_headroom/U_claude/SCORES.json": "be8c88e3ddc611c5e059d34db871fea30e5866be9024656ce036e2167931846b",
   "artifacts/bench_headroom/U_gemini/SCORES.json": "6a787ddd1492164ed98e15f72a5473e5360f75c981ab404ba01c61be1ec23ae2",
@@ -177,9 +148,9 @@
  },
  "n_files": 144,
  "source_git_branch": "work/submit",
- "source_git_head": "1b1dc0b8a231312f8b03182e48753ea80486da26",
+ "source_git_head": "88729debbdcfaea09f1d7ef1992294d9bb14d67a",
  "zip": "delphi-bundle.zip",
- "zip_bytes": 6460365,
+ "zip_bytes": 6460221,
  "zip_location": "/data/artifacts/delphi-evolve-submit/dist/delphi-bundle.zip",
- "zip_sha256": "ab57db9f73db1fb89cc226b1745c9079a535228e87cd5d688723b4c592db41ba"
+ "zip_sha256": "d4dc56296948aa42408dc3291e92183bcbb2fc15446b8e4f0c08ed523557b841"
 }
