@@ -1,6 +1,6 @@
 {
  "role": "nca",
- "status": "oracle layer + follow-up 2 delivered (AT5, service cross-check, acceptance runner executed from a fresh clone)",
+ "status": "follow-up 3 delivered (preregistered nonlinear sweep complete, 2520/2520 cells, CPU only); follow-ups 4 (beliefs) and Frontier simulation package pending",
  "goal": "NCA/amorphous inverse-design proposal + decisive feasibility experiment (see planning/rethink/nca.md)",
  "model": "Claude Sonnet 5.5 (subscription; metered charge not known; no GPU used)",
  "branch": "work/rethink-nca",
@@ -43,7 +43,11 @@
   "curl Dryad API files 18559-18563 download -> HTTP 401 bearer token required (no credentials sought)",
   "python3 -m scopedesk.oracles.at5 BENCH OUT (x2, exit 0)",
   "python3 -m scopedesk.oracles.crosscheck_service SNAPSHOT BENCH OUT (exit 0)",
-  "git clone --branch work/rethink-director + merge + python3 scopedesk/accept.py (exit 0)"
+  "git clone --branch work/rethink-director + merge + python3 scopedesk/accept.py (exit 0)",
+  "python3 -m scopedesk.oracles.nonlinear_sweep.run pilot (exit 0)",
+  "python3 -m scopedesk.oracles.nonlinear_sweep.run sweep ... --workers 2 --budget-seconds 12600 --draws 10 (exit 0, 2520 cells)",
+  "orx up/create-experiment/exp run --backend local (exit 0, run f81c0b68)",
+  "python3 -m scopedesk.oracles.nonlinear_sweep.analyze (via orx run, exit 0)"
  ],
  "artifacts": [
   "planning/rethink/nca.md",
@@ -241,5 +245,35 @@
    "seconds": 56.6,
    "started": "2026-10-31 07:46 PDT"
   }
+ },
+ "followup3_nonlinear_sweep": {
+  "prereg": "scopedesk/oracles/nonlinear_sweep/PREREG.md committed cb27cf2 BEFORE any scored row",
+  "rows_sha256": "a32c2bf7dd3c10162317974ae6a0ecbefa06c1c180a6886dea1bcb8ea4d4c882",
+  "stopped_by": "completion",
+  "wall_seconds": 10055,
+  "hardware": "CPU only, 2 worker processes, no GPU, no Nebius",
+  "pilot": "24 unscored cells (separate ensemble seed): 6.1 s/cell mean; extrapolated 2.1 h for 2 workers; actual 2.8 h on the loaded host (load avg 5-13)",
+  "counts": {
+   "cells": 2520,
+   "R1_linear_stable_nonlinear_pattern": "30/1080 (all Brusselator, eps=0.3, rho 0.9/0.97)",
+   "R2_linear_unstable_no_pattern": "0/1440",
+   "R3_wavelength_mismatch": "461/1440 (32.0%), nonlinear mode lower in 84%",
+   "unresolved": "59/2520 (51 solver disagreement mode/amp, 2 flag, 6 not_settled; 56 Brusselator)"
+  },
+  "predictions": {
+   "P1_R1_zero_at_eps_0.01": true,
+   "P2_R1_only_rho_ge_0.9_and_eps_ge_0.1": true,
+   "P3_R2_concentrated_at_rho_1.03_or_x_2": false,
+   "P4_R3_ge_0.2_and_mostly_lower": true,
+   "P5_unresolved_below_5pct": true
+  },
+  "orx": "local orx run f81c0b68-ad0c-4ebe-b809-96977ad1c0f3 logged the ANALYSIS only; scopedesk/oracles/results/nonlinear_sweep/orx_receipt.json",
+  "files": [
+   "scopedesk/oracles/results/nonlinear_sweep/{rows.jsonl,report.json,REPORT.md,orx_receipt.json,run_status.json}"
+  ],
+  "disclosures": [
+   "analyze.py written after the sweep started; a smoke test printed provisional predictions on 14 partial rows",
+   "PREREG says about 08:40; commit time 08:34 by date"
+  ]
  }
 }
