@@ -1,30 +1,30 @@
 {
  "B0_scope_gate": {
   "all": {
-   "correct": 79,
-   "n": 135,
-   "acc": 0.5852,
+   "correct": 76,
+   "n": 131,
+   "acc": 0.5802,
    "cp95": [
-    0.4973,
-    0.6693
+    0.4908,
+    0.6658
    ]
   },
   "template_A": {
-   "correct": 68,
-   "n": 68,
+   "correct": 65,
+   "n": 65,
    "acc": 1.0,
    "cp95": [
-    0.9472,
+    0.9448,
     1.0
    ]
   },
   "template_B": {
    "correct": 11,
-   "n": 67,
-   "acc": 0.1642,
+   "n": 66,
+   "acc": 0.1667,
    "cp95": [
-    0.0849,
-    0.2748
+    0.0862,
+    0.2787
    ]
   },
   "by_family": {
@@ -75,49 +75,49 @@
    },
    "turing_2d_rectangle": {
     "correct": 9,
-    "n": 16,
-    "acc": 0.5625,
+    "n": 15,
+    "acc": 0.6,
     "cp95": [
-     0.2988,
-     0.8025
+     0.3229,
+     0.8366
     ]
    },
    "turing_finite_domain": {
-    "correct": 14,
-    "n": 24,
-    "acc": 0.5833,
+    "correct": 12,
+    "n": 22,
+    "acc": 0.5455,
     "cp95": [
-     0.3664,
-     0.7789
+     0.3221,
+     0.7561
     ]
    },
    "wavelength_formula_licence": {
-    "correct": 8,
-    "n": 15,
-    "acc": 0.5333,
+    "correct": 7,
+    "n": 14,
+    "acc": 0.5,
     "cp95": [
-     0.2659,
-     0.7873
+     0.2304,
+     0.7696
     ]
    }
   },
   "by_truth": {
    "applies": {
-    "correct": 33,
-    "n": 66,
-    "acc": 0.5,
+    "correct": 32,
+    "n": 65,
+    "acc": 0.4923,
     "cp95": [
-     0.3743,
-     0.6257
+     0.366,
+     0.6193
     ]
    },
    "out_of_scope": {
-    "correct": 32,
-    "n": 55,
-    "acc": 0.5818,
+    "correct": 30,
+    "n": 52,
+    "acc": 0.5769,
     "cp95": [
-     0.4411,
-     0.7135
+     0.432,
+     0.7127
     ]
    },
    "underdetermined": {
@@ -132,35 +132,35 @@
   },
   "false_alarm_rate_on_applies": {
    "false_alarms": 33,
-   "n": 66
+   "n": 65
   }
  },
  "R_retrieval_always_applies": {
   "all": {
-   "correct": 66,
-   "n": 135,
-   "acc": 0.4889,
+   "correct": 65,
+   "n": 131,
+   "acc": 0.4962,
    "cp95": [
-    0.4019,
-    0.5763
+    0.4077,
+    0.5848
    ]
   },
   "template_A": {
-   "correct": 31,
-   "n": 68,
-   "acc": 0.4559,
+   "correct": 30,
+   "n": 65,
+   "acc": 0.4615,
    "cp95": [
-    0.3345,
-    0.5812
+    0.337,
+    0.5897
    ]
   },
   "template_B": {
    "correct": 35,
-   "n": 67,
-   "acc": 0.5224,
+   "n": 66,
+   "acc": 0.5303,
    "cp95": [
-    0.3967,
-    0.646
+    0.4034,
+    0.6544
    ]
   },
   "by_family": {
@@ -211,49 +211,49 @@
    },
    "turing_2d_rectangle": {
     "correct": 9,
-    "n": 16,
-    "acc": 0.5625,
+    "n": 15,
+    "acc": 0.6,
     "cp95": [
-     0.2988,
-     0.8025
+     0.3229,
+     0.8366
     ]
    },
    "turing_finite_domain": {
     "correct": 12,
-    "n": 24,
-    "acc": 0.5,
+    "n": 22,
+    "acc": 0.5455,
     "cp95": [
-     0.2912,
-     0.7088
+     0.3221,
+     0.7561
     ]
    },
    "wavelength_formula_licence": {
-    "correct": 6,
-    "n": 15,
-    "acc": 0.4,
+    "correct": 5,
+    "n": 14,
+    "acc": 0.3571,
     "cp95": [
-     0.1634,
-     0.6771
+     0.1276,
+     0.6486
     ]
    }
   },
   "by_truth": {
    "applies": {
-    "correct": 66,
-    "n": 66,
+    "correct": 65,
+    "n": 65,
     "acc": 1.0,
     "cp95": [
-     0.9456,
+     0.9448,
      1.0
     ]
    },
    "out_of_scope": {
     "correct": 0,
-    "n": 55,
+    "n": 52,
     "acc": 0.0,
     "cp95": [
      0.0,
-     0.0649
+     0.0685
     ]
    },
    "underdetermined": {
@@ -268,22 +268,22 @@
   },
   "false_alarm_rate_on_applies": {
    "false_alarms": 0,
-   "n": 66
+   "n": 65
   }
  },
  "FMT_format_only_trained_on_dev_tested_heldout": {
   "acc": {
-   "correct": 42,
-   "n": 95,
-   "acc": 0.4421,
+   "correct": 45,
+   "n": 93,
+   "acc": 0.4839,
    "cp95": [
-    0.3402,
-    0.5477
+    0.3789,
+    0.5899
    ]
   },
   "majority_class_rate_heldout": {
    "class": "applies",
-   "rate": 0.4842
+   "rate": 0.4839
   },
   "note": "must not clearly exceed majority rate; interval shown for the classifier accuracy"
  }

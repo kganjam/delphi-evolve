@@ -1,8 +1,8 @@
 {
  "per_family": {
   "turing_finite_domain": {
-   "n": 24,
-   "agree": 24
+   "n": 22,
+   "agree": 22
   },
   "fisher_kpp_speed": {
    "n": 16,
@@ -21,16 +21,16 @@
    "agree": 16
   },
   "turing_2d_rectangle": {
-   "n": 16,
-   "agree": 16
+   "n": 15,
+   "agree": 15
   },
   "hawk_dove_ess": {
    "n": 16,
    "agree": 16
   },
   "wavelength_formula_licence": {
-   "n": 15,
-   "agree": 15
+   "n": 14,
+   "agree": 14
   }
  },
  "disagreements": [],

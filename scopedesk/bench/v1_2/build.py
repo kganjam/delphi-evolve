@@ -8,7 +8,7 @@ FAMS = [(fam_turing, 24), (fam_wavelength, 16), (fam_turing2d, 16), (fam_kimura,
         (fam_greenhill, 16), (fam_hamilton, 16), (fam_kpp, 16)]
 DEV_FAMILIES = ["turing_finite_domain", "hawk_dove_ess"]          # prompt tuning allowed here only; all others are held out
 SEED = 20261031
-DROP_IDS = {"wl-0010": "near-tie between adjacent admissible modes (n=9 vs n=8, growth rates differ by 0.3%) whose wavelengths fall on opposite sides of the 10% criterion; blinded audit flagged it"}
+DROP_IDS = {"wl-0010": "near-tie between adjacent admissible modes (n=9 vs n=8, growth rates differ by 0.3%) whose wavelengths fall on opposite sides of the 10% criterion; blinded audit flagged it", "ts-0007": "false-premise Turing item: the requester's claim that the inequality holds is false, no mode grows; the verdict depends on whether the question 'does the condition give the right answer' is read as existence of a mode (out_of_scope) or as correctness of the condition (applies). Blinded payload-only audit read applies, key says out_of_scope: genuine convention ambiguity.", "ts-0017": "false-premise Turing item (same pattern as qd03269c6).", "t2-0010": "false-premise Turing 2-D item (same pattern as qd03269c6).", "wl-0001": "wavelength item where 'fastest-growing' read as max real part of the eigenvalues vs most negative determinant flips the verdict (blinded audit flag); convention not pinned in the text."}
 
 def sha(p): return hashlib.sha256(open(p, "rb").read()).hexdigest()
 

@@ -228,10 +228,38 @@
   }
  },
  {
+  "family": "turing_finite_domain",
+  "reason": "false-premise Turing item: the requester's claim that the inequality holds is false, no mode grows; the verdict depends on whether the question 'does the condition give the right answer' is read as existence of a mode (out_of_scope) or as correctness of the condition (applies). Blinded payload-only audit read applies, key says out_of_scope: genuine convention ambiguity.",
+  "params": {
+   "id": "ts-0007"
+  }
+ },
+ {
   "family": "wavelength_formula_licence",
   "reason": "near-tie between adjacent admissible modes (n=9 vs n=8, growth rates differ by 0.3%) whose wavelengths fall on opposite sides of the 10% criterion; blinded audit flagged it",
   "params": {
    "id": "wl-0010"
+  }
+ },
+ {
+  "family": "turing_finite_domain",
+  "reason": "false-premise Turing item (same pattern as qd03269c6).",
+  "params": {
+   "id": "ts-0017"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "wavelength item where 'fastest-growing' read as max real part of the eigenvalues vs most negative determinant flips the verdict (blinded audit flag); convention not pinned in the text.",
+  "params": {
+   "id": "wl-0001"
+  }
+ },
+ {
+  "family": "turing_2d_rectangle",
+  "reason": "false-premise Turing 2-D item (same pattern as qd03269c6).",
+  "params": {
+   "id": "t2-0010"
   }
  }
 ]
