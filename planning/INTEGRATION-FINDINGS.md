@@ -23,3 +23,11 @@ Mobile (390 px) overflows by 21 px because `section.map-card` is 411 px wide; si
 * docs/pitch.template.md says "a closed set with no admitted exit rules out a path in the declared graph". The Lean theorem requires every exit edge to be *certified descending* (`hi v < lo u`), and unmeasured neighbours must be inside the set. "No admitted exit" (overlapping intervals count as not admitted) is weaker and is NOT what Lean proves. Say: "a closed set whose every exit is certified lower rules out any non-decreasing path, for every assignment inside the intervals".
 * Site/pitch "BLOCKED" from the browser or core replay = "no route can be certified from the measurements and the assumed bound". Use that phrase, or "Lean-certified blocked" only for artifacts/proof/trpb_blocked*.json (and bridge receipts).
 * The Lean-checked artifacts are: proof's three/four certificates (delta 0, 0.005, replicate envelope) and integrator's bridged core kappa=2 route (artifacts/integration/). Do not say the replay benchmark's decisions are Lean-checked; only the open route certificates are.
+
+## F7 collective: what the shared-vs-isolated comparison can and cannot say
+* Specialists (`evolve/collective.py`) are deterministic software objects in one Python process, not live LLM agents; scheduling is fixed code. Say so every time "collective" or "agents" is used for runtime behaviour.
+* Shared and isolated arms differ in TWO ways, not one: evidence visibility (global ledger vs private ledgers) AND arbitration (cost comparison between open-route and cut plus a critic re-pricing step in shared; strict round-robin turns with no cost comparison in isolated). A shared-vs-isolated difference therefore cannot be attributed to evidence sharing alone. The isolated arm also leaks: a duplicate request is answered free from the pooled ledger. The compared quantity is assays-to-certificate under matched oracle budget.
+* No decentralised-agency or "collective beats single policy" claim is made unless the paired table (table_paired.csv, seed-cluster bootstrap) supports it, and even then only against core's own `q2c`/`directed` baselines, not ALDE.
+
+## F8 independent verification of the benchmark truth
+`scripts/independent_truth.py` (no evolve/ import) reproduces core's kappa sweep VFVS->AIKG at all 8 kappa values (open flag, closure size, shortest route length).
