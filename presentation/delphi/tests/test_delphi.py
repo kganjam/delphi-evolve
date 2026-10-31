@@ -66,7 +66,7 @@ def test_pending_replaced_by_a_number_fails(tmp_path):
 
 def test_unclaimed_number_and_fake_ledger_id_fail(tmp_path):
     root = _copy(tmp_path)
-    _mut(root, "We ran no experiment.", "We ran no experiment (p = 0.04).")
+    _mut(root, "No wet-lab experiment; simulations only.", "No wet-lab experiment; simulations only (p = 0.04).")
     code, out = trace(root, out=tmp_path / "t.json")
     assert code == 1 and "not traced" in out
     root2 = _copy(tmp_path / "b")
@@ -150,7 +150,8 @@ def test_site_numbers_are_accounted_for():
     assert not left, left
 
 
-HARD_BANNED = [r"near-vacuous", r"not_lt", r"saying nothing", r"tautolog", r"19 biological laws", r"Hamilton[/ -]ESS derived", r"compute-matched (?:collective )?advantage", r"Mathlib biology benchmark",
+HARD_BANNED = [r"More agents did not help", r"more agents did not help", r"\b17 of 20\b", r"\b17 were caught", r"20 ledger rows", r"exact answers", r"Codex reviewed the corrected", r"sourced open problems", r"we ran no experiment", r"Codex's metadata and text check",
+               r"132 of 136(?! items of the v1)",r"near-vacuous", r"not_lt", r"saying nothing", r"tautolog", r"19 biological laws", r"Hamilton[/ -]ESS derived", r"compute-matched (?:collective )?advantage", r"Mathlib biology benchmark",
                r"131[- ]item key|eab23bff(?!.*superseded)",r"no machine[- ]checked", r"did not find a prior machine", r"nobody has (?:a )?(?:gate|library|checked)", r"Arcuri", r"PMC9884266",
                r"Villar-Sepulveda", r"solved (?:the )?navier", r"navier[- ]stokes", r"prove2\.me"]
 

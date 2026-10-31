@@ -1,9 +1,9 @@
 {
  "deck": "presentation/delphi/deck.html",
- "claims_checked": 41,
+ "claims_checked": 42,
  "inputs_hash_checked": 46,
  "pdf_pages_checked": 6,
- "provenance_head": "73f52ee9483ba21a6504b29ac7269f829d371eb1",
+ "provenance_head": "7355b26aa196160b34939d695122df291f84d166",
  "ok": true,
  "errors": [],
  "trace": [
@@ -127,7 +127,7 @@
   },
   {
    "slide": 2,
-   "shown": "Independent solver: pattern on 11 of 16 requests, mean 0.708.",
+   "shown": "Independent solver: pattern on 11 of 16 requests; mean success 0.708 (fraction of 3 noise seeds, averaged over requests).",
    "where": "html",
    "files": [
     "artifacts/rethink_nca/repair.json"
@@ -138,13 +138,15 @@
   },
   {
    "slide": 2,
-   "shown": "The plain formula's design without repair succeeded on 0 of 16.",
+   "shown": "The plain formula's design without repair succeeded on 0 of 16, by construction: equal diffusivities admit no instability for any kinetics.",
    "where": "html",
    "files": [
-    "artifacts/rethink_nca/repair.json"
+    "artifacts/rethink_nca/repair.json",
+    "artifacts/turing_scope/results.json"
    ],
    "sha256": {
-    "artifacts/rethink_nca/repair.json": "bfc0e56f534c704e6b1ef35216218511f586a3004cd68cba0e0e6addbab9ba03"
+    "artifacts/rethink_nca/repair.json": "bfc0e56f534c704e6b1ef35216218511f586a3004cd68cba0e0e6addbab9ba03",
+    "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50"
    }
   },
   {
@@ -212,20 +214,31 @@
   },
   {
    "slide": 3,
-   "shown": "Frozen. Codex's metadata and text check passes (14 of 14).",
+   "shown": "Frozen. Codex's metadata and wording check passes (14 of 14); it does not audit the answers.",
    "where": "html",
    "files": [
     "scopedesk/bench/v1_2/FROZEN.md",
     "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json"
    ],
    "sha256": {
-    "scopedesk/bench/v1_2/FROZEN.md": "313af83b1645ad03bfbe0eb3196247eeb5b965eb5ed775c7ee0a2be92f6f24c3",
+    "scopedesk/bench/v1_2/FROZEN.md": "59d3aaab6186e97ebef7938588491d94cf3ee88538bf6b1b2a0f7f2c9c756762",
     "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json": "27627e6b32b4e585a68d5bc1b86fa05588115cf1de7e177348b7404d0de09c91"
    }
   },
   {
    "slide": 3,
-   "shown": "Audit trail: a blinded payload-only audit agreed on 132 of 135 items of an earlier candidate.",
+   "shown": "Answers: exact rational arithmetic for Turing, Hamilton and Hawk–Dove items; numerical or closed-form for Kimura, Greenhill and Fisher–KPP; all under declared conventions.",
+   "where": "html",
+   "files": [
+    "scopedesk/bench/v1_2/README.md"
+   ],
+   "sha256": {
+    "scopedesk/bench/v1_2/README.md": "68e595a617d527654e833f851d5223a5ed783c9eeacf5da2b3e55e336ad73e48"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "Audit trail: a blinded payload-only audit agreed on 132 of 135 items of an earlier candidate, by a model of the same family as the key's author.",
    "where": "html",
    "files": [
     "scopedesk/audit_v12/blind_vs_key_v12.json"
@@ -255,7 +268,7 @@
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
+    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
    }
   },
   {
@@ -266,7 +279,7 @@
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
+    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
    }
   },
   {
@@ -277,7 +290,7 @@
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
+    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
    }
   },
   {
@@ -288,7 +301,7 @@
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
+    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
    }
   },
   {
@@ -299,7 +312,7 @@
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
+    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
    }
   },
   {
@@ -310,29 +323,29 @@
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
+    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
    }
   },
   {
    "slide": 4,
-   "shown": "20 ledger rows: 17 were caught by an independent reviewer or a measurement, 3 by the author's own check.",
+   "shown": "21 ledger rows: 16 were caught by an independent reviewer or validator, 2 by the author with an independent hold, 3 only by the author's own measurement or rule.",
    "where": "html",
    "files": [
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
+    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
    }
   },
   {
    "slide": 4,
-   "shown": "Kinds: prior art 7, counterexample 1, measured 4, mis-operationalised 3, convention defect 4, process defect 1.",
+   "shown": "Kinds: prior art 7, counterexample 1, measured 4, mis-operationalised 3, convention defect 4, process defect 1, design defect 1.",
    "where": "html",
    "files": [
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
+    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
    }
   },
   {
@@ -363,18 +376,20 @@
   },
   {
    "slide": 5,
-   "shown": "about 24 distinct problems",
+   "shown": "No collective advantage shown. One repeated panel, about 24 distinct problems; the lazy search's gain sits mostly in one repeated pair and its assay-count interval includes zero.",
    "where": "html",
    "files": [
-    "artifacts/lazysp/results/exploratory_post_hoc.json"
+    "artifacts/lazysp/results/exploratory_post_hoc.json",
+    "artifacts/lazysp/results/summary.json"
    ],
    "sha256": {
-    "artifacts/lazysp/results/exploratory_post_hoc.json": "7d86b2b32cbbb3242eeb958a05fe31b11bcf3719bfbfa144169b7c9fb4dba2c1"
+    "artifacts/lazysp/results/exploratory_post_hoc.json": "7d86b2b32cbbb3242eeb958a05fe31b11bcf3719bfbfa144169b7c9fb4dba2c1",
+    "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c"
    }
   },
   {
    "slide": 5,
-   "shown": "Unguarded models, no code tool: Claude Sonnet 5.5 121/127 (95.3%), Gemini 3.8 flash 110/127 (86.6%). Checker-tool arm not run. Effective n is 8 families. This measures judgement, not derivation, and is a coarse consistency check scored by the key's author; not a model ranking. Gemini's misses sit in wavelength (7 of 14) and Greenhill (6 of 13).",
+   "shown": "Unguarded models, no code tool: Claude Sonnet 5.5 121/127 (95.3%), Gemini 3.8 flash 110/127 (86.6%). Checker-tool arm not run. Effective n is 8 families. This measures judgement, not derivation, and is a coarse consistency check scored by the key's author; not a model ranking. Gemini's misses sit in wavelength (7 of 14) and Greenhill (6 of 13). It mostly shows the test set is not hard for a frontier model without tools; nothing here says agents need the gate.",
    "where": "html",
    "files": [
     "tasks/results/guilds.json",
@@ -426,7 +441,7 @@
   },
   {
    "slide": 6,
-   "shown": "Scorecard 21 records: 6 linked to scope-check benchmark families, 1 related formal lemma (target unestablished), 2 empirical/framework, 12 without a corresponding check. Single-reader statuses; Codex reviewed the corrected descriptions. The 12 are a backlog, not open problems, and the 6 are not 6 false laws.",
+   "shown": "Scorecard 21 records: 6 linked to scope-check benchmark families, 1 related formal lemma (target unestablished), 2 empirical/framework, 12 without a corresponding check. Single-reader statuses, revised after a Codex review of version 0; the revision was not re-reviewed. The 12 are a backlog, not open problems, and the 6 are not 6 false laws.",
    "where": "html",
    "files": [
     "scopedesk/scorecard/scorecard.json",
@@ -435,7 +450,7 @@
    ],
    "sha256": {
     "scopedesk/scorecard/scorecard.json": "e0f7c9b1847d44eb3b4e2ebfe678505c9434198046b9d3f6d6bfed1b8b042df9",
-    "scopedesk/scorecard/SCORECARD.md": "5ea1535476dee1229a6d098a7fd3c88072a55799c1ae698305a42670b7e1457b",
+    "scopedesk/scorecard/SCORECARD.md": "c0527c0522d810b0238391ec684d7f87cac194eefbc4376eaabb52673bb4e85e",
     "artifacts/integration/codex-api/admissible-review/committed-freeze.json": "dbf233d1ebe7156576e8e24bb4f7b7f3f6c3c75d4552efde198798eeb482ba0e"
    }
   },
@@ -480,18 +495,20 @@
     "presentation/delphi/sources.md"
    ],
    "sha256": {
-    "presentation/delphi/sources.md": "04dd24c014e7e841baa9f7c0e32176ae7a1bbed90b89c849cda6ab96a774a1bf"
+    "presentation/delphi/sources.md": "e45e7448083e5fbca6fe2c36db8b54f8fee03e110fa9baf6d687f898e6143bb0"
    }
   },
   {
    "slide": 6,
-   "shown": "Delphi Frontier, nothing deployed: one page per open problem showing what we know, what's next and who is working on it.",
+   "shown": "Delphi Frontier, a proposal, nothing deployed: one page per open problem showing what we know, what's next and who is working on it. Our own seed questions failed our own validator: 0 of 7 bounded (ledger R21, single-reader, not re-run by the critic).",
    "where": "html",
    "files": [
-    "planning/rethink/ACTIVE-FRONTIER-PITCH-PROPOSAL.md"
+    "planning/rethink/ACTIVE-FRONTIER-PITCH-PROPOSAL.md",
+    "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "planning/rethink/ACTIVE-FRONTIER-PITCH-PROPOSAL.md": "5f926fc1399f1368422a8b50130798717aafd3ce4e7d10fc35c6da91b5b63e97"
+    "planning/rethink/ACTIVE-FRONTIER-PITCH-PROPOSAL.md": "5f926fc1399f1368422a8b50130798717aafd3ce4e7d10fc35c6da91b5b63e97",
+    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
    }
   }
  ]

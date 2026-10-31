@@ -24,12 +24,12 @@ def main():
     mm = lambda s: f"{int(s // 60)}:{int(s % 60):02d}"
     outline = {1: "0:00-0:25 reveal", 2: "0:25-1:00 check and repair", 3: "1:00-1:30 compiled nodes and test set", 4: "1:30-2:15 ledger", 5: "2:15-2:45 what the collective measured", 6: "2:45-3:00 close"}
     must = {
-        1: "A linear-mode statement for a declared model. Classical mathematics. We ran no experiment. Not a claim that a pattern forms.",
+        1: "A linear-mode statement for a declared model. Classical mathematics. No wet-lab experiment; simulations only. Not a claim that a pattern forms.",
         2: "Limitation first: the algorithm is trivial. Model-only: one kinetics, 3 seeds, no confidence interval, near-onset patterns marginal. Not an experiment.",
         3: "The Price identity is already in ATLAS; ours duplicates it. Test set is frozen. Agreement with our own key is not external validation.",
-        4: "17 of 20 caught by an independent reviewer or a measurement, 3 by the author. No control arm: audit versus self-audit. One team, one day. No median.",
-        5: "More agents did not help. Checker-tool arm was not run. Headroom check measures judgement, not derivation. The pilot hit a ceiling; the checker was repaired after the outcomes.",
-        6: "Outside use: none observed yet. Delphi Frontier is a proposal, nothing deployed. Scorecard sentence exactly as printed: 6 linked, 1 related lemma, 2 empirical, 12 without a check.",
+        4: "16 of 21 caught by an independent reviewer or validator, 2 by the author with an independent hold, 3 only by the author's own measurement or rule. No control arm: audit versus self-audit. One team, one day. No median.",
+        5: "No advantage shown in two small comparisons (the proof pilot sat at a ceiling and could not discriminate). Checker-tool arm was not run. Headroom check measures judgement, not derivation. The pilot hit a ceiling; the checker was repaired after the outcomes.",
+        6: "Outside use: none observed yet. Delphi Frontier is a proposal, nothing deployed, and our own seed questions failed our own validator (0 of 7 bounded, ledger R21). Scorecard sentence exactly as printed: 6 linked, 1 related lemma, 2 empirical, 12 without a check; single reader, revised after a Codex review of v0, not re-reviewed.",
     }
     L = ["# Rehearsal checklist (human stopwatch)", "",
          "**Status: no human rehearsal has been done.** The timings below are a synthetic-voice read-through (`timing.json`), not a person. Nothing on this page is a result until the blank cells are filled by someone with a stopwatch.", "",
@@ -48,14 +48,14 @@ def main():
     for n in range(1, 7):
         L.append(f"| {n} | {must[n]} |")
     L += ["", "## Never say", "",
-          "First-ever; any claim that a named law is wrong; that a pattern forms (linear mode only); a universal diffusion threshold; that AI solved anything; that agents need the gate; a median or a '10 of 10' count; a compute-matched claim for the proof pilot; that anything is deployed or that outside people used it.", "",
+          "First-ever; any claim that a named law is wrong; that a pattern forms (linear mode only); a universal diffusion threshold; that AI solved anything; that agents need the gate; a median or a '10 of 10' count; a compute-matched claim for the proof pilot; that more agents did not help (say: no advantage shown in two small comparisons); that the test set has exact answers (say: stated methods under declared conventions); that the Frontier seeds are ready or sourced; that anything is deployed or that outside people used it.", "",
           "## Questions to expect, and the answers the artifacts support", "",
           "| Question | Answer |", "|---|---|",
           "| What is new? | Only that a program checks the scope conditions, returns a witness and proposes a repair. The algorithm is trivial. |",
-          "| Did you run experiments? | No. Declared-model checks, an independent solver on declared kinetics, and a retrospective enzyme replay. |",
+          "| Did you run experiments? | No wet-lab experiments. Declared-model checks, an independent solver on declared kinetics, and a retrospective enzyme replay (simulations only). |",
           "| Does ATLAS already do this? | ATLAS has the Price identity; a critic's code search found no Hamilton form or Turing statements there, not exhaustive. We aim to complement it. |",
           "| Do agents need the gate? | Not shown. The checker-tool arm was not run. |",
-          "| Is the benchmark independent? | No. It shares its conventions with the checker. Audits so far are same-family or non-blinded except Codex's recomputation of the v1.1 verdicts. |",
+          "| Is the benchmark independent? | No. It shares its conventions with the checker. Audits so far are same-family or non-blinded; Codex recomputed the v1.1 verdicts and checked metadata and wording only, and is unavailable now. |",
           "| Who used it? | Nobody outside the team that we have observed. |",
           "| How fast were claims refuted? | We do not show a median: times are file and commit times and rows differ in kind. |", "",
           "## Logistics", "",

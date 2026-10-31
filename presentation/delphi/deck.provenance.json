@@ -1,33 +1,35 @@
 {
- "built": "2026-10-31 09:37 PDT",
+ "built": "2026-10-31 09:56 PDT",
  "root": "/data/worktrees/delphi-evolve/submit",
  "git": {
-  "head": "73f52ee9483ba21a6504b29ac7269f829d371eb1",
+  "head": "7355b26aa196160b34939d695122df291f84d166",
   "branch": "work/submit",
-  "inputs_untracked_or_modified": []
+  "inputs_untracked_or_modified": [
+   "resentation/delphi/sources.md"
+  ]
  },
  "sha256": {
   "planning/rethink/CLAIM-LEDGER.md": "dad82afcf05e350d1d131b5edf92c9fbdada5635be7da2187653560db2e774dc",
   "planning/rethink/CODEX-BENCH-V1-2-REV3-REVIEW.md": "d02c8bcd9e9690e2ac7656994f93d221617b01bcbd05b6be7d86e9f5c3062278",
-  "presentation/delphi/sources.md": "04dd24c014e7e841baa9f7c0e32176ae7a1bbed90b89c849cda6ab96a774a1bf",
+  "presentation/delphi/sources.md": "e45e7448083e5fbca6fe2c36db8b54f8fee03e110fa9baf6d687f898e6143bb0",
   "lean_price/README.md": "a9795524f156c8b711a39cac5b4f03d8f383d6ffc98bece27f9f413c1e6a7f36",
   "scopedesk/bench/v1_2/KEY.sha256": "be295adfb382da0f3b0f733002450a902e524391bdb458b79c8cb632ae1d8e1d",
   "scopedesk/bench/v1_2/key.jsonl": "28645a12f2f4c77fc1acedb10b23b4070832eefa381b88ca65a12b9e4ecdaa2f",
   "scopedesk/bench/v1_2/instances_public.jsonl": "70b5e0fcb8a31a1d13abfdf1202e92afe988ae5e05ccf86bab95cbc3771b4f61",
   "scopedesk/bench/v1_2/STATUS.md": "1bd6de9c574604fa2d66ec76e357950d14a3a9b1d15ee4e90b5d116b0d30eb9e",
-  "scopedesk/bench/v1_2/FROZEN.md": "313af83b1645ad03bfbe0eb3196247eeb5b965eb5ed775c7ee0a2be92f6f24c3",
+  "scopedesk/bench/v1_2/FROZEN.md": "59d3aaab6186e97ebef7938588491d94cf3ee88538bf6b1b2a0f7f2c9c756762",
   "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json": "27627e6b32b4e585a68d5bc1b86fa05588115cf1de7e177348b7404d0de09c91",
   "artifacts/delphi_submit/at5_v1_2_frozen127.json": "a54f643dd4a5cbb86399abac6fe2c4ce4b546cbb74e4064080c261c486008845",
   "planning/rethink/CODEX-LEAN19-SLIDE-AND-FREEZE-DECISION.md": "1cccf1a0889ba5199736ec1e6d96c78411281ec45266cad3a2ccf09b3a5b9622",
   "scopedesk/oracles/results/linear_vs_nonlinear.json": "13a2729be6994dd23c47c16c9068da99d85eee66ec63ecbf13891b2a04e4b983",
   "scopedesk/oracles/results/accept_receipt_fresh_clone.json": "d153293339556a22b76227ecf483dda8020b9e91a5d5960b7aa6b42de1d6b0f5",
   "scopedesk/audit_v12/blind_vs_key_v12.json": "704fa7e08f9b2775723d6e9504e365d3f84ca1c230d66979717023c2c0df8ef0",
-  "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2",
+  "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33",
   "artifacts/rethink_nca/repair.json": "bfc0e56f534c704e6b1ef35216218511f586a3004cd68cba0e0e6addbab9ba03",
   "planning/rethink/nca.md": "c1baffc831fd071e9d514e33354eb23a05f10cdd2705fdf43e793971624d056e",
   "planning/rethink/PITCH-OUTLINE.md": "a55c4ddfcbf4a2043b3b9be585eb11af3a4905ad1e49b3849c814d29c934e77d",
   "scopedesk/scorecard/scorecard.json": "e0f7c9b1847d44eb3b4e2ebfe678505c9434198046b9d3f6d6bfed1b8b042df9",
-  "scopedesk/scorecard/SCORECARD.md": "5ea1535476dee1229a6d098a7fd3c88072a55799c1ae698305a42670b7e1457b",
+  "scopedesk/scorecard/SCORECARD.md": "c0527c0522d810b0238391ec684d7f87cac194eefbc4376eaabb52673bb4e85e",
   "tasks/results/guilds.json": "e1b0dde57ce912c034d7d4b626eac86642a1322de1192334c3205e2dc125717f",
   "artifacts/bench_headroom/U_claude/SCORES.json": "be8c88e3ddc611c5e059d34db871fea30e5866be9024656ce036e2167931846b",
   "artifacts/bench_headroom/U_gemini/SCORES.json": "6a787ddd1492164ed98e15f72a5473e5360f75c981ab404ba01c61be1ec23ae2",
@@ -39,7 +41,7 @@
   "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50",
   "artifacts/turing_scope/lean_receipt.json": "d9961d8662748c3eb347accf9c103ffe5db1f988e7d74cf8183564f0b743d021",
   "artifacts/rethink_director/MathlibProbe_host.lean": "39b9199d77298b4991099129c0d6bd16b9c00ffafbd7930e7708e04da32cb8a0",
-  "tasks/results/rethink-director.json": "7aff1c4f5d68a6f129af0f38efd500489d1ee62843155036a37df69a2775fbc6",
+  "tasks/results/rethink-director.json": "6c615ec3a478bcee9d18942d17b21cad06f78d08d5df72b38cc21119159442c7",
   "artifacts/integration/codex-api/admissible-review/Admissible.lean": "c51b98a8c4218c5e272223c5d710de0d765804d78beace544850f9749cf07236",
   "artifacts/integration/codex-api/admissible-review/committed-freeze.json": "dbf233d1ebe7156576e8e24bb4f7b7f3f6c3c75d4552efde198798eeb482ba0e",
   "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md": "1f74952718505d1e5dcae1ac898ab2c0f1cbfc5684ee6469853b479fc413e2f7",
@@ -90,14 +92,14 @@
   "R02"
  ],
  "spoken_words": {
-  "total": 399,
+  "total": 394,
   "per_slide": [
-   56,
+   57,
    68,
-   62,
-   74,
-   75,
-   64
+   65,
+   73,
+   63,
+   68
   ]
  }
 }

@@ -2,18 +2,18 @@
 
 **Status: no human rehearsal has been done.** The timings below are a synthetic-voice read-through (`timing.json`), not a person. Nothing on this page is a result until the blank cells are filled by someone with a stopwatch.
 
-Measured read-aloud (synthetic voice): speech 148.0 s, with 1.5 s assumed per slide change: **2:35** against a 3:00 budget (the organizers publish no time limit; see `planning/rethink/SUBMISSION.md`). Margin about 24.5 s, which does not cover demo clicks, a stumble or questions.
+Measured read-aloud (synthetic voice): speech 148.1 s, with 1.5 s assumed per slide change: **2:35** against a 3:00 budget (the organizers publish no time limit; see `planning/rethink/SUBMISSION.md`). Margin about 24.4 s, which does not cover demo clicks, a stumble or questions.
 
 ## Run 1: read the script straight, no slides
 
 | Slide | Outline beat | Words | Synthetic start | Synthetic length (s) | Your start | Your end |
 |---|---|---|---|---|---|---|
-| 1 | 0:00-0:25 reveal | 56 | 0:00 | 17.52 | | |
-| 2 | 0:25-1:00 check and repair | 68 | 0:19 | 27.63 | | |
-| 3 | 1:00-1:30 compiled nodes and test set | 62 | 0:48 | 22.8 | | |
-| 4 | 1:30-2:15 ledger | 74 | 1:12 | 27.85 | | |
-| 5 | 2:15-2:45 what the collective measured | 75 | 1:41 | 25.89 | | |
-| 6 | 2:45-3:00 close | 64 | 2:09 | 26.35 | | |
+| 1 | 0:00-0:25 reveal | 57 | 0:00 | 18.49 | | |
+| 2 | 0:25-1:00 check and repair | 68 | 0:20 | 28.2 | | |
+| 3 | 1:00-1:30 compiled nodes and test set | 65 | 0:49 | 23.99 | | |
+| 4 | 1:30-2:15 ledger | 73 | 1:15 | 27.06 | | |
+| 5 | 2:15-2:45 what the collective measured | 63 | 1:43 | 21.62 | | |
+| 6 | 2:45-3:00 close | 68 | 2:06 | 28.77 | | |
 
 Pass: total at most 3:00 including slide changes. Write the total here: ______ . If over, use the cuts below and rehearse again.
 
@@ -22,8 +22,8 @@ Pass: total at most 3:00 including slide changes. Write the total here: ______ .
 | Cut | Slides kept | Length |
 |---|---|---|
 | all six slides | 1, 2, 3, 4, 5, 6 | 2:35 |
-| drop slide 5 (collective null) | 1, 2, 3, 4, 6 | 2:08 |
-| drop slides 3 and 5 | 1, 2, 4, 6 | 1:43 |
+| drop slide 5 (collective null) | 1, 2, 3, 4, 6 | 2:12 |
+| drop slides 3 and 5 | 1, 2, 4, 6 | 1:47 |
 
 ## Run 2: with the deck (PDF, then the HTML deck with `n` for notes)
 
@@ -31,26 +31,26 @@ For each slide say, in your own words, the sentence below. These are the caveats
 
 | Slide | Must say aloud |
 |---|---|
-| 1 | A linear-mode statement for a declared model. Classical mathematics. We ran no experiment. Not a claim that a pattern forms. |
+| 1 | A linear-mode statement for a declared model. Classical mathematics. No wet-lab experiment; simulations only. Not a claim that a pattern forms. |
 | 2 | Limitation first: the algorithm is trivial. Model-only: one kinetics, 3 seeds, no confidence interval, near-onset patterns marginal. Not an experiment. |
 | 3 | The Price identity is already in ATLAS; ours duplicates it. Test set is frozen. Agreement with our own key is not external validation. |
-| 4 | 17 of 20 caught by an independent reviewer or a measurement, 3 by the author. No control arm: audit versus self-audit. One team, one day. No median. |
-| 5 | More agents did not help. Checker-tool arm was not run. Headroom check measures judgement, not derivation. The pilot hit a ceiling; the checker was repaired after the outcomes. |
-| 6 | Outside use: none observed yet. Delphi Frontier is a proposal, nothing deployed. Scorecard sentence exactly as printed: 6 linked, 1 related lemma, 2 empirical, 12 without a check. |
+| 4 | 16 of 21 caught by an independent reviewer or validator, 2 by the author with an independent hold, 3 only by the author's own measurement or rule. No control arm: audit versus self-audit. One team, one day. No median. |
+| 5 | No advantage shown in two small comparisons (the proof pilot sat at a ceiling and could not discriminate). Checker-tool arm was not run. Headroom check measures judgement, not derivation. The pilot hit a ceiling; the checker was repaired after the outcomes. |
+| 6 | Outside use: none observed yet. Delphi Frontier is a proposal, nothing deployed, and our own seed questions failed our own validator (0 of 7 bounded, ledger R21). Scorecard sentence exactly as printed: 6 linked, 1 related lemma, 2 empirical, 12 without a check; single reader, revised after a Codex review of v0, not re-reviewed. |
 
 ## Never say
 
-First-ever; any claim that a named law is wrong; that a pattern forms (linear mode only); a universal diffusion threshold; that AI solved anything; that agents need the gate; a median or a '10 of 10' count; a compute-matched claim for the proof pilot; that anything is deployed or that outside people used it.
+First-ever; any claim that a named law is wrong; that a pattern forms (linear mode only); a universal diffusion threshold; that AI solved anything; that agents need the gate; a median or a '10 of 10' count; a compute-matched claim for the proof pilot; that more agents did not help (say: no advantage shown in two small comparisons); that the test set has exact answers (say: stated methods under declared conventions); that the Frontier seeds are ready or sourced; that anything is deployed or that outside people used it.
 
 ## Questions to expect, and the answers the artifacts support
 
 | Question | Answer |
 |---|---|
 | What is new? | Only that a program checks the scope conditions, returns a witness and proposes a repair. The algorithm is trivial. |
-| Did you run experiments? | No. Declared-model checks, an independent solver on declared kinetics, and a retrospective enzyme replay. |
+| Did you run experiments? | No wet-lab experiments. Declared-model checks, an independent solver on declared kinetics, and a retrospective enzyme replay (simulations only). |
 | Does ATLAS already do this? | ATLAS has the Price identity; a critic's code search found no Hamilton form or Turing statements there, not exhaustive. We aim to complement it. |
 | Do agents need the gate? | Not shown. The checker-tool arm was not run. |
-| Is the benchmark independent? | No. It shares its conventions with the checker. Audits so far are same-family or non-blinded except Codex's recomputation of the v1.1 verdicts. |
+| Is the benchmark independent? | No. It shares its conventions with the checker. Audits so far are same-family or non-blinded; Codex recomputed the v1.1 verdicts and checked metadata and wording only, and is unavailable now. |
 | Who used it? | Nobody outside the team that we have observed. |
 | How fast were claims refuted? | We do not show a median: times are file and commit times and rows differ in kind. |
 
@@ -65,8 +65,8 @@ First-ever; any claim that a named law is wrong; that a pattern forms (linear mo
 
 | File | sha256 |
 |---|---|
-| presentation/delphi/deck.pdf | `c538d1fcc26851cd6f874c2c666ebd7c21d96ef37ba6da1561431b288524fd17` |
-| presentation/delphi/deck.html | `23a1bdac3a38daa4cef452114c184f59a333d3af34f0c4a27561fe0d8f014c79` |
+| presentation/delphi/deck.pdf | `97f6c71ea72bde1942706172f8b623e67d0af62075dc8468bfc3ec79e6394dea` |
+| presentation/delphi/deck.html | `46755ac404ae0fc8694a541660881ae89ff97480288449ca02193e1fecc595d6` |
 | presentation/delphi/deck.pptx | `62e5c82da7768a74dd0ae08d5df913984ee5b58b8d92f397372d27d420957841` |
 | presentation/delphi/video/delphi-90s-captioned.mp4 (90.72 s, silent) | `141f45efa4a6e3761d5fc57271bae91aedf3b0f5d7195b3c0f3ff01c7974c9fc` |
 

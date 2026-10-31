@@ -118,8 +118,18 @@ def register():
     claim(2, "Target wavelength, equal diffusivities (Dv/Du = 1). 16 requests.", [RP, NCA], lambda: f"Target wavelength, equal diffusivities (Dv/Du = 1). {len(ctl)} requests.")
     claim(2, "No admissible unstable mode (turing-ddi). 16 of 16.", [RP, NCA], lambda: f"No admissible unstable mode (turing-ddi). {len(ctl)} of {len(ctl)}.")
     claim(2, "Raise Dv/Du to 9 (most requests); the exact check licenses it.", [RP], lambda: f"Raise Dv/Du to {int(top)} (most requests); the exact check licenses it.")
-    claim(2, "Independent solver: pattern on 11 of 16 requests, mean 0.708.", [RP], lambda: f"Independent solver: pattern on {allok} of {len(ctl)} requests, mean {mean:.3f}.")
-    claim(2, "The plain formula's design without repair succeeded on 0 of 16.", [RP], lambda: f"The plain formula's design without repair succeeded on {int(c0)} of {len(ctl)}.")
+    claim(2, "Independent solver: pattern on 11 of 16 requests; mean success 0.708 (fraction of 3 noise seeds, averaged over requests).", [RP],
+          lambda: f"Independent solver: pattern on {allok} of {len(ctl)} requests; mean success {mean:.3f} (fraction of {next(iter(seeds))} noise seeds, averaged over requests).")
+
+    def by_construction():
+        # equal diffusivities: J - q d I has eigenvalues (lambda - q d); a stable J stays stable. Checked exactly on the declared model's J over a grid of q and d.
+        assert a + d < 0 and a * d - b * c > 0
+        for dd in (F(1), F(3, 2), F(10)):
+            for n_ in range(0, 60):
+                q_ = F(n_, 7)
+                assert (a - dd * q_) + (d - dd * q_) < 0 and (a - dd * q_) * (d - dd * q_) - b * c > 0
+        return f"The plain formula's design without repair succeeded on {int(c0)} of {len(ctl)}, by construction: equal diffusivities admit no instability for any kinetics."
+    claim(2, "The plain formula's design without repair succeeded on 0 of 16, by construction: equal diffusivities admit no instability for any kinetics.", [RP, RES], by_construction)
     lv = T.J(LVN)
     g = lv["gate_vs_C0_vs_pde"]
 
@@ -178,11 +188,18 @@ def register():
         cod = T.J(CM)
         assert ks["key.jsonl"] in fz
         assert cod["all_ok"] is True and cod["n_items"] == len(pub) and len(cod["checks"]) == sum(1 for c in cod["checks"].values() if c["ok"])
-        return f"Frozen. Codex's metadata and text check passes ({len(cod['checks'])} of {len(cod['checks'])})."
-    claim(3, "Frozen. Codex's metadata and text check passes (14 of 14).", [f"{BD}/FROZEN.md", CM], gate)
+        return f"Frozen. Codex's metadata and wording check passes ({len(cod['checks'])} of {len(cod['checks'])}); it does not audit the answers."
+    claim(3, "Frozen. Codex's metadata and wording check passes (14 of 14); it does not audit the answers.", [f"{BD}/FROZEN.md", CM], gate)
+
+    def methods():
+        rd = (R / BD / "README.md").read_text()
+        assert "exact unless noted" in rd and re.search(r"kimura_regime.*numerical", rd) and "hamilton_rule_form" in rd and "hawk_dove_ess" in rd and "greenhill_buckling" in rd and "fisher_kpp_speed" in rd
+        return "Answers: exact rational arithmetic for Turing, Hamilton and Hawk–Dove items; numerical or closed-form for Kimura, Greenhill and Fisher–KPP; all under declared conventions."
+    claim(3, "Answers: exact rational arithmetic for Turing, Hamilton and Hawk–Dove items; numerical or closed-form for Kimura, Greenhill and Fisher–KPP; all under declared conventions.", [f"{BD}/README.md"], methods)
     bl = T.J("scopedesk/audit_v12/blind_vs_key_v12.json")
-    claim(3, "Audit trail: a blinded payload-only audit agreed on 132 of 135 items of an earlier candidate.", ["scopedesk/audit_v12/blind_vs_key_v12.json"],
-          lambda: f"Audit trail: a blinded payload-only audit agreed on {bl['agree']} of {bl['n']} items of an earlier candidate.")
+    claim(3, "Audit trail: a blinded payload-only audit agreed on 132 of 135 items of an earlier candidate, by a model of the same family as the key's author.", ["scopedesk/audit_v12/blind_vs_key_v12.json"],
+          lambda: (f"Audit trail: a blinded payload-only audit agreed on {bl['agree']} of {bl['n']} items of an earlier candidate, by a model of the same family as the key's author."
+                   if "same model family as key author" in bl["limits"] else "MISMATCH"))
     AT5 = "artifacts/delphi_submit/at5_v1_2_frozen127.json"
     at5 = T.J(AT5)
     assert at5["bench_dir_files_sha256"]["key.jsonl"] == ks["key.jsonl"]
@@ -218,9 +235,9 @@ def register():
         return ("Also in the ledger: our theorem advertised as stability whose premise, determinant non-negativity, also holds for unstable systems (R06); a stronger statement now compiles (F10). "
                 "Row R09, counted as measured, is a mismatched run (nonlinear prompts scored against linear labels), not a measured null.")
     claim(4, "Also in the ledger: our theorem advertised as stability whose premise, determinant non-negativity, also holds for unstable systems (R06); a stronger statement now compiles (F10). Row R09, counted as measured, is a mismatched run (nonlinear prompts scored against linear labels), not a measured null.", [KL], r06)
-    claim(4, "20 ledger rows: 17 were caught by an independent reviewer or a measurement, 3 by the author's own check.", [KL],
+    claim(4, "21 ledger rows: 16 were caught by an independent reviewer or validator, 2 by the author with an independent hold, 3 only by the author's own measurement or rule.", [KL],
           lambda: _caught(kl))
-    claim(4, "Kinds: prior art 7, counterexample 1, measured 4, mis-operationalised 3, convention defect 4, process defect 1.", [KL], lambda: _kinds(kl))
+    claim(4, "Kinds: prior art 7, counterexample 1, measured 4, mis-operationalised 3, convention defect 4, process defect 1, design defect 1.", [KL], lambda: _kinds(kl))
 
     # ================= slide 5: collective
     TP, LT = "artifacts/core/replay/table_primary.csv", "artifacts/lazysp/results/table_primary.csv"
@@ -234,7 +251,15 @@ def register():
           lambda: (f"Single planner {tp[('q2c', 1000)]['certified']}/{tp[('q2c', 1000)]['episodes']} Shared specialists {tp[('collective_shared', 1000)]['certified']}/{tp[('collective_shared', 1000)]['episodes']} "
                    f"Plain lazy search {round(float(lt['alternate']['resolved@1000']) * int(lt['alternate']['episodes']))}/{lt['alternate']['episodes']}")
           if tp[("q2c", 1000)]["certified"] == tp[("collective_shared", 1000)]["certified"] else "MISMATCH")
-    claim(5, "about 24 distinct problems", ["artifacts/lazysp/results/exploratory_post_hoc.json"], lambda: f"about {PH['problem_clusters']} distinct problems")
+    LS2 = T.J("artifacts/lazysp/results/summary.json")
+
+    def gain_note():
+        rm = LS2["variants"]["alternate"]["paired"]["q2c"]["rmst_diff"]
+        pp = PH["variants"]["alternate"]["per_problem"]
+        top = max(pp.values(), key=lambda v: v["lazysp_resolved"] - v["comparator_resolved"])
+        assert rm["lo95"] <= 0 <= rm["hi95"] and top["lazysp_resolved"] - top["comparator_resolved"] >= 15
+        return (f"No collective advantage shown. One repeated panel, about {PH['problem_clusters']} distinct problems; the lazy search's gain sits mostly in one repeated pair and its assay-count interval includes zero.")
+    claim(5, "No collective advantage shown. One repeated panel, about 24 distinct problems; the lazy search's gain sits mostly in one repeated pair and its assay-count interval includes zero.", ["artifacts/lazysp/results/exploratory_post_hoc.json", "artifacts/lazysp/results/summary.json"], gain_note)
     GJ = "tasks/results/guilds.json"
     gj = T.J(GJ)
 
@@ -249,8 +274,8 @@ def register():
         ge = hr["gemini_errors_by_family"]
         return (f"Unguarded models, no code tool: Claude Sonnet 5.5 {res['c'][0]}/{res['c'][1]} ({res['c'][2]}%), Gemini 3.8 flash {res['g'][0]}/{res['g'][1]} ({res['g'][2]}%). Checker-tool arm not run. "
                 f"Effective n is {len(ge)} families. This measures judgement, not derivation, and is a coarse consistency check scored by the key's author; not a model ranking. "
-                f"Gemini's misses sit in wavelength ({ge['wavelength_formula_licence']['errors']} of {ge['wavelength_formula_licence']['N']}) and Greenhill ({ge['greenhill_buckling']['errors']} of {ge['greenhill_buckling']['N']}).")
-    claim(5, "Unguarded models, no code tool: Claude Sonnet 5.5 121/127 (95.3%), Gemini 3.8 flash 110/127 (86.6%). Checker-tool arm not run. Effective n is 8 families. This measures judgement, not derivation, and is a coarse consistency check scored by the key's author; not a model ranking. Gemini's misses sit in wavelength (7 of 14) and Greenhill (6 of 13).",
+                f"Gemini's misses sit in wavelength ({ge['wavelength_formula_licence']['errors']} of {ge['wavelength_formula_licence']['N']}) and Greenhill ({ge['greenhill_buckling']['errors']} of {ge['greenhill_buckling']['N']}). It mostly shows the test set is not hard for a frontier model without tools; nothing here says agents need the gate.")
+    claim(5, "Unguarded models, no code tool: Claude Sonnet 5.5 121/127 (95.3%), Gemini 3.8 flash 110/127 (86.6%). Checker-tool arm not run. Effective n is 8 families. This measures judgement, not derivation, and is a coarse consistency check scored by the key's author; not a model ranking. Gemini's misses sit in wavelength (7 of 14) and Greenhill (6 of 13). It mostly shows the test set is not hard for a frontier model without tools; nothing here says agents need the gate.",
           [GJ, "artifacts/bench_headroom/U_claude/SCORES.json", "artifacts/bench_headroom/U_gemini/SCORES.json", f"{BD}/KEY.sha256"], headroom)
 
     def pilot():
@@ -291,8 +316,8 @@ def register():
         assert "single-reader" in lim and "approves the CORRECTED descriptions" in lim and "not 12 open scientific problems" in md.replace("NOT 12", "not 12") or "backlog, not 12 open scientific problems" in md
         assert "NOT 6 false laws" in md
         return (f"Scorecard {len(sc['rows'])} records: {linked} linked to scope-check benchmark families, {lemma} related formal lemma (target unestablished), {emp} empirical/framework, {none} without a corresponding check. "
-                f"Single-reader statuses; Codex reviewed the corrected descriptions. The {none} are a backlog, not open problems, and the {linked} are not {linked} false laws.")
-    claim(6, "Scorecard 21 records: 6 linked to scope-check benchmark families, 1 related formal lemma (target unestablished), 2 empirical/framework, 12 without a corresponding check. Single-reader statuses; Codex reviewed the corrected descriptions. The 12 are a backlog, not open problems, and the 6 are not 6 false laws.", [SCJ, "scopedesk/scorecard/SCORECARD.md", FR], scorecard)
+                f"Single-reader statuses, revised after a Codex review of version 0; the revision was not re-reviewed. The {none} are a backlog, not open problems, and the {linked} are not {linked} false laws.")
+    claim(6, "Scorecard 21 records: 6 linked to scope-check benchmark families, 1 related formal lemma (target unestablished), 2 empirical/framework, 12 without a corresponding check. Single-reader statuses, revised after a Codex review of version 0; the revision was not re-reviewed. The 12 are a backlog, not open problems, and the 6 are not 6 false laws.", [SCJ, "scopedesk/scorecard/SCORECARD.md", FR], scorecard)
     AD = (R / "planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md").read_text()
     PA = (R / "planning/rethink/PRIOR-ART-VERDICT.md").read_text()
     SRC = "presentation/delphi/sources.md"
@@ -310,8 +335,11 @@ def register():
     def frontier():
         t = (R / AF).read_text()
         assert "Delphi Frontier" in t and "Who's working on it" in t and "not a migration or a deployed platform" in t
-        return "Delphi Frontier, nothing deployed: one page per open problem showing what we know, what's next and who is working on it."
-    claim(6, "Delphi Frontier, nothing deployed: one page per open problem showing what we know, what's next and who is working on it.", [AF], frontier)
+        r21 = {r["id"]: r for r in T.J(KL)["rows"]}["R21"]
+        assert "0 of 7 bounded" in r21["witness"] and "NOT Codex-reviewed" in r21["kind"] and "not re-run by the critic" in r21["witness"]
+        return ("Delphi Frontier, a proposal, nothing deployed: one page per open problem showing what we know, what's next and who is working on it. "
+                "Our own seed questions failed our own validator: 0 of 7 bounded (ledger R21, single-reader, not re-run by the critic).")
+    claim(6, "Delphi Frontier, a proposal, nothing deployed: one page per open problem showing what we know, what's next and who is working on it. Our own seed questions failed our own validator: 0 of 7 bounded (ledger R21, single-reader, not re-run by the critic).", [AF, KL], frontier)
 
 
 def _rerun_at5_matches(R, at5):
@@ -330,15 +358,19 @@ def _rerun_at5_matches(R, at5):
 
 def _caught(kl):
     rows = kl["rows"]
-    author_only = [r["id"] for r in rows if not re.search(r"independent (?:reviewers?|scout)|Codex|director's", r["caught_by"], re.I)]
-    assert len(rows) == 20 and kl["summary"]["caught_by_independent_vs_author"] == {"independent": 17, "author_only": 3} and len(author_only) == 3
-    return f"{len(rows)} ledger rows: {len(rows) - len(author_only)} were caught by an independent reviewer or a measurement, {len(author_only)} by the author's own check."
+    cls = kl["summary"]["caught_by_class_rows"]  # explicit per-row classes (critic v2); substring matching on caught_by was wrong
+    mixed = sorted(i for i, v in cls.items() if v == "mixed")
+    author = sorted(i for i, v in cls.items() if v == "author")
+    assert len(rows) == 21 and all(i in {r["id"] for r in rows} for i in cls)
+    assert kl["summary"]["caught_by_class"] == {"independent": len(rows) - len(cls), "mixed": len(mixed), "author": len(author)}
+    return (f"{len(rows)} ledger rows: {len(rows) - len(cls)} were caught by an independent reviewer or validator, {len(mixed)} by the author with an independent hold, "
+            f"{len(author)} only by the author's own measurement or rule.")
 
 
 def _kinds(kl):
-    order = ["prior art", "counterexample", "measured", "mis-operationalised", "convention defect", "process defect"]
+    order = ["prior art", "counterexample", "measured", "mis-operationalised", "convention defect", "process defect", "design defect"]
     cnt = {k: sum(1 for r in kl["rows"] if r["kind"].startswith(k)) for k in order}
-    assert sum(cnt.values()) == 20
+    assert sum(cnt.values()) == 21
     return "Kinds: " + ", ".join(f"{k} {cnt[k]}" for k in order) + "."
 
 

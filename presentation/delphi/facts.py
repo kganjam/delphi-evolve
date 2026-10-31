@@ -240,7 +240,7 @@ def scorecard_facts():
     md = T("scopedesk/scorecard/SCORECARD.md")
     assert "The 12 are a project backlog, not 12 open scientific problems" in md and "NOT 6 false laws" in md
     linked, lemma, emp, none = (cnt[k] for k in ("BENCHMARK-LINKED", "RELATED FORMAL LEMMA, TARGET NOT ESTABLISHED", "EMPIRICAL / FRAMEWORK", "NO CHECK IN THIS SCORECARD"))
-    return {"ledger": "unledgered: critic's scorecard v0.1 (single reader; Codex reviewed the corrected descriptions, re-review pending)", "records": len(recs), "scorecard_artifact": "scopedesk/scorecard/scorecard.json",
+    return {"ledger": "unledgered: critic's scorecard v0.1 (single reader; revised after a Codex review of v0; the revision was not re-reviewed)", "records": len(recs), "scorecard_artifact": "scopedesk/scorecard/scorecard.json",
             "linked": linked, "related_lemma": lemma, "empirical": emp, "no_check": none,
             "scorecard_limits": sc["global_limits"], "freeze_file": "artifacts/integration/codex-api/admissible-review/committed-freeze.json",
             "freeze_sha256": sha("artifacts/integration/codex-api/admissible-review/committed-freeze.json"),
@@ -347,9 +347,13 @@ def kill_facts():
     k = J("scopedesk/ledger/kill_ledger.json")
     rows = {r["id"]: r for r in k["rows"]}
     sm = k["summary"]
-    assert sm["n_rows"] == len(k["rows"]) == 20 and sm["caught_by_independent_vs_author"] == {"independent": 17, "author_only": 3}
+    assert sm["n_rows"] == len(k["rows"]) == 21 and sm["caught_by_class"] == {"independent": 16, "mixed": 2, "author": 3}
+    cls_rows = sm["caught_by_class_rows"]
+    assert sorted(cls_rows) == ["R09", "R15", "R17", "R18", "R20"] and sorted(v for v in cls_rows.values()) == ["author", "author", "author", "mixed", "mixed"]
     kinds = sm["kind_counts"]
-    assert sum(kinds.values()) == 20
+    assert sum(kinds.values()) == 21 and kinds["design defect"] == 1
+    r21 = rows["R21"]
+    assert "0 of 7 bounded" in r21["witness"] and "NOT Codex-reviewed" in r21["kind"] and "Reported by the host, not re-run by the critic" in r21["witness"]
     assert "R06" in rows and "NOT vacuous" in rows["R06"]["kind"] and "Analytic witness J=diag(2,2)" in rows["R06"]["witness"]
     r03 = re.search(r"mode-1 det=(-?\d+/\d+)", rows["R03"]["witness"]).group(1)
     r13 = re.search(r"(\d+/\d+) vs majority (\d+/\d+)", rows["R13"]["witness"])
@@ -364,7 +368,8 @@ def kill_facts():
         assert sh["id"] in rows
     m = {x["id"]: x for x in k["measured_matched_control"]}
     assert "78/100" in m["M2"]["result"] and "96/100" in m["M1"]["result"]
-    return {"artifact": "scopedesk/ledger/kill_ledger.json", "markdown": "scopedesk/ledger/KILL-LEDGER.md", "n_rows": 20, "independent": 17, "author_only": 3, "kind_counts": kinds,
+    return {"artifact": "scopedesk/ledger/kill_ledger.json", "markdown": "scopedesk/ledger/KILL-LEDGER.md", "n_rows": 21, "independent": 16, "mixed": 2, "author_only": 3, "kind_counts": kinds,
+            "r21": {"seeds_bounded": "0 of 7", "status": "single-reader, not Codex-reviewed; reported by the host and not re-run by the critic", "repo": "kganjam/delphi-frontier", "commit": "4e10ce0"},
             "n_with_both_times": sm["n_with_both_times"], "method": sm["method"], "shown": show, "all_rows": [{k2: r[k2] for k2 in ("id", "claim", "kind", "caught_by", "allowed", "claim_stated_pdt", "kill_recorded_pdt", "duration_min", "witness")} for r in k["rows"]],
             "r06_note": "R06 corrected by the critic per Codex: determinant non-negativity advertised as stability; the premise is not vacuous and holds for unstable systems", "median_shown": False}
 
