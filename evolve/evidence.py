@@ -643,6 +643,19 @@ def site_evidence(out_dir: Path) -> dict:
           "nanopub_status": "UNSIGNED local drafts; not published to any nanopub network; no trusty URI",
           "limits": summary["interpretation_limits"]}
     (out_dir / "evidence.json").write_text(json.dumps(ev, indent=2) + "\n")
+    # contract-shaped claims block so the integrator can merge it into demo.json["claims"]
+    contract_claims = []
+    for c in claims:
+        for src, v in c["sources"].items():
+            contract_claims.append({
+                "id": f"{c['id']}@{src}", "source_uri": c["iri"],
+                "statement": c.get("statement"),
+                "relation_to_test": "motivation-by-analogy; not equivalentTo and not a test of this claim" if c["role"] == "motivation"
+                                    else "context only (partial-change theorem; Delphi notes it fails for total change under epistasis)",
+                "status": f"unresolved; Delphi {src} source" + (f"; nanopub {v['nanopubs'][0]}" if v["nanopubs"] else "")})
+    (EVIDENCE_DIR / "demo_claims.json").write_text(json.dumps(
+        {"note": "Merge into demo.json['claims']. IDs preserve Delphi claim IDs with the queried source appended after '@'.",
+         "claims": contract_claims}, indent=2) + "\n")
     return ev
 
 
