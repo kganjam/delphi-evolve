@@ -304,5 +304,23 @@
    "script": "392 words"
   },
   "not_added": "oca2 exon-21 example: conditional on planning/frontier/oca2-exon21-molino-RESULT.md being committed in this tree (must name commits f497073 and 9f237ae and carry the limits, or the build fails); absent at this commit, so nothing about it is shown. Other Frontier numbers: not added."
- }
+ },
+ "updates": [
+  {
+   "when": "2026-10-31 11:31 PDT",
+   "commit": "dc64e58",
+   "what": "Nonlinear sweep (preregistered cb27cf2, 2,520 cells, single-reader) added as appendix section + one slide-2 footnote; orx local log added to infrastructure strip on slide 6, site table and blog.",
+   "commands": [
+    "bash presentation/delphi/rebuild.sh (exit 0 except the by-design stale-bundle test until regenerated)",
+    "record_delphi_video.py",
+    "build_rehearsal.py",
+    "make_bundle.py",
+    "pytest presentation/delphi/tests: 20 passed"
+   ],
+   "trace": "44/44 claims, 0 errors",
+   "video_sha256": "614ad6d6f5645c1631af01e2d11a444ec78509ad98fb98c1d912ec6bd252ebeb",
+   "bundle_zip_sha256": "e12b89756c6d45aea0321adef22cadad8cf6513606b9c408844f97174e29a307",
+   "limitations": "Intervals omitted (cells not independent). Spoken script unchanged (392 words), so the earlier Piper timing still applies; no stopwatch rehearsal by a human."
+  }
+ ]
 }
