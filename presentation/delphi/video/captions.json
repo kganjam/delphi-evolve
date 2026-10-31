@@ -1,0 +1,12 @@
+{
+ "deck_slide_captions": {
+  "1": "Classical mathematics. A program checks it, with a witness.",
+  "2": "Limitation first: the algorithm is trivial. The offer is the certificate, the refusal and the repair.",
+  "3": "Frozen test set. Agreement with our own key is not external validation.",
+  "4": "Audit versus self-audit, not collective intelligence. One team, one day.",
+  "5": "More agents did not help. A ceiling and a missing arm, stated as such.",
+  "6": "Outside use: none observed yet. Nothing deployed."
+ },
+ "site_ledger_caption": "The ledger on the landing page: every row with its witness, kind, and printed timing caveats.",
+ "persistent_tag": "Draft. Declared-model statements only. We ran no experiment. Pending items are not results."
+}
