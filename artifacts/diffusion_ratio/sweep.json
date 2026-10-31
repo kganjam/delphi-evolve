@@ -1,0 +1,72 @@
+{
+ "prior": "J entries iid U[-1,1], conditioned on tr J<0 and det J>0 (RESULT DEPENDS ON THIS PRIOR)",
+ "samples_drawn": 4000000,
+ "stable_samples": 999760,
+ "seed": 20261031,
+ "exact_spot_checks": 300,
+ "float_vs_exact_mismatches": 0,
+ "rows": [
+  {
+   "tau": 1.1,
+   "fraction_of_stable_kinetics_with_band": 1.10026406337521e-05,
+   "median_band_q_hi_over_q_lo": 15.742261968174155,
+   "p10_band_q_hi_over_q_lo": 4.373014152313541
+  },
+  {
+   "tau": 1.25,
+   "fraction_of_stable_kinetics_with_band": 0.0001210290469712731,
+   "median_band_q_hi_over_q_lo": 6.953211068383403,
+   "p10_band_q_hi_over_q_lo": 1.7320231686548289
+  },
+  {
+   "tau": 1.5,
+   "fraction_of_stable_kinetics_with_band": 0.000666159878370809,
+   "median_band_q_hi_over_q_lo": 6.329414722255402,
+   "p10_band_q_hi_over_q_lo": 1.9909047868465457
+  },
+  {
+   "tau": 2,
+   "fraction_of_stable_kinetics_with_band": 0.003163759302232536,
+   "median_band_q_hi_over_q_lo": 5.977706785821617,
+   "p10_band_q_hi_over_q_lo": 1.8859476235935497
+  },
+  {
+   "tau": 3,
+   "fraction_of_stable_kinetics_with_band": 0.010957629831159478,
+   "median_band_q_hi_over_q_lo": 6.596587154718871,
+   "p10_band_q_hi_over_q_lo": 2.0508554352892587
+  },
+  {
+   "tau": 5,
+   "fraction_of_stable_kinetics_with_band": 0.028604865167640235,
+   "median_band_q_hi_over_q_lo": 7.319282030832939,
+   "p10_band_q_hi_over_q_lo": 2.126346671382479
+  },
+  {
+   "tau": 10,
+   "fraction_of_stable_kinetics_with_band": 0.06226394334640314,
+   "median_band_q_hi_over_q_lo": 9.369984727706655,
+   "p10_band_q_hi_over_q_lo": 2.404221032676709
+  },
+  {
+   "tau": 20,
+   "fraction_of_stable_kinetics_with_band": 0.09894474673921741,
+   "median_band_q_hi_over_q_lo": 13.03809443043477,
+   "p10_band_q_hi_over_q_lo": 2.7998576918508014
+  },
+  {
+   "tau": 50,
+   "fraction_of_stable_kinetics_with_band": 0.1436264703528847,
+   "median_band_q_hi_over_q_lo": 21.47846152457452,
+   "p10_band_q_hi_over_q_lo": 3.5737744721210056
+  },
+  {
+   "tau": 100,
+   "fraction_of_stable_kinetics_with_band": 0.17077798671681205,
+   "median_band_q_hi_over_q_lo": 33.58639565839504,
+   "p10_band_q_hi_over_q_lo": 4.458807424999458
+  }
+ ],
+ "reading": "fraction of stable kinetics that admit a band grows with tau; the band's q-width shrinks toward 1 as tau -> 1 (fine tuning); no tau gives zero, no tau gives 1 (cap = 0.5 here since one species must self-activate)",
+ "not_established": "any biological system's kinetics; domain admissibility (a band is necessary, not sufficient, for a pattern); nonlinear behaviour"
+}

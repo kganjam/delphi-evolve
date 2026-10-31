@@ -2,13 +2,18 @@
  "scope": "3 Turing claims of the 21 math-domain Delphi claims (the 18 population-genetics claims are NOT evaluated here; claim_runtime has hand-authored adapters for kimura-fixation-probability and fisher-ftns only)",
  "prepared_seattle": "2026-10-31 06:58 PDT",
  "status": "DRAFT for the team scorecard; nothing published; no one contacted",
- "bucket_definitions": ["holds as stated", "holds only with a scope condition we had to supply", "empirical and not formalizable", "unresolved in the time we had"],
+ "bucket_definitions": [
+  "holds as stated",
+  "holds only with a scope condition we had to supply",
+  "empirical and not formalizable",
+  "unresolved in the time we had"
+ ],
  "claims": [
   {
    "claim_id": "turing-ddi",
    "network_nanopub": "https://w3id.org/np/RAaQ-9SCjYC7GBJ0ZtrPcVNxZBB7z-VNAdWa8ImGAi610",
    "bucket": "holds only with a scope condition we had to supply",
-   "scope_condition_supplied": "the unstable wavenumber must be ADMISSIBLE on the finite domain (Laplacian eigenmodes of the stated boundary condition). The record states the continuum condition and 'fixed domain' but no finite-size condition: for J=[[1,-2],[2,-3]], Du=1, Dv=10, Neumann, the textbook band is non-empty yet length pi has no unstable mode while 2 pi has exactly mode 1 (trace -19/4, det -1/8). Minimum length to pattern: sqrt(2) pi (service returns the verified rational bracket 1414213562373/1000000000000 .. 707106781187/500000000000 in units of pi).",
+   "scope_condition_supplied": "Supplied to the EXTRACTED Delphi record (not a correction of Turing 1952, who treats finite rings): a growing linear mode needs det(J-qD) = Du Dv q^2 - S q + det J < 0 at at least one ACTUAL admissible q of the stated domain. The record's inequality S > 2 sqrt(Du Dv det J) (with S>0) is q-independent: it only says the continuum band is non-empty, which is necessary but NOT sufficient on a finite domain. Example J=[[1,-2],[2,-3]], Du=1, Dv=10, Neumann: band q in (1/5,1/2) is non-empty, length pi has no admissible q in it, length 2 pi has exactly mode 1 (q=1/4, trace -19/4, det -1/8). Onset length: strictly unstable modes exist only for L > sqrt(2) pi (an infimum, not attained: at exactly sqrt(2) pi mode 1 sits on the band edge, det=0, marginal). Linear instability only; no nonlinear pattern is proved or observed.",
    "evidence": {
     "compiled_proof": "turing_scope/lean (TuringScope.Basic/Instance), Lean 4.35.0, lake build exit 0; generic tail theorem neumann_tail_hurwitz + instance short_all_modes_stable / long_unstable_iff / domain_changes_answer",
     "mutation_tests_that_fail_as_required": "4 numeric mutants (control compiles exit 0; M1 g_v -3->-2, M2 Dv 10->1, M3 L=pi each exit 1) and 2 generic-law mutants (reaction cross term sign, Neumann spectrum) that break Basic.lean",
@@ -16,50 +21,152 @@
     "receipt": "artifacts/turing_scope/lean_receipt.json (2026-10-31 01:49:10 PDT, not re-run for this file); per-request Lean receipts re-run this session by falsify/lean_receipt.py (accepted true classifications, rejected two false ones)",
     "independent_numeric_checks": "numpy eigenvalue sweep (turing_scope.crosscheck) and finite-difference full-operator eigenvalues (falsify.engine.fd_crosscheck) agree; service property tests vs numpy over random 1-D/2-D cases"
    },
-   "limits_that_must_travel_with_the_verdict": ["Routh-Hurwitz (trace<0, det>0) is a Lean DEFINITION, not proved equivalent to eigenvalue real parts", "PDE, Neumann spectrum derivation and nonlinear pattern formation are not formalized", "linear stability of a declared linearization only; nothing observed"],
+   "limits_that_must_travel_with_the_verdict": [
+    "Routh-Hurwitz (trace<0, det>0) is a Lean DEFINITION, not proved equivalent to eigenvalue real parts",
+    "PDE, Neumann spectrum derivation and nonlinear pattern formation are not formalized",
+    "linear stability of a declared linearization only; nothing observed"
+   ],
    "kavita_7_point": {
-    "1_headline": "Two chemicals that spread at different speeds can make an evenly mixed tissue break up into spots or stripes, but the tissue has to be big enough for the pattern to fit.",
-    "2_sources": ["Turing (1952) The chemical basis of morphogenesis, doi:10.1098/rstb.1952.0012 (as cited in the published nanopub's provenance)", "the Delphi nanopub above"],
+    "1_headline": "Two chemicals that spread at different speeds can make an evenly mixed tissue break into spots or stripes, but only if the tissue has room for a pattern of the right size.",
+    "2_sources": [
+     "Turing (1952) The chemical basis of morphogenesis, doi:10.1098/rstb.1952.0012 (as cited in the published nanopub's provenance)",
+     "the Delphi nanopub above"
+    ],
     "3_species_in_claim": "none: the claim is chemistry-generic. (Its proposedTest names no organism.)",
     "4_datasets_needed": "biochemical kinetics (reaction Jacobian) and diffusivities of a candidate morphogen pair, measured independently; then perturbation/imaging data of pattern change. Which specific datasets: NOT determined here (dataset discovery not run)",
     "5_species_inventory_mapping": "n/a for this claim (no species); see turing-wavelength for organisms named in its proposed test",
     "6_species_with_complete_multiscale_record": "NOT determined. Not asserted for any organism.",
-    "7_math_representation": "u_t=f+Du lap u, v_t=g+Dv lap v; with tr J<0, det J>0: unstable mode iff Dv f_u + Du g_v > 2 sqrt(Du Dv det J) at an ADMISSIBLE q; formalized in Lean for the finite-domain mode algebra (see limits)"
+    "7_math_representation": "u_t=f+Du lap u, v_t=g+Dv lap v linearized at a homogeneous state with tr J<0, det J>0. Continuum band non-empty iff S=Dv f_u+Du g_v>0 and S^2>4 Du Dv det J (the record's condition). A mode with admissible wavenumber^2 q grows iff det(J-qD)<0, i.e. q lies strictly inside the band. Lean covers the finite-mode integer algebra and tail bound for a declared model (Routh-Hurwitz is a Lean definition)."
+   },
+   "source_pin": {
+    "record_file": "artifacts/claims_spec/sources/turing-ddi.network.mcp.json",
+    "mcp_response_sha256": "959799f0817a34a0965868470f71485015e996c275e13f927d401d2aefe5cd90",
+    "content_sha256_pinned_fields": "43de1d39496e0d2a8df133d0e537bed158bf3c68d23c28a764c2356715aa4f66",
+    "field_sha256": {
+     "rdfs:label": "671d5897977e9a4939302bc97e6953a6015f3bdeb1ddf8d5ca0a322a374834c8",
+     "dct:description": "d5d37c577155bb047bcf0266e2e3897719915e7d3630096b4dfffd2487c3c5fd",
+     "dct:source": "9d0d82b5bd343ed19ef5ce07787061c53dd612fe9297ad5f621cba79b5a13cd3",
+     "delphi:context": "39c9cb3faf74b590529335a6dab3cbcb0e1690474fa588407fdb28fd6c6d12a8",
+     "skos:notation": "893903afaec398bc9e4f593e841f133711ae44dd73b22db54c1e519e15936e50",
+     "delphi:hypothesisType": "1d7654284d8a39d5ce42634d6d9753529a73990db7073483d10bac1bb66b6880"
+    },
+    "statement_sha256": {
+     "dct:description": "24cf24bc02951dca19a4c09da55fdb6126b897844a84b20857a3eae789892110",
+     "skos:notation": "a4e6aea1632841ac7def9e40eb5aadf45c11f214d7aaca3b42ede084d7ec19af",
+     "delphi:context": "2ff9c3a67b29721fd566607590a66aa6c0fdfb15f390bcc14ce54c6161851f7d"
+    },
+    "network_nanopub": [
+     "https://w3id.org/np/RAaQ-9SCjYC7GBJ0ZtrPcVNxZBB7z-VNAdWa8ImGAi610"
+    ],
+    "retrieved_seattle": "2026-10-31 06:5x PDT (delphisci MCP, source=network, read-only)",
+    "matches_turing_scope_pin": true
    }
   },
   {
    "claim_id": "turing-wavelength",
    "network_nanopub": "https://w3id.org/np/RAjJiCpfgPzPI0Oidz7C5KIqYJuGw5iIhz-iukSDtzO08",
    "bucket": "unresolved in the time we had",
-   "reason": "The record conditions ('near onset', 'domain large compared with the wavelength') have no numeric thresholds, so a verdict needs requester-declared thresholds (turing_scope gates on them: licensed / not_licensed). The formula k_c^2 = sqrt(det J/(Du Dv)), lambda_c = 2 pi/k_c is evaluated in floating point; no compiled proof, no mutation test and no axiom audit exist for it. On a finite domain only mode wavelengths 2L/n are realized, which this claim's text does not address.",
-   "evidence": {"compiled_proof": "none", "mutation_tests": "none", "axiom_audit": "none", "executable_check": "turing_scope adapter (exact for the gating inequality r^4 detJ/(DuDv) >= (4 m^2)^2; float for the wavelength value); source pin matches the NETWORK record (changed_fields [])"},
+   "reason": "The record conditions ('near onset', 'domain large compared with the wavelength') have no numeric thresholds, so a verdict needs requester-declared thresholds (turing_scope gates on them: licensed / not_licensed). The formula k_c^2 = sqrt(det J/(Du Dv)), lambda_c = 2 pi/k_c is evaluated in floating point; no compiled proof, no mutation test and no axiom audit exist for it. On a finite domain only mode wavelengths 2L/n are realized, which this claim's text does not address. The 'not by the size of the tissue' reading in the record is a continuum, near-onset estimate; the finite-domain caveat is unresolved here.",
+   "evidence": {
+    "compiled_proof": "none",
+    "mutation_tests": "none",
+    "axiom_audit": "none",
+    "executable_check": "turing_scope adapter (exact for the gating inequality r^4 detJ/(DuDv) >= (4 m^2)^2; float for the wavelength value); source pin matches the NETWORK record (changed_fields [])"
+   },
    "kavita_7_point": {
-    "1_headline": "How far apart the spots or stripes are is set by how fast the chemicals react and spread, not by how big the tissue is.",
-    "2_sources": ["Turing (1952), same source as turing-ddi", "the Delphi nanopub above"],
+    "1_headline": "Close to the moment a pattern first appears, and in a tissue much bigger than the spots, how far apart the spots or stripes form is set by the chemistry's speeds; in a small tissue, or far from that moment, the tissue's shape and size and the pattern's history can matter.",
+    "2_sources": [
+     "Turing (1952), same source as turing-ddi",
+     "the Delphi nanopub above"
+    ],
     "3_species_in_claim": "none in the claim; its proposed test names the mouse limb bud (Hox dosage, Bmp/Wnt inhibition) as a place to test digit/element number",
     "4_datasets_needed": "morphogen production/degradation/diffusion perturbations in a developing tissue plus counts of repeated elements (imaging/morphometry); which datasets: NOT determined",
     "5_species_inventory_mapping": "mouse (limb bud), from the proposed test only; not asserted by the claim",
     "6_species_with_complete_multiscale_record": "NOT determined; mouse is named in a proposed test, which is not evidence of a complete record",
     "7_math_representation": "k_c^2 = sqrt(det J/(Du Dv)), lambda_c = 2 pi/k_c; under uniform rescaling of D, lambda ~ sqrt(D)"
+   },
+   "source_pin": {
+    "record_file": "artifacts/claims_spec/sources/turing-wavelength.network.mcp.json",
+    "mcp_response_sha256": "ca6567754b34a3bf74b9118e59a372f327c974024543dd04785a33a489a61af8",
+    "content_sha256_pinned_fields": "e0d541383aa5d6334d794b60753e371dc781b01f0bc1b45e3d0ec337208a7559",
+    "field_sha256": {
+     "rdfs:label": "25fd34a24cc4243b75e99586e936d3cf1d998f6ed9c22b7eae5c67887e0d3c13",
+     "dct:description": "629e60c84b587c97f66a4abe91279d127ad501040e0bce504f9f9c87488f4f3b",
+     "dct:source": "9d0d82b5bd343ed19ef5ce07787061c53dd612fe9297ad5f621cba79b5a13cd3",
+     "delphi:context": "175d4f1afc8b2f6f4047a24431d72fdc2a4b89da0f608c07170df0c3e6f58b2e",
+     "skos:notation": "d910107ffe7df06f6c026331ce73226d6335af20851b254e6c8b832380d225c8",
+     "delphi:hypothesisType": "1d7654284d8a39d5ce42634d6d9753529a73990db7073483d10bac1bb66b6880"
+    },
+    "statement_sha256": {
+     "dct:description": "fe130b2e1bd67f8c58a129cc0f4a3b5783aa33df52bb9e0a15e870c1fb674ec3",
+     "skos:notation": "ca19539a62f60333d7a76c7bd6be800c08a7af673a44427994a94af752af5e71",
+     "delphi:context": "03144d939831900cf4aa75f8c073dea9301721810ff19bc6a8cd7deee0699864"
+    },
+    "network_nanopub": [
+     "https://w3id.org/np/RAjJiCpfgPzPI0Oidz7C5KIqYJuGw5iIhz-iukSDtzO08"
+    ],
+    "retrieved_seattle": "2026-10-31 06:5x PDT (delphisci MCP, source=network, read-only)",
+    "matches_turing_scope_pin": true
    }
   },
   {
    "claim_id": "turing-morphogen-hypothesis",
    "network_nanopub": "https://w3id.org/np/RACK9s48ZO9wtNaYNScBuwNuP9H5IvYKiFHzqYRd6CGtw",
-   "bucket": "empirical and not formalizable",
-   "reason": "The record's own notation field says 'no canonical formalization'; hypothesisType is principle-or-framework; its context says mechanical buckling, prepatterns and cell-cell signalling can produce the same patterns, so a matching pattern does not identify the mechanism. Excluded from theorem evaluation rather than forced into Lean.",
-   "evidence": {"compiled_proof": "n/a", "mutation_tests": "n/a", "axiom_audit": "n/a"},
+   "bucket": "empirical and not formalizable (as a whole)",
+   "reason": "The record's notation says 'no canonical formalization' and types it a principle-or-framework: an empirical hypothesis not settled by any model theorem. That does not make it untestable: operational sub-tests for a declared system can be formalized (the turing-ddi finite-domain check is one) and the record's own proposedTest is a measurable protocol. Excluded from theorem evaluation rather than forced into Lean. Mechanical buckling, prepatterns and cell-cell signalling can produce the same patterns, so a matching pattern does not identify the mechanism.",
+   "evidence": {
+    "compiled_proof": "n/a",
+    "mutation_tests": "n/a",
+    "axiom_audit": "n/a"
+   },
    "kavita_7_point": {
     "1_headline": "Chemicals that react and spread through tissue might be enough to explain how animals get their patterns.",
-    "2_sources": ["Turing (1952)", "Castets et al. (1990) and Kondo & Asai (1995), named in the record's context (citations as named there; DOIs not checked here)", "the Delphi nanopub above"],
+    "2_sources": [
+     "Turing (1952)",
+     "Castets et al. (1990) and Kondo & Asai (1995), named in the record's context (citations as named there; DOIs not checked here)",
+     "the Delphi nanopub above"
+    ],
     "3_species_in_claim": "Pomacanthus (angelfish), named in the context via Kondo & Asai (1995); the chemical Turing patterns of Castets et al. are not organisms",
     "4_datasets_needed": "measured kinetics and diffusion of candidate molecules plus pattern-change data under growth or targeted perturbation (imaging, biochemical); which datasets: NOT determined",
     "5_species_inventory_mapping": "Pomacanthus -> this claim (from the record's context only)",
     "6_species_with_complete_multiscale_record": "NOT determined",
     "7_math_representation": "none: 'no canonical formalization' (a system u_t=F(u)+D lap u with D not proportional to identity is only a schema)"
+   },
+   "source_pin": {
+    "record_file": "artifacts/claims_spec/sources/turing-morphogen-hypothesis.network.mcp.json",
+    "mcp_response_sha256": "5ed88e6bfffeb1546d9385f66aeaf4590dcb81db671ad1630bee3d02634c27a4",
+    "content_sha256_pinned_fields": "cd4caa2d64e6a00178dfbe8a0595dbfc5024880f495b142de9bae87688647541",
+    "field_sha256": {
+     "rdfs:label": "7fb327a1efec29268c04c8d285990fab6021bc9b5dbba3eab7783f7d448e8e90",
+     "dct:description": "6788f084bd279ac4808e0f3bddc5e82d56226749c58868744c969d25e230a186",
+     "dct:source": "9d0d82b5bd343ed19ef5ce07787061c53dd612fe9297ad5f621cba79b5a13cd3",
+     "delphi:context": "844f835b5630951f4faebc4bb59a455724ad25f1d2171386d05d673f01ad7d77",
+     "skos:notation": "9f8e0d1be815833ff835d434e624dd0285601429ca46fdd2924e411bbde6cb1d",
+     "delphi:hypothesisType": "53e9c7a2dd683d57689f91c3867d4d4a1a395c7273fba8a2ed5b26323d312a55"
+    },
+    "statement_sha256": {
+     "dct:description": "ce242caabc92b0be82889c17b98da8fe8c51176880d8fb1cd3a7eb3b4ec9b786",
+     "skos:notation": "983f7570f0cc1dfe9684c3da9e2ab5a7cb65be91e95aa20a7265923c520eda2c",
+     "delphi:context": "9c443eed244033b46ee2f5a1f5088c4601d95d5b65806e36a4fd7688fda89a7f"
+    },
+    "network_nanopub": [
+     "https://w3id.org/np/RACK9s48ZO9wtNaYNScBuwNuP9H5IvYKiFHzqYRd6CGtw"
+    ],
+    "retrieved_seattle": "2026-10-31 06:5x PDT (delphisci MCP, source=network, read-only)",
+    "matches_turing_scope_pin": null
    }
   }
  ],
- "tally_for_these_3": {"holds as stated": 0, "holds only with a scope condition we had to supply": 1, "empirical and not formalizable": 1, "unresolved in the time we had": 1},
- "honest_note": "Of three claims, one has a full proof/mutation/axiom-audit package and that package covers a finite-domain instance and tail bound, not the continuum theorem. The thin number is the finding."
+ "tally_for_these_3": {
+  "holds as stated": 0,
+  "holds only with a scope condition we had to supply": 1,
+  "empirical and not formalizable": 1,
+  "unresolved in the time we had": 1
+ },
+ "honest_note": "Of three claims, one has a full proof/mutation/axiom-audit package and that package covers a finite-domain instance and tail bound, not the continuum theorem. The thin number is the finding.",
+ "lean_source_hashes": {
+  "turing_scope/lean/TuringScope/Basic.lean": "c737af890fce057a7cddc1aabe3645857d54c99f6ef24e9af6f2992fd379b4f3",
+  "turing_scope/lean/TuringScope/Instance.lean": "cd41565a3a8c5cde681b8605611268c047cbec5e66f3a12c3c90f989dd198780"
+ },
+ "review_fixes_applied": "2026-10-31 07:0x PDT: instability condition requires an actual q in the band; sqrt(2) pi is an infimum; morphogen bucket qualified; wavelength headline qualified; 'supplied' scope refers to the extracted record; source pins and statement hashes added from the network MCP records."
 }

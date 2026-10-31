@@ -321,9 +321,16 @@ def diffusion_requirement(J, D, proteins=None, notes=None):
         band exists  <=>  D_inh / D_act  >  rho_c = (2 det J - alpha*delta + 2 sqrt(det J * (-b c))) / alpha^2
 
     (derived from S > 0 and S^2 > 4 Du Dv det J; rho_c is irrational in general -> rational bracket).  If neither species has
-    positive self-feedback, or b*c >= 0, NO ratio suffices.  The Stokes-Einstein remark: for compact globular proteins
-    D ~ 1/R_h ~ M^(-1/3), so the BARE ratio of two proteins of mass ratio m is m^(1/3); needing rho_c means a mass ratio > rho_c^3.
-    Real effective diffusion is also set by binding, hindrance and dimerization, which this function does NOT model."""
+    positive self-feedback, or b*c >= 0, NO ratio suffices.
+
+    There is NO universal threshold: rho_c is a property of THESE kinetics. It always exceeds |delta|/alpha (> 1) and tends to
+    |delta|/alpha only as det J -> 0+, i.e. for near-singular, finely tuned kinetics (so a ratio barely above 1 can suffice;
+    Lean-checked example: J=[[1,-1],[1011/1000,-101/100]], Du=1, Dv=1.1, L=5pi Neumann, mode 1 det=-21/25000).
+    Proof of rho_c > |delta|/alpha: with s=alpha|delta|, beta=-bc>s, rho_c*alpha^2 = 2beta - s + 2 sqrt(beta(beta-s)) is increasing in beta
+    and equals s at beta=s.  Figures like '7 to 10' are rules of thumb for particular kinetics.
+    The optional protein-mass comparison is a CRUDE SCALING HEURISTIC (D ~ M^(-1/3) for compact globular proteins), NOT a validated
+    structure-to-diffusion pipeline: radius of gyration is not the hydrodynamic radius, and effective tissue transport
+    (binding, hindrance, dimerization) is not modelled."""
     (a, b), (c, d) = J
     Du, Dv = D
     dJ = a * d - b * c
@@ -354,10 +361,13 @@ def diffusion_requirement(J, D, proteins=None, notes=None):
                required_ratio_decimal=float(rho_lo),
                exact_form="(2 detJ - alpha*delta + 2*sqrt(detJ*(-b*c))) / alpha^2",
                supplied_inhibitor_over_activator_ratio=fs(ratio_supplied), supplied_ratio_meets_textbook_condition=exceeds,
-               bare_globular_mass_ratio_greater_than_bracket=[fs(rho_lo ** 3), fs(rho_hi ** 3)],
-               stokes_einstein_note="compact globular proteins: D ~ M^(-1/3), so a BARE diffusion ratio R needs a mass ratio of R^3 "
-                                    "(ratio 10 needs 1000:1, e.g. 1 kDa vs 1 MDa). Effective ratios in tissue also come from binding, hindrance and "
-                                    "dimerization, which are not modelled here.")
+               heuristic_mass_ratio_greater_than_bracket=[fs(rho_lo ** 3), fs(rho_hi ** 3)],
+               ratio_lower_bound_for_any_b_c=fs(abs(delta) / alpha),
+               det_J=fs(dJ),
+               no_universal_threshold="rho_c depends on these kinetics; it exceeds |delta|/alpha > 1 and approaches it only as det J -> 0+ (finely tuned). "
+                                      "Numbers such as 7-10 are rules of thumb for particular kinetics, not a property of the mechanism.",
+               mass_scaling_heuristic_note="CRUDE heuristic, not validated: D ~ M^(-1/3) for compact globular proteins would make a ratio R need a mass ratio R^3. "
+                                           "Radius of gyration is not the hydrodynamic radius; effective tissue transport (binding, hindrance, dimerization) is not modelled.")
     if proteins:
         try:
             ma = rat("proteins.activator_mass_da", proteins.get("activator_mass_da"), notes)
@@ -371,11 +381,11 @@ def diffusion_requirement(J, D, proteins=None, notes=None):
         meets = bool(m > rho_hi ** 3)
         unclear = bool(rho_lo ** 3 < m <= rho_hi ** 3)
         out["proteins"] = {"status": "computed", "declared_masses_da": {"activator": fs(ma), "inhibitor": fs(mi)},
-                           "bare_stokes_einstein_ratio_decimal": float(m) ** (1 / 3),
-                           "bare_ratio_meets_requirement": None if unclear else meets,
-                           "supplied_ratio_over_bare_ratio_decimal": float(ratio_supplied) / (float(m) ** (1 / 3)),
-                           "reading": "if the supplied diffusivity ratio exceeds the bare ratio, the excess must come from binding, hindrance or "
-                                      "dimerization (not modelled here); masses are caller-declared, shapes assumed compact, nothing was measured"}
+                           "mass_scaling_heuristic_ratio_decimal": float(m) ** (1 / 3),
+                           "heuristic_ratio_meets_requirement": None if unclear else meets,
+                           "supplied_ratio_over_heuristic_ratio_decimal": float(ratio_supplied) / (float(m) ** (1 / 3)),
+                           "reading": "a crude scaling comparison only (not validated; not a hydrodynamic or structural calculation); masses are caller-declared, "
+                                      "shapes assumed compact, nothing was measured"}
     return out
 
 

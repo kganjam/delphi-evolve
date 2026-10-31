@@ -1,7 +1,7 @@
 {
  "role": "collab",
  "status": "in_progress: service built and tested; nanopub publication PREPARED (unsigned drafts, local-only signing check), NOTHING published; service not yet publicly hosted; no external use recorded",
- "updated_seattle": "2026-10-31 07:00 PDT",
+ "updated_seattle": "2026-10-31 07:05 PDT",
  "model": "Claude Sonnet 5.5 (existing Max subscription via Claude Code); no metered API spend, no GPU job, no subagents, no cloud resources created",
  "branch": "work/collab",
  "code_commit": "bb9d6a4 (falsify/, tests/test_falsify.py); docs + this receipt committed on top",
@@ -199,5 +199,10 @@
    "fractastical/project-delphi-ontology ONTOLOGY.md + Lean example"
   ],
   "finding": "my schema.org ClaimReview profile was written before reading these; it is a PROPOSAL only, not governed-template conformant. The team's settled pattern for Lean is a delphi:Concept law node with lean4 source + leanDeclaration/leanTheorem/leanVerified (ontology v1.3+); their skill says to propose non-settled choices to the user, not invent them; publishing is by a bot with np CLI. Nothing in my profile should be pushed to their repos without the user."
- }
+ },
+ "diffusion_gap_retraction": {
+  "applied": "service wording and docs corrected; protein fields renamed heuristic_*; added exact lower bound |delta|/alpha and det_J; regression test for the codex-api counterexample (ratio 1.1, L=5pi Neumann, mode 1 det -21/25000, Lean receipt checked here, activator-ratio required 1.0756); CPU sweep artifacts/diffusion_ratio/sweep.json (prior-dependent; 4e6 samples; 300 exact spot-checks, 0 mismatches)",
+  "no_universal_threshold": true
+ },
+ "scorecard_review_fixes": "artifacts/claims_spec/turing_scorecard.json updated for the five review points and given exact source pins (mcp response sha256, pinned-field content sha256, per-field and statement hashes, nanopub URI, Lean source hashes). turing-morphogen-hypothesis had no pre-existing pin; its hash is recorded now for the first time."
 }

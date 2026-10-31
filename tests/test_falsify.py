@@ -247,8 +247,8 @@ def test_required_ratio_is_the_exact_band_threshold():
     o = run(base("2", proteins={"activator_mass_da": 40000, "inhibitor_mass_da": 41000}))
     dr = o["diffusion_requirement"]
     assert dr["activator"] == "u" and F(dr["required_inhibitor_over_activator_ratio_greater_than_bracket"][0]) == 9
-    assert F(dr["bare_globular_mass_ratio_greater_than_bracket"][0]) == 729
-    assert dr["proteins"]["bare_ratio_meets_requirement"] is False and dr["proteins"]["supplied_ratio_over_bare_ratio_decimal"] > 10
+    assert F(dr["heuristic_mass_ratio_greater_than_bracket"][0]) == 729
+    assert dr["proteins"]["heuristic_ratio_meets_requirement"] is False and dr["proteins"]["supplied_ratio_over_heuristic_ratio_decimal"] > 10
     rng = random.Random(11)
     n = 0
     for _ in range(80):
@@ -286,6 +286,33 @@ def test_required_ratio_matches_numpy_dense_q_scan():
     def grows(ratio):
         return any(np.linalg.eigvals(Jf - q * np.diag([1.0, ratio])).real.max() > 1e-9 for q in qs)
     assert grows(rho * 1.02) and not grows(rho * 0.98)
+
+
+def test_no_universal_threshold_codex_counterexample():
+    """Retraction 2026-10-31: ratio 1.1 suffices for these kinetics (Lean-checked by codex-api; re-derived here exactly)."""
+    o = run({"jacobian": [[1, -1], ["1011/1000", "-101/100"]], "diffusivities": [1, "11/10"],
+             "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "5"}})
+    assert o["verdict"] == "pattern_possible"
+    m = o["modes"]["unstable"][0]
+    assert (m["index"], m["q"], m["determinant"]) == (1, "1/25", "-21/25000")
+    dr = o["diffusion_requirement"]
+    assert 1 < float(F(dr["required_inhibitor_over_activator_ratio_greater_than_bracket"][1])) < 1.1
+    assert "no_universal_threshold" in dr and dr["ratio_lower_bound_for_any_b_c"] == "101/100"
+
+
+def test_required_ratio_exceeds_abs_delta_over_alpha_and_approaches_it():
+    rng = random.Random(5)
+    for _ in range(200):
+        al, de = F(rng.randint(1, 20), 10), -F(rng.randint(21, 60), 10)       # alpha>0, |delta|>alpha so tr J<0
+        s = al * -de
+        for eps in (F(1, 10), F(1, 1000), F(1, 10 ** 6)):
+            beta = s * (1 + eps)                                               # beta = -bc, so det J = beta - s = s*eps > 0
+            b, c = F(1), -beta
+            o = run({"jacobian": [[str(al), str(b)], [str(c), str(de)]], "diffusivities": [1, 2], "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "50"}, "crosscheck": False})
+            lo = F(o["diffusion_requirement"]["required_inhibitor_over_activator_ratio_greater_than_bracket"][0])
+            assert lo >= abs(de) / al - F(1, 10 ** 11)                          # rho_c > |delta|/alpha (bracket rounding tolerance)
+            if eps == F(1, 10 ** 6):
+                assert lo - abs(de) / al < F(1, 100) * abs(de) / al + F(1, 10)  # and it approaches the bound as det J -> 0+
 
 
 def test_no_ratio_suffices_cases():
