@@ -714,7 +714,37 @@ def route_summary(raw_dir: Path, out: Path) -> dict:
             rows.append({"mode": mode, "assumed_parameter": eps,
                          "parameter_meaning": "kappa" if mode == "readnoise" else "eps",
                          "measured_only_distance": pd_, "optimistic_distance": od})
+    def bisect_max(mode, hi, tol):
+        lo = 0.0
+        while hi - lo > tol:
+            mid = (lo + hi) / 2
+            if reachability(scores, start, target, mid, mode)[0][0] is not None:
+                lo = mid
+            else:
+                hi = mid
+        return lo
+
+    breaks = {
+        "readnoise_kappa": bisect_max("readnoise", 8.0, 0.005),
+        "envelope_eps": bisect_max("envelope", 0.03, 1e-5),
+        "point_eps": bisect_max("point", 0.03, 1e-5),
+        "method": "bisection over measured-only BFS reachability; value is the largest parameter with a route, to the stated tolerance",
+    }
+    direct = None
+    # direct 4-substitution orderings (shortest possible routes) at the lowest assumption
+    import itertools
+    subs = [(p, target[p]) for p in range(4) if start[p] != target[p]]
+    admitted = 0
+    for perm in itertools.permutations(subs):
+        g, ok = start, True
+        for p, a in perm:
+            n = g[:p] + a + g[p + 1:]
+            ok &= edge_status(scores, g, n, 0.0, "readnoise") == "accepted"
+            g = n
+        admitted += ok
+    direct = {"orderings": len(list(itertools.permutations(subs))), "admitted_at_parameter_0": admitted}
     res = {"kind": "descriptive full-data analysis; not a predictive benchmark",
+           "break_points": breaks, "direct_orderings": direct,
            "start": start, "target": target,
            "score_scale": "mu_k minus per-replicate stop-codon mean, averaged over 2 replicates (see landscape.meta.json)",
            "rows": rows, "built_utc": now_utc()}

@@ -1,5 +1,15 @@
 {
   "kind": "descriptive full-data analysis; not a predictive benchmark",
+  "break_points": {
+    "readnoise_kappa": 4.07421875,
+    "envelope_eps": 0.006013183593750001,
+    "point_eps": 0.0075,
+    "method": "bisection over measured-only BFS reachability; value is the largest parameter with a route, to the stated tolerance"
+  },
+  "direct_orderings": {
+    "orderings": 24,
+    "admitted_at_parameter_0": 0
+  },
   "start": "VFVS",
   "target": "AIKG",
   "score_scale": "mu_k minus per-replicate stop-codon mean, averaged over 2 replicates (see landscape.meta.json)",
@@ -82,5 +92,5 @@
       "optimistic_distance": null
     }
   ],
-  "built_utc": "2026-10-31T07:13:43Z"
+  "built_utc": "2026-10-31T07:16:45Z"
 }
