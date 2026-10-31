@@ -1,0 +1,32 @@
+{
+ "status": "completed",
+ "provider": "Nebius AI Cloud (project workshop-30-10, eu-north1), 1x H100 80GB HBM3",
+ "model": "nvidia/esm2_t33_650M_UR50D @ 118f470e7e96ba8741227ab898e54758850e9563 (NVIDIA BioNeMo TransformerEngine ESM2-650M, bf16); comparison: facebook/esm2_t33_650M_UR50D @ 08e4846e537177426273712802403f7ba8261b6c (plain ESM2)",
+ "job_id": "aijob-e00whrj05xvrnbfxtx",
+ "wall_seattle": "2026-10-31 00:41:48-01:02:11 PDT",
+ "runtime_seconds": 1223,
+ "environment": "nvcr.io/nvidia/pytorch:25.12-py3; torch 2.10.0a0+nv25.12; transformer_engine 2.10.0; transformers 5.5.0; driver 580.173.02",
+ "artifacts": [
+  {
+   "path": "artifacts/gpu/main/zeroshot_prior.npz",
+   "sha256": "f4a0a0753c66724faa824dc9276dd03567942ae80b474287a119b5aae688532e",
+   "bytes": 5058812
+  },
+  {
+   "path": "artifacts/gpu/main/embedding_meanpool_pca64.npz",
+   "sha256": "777d863b125ac653009ad501a5c188871d1ebc786f19fd6663b1f074c945b596",
+   "bytes": 19977260
+  },
+  {
+   "path": "artifacts/gpu/main/embedding_sites_pca64.npz",
+   "sha256": "a9d4aa548c290296b014482b78db9052ee0ac88eac6ab60e624e46a46e574b9a",
+   "bytes": 20720927
+  }
+ ],
+ "evidence_kind": "predicted",
+ "variants": 160000,
+ "headline": "Zero-shot ESM2 prior Spearman 0.17-0.18 vs measured growth (159,129 genotypes); adds no detectable value over one-hot site identity in a random-split ridge check. Model output, not measurement.",
+ "other_jobs_failed": [
+  "aijob-e00d27jgpd2n9kwva1 (FAILED: bucket mount rejected seek-back npz write; parity result kept)"
+ ]
+}

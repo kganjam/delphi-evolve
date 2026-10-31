@@ -1,0 +1,45 @@
+{
+  "role": "gpu",
+  "status": "completed",
+  "model_used_for_work": "Claude Sonnet 5.5 (subscription via launcher; no metered API charge known; CLI cost estimates are not subscription spend)",
+  "commit": "b904fbada031e43d4a3e91acb11cbd5ff2e7311e",
+  "commit_note": "validated work commit; this results file is committed immediately after it",
+  "wall_seattle": "2026-10-31 00:00 PDT to ~01:30 PDT",
+  "summary": "Reference TrpB Tm9D8s* derived and verified from primary CaltechDATA archive. Full 20^4 = 160,000 genotype ESM2-650M prior (NVIDIA BioNeMo TE checkpoint, bf16) computed on one Nebius H100 in 20m23s, recovered byte-verified via job logs, with BioNeMo-vs-plain ESM2 parity and throughput, plus an OpenResearch-logged local analysis against measured data.",
+  "reference": {"status": "established", "sequence_source": "data/ftmlde_data/tm9d8s_AAs.fasta in https://data.caltech.edu/records/h5rah-5z170 (CC0)", "sites": "183/184/227/228 = V/F/V/S, parent VFVS", "receipt": "artifacts/gpu/reference_verification.json", "caveats": "construct numbering incl. His tag; FASTA header Tm9D8* vs file name tm9d8s"},
+  "nebius_jobs": [
+    {"id": "aijob-e00gqrf19pjdrbyat3", "purpose": "probe", "state": "COMPLETED", "exit": 0, "utc": "07:15:21-07:17:39"},
+    {"id": "aijob-e00d27jgpd2n9kwva1", "purpose": "parity n=512 + main (main FAILED: bucket mount rejects seek-back npz write)", "state": "FAILED", "exit": 1, "utc": "07:25:57-07:29:19"},
+    {"id": "aijob-e00whrj05xvrnbfxtx", "purpose": "main sweep 160,000 variants", "state": "COMPLETED", "exit": 0, "utc": "07:41:48-08:02:11"},
+    {"id": "aijob-e00n4wkfyqafsqby8w", "purpose": "CPU read-only bucket integrity check", "state": "COMPLETED", "exit": 0}
+  ],
+  "checks_run": [
+    {"cmd": "pytest tests/test_gpu_core.py under systemd-run scope (TasksMax=128, MemoryMax=4G, RuntimeMaxSec=600, 2 threads)", "exit": 0, "result": "8 passed, 1 skipped (network smoke skipped)"},
+    {"cmd": "GPU_SMOKE_NETWORK=1 pytest tests/test_gpu_core.py (same scope)", "exit": 0, "result": "9 passed incl. CPU smoke of masked-marginal path with plain ESM2-8M"},
+    {"cmd": "python3 -I gpu/verify_reference.py", "exit": 0, "result": "all asserts pass; 3,199 pooled-culture reads consistent"},
+    {"cmd": "scripts/run_gpu_recover.sh aijob-e00whrj05xvrnbfxtx ...", "exit": 0, "result": "3 npz files recovered; sha256 equal to job-side manifest and to bucket copy"},
+    {"cmd": "orx exp run 7d8e36c9-... --backend local (inside systemd scope)", "exit": 0, "result": "run 96594198-8a9e-40dc-a7b4-6b8b615daae1 done, 4m50s"}
+  ],
+  "artifacts": ["artifacts/gpu/main/zeroshot_prior.npz", "artifacts/gpu/main/embedding_meanpool_pca64.npz", "artifacts/gpu/main/embedding_sites_pca64.npz", "artifacts/gpu/main/main_summary.json", "artifacts/gpu/parity/", "artifacts/gpu/probe/", "artifacts/gpu/orx/", "artifacts/gpu/reference_verification.json", "artifacts/gpu/compute_block.json", "artifacts/gpu/CONTRACT.md", "docs/compute.md", "gpu/", "scripts/run_gpu_job.sh", "scripts/run_gpu_recover.sh"],
+  "key_measurements": {
+    "te_vs_plain_fp32_n512": {"meanpool_cosine_min": 0.99998, "summed_lp_mask_pearson": 0.99976, "mean_abs_dlogp": 0.051, "plain_bf16_noise_floor_mean_abs_dlogp": 0.057},
+    "throughput_seq_per_s_single_run": {"te_bf16": 771.9, "plain_bf16": 453.0, "plain_fp32": 235.5},
+    "prior_vs_measured_spearman": {"additive_wt_marginal": 0.1698, "pll4_context": 0.173, "unmasked": 0.183, "blosum62": 0.1005, "neg_hamming": 0.0948},
+    "ridge_random_split_10seeds_spearman": {"onehot_additive": 0.2568, "onehot_pairwise": 0.3013, "esm2_pca64": 0.2277, "esm2_pca64_plus_onehot": 0.2579}
+  },
+  "openresearch": {"receipt": "artifacts/gpu/orx/receipt.json", "backend": "local CPU only; not hosted compute", "telemetry": "off", "feedback_sent": false},
+  "spend": {"nebius": "event-provided; no metered charge known; ~26 min H100 container time plus image pulls", "brev": "none, not used", "openai": "not used"},
+  "integration_contract": "artifacts/gpu/CONTRACT.md",
+  "limitations": [
+    "Predictions only; none certifies fitness. Prior is weak (Spearman 0.17-0.18) and adds no detectable value over one-hot site identity in an optimistic random-split ridge check; this is not the assay-budget replay and says nothing about query-to-certify.",
+    "Full 1280-d per-shard embeddings (2.0 GB, 40 shards) exist only in Nebius bucket storagebucket-e003992510513182731464 (main/shards); no anonymous policy (PermissionDenied) and no access key created, so not downloadable here without another job. Committed artifacts are label-free PCA-64 projections and log-probs.",
+    "Throughput numbers are single measurements on a shared cluster; bf16 scores vary ~0.05 nats mean with batch/kernel.",
+    "orx project is a scratch repo copy under /tmp; durable record is the receipt files.",
+    "Bootstrap CIs resample variants and are descriptive only; SD over splits is not a confidence interval."
+  ],
+  "next_steps": [
+    "Core: load priors via gpu/load_prior.py and put compute_block.json into demo.json compute with the weak-prior caveat.",
+    "Optional: use the prior as acquisition guidance in the replay and report prior-vs-no-prior under matched budgets.",
+    "Optional: run a CPU job to pull shards if full embeddings are needed; delete the bucket when finished."
+  ]
+}

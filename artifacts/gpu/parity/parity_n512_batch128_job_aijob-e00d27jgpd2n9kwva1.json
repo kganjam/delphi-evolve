@@ -1,0 +1,76 @@
+{
+ "reference": "plain_fp32",
+ "variants_index_seed": 7,
+ "plain_bf16_vs_plain_fp32": {
+  "n": 512,
+  "meanpool_cosine_min": 0.999985225797354,
+  "meanpool_cosine_mean": 0.9999925837703845,
+  "site_emb_cosine_min": 0.9981139762646859,
+  "site_emb_cosine_mean": 0.9996908648671343,
+  "meanpool_max_abs_diff": 0.02734375,
+  "lp_mask_max_abs_diff": 0.3781137466430664,
+  "lp_mask_mean_abs_diff": 0.056519415229558945,
+  "lp_unmasked_max_abs_diff": 0.6368541717529297,
+  "lp_unmasked_mean_abs_diff": 0.05663193762302399,
+  "summed_lp_mask_pearson": 0.9996919233698159,
+  "wt_table_max_abs_diff": 0.28699159622192383,
+  "wt_table_argmax_agreement": 1.0
+ },
+ "te_bf16_vs_plain_fp32": {
+  "n": 512,
+  "meanpool_cosine_min": 0.999980907026213,
+  "meanpool_cosine_mean": 0.9999932475306186,
+  "site_emb_cosine_min": 0.9987128030084794,
+  "site_emb_cosine_mean": 0.9997420056850569,
+  "meanpool_max_abs_diff": 0.02734375,
+  "lp_mask_max_abs_diff": 0.3045992851257324,
+  "lp_mask_mean_abs_diff": 0.05099988728761673,
+  "lp_unmasked_max_abs_diff": 0.353468656539917,
+  "lp_unmasked_mean_abs_diff": 0.051323652267456055,
+  "summed_lp_mask_pearson": 0.9997554424735898,
+  "wt_table_max_abs_diff": 0.19724369049072266,
+  "wt_table_argmax_agreement": 1.0
+ },
+ "te_bf16_vs_plain_bf16": {
+  "n": 512,
+  "meanpool_cosine_min": 0.9999746960941849,
+  "meanpool_cosine_mean": 0.9999916821051339,
+  "site_emb_cosine_min": 0.9977206494227014,
+  "site_emb_cosine_mean": 0.9996015334182364,
+  "meanpool_max_abs_diff": 0.0234375,
+  "lp_mask_max_abs_diff": 0.4582395553588867,
+  "lp_mask_mean_abs_diff": 0.06527885794639587,
+  "lp_unmasked_max_abs_diff": 0.7150993347167969,
+  "lp_unmasked_mean_abs_diff": 0.06519793719053268,
+  "summed_lp_mask_pearson": 0.999560339325108,
+  "wt_table_max_abs_diff": 0.34677743911743164,
+  "wt_table_argmax_agreement": 1.0
+ },
+ "throughput_single_pass": {
+  "plain_fp32": {
+   "variants": 4096,
+   "batch": 128,
+   "seconds": 17.392,
+   "seq_per_s": 235.5,
+   "tokens_per_s": 93968.0,
+   "peak_mem_gb": 7.95
+  },
+  "plain_bf16": {
+   "variants": 4096,
+   "batch": 128,
+   "seconds": 9.043,
+   "seq_per_s": 453.0,
+   "tokens_per_s": 180732.0,
+   "peak_mem_gb": 3.96
+  },
+  "te_bf16": {
+   "variants": 4096,
+   "batch": 128,
+   "seconds": 5.306,
+   "seq_per_s": 771.9,
+   "tokens_per_s": 307998.0,
+   "peak_mem_gb": 3.07
+  }
+ },
+ "note": "Differences are numerical (bf16/TE kernels); the bf16-vs-fp32 plain row is the noise floor."
+}

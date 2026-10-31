@@ -1,0 +1,302 @@
+{
+ "inputs": {
+  "summary_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+  "imputed_sha256": "83b4db9f82fe8d09c4bf7006f3cc730d511eee12147e8fe2e9198281960f34c4",
+  "zeroshot_sha256": "f4a0a0753c66724faa824dc9276dd03567942ae80b474287a119b5aae688532e",
+  "embed_sites_sha256": "a9d4aa548c290296b014482b78db9052ee0ac88eac6ab60e624e46a46e574b9a"
+ },
+ "n_measured_nonstop_in_prior": 159129,
+ "imputed_overlap": 0,
+ "n_active_flag": 9783,
+ "replicate_spearman": 0.7077444118043538,
+ "outcome": "mean(mu_1-bg, mu_2-bg), unnormalised",
+ "label_free_priors": {
+  "esm2_wt_marginal_additive": {
+   "spearman_vs_y": 0.16975671805926046,
+   "spearman_bootstrap_2.5_97.5": [
+    0.16452333978501762,
+    0.17454415507664292
+   ],
+   "auroc_active": 0.8275517112732746,
+   "top100_overlap": 0.1,
+   "top1000_overlap": 0.316,
+   "note_bootstrap": "resamples variants; descriptive only, variants are not independent draws"
+  },
+  "esm2_pll4_context": {
+   "spearman_vs_y": 0.17302132310491677,
+   "spearman_bootstrap_2.5_97.5": [
+    0.1685806104548376,
+    0.17783213109680732
+   ],
+   "auroc_active": 0.8221741388521965,
+   "top100_overlap": 0.1,
+   "top1000_overlap": 0.309,
+   "note_bootstrap": "resamples variants; descriptive only, variants are not independent draws"
+  },
+  "esm2_unmasked_ratio": {
+   "spearman_vs_y": 0.18304648000792542,
+   "spearman_bootstrap_2.5_97.5": [
+    0.17860537207965438,
+    0.18779815819059353
+   ],
+   "auroc_active": 0.8110368132037865,
+   "top100_overlap": 0.14,
+   "top1000_overlap": 0.302,
+   "note_bootstrap": "resamples variants; descriptive only, variants are not independent draws"
+  },
+  "blosum62_sum": {
+   "spearman_vs_y": 0.10051072186886595,
+   "spearman_bootstrap_2.5_97.5": [
+    0.09569891508947063,
+    0.10487635554060842
+   ],
+   "auroc_active": 0.7136309412791175,
+   "top100_overlap": 0.0,
+   "top1000_overlap": 0.067,
+   "note_bootstrap": "resamples variants; descriptive only, variants are not independent draws"
+  },
+  "neg_hamming_to_parent": {
+   "spearman_vs_y": 0.09481929643779036,
+   "spearman_bootstrap_2.5_97.5": [
+    0.0903915529810141,
+    0.1000022694142487
+   ],
+   "auroc_active": 0.5986514655805681,
+   "top100_overlap": 0.0,
+   "top1000_overlap": 0.062,
+   "note_bootstrap": "resamples variants; descriptive only, variants are not independent draws"
+  }
+ },
+ "chance_top100_overlap": 0.0006284209666371309,
+ "paired_spearman_diff_vs_onehot_additive": {
+  "onehot_plus_pairwise": {
+   "mean": 0.04447765223449755,
+   "min": 0.03702887543884914,
+   "max": 0.051346448047486615
+  },
+  "esm2_sites_pca64": {
+   "mean": -0.029101943055829638,
+   "min": -0.03294384697691485,
+   "max": -0.025674027401870775
+  },
+  "esm2_sites_pca64_plus_onehot": {
+   "mean": 0.0011183613525160563,
+   "min": -0.0005656342366459066,
+   "max": 0.003669604908072721
+  },
+  "onehot_plus_3_esm2_priors": {
+   "mean": -0.00023385463279812502,
+   "min": -0.001485040189386222,
+   "max": 0.000650715934871815
+  }
+ },
+ "supervised_random_split": {
+  "onehot_additive": {
+   "spearman": [
+    0.25662927973445426,
+    0.25194914433404136,
+    0.25507437273025263,
+    0.25277639730056256,
+    0.25856196103684087,
+    0.2617744384097445,
+    0.2562876408119646,
+    0.2513919945375975,
+    0.2616475245065555,
+    0.2617149619040939
+   ],
+   "top100_overlap": [
+    0.22,
+    0.26,
+    0.25,
+    0.25,
+    0.25,
+    0.23,
+    0.27,
+    0.27,
+    0.19,
+    0.24
+   ],
+   "lambda": [
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1
+   ],
+   "spearman_mean": 0.25678077153061074,
+   "spearman_sd_over_splits": 0.004051575009036929,
+   "top100_overlap_mean": 0.24299999999999997
+  },
+  "onehot_plus_pairwise": {
+   "spearman": [
+    0.30450741369179773,
+    0.2889780197728905,
+    0.3032067003835149,
+    0.2981727153450665,
+    0.3099084090843275,
+    0.30446026838479046,
+    0.29814215023239793,
+    0.2921485802306378,
+    0.30621728448428326,
+    0.3068426960413766
+   ],
+   "top100_overlap": [
+    0.57,
+    0.58,
+    0.58,
+    0.53,
+    0.58,
+    0.51,
+    0.56,
+    0.63,
+    0.54,
+    0.56
+   ],
+   "lambda": [
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0
+   ],
+   "spearman_mean": 0.30125842376510836,
+   "spearman_sd_over_splits": 0.006734904910846761,
+   "top100_overlap_mean": 0.5639999999999998
+  },
+  "esm2_sites_pca64": {
+   "spearman": [
+    0.23055101310415316,
+    0.22384928730948386,
+    0.22236201903141647,
+    0.22646554853443873,
+    0.22627973288474906,
+    0.22883059143282966,
+    0.23061361341009382,
+    0.22542693364316843,
+    0.23166323457497212,
+    0.2307463108225059
+   ],
+   "top100_overlap": [
+    0.31,
+    0.33,
+    0.34,
+    0.34,
+    0.35,
+    0.31,
+    0.35,
+    0.36,
+    0.27,
+    0.29
+   ],
+   "lambda": [
+    1.0,
+    1.0,
+    10.0,
+    1.0,
+    100.0,
+    0.1,
+    100.0,
+    0.1,
+    0.1,
+    1.0
+   ],
+   "spearman_mean": 0.2276788284747811,
+   "spearman_sd_over_splits": 0.0032473630363419577,
+   "top100_overlap_mean": 0.325
+  },
+  "esm2_sites_pca64_plus_onehot": {
+   "spearman": [
+    0.25762121227683765,
+    0.25138351009739546,
+    0.25581588794976307,
+    0.2524053513905705,
+    0.2622315659449136,
+    0.26327882324899604,
+    0.25777864151701974,
+    0.2526174468515885,
+    0.2639018996928002,
+    0.26195698986138344
+   ],
+   "top100_overlap": [
+    0.26,
+    0.29,
+    0.25,
+    0.25,
+    0.24,
+    0.21,
+    0.23,
+    0.26,
+    0.23,
+    0.23
+   ],
+   "lambda": [
+    100.0,
+    10.0,
+    10.0,
+    10.0,
+    100.0,
+    1.0,
+    10.0,
+    10.0,
+    100.0,
+    10.0
+   ],
+   "spearman_mean": 0.2578991328831268,
+   "spearman_sd_over_splits": 0.004774623981582525,
+   "top100_overlap_mean": 0.24500000000000002
+  },
+  "onehot_plus_3_esm2_priors": {
+   "spearman": [
+    0.2570615660621678,
+    0.25046410414465514,
+    0.25434967071181414,
+    0.2522824255299952,
+    0.25920345685385626,
+    0.26124820925108433,
+    0.2569383567468364,
+    0.2511418994005651,
+    0.2612665882551554,
+    0.2615128920219966
+   ],
+   "top100_overlap": [
+    0.21,
+    0.25,
+    0.24,
+    0.23,
+    0.22,
+    0.21,
+    0.27,
+    0.27,
+    0.19,
+    0.24
+   ],
+   "lambda": [
+    10.0,
+    0.1,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    10.0,
+    0.1,
+    10.0,
+    100.0
+   ],
+   "spearman_mean": 0.2565469168978126,
+   "spearman_sd_over_splits": 0.004291364098922658,
+   "top100_overlap_mean": 0.233
+  }
+ },
+ "protocol_note": "random 80/20 splits are optimistic; descriptive only; not the assay-budget replay and no claim about certificate quality. Split SD is variability across seeds, not a confidence interval.",
+ "wall_seconds": 285.0
+}

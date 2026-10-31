@@ -1,0 +1,83 @@
+{
+ "record": "https://data.caltech.edu/records/h5rah-5z170",
+ "license": "CC0-1.0 (record metadata)",
+ "doi": "10.22002/h5rah-5z170",
+ "numbering": "1-based index into FASTA; Met1",
+ "checks": {
+  "fasta": {
+   "header": "Tm9D8*",
+   "length": 397,
+   "sha256": "d56ebe8d8c556d80bf97329ec34c872b737fb84953f0d83dfe015894e54bbc6c",
+   "site_residues": {
+    "183": "V",
+    "184": "F",
+    "227": "V",
+    "228": "S"
+   },
+   "his_tag": "LEHHHHHH"
+  },
+  "target_fa_identical": {
+   "identical": true,
+   "sha256": "351a567fc1e709242d19f1c95af2cf2a8d5c27e9892886c19df96083920ceaa4"
+  },
+  "pdb_Tm9D8s_refine_19": {
+   "sha256": "1e2bcd9e35ee3356e1ab4a55e21761e3bed571ebbaa892d6c37b004779a29676",
+   "chains": {
+    "A": {
+     "n_residues": 389,
+     "sites": {
+      "183": "VAL",
+      "184": "PHE",
+      "227": "VAL",
+      "228": "SER"
+     },
+     "numbering_mismatches_vs_fasta_for_known_aa": 0
+    },
+    "B": {
+     "n_residues": 377,
+     "sites": {
+      "183": "VAL",
+      "184": "PHE",
+      "227": "VAL",
+      "228": "SER"
+     },
+     "numbering_mismatches_vs_fasta_for_known_aa": 0
+    }
+   }
+  },
+  "pooled_culture_118_184": {
+   "sha256": "afdca12b3dc63b3240de5348a5fb2b2f040295e67aba57b8790d791bd0ba5ba6",
+   "rows": 3199,
+   "fragment_start_1based": 102,
+   "fragment_length": 83,
+   "rows_inconsistent_with_reference_numbering": 0,
+   "diff_position_patterns": {
+    "(118, 184)": 2887,
+    "(118,)": 152,
+    "(184,)": 152,
+    "()": 8
+   }
+  },
+  "parent_row_simplified_AA": {
+   "sha256": "d7e3ab4bcb721819ddf79ac0c9d322046dcdc4ce7d0df7d5ccd423fee771cb76",
+   "rows": [
+    {
+     "AAs": "VFVS",
+     "AA1": "V",
+     "AA2": "F",
+     "AA3": "V",
+     "AA4": "S",
+     "# Stop": "0.0",
+     "fitness": "0.4080739252340478",
+     "active": "True"
+    }
+   ]
+  }
+ },
+ "verdict": "reference established; positions 183/184/227/228 = V/F/V/S under FASTA numbering",
+ "caveats": [
+  "FASTA header says Tm9D8* while the file/PDB are named tm9d8s/Tm9D8s; the primary archive treats them as the same background. All 3,199 pooled-culture reads differ from the reference only at 118 and 184 (that earlier experiment's library positions), and their declared '118 AA'/'184 AA' columns equal the read residues, which confirms the numbering at those two positions; positions 183/227/228 are confirmed by the PDB and by the parent row VFVS.",
+  "Sequence includes a C-terminal LEHHHHHH expression tag (residues 390-397); it is kept in the model input as in the source construct.",
+  "Numbering is of the expressed construct (Met1), not of wild-type T. maritima TrpB; no mapping to Tm WT numbering is claimed."
+ ]
+}

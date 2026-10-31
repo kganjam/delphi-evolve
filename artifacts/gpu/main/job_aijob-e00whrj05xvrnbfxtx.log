@@ -1,0 +1,101 @@
+[2026-10-31T00:41:47-07:00] Starting workload container
+[2026-10-31T00:41:48-07:00] ENTRY start 2026-10-31T07:41:48Z host=2aac28014500
+[2026-10-31T00:41:48-07:00] Sat Oct 31 07:41:48 2026       
+[2026-10-31T00:41:48-07:00] +-----------------------------------------------------------------------------------------+
+[2026-10-31T00:41:48-07:00] | NVIDIA-SMI 580.173.02             Driver Version: 580.173.02     CUDA Version: 13.1     |
+[2026-10-31T00:41:48-07:00] +-----------------------------------------+------------------------+----------------------+
+[2026-10-31T00:41:48-07:00] | GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+[2026-10-31T00:41:48-07:00] | Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+[2026-10-31T00:41:48-07:00] |                                         |                        |               MIG M. |
+[2026-10-31T00:41:48-07:00] |=========================================+========================+======================|
+[2026-10-31T00:41:48-07:00] |   0  NVIDIA H100 80GB HBM3          On  |   00000000:8D:00.0 Off |                    0 |
+[2026-10-31T00:41:48-07:00] | N/A   29C    P0             77W /  700W |       0MiB /  81559MiB |      3%      Default |
+[2026-10-31T00:41:48-07:00] |                                         |                        |             Disabled |
+[2026-10-31T00:41:48-07:00] 
+[2026-10-31T00:41:48-07:00] | Processes:                                                                              |
+[2026-10-31T00:41:48-07:00] |  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+[2026-10-31T00:41:48-07:00] |        ID   ID                                                               Usage      |
+[2026-10-31T00:41:48-07:00] |=========================================================================================|
+[2026-10-31T00:41:48-07:00] |  No running processes found                                                             |
+[2026-10-31T00:41:56-07:00] WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[2026-10-31T00:41:56-07:00] ENTRY pip_list_begin
+[2026-10-31T00:41:56-07:00] huggingface_hub                  1.33.0
+[2026-10-31T00:41:56-07:00] numpy                            2.1.0
+[2026-10-31T00:41:56-07:00] safetensors                      0.7.0
+[2026-10-31T00:41:56-07:00] tokenizers                       0.22.1
+[2026-10-31T00:41:56-07:00] torch                            2.10.0a0+b4e4ee81d3.nv25.12
+[2026-10-31T00:41:56-07:00] torch_tensorrt                   2.10.0a0
+[2026-10-31T00:41:56-07:00] torchao                          0.15.0+git01374eb5
+[2026-10-31T00:41:56-07:00] torchdata                        0.11.0
+[2026-10-31T00:41:56-07:00] torchprofile                     0.0.4
+[2026-10-31T00:41:56-07:00] torchtitan                       0.2.0
+[2026-10-31T00:41:56-07:00] torchvision                      0.25.0a0+ca221243
+[2026-10-31T00:41:56-07:00] transformer_engine               2.10.0+769ed778
+[2026-10-31T00:41:56-07:00] transformers                     5.5.0
+[2026-10-31T00:41:56-07:00] ENTRY pip_list_end
+[2026-10-31T00:41:56-07:00] GPULOG {"t": 0.0, "event": "reference", "header": "Tm9D8*", "length": 397, "sites": {"183": "V", "184": "F", "227": "V", "228": "S"}, "fasta_sha256": "d56ebe8d8c556d80bf97329ec34c872b737fb84953f0d83dfe015894e54bbc6c"}
+[2026-10-31T00:42:01-07:00] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-10-31T00:42:02-07:00] GPULOG {"t": 5.79, "event": "env", "python": "3.12.3", "platform": "Linux-6.11.0-1016-nvidia-x86_64-with-glibc2.39", "torch": "2.10.0a0+b4e4ee81d3.nv25.12", "torch_cuda": "13.1", "cudnn": 91700, "cuda_available": true, "numpy": "2.1.0", "transformers": "5.5.0", "transformer_engine": "2.10.0+769ed778", "transformer-engine-torch": null, "huggingface_hub": "1.33.0", "safetensors": "0.7.0", "flash-attn": "2.7.4.post1+25.12", "tokenizers": "0.22.1", "gpu": "NVIDIA H100 80GB HBM3", "gpu_capability": [9, 0], "nvidia_smi": "NVIDIA H100 80GB HBM3, 580.173.02, 81559 MiB", "image_ref": "nvcr.io/nvidia/pytorch:25.12-py3", "job_label": "kganjam-delphi-trpb-esm2-main2", "cpus": 16}
+[2026-10-31T00:42:03-07:00] /usr/local/lib/python3.12/dist-packages/torch/library.py:356: UserWarning: Warning only once for all operators,  other operators may also be overridden.
+[2026-10-31T00:42:55-07:00] 
+Loading weights:   0%|          | 0/404 [00:00<?, ?it/s]
+Loading weights:  92%|█████████▏| 370/404 [00:00<00:00, 3627.45it/s]
+Loading weights: 100%|██████████| 404/404 [00:00<00:00, 3679.04it/s]
+[2026-10-31T00:42:55-07:00] GPULOG {"t": 59.05, "event": "model_loaded", "kind": "te_bf16", "repo": "nvidia/esm2_t33_650M_UR50D", "revision": "118f470e7e96ba8741227ab898e54758850e9563", "seconds": 53.3, "params": 651042593, "class_name": "NVEsmForMaskedLM"}
+[2026-10-31T00:42:59-07:00] GPULOG {"t": 62.73, "event": "main_start", "variants": 160000, "shards": 40, "shard": 4096, "batch": 128, "max_minutes": 80.0, "existing": []}
+[2026-10-31T00:43:28-07:00] GPULOG {"t": 91.15, "event": "shard_done", "shard": 0, "n": 4096, "seconds": 28.4, "variants_per_s": 144.1, "elapsed_min": 0.47, "eta_min": 18.0}
+[2026-10-31T00:43:54-07:00] GPULOG {"t": 118.09, "event": "shard_done", "shard": 1, "n": 4096, "seconds": 26.9, "variants_per_s": 152.1, "elapsed_min": 0.92, "eta_min": 17.1}
+[2026-10-31T00:44:21-07:00] GPULOG {"t": 145.04, "event": "shard_done", "shard": 2, "n": 4096, "seconds": 26.9, "variants_per_s": 152.0, "elapsed_min": 1.37, "eta_min": 16.5}
+[2026-10-31T00:44:55-07:00] GPULOG {"t": 179.11, "event": "shard_done", "shard": 3, "n": 4096, "seconds": 34.1, "variants_per_s": 120.2, "elapsed_min": 1.94, "eta_min": 17.0}
+[2026-10-31T00:45:22-07:00] GPULOG {"t": 206.05, "event": "shard_done", "shard": 4, "n": 4096, "seconds": 26.9, "variants_per_s": 152.1, "elapsed_min": 2.39, "eta_min": 16.3}
+[2026-10-31T00:45:49-07:00] GPULOG {"t": 233.04, "event": "shard_done", "shard": 5, "n": 4096, "seconds": 27.0, "variants_per_s": 151.8, "elapsed_min": 2.84, "eta_min": 15.6}
+[2026-10-31T00:46:16-07:00] GPULOG {"t": 260.08, "event": "shard_done", "shard": 6, "n": 4096, "seconds": 27.0, "variants_per_s": 151.5, "elapsed_min": 3.29, "eta_min": 15.1}
+[2026-10-31T00:46:43-07:00] GPULOG {"t": 286.94, "event": "shard_done", "shard": 7, "n": 4096, "seconds": 26.9, "variants_per_s": 152.5, "elapsed_min": 3.74, "eta_min": 14.5}
+[2026-10-31T00:47:10-07:00] GPULOG {"t": 313.96, "event": "shard_done", "shard": 8, "n": 4096, "seconds": 27.0, "variants_per_s": 151.6, "elapsed_min": 4.19, "eta_min": 14.0}
+[2026-10-31T00:47:37-07:00] GPULOG {"t": 340.98, "event": "shard_done", "shard": 9, "n": 4096, "seconds": 27.0, "variants_per_s": 151.5, "elapsed_min": 4.64, "eta_min": 13.5}
+[2026-10-31T00:48:04-07:00] GPULOG {"t": 368.04, "event": "shard_done", "shard": 10, "n": 4096, "seconds": 27.1, "variants_per_s": 151.4, "elapsed_min": 5.09, "eta_min": 13.0}
+[2026-10-31T00:48:31-07:00] GPULOG {"t": 395.06, "event": "shard_done", "shard": 11, "n": 4096, "seconds": 27.0, "variants_per_s": 151.6, "elapsed_min": 5.54, "eta_min": 12.5}
+[2026-10-31T00:48:58-07:00] GPULOG {"t": 421.88, "event": "shard_done", "shard": 12, "n": 4096, "seconds": 26.8, "variants_per_s": 152.7, "elapsed_min": 5.99, "eta_min": 12.0}
+[2026-10-31T00:49:25-07:00] GPULOG {"t": 449.11, "event": "shard_done", "shard": 13, "n": 4096, "seconds": 27.2, "variants_per_s": 150.4, "elapsed_min": 6.44, "eta_min": 11.5}
+[2026-10-31T00:49:52-07:00] GPULOG {"t": 476.0, "event": "shard_done", "shard": 14, "n": 4096, "seconds": 26.9, "variants_per_s": 152.3, "elapsed_min": 6.89, "eta_min": 11.0}
+[2026-10-31T00:50:19-07:00] GPULOG {"t": 502.82, "event": "shard_done", "shard": 15, "n": 4096, "seconds": 26.8, "variants_per_s": 152.7, "elapsed_min": 7.33, "eta_min": 10.6}
+[2026-10-31T00:50:46-07:00] GPULOG {"t": 529.7, "event": "shard_done", "shard": 16, "n": 4096, "seconds": 26.9, "variants_per_s": 152.4, "elapsed_min": 7.78, "eta_min": 10.1}
+[2026-10-31T00:51:13-07:00] GPULOG {"t": 556.81, "event": "shard_done", "shard": 17, "n": 4096, "seconds": 27.1, "variants_per_s": 151.1, "elapsed_min": 8.23, "eta_min": 9.6}
+[2026-10-31T00:51:40-07:00] GPULOG {"t": 583.65, "event": "shard_done", "shard": 18, "n": 4096, "seconds": 26.8, "variants_per_s": 152.6, "elapsed_min": 8.68, "eta_min": 9.2}
+[2026-10-31T00:52:07-07:00] GPULOG {"t": 610.52, "event": "shard_done", "shard": 19, "n": 4096, "seconds": 26.9, "variants_per_s": 152.4, "elapsed_min": 9.13, "eta_min": 8.7}
+[2026-10-31T00:52:34-07:00] GPULOG {"t": 637.37, "event": "shard_done", "shard": 20, "n": 4096, "seconds": 26.9, "variants_per_s": 152.5, "elapsed_min": 9.58, "eta_min": 8.2}
+[2026-10-31T00:53:01-07:00] GPULOG {"t": 664.2, "event": "shard_done", "shard": 21, "n": 4096, "seconds": 26.8, "variants_per_s": 152.7, "elapsed_min": 10.02, "eta_min": 7.8}
+[2026-10-31T00:53:27-07:00] GPULOG {"t": 691.07, "event": "shard_done", "shard": 22, "n": 4096, "seconds": 26.9, "variants_per_s": 152.4, "elapsed_min": 10.47, "eta_min": 7.3}
+[2026-10-31T00:53:54-07:00] GPULOG {"t": 718.01, "event": "shard_done", "shard": 23, "n": 4096, "seconds": 26.9, "variants_per_s": 152.0, "elapsed_min": 10.92, "eta_min": 6.9}
+[2026-10-31T00:54:21-07:00] GPULOG {"t": 745.05, "event": "shard_done", "shard": 24, "n": 4096, "seconds": 27.0, "variants_per_s": 151.5, "elapsed_min": 11.37, "eta_min": 6.4}
+[2026-10-31T00:54:48-07:00] GPULOG {"t": 772.05, "event": "shard_done", "shard": 25, "n": 4096, "seconds": 27.0, "variants_per_s": 151.7, "elapsed_min": 11.82, "eta_min": 5.9}
+[2026-10-31T00:55:15-07:00] GPULOG {"t": 798.9, "event": "shard_done", "shard": 26, "n": 4096, "seconds": 26.9, "variants_per_s": 152.5, "elapsed_min": 12.27, "eta_min": 5.5}
+[2026-10-31T00:55:42-07:00] GPULOG {"t": 825.81, "event": "shard_done", "shard": 27, "n": 4096, "seconds": 26.9, "variants_per_s": 152.2, "elapsed_min": 12.72, "eta_min": 5.0}
+[2026-10-31T00:56:09-07:00] GPULOG {"t": 852.7, "event": "shard_done", "shard": 28, "n": 4096, "seconds": 26.9, "variants_per_s": 152.3, "elapsed_min": 13.17, "eta_min": 4.6}
+[2026-10-31T00:56:36-07:00] GPULOG {"t": 879.78, "event": "shard_done", "shard": 29, "n": 4096, "seconds": 27.1, "variants_per_s": 151.2, "elapsed_min": 13.62, "eta_min": 4.1}
+[2026-10-31T00:57:03-07:00] GPULOG {"t": 906.8, "event": "shard_done", "shard": 30, "n": 4096, "seconds": 27.0, "variants_per_s": 151.6, "elapsed_min": 14.07, "eta_min": 3.7}
+[2026-10-31T00:57:30-07:00] GPULOG {"t": 933.87, "event": "shard_done", "shard": 31, "n": 4096, "seconds": 27.1, "variants_per_s": 151.3, "elapsed_min": 14.52, "eta_min": 3.2}
+[2026-10-31T00:57:57-07:00] GPULOG {"t": 960.95, "event": "shard_done", "shard": 32, "n": 4096, "seconds": 27.1, "variants_per_s": 151.2, "elapsed_min": 14.97, "eta_min": 2.8}
+[2026-10-31T00:58:24-07:00] GPULOG {"t": 988.01, "event": "shard_done", "shard": 33, "n": 4096, "seconds": 27.1, "variants_per_s": 151.4, "elapsed_min": 15.42, "eta_min": 2.3}
+[2026-10-31T00:58:51-07:00] GPULOG {"t": 1015.06, "event": "shard_done", "shard": 34, "n": 4096, "seconds": 27.1, "variants_per_s": 151.4, "elapsed_min": 15.87, "eta_min": 1.8}
+[2026-10-31T00:59:18-07:00] GPULOG {"t": 1041.96, "event": "shard_done", "shard": 35, "n": 4096, "seconds": 26.9, "variants_per_s": 152.3, "elapsed_min": 16.32, "eta_min": 1.4}
+[2026-10-31T00:59:45-07:00] GPULOG {"t": 1068.96, "event": "shard_done", "shard": 36, "n": 4096, "seconds": 27.0, "variants_per_s": 151.7, "elapsed_min": 16.77, "eta_min": 0.9}
+[2026-10-31T01:00:12-07:00] GPULOG {"t": 1095.82, "event": "shard_done", "shard": 37, "n": 4096, "seconds": 26.9, "variants_per_s": 152.5, "elapsed_min": 17.22, "eta_min": 0.5}
+[2026-10-31T01:00:39-07:00] GPULOG {"t": 1122.73, "event": "shard_done", "shard": 38, "n": 4096, "seconds": 26.9, "variants_per_s": 152.3, "elapsed_min": 17.67, "eta_min": 0.0}
+[2026-10-31T01:00:41-07:00] GPULOG {"t": 1124.52, "event": "shard_done", "shard": 39, "n": 256, "seconds": 1.8, "variants_per_s": 142.6, "elapsed_min": 17.7, "eta_min": 0.0}
+[2026-10-31T01:00:43-07:00] GPULOG {"t": 1126.42, "event": "assembled", "variants": 160000, "shards": 40}
+[2026-10-31T01:00:48-07:00] RESULT_JSON main_summary {"variants_done": 160000, "variants_planned": 160000, "complete_library": true, "seed": 20261031, "order": "seeded permutation prefix; label-free", "wt_masked_table_shape": [4, 20], "te_model": {"repo": "nvidia/esm2_t33_650M_UR50D", "revision": "118f470e7e96ba8741227ab898e54758850e9563"}, "pca_k": 64, "pca_meanpool_explained_variance_ratio_sum": 0.9803413152694702, "pca_sites_explained_variance_ratio_sum": 0.934725284576416, "unique_variants": 160000, "genotype_first5": ["PTCT", "KQQA", "LEFL", "IHEV", "SAPP"], "compact_artifacts": {"zeroshot_prior.npz": {"bytes": 5058812, "sha256": "f4a0a0753c66724faa824dc9276dd03567942ae80b474287a119b5aae688532e"}, "embedding_meanpool_pca64.npz": {"bytes": 19977260, "sha256": "777d863b125ac653009ad501a5c188871d1ebc786f19fd6663b1f074c945b596"}, "embedding_sites_pca64.npz": {"bytes": 20720927, "sha256": "a9d4aa548c290296b014482b78db9052ee0ac88eac6ab60e624e46a46e574b9a"}}}
+[2026-10-31T01:00:48-07:00] RESULT_FILE {"name": "zeroshot_prior.npz", "bytes": 5058812, "sha256": "f4a0a0753c66724faa824dc9276dd03567942ae80b474287a119b5aae688532e", "chunks": 1125}
+[2026-10-31T01:00:57-07:00] RESULT_END zeroshot_prior.npz
+[2026-10-31T01:00:57-07:00] RESULT_FILE {"name": "embedding_meanpool_pca64.npz", "bytes": 19977260, "sha256": "777d863b125ac653009ad501a5c188871d1ebc786f19fd6663b1f074c945b596", "chunks": 4440}
+[2026-10-31T01:01:32-07:00] RESULT_END embedding_meanpool_pca64.npz
+[2026-10-31T01:01:32-07:00] RESULT_FILE {"name": "embedding_sites_pca64.npz", "bytes": 20720927, "sha256": "a9d4aa548c290296b014482b78db9052ee0ac88eac6ab60e624e46a46e574b9a", "chunks": 4605}
+[2026-10-31T01:02:09-07:00] RESULT_END embedding_sites_pca64.npz
+[2026-10-31T01:02:09-07:00] GPULOG {"t": 1212.9, "event": "main_done", "variants_done": 160000, "variants_planned": 160000, "complete_library": true, "seed": 20261031, "order": "seeded permutation prefix; label-free", "wt_masked_table_shape": [4, 20], "te_model": {"repo": "nvidia/esm2_t33_650M_UR50D", "revision": "118f470e7e96ba8741227ab898e54758850e9563"}, "pca_k": 64, "pca_meanpool_explained_variance_ratio_sum": 0.9803413152694702, "pca_sites_explained_variance_ratio_sum": 0.934725284576416, "unique_variants": 160000, "genotype_first5": ["PTCT", "KQQA", "LEFL", "IHEV", "SAPP"]}
+[2026-10-31T01:02:09-07:00] GPULOG {"t": 1212.92, "event": "done", "wall_seconds": 1212.9}
+[2026-10-31T01:02:11-07:00] ENTRY exit=0 2026-10-31T08:02:11Z
+[2026-10-31T01:02:11-07:00] total 4
+[2026-10-31T01:02:11-07:00] drwxrwxrwx 2 root root    0 Oct 31 07:35 .
+[2026-10-31T01:02:11-07:00] drwxr-xr-x 1 root root 4096 Oct 31 07:41 ..
+[2026-10-31T01:02:11-07:00] drwxrwxrwx 2 root root    0 Oct 31 07:35 main
+[2026-10-31T01:02:11-07:00] drwxrwxrwx 2 root root    0 Oct 31 07:35 probe
