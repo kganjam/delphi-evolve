@@ -66,7 +66,7 @@
   "critic/director to wire scope_verdict into audit runner; map wellmixed_unstable",
   "if wanted: extend PDE to Dirichlet and a third kinetics model; GPU not needed (CPU sweep 18 min under load)"
  ],
- "wall_time_seattle": "2026-10-31 05:58 PDT start; memo pushed 07:01; oracle layer pushed about 08:00 (from `date`)",
+ "wall_time_seattle": "2026-10-31 05:58 PDT start; memo pushed 07:01; oracle layer pushed 07:37 (from `date`)",
  "nca_post_hoc_v2": {
   "description": "no hidden channels, 32-step windows, 2 seeds, 1000 iters",
   "independent_success": [
