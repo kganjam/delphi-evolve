@@ -1,0 +1,220 @@
+{
+ "run_id": "MP_r1",
+ "arm": "private",
+ "family": "claude",
+ "model_requested": "sonnet",
+ "agents": 3,
+ "families": [
+  "claude",
+  "gemini",
+  "minimax"
+ ],
+ "budget_tokens": 1200000,
+ "max_calls": 30,
+ "calls_used": 27,
+ "tokens_spent": 133175,
+ "n_targets": 19,
+ "n_proved": 19,
+ "proved": [
+  {
+   "task": "T01",
+   "t_s": 14.2,
+   "tokens_cum": 2551,
+   "tries": 1,
+   "agent": "private-claude",
+   "used_commons": []
+  },
+  {
+   "task": "T03",
+   "t_s": 21.8,
+   "tokens_cum": 5475,
+   "tries": 1,
+   "agent": "private-claude",
+   "used_commons": [
+    {
+     "author": "private-claude",
+     "name": "T01"
+    }
+   ]
+  },
+  {
+   "task": "T04",
+   "t_s": 29.8,
+   "tokens_cum": 8899,
+   "tries": 1,
+   "agent": "private-claude",
+   "used_commons": []
+  },
+  {
+   "task": "T05",
+   "t_s": 39.5,
+   "tokens_cum": 12576,
+   "tries": 1,
+   "agent": "private-claude",
+   "used_commons": []
+  },
+  {
+   "task": "T06",
+   "t_s": 47.1,
+   "tokens_cum": 15943,
+   "tries": 1,
+   "agent": "private-claude",
+   "used_commons": [
+    {
+     "author": "private-claude",
+     "name": "T05"
+    }
+   ]
+  },
+  {
+   "task": "T07",
+   "t_s": 62.3,
+   "tokens_cum": 20565,
+   "tries": 1,
+   "agent": "private-claude",
+   "used_commons": [
+    {
+     "author": "private-claude",
+     "name": "T05"
+    }
+   ]
+  },
+  {
+   "task": "T02",
+   "t_s": 75.5,
+   "tokens_cum": 30758,
+   "tries": 1,
+   "agent": "private-gemini",
+   "used_commons": []
+  },
+  {
+   "task": "T08",
+   "t_s": 78.0,
+   "tokens_cum": 35306,
+   "tries": 1,
+   "agent": "private-claude",
+   "used_commons": []
+  },
+  {
+   "task": "H02",
+   "t_s": 82.3,
+   "tokens_cum": 38516,
+   "tries": 1,
+   "agent": "private-claude",
+   "used_commons": []
+  },
+  {
+   "task": "H03",
+   "t_s": 86.5,
+   "tokens_cum": 44573,
+   "tries": 1,
+   "agent": "private-claude",
+   "used_commons": []
+  },
+  {
+   "task": "H01",
+   "t_s": 86.5,
+   "tokens_cum": 44573,
+   "tries": 1,
+   "agent": "private-gemini",
+   "used_commons": []
+  },
+  {
+   "task": "D01",
+   "t_s": 90.6,
+   "tokens_cum": 49720,
+   "tries": 1,
+   "agent": "private-gemini",
+   "used_commons": []
+  },
+  {
+   "task": "H04",
+   "t_s": 91.6,
+   "tokens_cum": 49720,
+   "tries": 1,
+   "agent": "private-claude",
+   "used_commons": []
+  },
+  {
+   "task": "D02",
+   "t_s": 94.2,
+   "tokens_cum": 51384,
+   "tries": 1,
+   "agent": "private-gemini",
+   "used_commons": []
+  },
+  {
+   "task": "T09",
+   "t_s": 129.4,
+   "tokens_cum": 70168,
+   "tries": 3,
+   "agent": "private-claude",
+   "used_commons": [
+    {
+     "author": "private-claude",
+     "name": "T04"
+    }
+   ]
+  },
+  {
+   "task": "T11",
+   "t_s": 136.3,
+   "tokens_cum": 79887,
+   "tries": 1,
+   "agent": "private-claude",
+   "used_commons": [
+    {
+     "author": "private-claude",
+     "name": "T07"
+    }
+   ]
+  },
+  {
+   "task": "T12",
+   "t_s": 141.7,
+   "tokens_cum": 83724,
+   "tries": 1,
+   "agent": "private-claude",
+   "used_commons": [
+    {
+     "author": "private-claude",
+     "name": "T03"
+    },
+    {
+     "author": "private-claude",
+     "name": "T05"
+    }
+   ]
+  },
+  {
+   "task": "Q01",
+   "t_s": 177.1,
+   "tokens_cum": 104396,
+   "tries": 3,
+   "agent": "private-minimax",
+   "used_commons": []
+  },
+  {
+   "task": "T10",
+   "t_s": 305.5,
+   "tokens_cum": 133175,
+   "tries": 2,
+   "agent": "private-gemini",
+   "used_commons": [
+    {
+     "author": "private-gemini",
+     "name": "T02"
+    }
+   ]
+  }
+ ],
+ "reuse": {
+  "certified_with_library_lemma": 7,
+  "cross_agent_uses": 0,
+  "total_lemma_uses": 8
+ },
+ "failed_tasks": [],
+ "wall_s": 305.5,
+ "contract_sha256": "f788e88ed2a20030d4686c79721b51b1c16aee8cf5b8e9b4d3969c7ce3548272",
+ "targets_sha256": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce"
+}

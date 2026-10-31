@@ -25,8 +25,9 @@ open Lean Elab Command in
 elab "#deps " n:ident : command => do
   let env ← getEnv
   match env.find? n.getId with
-  | some ci => logInfo m!"DEPS {n.getId} {((ci.value?).map (·.getUsedConstants)).getD #[] |>.toList}"
-  | none => logInfo m!"DEPS none"
+  | some (.thmInfo t) => logInfo m!"DEPS {n.getId} {t.value.getUsedConstants.toList}"
+  | some _ => logInfo m!"DEPS-NOT-A-THEOREM {n.getId}"
+  | none => logInfo m!"DEPS-NONE {n.getId}"
 '''
 
 
@@ -69,6 +70,7 @@ def audit_attempt(run_dir: Path, att: dict, targets: dict, defs: str) -> dict:
     if r.ok:
         out = r.raw
         m = re.search(r"DEPS \S+ \[(.*?)\]", out, re.S)
+        rec["deps_extracted"] = bool(m)
         used = [x.strip() for x in m.group(1).split(",")] if m and m.group(1).strip() else []
         libnames = {e["name"]: e["author"] for e in lib}
         rec["library_deps"] = sorted({u for u in used if u in libnames})

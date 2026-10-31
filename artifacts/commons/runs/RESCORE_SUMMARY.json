@@ -1,0 +1,375 @@
+{
+ "proofs_rescored": 228,
+ "strict": 228,
+ "reconstruction_failures": 0,
+ "mutant_accepted": 0,
+ "helper_structure_violations": 0,
+ "per_run": [
+  {
+   "run": "N_r0",
+   "registered_certified": 19,
+   "strict_certified": 19,
+   "unreconstructed": 0,
+   "mutant_accepted": 0,
+   "deps_extracted_all": true,
+   "regex_lemma_uses_original_summary": 0,
+   "proof_term_library_deps_direct": 0,
+   "proof_term_cross_agent_deps": 0,
+   "targets_with_any_library_dep": 0,
+   "calls_used": 24,
+   "tokens": 85998,
+   "wall_s": 117.7
+  },
+  {
+   "run": "N_r1",
+   "registered_certified": 19,
+   "strict_certified": 19,
+   "unreconstructed": 0,
+   "mutant_accepted": 0,
+   "deps_extracted_all": true,
+   "regex_lemma_uses_original_summary": 0,
+   "proof_term_library_deps_direct": 0,
+   "proof_term_cross_agent_deps": 0,
+   "targets_with_any_library_dep": 0,
+   "calls_used": 21,
+   "tokens": 71349,
+   "wall_s": 92.9
+  },
+  {
+   "run": "N_r2",
+   "registered_certified": 19,
+   "strict_certified": 19,
+   "unreconstructed": 0,
+   "mutant_accepted": 0,
+   "deps_extracted_all": true,
+   "regex_lemma_uses_original_summary": 0,
+   "proof_term_library_deps_direct": 0,
+   "proof_term_cross_agent_deps": 0,
+   "targets_with_any_library_dep": 0,
+   "calls_used": 21,
+   "tokens": 72122,
+   "wall_s": 93.5
+  },
+  {
+   "run": "P_r0",
+   "registered_certified": 19,
+   "strict_certified": 19,
+   "unreconstructed": 0,
+   "mutant_accepted": 0,
+   "deps_extracted_all": true,
+   "regex_lemma_uses_original_summary": 9,
+   "proof_term_library_deps_direct": 9,
+   "proof_term_cross_agent_deps": 0,
+   "targets_with_any_library_dep": 9,
+   "calls_used": 22,
+   "tokens": 79678,
+   "wall_s": 77.1
+  },
+  {
+   "run": "P_r1",
+   "registered_certified": 19,
+   "strict_certified": 19,
+   "unreconstructed": 0,
+   "mutant_accepted": 0,
+   "deps_extracted_all": true,
+   "regex_lemma_uses_original_summary": 7,
+   "proof_term_library_deps_direct": 7,
+   "proof_term_cross_agent_deps": 0,
+   "targets_with_any_library_dep": 7,
+   "calls_used": 22,
+   "tokens": 82133,
+   "wall_s": 95.8
+  },
+  {
+   "run": "P_r2",
+   "registered_certified": 19,
+   "strict_certified": 19,
+   "unreconstructed": 0,
+   "mutant_accepted": 0,
+   "deps_extracted_all": true,
+   "regex_lemma_uses_original_summary": 9,
+   "proof_term_library_deps_direct": 9,
+   "proof_term_cross_agent_deps": 0,
+   "targets_with_any_library_dep": 8,
+   "calls_used": 22,
+   "tokens": 80149,
+   "wall_s": 115.3
+  },
+  {
+   "run": "Q_r0",
+   "registered_certified": 19,
+   "strict_certified": 19,
+   "unreconstructed": 0,
+   "mutant_accepted": 0,
+   "deps_extracted_all": true,
+   "regex_lemma_uses_original_summary": 14,
+   "proof_term_library_deps_direct": 14,
+   "proof_term_cross_agent_deps": 0,
+   "targets_with_any_library_dep": 11,
+   "calls_used": 19,
+   "tokens": 71861,
+   "wall_s": 141.5
+  },
+  {
+   "run": "Q_r1",
+   "registered_certified": 19,
+   "strict_certified": 19,
+   "unreconstructed": 0,
+   "mutant_accepted": 0,
+   "deps_extracted_all": true,
+   "regex_lemma_uses_original_summary": 14,
+   "proof_term_library_deps_direct": 14,
+   "proof_term_cross_agent_deps": 0,
+   "targets_with_any_library_dep": 11,
+   "calls_used": 21,
+   "tokens": 81411,
+   "wall_s": 220.1
+  },
+  {
+   "run": "Q_r2",
+   "registered_certified": 19,
+   "strict_certified": 19,
+   "unreconstructed": 0,
+   "mutant_accepted": 0,
+   "deps_extracted_all": true,
+   "regex_lemma_uses_original_summary": 14,
+   "proof_term_library_deps_direct": 14,
+   "proof_term_cross_agent_deps": 0,
+   "targets_with_any_library_dep": 11,
+   "calls_used": 20,
+   "tokens": 78108,
+   "wall_s": 187.7
+  },
+  {
+   "run": "S_r0",
+   "registered_certified": 19,
+   "strict_certified": 19,
+   "unreconstructed": 0,
+   "mutant_accepted": 0,
+   "deps_extracted_all": true,
+   "regex_lemma_uses_original_summary": 13,
+   "proof_term_library_deps_direct": 13,
+   "proof_term_cross_agent_deps": 8,
+   "targets_with_any_library_dep": 10,
+   "calls_used": 21,
+   "tokens": 75858,
+   "wall_s": 58.6
+  },
+  {
+   "run": "S_r1",
+   "registered_certified": 19,
+   "strict_certified": 19,
+   "unreconstructed": 0,
+   "mutant_accepted": 0,
+   "deps_extracted_all": true,
+   "regex_lemma_uses_original_summary": 13,
+   "proof_term_library_deps_direct": 13,
+   "proof_term_cross_agent_deps": 7,
+   "targets_with_any_library_dep": 10,
+   "calls_used": 22,
+   "tokens": 84090,
+   "wall_s": 71.9
+  },
+  {
+   "run": "S_r2",
+   "registered_certified": 19,
+   "strict_certified": 19,
+   "unreconstructed": 0,
+   "mutant_accepted": 0,
+   "deps_extracted_all": true,
+   "regex_lemma_uses_original_summary": 14,
+   "proof_term_library_deps_direct": 14,
+   "proof_term_cross_agent_deps": 6,
+   "targets_with_any_library_dep": 11,
+   "calls_used": 21,
+   "tokens": 79784,
+   "wall_s": 93.2
+  }
+ ],
+ "by_arm": {
+  "N": {
+   "runs": 3,
+   "registered": [
+    19,
+    19,
+    19
+   ],
+   "strict": [
+    19,
+    19,
+    19
+   ],
+   "calls": [
+    24,
+    21,
+    21
+   ],
+   "tokens": [
+    85998,
+    71349,
+    72122
+   ],
+   "wall_s": [
+    117.7,
+    92.9,
+    93.5
+   ],
+   "proof_term_library_deps": [
+    0,
+    0,
+    0
+   ],
+   "cross_agent_deps": [
+    0,
+    0,
+    0
+   ],
+   "regex_uses_original": [
+    0,
+    0,
+    0
+   ],
+   "median_calls": 21,
+   "median_tokens": 72122,
+   "median_wall_s": 93.5
+  },
+  "P": {
+   "runs": 3,
+   "registered": [
+    19,
+    19,
+    19
+   ],
+   "strict": [
+    19,
+    19,
+    19
+   ],
+   "calls": [
+    22,
+    22,
+    22
+   ],
+   "tokens": [
+    79678,
+    82133,
+    80149
+   ],
+   "wall_s": [
+    77.1,
+    95.8,
+    115.3
+   ],
+   "proof_term_library_deps": [
+    9,
+    7,
+    9
+   ],
+   "cross_agent_deps": [
+    0,
+    0,
+    0
+   ],
+   "regex_uses_original": [
+    9,
+    7,
+    9
+   ],
+   "median_calls": 22,
+   "median_tokens": 80149,
+   "median_wall_s": 95.8
+  },
+  "Q": {
+   "runs": 3,
+   "registered": [
+    19,
+    19,
+    19
+   ],
+   "strict": [
+    19,
+    19,
+    19
+   ],
+   "calls": [
+    19,
+    21,
+    20
+   ],
+   "tokens": [
+    71861,
+    81411,
+    78108
+   ],
+   "wall_s": [
+    141.5,
+    220.1,
+    187.7
+   ],
+   "proof_term_library_deps": [
+    14,
+    14,
+    14
+   ],
+   "cross_agent_deps": [
+    0,
+    0,
+    0
+   ],
+   "regex_uses_original": [
+    14,
+    14,
+    14
+   ],
+   "median_calls": 20,
+   "median_tokens": 78108,
+   "median_wall_s": 187.7
+  },
+  "S": {
+   "runs": 3,
+   "registered": [
+    19,
+    19,
+    19
+   ],
+   "strict": [
+    19,
+    19,
+    19
+   ],
+   "calls": [
+    21,
+    22,
+    21
+   ],
+   "tokens": [
+    75858,
+    84090,
+    79784
+   ],
+   "wall_s": [
+    58.6,
+    71.9,
+    93.2
+   ],
+   "proof_term_library_deps": [
+    13,
+    13,
+    14
+   ],
+   "cross_agent_deps": [
+    8,
+    7,
+    6
+   ],
+   "regex_uses_original": [
+    13,
+    13,
+    14
+   ],
+   "median_calls": 21,
+   "median_tokens": 79784,
+   "median_wall_s": 71.9
+  }
+ }
+}

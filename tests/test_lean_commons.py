@@ -273,3 +273,18 @@ def test_publish_is_atomic_and_dedups_helper_names(tmp_path):
     ok2, st2 = c.store("a0").add_many([{"name": "fresh", "statement": "True", "source": "x", "author": "z", "task": None},
                                        {"name": "T02", "statement": "DIFFERENT", "source": "x", "author": "z", "task": None}])
     assert not ok2 and "fresh" not in [e["name"] for e in c.store("a0").entries()]
+
+
+def test_dependency_extractor_positive_control_detects_library_use_and_not_unused():
+    """Regression: an earlier extractor silently returned [] for every theorem (ConstantInfo.value? is none for theorems)."""
+    from lean_commons import audit as A
+    T = {t["id"]: t for t in L.load_targets()}
+    lib = [{"name": "T02", "source": f"theorem T02 : {T['T02']['statement']} := {REF['T02']}"},
+           {"name": "T01", "source": f"theorem T01 : {T['T01']['statement']} := {REF['T01']}"}]
+    src = L.assemble(L.load_defs(), lib, "", "T05", T["T05"]["statement"], REF["T05"])   # reference T05 rewrites with T02
+    r = L.check_source(src + A.DEPS_CMD + "\n#deps T05\n", ["T05"], scan_text="")
+    import re as _re
+    m = _re.search(r"DEPS \S+ \[(.*?)\]", r.raw, _re.S)
+    assert m is not None
+    used = {x.strip() for x in m.group(1).split(",")}
+    assert "T02" in used and "T01" not in used
