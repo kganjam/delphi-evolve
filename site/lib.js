@@ -6,9 +6,12 @@
  * Edge rule (the same dominance condition the Lean certificate is about):
  *   a step v -> w is ACCEPTED iff  L(w) >= U(v)
  * where, with assumed per-measurement error bound eps,
+ *   readnoise mode: L = mean - e, U = mean + e with e = ceil(kappa*sd_bin/2*1e6)/1e6, sd_bin the
+ *                   core worker's declared replicate-difference SD for the read-count bin;
+ *                   the slider value is kappa (assumed sensitivity multiplier).
  *   envelope mode:  L = min(rep1, rep2) - eps,  U = max(rep1, rep2) + eps
  *   point mode:     L = mean - eps,             U = mean + eps
- * eps is an ASSUMPTION chosen by the viewer, not an estimated confidence level.
+ * eps / kappa is an ASSUMPTION chosen by the viewer, not an estimated confidence level.
  * An edge touching an unmeasured genotype is UNKNOWN, never accepted or rejected.
  */
 (function (root, factory) {
@@ -20,6 +23,10 @@
   const N = 160000;
   const W = [8000, 400, 20, 1];
   const MISSING = -32768;
+  const SCALE = 50000; // landscape.js stores score x 50000 in int16
+  const SD = [0.014953, 0.009995, 0.005851, 0.002992]; // core's declared noise model (see landscape.meta.json)
+  const SD_EDGES = [20, 50, 200];
+  const sdBin = (c) => (c >= SD_EDGES[2] ? 3 : c >= SD_EDGES[1] ? 2 : c >= SD_EDGES[0] ? 1 : 0);
 
   function b64ToBytes(s) {
     if (typeof atob === "function") {
@@ -34,21 +41,22 @@
   function decode(pack) {
     const r1raw = new Int16Array(b64ToBytes(pack.r1).buffer);
     const r2raw = new Int16Array(b64ToBytes(pack.r2).buffer);
-    const flags = b64ToBytes(pack.cnt);
+    const cnt = new Uint16Array(b64ToBytes(pack.cnt).buffer);
+    const act = b64ToBytes(pack.act);
     const measured = new Uint8Array(N);
     const mn = new Float32Array(N), mx = new Float32Array(N), mean = new Float32Array(N);
-    const reads = new Uint8Array(N), active = new Uint8Array(N);
+    const sd = new Float32Array(N), reads = new Uint16Array(N), active = new Uint8Array(N);
     for (let i = 0; i < N; i++) {
       if (r1raw[i] === MISSING || r2raw[i] === MISSING) {
-        mn[i] = mx[i] = mean[i] = NaN;
+        mn[i] = mx[i] = mean[i] = sd[i] = NaN;
         continue;
       }
       measured[i] = 1;
-      const a = r1raw[i] / 1e4, b = r2raw[i] / 1e4;
+      const a = r1raw[i] / SCALE, b = r2raw[i] / SCALE;
       mn[i] = Math.min(a, b); mx[i] = Math.max(a, b); mean[i] = (a + b) / 2;
-      reads[i] = flags[i] & 127; active[i] = flags[i] >> 7;
+      reads[i] = cnt[i]; active[i] = act[i]; sd[i] = SD[sdBin(cnt[i])];
     }
-    return { measured, mn, mx, mean, reads, active, r1raw, r2raw, meta: pack.meta, unknown: pack.unknown };
+    return { measured, mn, mx, mean, sd, reads, active, r1raw, r2raw, scale: SCALE, meta: pack.meta, unknown: pack.unknown };
   }
 
   const idxOf = (g) => {
@@ -72,15 +80,20 @@
     return d;
   };
 
-  /* base(v,w): eps-free dominance gap. margin = base - 2*eps; accepted iff margin >= 0. */
-  function baseGap(D, v, w, mode) {
+  /* margin = L(w) - U(v) for parameter x (eps, or kappa in readnoise mode). Accepted iff >= 0. */
+  const halfWidth = (D, i, x, mode) => (mode === "readnoise" ? Math.ceil((x * D.sd[i]) / 2 * 1e6) / 1e6 : x);
+  function margin(D, v, w, x, mode) {
     if (!D.measured[v] || !D.measured[w]) return null;
-    return mode === "point" ? D.mean[w] - D.mean[v] : D.mn[w] - D.mx[v];
+    if (mode === "envelope") return D.mn[w] - x - (D.mx[v] + x);
+    return D.mean[w] - halfWidth(D, w, x, mode) - (D.mean[v] + halfWidth(D, v, x, mode));
   }
-  const margin = (D, v, w, eps, mode) => {
-    const b = baseGap(D, v, w, mode);
-    return b === null ? null : b - 2 * eps;
-  };
+  /* The largest parameter at which the edge is still accepted (widest-path capacity). */
+  function edgeCap(D, v, w, mode) {
+    if (!D.measured[v] || !D.measured[w]) return null;
+    if (mode === "envelope") return (D.mn[w] - D.mx[v]) / 2;
+    if (mode === "point") return (D.mean[w] - D.mean[v]) / 2;
+    return (D.mean[w] - D.mean[v]) / ((D.sd[v] + D.sd[w]) / 2);
+  }
   const edgeStatus = (D, v, w, eps, mode) => {
     const m = margin(D, v, w, eps, mode);
     return m === null ? "unknown" : m >= 0 ? "accepted" : "rejected";
@@ -132,7 +145,7 @@
   }
 
   /* Largest eps for which a measured-only route exists: max over routes of min over
-   * steps of baseGap/2 (widest path; exact, independent of the slider). */
+   * steps of the per-edge capacity (widest path; exact up to read-count ceil rounding, independent of the slider). */
   function maxEps(D, start, target, mode) {
     if (!D.measured[start] || !D.measured[target]) return null;
     const width = new Float32Array(N).fill(-Infinity);
@@ -176,9 +189,9 @@
           if (a === cur) continue;
           const w = baseIdx + a * W[p];
           if (done[w]) continue;
-          const b = baseGap(D, v, w, mode);
-          if (b === null) continue;
-          const nw = Math.min(wd, b / 2);
+          const cap = edgeCap(D, v, w, mode);
+          if (cap === null) continue;
+          const nw = Math.min(wd, cap);
           if (nw > width[w]) { width[w] = nw; push(nw, w); }
         }
       }
@@ -267,6 +280,6 @@
     return { total: out.length, top: out.slice(0, limit || 5), reachableMeasured: s.reached };
   }
 
-  return { AA, N, W, decode, idxOf, genoOf, hamming, baseGap, margin, edgeStatus, search, maxEps,
+  return { AA, N, W, halfWidth, SD, SD_EDGES, decode, idxOf, genoOf, hamming, margin, edgeCap, edgeStatus, search, maxEps,
            directOrderings, decide, assayCandidates };
 });

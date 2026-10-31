@@ -47,7 +47,7 @@ sub:provenance {
 }
 
 sub:pubinfo {
-  this: dct:created "2026-10-31T07:04:29Z"^^xsd:dateTime ;
+  this: dct:created "2026-10-31T07:15:26Z"^^xsd:dateTime ;
     rdfs:label "Draft: observed landscape counts" ;
     npx:hasNanopubType delphi:Claim ;
     de:signatureStatus "UNSIGNED DRAFT: no trusty URI assigned, not published to any nanopub network" ;

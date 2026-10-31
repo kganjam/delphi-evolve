@@ -8,6 +8,10 @@
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const fmt = (x, d) => (x === null || x === undefined || Number.isNaN(x) ? "unknown" : Number(x).toFixed(d === undefined ? 4 : d));
   const POS = [183, 184, 227, 228];
+  const DEFAULT_PARAM = { readnoise: 2, envelope: 0, point: 0 };
+  const SLIDER = { readnoise: { max: 6, step: 0.1, sym: "κ", dec: 1 }, envelope: { max: 0.03, step: 0.0005, sym: "ε", dec: 4 }, point: { max: 0.03, step: 0.0005, sym: "ε", dec: 4 } };
+  const sym = () => SLIDER[state.mode].sym;
+  const pfmt = (x) => Number(x).toFixed(SLIDER[state.mode].dec);
 
   if (!window.TRPB_LANDSCAPE) {
     $("#ledger").innerHTML = '<li class="no"><span class="st">✕</span>landscape.js did not load — nothing to show</li>';
@@ -15,7 +19,7 @@
   }
   const D = L.decode(window.TRPB_LANDSCAPE);
   const state = {
-    start: L.idxOf("VFVS"), target: L.idxOf("AIKG"), eps: 0, mode: "envelope", lens: "growth",
+    start: L.idxOf("VFVS"), target: L.idxOf("AIKG"), eps: 2, mode: "readnoise", lens: "growth",
     sel: { node: L.idxOf("VFVS"), step: null }, baseRoute: null, decision: null, reach: null,
     demo: null, ev: null, tab: "decision", maxEps: null,
   };
@@ -41,9 +45,9 @@
     reads: ramp(["#f3efe4", "#e1d7ee", "#b3a0d8", "#7b5fb8", "#4b2f8a", "#24114d"].map(hex)),
   };
   const LENS = {
-    growth: { f: (i) => Math.pow(Math.max(0, Math.min(1, D.mean[i] / 0.36)), 0.55), label: "growth rate μ (bg-subtracted)", lo: "0", hi: "0.36" },
+    growth: { f: (i) => Math.pow(Math.max(0, Math.min(1, D.mean[i] / 0.36)), 0.55), label: "growth rate μ − stop-codon mean", lo: "0", hi: "0.36" },
     disagree: { f: (i) => Math.pow(Math.min(1, (D.mx[i] - D.mn[i]) / 0.05), 0.6), label: "|replicate 1 − replicate 2|", lo: "0", hi: "≥0.05" },
-    reads: { f: (i) => 1 - Math.log(1 + D.reads[i]) / Math.log(128), label: "fewer input reads (min of 2 replicates)", lo: "≥127", hi: "0" },
+    reads: { f: (i) => 1 - Math.log(1 + Math.min(D.reads[i], 127)) / Math.log(128), label: "fewer input reads (min of 2 replicates)", lo: "≥127", hi: "0 reads" },
   };
 
   /* ---------------- map canvas ---------------- */
@@ -224,7 +228,7 @@
   function compute() {
     const key = state.start + ":" + state.target + ":" + state.mode;
     if (state._baseKey !== key) {
-      const b = L.decide(D, state.start, state.target, 0, state.mode);
+      const b = L.decide(D, state.start, state.target, 0, state.mode); // the "tempting" route: no assumed error at all
       state.baseRoute = b.route || null; state._baseKey = key; state.maxEps = null; state._maxPending = true;
     }
     state.decision = L.decide(D, state.start, state.target, state.eps, state.mode);
@@ -267,8 +271,9 @@
         <p>Everything reachable from ${esc(sName)} under these assumptions is a closed set of <strong>${d.closedSetSize.toLocaleString()}</strong> genotypes; all <strong>${d.boundaryEdges.toLocaleString()}</strong> single-substitution edges leaving it are rejected.${nr ? ` Nearest miss: <code>${L.genoOf(nr.from)} → ${L.genoOf(nr.to)}</code> misses by ${fmt(-nr.margin, 4)}.` : ""}</p>
         <p class="hint">This is a certificate about the measured four-residue graph at this assumed error bound. It does not show that no evolutionary path exists in the full protein sequence space.</p></div>`;
     }
+    const dd = state.mode === "readnoise" ? 100 : 1e4;
     const brk = (state.maxEps === null && state._maxPending) ? "computing…"
-      : state.maxEps === null ? "n/a" : state.maxEps === -Infinity ? "no measured-only route exists at any assumption" : `ε ≤ ${(Math.floor(state.maxEps * 1e4) / 1e4).toFixed(4)} (rounded down)`;
+      : state.maxEps === null ? "n/a" : state.maxEps === -Infinity ? "no measured-only route exists at any assumption" : state.maxEps < 0 ? `none: fails even at ${sym()}=0` : `${sym()} ≤ ${(Math.floor(state.maxEps * dd) / dd).toFixed(SLIDER[state.mode].dec)} (rounded down)`;
     const direct = L.directOrderings(D, state.start, state.target, eps, state.mode);
     const dAcc = direct.filter((x) => x.accepted).length;
     const cand = (d.status === "blocked" || d.status === "undetermined") && !unmeasured ? L.assayCandidates(D, state.start, state.target, eps, state.mode, 5) : null;
@@ -278,12 +283,13 @@
       <div class="row"><input id="in-s" type="text" maxlength="4" value="${sName}" aria-label="Start genotype"><span aria-hidden="true">→</span><input id="in-t" type="text" maxlength="4" value="${tName}" aria-label="Target genotype"><button class="btn" id="go">Set</button></div>
       <div class="presets">${presets.map((p, k) => `<button class="btn" data-pre="${k}" title="${esc(p[2])}">${p[0]}→${p[1]}</button>`).join("")}</div>
       <p class="hint">Residues: ${POS.join(" · ")}. Parent VFVS is the study’s starting enzyme; AIKG is the highest measured variant in the table.</p>
-      <div class="slider-head"><label for="eps">Assumed error bound ε on every measurement <span class="chip unknown">assumed</span></label><output id="eps-out">${fmt(eps, 4)}</output></div>
-      <input id="eps" type="range" min="0" max="0.03" step="0.0005" value="${eps}" aria-describedby="eps-hint">
-      <p id="eps-hint" class="hint">Not an estimated confidence level. Each measurement is allowed to be wrong by ±ε beyond the range spanned by its two replicates. ε=0 uses only the replicate range.</p>
-      <div class="row"><label><input type="radio" name="mode" value="envelope" ${state.mode === "envelope" ? "checked" : ""}> replicate range</label>
-      <label><input type="radio" name="mode" value="point" ${state.mode === "point" ? "checked" : ""}> replicate mean (point values)</label></div>
-      <div class="row"><button class="btn primary" id="challenge">Challenge the assumption ▶</button><button class="btn" id="reset">Reset ε</button></div>`;
+      <div class="slider-head"><label for="eps">${state.mode === "readnoise" ? "Assumed sensitivity κ (noise multiplier)" : "Assumed error bound ε on every measurement"} <span class="chip unknown">assumed</span></label><output id="eps-out">${pfmt(eps)}</output></div>
+      <input id="eps" type="range" min="0" max="${SLIDER[state.mode].max}" step="${SLIDER[state.mode].step}" value="${eps}" aria-describedby="eps-hint">
+      <p id="eps-hint" class="hint">${state.mode === "readnoise" ? "Not a confidence level. Each measurement’s half-width is κ × (replicate-difference SD for its read-count bin) / 2, using the core worker’s declared noise model: κ=0 trusts the replicate mean exactly; κ=2 is core’s default; low-read genotypes get wider intervals." : state.mode === "envelope" ? "Not an estimated confidence level. Each measurement may be wrong by ±ε beyond the range spanned by its two replicates; ε=0 uses only that range." : "Not an estimated confidence level. Each replicate mean may be wrong by ±ε; ε=0 trusts the mean exactly."}</p>
+      <div class="row"><label><input type="radio" name="mode" value="readnoise" ${state.mode === "readnoise" ? "checked" : ""}> read-count noise model</label>
+      <label><input type="radio" name="mode" value="envelope" ${state.mode === "envelope" ? "checked" : ""}> replicate range ± ε</label>
+      <label><input type="radio" name="mode" value="point" ${state.mode === "point" ? "checked" : ""}> replicate mean ± ε</label></div>
+      <div class="row"><button class="btn primary" id="challenge">Challenge the assumption ▶</button><button class="btn" id="reset">Reset ${sym()}</button></div>`;
     const dyn = `${verdict}
       <table class="kv"><tr><th>Breaks beyond</th><td>${brk}</td></tr>
         <tr><th>Reachable from start</th><td>${state.reachCount.toLocaleString()} measured genotypes</td></tr>
@@ -297,7 +303,7 @@
         <p class="hint">Margin = lower bound of the next genotype − upper bound of the current one. Negative means the route passes through a genotype measurably worse than where it came from.</p></details>`;
     if (!$("#dec-ctl") || force) { el.innerHTML = `<div id="dec-ctl">${ctl}</div><div id="dec-dyn"></div>`; bindDecision(); }
     $("#dec-dyn").innerHTML = dyn;
-    $("#eps-out").textContent = fmt(eps, 4);
+    $("#eps-out").textContent = pfmt(eps);
     if (document.activeElement !== $("#eps")) $("#eps").value = eps;
     renderDecisionSteps();
   }
@@ -305,7 +311,7 @@
   function renderDecisionSteps() {
     const slot = $("#steps-slot"); if (!slot) return;
     const d = state.decision; const route = d && d.route;
-    if (!route) { slot.innerHTML = state.baseRoute ? `<h3>The route that worked at ε=0, now failing</h3>${stepsHtml(state.baseRoute, true)}` : ""; bindSteps(state.baseRoute); return; }
+    if (!route) { slot.innerHTML = state.baseRoute ? `<h3>The route that worked at ${sym()}=0, now failing</h3>${stepsHtml(state.baseRoute, true)}` : ""; bindSteps(state.baseRoute); return; }
     slot.innerHTML = `<h3>Route</h3>${stepsHtml(route, false)}`; bindSteps(route);
   }
   function stepsHtml(route, ghost) {
@@ -317,7 +323,7 @@
       const m = L.margin(D, route[k], route[k + 1], state.eps, state.mode), cls = m === null ? "unk" : m < 0 ? "fail" : k === weakest ? "weak" : "";
       h += `<li class="${cls}"><button data-k="${k + 1}" ${state.sel.step === k + 1 ? 'aria-current="true"' : ""}><span class="n">${k + 1}</span><span class="g">${L.genoOf(route[k + 1])}<small>${mutLabel(route[k], route[k + 1])} · μ ${fmt(D.mean[route[k + 1]], 3)}</small></span><span class="m">${m === null ? "unmeasured" : "margin " + fmt(m, 4)}</span></button></li>`;
     }
-    return h + "</ol>" + (ghost ? `<p class="hint">Steps marked ✕ no longer satisfy the dominance condition at the current ε.</p>` : "");
+    return h + "</ol>" + (ghost ? `<p class="hint">Steps marked ✕ no longer satisfy the dominance condition at the current ${sym()}.</p>` : "");
   }
   function bindSteps(route) {
     document.querySelectorAll("#steps-slot .steps button").forEach((b) => b.addEventListener("click", () => {
@@ -330,13 +336,13 @@
   function bindDecision() {
     const epsEl = $("#eps");
     epsEl.addEventListener("input", () => { setEps(+epsEl.value); });
-    $("#reset").addEventListener("click", () => setEps(0));
+    $("#reset").addEventListener("click", () => setEps(DEFAULT_PARAM[state.mode]));
     $("#go").addEventListener("click", applyInputs);
     ["#in-s", "#in-t"].forEach((s) => $(s).addEventListener("keydown", (e) => { if (e.key === "Enter") applyInputs(); }));
     document.querySelectorAll("[data-pre]").forEach((b) => b.addEventListener("click", () => {
       const p = presets[+b.dataset.pre]; state.start = L.idxOf(p[0]); state.target = L.idxOf(p[1]); state.sel = { node: state.start, step: null }; recompute(true);
     }));
-    document.querySelectorAll("input[name=mode]").forEach((r) => r.addEventListener("change", () => { state.mode = r.value; recompute(true); }));
+    document.querySelectorAll("input[name=mode]").forEach((r) => r.addEventListener("change", () => { state.mode = r.value; state.eps = DEFAULT_PARAM[r.value]; recompute(true); }));
     $("#challenge").addEventListener("click", challenge);
   }
   function applyInputs() {
@@ -345,17 +351,18 @@
     state.start = s; state.target = t; state.sel = { node: s, step: null }; recompute(true);
   }
   function setEps(v) {
-    state.eps = Math.round(v * 10000) / 10000;
+    state.eps = Math.round(v * 10000) / 10000; // parameter in the units of the current mode
     compute(); paintOffscreen(); drawMap(); drawTile(); renderDecision(); renderEvidence(); scheduleMaxEps();
   }
   let anim = null;
   function challenge() {
     cancelAnimationFrame(anim);
-    const stop = Math.min(0.03, state.maxEps && isFinite(state.maxEps) ? state.maxEps * 1.6 + 0.002 : 0.012);
+    const S = SLIDER[state.mode], fin = state.maxEps !== null && isFinite(state.maxEps) && state.maxEps > 0;
+    const stop = Math.min(S.max, fin ? state.maxEps * 1.5 + 2 * S.step : S.max * 0.4);
     state.eps = 0; let t0 = null;
     const step = (ts) => {
       if (t0 === null) t0 = ts; const f = Math.min(1, (ts - t0) / 4200);
-      setEps(Math.round(stop * f / 0.0005) * 0.0005);
+      setEps(Math.round(stop * f / SLIDER[state.mode].step) * SLIDER[state.mode].step);
       if (f < 1) anim = requestAnimationFrame(step);
     };
     anim = requestAnimationFrame(step);
@@ -367,18 +374,22 @@
   function redraw(repaint) { if (repaint) paintOffscreen(); drawMap(); drawTile(); }
 
   /* ---------------- evidence ---------------- */
+  function ivl(i) {
+    if (state.mode === "envelope") return [D.mn[i] - state.eps, D.mx[i] + state.eps];
+    const h = L.halfWidth(D, i, state.eps, state.mode); return [D.mean[i] - h, D.mean[i] + h];
+  }
   function renderEvidence() {
     const el = $("#p-evidence"), meta = D.meta, src = meta.source, n = state.sel.node, st = state.sel.step, route = state.decision && state.decision.route;
     let h = "";
     if (st !== null && route && st > 0) {
-      const a = route[st - 1], b = route[st], m = L.margin(D, a, b, state.eps, state.mode), base = L.baseGap(D, a, b, state.mode);
+      const a = route[st - 1], b = route[st], m = L.margin(D, a, b, state.eps, state.mode), cap = L.edgeCap(D, a, b, state.mode);
       h += `<h3>Step ${st}: ${L.genoOf(a)} → ${L.genoOf(b)} <span class="aside">${mutLabel(a, b)}</span></h3>
         <div class="card"><p><span class="chip observed">observed</span> Dominance test <code>L(next) ≥ U(current)</code></p>
-        <table class="kv"><tr><th>Current ${L.genoOf(a)}</th><td>[${fmt(D.mn[a] - state.eps, 4)}, ${fmt(D.mx[a] + state.eps, 4)}]${state.mode === "point" ? " (point mean ±ε)" : ""}</td></tr>
-        <tr><th>Next ${L.genoOf(b)}</th><td>[${fmt(D.mn[b] - state.eps, 4)}, ${fmt(D.mx[b] + state.eps, 4)}]</td></tr>
+        <table class="kv"><tr><th>Current ${L.genoOf(a)}</th><td>[${fmt(ivl(a)[0], 4)}, ${fmt(ivl(a)[1], 4)}]</td></tr>
+        <tr><th>Next ${L.genoOf(b)}</th><td>[${fmt(ivl(b)[0], 4)}, ${fmt(ivl(b)[1], 4)}]</td></tr>
         <tr><th>Margin</th><td>${m === null ? "unknown (a genotype is unmeasured)" : fmt(m, 4) + (m >= 0 ? " ≥ 0 → admitted" : " < 0 → rejected")}</td></tr>
-        <tr><th>Equals</th><td>${base === null ? "—" : fmt(base, 4)} − 2·ε (${fmt(2 * state.eps, 4)})</td></tr></table>
-        <p class="hint">Values are the source table’s two replicate columns, shown at 1e-4 resolution. ε is assumed, not measured.</p></div>`;
+        <tr><th>Largest ${sym()} still admitting</th><td>${cap === null ? "—" : (cap < 0 ? "none: rejected even at " + sym() + "=0 (" + fmt(cap, 4) + ")" : pfmt(cap))}</td></tr></table>
+        <p class="hint">Values are the replicate growth rates minus the stop-codon mean, at 2e-5 resolution. ${sym()} is assumed, not measured.${state.mode === "readnoise" ? " Half-widths: " + L.genoOf(a) + " ±" + fmt(L.halfWidth(D, a, state.eps, "readnoise"), 4) + " (" + D.reads[a] + " reads), " + L.genoOf(b) + " ±" + fmt(L.halfWidth(D, b, state.eps, "readnoise"), 4) + " (" + D.reads[b] + " reads)." : ""}</p></div>`;
     }
     h += `<h3>Genotype ${L.genoOf(n)}</h3>${genotypeCard(n)}`;
     const ab = state.start !== n ? `<button class="btn" id="set-s">Set as start</button> ` : "";
@@ -403,11 +414,11 @@
       return `<div class="card"><p><span class="chip unknown">unknown</span> <code>${resid}</code> has no measurement in the source table.</p>
         <p>The source ships a KNN-imputed value${imp === null || imp === undefined ? "" : " (" + fmt(imp, 3) + ", on the source’s max-normalised scale)"}; it is an imputation, never an observation, and is not used for any edge decision here. Edges touching this genotype are <b>unknown</b>.</p></div>`;
     }
-    const r1 = D.r1raw[n] / 1e4, r2 = D.r2raw[n] / 1e4, rd = D.reads[n];
+    const r1 = D.r1raw[n] / D.scale, r2 = D.r2raw[n] / D.scale, rd = D.reads[n];
     return `<div class="card"><p><span class="chip observed">observed</span> <code>${resid}</code></p>
-      <table class="kv"><tr><th>Replicate 1 (μ₁−bg)</th><td>${fmt(r1)}</td></tr><tr><th>Replicate 2 (μ₂−bg)</th><td>${fmt(r2)}</td></tr>
+      <table class="kv"><tr><th>Replicate 1 (μ₁ − stop mean)</th><td>${fmt(r1)}</td></tr><tr><th>Replicate 2 (μ₂ − stop mean)</th><td>${fmt(r2)}</td></tr>
       <tr><th>Mean</th><td>${fmt(D.mean[n])}</td></tr><tr><th>|difference|</th><td>${fmt(D.mx[n] - D.mn[n])}</td></tr>
-      <tr><th>Input reads (min of 2)</th><td>${rd >= 127 ? "≥127" : rd}</td></tr><tr><th>Source “active” flag</th><td>${D.active[n] ? "true" : "false"} <span class="hint">(above stop-codon mean + 1.96 SD)</span></td></tr></table>
+      <tr><th>Input reads (min of 2)</th><td>${rd}</td></tr><tr><th>Source “active” flag</th><td>${D.active[n] ? "true" : "false"} <span class="hint">(above stop-codon mean + 1.96 SD)</span></td></tr></table>
       ${rd < 20 ? `<p class="hint"><span class="chip unknown">uncertain</span> fewer than 20 input reads: replicate noise is largest in this bin (source-level audit, see docs).</p>` : ""}</div>`;
   }
 

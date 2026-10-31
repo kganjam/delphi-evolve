@@ -96,15 +96,22 @@ def build_landscape(raw_dir: Path, out_dir: Path) -> dict:
     assert len(measured) == measured["AAs"].nunique()
     overlap = set(measured["AAs"]) & set(k["AAs"])
 
+    # Score definition matches the core worker's loader (evolve/data.py @ origin/work/core a8c0090):
+    # raw growth mu_k minus the per-replicate mean over stop-codon rows. Not the source's row-specific
+    # mu_k-bg columns and never the '/max' columns.
+    stop = s["# Stop"] > 0
+    bg1 = float(s.loc[stop, "mu_1"].mean())
+    bg2 = float(s.loc[stop, "mu_2"].mean())
+    SCALE = 50000  # int16 steps of 2e-5 growth units; |score| <= 0.36 << 0.655
     r1 = np.full(n_total, -32768, dtype="<i2")
     r2 = np.full(n_total, -32768, dtype="<i2")
-    cnt = np.zeros(n_total, dtype="u1")
+    cnt = np.zeros(n_total, dtype="<u2")
+    act = np.zeros(n_total, dtype="u1")
     idx = np.array([genotype_index(g) for g in measured["AAs"]])
-    r1[idx] = np.rint(measured["mu_1-bg"].to_numpy() * 1e4).astype("<i2")
-    r2[idx] = np.rint(measured["mu_2-bg"].to_numpy() * 1e4).astype("<i2")
-    mincount = np.minimum(measured["InputCount_1"], measured["InputCount_2"]).to_numpy()
-    flags = np.minimum(mincount, 127).astype("u1") | (measured["active"].to_numpy().astype("u1") << 7)
-    cnt[idx] = flags
+    r1[idx] = np.rint((measured["mu_1"].to_numpy() - bg1) * SCALE).astype("<i2")
+    r2[idx] = np.rint((measured["mu_2"].to_numpy() - bg2) * SCALE).astype("<i2")
+    cnt[idx] = np.minimum(np.minimum(measured["InputCount_1"], measured["InputCount_2"]).to_numpy(), 65535).astype("<u2")
+    act[idx] = measured["active"].to_numpy().astype("u1")
 
     unknown_idx = np.setdiff1d(np.arange(n_total), idx)
     unknown_genotypes = []
@@ -148,8 +155,15 @@ def build_landscape(raw_dir: Path, out_dir: Path) -> dict:
             "active_flag_true_among_measured": int(measured["active"].sum()),
         },
         "score": {
-            "definition": "mean of replicate columns mu_1-bg and mu_2-bg (growth rate minus stop-codon background; not max-normalised)",
-            "stored_as": "int16 little-endian x1e4, -32768 = not measured",
+            "definition": "replicate growth rates mu_1, mu_2 minus the per-replicate mean over stop-codon rows (same as core loader); not max-normalised; not the source's row-specific mu_k-bg columns",
+            "stop_codon_mean_mu": [bg1, bg2],
+            "stored_as": "int16 little-endian, value x 50000 (resolution 2e-5), -32768 = not measured",
+            "noise_model_constants": {
+                "origin": "copied from evolve/data.py at origin/work/core a8c0090 (core worker's declared, frozen noise model); half-width eps_i = ceil(kappa * sd_bin / 2 * 1e6) / 1e6; kappa is an ASSUMED sensitivity multiplier, not a confidence level",
+                "min_input_count_bin_edges": [20, 50, 200],
+                "replicate_diff_sd_by_bin": [0.014953, 0.009995, 0.005851, 0.002992],
+                "core_default_kappa": 2.0,
+            },
         },
         "layout": {
             "kind": "projected sequence space, NOT molecular geometry",
@@ -157,7 +171,8 @@ def build_landscape(raw_dir: Path, out_dir: Path) -> dict:
             "tile_cols": "residue 3 x residue 4",
             "note": "index = ((a1*20+a2)*20+a3)*20+a4 with amino-acid order " + AA,
         },
-        "flags_byte": "bits0-6 = min(InputCount_1, InputCount_2) capped at 127; bit7 = source 'active' flag",
+        "cnt_array": "uint16 little-endian min(InputCount_1, InputCount_2), capped at 65535",
+        "act_array": "uint8, source 'active' flag (above stop-codon mean + 1.96 SD)",
         "aa_order": AA,
     }
     out = {
@@ -165,6 +180,7 @@ def build_landscape(raw_dir: Path, out_dir: Path) -> dict:
         "r1": b64(r1),
         "r2": b64(r2),
         "cnt": b64(cnt),
+        "act": b64(act),
         "unknown": unknown_imputed,
     }
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -188,24 +204,43 @@ def neighbors(g: str):
                 yield g[:p] + a + g[p + 1:]
 
 
+SD_BINS = (0.014953, 0.009995, 0.005851, 0.002992)  # core's declared replicate-difference SD by read-count bin
+SD_EDGES = (20, 50, 200)
+
+
 def load_scores(raw_dir: Path = DEFAULT_RAW):
-    """Return {genotype: (mu1bg, mu2bg)} for the 159,129 measured genotypes."""
+    """Return {genotype: (score1, score2, min_input_count)} for the 159,129 measured genotypes.
+
+    score_k = mu_k - mean(mu_k over stop-codon rows) (the core loader's definition)."""
     import pandas as pd
 
-    s = pd.read_csv(raw_dir / "summary_AA.csv", usecols=["AAs", "# Stop", "mu_1-bg", "mu_2-bg"])
-    s = s[s["# Stop"] == 0]
-    return {g: (a, b) for g, a, b in zip(s["AAs"], s["mu_1-bg"], s["mu_2-bg"])}
+    s = pd.read_csv(raw_dir / "summary_AA.csv",
+                    usecols=["AAs", "# Stop", "mu_1", "mu_2", "InputCount_1", "InputCount_2"])
+    stop = s["# Stop"] > 0
+    bg1, bg2 = s.loc[stop, "mu_1"].mean(), s.loc[stop, "mu_2"].mean()
+    m = s[~stop]
+    cm = m[["InputCount_1", "InputCount_2"]].min(axis=1)
+    return {g: (a - bg1, b - bg2, int(c)) for g, a, b, c in zip(m["AAs"], m["mu_1"], m["mu_2"], cm)}
+
+
+def noise_eps(count: int, kappa: float) -> float:
+    import math
+    b = sum(count >= e for e in SD_EDGES)
+    return math.ceil(kappa * SD_BINS[b] / 2 * 1e6) / 1e6
 
 
 def interval(rep, eps: float, mode: str):
-    a, b = rep
+    a, b, c = rep
     if mode == "envelope":
         return min(a, b) - eps, max(a, b) + eps
     m = (a + b) / 2
+    if mode == "readnoise":  # eps is kappa
+        e = noise_eps(c, eps)
+        return m - e, m + e
     return m - eps, m + eps
 
 
-def edge_status(scores, v: str, w: str, eps: float, mode: str = "envelope") -> str:
+def edge_status(scores, v: str, w: str, eps: float, mode: str = "readnoise") -> str:
     """accepted | rejected | unknown, for the directed step v -> w."""
     if v not in scores or w not in scores:
         return "unknown"
@@ -214,7 +249,7 @@ def edge_status(scores, v: str, w: str, eps: float, mode: str = "envelope") -> s
     return "accepted" if lo >= hi else "rejected"
 
 
-def reachability(scores, start: str, target: str, eps: float, mode: str = "envelope"):
+def reachability(scores, start: str, target: str, eps: float, mode: str = "readnoise"):
     """BFS over single substitutions.
 
     pessimistic: only accepted edges between measured genotypes.
@@ -672,14 +707,16 @@ def route_summary(raw_dir: Path, out: Path) -> dict:
     scores = load_scores(raw_dir)
     start, target = "VFVS", "AIKG"
     rows = []
-    for mode in ("envelope", "point"):
-        for eps in (0.0, 0.005, 0.01, 0.02):
-            (pd, _), (od, _) = reachability(scores, start, target, eps, mode)
-            rows.append({"mode": mode, "assumed_error_bound": eps,
-                         "measured_only_distance": pd, "optimistic_distance": od})
+    grid = {"readnoise": (0.0, 1.0, 2.0, 3.0, 4.0), "envelope": (0.0, 0.005, 0.01), "point": (0.0, 0.005, 0.01)}
+    for mode, vals in grid.items():
+        for eps in vals:
+            (pd_, _), (od, _) = reachability(scores, start, target, eps, mode)
+            rows.append({"mode": mode, "assumed_parameter": eps,
+                         "parameter_meaning": "kappa" if mode == "readnoise" else "eps",
+                         "measured_only_distance": pd_, "optimistic_distance": od})
     res = {"kind": "descriptive full-data analysis; not a predictive benchmark",
            "start": start, "target": target,
-           "score_scale": "mean of replicate mu_k-bg growth columns (see landscape.meta.json)",
+           "score_scale": "mu_k minus per-replicate stop-codon mean, averaged over 2 replicates (see landscape.meta.json)",
            "rows": rows, "built_utc": now_utc()}
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(res, indent=2) + "\n")

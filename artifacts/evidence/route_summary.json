@@ -2,56 +2,85 @@
   "kind": "descriptive full-data analysis; not a predictive benchmark",
   "start": "VFVS",
   "target": "AIKG",
-  "score_scale": "mean of replicate mu_k-bg growth columns (see landscape.meta.json)",
+  "score_scale": "mu_k minus per-replicate stop-codon mean, averaged over 2 replicates (see landscape.meta.json)",
   "rows": [
     {
-      "mode": "envelope",
-      "assumed_error_bound": 0.0,
+      "mode": "readnoise",
+      "assumed_parameter": 0.0,
+      "parameter_meaning": "kappa",
       "measured_only_distance": 5,
       "optimistic_distance": 5
     },
     {
-      "mode": "envelope",
-      "assumed_error_bound": 0.005,
+      "mode": "readnoise",
+      "assumed_parameter": 1.0,
+      "parameter_meaning": "kappa",
+      "measured_only_distance": 5,
+      "optimistic_distance": 5
+    },
+    {
+      "mode": "readnoise",
+      "assumed_parameter": 2.0,
+      "parameter_meaning": "kappa",
+      "measured_only_distance": 6,
+      "optimistic_distance": 6
+    },
+    {
+      "mode": "readnoise",
+      "assumed_parameter": 3.0,
+      "parameter_meaning": "kappa",
+      "measured_only_distance": 7,
+      "optimistic_distance": 7
+    },
+    {
+      "mode": "readnoise",
+      "assumed_parameter": 4.0,
+      "parameter_meaning": "kappa",
       "measured_only_distance": 7,
       "optimistic_distance": 7
     },
     {
       "mode": "envelope",
-      "assumed_error_bound": 0.01,
-      "measured_only_distance": null,
-      "optimistic_distance": null
+      "assumed_parameter": 0.0,
+      "parameter_meaning": "eps",
+      "measured_only_distance": 5,
+      "optimistic_distance": 5
     },
     {
       "mode": "envelope",
-      "assumed_error_bound": 0.02,
+      "assumed_parameter": 0.005,
+      "parameter_meaning": "eps",
+      "measured_only_distance": 7,
+      "optimistic_distance": 7
+    },
+    {
+      "mode": "envelope",
+      "assumed_parameter": 0.01,
+      "parameter_meaning": "eps",
       "measured_only_distance": null,
       "optimistic_distance": null
     },
     {
       "mode": "point",
-      "assumed_error_bound": 0.0,
+      "assumed_parameter": 0.0,
+      "parameter_meaning": "eps",
       "measured_only_distance": 5,
       "optimistic_distance": 5
     },
     {
       "mode": "point",
-      "assumed_error_bound": 0.005,
+      "assumed_parameter": 0.005,
+      "parameter_meaning": "eps",
       "measured_only_distance": 7,
       "optimistic_distance": 7
     },
     {
       "mode": "point",
-      "assumed_error_bound": 0.01,
-      "measured_only_distance": null,
-      "optimistic_distance": null
-    },
-    {
-      "mode": "point",
-      "assumed_error_bound": 0.02,
+      "assumed_parameter": 0.01,
+      "parameter_meaning": "eps",
       "measured_only_distance": null,
       "optimistic_distance": null
     }
   ],
-  "built_utc": "2026-10-31T07:04:36Z"
+  "built_utc": "2026-10-31T07:13:43Z"
 }
