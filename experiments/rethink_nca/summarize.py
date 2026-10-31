@@ -48,7 +48,8 @@ def main():
     for arm, keys in arms.items():
         out["arms"][arm] = {}
         for sname, ids in sets.items():
-            per = [stat(k, ids) for k in keys]
+            ks = [k for k in keys if ids and ids[0] in by[k]]      # controls exist only for NCA seed 0 / shuffled control
+            per = [stat(k, ids) for k in ks]
             out["arms"][arm][sname] = {
                 "success_mean": float(np.mean([p["success_mean"] for p in per])),
                 "success_per_seed": [p["success_mean"] for p in per] if len(per) > 1 else None,
@@ -102,11 +103,13 @@ def main():
     }
     rules["NCA_GO_overall"] = all(v["pass"] for v in rules.values())
     gacc_ok = out["G_vs_D_on_G_accepted"]
+    gacc_ids = gacc
     grules = {
         "controls_G_refuses_all_C0_accepts_all_C0_no_success": {
             "G_refused": A["G"]["control_d1"]["refused_or_abstained_mean"], "of": len(ctrl),
             "C0_accepted": A["C0"]["control_d1"]["accepted_mean"], "C0_success": A["C0"]["control_d1"]["success_mean"],
             "pass": A["G"]["control_d1"]["refused_or_abstained_mean"] == len(ctrl) and A["C0"]["control_d1"]["accepted_mean"] == len(ctrl) and A["C0"]["control_d1"]["success_mean"] == 0.0},
+        "G_coverage_ge_50pct_of_treatment": {"accepted": len(gacc_ids), "of": len(treat), "pass": len(gacc_ids) >= 0.5 * len(treat)},
         "G_ge_D_minus_0.05_on_accepted_with_le_half_sims": {
             "G": gacc_ok["G_success"], "D": gacc_ok["D_success"], "G_sims": gacc_ok["G_sims"], "D_sims": gacc_ok["D_sims"],
             "pass": gacc_ok["n"] > 0 and gacc_ok["G_success"] >= gacc_ok["D_success"] - 0.05 and gacc_ok["G_sims"] <= 0.5 * gacc_ok["D_sims"]},

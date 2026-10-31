@@ -138,3 +138,28 @@ def _vis(x):
     out[:, 0] += rd.U0
     out[:, 1] += rd.V0
     return out
+
+
+@torch.no_grad()
+def fast_rollout(model, state_np, gamma, d, T_tau):
+    """Numerically equivalent to `rollout` (tested), with fused matmuls and a channels-last layout. Same weights, same maths."""
+    x = to_nca_state(state_np).permute(0, 2, 1).contiguous()          # (S, N, C)
+    cond = cond_of(gamma, d)
+    Wl, W1, b1, W2, b2 = model.lin.weight, model.fc1.weight, model.fc1.bias, model.fc2.weight, model.fc2.bias
+    P = 3 * C
+    Wp = torch.cat([W1[:, :P], Wl[:, :P]], 0).t().contiguous()         # (3C, hidden + C)
+    Wc = torch.cat([W1[:, P:], Wl[:, P:]], 0).t().contiguous()         # (2, hidden + C)
+    bias = (cond @ Wc + torch.cat([b1, torch.zeros_like(b2)])[None])[:, None, :]   # (S, 1, hidden + C)
+    H = W1.shape[0]
+    W2t = W2.t().contiguous()
+    i1, i2 = 1.0 / (2 * rd.DX), 1.0 / rd.DX ** 2
+    for _ in range(int(round(T_tau / DT_NCA))):
+        xp = torch.cat([x[:, :1], x, x[:, -1:]], 1)
+        lft, rgt = xp[:, :-2], xp[:, 2:]
+        z = torch.cat([x, (rgt - lft) * i1, (rgt - 2 * x + lft) * i2], 2)
+        o = z @ Wp + bias
+        x = x + DT_NCA * (torch.relu(o[..., :H]) @ W2t + b2 + o[..., H:])
+    out = x.permute(0, 2, 1)[:, :2].numpy().astype(np.float64).copy()
+    out[:, 0] += rd.U0
+    out[:, 1] += rd.V0
+    return out

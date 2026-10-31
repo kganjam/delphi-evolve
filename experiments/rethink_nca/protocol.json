@@ -26,7 +26,7 @@
     "D_blackbox": "12 log-spaced gamma in [0.5,3] simulated in design world; choose closest |lam-lam*| among patterned finals (std>=0.1); no claim use",
     "G_gated": "turing_scope.analyze exact-rational band + finite-domain admissible modes within 15% tolerance; refuse if none (or if pinned Delphi source hash fails); if the wavelength formula is licensed (near onset AND domain >= 5 lambda) use the analytic gamma for the admissible mode nearest lam* with no simulation; otherwise 12 log-spaced gamma inside the union of per-mode instability intervals, simulated in the design world, same selection rule as D",
     "Gmis_continuum_only": "claim misapplied: candidate interval from the continuum band only, q_target=(2 pi/lam*)^2 ignoring admissible modes; 12 log-spaced gamma, simulated, same selection rule",
-    "N_nca": "NCA (see nca.py) trained on Euler windows; scan 48 log-spaced gamma in [0.5,3] by rolling the NCA to tau=200 from the same noise state; same selection rule",
+    "N_nca": "NCA (see nca.py) trained on Euler windows; scan 16 log-spaced gamma in [0.5,3] by rolling the NCA to tau=200 (reduced from 48 and controls run only for nca_seed0 and the shuffled model after a measured throughput pilot: ~23 ms per step for a 144-row r=40 batch on a loaded 2-thread CPU) from the same noise state; same selection rule",
     "Nshuf_control": "identical NCA training with the (log gamma, log d) conditioning shuffled across windows; same scan and selection rule"
   },
   "nca_training_change_note": "iters reduced 3000 -> 1000 before any scored output because measured speed was ~4 it/s (probe wall budget); no scored result existed when this was changed",
@@ -46,10 +46,16 @@
     ],
     "GATED_CLAIM_GO_requires_ALL": [
       "on the control requests (d=1) G refuses all and C0 accepts all, and C0 independent success on controls is 0",
+      "G accepted-request coverage >= 50% of the 32 treatment requests (conditional success is reported beside coverage; refusing everything must not pass)",
       "G among ACCEPTED treatment requests: independent success >= D success among the same requests - 0.05 with at most half of D's simulation budget",
       "record_changed ablation refuses 100% of requests"
     ],
     "note": "These thresholds are this probe's own choices, set before any scored run; they are not field standards and carry no statistical guarantee. Three IC seeds and three NCA training seeds only; paired per-request differences and raw counts are reported, no confidence interval is invented."
+  },
+  "added_before_scoring_after_primary_review": {
+    "convergence_subset": "every 6th accepted design of arm D and of arm G (deterministic order of designs.json) re-evaluated with spectral dt_tau=0.01 and with 2N cells (new noise field at 2N, same seed); report agreement of success flag and m_dom; if agreement < 90% the evaluator is not trusted at that stratum",
+    "repair_stage": "for each treatment request the gate refuses and for each equal-diffusivity control: enumerate single-knob declared repairs (domain length r', diffusion ratio d'), accept only repairs the exact adapter check licenses (admissible unstable mode within tolerance), set gamma at the log-midpoint of that mode's instability interval, verify with the independent solver. Ablations: claim removed (no repair possible to identify), continuum-only (ignores admissible modes). Reported separately from the primary decision rules.",
+    "throughput_pilot": "measure NCA 40,000-step scan time on one batch before the full design stage; if the extrapolated workload exceeds the budget, report the measured extrapolation and request GPU ownership rather than call a CPU bound a scientific result"
   },
   "time_limits": {"probe_wall_target_minutes": 30, "cpu_threads": 2}
 }

@@ -31,7 +31,7 @@ GR = tuple(PROTO["design_world"]["gamma_range"])
 T_DESIGN = PROTO["design_world"]["horizon_tau"]
 T_EVAL, T_CHK = 400.0, 360.0
 EVAL_SEEDS = [11, 12, 13]
-NCA_SCAN = 48
+NCA_SCAN = 16
 NCA_SEEDS = [0, 1, 2]
 HELD_R = {30, 40}
 
@@ -202,9 +202,10 @@ def stage_design(log=print):
         for r in RS:
             N = rd.n_cells(r)
             t = time.time()
-            ks = [(float(g), float(d), r) for d in DS + [CTRL_D] for g in scan]
+            with_ctrl = name in ("nca_seed0", "nshuf_seed0")      # controls only for 2 models (throughput bound)
+            ks = [(float(g), float(d), r) for d in (DS + [CTRL_D] if with_ctrl else DS) for g in scan]
             st = rd.initial_state(len(ks), N, [0] * len(ks))
-            fin, _ = nca.rollout(mdl, st, [k[0] for k in ks], [k[1] for k in ks], T_DESIGN)
+            fin = nca.fast_rollout(mdl, st, [k[0] for k in ks], [k[1] for k in ks], T_DESIGN)
             fin_ok = np.isfinite(fin).all(axis=(1, 2))
             u = np.where(fin_ok[:, None], fin[:, 0], U_NAN)
             pm = rd.pattern_metrics(u, r)
@@ -215,6 +216,8 @@ def stage_design(log=print):
         arm = "Nshuf" if name.startswith("nshuf") else "N"
         sd = int(name.split("seed")[1])
         for q in reqs:
+            if q["control"] and name not in ("nca_seed0", "nshuf_seed0"):
+                continue
             tab = {g: nca_tables[(name, (float(g), float(q["d"]), q["r"]))] for g in scan}
             c = pick(scan, q["lam"], tab)
             rec = {"arm": arm, "seed": sd, "req": q["id"], "sims": 0, "nca_queries": NCA_SCAN}
@@ -262,9 +265,120 @@ def stage_evaluate(log=print):
     (OUT / "evaluated.json").write_text(json.dumps(data, indent=1, default=float))
 
 
+def _mid_gamma(iv_list, lam, r):
+    L = r * math.pi
+    m, lo, hi = min(iv_list, key=lambda iv: abs(2 * L / iv[0] - lam))
+    return m, math.sqrt(lo * hi)
+
+
+def _eval_batch(items, log=print):
+    """items: list of dict(gamma,d,r,lam). Independent solver, 3 seeds; returns list of lists of eval dicts."""
+    out = [None] * len(items)
+    by_r = {}
+    for k, it in enumerate(items):
+        by_r.setdefault(it["r"], []).append(k)
+    for r, ks in by_r.items():
+        rows = [(k, s) for k in ks for s in EVAL_SEEDS]
+        g = np.array([items[k]["gamma"] for k, _ in rows]); d = np.array([items[k]["d"] for k, _ in rows], float)
+        st = rd.initial_state(len(rows), rd.n_cells(r), [s for _, s in rows])
+        fin, saved = rd.spectral_strang(st, g, d, r, T_EVAL, dt=0.02, checkpoints=(T_CHK,))
+        pm, pc = rd.pattern_metrics(fin[:, 0], r), rd.pattern_metrics(saved[T_CHK][:, 0], r)
+        for j, (k, s) in enumerate(rows):
+            lam = items[k]["lam"]
+            ok = bool(pm["patterned"][j]) and abs(pm["lam"][j] - lam) / lam <= TOL and int(pm["m"][j]) == int(pc["m"][j])
+            if out[k] is None:
+                out[k] = []
+            out[k].append({"seed": s, "ok": bool(ok), "m": int(pm["m"][j]), "lam": float(pm["lam"][j]), "amp": float(pm["amp"][j]),
+                           "patterned": bool(pm["patterned"][j])})
+        log(f"eval_batch r={r} samples={len(rows)}")
+    return out
+
+
+def stage_repair(log=print):
+    data = json.loads((OUT / "evaluated.json").read_text())
+    reqs = {q["id"]: q for q in data["requests"]}
+    gdes = {d["req"]: d for d in data["designs"] if d["arm"] == "G"}
+    c0 = {d["req"]: d for d in data["designs"] if d["arm"] == "C0"}
+    targets = [i for i, q in reqs.items() if q["control"] or gdes[i]["decision"] != "accept"]
+    items, meta = [], []
+    for i in targets:
+        q = reqs[i]
+        # (1) domain-length repair: nearest integer r' admissible
+        for knob in ("domain_length", "diffusion_ratio"):
+            found = None
+            cands = (sorted(range(5, 61), key=lambda x: (abs(x - q["r"]), x)) if knob == "domain_length"
+                     else list(range(int(q["d"]) , 61)))
+            for c in cands:
+                r2, d2 = (c, q["d"]) if knob == "domain_length" else (q["r"], c)
+                if knob == "domain_length" and c == q["r"]:
+                    continue
+                g = gate.gate_design(d2, r2, q["lam"])
+                if g["verdict"] == "candidates":
+                    m, gam = _mid_gamma(g["intervals"], q["lam"], r2)
+                    chk = gate.check(gam, d2, r2)
+                    if m in chk["unstable_modes"]:
+                        found = {"knob": knob, "r": r2, "d": float(d2), "gamma": gam, "mode": m}
+                        break
+            meta.append({"req": i, "knob": knob, "found": found})
+            if found:
+                items.append({"gamma": found["gamma"], "d": found["d"], "r": found["r"], "lam": q["lam"], "meta": len(meta) - 1})
+    ev = _eval_batch(items, log)
+    for it, e in zip(items, ev):
+        meta[it["meta"]]["eval"] = e
+        meta[it["meta"]]["success"] = float(np.mean([x["ok"] for x in e]))
+    # unrepaired baseline (C0 formula on the ORIGINAL request) already evaluated in evaluated.json
+    base = {i: float(np.mean([x["ok"] for x in c0[i]["eval"]])) for i in targets}
+    out = {"n_targets": len(targets), "repairs": meta, "unrepaired_C0_success": base,
+           "summary": {}}
+    for knob in ("domain_length", "diffusion_ratio"):
+        rows = [m for m in meta if m["knob"] == knob]
+        for cls, ids in (("treatment_refused", [i for i in targets if not reqs[i]["control"]]), ("control_d1", [i for i in targets if reqs[i]["control"]])):
+            rr = [m for m in rows if m["req"] in ids]
+            out["summary"][f"{knob}/{cls}"] = {"requests": len(ids), "repair_found": sum(m["found"] is not None for m in rr),
+                                              "repaired_success_mean_over_found": (float(np.mean([m["success"] for m in rr if m["found"]])) if any(m["found"] for m in rr) else None),
+                                              "unrepaired_C0_success_mean": float(np.mean([base[i] for i in ids])) if ids else None}
+    (OUT / "repair.json").write_text(json.dumps(out, indent=1, default=float))
+    log(json.dumps(out["summary"], indent=1))
+
+
+def stage_convergence(log=print):
+    data = json.loads((OUT / "evaluated.json").read_text())
+    reqs = {q["id"]: q for q in data["requests"]}
+    acc = [d for d in data["designs"] if d["arm"] in ("D", "G") and d["decision"] == "accept"]
+    sub = acc[::6]
+    rows = []
+    for variant in ("dt_half", "res_double"):
+        by_r = {}
+        for k, dsg in enumerate(sub):
+            by_r.setdefault(reqs[dsg["req"]]["r"], []).append(k)
+        for r, ks in by_r.items():
+            N = rd.n_cells(r) * (2 if variant == "res_double" else 1)
+            rr = [(k, s) for k in ks for s in EVAL_SEEDS]
+            g = np.array([sub[k]["gamma"] for k, _ in rr]); d = np.array([reqs[sub[k]["req"]]["d"] for k, _ in rr], float)
+            st = rd.initial_state(len(rr), N, [s for _, s in rr])
+            fin, saved = rd.spectral_strang(st, g, d, r, T_EVAL, dt=0.01 if variant == "dt_half" else 0.02, checkpoints=(T_CHK,))
+            pm, pc = rd.pattern_metrics(fin[:, 0], r), rd.pattern_metrics(saved[T_CHK][:, 0], r)
+            for j, (k, s) in enumerate(rr):
+                lam = reqs[sub[k]["req"]]["lam"]
+                ok = bool(pm["patterned"][j]) and abs(pm["lam"][j] - lam) / lam <= TOL and int(pm["m"][j]) == int(pc["m"][j])
+                base = [e for e in sub[k]["eval"] if e["seed"] == s][0]
+                rows.append({"variant": variant, "arm": sub[k]["arm"], "req": sub[k]["req"], "seed": s, "ok": bool(ok), "base_ok": base["ok"],
+                             "m": int(pm["m"][j]), "base_m": base["m"], "same_flag": bool(ok == base["ok"]),
+                             "same_m": int(pm["m"][j]) == base["m"]})
+            log(f"convergence {variant} r={r} {len(rr)}")
+    summ = {}
+    for v in ("dt_half", "res_double"):
+        rv = [x for x in rows if x["variant"] == v]
+        summ[v] = {"n": len(rv), "success_flag_agreement": float(np.mean([x["same_flag"] for x in rv])),
+                   "dominant_mode_agreement": float(np.mean([x["same_m"] for x in rv])),
+                   "base_success": float(np.mean([x["base_ok"] for x in rv])), "variant_success": float(np.mean([x["ok"] for x in rv]))}
+    (OUT / "convergence.json").write_text(json.dumps({"subset_size_designs": len(sub), "summary": summ, "rows": rows}, indent=1))
+    log(json.dumps(summ, indent=1))
+
+
 def main(argv=None):
     stage = (argv or sys.argv)[1]
-    {"design": stage_design, "evaluate": stage_evaluate}[stage]()
+    {"design": stage_design, "evaluate": stage_evaluate, "repair": stage_repair, "convergence": stage_convergence}[stage]()
 
 
 if __name__ == "__main__":
