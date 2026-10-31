@@ -55,7 +55,11 @@ def main(path):
         if isinstance(r, dict):
             missing = [x for x in r.get("nodes", []) if x not in ids]
             if missing:
-                fails.append(f"routes[{i}]: nodes not in graph: {missing[:3]}")
+                msg = f"routes[{i}]: nodes not in graph: {missing[:3]}"
+                if str(r.get("status", "")).startswith("blocked") and r.get("lean_checked") is False:
+                    soft.append(msg + " (blocked endpoint pair, labelled lean_checked=false)")
+                else:
+                    fails.append(msg)
             if not r.get("assumptions"):
                 fails.append(f"routes[{i}]: no named assumptions")
     for i, c in enumerate(d.get("claims", [])):

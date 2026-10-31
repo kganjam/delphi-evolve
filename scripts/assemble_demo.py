@@ -1,0 +1,95 @@
+#!/usr/bin/env python3
+"""Assemble the final contract demo.json from saved artifacts (integrator-owned, no new science).
+
+  python3 scripts/assemble_demo.py            # reads artifacts/demo.json (core), writes it in place
+                                              # and copies it to site/data/demo.json
+
+Refuses (nonzero exit) if receipts contradict each other. It never turns a missing result into a
+pass: absent GPU/benchmark stay 'unavailable'.
+"""
+import hashlib, json, pathlib, sys
+
+R = pathlib.Path(__file__).resolve().parents[1]
+J = lambda p: json.load(open(R / p))
+demo = J("artifacts/demo.json")
+errs = []
+
+# --- proof ------------------------------------------------------------------------------------
+rc = J("artifacts/proof/receipt.json")
+if rc.get("status") != "completed" or rc.get("compile_exit_code") != 0:
+    errs.append("proof receipt not completed/compile exit != 0")
+if rc.get("min_mutant_exit_code") in (None, 0) or rc.get("dominance_mutant_exit_code") in (None, 0) \
+        or rc.get("open_cut_edge_mutant_exit_code") in (None, 0):
+    errs.append("proof receipt: a required mutant was not rejected")
+used = {a for v in rc.get("axioms", {}).values() for a in v}
+if not used <= {"propext", "Quot.sound", "Classical.choice"}:
+    errs.append(f"unexpected axioms in receipt: {sorted(used)}")
+bad = [c["check"] for c in rc.get("checks", []) if not c.get("ok")]
+if bad or not rc.get("checks"):
+    errs.append(f"proof receipt has failing/absent checks: {bad}")
+br = J("artifacts/integration/core_kappa2_route_lean.json")
+core_cert = J("artifacts/core/certificates/route_VFVS_AIKG_kappa2.json")
+if not br.get("ok"):
+    errs.append("bridge receipt not ok")
+if br.get("core_body_sha256") != core_cert.get("body_sha256"):
+    errs.append("bridge receipt does not match core route certificate body hash")
+if J("artifacts/integration/core_kappa2_route.input.json").get("body_sha256") != core_cert.get("body_sha256"):
+    errs.append("stored bridge input differs from current core route certificate (core regenerated it): rerun scripts/bridge_core_cert.py")
+demo["proof"] = {
+    "status": "completed",
+    "theorem": "DarwinBridge.routeCert_sound; DarwinBridge.blockedCert_sound (conditional on assumed interval containment)",
+    "command": rc.get("command"),
+    "exit_code": rc.get("compile_exit_code"),
+    "mutation_exit_code": rc.get("min_mutant_exit_code"),
+    "receipt": "artifacts/proof/receipt.json",
+    "lean_version": rc.get("lean_version"),
+    "wall_seconds": rc.get("wall_seconds"),
+    "axioms_used": sorted(used),
+    "scope": "Lean-checked: proof-worker route and blocked certificates (artifacts/proof/*.json) and the bridged core kappa=2 VFVS->AIKG ROUTE. "
+             "NOT Lean-checked: replay decisions and core 'blocked' results, which mean 'no route can be certified in the measured subgraph' "
+             "(see planning/INTEGRATION-FINDINGS.md F1).",
+    "bridged_core_route": {"receipt": "artifacts/integration/core_kappa2_route_lean.json",
+                           "certificate": "artifacts/integration/core_kappa2_route_lean.certificate.json",
+                           "lean_original_build_exit": br.get("lean_original_build_exit"),
+                           "lean_mutant_swap_build_exit": br.get("lean_mutant_swap_build_exit"),
+                           "intervals_recomputed_from_raw_csv_exact": f'{br.get("recompute_exact_matches")}/{br.get("nodes")}'},
+    "assumption": "Interval containment is ASSUMED; two replicates do not give simultaneous confidence bands.",
+}
+for r in demo.get("routes", []):
+    if r.get("id") == "certified-shortest" and br.get("ok"):
+        r["lean_receipt"] = "artifacts/integration/core_kappa2_route_lean.json"
+        r["lean_certificate_path"] = "artifacts/integration/core_kappa2_route_lean.certificate.json"
+
+for r in demo.get("routes", []):
+    if str(r.get("status", "")).startswith("blocked"):
+        r["lean_checked"] = False
+        r["semantics"] = ("'blocked' here means NO ROUTE CAN BE CERTIFIED in the measured subgraph under the assumed kappa "
+                          "(intervals that overlap count as not admitted). It is not the Lean no-path theorem, which needs every exit "
+                          "certified lower; see planning/INTEGRATION-FINDINGS.md F1. 'nodes' lists the start/target endpoints, not a path.")
+
+# --- claims -----------------------------------------------------------------------------------
+cl = J("artifacts/evidence/demo_claims.json")["claims"]
+demo["claims"] = cl
+demo["claims_status"] = "Delphi records queried live 2026-10-31 (local and network kept separate); relation is motivation/context only; nanopub drafts are unsigned and unpublished"
+
+# --- compute (GPU) ----------------------------------------------------------------------------
+gp = R / "tasks/results/gpu.json"
+if gp.exists():
+    g = json.load(open(gp))
+    demo["compute"] = {"status": g.get("status", "unknown"), "provider": g.get("provider"), "model": g.get("model"),
+                       "job_id": g.get("job_id") or g.get("job_ids"), "artifacts": g.get("artifacts", []),
+                       "receipt": "tasks/results/gpu.json",
+                       "note": "predictions guide measurement only; never discharge an empirical premise"}
+    if g.get("status") in ("completed", "passed") and not demo["compute"]["job_id"]:
+        errs.append("gpu receipt completed without job id")
+else:
+    demo["compute"].setdefault("note", "no GPU receipt integrated")
+
+if errs:
+    print(json.dumps({"ok": False, "errors": errs}, indent=1)); sys.exit(1)
+out = json.dumps(demo, indent=1)
+(R / "artifacts/demo.json").write_text(out)
+(R / "site/data").mkdir(parents=True, exist_ok=True)
+(R / "site/data/demo.json").write_text(out)
+print(json.dumps({"ok": True, "sha256": hashlib.sha256(out.encode()).hexdigest(), "proof": demo["proof"]["status"],
+                  "compute": demo["compute"]["status"], "benchmark": demo["benchmark"]["status"]}))
