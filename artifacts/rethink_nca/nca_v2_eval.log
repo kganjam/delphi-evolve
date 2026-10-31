@@ -1,0 +1,20 @@
+fidelity 0 {"10": {"finite_rows": 32, "rows": 32, "same_dominant_mode_as_euler": 0.03125, "amp_ratio_median": 568.0120445231469}, "20": {"finite_rows": 32, "rows": 32, "same_dominant_mode_as_euler": 0.0, "amp_ratio_median": 1104.4696012512711}, "30": {"finite_rows": 32, "rows": 32, "same_dominant_mode_as_euler": 0.0, "amp_ratio_median": 961.3007168690051}, "40": {"finite_rows": 32, "rows": 32, "same_dominant_mode_as_euler": 0.0, "amp_ratio_median": 1139.04441298202}}
+fidelity 1 {"10": {"finite_rows": 32, "rows": 32, "same_dominant_mode_as_euler": 0.0, "amp_ratio_median": 1316.1251632970577}, "20": {"finite_rows": 32, "rows": 32, "same_dominant_mode_as_euler": 0.0, "amp_ratio_median": 3844.1005021780265}, "30": {"finite_rows": 32, "rows": 32, "same_dominant_mode_as_euler": 0.0, "amp_ratio_median": 2684304.965113302}, "40": {"finite_rows": 32, "rows": 32, "same_dominant_mode_as_euler": 0.0, "amp_ratio_median": 14104908.149020895}}
+eval_batch r=10 samples=48
+eval_batch r=20 samples=48
+eval_batch r=30 samples=48
+eval_batch r=40 samples=48
+{
+ "seed0": {
+  "success_treatment": 0.25,
+  "success_held_out": 0.18055555555555558,
+  "accepted": 32,
+  "design_world_ok_among_accepted": 0.1875
+ },
+ "seed1": {
+  "success_treatment": 0.23958333333333331,
+  "success_held_out": 0.25,
+  "accepted": 32,
+  "design_world_ok_among_accepted": 0.0
+ }
+}
