@@ -23,6 +23,7 @@ A, B = 0.1, 0.9
 U0, V0 = A + B, B / (A + B) ** 2
 J1 = np.array([[0.8, 1.0], [-1.8, -1.0]])
 DX = np.pi / 4.0
+REACTION_DT_MAX = 0.02   # tau units; reaction-stiffness cap for explicit Euler (see euler_dt)
 
 
 def n_cells(r: float) -> int:
@@ -57,7 +58,10 @@ def lap_fd(x):
 def euler_dt(gamma, d, safety=0.9):
     """Largest stable explicit-Euler step in tau units for the batch (diffusion limit; reaction is milder here)."""
     dmax = float(np.max(np.maximum(1.0, np.asarray(d)) / np.asarray(gamma)))
-    return safety * DX ** 2 / (2 * dmax)
+    # NOTE (critic audit, 2026-10-31): the diffusion-only bound alone lets dt_tau grow without limit when d/gamma is small
+    # (large gamma), which is far above the reaction-stiffness limit and flipped Euler verdicts at gamma>=32. Cap added after
+    # the scored probe; the scored probe always passed dt=0.005 explicitly, so its results are unaffected.
+    return min(safety * DX ** 2 / (2 * dmax), REACTION_DT_MAX)
 
 
 def euler_fd(state, gamma, d, T_tau, dt=None, record_every_tau=None):
