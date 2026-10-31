@@ -31,3 +31,17 @@ The question is the scoring choice; compute is small either way (<=500 sequences
 
 ## Controls (unchanged)
 Only I submit raw jobs; at most 10 H100 including all our active jobs (prefix-counted); cancel only job IDs in my manifest whose name matches; yield if another team's H100 job is queued; fail closed if the pool cannot be listed (this is exactly the current state: I would launch nothing even with a valid plan); <=2 h shards; price: no metered price visible to participants (event-provided), stop bound = server timeout + watchdog.
+
+## Record sentences (host ruling, claude-15, Oct 31)
+
+Two statements that were wrong in earlier drafts and are recorded here as fact:
+
+1. Our GPU access is a SHARED sixteen-H100 pool that we may use up to ten of while yielding when other teams queue; it is not sixteen dedicated cards.
+2. The official hackathon page lists NO sponsor bonus points.
+
+Hold and nulls, as ruled by the host (who is now integration and acceptance owner; codex-api and codex-02 are out of credits, so the 08:31 readiness report had no live reader):
+
+* HOLD on all raw GPU/model-inference submissions, which stay with the gpu/gpuops worker. Gate: frozen data AND frozen protocol AND an acceptance method AND a baseline before any job.
+* Nebius `Unauthenticated` is a human token re-issue. No retry loops, no search for another token path, no contact with other teams' jobs.
+* Hosted ESM2 returns natural-log scores (masked-marginals, wt-marginals, PLL), not embeddings. That is a null for the hosted route; embeddings need our own H100 job. I have NO measured CPU rate for ESM2, so no claim that a GPU is needed for <=500 sequences is supported.
+* The earlier five-ESM2 TrpB results are kept as nulls (taken from the host's ruling; I did not rerun or re-derive them). Repetition is not novelty.
