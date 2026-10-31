@@ -20,8 +20,8 @@ Scorecard (critic v0.1, `date` 08:32 PDT): slide 6 and the site now use ONLY the
 
 ### Video, bundle, rehearsal sheet (`date` 08:5x PDT)
 
-- 90-second silent captioned video of the built deck and the landing page ledger: `presentation/delphi/video/delphi-90s-captioned.mp4` (90.56 s, sha256 `05c3e983615ea99943e2ee9ff23f3c9aea64a2f3dac97b1e32e64290beb392a7`), manifest `video/manifest.json` pinned to the source HEAD and the deck/site hashes. Re-record after every rebuild.
-- Downloadable static bundle (site/delphi, site/review, presentation/delphi and the 131 files it cites; deterministic zip): `/data/artifacts/delphi-evolve-submit/dist/delphi-bundle.zip`, sha256 `c2212d0cabd8fe1cf7668917ee87f7e34f91a8817661e0bc910dd6398f312250`, file list and per-file hashes in `presentation/delphi/dist/bundle-manifest.json`. Verified by unzipping and re-hashing every file. Not published or uploaded anywhere.
+- 90-second silent captioned video of the built deck and the landing page ledger: `presentation/delphi/video/delphi-90s-captioned.mp4` (90.52 s, sha256 `2e8788a8f383e8965843c8ed1e0576d72185fc3aaab23a0d669751298a336a51`), manifest `video/manifest.json` pinned to the source HEAD and the deck/site hashes. Re-record after every rebuild.
+- Downloadable static bundle (site/delphi, site/review, presentation/delphi and the 131 files it cites; deterministic zip): `/data/artifacts/delphi-evolve-submit/dist/delphi-bundle.zip`, sha256 `efe81678a9ffe283db53ca8bbb9e3aade442e1b0d17aa3db3b1cef84ff5ea6ce`, file list and per-file hashes in `presentation/delphi/dist/bundle-manifest.json`. Verified by unzipping and re-hashing every file. Not published or uploaded anywhere.
 - Rehearsal checklist `presentation/delphi/REHEARSAL.md`: **no human rehearsal has been done**; the sheet has blank cells for a stopwatch run.
 - The 18:00 PDT cut is one command from a clean checkout of the integrated tree: `bash presentation/delphi/final_cut.sh` (rebuild + gate, video, rehearsal sheet, bundle). Commit its outputs afterwards.
 
