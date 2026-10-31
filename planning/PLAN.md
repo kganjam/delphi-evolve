@@ -45,7 +45,7 @@ These are editorial judgments about this deadline, not measured rankings. The ga
 
 ## Ten, then three
 
-The ten survivors are **1, 2, 3, 4, 5, 6, 9, 11, 13, 20**. #12 is strategically attractive but loses its place to #13 because a second condition is not yet established. 
+The ten survivors are **1, 2, 3, 4, 5, 6, 9, 11, 13, 20**. #12 is strategically attractive but loses its place to #13 because a second condition is not yet established.
 
 | Finalist | What would make judges care | What we can actually show | Why it wins/loses the choice |
 |---|---|---|---|

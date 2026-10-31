@@ -20,3 +20,5 @@ Worker logs: /data/artifacts/delphi-evolve-workers/. Workers have isolated workt
 Official slide deadline interpreted in Boston venue time: Nov 1, 2026, 10am PST in Seattle. Internal target: first complete build within 18h, freeze within 24h of kickoff.
 
 Spend: Claude subscription capacity selected after Orchestra cached-usage inspection. Probe and scouts completed on Sonnet. CLI dollar estimates are list-price estimates, not actual subscription charges. No metered API charge or GPU charge has been established yet. Brev access is currently unavailable on this host; resource scout found no login/CLI/key.
+
+User additionally authorized up to $69 of OpenAI API credits. Credential is excluded from repository and worker prompts. No OpenAI spend initiated.
