@@ -152,9 +152,15 @@ def run_shard(args):
         return str(p), True
     land = data.load(kappa=kappa)
     rows, qlogs = [], {}
+    prior = None
+    if policy.endswith("+prior"):      # optional external prior: (160000,) float array of predicted scores, genotype order = evolve.data.encode
+        import os
+        prior = np.load(os.environ["EVOLVE_PRIOR_NPY"]); assert prior.shape == (data.N_GENO,) and np.isfinite(prior).all()
+        policy = policy[:-6]
     for ep in [e for e in make_episodes(land, seed + 1) if e["seed"] == seed]:
-        out, qlog, other, log = run_episode(land, ep, policy, bmax=bmax, keep_events=(seed == 0 and policy.startswith("collective")))
-        rows.append(out)
+        out, qlog, other, log = run_episode(land, ep, policy, bmax=bmax, keep_events=(seed == 0 and policy.startswith("collective")), prior=prior)
+        if prior is not None:
+            out["policy"] = policy + "+prior"
         qlogs[f'{out["family"]}:{out["start"]}>{out["target"]}'] = qlog
         if seed == 0 and policy.startswith("collective"):
             d = Path(outdir) / "events"; d.mkdir(parents=True, exist_ok=True)
