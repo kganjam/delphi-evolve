@@ -68,7 +68,7 @@ First-ever; any claim that a named law is wrong; that a pattern forms (linear mo
 | presentation/delphi/deck.pdf | `17b33632da0197a89b507c858c71aa5fc83baeaeca28f480d5f43bed05eb46cf` |
 | presentation/delphi/deck.html | `6358e2c5c89b54b843a7402aad8fa65fd58102480b5ff9f273ee22ab9e343af1` |
 | presentation/delphi/deck.pptx | `23435c8680736f66cd7b011a3326c4b280c68e8af5805e0777205ac5eb74210c` |
-| presentation/delphi/video/delphi-90s-captioned.mp4 (89.84 s, silent) | `a1b8e9752a9054a24e9251ed2606c467fc6e89404b80f460dadd2602bd4558cb` |
+| presentation/delphi/video/delphi-90s-captioned.mp4 (90.68 s, silent) | `f086ae9d7aaee335c5b6c98d42a488e65b430818771ffdad3e370ec14aff4248` |
 
 The bundle zip (site, presentation folder and every cited artifact) is built after this sheet and contains it, so its hash is recorded separately in `presentation/delphi/dist/bundle-manifest.json` and `delphi-bundle.zip.sha256`, not here.
 
