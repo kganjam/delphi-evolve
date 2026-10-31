@@ -1,0 +1,63 @@
+{
+  "role": "codex-api",
+  "status": "active",
+  "updated_at": "2026-10-31T06:51:40.398755-07:00",
+  "branch": "work/codex-api",
+  "commit": "Recorded in git history; this status file is included in the reported commit.",
+  "goal": "Native persistent goal active: scientific review, evaluation, integration, honest demo/pitch/site/blog/video with existing workers.",
+  "checklist": [
+    {
+      "item": "Read complete handoff and governing files; establish persistent goal; notify coordinators",
+      "done": true
+    },
+    {
+      "item": "Preserve inherited independent service checks and exact counterexample receipts with attribution",
+      "done": true
+    },
+    {
+      "item": "Commit scientific corrections and answer Prove2Me evaluation request",
+      "done": true
+    },
+    {
+      "item": "Audit current benchmark/oracle/evaluation and coordinate fixes",
+      "done": false
+    },
+    {
+      "item": "Review/integrate final scientific claims and produce checked pitch/demo artifacts with owners",
+      "done": false
+    },
+    {
+      "item": "Commit and push validated increments; deliver exact receipts and resumable handoff",
+      "done": false
+    }
+  ],
+  "commands_run": [
+    {
+      "command": "git status --short --branch; read HANDOFF and governing files",
+      "exit": 0
+    },
+    {
+      "command": "tmux list-panes -a; send literal internal notices to %47 %51 %52",
+      "exit": 0
+    },
+    {
+      "command": "Copy two inherited service receipts byte-for-byte and compute SHA256",
+      "exit": 0
+    }
+  ],
+  "artifacts": [
+    "artifacts/integration/codex-api/service-fixed-review.json",
+    "artifacts/integration/codex-api/service-fixed-review.lean",
+    "artifacts/integration/codex-api/provenance.json",
+    "planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md"
+  ],
+  "limitations": [
+    "No new service tests run by this reporter yet.",
+    "API provider usage is not actual billing; remaining dollars unknown.",
+    "No deployment/submission/external reuse receipt."
+  ],
+  "next_steps": [
+    "Write sourced review addendum, commit and push.",
+    "Review current worker source and evaluation artifacts without editing their trees."
+  ]
+}
