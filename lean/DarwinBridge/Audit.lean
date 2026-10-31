@@ -1,5 +1,6 @@
 import DarwinBridge.Checker
 import DarwinBridge.Certs.TrpbBlockedDelta005
+import DarwinBridge.Certs.TrpbBlockedMultiDelta005
 import DarwinBridge.Certs.TrpbRouteDelta0
 import DarwinBridge.Certs.TrpbRouteDelta005
 
@@ -20,6 +21,8 @@ import DarwinBridge.Certs.TrpbRouteDelta005
 #print axioms DarwinBridge.route_blocked_exclusive
 #print axioms DarwinBridge.Certs.TrpbBlockedDelta005.cert_ok
 #print axioms DarwinBridge.Certs.TrpbBlockedDelta005.instance_sound
+#print axioms DarwinBridge.Certs.TrpbBlockedMultiDelta005.cert_ok
+#print axioms DarwinBridge.Certs.TrpbBlockedMultiDelta005.instance_sound
 #print axioms DarwinBridge.Certs.TrpbRouteDelta0.cert_ok
 #print axioms DarwinBridge.Certs.TrpbRouteDelta0.instance_sound
 #print axioms DarwinBridge.Certs.TrpbRouteDelta005.cert_ok
