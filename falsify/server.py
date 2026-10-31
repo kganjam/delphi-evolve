@@ -255,11 +255,15 @@ def make_handler(app: App):
                 return self.jsend(429, {"error": f"rate limit {RATE_PER_MIN}/min"})
             try:
                 body = json.loads(raw or b"{}")
-            except json.JSONDecodeError as e:
+            except (json.JSONDecodeError, ValueError, RecursionError) as e:
                 app.log(c, c["caller"], "invalid_json", None, "bad_request", None, None, time.time(), 400)
-                return self.jsend(400, {"error": f"invalid JSON: {e}"})
+                return self.jsend(400, {"error": f"invalid JSON: {str(e)[:120]}"})
             if path == "/v1/falsify/turing":
-                return self.jsend(200, app.falsify(body, c))
+                try:
+                    return self.jsend(200, app.falsify(body, c))
+                except Exception as e:                       # never leak a traceback; record the failure
+                    app.log(c, c["caller"], "falsify_turing_pattern", None, "internal_error", None, None, time.time(), 500)
+                    return self.jsend(500, {"error": "internal_error", "type": type(e).__name__})
             if path == "/mcp":
                 if isinstance(body, list):
                     outs = [r for r in (app.mcp(m, c) for m in body) if r]

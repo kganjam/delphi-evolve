@@ -15,6 +15,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import re
 from fractions import Fraction
 from math import isqrt
 
@@ -61,22 +62,37 @@ def fs(x: Fraction) -> str:
     return str(x.numerator) if x.denominator == 1 else f"{x.numerator}/{x.denominator}"
 
 
+_RX_DEC = re.compile(r"[+-]?\d+(\.\d+)?")
+_RX_FRAC = re.compile(r"[+-]?\d+/\d+")
+MAX_STR = 200
+
+
 def rat(name, v, notes=None) -> Fraction:
+    """Exact rational from int, plain decimal string, 'p/q' string, or a float (read as its decimal repr).
+    Scientific notation and over-long strings are refused BEFORE any Fraction is built (a '1e999999999' string would
+    otherwise allocate a gigantic integer)."""
     if isinstance(v, bool) or v is None:
         raise Refuse("invalid_input", f"{name}: expected a number, got {v!r}", "out_of_scope")
     try:
         if isinstance(v, float):
-            if not math.isfinite(v):
-                raise Refuse("invalid_input", f"{name}: non-finite number")
-            x = Fraction(repr(v))          # decimal reading of the float, e.g. 0.1 -> 1/10
+            if not math.isfinite(v) or abs(v) >= 1e30:
+                raise Refuse("invalid_input", f"{name}: non-finite or |value| >= 1e30")
+            x = Fraction(repr(v)) if "e" not in repr(v) else Fraction(v)    # tiny floats such as 1e-07 use the exact binary value
             if notes is not None:
-                notes.append(f"{name}: float {v!r} read as the exact decimal {fs(x)}; send a string like '1/10' to avoid this")
-        elif isinstance(v, (int, str)):
-            x = Fraction(v.strip() if isinstance(v, str) else v)
+                notes.append(f"{name}: float {v!r} read as {fs(x)}; send a string like '1/10' to avoid this")
+        elif isinstance(v, int):
+            if abs(v).bit_length() > 200:
+                raise Refuse("invalid_input", f"{name}: integer too large")
+            x = Fraction(v)
+        elif isinstance(v, str):
+            t = v.strip()
+            if len(t) > MAX_STR or not (_RX_DEC.fullmatch(t) or _RX_FRAC.fullmatch(t)):
+                raise Refuse("invalid_input", f"{name}: give an integer, a plain decimal like '0.35' or a fraction like '3/2' (no exponents, max {MAX_STR} chars)")
+            x = Fraction(t)
         else:
             raise Refuse("invalid_input", f"{name}: expected number or string, got {type(v).__name__}")
-    except (ValueError, ZeroDivisionError):
-        raise Refuse("invalid_input", f"{name}: not an exact rational: {v!r}")
+    except (ValueError, ZeroDivisionError, OverflowError):
+        raise Refuse("invalid_input", f"{name}: not an exact rational")
     if max(len(str(abs(x.numerator))), len(str(x.denominator))) > MAX_DIGITS:
         raise Refuse("invalid_input", f"{name}: more than {MAX_DIGITS} digits")
     return x
@@ -111,9 +127,9 @@ def normalize(req: dict) -> dict:
     # kinetics
     if "model" in req and req["model"] is not None:
         m = req["model"]
-        if not isinstance(m, dict) or "name" not in m:
-            raise Refuse("invalid_input", "model must be {'name': ..., 'params': {...}}")
-        params = {k: rat(f"model.params.{k}", v, notes) for k, v in (m.get("params") or {}).items()}
+        if not isinstance(m, dict) or not isinstance(m.get("name"), str) or not isinstance(m.get("params", {}), dict):
+            raise Refuse("invalid_input", "model must be {'name': <string>, 'params': {<string>: <number>, ...}}")
+        params = {str(k)[:40]: rat(f"model.params.{str(k)[:40]}", v, notes) for k, v in (m.get("params") or {}).items()}
         try:
             fp, J = presets.build(m["name"], params)
         except ValueError as e:

@@ -215,6 +215,28 @@ def test_refusals_are_explicit():
     assert run(base("1", jacobian=[[1, 0], [0, 1]]))["refusal"]["code"] == "claim_precondition_failed"
 
 
+# ---------- input hardening (Codex review leads; the exponent case is refused before any Fraction is built)
+@pytest.mark.parametrize("bad", ["1e999999999", "1E9", "0x10", "1_000", "9" * 201, " ", "1/0", "--1", float("inf"), float("nan"), 1e40, 10 ** 100, True, None, [1], {"a": 1}])
+def test_hostile_numbers_refused_not_raised(bad):
+    o = run(base("2", diffusivities=[1, bad]))
+    assert o["verdict"] == "refused" and o["refusal"]["code"] == "invalid_input"
+    o = run(base(bad))
+    assert o["verdict"] == "refused"
+
+
+@pytest.mark.parametrize("model", [{"name": ["x"]}, {"name": "brusselator", "params": [1, 2]}, {"name": "brusselator", "params": {"A": [1], "B": 2}},
+                                   {"name": 7}, "brusselator", {"name": "nope", "params": {}}, {"name": "brusselator", "params": {"A": 1}}])
+def test_malformed_model_refused_not_raised(model):
+    o = run({"model": model, "diffusivities": [1, 10], "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "1"}})
+    assert o["verdict"] == "refused"
+
+
+def test_decimal_and_fraction_strings_still_work():
+    o = run(base("2", diffusivities=["1", "10.0"], jacobian=[["1", "-2"], ["2", "-6/2"]]))
+    assert o["verdict"] == "pattern_possible"
+    assert run(base("2", diffusivities=[1, 1e-07]))["verdict"] in ("no_turing_instability", "domain_blocks_pattern", "refused")
+
+
 # ---------- diffusion-ratio requirement (Stokes-Einstein bridge, exact)
 def _req(J, ratio_act_inh_den, ratio):
     return run({"jacobian": J, "diffusivities": ratio_act_inh_den(ratio), "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "50"}, "crosscheck": False})
@@ -321,6 +343,13 @@ def test_mcp_protocol(live):
     call = post(url + "/mcp", {"jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": {"name": "falsify_turing_pattern", "arguments": base("1")}})
     assert json.loads(call["result"]["content"][0]["text"])["verdict"] == "domain_blocks_pattern"
     assert post(url + "/mcp", {"jsonrpc": "2.0", "id": 4, "method": "nope"})["error"]["code"] == -32601
+
+
+def test_huge_integer_json_is_400_not_500(live):
+    app, url = live
+    with pytest.raises(urllib.error.HTTPError) as e:
+        urllib.request.urlopen(urllib.request.Request(url + "/v1/falsify/turing", data=b'{"jacobian": [[' + b"9" * 6000 + b", 1], [1, 1]]}", method="POST"))
+    assert e.value.code == 400
 
 
 def test_body_limit_and_bad_json(live):
