@@ -1,275 +1,282 @@
 {
- "role": "critic",
- "status": "Scope Desk bench v1.2 FROZEN (127 items) per director follow-up 8 with disclosed gaps (Codex rev3 text re-check not received; blinded audits same-family on earlier wording; verifier by the generator's author; five families have no oracle); kill ledger delivered",
- "model": "claude-sonnet-5-5 (subscription; metered spend unknown, none inferred)",
- "wall_time_pdt": "2026-10-31 06:00-06:20",
- "artifacts": [
-  "planning/rethink/critic.md",
-  "planning/rethink/wildcard/*",
-  "experiments/rethink_wildcard/*",
-  "tests/test_rethink_wildcard.py",
-  "planning/rethink/critic-E-redteam.md",
-  "planning/rethink/critic-settled-science.md",
-  "experiments/rethink_wildcard/fidelity_probe.py",
-  "experiments/rethink_wildcard/pde_cost_probe.py",
-  "planning/rethink/wildcard/fidelity_probe.json",
-  "planning/rethink/wildcard/pde_cost_probe.json",
-  "scopedesk/bench/ (generator, key, KEY.sha256, README, baselines, verify_key)",
-  "tests/test_scopedesk_bench.py",
-  "scopedesk/bench/AMENDMENT_001.json",
-  "scopedesk/bench/descriptive/thompson_repair.json",
-  "scopedesk/bench/V1_HOLD.md",
-  "scopedesk/bench/v1_1/"
- ],
- "commands_run": [
-  {
-   "cmd": "WebFetch https://scienceclawhack.ai (x2)",
-   "exit": "ok",
-   "note": "rubric/schedule/FAQ; no timezone, no submission channel, in-person only"
-  },
-  {
-   "cmd": "WebFetch adaptyvbio.com/blog/anthropic-1; proteinbase.com",
-   "exit": "ok",
-   "note": "Anthropic data 'coming soon'"
-  },
-  {
-   "cmd": "systemd-run --user --scope ... python3 -I experiments/rethink_wildcard/binder_views_check.py",
-   "exit": 0,
-   "note": "after two fixed crashes; frozen acceptance rule FAILED (fusion <= best single)"
-  },
-  {
-   "cmd": "python3 -I experiments/rethink_wildcard/fetch_delphi_math.py",
-   "exit": 0,
-   "note": "92 math claims of 880"
-  },
-  {
-   "cmd": "python3 -I experiments/rethink_wildcard/claim_decidability_labels.py",
-   "exit": 0,
-   "note": "D1 33 (18 trivial), D2 29, E 12, P 18; single reader"
-  },
-  {
-   "cmd": "systemd-run ... python3 -I experiments/rethink_wildcard/greenhill_envelope.py Tallo.csv",
-   "exit": 0
-  },
-  {
-   "cmd": "systemd-run ... python3 -I experiments/rethink_wildcard/turing_scope_prevalence.py 10000000",
-   "exit": 0,
-   "note": "15.5 s single CPU thread"
-  },
-  {
-   "cmd": "systemd-run ... python3 -m pytest -q tests/test_rethink_wildcard.py",
-   "exit": 0,
-   "note": "4 passed"
-  },
-  {
-   "cmd": "WebSearch x4 + WebFetch arxiv 2606.19749, 2608.29270 (prior art for fidelity benchmarks)",
-   "exit": "ok",
-   "note": "snippet-level for most; two abstracts read"
-  },
-  {
-   "cmd": "systemd-run ... python3 -I experiments/rethink_wildcard/fidelity_probe.py",
-   "exit": 0,
-   "note": "first run mislabelled scope-drop mutants; corrected after refusal-as-verdict; audit mismatches []"
-  },
-  {
-   "cmd": "systemd-run ... python3 -I experiments/rethink_wildcard/pde_cost_probe.py",
-   "exit": 0,
-   "note": "first attempt (gamma=100) diverged; second 100 solves T=1000 in 20.4s one CPU thread, unrefined"
-  },
-  {
-   "cmd": "WebSearch Halawi/Schoenegger/BrainBench",
-   "exit": "ok",
-   "note": "search-level only; Replication Markets not verified"
-  },
-  {
-   "cmd": "python3 -I scopedesk/bench/build.py scopedesk/bench",
-   "exit": 0
-  },
-  {
-   "cmd": "systemd-run ... python3 -I scopedesk/bench/verify_key.py",
-   "exit": 0,
-   "note": "136/136"
-  },
-  {
-   "cmd": "python3 -I scopedesk/bench/score.py",
-   "exit": 0
-  },
-  {
-   "cmd": "systemd-run ... pytest tests/test_scopedesk_bench.py tests/test_rethink_wildcard.py",
-   "exit": 0,
-   "note": "10 passed"
-  },
-  {
-   "cmd": "systemd-run ... python3 -I scopedesk/bench/audit/audit_nca_solvers.py /data/worktrees/delphi-evolve/rethink-nca",
-   "exit": 0,
-   "note": "86.8 s"
-  }
- ],
- "limitations": [
-  "decidability triage is one reader, source-only",
-  "binder check is statistical fusion of precomputed features, not an LLM test; organizer-preselected set; group 5-fold not LODO; bootstrap conditional on fixed OOF; permutation descriptive",
-  "Greenhill grid E/rho assumed",
-  "NCA/electric and Shenoy-lab comparisons not examined",
-  "authorization of non-Claude model families contradictory between director note and primary review",
-  "prior-art statements mostly from search snippets; not exhaustive",
-  "verifier written by same author as generator",
-  "templates A/B same author as B0",
-  "formal stratum only",
-  "thresholds are declared operationalisations",
-  "v1 Rayleigh pinned-end scope condition was physically wrong (volume constraint); found by Codex audit not by the critic's verifier",
-  "Codex audit read the key beforehand: not blinded"
- ],
- "next_steps": [
-  "wait for scopedesk/SPEC.md, then build scopedesk/bench/ in this worktree",
-  "reuse fidelity_probe refusal-as-verdict and mutant machinery",
-  "commit key+generator hash before any agent run"
- ],
- "director_confirmation": {
-  "commit": "8ae62fc on work/rethink-director",
-  "time_pdt": "2026-10-31 06:24",
-  "critic_assignment": "own scopedesk/bench/: instance generator, NL request renderer, answer-key hash, benign controls, B0 + retrieval baselines; then independent audit of oracle (not its own)",
-  "kill_times_pdt": {
-   "K-A": "12:30",
-   "K-B": "14:00",
-   "K-C": "14:00",
-   "K-D": "16:00"
-  }
- },
- "bench": {
-  "n": 136,
-  "families": 8,
-  "applies": 62,
-  "out_of_scope": 56,
-  "underdetermined": 18,
-  "excluded_listed": 27,
-  "key_sha256": "747ddbae6a37dc00a4a9271b43075c752c203ae24a820d08d9fb0e9db37c4467",
-  "public_sha256": "6804079a534b4923d8e3550760ddffcd956c73f69bf9a0d14cffacef000248f6",
-  "baselines": "B0 template A 68/68, template B 14/68, all 82/136; R 62/136; format-only 36/96 vs majority 0.448 (see scopedesk/bench/baseline_scores.json)",
-  "verification": "scopedesk/bench/key_verification.json: 136/136 agree; one pre-freeze flaw (kp-0009) fixed by exclusion rule added after seeing verifier output, before any agent run"
- },
- "oracle_audit": {
-  "audited": "turing_scope.adapter.analyze (authored by the turing-scope worker, not the critic)",
-  "script": "scopedesk/bench/audit/audit_turing_scope.py",
-  "output": "scopedesk/bench/audit/turing_scope_audit.json",
-  "result": "16/16 agree on the 16 Neumann/Dirichlet turing_finite_domain items (14 stable/unstable verdict matches + 2 correct claim-precondition refusals for an already-unstable well-mixed state); 0 disagreements",
-  "not_covered": "8 periodic/unstated-BC items are refused by the adapter (unsupported_boundary): the existing oracle cannot label BC-variant items; those key entries rest on verify_key.py (same author as generator)",
-  "pending": [
-   "audit of scopedesk/oracles/ (linear.check, pde.solve, repair, gate) once rethink-nca pushes it - rerun the same script against oracles.linear.check",
-   "PDE/simulated stratum has no key items yet"
+  "role": "critic",
+  "status": "Scope Desk bench v1.2 FROZEN (127 items) per director follow-up 8 with disclosed gaps (Codex rev3 text re-check not received; blinded audits same-family on earlier wording; verifier by the generator's author; five families have no oracle); kill ledger delivered",
+  "model": "claude-sonnet-5-5 (subscription; metered spend unknown, none inferred)",
+  "wall_time_pdt": "2026-10-31 06:00-06:20",
+  "artifacts": [
+    "planning/rethink/critic.md",
+    "planning/rethink/wildcard/*",
+    "experiments/rethink_wildcard/*",
+    "tests/test_rethink_wildcard.py",
+    "planning/rethink/critic-E-redteam.md",
+    "planning/rethink/critic-settled-science.md",
+    "experiments/rethink_wildcard/fidelity_probe.py",
+    "experiments/rethink_wildcard/pde_cost_probe.py",
+    "planning/rethink/wildcard/fidelity_probe.json",
+    "planning/rethink/wildcard/pde_cost_probe.json",
+    "scopedesk/bench/ (generator, key, KEY.sha256, README, baselines, verify_key)",
+    "tests/test_scopedesk_bench.py",
+    "scopedesk/bench/AMENDMENT_001.json",
+    "scopedesk/bench/descriptive/thompson_repair.json",
+    "scopedesk/bench/V1_HOLD.md",
+    "scopedesk/bench/v1_1/"
   ],
-  "nca_solver_layer": {
-   "audited": "experiments/rethink_nca/rd.py (rethink-nca worktree, commit 7ee95dc, read-only import): linear_sigma, spectral_strang, euler_fd",
-   "script": "scopedesk/bench/audit/audit_nca_solvers.py",
-   "output": "scopedesk/bench/audit/nca_solver_audit.json",
-   "key": "exact Fraction det(J-qD) over Neumann modes for the declared Schnakenberg model, 240 (gamma,d,r) cases (gamma 1/4..40, d 5..40, r 2..16)",
-   "results": {
-    "linear_sigma_vs_exact_key": "237/237 agree (3 marginal |sigma|<=1e-9 excluded)",
-    "spectral_strang_patterned_vs_exact_linear": "240/240 agree at tau=300 (no subcritical or slow-growth case in this grid)",
-    "euler_fd_vs_spectral_patterned": "231/240 agree"
-   },
-   "finding": "8 of the 9 Euler/spectral disagreements are gamma=32 or 40 with d=10 (all r): exact key and spectral say unstable/patterned, explicit-Euler finite-difference solver says not patterned (dx=pi/4 discretisation error flips the verdict); the 9th is an exact-marginal case (gamma=2,d=10,r=2, det=0). The FD design-time solver must not be used as an oracle at gamma>=32.",
-   "limits": "declared model only, T=300 tau, not a convergence study, grid of 240 cases"
-  },
-  "scopedesk_oracles_layer": {
-   "audited": "scopedesk/oracles (rethink-nca cb59f0d) linear.check and gate.wavelength_licence",
-   "script": "scopedesk/bench/audit/audit_oracle_layer.py",
-   "outputs": [
-    "scopedesk/bench/audit/oracle_layer_audit_v1_1.json",
-    "scopedesk/bench/audit/oracle_layer_audit_v1_2.json"
-   ],
-   "result": "55/55 agree with the key on turing_finite_domain (24), turing_2d_rectangle (16), wavelength_formula_licence (15); condition ids 55/55",
-   "not_covered": "gate ablations, repair enumerator, pde.solve, and the five non-Turing families (no oracle exists for them)"
-  },
-  "scopedesk_oracles_full": {
-   "script": "scopedesk/bench/audit/audit_oracle_full.py",
-   "output": "scopedesk/bench/audit/oracle_full_audit_v1_2.json",
-   "audited": "scopedesk/oracles repair.enumerate, gate.decide + three ablations, pde.solve (rethink-nca cb59f0d)",
-   "results": {
-    "repair_domain_length": "21 repairs on the 1-D/2-D DOMAIN_ADMISSIBLE_MODE items all valid by an independent exact check; sorted by relative change; no closer valid scale on the k/4 grid missed; value = scale factor, relative_change = |s-1| (my first run misread this, corrected)",
-    "gate": "default decision agrees with key 20/20 (1-D items with stated bc); record_hash_changed -> refused_source 20/20; record_removed and continuum_only equal the textbook condition 20/20",
-    "pde": "12 cases on the two declared kinetics: 9 settled all agree with an independently derived exact linear key; 2 nonconverged and 1 not_settled are reported and not scored"
-   },
-   "not_covered": "reaction_scale and diffusion_ratio repair knobs; 2-D PDE; subcritical/nonlinear behaviour of linearly stable states (oracle declares it unprobed); only 12 PDE cases; five bench families have no oracle"
-  },
-  "repair_knobs": {
-   "script": "scopedesk/bench/audit/audit_repair_knobs.py",
-   "output": "scopedesk/bench/audit/repair_knobs_audit_v1_2.json",
-   "result": "reaction_scale 9 repairs and diffusion_ratio 6 repairs on the 5 out_of_scope turing_finite_domain items of v1.2: all valid by independent exact check; relative_change formulas verified (|s-1| and |Dv'-Dv|/Dv); sorted; no closer valid value missed on k/4 and k/2 grids; oracle placeholder 'no_repair_in_grid' (value null) agrees with my grid for the one case",
-   "not_covered": "2-D PDE; subcritical behaviour; only 5 items; five bench families have no oracle"
-  },
-  "pde_2d": {
-   "script": "scopedesk/bench/audit/audit_pde_2d.py",
-   "result": "6 cases: 5 settled all agree with the exact linear key, 1 nonconverged (reported, not scored); tiny sample"
-  }
- },
- "v1_1": {
-  "path": "scopedesk/bench/v1_1",
-  "n": 135,
-  "families": 8,
-  "change": "rayleigh_plateau dropped (volume-constraint defect); turing_2d_rectangle added; targets/conventions stated in every request; wavelength rule outcome-based",
-  "key_sha256": "b9fc2e961fa6cf73ae204d2385f1988fd6266b935c97f6f96f4a8cf34f538605",
-  "verification": "verify_key.py 136/136 (same author)",
-  "diff": "scopedesk/bench/v1_1/V1_TO_V1_1_DIFF.md",
-  "status": "FROZEN (see scopedesk/bench/v1_1/FROZEN.md); adjudication in V1_1_ADJUDICATION.md",
-  "blind_audits": {
-   "director_text_only": "135/136 on draft (ts-0008)",
-   "critic_subagent_sonnet": "132/136 on draft (gh-0004/0012/0016 relabelled applies after amendment; ts-0008 resolved by pinned convention); both saw pre-amendment text"
-  }
- },
- "leakage_audit_v1_1": {
-  "script": "scopedesk/bench/v1_1/leakage_audit.py",
-  "output": "scopedesk/bench/v1_1/leakage_audit.json",
-  "result": "TF-IDF word 1-2gram and char 3-5gram logistic, leave-one-family-out: full text 0.463/0.456, stem-only 0.412/0.412 vs within-family majority 0.515 -> wording does not transfer across families as a label cue",
-  "limits": "within-family cues exist by construction (e.g. 'logistic' -> applies, 'bistable' -> out_of_scope in the KPP family are the semantic input; 'what' for the missing-cost Hawk-Dove items); 16 items per family too few for within-family leakage CV; second-reader phrasing review NOT done (needs a reviewer)"
- },
- "v1_2": {
-  "path": "scopedesk/bench/v1_2",
-  "n": 127,
-  "key_sha256": "28645a12f2f4c77fc1acedb10b23b4070832eefa381b88ca65a12b9e4ecdaa2f",
-  "candidate_hash_history": [
-   "bc8caf20 (135)",
-   "eab23bff (131)",
-   "774f6a08 (128)",
-   "final (127)"
+  "commands_run": [
+    {
+      "cmd": "WebFetch https://scienceclawhack.ai (x2)",
+      "exit": "ok",
+      "note": "rubric/schedule/FAQ; no timezone, no submission channel, in-person only"
+    },
+    {
+      "cmd": "WebFetch adaptyvbio.com/blog/anthropic-1; proteinbase.com",
+      "exit": "ok",
+      "note": "Anthropic data 'coming soon'"
+    },
+    {
+      "cmd": "systemd-run --user --scope ... python3 -I experiments/rethink_wildcard/binder_views_check.py",
+      "exit": 0,
+      "note": "after two fixed crashes; frozen acceptance rule FAILED (fusion <= best single)"
+    },
+    {
+      "cmd": "python3 -I experiments/rethink_wildcard/fetch_delphi_math.py",
+      "exit": 0,
+      "note": "92 math claims of 880"
+    },
+    {
+      "cmd": "python3 -I experiments/rethink_wildcard/claim_decidability_labels.py",
+      "exit": 0,
+      "note": "D1 33 (18 trivial), D2 29, E 12, P 18; single reader"
+    },
+    {
+      "cmd": "systemd-run ... python3 -I experiments/rethink_wildcard/greenhill_envelope.py Tallo.csv",
+      "exit": 0
+    },
+    {
+      "cmd": "systemd-run ... python3 -I experiments/rethink_wildcard/turing_scope_prevalence.py 10000000",
+      "exit": 0,
+      "note": "15.5 s single CPU thread"
+    },
+    {
+      "cmd": "systemd-run ... python3 -m pytest -q tests/test_rethink_wildcard.py",
+      "exit": 0,
+      "note": "4 passed"
+    },
+    {
+      "cmd": "WebSearch x4 + WebFetch arxiv 2606.19749, 2608.29270 (prior art for fidelity benchmarks)",
+      "exit": "ok",
+      "note": "snippet-level for most; two abstracts read"
+    },
+    {
+      "cmd": "systemd-run ... python3 -I experiments/rethink_wildcard/fidelity_probe.py",
+      "exit": 0,
+      "note": "first run mislabelled scope-drop mutants; corrected after refusal-as-verdict; audit mismatches []"
+    },
+    {
+      "cmd": "systemd-run ... python3 -I experiments/rethink_wildcard/pde_cost_probe.py",
+      "exit": 0,
+      "note": "first attempt (gamma=100) diverged; second 100 solves T=1000 in 20.4s one CPU thread, unrefined"
+    },
+    {
+      "cmd": "WebSearch Halawi/Schoenegger/BrainBench",
+      "exit": "ok",
+      "note": "search-level only; Replication Markets not verified"
+    },
+    {
+      "cmd": "python3 -I scopedesk/bench/build.py scopedesk/bench",
+      "exit": 0
+    },
+    {
+      "cmd": "systemd-run ... python3 -I scopedesk/bench/verify_key.py",
+      "exit": 0,
+      "note": "136/136"
+    },
+    {
+      "cmd": "python3 -I scopedesk/bench/score.py",
+      "exit": 0
+    },
+    {
+      "cmd": "systemd-run ... pytest tests/test_scopedesk_bench.py tests/test_rethink_wildcard.py",
+      "exit": 0,
+      "note": "10 passed"
+    },
+    {
+      "cmd": "systemd-run ... python3 -I scopedesk/bench/audit/audit_nca_solvers.py /data/worktrees/delphi-evolve/rethink-nca",
+      "exit": 0,
+      "note": "86.8 s"
+    }
   ],
-  "status": "FROZEN (scopedesk/bench/v1_2/FROZEN.md)"
- },
- "timestamp_note": "Some wall-time labels written in messages/critic-to-director.md and FROZEN.md for v1.1 after 06:50 (e.g. 07:35, 07:40, 07:45, 07:50, 08:00) were estimated, not read from `date`; actual `date` readings in that period were about 07:07-07:21 PDT.",
- "lean_price_note": "Price equation and Fisher FTNS already formalized in facebookresearch/atlas-lean Selection.lean; lean_price/price is a duplicate; Queller/Hamilton-form corollary not found there (code search).",
- "ledger": {
-  "path": "scopedesk/ledger/",
-  "rows": 20,
-  "controlled_rows": 2,
-  "commit": "2722f9f"
- },
- "codex_frozen_check": {
-  "commit": "6c96810 (work/codex-api)",
-  "result": "metadata exit 0, 14/14 on frozen 70c1254 (127 items); sole removal vs reviewed 128 is qd643fbe2; retained rows unchanged; no further changes requested"
- },
- "retrieval_baseline": {
-  "script": "scopedesk/bench/v1_2/retrieval_baseline.py",
-  "output": "scopedesk/bench/v1_2/retrieval_baseline_scores.json",
-  "result": "TF-IDF nearest Delphi math claim (92 claims) per prompt stem: top-1 correct 119/127; policy 'retrieved cited claim => applies, else abstain': coverage 0.937, selective risk 0.513 (61 errors/119), false acceptance 61/65 on non-applies items; behaves like always-applies on retrievable items; Hamilton retrieval 8/16",
-  "inputs": "prompt text + claim corpus only",
-  "limit": "expected-claim mapping by the critic; not a model-based RAG"
- },
- "scorecard_v0": {
-  "path": "scopedesk/scorecard/",
-  "counts": {
-   "BENCHMARK-LINKED": 6,
-   "RELATED FORMAL LEMMA, TARGET NOT ESTABLISHED": 1,
-   "EMPIRICAL / FRAMEWORK": 2,
-   "NO CHECK IN THIS SCORECARD": 12
+  "limitations": [
+    "decidability triage is one reader, source-only",
+    "binder check is statistical fusion of precomputed features, not an LLM test; organizer-preselected set; group 5-fold not LODO; bootstrap conditional on fixed OOF; permutation descriptive",
+    "Greenhill grid E/rho assumed",
+    "NCA/electric and Shenoy-lab comparisons not examined",
+    "authorization of non-Claude model families contradictory between director note and primary review",
+    "prior-art statements mostly from search snippets; not exhaustive",
+    "verifier written by same author as generator",
+    "templates A/B same author as B0",
+    "formal stratum only",
+    "thresholds are declared operationalisations",
+    "v1 Rayleigh pinned-end scope condition was physically wrong (volume constraint); found by Codex audit not by the critic's verifier",
+    "Codex audit read the key beforehand: not blinded"
+  ],
+  "next_steps": [
+    "wait for scopedesk/SPEC.md, then build scopedesk/bench/ in this worktree",
+    "reuse fidelity_probe refusal-as-verdict and mutant machinery",
+    "commit key+generator hash before any agent run"
+  ],
+  "director_confirmation": {
+    "commit": "8ae62fc on work/rethink-director",
+    "time_pdt": "2026-10-31 06:24",
+    "critic_assignment": "own scopedesk/bench/: instance generator, NL request renderer, answer-key hash, benign controls, B0 + retrieval baselines; then independent audit of oracle (not its own)",
+    "kill_times_pdt": {
+      "K-A": "12:30",
+      "K-B": "14:00",
+      "K-C": "14:00",
+      "K-D": "16:00"
+    }
   },
-  "revision": "v0.1: taxonomy and per-row wording revised per Codex review CODEX-SCORECARD-V0-REVIEW.md (4fe9fb7); legacy a-e labels kept in legacy_status_v0",
-  "limits": "single-reader; record-to-paper correspondence not reviewed; Codex approves the corrected descriptions, not an aggregate success rate"
- },
- "different_family_check": {
-  "source": "dx-guilds arm U (no code tool) per-item verdicts on the frozen payload",
-  "gemini-3.8-flash": "110/127 agree with the key (0.866, CP95 [0.794,0.920]); held-out 73/90; misses concentrated in greenhill 7/13, wavelength 7/14, turing_2d 12/15",
-  "claude-sonnet-5-5": "121/127 (0.953)",
-  "both_models_wrong_on": "3 items, recomputed by the critic, no key error found",
-  "files": "scopedesk/bench/audit/headroom_unguarded/ (NOTES.md, critic_scoring.json)",
-  "limits": "judgement without tools, not an independent derivation; scored by the key's author; item-level"
- }
+  "bench": {
+    "n": 136,
+    "families": 8,
+    "applies": 62,
+    "out_of_scope": 56,
+    "underdetermined": 18,
+    "excluded_listed": 27,
+    "key_sha256": "747ddbae6a37dc00a4a9271b43075c752c203ae24a820d08d9fb0e9db37c4467",
+    "public_sha256": "6804079a534b4923d8e3550760ddffcd956c73f69bf9a0d14cffacef000248f6",
+    "baselines": "B0 template A 68/68, template B 14/68, all 82/136; R 62/136; format-only 36/96 vs majority 0.448 (see scopedesk/bench/baseline_scores.json)",
+    "verification": "scopedesk/bench/key_verification.json: 136/136 agree; one pre-freeze flaw (kp-0009) fixed by exclusion rule added after seeing verifier output, before any agent run"
+  },
+  "oracle_audit": {
+    "audited": "turing_scope.adapter.analyze (authored by the turing-scope worker, not the critic)",
+    "script": "scopedesk/bench/audit/audit_turing_scope.py",
+    "output": "scopedesk/bench/audit/turing_scope_audit.json",
+    "result": "16/16 agree on the 16 Neumann/Dirichlet turing_finite_domain items (14 stable/unstable verdict matches + 2 correct claim-precondition refusals for an already-unstable well-mixed state); 0 disagreements",
+    "not_covered": "8 periodic/unstated-BC items are refused by the adapter (unsupported_boundary): the existing oracle cannot label BC-variant items; those key entries rest on verify_key.py (same author as generator)",
+    "pending": [
+      "audit of scopedesk/oracles/ (linear.check, pde.solve, repair, gate) once rethink-nca pushes it - rerun the same script against oracles.linear.check",
+      "PDE/simulated stratum has no key items yet"
+    ],
+    "nca_solver_layer": {
+      "audited": "experiments/rethink_nca/rd.py (rethink-nca worktree, commit 7ee95dc, read-only import): linear_sigma, spectral_strang, euler_fd",
+      "script": "scopedesk/bench/audit/audit_nca_solvers.py",
+      "output": "scopedesk/bench/audit/nca_solver_audit.json",
+      "key": "exact Fraction det(J-qD) over Neumann modes for the declared Schnakenberg model, 240 (gamma,d,r) cases (gamma 1/4..40, d 5..40, r 2..16)",
+      "results": {
+        "linear_sigma_vs_exact_key": "237/237 agree (3 marginal |sigma|<=1e-9 excluded)",
+        "spectral_strang_patterned_vs_exact_linear": "240/240 agree at tau=300 (no subcritical or slow-growth case in this grid)",
+        "euler_fd_vs_spectral_patterned": "231/240 agree"
+      },
+      "finding": "8 of the 9 Euler/spectral disagreements are gamma=32 or 40 with d=10 (all r): exact key and spectral say unstable/patterned, explicit-Euler finite-difference solver says not patterned (dx=pi/4 discretisation error flips the verdict); the 9th is an exact-marginal case (gamma=2,d=10,r=2, det=0). The FD design-time solver must not be used as an oracle at gamma>=32.",
+      "limits": "declared model only, T=300 tau, not a convergence study, grid of 240 cases"
+    },
+    "scopedesk_oracles_layer": {
+      "audited": "scopedesk/oracles (rethink-nca cb59f0d) linear.check and gate.wavelength_licence",
+      "script": "scopedesk/bench/audit/audit_oracle_layer.py",
+      "outputs": [
+        "scopedesk/bench/audit/oracle_layer_audit_v1_1.json",
+        "scopedesk/bench/audit/oracle_layer_audit_v1_2.json"
+      ],
+      "result": "55/55 agree with the key on turing_finite_domain (24), turing_2d_rectangle (16), wavelength_formula_licence (15); condition ids 55/55",
+      "not_covered": "gate ablations, repair enumerator, pde.solve, and the five non-Turing families (no oracle exists for them)"
+    },
+    "scopedesk_oracles_full": {
+      "script": "scopedesk/bench/audit/audit_oracle_full.py",
+      "output": "scopedesk/bench/audit/oracle_full_audit_v1_2.json",
+      "audited": "scopedesk/oracles repair.enumerate, gate.decide + three ablations, pde.solve (rethink-nca cb59f0d)",
+      "results": {
+        "repair_domain_length": "21 repairs on the 1-D/2-D DOMAIN_ADMISSIBLE_MODE items all valid by an independent exact check; sorted by relative change; no closer valid scale on the k/4 grid missed; value = scale factor, relative_change = |s-1| (my first run misread this, corrected)",
+        "gate": "default decision agrees with key 20/20 (1-D items with stated bc); record_hash_changed -> refused_source 20/20; record_removed and continuum_only equal the textbook condition 20/20",
+        "pde": "12 cases on the two declared kinetics: 9 settled all agree with an independently derived exact linear key; 2 nonconverged and 1 not_settled are reported and not scored"
+      },
+      "not_covered": "reaction_scale and diffusion_ratio repair knobs; 2-D PDE; subcritical/nonlinear behaviour of linearly stable states (oracle declares it unprobed); only 12 PDE cases; five bench families have no oracle"
+    },
+    "repair_knobs": {
+      "script": "scopedesk/bench/audit/audit_repair_knobs.py",
+      "output": "scopedesk/bench/audit/repair_knobs_audit_v1_2.json",
+      "result": "reaction_scale 9 repairs and diffusion_ratio 6 repairs on the 5 out_of_scope turing_finite_domain items of v1.2: all valid by independent exact check; relative_change formulas verified (|s-1| and |Dv'-Dv|/Dv); sorted; no closer valid value missed on k/4 and k/2 grids; oracle placeholder 'no_repair_in_grid' (value null) agrees with my grid for the one case",
+      "not_covered": "2-D PDE; subcritical behaviour; only 5 items; five bench families have no oracle"
+    },
+    "pde_2d": {
+      "script": "scopedesk/bench/audit/audit_pde_2d.py",
+      "result": "6 cases: 5 settled all agree with the exact linear key, 1 nonconverged (reported, not scored); tiny sample"
+    }
+  },
+  "v1_1": {
+    "path": "scopedesk/bench/v1_1",
+    "n": 135,
+    "families": 8,
+    "change": "rayleigh_plateau dropped (volume-constraint defect); turing_2d_rectangle added; targets/conventions stated in every request; wavelength rule outcome-based",
+    "key_sha256": "b9fc2e961fa6cf73ae204d2385f1988fd6266b935c97f6f96f4a8cf34f538605",
+    "verification": "verify_key.py 136/136 (same author)",
+    "diff": "scopedesk/bench/v1_1/V1_TO_V1_1_DIFF.md",
+    "status": "FROZEN (see scopedesk/bench/v1_1/FROZEN.md); adjudication in V1_1_ADJUDICATION.md",
+    "blind_audits": {
+      "director_text_only": "135/136 on draft (ts-0008)",
+      "critic_subagent_sonnet": "132/136 on draft (gh-0004/0012/0016 relabelled applies after amendment; ts-0008 resolved by pinned convention); both saw pre-amendment text"
+    }
+  },
+  "leakage_audit_v1_1": {
+    "script": "scopedesk/bench/v1_1/leakage_audit.py",
+    "output": "scopedesk/bench/v1_1/leakage_audit.json",
+    "result": "TF-IDF word 1-2gram and char 3-5gram logistic, leave-one-family-out: full text 0.463/0.456, stem-only 0.412/0.412 vs within-family majority 0.515 -> wording does not transfer across families as a label cue",
+    "limits": "within-family cues exist by construction (e.g. 'logistic' -> applies, 'bistable' -> out_of_scope in the KPP family are the semantic input; 'what' for the missing-cost Hawk-Dove items); 16 items per family too few for within-family leakage CV; second-reader phrasing review NOT done (needs a reviewer)"
+  },
+  "v1_2": {
+    "path": "scopedesk/bench/v1_2",
+    "n": 127,
+    "key_sha256": "28645a12f2f4c77fc1acedb10b23b4070832eefa381b88ca65a12b9e4ecdaa2f",
+    "candidate_hash_history": [
+      "bc8caf20 (135)",
+      "eab23bff (131)",
+      "774f6a08 (128)",
+      "final (127)"
+    ],
+    "status": "FROZEN (scopedesk/bench/v1_2/FROZEN.md)"
+  },
+  "timestamp_note": "Some wall-time labels written in messages/critic-to-director.md and FROZEN.md for v1.1 after 06:50 (e.g. 07:35, 07:40, 07:45, 07:50, 08:00) were estimated, not read from `date`; actual `date` readings in that period were about 07:07-07:21 PDT.",
+  "lean_price_note": "Price equation and Fisher FTNS already formalized in facebookresearch/atlas-lean Selection.lean; lean_price/price is a duplicate; Queller/Hamilton-form corollary not found there (code search).",
+  "ledger": {
+    "path": "scopedesk/ledger/",
+    "rows": 20,
+    "controlled_rows": 2,
+    "commit": "2722f9f"
+  },
+  "codex_frozen_check": {
+    "commit": "6c96810 (work/codex-api)",
+    "result": "metadata exit 0, 14/14 on frozen 70c1254 (127 items); sole removal vs reviewed 128 is qd643fbe2; retained rows unchanged; no further changes requested"
+  },
+  "retrieval_baseline": {
+    "script": "scopedesk/bench/v1_2/retrieval_baseline.py",
+    "output": "scopedesk/bench/v1_2/retrieval_baseline_scores.json",
+    "result": "TF-IDF nearest Delphi math claim (92 claims) per prompt stem: top-1 correct 119/127; policy 'retrieved cited claim => applies, else abstain': coverage 0.937, selective risk 0.513 (61 errors/119), false acceptance 61/65 on non-applies items; behaves like always-applies on retrievable items; Hamilton retrieval 8/16",
+    "inputs": "prompt text + claim corpus only",
+    "limit": "expected-claim mapping by the critic; not a model-based RAG"
+  },
+  "scorecard_v0": {
+    "path": "scopedesk/scorecard/",
+    "counts": {
+      "BENCHMARK-LINKED": 6,
+      "RELATED FORMAL LEMMA, TARGET NOT ESTABLISHED": 1,
+      "EMPIRICAL / FRAMEWORK": 2,
+      "NO CHECK IN THIS SCORECARD": 12
+    },
+    "revision": "v0.1: taxonomy and per-row wording revised per Codex review CODEX-SCORECARD-V0-REVIEW.md (4fe9fb7); legacy a-e labels kept in legacy_status_v0",
+    "limits": "single-reader; record-to-paper correspondence not reviewed; Codex approves the corrected descriptions, not an aggregate success rate"
+  },
+  "different_family_check": {
+    "source": "dx-guilds arm U (no code tool) per-item verdicts on the frozen payload",
+    "gemini-3.8-flash": "110/127 agree with the key (0.866, CP95 [0.794,0.920]); held-out 73/90; misses concentrated in greenhill 7/13, wavelength 7/14, turing_2d 12/15",
+    "claude-sonnet-5-5": "121/127 (0.953)",
+    "both_models_wrong_on": "3 items, recomputed by the critic, no key error found",
+    "files": "scopedesk/bench/audit/headroom_unguarded/ (NOTES.md, critic_scoring.json)",
+    "limits": "judgement without tools, not an independent derivation; scored by the key's author; item-level"
+  },
+  "host_exchange_log": [
+    {
+      "time_pdt": "2026-10-31 09:30",
+      "note": "Replied to host: scorecard counts match scorecard.json (6/1/2/12 of 21); dx-submit 51fda58 wording equivalent, not byte-identical to SCORECARD.md line 3; ledger committed at ed6f478 (R01-R20, R09 = mismatched 24/24 run, exploratory only); branch head 3b1fcdf. Message appended to critic-to-director.md.",
+      "status": "benchmark frozen (127, key 28645a12...); oracle audit still lacks coverage of Kimura/Hawk-Dove/Greenhill/Hamilton/Fisher-KPP"
+    }
+  ]
 }
