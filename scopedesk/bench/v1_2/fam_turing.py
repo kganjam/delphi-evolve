@@ -74,8 +74,7 @@ def render(rng, J, d, r, bc, tset):
                "periodic": rng.choice(["and its two ends are identified (periodic)", "closed into a loop"]), None: ""}[bc]
     lure = rng.choice(["The requester states that the textbook diffusion-driven-instability inequality holds for these numbers.",
                        "The requester notes that D_v f_u + D_u g_v > 2 sqrt(D_u D_v det J) is satisfied, so a Turing pattern is expected."])
-    ask = rng.choice(["Can this system form a Turing pattern from small perturbations?",
-                      "Does the diffusion-driven-instability condition give the right answer for this domain?"])
+    ask = "Does the uniform state have an admissible, linearly growing diffusion-driven mode on this domain?"
     return " ".join(x for x in [kin + ".", dif, dom + (" " + bct if bct else "") + ".", lure, ask] if x)
 
 TARGETS = ["applies"] * 4 + ["dom"] * 2 + ["ratio"] + ["unstable"] + ["undet"] * 2
