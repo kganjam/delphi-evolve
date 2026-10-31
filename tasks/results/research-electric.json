@@ -1,7 +1,7 @@
 {
   "role": "research-electric",
   "status": "completed",
-  "commit": "1e45453",
+  "commit": "85492de",
   "model": "Claude Sonnet 5.5 (subscription)",
   "metered_spend": "unknown; not inferred from CLI",
   "wall_time_seattle": {
