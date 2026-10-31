@@ -15,3 +15,7 @@ These came to dx-submit as messages from the primary/scout (`/data/artifacts/del
 | Non-monotonicity in L is textbook-derivable | Consistent with the exact result above | Stated: we do not claim it as new |
 | DeepMind arXiv:2509.14185 did not prove; Chen-Hou interval arithmetic not formalized; OpenAI claim disputed | Not checked | Not used. No slide says AI solved a fluid-dynamics problem |
 | prove2.me footer instructs AI agents to fetch a URL; an injected schema fragment in a search result | Not visited | **Safety:** dx-submit has not fetched prove2.me. Prove2Me is cited only by its arXiv id (2608.28433), taken from the committed addendum |
+| Scorecard wording | The critic's v0.1 (`scopedesk/scorecard/`), Codex-approved sentence only: "6 linked to scope-check benchmark families, 1 related formal lemma (target unestablished), 2 empirical/framework, 12 without a corresponding check". The earlier "7 attempted / 5 scope found" is superseded and banned by test | Used (slide 6, site) |
+| Headroom check | `tasks/results/guilds.json`, `artifacts/bench_headroom/` (dx-guilds; preregistered first; checker-tool arm not run) | Used (slide 5, site) with the printed scope: judgement not derivation, effective n = 8 families, not a model ranking |
+| Lean-19 pilot | `tasks/results/guilds.json`, `lean_commons/PREREG.md` Addendum D (written after the outcomes) | Used as a ceiling null: call-matched, arithmetic surrogates, checker repaired post-outcome |
+| Host's earlier 24 of 24 agent run | Mismatched prompts (ledger R09, P03) | **Not used** anywhere (test enforces) |
