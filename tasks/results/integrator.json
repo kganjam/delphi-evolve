@@ -94,6 +94,11 @@
       "cmd": "python3 scripts/browser_smoke.py site /tmp/integ/shots3 with site/data/demo.json present",
       "exit": 0,
       "result": "0 console errors, 0 page errors, 0 failed requests, 0 px overflow on desktop and mobile; Proof tab shows 'Receipt: compiled, mutant rejected' with kernel exit 0 / mutant exit 1; Replay tab core-vs-browser kappa sweep rows match"
+    },
+    {
+      "cmd": "python3 -I scripts/independent_truth.py data/raw/summary_AA.csv artifacts/demo.json VFVS AIKG (capped; no evolve/ import)",
+      "exit": 0,
+      "result": "independent forward-closure from VFVS reproduces core's kappa sweep at all 8 kappa (open flag, closure size 577/381/278/230/137/77/56/25, shortest route 5/5/5/5/6/7/7/none)"
     }
   ],
   "findings": [
@@ -129,7 +134,8 @@
     "artifacts/integration/core_kappa2_route.input.json",
     "planning/INTEGRATION-FINDINGS.md",
     "scripts/reproduce.sh",
-    "scripts/assemble_demo.py"
+    "scripts/assemble_demo.py",
+    "scripts/independent_truth.py"
   ],
   "limitations": [
     "experience nanopub validation is rdflib structural only (worker-reported, not rerun by me).",
