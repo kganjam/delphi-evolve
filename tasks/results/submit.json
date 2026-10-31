@@ -247,6 +247,28 @@
    "claims_traced": 41,
    "tests": "13 passed",
    "script": "399 words, 2:35-2:36 synthetic voice"
+  },
+  "video_bundle_rehearsal": {
+   "video": {
+    "file": "presentation/delphi/video/delphi-90s-captioned.mp4",
+    "sha256": "05c3e983615ea99943e2ee9ff23f3c9aea64a2f3dac97b1e32e64290beb392a7",
+    "duration_s": 90.56,
+    "audio": "none",
+    "manifest": "presentation/delphi/video/manifest.json"
+   },
+   "bundle": {
+    "zip": "/data/artifacts/delphi-evolve-submit/dist/delphi-bundle.zip",
+    "sha256": "c2212d0cabd8fe1cf7668917ee87f7e34f91a8817661e0bc910dd6398f312250",
+    "bytes": 5427344,
+    "n_files": 131,
+    "manifest": "presentation/delphi/dist/bundle-manifest.json",
+    "verified": "unzipped and re-hashed all files, 0 mismatches"
+   },
+   "rehearsal": "presentation/delphi/REHEARSAL.md (no human rehearsal done)",
+   "final_cut": "bash presentation/delphi/final_cut.sh at 18:00 PDT from the integrated tree",
+   "deck_pptx": "presentation/delphi/deck.pptx (image-only fallback)",
+   "tests": "17 passed",
+   "claims_traced": 41
   }
  }
 }

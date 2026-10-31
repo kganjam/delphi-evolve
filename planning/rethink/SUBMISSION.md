@@ -18,6 +18,13 @@ The TrpB deck described below (`presentation/deck.*`, `rebuild.sh`, `trace_numbe
 
 Scorecard (critic v0.1, `date` 08:32 PDT): slide 6 and the site now use ONLY the Codex-approved wording, 21 records: 6 linked to scope-check benchmark families, 1 related formal lemma (target unestablished), 2 empirical/framework, 12 without a corresponding check (the earlier '7 attempted' wording is superseded and banned by test). Slide 5 now carries the headroom check (unguarded Claude Sonnet 5.5 121/127, Gemini 3.8 flash 110/127, checker-tool arm not run, effective n 8 families) and the Lean-19 pilot as a ceiling null (every arm 19/19, reuse saved no calls or tokens, checker repaired after the outcomes); the host's earlier 24/24 run is not used. Codex's reviewed Frontier map is linked from the landing page (`site/review/frontier.html`), not rewritten.
 
+### Video, bundle, rehearsal sheet (`date` 08:5x PDT)
+
+- 90-second silent captioned video of the built deck and the landing page ledger: `presentation/delphi/video/delphi-90s-captioned.mp4` (90.56 s, sha256 `05c3e983615ea99943e2ee9ff23f3c9aea64a2f3dac97b1e32e64290beb392a7`), manifest `video/manifest.json` pinned to the source HEAD and the deck/site hashes. Re-record after every rebuild.
+- Downloadable static bundle (site/delphi, site/review, presentation/delphi and the 131 files it cites; deterministic zip): `/data/artifacts/delphi-evolve-submit/dist/delphi-bundle.zip`, sha256 `c2212d0cabd8fe1cf7668917ee87f7e34f91a8817661e0bc910dd6398f312250`, file list and per-file hashes in `presentation/delphi/dist/bundle-manifest.json`. Verified by unzipping and re-hashing every file. Not published or uploaded anywhere.
+- Rehearsal checklist `presentation/delphi/REHEARSAL.md`: **no human rehearsal has been done**; the sheet has blank cells for a stopwatch run.
+- The 18:00 PDT cut is one command from a clean checkout of the integrated tree: `bash presentation/delphi/final_cut.sh` (rebuild + gate, video, rehearsal sheet, bundle). Commit its outputs afterwards.
+
 ### Corrections applied (ATLAS memo)
 
 - No Delphi material claims that no machine-checked biology library exists. ATLAS (`facebookresearch/atlas-lean`, `MathlibExt/Biology`) is credited on slide 6, the site and the blog; whether it already covers Price/Hamilton is stated as unchecked; the earlier "bounded search found no Price formalization" sentence was removed. Offering Turing statements to its `WantedExt/Biology` is shown as pending, not done.
