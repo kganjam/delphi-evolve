@@ -29,6 +29,16 @@
       "cmd": "integrator mutants on /tmp copy: M1 route delta x10; M2 swap two route vertices; M3 drop one measured neighbour from blocked table; M4 blocked delta x10",
       "exit": "1,1,1,1 (all rejected by kernel decide); baseline copy and restored copy exit 0",
       "result": "4/4 meaningful mutants rejected"
+    },
+    {
+      "cmd": "git clone integration work/integration@fc58f77 -> /tmp/integ/fresh1; python3 scripts/fetch_data.py (capped scope) twice, second time after deleting data/raw",
+      "exit": "0,0",
+      "result": "10 HTTP range requests, 28,392,871 bytes from CaltechDATA; sha256sum of all three CSVs matches data/manifest.json and my independent audit"
+    },
+    {
+      "cmd": "python3 -m evolve audit in the fresh clone (capped, OMP/OPENBLAS threads 2)",
+      "exit": 0,
+      "result": "counts 193170/34041/159129/871/overlap 0; noise_check_ok True; regenerated artifacts/core/audit.json byte-identical to committed (git status clean)"
     }
   ],
   "findings": [
@@ -42,16 +52,17 @@
     "Blocked certificate is relative to the full 20^4 library graph with unknown nodes possible; it is not a statement about sequence space.",
     "Label definitions differ across workers but are numerically near-identical: core (uncommitted at review) uses mu_k minus the per-replicate stop-codon mean; proof/experience use the authors' mu_k-bg column. Independent check over 159,129 non-stop rows: (mu_k - mu_k-bg) has mean 0.1320, SD 0.0003; 252/321 low-read rows (median ~10 reads) deviate >0.001 from the stop-mean, 23/34 by >0.01. Neither is max-normalised. Negligible for certificate nodes (>=109 reads except target AIKG 27/29) relative to assumed delta 0.005, but the site must state one definition per number.",
     "Preliminary read-only review of uncommitted core code (evolve/oracle.py, replay.py; policies do not import the landscape, they see only Ledger/Ctx): oracle reveals only queried labels; truth BFS and verify_route/verify_cut are audit-only; start/target and 96 initial observations are shared across policies; right-censoring is retained. Family B fixes start VFVS and targets AIKG/CLKG/VLKG/ALKG from published biology but reveals start and target labels free, which must be stated in the benchmark text. Final judgement waits for the committed code.",
-    "GPU prior leakage check pending: Ctx.prior accepts a 160k-vector; a prior is only admissible if label-free (zero-shot ESM score) or refit inside each episode on admissible observations. A prior regressed on all labels would leak."
+    "GPU prior leakage check pending: Ctx.prior accepts a 160k-vector; a prior is only admissible if label-free (zero-shot ESM score) or refit inside each episode on admissible observations. A prior regressed on all labels would leak.",
+    "Fixed in integration tree: scripts/fetch_data.py sent 'kris.ganjam@alleninstitute.org' in the HTTP User-Agent to CaltechDATA; replaced with the repository URL (no personal email sent to external services). Core worker should not reintroduce it."
   ],
   "artifacts": [
     "scripts/audit_data.py",
     "scripts/check_demo.py"
   ],
   "limitations": [
-    "Core worker has not pushed; GPU worker's work is local-only; no demo.json exists yet so check_demo.py has not run on a real artifact.",
     "experience nanopub validation is rdflib structural only (worker-reported, not rerun by me).",
-    "Lean mutants I ran were applied to generated .lean files; Python-side generation from certificate JSON to Lean (exact-input claim) not yet re-run from JSON."
+    "Lean mutants I ran were applied to generated .lean files; Python-side generation from certificate JSON to Lean (exact-input claim) not yet re-run from JSON.",
+    "core a8c0090 has no tests/ directory and no demo/summarize modules yet (cli imports them but they do not exist), so `python -m evolve demo` fails until core's next commit; GPU worker still local-only."
   ],
   "next_steps": [
     "Re-run render_lean from artifacts/proof/*.json and diff against committed Lean files once check_proofs.py exists",
