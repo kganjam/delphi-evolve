@@ -1,0 +1,207 @@
+{
+ "agree_counts_[agree,n]": {
+  "neumann": [
+   8,
+   8
+  ],
+  "dirichlet_as_neumann": [
+   8,
+   8
+  ]
+ },
+ "disagreements": [],
+ "periodic_or_unstated_bc_items": {
+  "n": 8,
+  "adapter_mapped_counts": {
+   "refused:{'code': 'unsupported_boundary', 'detail': \"boundary 'periodic' refused; supported: 'neumann_zero_flux'. Dirichlet, periodic/ring, mixed or unspecified boundaries have different admissible q-spectra.\"}": 4,
+   "refused:{'code': 'unsupported_boundary', 'detail': \"boundary 'unspecified' refused; supported: 'neumann_zero_flux'. Dirichlet, periodic/ring, mixed or unspecified boundaries have different admissible q-spectra.\"}": 4
+  }
+ },
+ "note": "adapter refusals on periodic/unstated BC are its documented scope; they are not oracle errors but show the oracle alone cannot label BC-variant items",
+ "rows": [
+  {
+   "id": "ts-0020",
+   "bc": null,
+   "key": "underdetermined",
+   "adapter_verdict": "refused",
+   "mapped": "refused:{'code': 'unsupported_boundary', 'detail': \"boundary 'unspecified' refused; supported: 'neumann_zero_flux'. Dirichlet, periodic/ring, mixed or unspecified boundaries have different admissible q-spectra.\"}"
+  },
+  {
+   "id": "ts-0002",
+   "bc": "dirichlet",
+   "key": "applies",
+   "adapter_verdict": "linearly_unstable",
+   "mapped": "applies",
+   "agree": true
+  },
+  {
+   "id": "ts-0018",
+   "bc": "neumann",
+   "key": "out_of_scope",
+   "adapter_verdict": "refused",
+   "mapped": "refused:{'code': 'claim_precondition_failed', 'detail': 'turing-ddi assumes a state stable without diffusion (tr J<0, det J>0); got tr J=-3/4, det J=0. The record does not license a diffusion-driven classification here.'}",
+   "agree": true
+  },
+  {
+   "id": "ts-0023",
+   "bc": "neumann",
+   "key": "applies",
+   "adapter_verdict": "linearly_unstable",
+   "mapped": "applies",
+   "agree": true
+  },
+  {
+   "id": "ts-0008",
+   "bc": "dirichlet",
+   "key": "out_of_scope",
+   "adapter_verdict": "refused",
+   "mapped": "refused:{'code': 'claim_precondition_failed', 'detail': 'turing-ddi assumes a state stable without diffusion (tr J<0, det J>0); got tr J=-3/4, det J=0. The record does not license a diffusion-driven classification here.'}",
+   "agree": true
+  },
+  {
+   "id": "ts-0001",
+   "bc": "dirichlet",
+   "key": "applies",
+   "adapter_verdict": "linearly_unstable",
+   "mapped": "applies",
+   "agree": true
+  },
+  {
+   "id": "ts-0007",
+   "bc": "periodic",
+   "key": "out_of_scope",
+   "adapter_verdict": "refused",
+   "mapped": "refused:{'code': 'unsupported_boundary', 'detail': \"boundary 'periodic' refused; supported: 'neumann_zero_flux'. Dirichlet, periodic/ring, mixed or unspecified boundaries have different admissible q-spectra.\"}"
+  },
+  {
+   "id": "ts-0004",
+   "bc": "dirichlet",
+   "key": "applies",
+   "adapter_verdict": "linearly_unstable",
+   "mapped": "applies",
+   "agree": true
+  },
+  {
+   "id": "ts-0009",
+   "bc": null,
+   "key": "underdetermined",
+   "adapter_verdict": "refused",
+   "mapped": "refused:{'code': 'unsupported_boundary', 'detail': \"boundary 'unspecified' refused; supported: 'neumann_zero_flux'. Dirichlet, periodic/ring, mixed or unspecified boundaries have different admissible q-spectra.\"}"
+  },
+  {
+   "id": "ts-0013",
+   "bc": "periodic",
+   "key": "applies",
+   "adapter_verdict": "refused",
+   "mapped": "refused:{'code': 'unsupported_boundary', 'detail': \"boundary 'periodic' refused; supported: 'neumann_zero_flux'. Dirichlet, periodic/ring, mixed or unspecified boundaries have different admissible q-spectra.\"}"
+  },
+  {
+   "id": "ts-0003",
+   "bc": "neumann",
+   "key": "applies",
+   "adapter_verdict": "linearly_unstable",
+   "mapped": "applies",
+   "agree": true
+  },
+  {
+   "id": "ts-0012",
+   "bc": "neumann",
+   "key": "applies",
+   "adapter_verdict": "linearly_unstable",
+   "mapped": "applies",
+   "agree": true
+  },
+  {
+   "id": "ts-0022",
+   "bc": "neumann",
+   "key": "applies",
+   "adapter_verdict": "linearly_unstable",
+   "mapped": "applies",
+   "agree": true
+  },
+  {
+   "id": "ts-0016",
+   "bc": "dirichlet",
+   "key": "out_of_scope",
+   "adapter_verdict": "stable",
+   "mapped": "out_of_scope",
+   "agree": true
+  },
+  {
+   "id": "ts-0017",
+   "bc": "dirichlet",
+   "key": "out_of_scope",
+   "adapter_verdict": "stable",
+   "mapped": "out_of_scope",
+   "agree": true
+  },
+  {
+   "id": "ts-0010",
+   "bc": null,
+   "key": "underdetermined",
+   "adapter_verdict": "refused",
+   "mapped": "refused:{'code': 'unsupported_boundary', 'detail': \"boundary 'unspecified' refused; supported: 'neumann_zero_flux'. Dirichlet, periodic/ring, mixed or unspecified boundaries have different admissible q-spectra.\"}"
+  },
+  {
+   "id": "ts-0015",
+   "bc": "dirichlet",
+   "key": "out_of_scope",
+   "adapter_verdict": "stable",
+   "mapped": "out_of_scope",
+   "agree": true
+  },
+  {
+   "id": "ts-0006",
+   "bc": "periodic",
+   "key": "out_of_scope",
+   "adapter_verdict": "refused",
+   "mapped": "refused:{'code': 'unsupported_boundary', 'detail': \"boundary 'periodic' refused; supported: 'neumann_zero_flux'. Dirichlet, periodic/ring, mixed or unspecified boundaries have different admissible q-spectra.\"}"
+  },
+  {
+   "id": "ts-0024",
+   "bc": "neumann",
+   "key": "applies",
+   "adapter_verdict": "linearly_unstable",
+   "mapped": "applies",
+   "agree": true
+  },
+  {
+   "id": "ts-0005",
+   "bc": "periodic",
+   "key": "out_of_scope",
+   "adapter_verdict": "refused",
+   "mapped": "refused:{'code': 'unsupported_boundary', 'detail': \"boundary 'periodic' refused; supported: 'neumann_zero_flux'. Dirichlet, periodic/ring, mixed or unspecified boundaries have different admissible q-spectra.\"}"
+  },
+  {
+   "id": "ts-0014",
+   "bc": "neumann",
+   "key": "applies",
+   "adapter_verdict": "linearly_unstable",
+   "mapped": "applies",
+   "agree": true
+  },
+  {
+   "id": "ts-0021",
+   "bc": "dirichlet",
+   "key": "applies",
+   "adapter_verdict": "linearly_unstable",
+   "mapped": "applies",
+   "agree": true
+  },
+  {
+   "id": "ts-0011",
+   "bc": "neumann",
+   "key": "applies",
+   "adapter_verdict": "linearly_unstable",
+   "mapped": "applies",
+   "agree": true
+  },
+  {
+   "id": "ts-0019",
+   "bc": null,
+   "key": "underdetermined",
+   "adapter_verdict": "refused",
+   "mapped": "refused:{'code': 'unsupported_boundary', 'detail': \"boundary 'unspecified' refused; supported: 'neumann_zero_flux'. Dirichlet, periodic/ring, mixed or unspecified boundaries have different admissible q-spectra.\"}"
+  }
+ ]
+}

@@ -1,6 +1,6 @@
 {
  "role": "critic",
- "status": "Scope Desk bench v1 frozen (136 items, 8 families); independent-method key verification 136/136; AT3 (different-session audit) and NCA oracle audit NOT done",
+ "status": "Scope Desk bench v1 frozen; existing exact oracle turing_scope.adapter audited by the critic on the Turing family (16/16 agree on Neumann/Dirichlet items); scopedesk/oracles (NCA) does not exist yet so the Scope Desk oracle layer is NOT audited; different-session audit of the generator/verifier still pending",
  "model": "claude-sonnet-5-5 (subscription; metered spend unknown, none inferred)",
  "wall_time_pdt": "2026-10-31 06:00-06:20",
  "artifacts": [
@@ -135,5 +135,16 @@
   "public_sha256": "6804079a534b4923d8e3550760ddffcd956c73f69bf9a0d14cffacef000248f6",
   "baselines": "B0 template A 68/68, template B 14/68, all 82/136; R 62/136; format-only 36/96 vs majority 0.448 (see scopedesk/bench/baseline_scores.json)",
   "verification": "scopedesk/bench/key_verification.json: 136/136 agree; one pre-freeze flaw (kp-0009) fixed by exclusion rule added after seeing verifier output, before any agent run"
+ },
+ "oracle_audit": {
+  "audited": "turing_scope.adapter.analyze (authored by the turing-scope worker, not the critic)",
+  "script": "scopedesk/bench/audit/audit_turing_scope.py",
+  "output": "scopedesk/bench/audit/turing_scope_audit.json",
+  "result": "16/16 agree on the 16 Neumann/Dirichlet turing_finite_domain items (14 stable/unstable verdict matches + 2 correct claim-precondition refusals for an already-unstable well-mixed state); 0 disagreements",
+  "not_covered": "8 periodic/unstated-BC items are refused by the adapter (unsupported_boundary): the existing oracle cannot label BC-variant items; those key entries rest on verify_key.py (same author as generator)",
+  "pending": [
+   "audit of scopedesk/oracles/ (linear.check, pde.solve, repair, gate) once rethink-nca pushes it - rerun the same script against oracles.linear.check",
+   "PDE/simulated stratum has no key items yet"
+  ]
  }
 }
