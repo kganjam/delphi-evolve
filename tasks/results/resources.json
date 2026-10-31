@@ -2,9 +2,9 @@
  "role": "resources",
  "branch": "work/resources",
  "model": "Claude Sonnet 5.5 (subscription; no metered charge known)",
- "updated_seattle": "2026-10-31 ~00:50 PDT",
- "status": "core deliverables complete; ESMFold2 blocked by undocumented manifest",
- "commit": "3f9c399 (pushed to origin work/resources)",
+ "updated_seattle": "2026-10-31 ~00:47 PDT",
+ "status": "completed",
+ "commit": "see git log on origin/work/resources",
  "tasks": {
   "gemini_client": {
    "status": "done",
@@ -110,5 +110,11 @@
   "integrator applies/decides proposed fixes in docs/services.md section 2",
   "if Nebius documents the ESMFold2 manifest, retry esmfold2-fast with key delphi-evolve-structure-<hash>-esmfold2fast"
  ],
- "credentials": "read programmatically into headers only; leak_scan clean on artifacts/services, docs, scientific_services, tasks/results"
+ "credentials": "read programmatically into headers only; leak_scan clean on artifacts/services, docs, scientific_services, tasks/results",
+ "status_detail": "All assigned deliverables produced; ESMFold2/ESMFold2-Fast blocked by an undocumented input manifest (optional, did not block the core); proposed core fixes are recommendations, none applied here",
+ "checks": {
+  "tests": "python3 -m pytest tests/test_services.py -q -> 14 passed (offline)",
+  "leak_scan": "clean on artifacts/services, docs, scientific_services, tasks/results",
+  "r1_empty_rows_bug": "fixed on work/integration 4398fad; core working tree fix observed uncommitted; replay regeneration in progress at last snapshot"
+ }
 }
