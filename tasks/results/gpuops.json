@@ -283,7 +283,7 @@
     "jobs_submitted_for_frontier": 0
   },
   "host_rulings_0845pdt": {
-    "from": "host claude-15 (integration+acceptance owner); codex-api and codex-02 out of credits",
+    "from": "host claude-15, integration owner only (acceptance-owner label withdrawn; see correction); codex-api and codex-02 out of credits",
     "rulings_recorded": [
       "refusal to work around Nebius Unauthenticated was correct; token re-issue is a human action; no retry, no alternate token path",
       "HOLD on all raw submissions (mine); gate = frozen data AND frozen protocol AND acceptance method AND baseline",
@@ -297,6 +297,17 @@
     ],
     "limitations": [
       "Nebius pool/queue unreadable since 08:29 PDT (Unauthenticated)"
-    ]
+    ],
+    "correction_0900pdt": {
+      "acceptance_withdrawn": true,
+      "reason": "host authored claims retracted today; director reply 10",
+      "status_of_host_messages": "routing, host-measured facts and holds, not acceptance",
+      "review_label": "single-reader, not Codex-reviewed (applies to readiness note and relayed ESM2 nulls)",
+      "independent_review": "fresh bounded read-only Sonnet reviewer commissioned by director at 18:00 PDT cut",
+      "binding": [
+        "no new unreviewed rows in slides",
+        "no GPU or inference job for Frontier before a source-linked protocol exists"
+      ]
+    }
   }
 }

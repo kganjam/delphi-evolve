@@ -39,9 +39,15 @@ Two statements that were wrong in earlier drafts and are recorded here as fact:
 1. Our GPU access is a SHARED sixteen-H100 pool that we may use up to ten of while yielding when other teams queue; it is not sixteen dedicated cards.
 2. The official hackathon page lists NO sponsor bonus points.
 
-Hold and nulls, as ruled by the host (who is now integration and acceptance owner; codex-api and codex-02 are out of credits, so the 08:31 readiness report had no live reader):
+Hold and nulls, as ruled by the host (host is integration owner only; the 'acceptance owner' label was withdrawn by the host after the director's reply 10, because the host authored claims retracted today. Host messages are routing, host-measured facts and holds, not acceptance. codex-api and codex-02 are out of credits, so the 08:31 readiness report had no live reader):
 
 * HOLD on all raw GPU/model-inference submissions, which stay with the gpu/gpuops worker. Gate: frozen data AND frozen protocol AND an acceptance method AND a baseline before any job.
 * Nebius `Unauthenticated` is a human token re-issue. No retry loops, no search for another token path, no contact with other teams' jobs.
 * Hosted ESM2 returns natural-log scores (masked-marginals, wt-marginals, PLL), not embeddings. That is a null for the hosted route; embeddings need our own H100 job. I have NO measured CPU rate for ESM2, so no claim that a GPU is needed for <=500 sequences is supported.
 * The earlier five-ESM2 TrpB results are kept as nulls (taken from the host's ruling; I did not rerun or re-derive them). Repetition is not novelty.
+
+Review status and binding rules (host correction, per director reply 10):
+
+* Nothing in this file or in the host rulings above is accepted by anyone. Independent review of the FINAL materials is to be done by a fresh bounded read-only Sonnet reviewer commissioned by the director at the 18:00 PDT cut.
+* Everything Codex has not re-reviewed is **single-reader, not Codex-reviewed**. That includes this readiness note and the host-relayed ESM2 nulls.
+* No new unreviewed rows enter slides. No GPU and no inference job for Frontier before a source-linked protocol exists.
