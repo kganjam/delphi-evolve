@@ -13,7 +13,8 @@
     "market/diversity.py: crowd error = mean individual error - diversity, checked numerically on every call (raises above 1e-12). Demoted to an appendix per the director; carries the theorem-limit text (guarantees only vs the MEAN individual, says nothing about the BEST).",
     "market/scoring.py, aggregate.py (mean, median, log-opinion pool, fixed extremisation a=1.5, out-of-fold recalibration), calibration.py (bins, ECE, reliability figure, family error correlation, within-outcome variant), stats.py (Clopper-Pearson, McNemar, AUC, cluster bootstrap), arms.py (budget gate).",
     "market/store.py + report.py: retained immutable hash-chained binary-claim forecast store and report from the first design; tested; NOT on the Scope Desk path. No separate market API was built.",
-    "market/triage.py: scorecard tally built on the frozen bench-v1-freeze.json (read from /data/worktrees/admissible-seed, not modified). Uses the freeze's own ids, buckets B0-B3 and verdict vocabulary; a verdict stands only with compiled artifact, clean axioms, non-author statement review, all mutants failing (proofs), scope condition or counterexample as relevant, and the mandatory B1 anti-triviality mutant; otherwise CLAIMED_BUT_UNVERIFIED. B0 claims cannot get verdicts; frozen buckets cannot change; no record counts as NOT_ATTEMPTED. The parser reads the real freeze (counts 2/4/11/4)."
+    "market/triage.py: scorecard tally built on the frozen bench-v1-freeze.json (read from /data/worktrees/admissible-seed, not modified). Uses the freeze's own ids, buckets B0-B3 and verdict vocabulary; a verdict stands only with compiled artifact, clean axioms, non-author statement review, all mutants failing (proofs), scope condition or counterexample as relevant, and the mandatory B1 anti-triviality mutant; otherwise CLAIMED_BUT_UNVERIFIED. B0 claims cannot get verdicts; frozen buckets cannot change; no record counts as NOT_ATTEMPTED. The parser reads the real freeze (counts 2/4/11/4).",
+    "market/gate.py + prereg_gate.json: gate-vs-model-judgement evaluation (conditions U/G across model families). Trap error, refusal, false refusal, non-trap error, descriptive useful-correct; trivial policies (always-refuse shown to have zero trap error and total false refusal); paired G-vs-U family-cluster comparison; support rule requires fewer trap errors AND no detectable rise in false refusals or non-trap errors; token ratio reported not gated (precondition check, not a compute-matched collective test); circularity of the key and the gate stated in every report."
   ],
   "commands_run": [
     {
@@ -80,6 +81,21 @@
       "cmd": "python3 -m pytest tests/test_market_{scoring,desk,lean,store,triage}.py -q (scope), final",
       "exit": 0,
       "note": "51 passed in 3.74 s"
+    },
+    {
+      "cmd": "python3 -m pytest tests/test_market_gate.py (scope)",
+      "exit": 0,
+      "note": "7 passed after correcting one test's expected error message (the code raised the more specific, correct error)"
+    },
+    {
+      "cmd": "mutation check on gate: 7 mutants (scope)",
+      "exit": 0,
+      "note": "7/7 killed"
+    },
+    {
+      "cmd": "python3 -m pytest tests/test_market_{scoring,desk,lean,store,triage,gate}.py -q (scope), final",
+      "exit": 0,
+      "note": "58 passed"
     }
   ],
   "artifacts": [
@@ -96,7 +112,9 @@
     "The binary-claim forecast store is an honest-process ledger, not protection against an adversary with file access.",
     "Prereg files are committed before any agent answer exists but the hash binding to a run is only as good as the runner recording the report's prereg sha256.",
     "Not done, deliberately: tournament/debate ranking (target repo unknown, cannot rule out duplication), any nanopub code (the Ashley-maintained skill exists and I wrote none), Kavita's seven-point claim spec, dataset discovery at scale, and any PR or outreach. Those are other roles' work or need the user's authorization.",
-    "The triage tally trusts the records it is given; it cannot check that a Lean artifact compiles or that a mutant set is meaningful. Those checks belong to the proof owners and the independent audit."
+    "The triage tally trusts the records it is given; it cannot check that a Lean artifact compiles or that a mutant set is meaningful. Those checks belong to the proof owners and the independent audit.",
+    "Gate evaluation: the trap key and the gate share exact linear arithmetic, so G's trap error of 0 is a consistency check, not independent validation. Trap truth is the LINEAR statement (no admissible mode in the band); a nonlinear pattern can still form. Independent evidence is the Lean certificate and, for nonlinear outcomes, two-solver agreement.",
+    "Not done, deliberately: the turing-scope-check package and MCP server, the robustness-curve figure against measured morphogen diffusivities, and the item generator for the trap questions. Those belong to the gate and bench owners; the harness only scores their outputs."
   ],
   "next_steps": [
     "Director: wire `python -m market desk` and `python -m market lean` into the acceptance runner once the key, answers and ledger exist; confirm the ledger and result row formats above.",
@@ -104,6 +122,7 @@
     "Decide whether the TXT arm gets answers from the deterministic textbook criterion; its error rate is the audit's headline number.",
     "Commit prereg_desk.json and prereg_lean.json before any run (done at the code commit) and do not edit them afterwards without a dated note.",
     "If a tournament ranking is wanted, first get the name of the repo Amit inspected; the existing paired comparisons in desk.py already give head-to-head differences with family-cluster intervals.",
-    "Proof owners: emit one verdict record per claim in the shape documented at the top of market/triage.py, then run `python -m market triage --freeze <bench-v1-freeze.json> --records R.jsonl --out DIR`. With no records it correctly reports 0 of 19 evaluable verified."
+    "Proof owners: emit one verdict record per claim in the shape documented at the top of market/triage.py, then run `python -m market triage --freeze <bench-v1-freeze.json> --records R.jsonl --out DIR`. With no records it correctly reports 0 of 19 evaluable verified.",
+    "Bench owner: emit gate keys with problem_family set to the independence unit and at least 6 trap-bearing problem families, or no verdict can be issued."
   ]
 }

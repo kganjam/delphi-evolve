@@ -21,6 +21,11 @@ token or compiler-call ledger, oracle repair verdicts, Lean proof records.
    Otherwise it is shown as `CLAIMED_BUT_UNVERIFIED` with the missing items. B0 claims (excluded by their own record) cannot receive a verdict, a record may not change a frozen bucket, and unknown or duplicate claims abort.
    Claims without a record are counted NOT_ATTEMPTED, B3 is never called "failed", and a thin scorecard is called thin. It tallies records; it proves and decides nothing.
 
+5. **Does a deterministic gate beat model judgement at respecting a law's scope?** `python -m market gate --key K --answers A` (`gate.py`, `prereg_gate.json`).
+   Agents answer pattern / no_pattern / refuse, with and without the gate (U vs G), across model families. Reports trap error, refusal, false refusal and non-trap error per condition and per model family, plus trivial policies.
+   "Gate beats judgement" needs fewer trap errors with the cluster interval below 0 **and** no detectable rise in false refusals or non-trap errors, so a gate that refuses everything (zero trap error) is reported as not supported.
+   This is a precondition-check question, not a claim that more agents beat fewer. The key's trap labels and the gate use the same linear arithmetic, so G's zero trap error checks the implementation against the key; it is not independent validation, and says nothing about nonlinear patterning.
+
 ## Rules baked into the code (each has a test that fails if it is removed)
 - Arms are compared only if total budgets differ by <= 5% of the smaller arm (tokens for desk arms, compiler calls for Lean arms); otherwise `REFUSED_BUDGET_MISMATCH` with no win/loss text.
 - Intervals are family-cluster bootstraps. Fewer than 6 families gives `INSUFFICIENT FAMILIES`, not a verdict (a 3-family bootstrap can have zero width).
@@ -37,7 +42,7 @@ and guarantees only that the crowd beats the *mean* individual. It says nothing 
 It asserts no universal diffusion-ratio threshold, no validated structure-to-diffusion pipeline, and no claim that scope repair is unique to biology (all retracted or killed upstream). It measures; the science lives in the key, the oracles and the Lean artifacts.
 
 ## Input formats
-See the docstrings of `desk.py` (key, instances, answers, ledger, repairs) and `lean.py` (statements, results, ledger), `triage.py` (freeze file + verdict records). **Assumptions to confirm with the owners:** the arms ledger rows carry `arm` plus `total_tokens` or token fields; Lean result rows carry `proved` and `axioms_clean`; `family` is the independence unit (the model, not a run).
+See the docstrings of `desk.py` (key, instances, answers, ledger, repairs) and `lean.py` (statements, results, ledger), `triage.py` (freeze file + verdict records), `gate.py` (key, answers, optional ledger). **Assumptions to confirm with the owners:** the arms ledger rows carry `arm` plus `total_tokens` or token fields; Lean result rows carry `proved` and `axioms_clean`; `family` is the independence unit (the model, not a run).
 
 ## Retained, not on the Scope Desk path
 `store.py` / `report.py` / `arms.py`: an immutable hash-chained binary-claim forecast store and report from the earlier market design (`python -m market forecast-report`). Tested, unused by the desk path.

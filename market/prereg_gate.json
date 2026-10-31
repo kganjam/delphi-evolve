@@ -1,0 +1,40 @@
+{
+  "name": "gate-vs-model-judgement",
+  "version": 1,
+  "note": "Fixed before any agent answer is scored. gate.py records this file's sha256 in every report.",
+  "question": "Does a deterministic precondition check (the gate) beat model judgement at not applying a law outside its scope? This is NOT a claim that more agents beat fewer; two earlier collective tests did not support that.",
+  "answers": [
+    "pattern",
+    "no_pattern",
+    "refuse"
+  ],
+  "conditions": {
+    "U": "agents without the gate (model judgement only)",
+    "G": "the same agents with the gate available and obeyed"
+  },
+  "trap_definition": "continuum Turing condition holds and no admissible discrete Neumann mode on the stated domain lies in the unstable band; key truth is no_pattern. This is a statement about the LINEAR problem: it is not a claim that no nonlinear pattern can form.",
+  "metrics": {
+    "trap_error_rate": "among observations on trap items: share answered `pattern` (confident wrong). Unanswered stays in the denominator and out of the numerator.",
+    "trap_refusal_rate": "among trap observations: share answered `refuse`",
+    "nontrap_error_rate": "among non-trap observations: share answered with the wrong committed answer",
+    "nontrap_false_refusal_rate": "among non-trap observations: share answered `refuse`. A gate that refuses everything has trap_error 0 and false refusal 1.",
+    "useful_correct_rate": "DESCRIPTIVE: share of ALL observations answered with the correct committed answer (refusals and unanswered do not count)"
+  },
+  "comparison": [
+    "G",
+    "U"
+  ],
+  "budget_policy": "report_only",
+  "budget_policy_note": "Gate vs judgement is a precondition-check question, not a compute-matched collective test; token totals per condition are reported with their ratio and a cheaper gate arm is a cost result, not a confound to hide. Any collective claim elsewhere still uses the matched-budget refusal.",
+  "min_families_for_verdict": 6,
+  "cluster": "problem_family (the independence unit; if absent each item is its own cluster)",
+  "bootstrap": {
+    "resamples": 5000,
+    "seed": 20261031,
+    "ci": 0.95,
+    "method": "percentile"
+  },
+  "supported_rule": "Gate beats judgement only if trap_error_rate is lower for G (family-cluster interval entirely below 0) AND G's nontrap_false_refusal_rate is not detectably higher than U's AND G's nontrap_error_rate is not detectably higher than U's. useful_correct_rate is reported descriptively (a correct refusal on a trap is not a committed answer, so it cannot be a pass/fail condition). Otherwise the result is printed as a null or mixed result with equal prominence.",
+  "circularity_note": "The key's trap labels and the gate use the same exact linear arithmetic, so G's trap error being 0 is a check that the gate implementation matches the key, not independent validation of the gate in the world. Independent evidence is the Lean certificate and, for nonlinear outcomes, agreement of two independently discretized solvers.",
+  "novelty_statement": "Not claimed as ours: that finite-domain mode quantization restricts Turing patterns (established); that deterministic checks can constrain LLM output (general). We measure whether THIS gate stops THESE agents on THIS item set."
+}
