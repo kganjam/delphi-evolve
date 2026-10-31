@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Delphi: from candidate laws to checked theorems</title><link rel="stylesheet" href="style.css"></head>
 <body><main>
-<p class="status">Draft · built from commit b5e0927f · items marked pending are not results · owner-private review copy</p>
+<p class="status">Draft · built from commit 1b1dc0b8 · items marked pending are not results · owner-private review copy</p>
 <h1>Delphi: from candidate laws to checked theorems</h1>
 <div class="scope"><b>Review status.</b> The independent reviewer that covered earlier receipts is unavailable, so anything without a recorded independent review is labelled <b>single-reader, not Codex-reviewed</b>: the repair demo and nonlinear grid, the checker-versus-key recomputation, the kill ledger rows (Codex corrected only R06), the scorecard statuses, the headroom check and the proof-search pilot. A fresh read-only review of the final materials is planned after the final cut; nothing here has been marked accepted.</div>
 <p class="lede">The textbook inequality is green. A program checks whether it applies to the model in front of you, returns a witness when it does not, and proposes a repair. Below: what runs, then what did not survive.</p>
@@ -22,7 +22,7 @@
  <div class="card"><h3><span class="pf ex">Exact arithmetic</span></h3>The strip is rational arithmetic, not Lean. Over the reals with Mathlib, a host probe re-run by the director shows no admissible mode in the band at L = π (no ledger row yet).</div>
  <div class="card"><h3><span class="pf si">Simulated</span> / <span class="pf ob">Observed</span></h3>Nonlinear check of this model: <span class="pend">pending</span>. Observed tissue pattern: <b>none</b>.</div>
 </div>
-<div class="scope"><b>Limitation first.</b> Counting admissible modes in a band is a trivial algorithm, exact for rational L/π. This is classical mathematics and a linear-mode statement for a declared model: it does not say a pattern forms, and we are not saying Turing was wrong. Non-monotone dependence on size is textbook-derivable and not claimed as new. The offer is a certificate and packaging.</div>
+<div class="scope"><b>Limitation first.</b> Counting admissible modes in a band is a trivial algorithm, exact for rational L/π. This is classical mathematics and a linear-mode statement for a declared model: it does not say a pattern forms, and we are not saying Turing was wrong. Non-monotone dependence on size is textbook-derivable and not claimed as new. Finite-size effects on Turing patterns are discussed in Kurics et al. (arXiv 1407.7114) and Ouchdiri et al. (arXiv 2509.15829); the director, single-reader, not independently reviewed checked the full texts with OpenResearch orx paper --full (alphaXiv extracted full text), whose abstracts do not mention the point; mode quantisation itself is textbook and we claim no novelty. The offer is a certificate and packaging.</div>
 <p><a href="../review/index.html">interactive walkthrough with the length slider (exact-browser calculation versus compiled receipts)</a></p>
 
 <h2 id="repair">2. The check and repair</h2>
@@ -69,12 +69,12 @@
 <tr><th>tool</th><th>what ran</th><th>result</th><th>receipts</th></tr>
 <tr><td>Nebius H100s, NVIDIA BioNeMo TransformerEngine ESM2</td><td>5 model sizes scored all 160,000 enzyme variants: 10 jobs, all completed, 9,475 recorded job-seconds (2.63 H100-hours); released baseline</td><td>no clear assay-saving benefit (ledger B03)</td><td class="mono">artifacts/scale/</td></tr>
 <tr><td>Nebius hosted scientific-model catalogue</td><td>2 OpenFold2 structure calls on the enzyme parent and the best variant (single sequence, no templates); an ESMFold2 attempt was blocked by the server</td><td>predicted, low confidence (ranking confidence about 41 of 100); not a measurement</td><td class="mono">artifacts/services/nebius/</td></tr>
-<tr><td>OpenResearch</td><td>two local CPU analyses, logged through the tool: the enzyme data, and the analysis of the nonlinear sweep (the sweep itself ran outside the tool)</td><td>not hosted compute (ledger R02); no GPU or Nebius used for the sweep</td><td class="mono">artifacts/gpu/orx/, scopedesk/oracles/results/nonlinear_sweep/orx_receipt.json</td></tr>
+<tr><td>OpenResearch</td><td>two local CPU analyses, logged through the tool (the enzyme data; the analysis of the nonlinear sweep, which itself ran outside the tool), and full-text retrieval of 4 papers for citation verification</td><td>not hosted compute (ledger R02); no GPU or Nebius used for the sweep; the citation check is single-reader</td><td class="mono">artifacts/gpu/orx/, scopedesk/oracles/results/nonlinear_sweep/orx_receipt.json, scopedesk/ledger/orx_literature_receipt.json</td></tr>
 <tr><td>Gemini</td><td>4 bounded review calls (cap 6; 82,481 input and 19,108 output tokens), and 127 calls as a subject of the headroom check</td><td>review opinions, not evidence; headroom result on slide 5</td><td class="mono">artifacts/services/gemini/, artifacts/bench_headroom/</td></tr>
 </table>
 <p>Only tools with committed receipts are listed. Claude Sonnet 5.5 workers ran on subscription capacity; no metered charge is claimed here. The Delphi checks themselves ran on CPU.</p></div>
 <h2>Downloads</h2>
 <ul><li><a href="assets/deck.pdf">Six-slide deck (PDF)</a> · <a href="assets/deck.html">HTML deck</a> · <a href="assets/speaker-notes.md">three-minute script</a> · <a href="blog.html">blog</a></li>
 <li>Numbers are re-derived from committed artifacts by <span class="mono">presentation/delphi/trace.py</span>; the claim ledger is <span class="mono">planning/rethink/CLAIM-LEDGER.md</span>.</li></ul>
-<footer>exact-browser means rational arithmetic in a program, compiled means a Lean receipt with exit 0, simulated and observed are separate. Source commit b5e0927f.</footer>
+<footer>exact-browser means rational arithmetic in a program, compiled means a Lean receipt with exit 0, simulated and observed are separate. Source commit 1b1dc0b8.</footer>
 </main></body></html>

@@ -287,11 +287,11 @@ def register():
         orx = T.J("artifacts/gpu/orx/receipt.json")
         assert orx["backend"].startswith("local") and "NOT hosted compute" in orx["backend"]
         return (f"Infrastructure used, receipts only Nebius H100s with NVIDIA BioNeMo ESM2: {len(lr['models'])} sizes, {len(lr['jobs'])} jobs, {lr['total_owned_job_gpu_seconds']:,} recorded job-seconds, no clear benefit (B03) · "
-                f"Nebius hosted OpenFold2: {len(st)} structure calls, predicted, low confidence · OpenResearch: local CPU analysis logs (enzyme data; nonlinear sweep) · "
+                f"Nebius hosted OpenFold2: {len(st)} structure calls, predicted, low confidence · OpenResearch: local CPU analysis logs (enzyme data; nonlinear sweep) and full-text retrieval for citation verification · "
                 f"Gemini: {gl['calls']} bounded review calls and the headroom run · receipts in")
-    claim(6, "Infrastructure used, receipts only Nebius H100s with NVIDIA BioNeMo ESM2: 5 sizes, 10 jobs, 9,475 recorded job-seconds, no clear benefit (B03) · Nebius hosted OpenFold2: 2 structure calls, predicted, low confidence · OpenResearch: local CPU analysis logs (enzyme data; nonlinear sweep) · Gemini: 4 bounded review calls and the headroom run · receipts in",
+    claim(6, "Infrastructure used, receipts only Nebius H100s with NVIDIA BioNeMo ESM2: 5 sizes, 10 jobs, 9,475 recorded job-seconds, no clear benefit (B03) · Nebius hosted OpenFold2: 2 structure calls, predicted, low confidence · OpenResearch: local CPU analysis logs (enzyme data; nonlinear sweep) and full-text retrieval for citation verification · Gemini: 4 bounded review calls and the headroom run · receipts in",
           [LR, "artifacts/scale/replay_summary.csv", "artifacts/services/gemini/usage_ledger.json", "artifacts/services/nebius/trpb_VFVS_openfold2_metrics.json",
-           "artifacts/services/nebius/trpb_AIKG_openfold2_metrics.json", "artifacts/gpu/orx/receipt.json", "artifacts/bench_headroom/U_gemini/SCORES.json"], usage, kind="fn")
+           "artifacts/services/nebius/trpb_AIKG_openfold2_metrics.json", "artifacts/gpu/orx/receipt.json", "artifacts/bench_headroom/U_gemini/SCORES.json", "scopedesk/ledger/orx_literature_receipt.json"], usage, kind="fn")
     LS2 = T.J("artifacts/lazysp/results/summary.json")
 
     def gain_note():

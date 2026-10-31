@@ -1,8 +1,8 @@
 {
- "recorded_seattle": "2026-10-31 11:30:27 PDT",
+ "recorded_seattle": "2026-10-31 13:11:28 PDT",
  "kind": "silent captioned screen recording of the built deck and the landing page's ledger section; no audio, no generated imagery",
  "source": {
-  "git_head": "b5e0927f9a02a56073a72aff6be0edca4291fd9e",
+  "git_head": "1b1dc0b8a231312f8b03182e48753ea80486da26",
   "git_branch": "work/submit",
   "git_dirty_paths": [
    "presentation/delphi/blog.md",
@@ -21,6 +21,7 @@
    "presentation/delphi/screenshots/deck-slide4.png",
    "presentation/delphi/screenshots/deck-slide5.png",
    "presentation/delphi/screenshots/deck-slide6.png",
+   "presentation/delphi/sources.md",
    "presentation/delphi/speaker-notes.md",
    "presentation/delphi/trace.py",
    "site/delphi/appendix.html",
@@ -30,15 +31,15 @@
    "site/delphi/blog.html",
    "site/delphi/index.html"
   ],
-  "deck_html_sha256": "57dc65082bf5179c6d1fb90b976c1422094c80738433099648a5ed7533ffe1fd",
-  "site_delphi_tree_sha256": "9e205cf0e118ce065e86c15fde51be93adf29423dbbf10485d458217a14151ae",
+  "deck_html_sha256": "f00667b3c5f1108d81c1afdeb0f802376649f62fb221cb3c2b531e9b06aaa22f",
+  "site_delphi_tree_sha256": "0e54b35f7f6258c413ed802def451fce580cc0dc29b60fa7a8f679e30036f038",
   "captions_sha256": "f8c54d21d7bd14c447f24586e41240c307b4e3d99fdcf7a63eed91071d5c8f08"
  },
  "video": {
   "file": "delphi-90s-captioned.mp4",
-  "sha256": "614ad6d6f5645c1631af01e2d11a444ec78509ad98fb98c1d912ec6bd252ebeb",
-  "bytes": 2341929,
-  "duration_s": 90.6,
+  "sha256": "418ebede469c366381587bb0593aa8857e57e26fad0bf291b1bc915893fcb413",
+  "bytes": 2179571,
+  "duration_s": 90.48,
   "resolution": "1280x840",
   "audio": "none"
  },

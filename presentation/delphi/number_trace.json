@@ -1,9 +1,9 @@
 {
  "deck": "presentation/delphi/deck.html",
  "claims_checked": 44,
- "inputs_hash_checked": 55,
+ "inputs_hash_checked": 56,
  "pdf_pages_checked": 6,
- "provenance_head": "b5e0927f9a02a56073a72aff6be0edca4291fd9e",
+ "provenance_head": "1b1dc0b8a231312f8b03182e48753ea80486da26",
  "ok": true,
  "errors": [],
  "trace": [
@@ -268,7 +268,7 @@
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
+    "scopedesk/ledger/kill_ledger.json": "809e084c915b194933fd550859542348b7ef4640865d13af025a5f2505d7c730"
    }
   },
   {
@@ -279,7 +279,7 @@
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
+    "scopedesk/ledger/kill_ledger.json": "809e084c915b194933fd550859542348b7ef4640865d13af025a5f2505d7c730"
    }
   },
   {
@@ -290,7 +290,7 @@
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
+    "scopedesk/ledger/kill_ledger.json": "809e084c915b194933fd550859542348b7ef4640865d13af025a5f2505d7c730"
    }
   },
   {
@@ -301,7 +301,7 @@
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
+    "scopedesk/ledger/kill_ledger.json": "809e084c915b194933fd550859542348b7ef4640865d13af025a5f2505d7c730"
    }
   },
   {
@@ -312,7 +312,7 @@
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
+    "scopedesk/ledger/kill_ledger.json": "809e084c915b194933fd550859542348b7ef4640865d13af025a5f2505d7c730"
    }
   },
   {
@@ -323,7 +323,7 @@
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
+    "scopedesk/ledger/kill_ledger.json": "809e084c915b194933fd550859542348b7ef4640865d13af025a5f2505d7c730"
    }
   },
   {
@@ -334,7 +334,7 @@
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
+    "scopedesk/ledger/kill_ledger.json": "809e084c915b194933fd550859542348b7ef4640865d13af025a5f2505d7c730"
    }
   },
   {
@@ -345,7 +345,7 @@
     "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
+    "scopedesk/ledger/kill_ledger.json": "809e084c915b194933fd550859542348b7ef4640865d13af025a5f2505d7c730"
    }
   },
   {
@@ -391,7 +391,7 @@
   },
   {
    "slide": 6,
-   "shown": "Infrastructure used, receipts only Nebius H100s with NVIDIA BioNeMo ESM2: 5 sizes, 10 jobs, 9,475 recorded job-seconds, no clear benefit (B03) · Nebius hosted OpenFold2: 2 structure calls, predicted, low confidence · OpenResearch: local CPU analysis logs (enzyme data; nonlinear sweep) · Gemini: 4 bounded review calls and the headroom run · receipts in",
+   "shown": "Infrastructure used, receipts only Nebius H100s with NVIDIA BioNeMo ESM2: 5 sizes, 10 jobs, 9,475 recorded job-seconds, no clear benefit (B03) · Nebius hosted OpenFold2: 2 structure calls, predicted, low confidence · OpenResearch: local CPU analysis logs (enzyme data; nonlinear sweep) and full-text retrieval for citation verification · Gemini: 4 bounded review calls and the headroom run · receipts in",
    "where": "fn",
    "files": [
     "artifacts/scale/library_receipts.json",
@@ -400,7 +400,8 @@
     "artifacts/services/nebius/trpb_VFVS_openfold2_metrics.json",
     "artifacts/services/nebius/trpb_AIKG_openfold2_metrics.json",
     "artifacts/gpu/orx/receipt.json",
-    "artifacts/bench_headroom/U_gemini/SCORES.json"
+    "artifacts/bench_headroom/U_gemini/SCORES.json",
+    "scopedesk/ledger/orx_literature_receipt.json"
    ],
    "sha256": {
     "artifacts/scale/library_receipts.json": "da3f98517fc25c041d516fff70e4933938ff51d29460c87178ea48072fabf3f6",
@@ -409,7 +410,8 @@
     "artifacts/services/nebius/trpb_VFVS_openfold2_metrics.json": "071d6c032dc7e4fab08d26965a3ebf446dd3b305388ffe5f01d99583d14d5a8d",
     "artifacts/services/nebius/trpb_AIKG_openfold2_metrics.json": "b9f5d62883b9e15dc61d97d2a01c390d589da7dfef0fb5ff3a41c2a3ad317ae1",
     "artifacts/gpu/orx/receipt.json": "4c26361cf7855a836c4393a339fb616fda7c6cd7d34e4d6bff784e5c3f361279",
-    "artifacts/bench_headroom/U_gemini/SCORES.json": "6a787ddd1492164ed98e15f72a5473e5360f75c981ab404ba01c61be1ec23ae2"
+    "artifacts/bench_headroom/U_gemini/SCORES.json": "6a787ddd1492164ed98e15f72a5473e5360f75c981ab404ba01c61be1ec23ae2",
+    "scopedesk/ledger/orx_literature_receipt.json": "4833fa5fc50e3ca85995670bd0f55dc850597b463ee94a9be4a5a8ae9a4f9ae6"
    }
   },
   {
@@ -533,7 +535,7 @@
     "presentation/delphi/sources.md"
    ],
    "sha256": {
-    "presentation/delphi/sources.md": "e45e7448083e5fbca6fe2c36db8b54f8fee03e110fa9baf6d687f898e6143bb0"
+    "presentation/delphi/sources.md": "c9a0597629b193cf025b5dd8d3daea1a16d8754849505bc44f68611b9d72703c"
    }
   },
   {
@@ -546,7 +548,7 @@
    ],
    "sha256": {
     "planning/rethink/ACTIVE-FRONTIER-PITCH-PROPOSAL.md": "5f926fc1399f1368422a8b50130798717aafd3ce4e7d10fc35c6da91b5b63e97",
-    "scopedesk/ledger/kill_ledger.json": "b226781ca3d6d176e5b3c13040cca1b11f6da5699e1353a5ba5688d2bd62ea33"
+    "scopedesk/ledger/kill_ledger.json": "809e084c915b194933fd550859542348b7ef4640865d13af025a5f2505d7c730"
    }
   }
  ]

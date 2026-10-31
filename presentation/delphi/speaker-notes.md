@@ -1,6 +1,6 @@
 # Speaker notes: Delphi deck
 
-Built 2026-10-31 11:27 PDT from b5e0927f9a02a56073a72aff6be0edca4291fd9e.
+Built 2026-10-31 13:09 PDT from 1b1dc0b8a231312f8b03182e48753ea80486da26.
 
 **Slide 1** (57 words)
 

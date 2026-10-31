@@ -24,7 +24,7 @@ import facts as FA  # noqa: E402
 
 E = html.escape
 INPUTS = [
-    "scopedesk/oracles/results/nonlinear_sweep/report.json", "scopedesk/oracles/results/nonlinear_sweep/orx_receipt.json", "scopedesk/oracles/results/nonlinear_sweep/REPORT.md",
+    "scopedesk/ledger/orx_literature_receipt.json", "scopedesk/oracles/results/nonlinear_sweep/report.json", "scopedesk/oracles/results/nonlinear_sweep/orx_receipt.json", "scopedesk/oracles/results/nonlinear_sweep/REPORT.md",
     "planning/rethink/CLAIM-LEDGER.md", "planning/rethink/CODEX-BENCH-V1-2-REV3-REVIEW.md", "presentation/delphi/sources.md", "lean_price/README.md", "scopedesk/bench/v1_2/KEY.sha256", "scopedesk/bench/v1_2/key.jsonl", "scopedesk/bench/v1_2/instances_public.jsonl", "scopedesk/bench/v1_2/STATUS.md", "scopedesk/bench/v1_2/FROZEN.md", "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json", "artifacts/delphi_submit/at5_v1_2_frozen127.json", "planning/rethink/CODEX-LEAN19-SLIDE-AND-FREEZE-DECISION.md", "scopedesk/oracles/results/linear_vs_nonlinear.json", "scopedesk/oracles/results/accept_receipt_fresh_clone.json", "scopedesk/audit_v12/blind_vs_key_v12.json", "scopedesk/ledger/kill_ledger.json", "artifacts/rethink_nca/repair.json", "planning/rethink/nca.md", "planning/rethink/PITCH-OUTLINE.md", "artifacts/scale/library_receipts.json", "artifacts/scale/replay_summary.csv", "artifacts/gpu/orx/receipt.json", "artifacts/services/gemini/usage_ledger.json", "artifacts/services/nebius/trpb_VFVS_openfold2_metrics.json", "artifacts/services/nebius/trpb_AIKG_openfold2_metrics.json", "scopedesk/scorecard/scorecard.json", "scopedesk/scorecard/SCORECARD.md", "tasks/results/guilds.json", "artifacts/bench_headroom/U_claude/SCORES.json", "artifacts/bench_headroom/U_gemini/SCORES.json", "lean_commons/PREREG.md", "planning/rethink/ACTIVE-FRONTIER-PITCH-PROPOSAL.md",
     "artifacts/integration/codex-api/price-probe.json", "experiments/price_probe/Price.lean", "experiments/price_probe/Witnesses.lean.inc",
     "artifacts/turing_scope/results.json", "artifacts/turing_scope/lean_receipt.json",
@@ -166,8 +166,8 @@ def build_slides(f, led_ids, prov_head):
     # ------------------------------------------------------------ 6 Close (2:45-3:00)
     U = f["usage"]
     infra = (f"<b>Infrastructure used, receipts only</b> Nebius H100s with NVIDIA BioNeMo ESM2: {U['esm2_sizes']} sizes, {U['jobs']} jobs, {U['job_seconds']:,} recorded job-seconds, no clear benefit (B03) · "
-             f"Nebius hosted OpenFold2: {U['nebius_structure_calls']} structure calls, predicted, low confidence · OpenResearch: local CPU analysis logs (enzyme data; nonlinear sweep) · "
-             f"Gemini: {U['gemini_review_calls']} bounded review calls and the headroom run · receipts in artifacts/scale/ artifacts/services/ artifacts/gpu/orx/")
+             f"Nebius hosted OpenFold2: {U['nebius_structure_calls']} structure calls, predicted, low confidence · OpenResearch: local CPU analysis logs (enzyme data; nonlinear sweep) and full-text retrieval for citation verification · "
+             f"Gemini: {U['gemini_review_calls']} bounded review calls and the headroom run · receipts in artifacts/scale/ artifacts/services/ artifacts/gpu/orx/ scopedesk/ledger/orx_literature_receipt.json")
     s6 = f"""{brand(6)}
 <h2 style="font-size:30px;margin:24px 0 10px">Reusable now: a checker that returns a witness. Outside use: none observed yet.</h2>
 <div class="row" style="gap:16px">

@@ -489,6 +489,21 @@ def sweep_facts():
             "orx": "analysis logged as a LOCAL orx run; not hosted compute; no GPU or Nebius used for this sweep"}
 
 
+ORX_LIT = "scopedesk/ledger/orx_literature_receipt.json"
+
+
+def citation_facts():
+    """The director's orx full-text citation check (single-reader). Asserted against the committed receipt; nothing is quoted from the papers here."""
+    r = J(ORX_LIT)
+    assert "exit 0 for all four" in r["tool"] and "orx paper" in r["tool"] and "--full" in r["tool"] and "single-reader" in r["by"]
+    rows = {x["arxiv"]: x for x in r["rows"]}
+    k, o = rows["1407.7114"], rows["2509.15829"]
+    assert "FULL TEXT states the finite-domain caveat" in k["finding"] and "ABSTRACT does not mention it" in k["finding"]
+    assert "FULL TEXT states" in o["finding"] and "ABSTRACT does not mention it" in o["finding"]
+    return {"receipt": ORX_LIT, "kurics": {"arxiv": "1407.7114", "sha256_8": k["sha256"][:8]}, "ouchdiri": {"arxiv": "2509.15829", "sha256_8": o["sha256"][:8]},
+            "texts_checked": len(r["rows"]), "tool": "OpenResearch orx paper --full (alphaXiv extracted full text)", "by": "the director, single-reader, not independently reviewed"}
+
+
 FRONTIER_EXAMPLE = "planning/frontier/oca2-exon21-molino-RESULT.md"
 
 
@@ -510,7 +525,7 @@ def frontier_example_facts():
 
 
 def build():
-    return {"sweep": sweep_facts(), "frontier_example": frontier_example_facts(), "usage": usage_facts(), "headroom": headroom_facts(), "leanpilot": lean_pilot_facts(), "bench": bench_facts(), "repair": repair_facts(), "kills": kill_facts(), "accept": accept_facts(), "price": price_facts(), "turing": turing_facts(), "errors": error_facts(), "scorecard": scorecard_facts(),
+    return {"citations": citation_facts(), "sweep": sweep_facts(), "frontier_example": frontier_example_facts(), "usage": usage_facts(), "headroom": headroom_facts(), "leanpilot": lean_pilot_facts(), "bench": bench_facts(), "repair": repair_facts(), "kills": kill_facts(), "accept": accept_facts(), "price": price_facts(), "turing": turing_facts(), "errors": error_facts(), "scorecard": scorecard_facts(),
             "robustness": robustness_facts(), "baseline": baseline_facts()}
 
 

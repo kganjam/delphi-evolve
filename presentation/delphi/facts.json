@@ -1,4 +1,18 @@
 {
+ "citations": {
+  "receipt": "scopedesk/ledger/orx_literature_receipt.json",
+  "kurics": {
+   "arxiv": "1407.7114",
+   "sha256_8": "05eddf99"
+  },
+  "ouchdiri": {
+   "arxiv": "2509.15829",
+   "sha256_8": "8450857e"
+  },
+  "texts_checked": 4,
+  "tool": "OpenResearch orx paper --full (alphaXiv extracted full text)",
+  "by": "the director, single-reader, not independently reviewed"
+ },
  "sweep": {
   "cells": 2520,
   "stable": 1080,
@@ -490,7 +504,7 @@
     "claim_stated_pdt": "2026-10-31T08:20:56-07:00",
     "kill_recorded_pdt": "2026-10-31T09:30:48-07:00",
     "duration_min": 69.9,
-    "witness": "repo kganjam/delphi-frontier (local /data/worktrees/delphi-frontier/foundation), commit 4e10ce0: seeds/frontier-problems.json, git blob eeb8ccb033c4322a9a10e777363421c49f416c54, sha256 3bf14a9cfafcf44b348508914f00ff932254d3825be8c2f6a809cc26cc4e12ee (critic re-hashed both from the commit); ledger/README.md row 16 carries the reproduction command (dx-market validator, work/market). Reported by the host, not re-run by the critic: validator returns 0 of 7 bounded, 0 ready, 0 with a consequence estimate, 105 issues (missing 49, bad_enum 14, untyped_edge 14, bad_ref 14, unpinned 7, bad_estimate 7); at 4e10ce0, 0 of 250 morphoswarm register problems could enter the Problem model (it required acceptance_criteria, falsifiers, next_action, cost_stop_bounds, none of which the register has; extra=forbid; no unlocks field). Host correction (the earlier relay said every one of the 250 carried a pmcid, locator and verbatim quote: FALSE): register sha256 a0155552a2bcda40688d38e95c4069828922d21042c87c9c6cf96311de94f7d7; 34 carry why_source with locator/quote, 68 only a references list, 148 no source (critic re-counted from the YAML: 34/68/148); after kganjam/delphi-frontier 42cd967 (09:41:15) 250 of 250 import as 'recorded' and 0 are 'actionable'; that commit's message says '250 sourced', which the counts contradict. The 148 unsourced are curator statements, not sourced open problems. Claim time = seeds authored 5165177 (work/codex-api, 08:20:56); kill time = commit 4e10ce0 (row recorded 09:30:48), i.e. when the finding was recorded, not when the validator first ran."
+    "witness": "repo kganjam/delphi-frontier (local /data/worktrees/delphi-frontier/foundation), commit 4e10ce0: seeds/frontier-problems.json, git blob eeb8ccb033c4322a9a10e777363421c49f416c54, sha256 3bf14a9cfafcf44b348508914f00ff932254d3825be8c2f6a809cc26cc4e12ee (critic re-hashed both from the commit); ledger/README.md row 16 carries the reproduction command (dx-market validator, work/market). Reported by the host, not re-run by the critic: validator returns 0 of 7 bounded, 0 ready, 0 with a consequence estimate, 105 issues (missing 49, bad_enum 14, untyped_edge 14, bad_ref 14, unpinned 7, bad_estimate 7); at 4e10ce0, 0 of 250 morphoswarm register problems could enter the Problem model (it required acceptance_criteria, falsifiers, next_action, cost_stop_bounds, none of which the register has; extra=forbid; no unlocks field). Host correction (the earlier relay said every one of the 250 carried a pmcid, locator and verbatim quote: FALSE): register sha256 a0155552a2bcda40688d38e95c4069828922d21042c87c9c6cf96311de94f7d7; by the fields the host counted, 34 carry why_source with locator/quote, 68 only a references list, 148 neither; the critic's 'independent re-count' used the same two fields and so repeated the omission: CORRECTION (critic, after the host's note): every one of the 250 entries also carries `attestations` (465 in total, each with pmcid, locator, quote, kind, stance; 148 + 68 + 34 entries all have at least one), so '148 have no source' was wrong and is withdrawn; whether an attestation supports an entry's statement as a field-level open problem is not checked here. After kganjam/delphi-frontier 42cd967 (09:41:15) 250 of 250 import as 'recorded' and 0 are 'actionable'; the importer was later changed (a3e0fd8) to preserve the attestations and to propose the source claims as curator questions. Claim time = seeds authored 5165177 (work/codex-api, 08:20:56); kill time = commit 4e10ce0 (row recorded 09:30:48), i.e. when the finding was recorded, not when the validator first ran."
    }
   ],
   "r06_note": "R06 corrected by the critic per Codex: determinant non-negativity advertised as stability; the premise is not vacuous and holds for unstable systems",
