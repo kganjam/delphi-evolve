@@ -555,6 +555,62 @@ def write_drafts(out_dir: Path) -> dict:
     return rep
 
 
+def site_evidence(out_dir: Path) -> dict:
+    """Condense saved Delphi records + nanopub drafts into site/data/evidence.json."""
+    import shutil
+
+    summary = json.loads((EVIDENCE_DIR / "delphi_queries.json").read_text())
+    claims = []
+    for cid, role in (("darwin1859-ch06-08", "motivation"),
+                      ("darwin1859-ch06-16", "motivation"),
+                      ("darwin1859-ch01-17", "motivation"),
+                      ("fisher-ftns", "context")):
+        entry = {"id": cid, "iri": "https://w3id.org/delphi/resource/claim/" + cid,
+                 "role": role, "relation_to_trpb_test": "motivation/context only; not equivalent to the TrpB operational hypothesis",
+                 "sources": {}}
+        for src in ("local", "network"):
+            c = extract_claim(summary, cid, src)
+            if not c:
+                continue
+            f = c.get("fields", {})
+            entry["label"] = f.get("rdfs:label", entry.get("label"))
+            entry["statement"] = f.get("dct:description", entry.get("statement"))
+            entry["sources"][src] = {
+                "nanopubs": c.get("nanopubs", []),
+                "assessments": [
+                    {"type": a.get("type"), "score": a.get("score"), "verdict": a.get("verdict"),
+                     "assessor": str(a.get("assessor", "")).rsplit("/", 1)[-1]}
+                    for a in c.get("assessments", [])],
+            }
+        claims.append(entry)
+    searches = []
+    for r in summary["queries"]:
+        if r["tool"] == "delphi_search_claims" and r["status"] == "ok":
+            searches.append({"text": r["arguments"]["text"], "source": r["arguments"]["source"],
+                             "hits": len(r["response"]), "at_utc": r["at_utc"]})
+    overview = {}
+    for r in summary["queries"]:
+        if r["tool"] == "delphi_overview" and r["status"] == "ok":
+            doms = r["response"].get("domains", [])
+            overview[r["arguments"]["source"]] = {
+                "claims_total": sum(d["claims"] for d in doms), "domains": len(doms)}
+    np_dir = out_dir / "nanopubs"
+    np_dir.mkdir(parents=True, exist_ok=True)
+    validation = json.loads((EVIDENCE_DIR / "nanopubs" / "validation.json").read_text())
+    drafts = []
+    for rep in validation["reports"]:
+        shutil.copy(EVIDENCE_DIR / "nanopubs" / rep["file"], np_dir / rep["file"])
+        drafts.append({"file": "data/nanopubs/" + rep["file"], "valid_rdflib": rep["valid"],
+                       "triples": rep["triples"]})
+    ev = {"built_utc": now_utc(), "delphi_run_utc": summary["run_utc"],
+          "delphi_endpoint": summary["endpoint"], "claims": claims, "searches": searches,
+          "overview": overview, "nanopub_drafts": drafts,
+          "nanopub_status": "UNSIGNED local drafts; not published to any nanopub network; no trusty URI",
+          "limits": summary["interpretation_limits"]}
+    (out_dir / "evidence.json").write_text(json.dumps(ev, indent=2) + "\n")
+    return ev
+
+
 # --------------------------------------------------------------------------
 # blog rendering
 # --------------------------------------------------------------------------
@@ -637,6 +693,7 @@ def main(argv=None):
     sub.add_parser("delphi")
     sub.add_parser("nanopubs")
     p = sub.add_parser("validate"); p.add_argument("paths", nargs="*", type=Path)
+    sub.add_parser("site-data")
     sub.add_parser("blog")
     p = sub.add_parser("route-summary"); p.add_argument("--raw", type=Path, default=DEFAULT_RAW)
     a = ap.parse_args(argv)
@@ -656,6 +713,9 @@ def main(argv=None):
         reps = [validate_trig(p) for p in paths]
         print(json.dumps(reps, indent=2))
         return 0 if reps and all(r["valid"] for r in reps) else 1
+    elif a.cmd == "site-data":
+        ev = site_evidence(SITE_DATA)
+        print(json.dumps({"claims": len(ev["claims"]), "drafts": len(ev["nanopub_drafts"])}))
     elif a.cmd == "blog":
         print(render_blog())
     elif a.cmd == "route-summary":

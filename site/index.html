@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darwin's Bridge · Delphi Evolve — which experiment would justify the next step?</title>
+<meta name="description" content="An interactive query-to-certify view of the measured TrpB four-site enzyme landscape (Johnston et al. 2024, CC0 data): routes, assumptions, evidence and unknowns.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 fill=%27%2317566f%27/%3E%3Cpath d=%27M2 12 L6 7 L9 9 L14 3%27 stroke=%27%23ff8a4c%27 stroke-width=%272%27 fill=%27none%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#lab">Skip to the interactive landscape</a>
+
+<header class="masthead">
+  <p class="kicker">Delphi Evolve · ScienceClaw 2026 prototype</p>
+  <h1>Darwin's Bridge</h1>
+  <p class="lede">Which experiment would justify the <em>next step</em> in a protein's evolution?</p>
+  <p class="sub">A route through a real, measured enzyme landscape is only as good as its weakest step. Move the assumption below and watch an attractive route break — then see which measurement, if any, could repair it.</p>
+</header>
+
+<section class="ledger" aria-label="What is loaded and what is not">
+  <h2 class="sr">Status ledger</h2>
+  <ul id="ledger" class="ledger-list"><li>Loading…</li></ul>
+</section>
+
+<main id="lab" class="lab">
+  <section class="map-card" aria-labelledby="map-h">
+    <div class="map-head">
+      <h2 id="map-h">The TrpB four-site landscape <span class="aside">160,000 genotypes · V183 F184 V227 S228</span></h2>
+      <div class="lens" role="radiogroup" aria-label="What the colour shows">
+        <button type="button" role="radio" data-lens="growth" aria-checked="true">Observed growth</button>
+        <button type="button" role="radio" data-lens="disagree" aria-checked="false">Replicate disagreement</button>
+        <button type="button" role="radio" data-lens="reads" aria-checked="false">Low read depth</button>
+      </div>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="map" aria-label="Heatmap of measured growth for all four-residue TrpB variants; use the tile inspector or route list for keyboard access" role="img"></canvas>
+      <div id="tip" class="tip" hidden></div>
+    </div>
+    <div class="map-foot">
+      <div id="legend" class="legend"></div>
+      <div class="toggles">
+        <label><input type="checkbox" id="t-reach" checked> Dim what is unreachable at this assumption</label>
+        <label><input type="checkbox" id="t-unk" checked> Mark the 871 unmeasured genotypes</label>
+      </div>
+    </div>
+    <p class="caveat"><strong>Projected sequence space, not physical geometry.</strong> Rows are residues 183 (outer) × 184 (inner); columns are residues 227 (outer) × 228 (inner), amino acids in alphabetical order. Neighbouring pixels are <em>not</em> necessarily one mutation apart. Colours are measured growth rates from a cellular selection assay — a proxy for enzyme function, not a catalytic constant.</p>
+
+    <div class="tile">
+      <div class="tile-head">
+        <h3>Tile inspector <span id="tile-title" class="aside"></span></h3>
+        <p class="small">Rows: residue 184 · columns: residue 228, for the selected residues 183 and 227. Click a cell to select it.</p>
+      </div>
+      <canvas id="tilecv" aria-label="Zoomed 20 by 20 tile of the landscape" role="img"></canvas>
+    </div>
+  </section>
+
+  <aside class="panel" aria-label="Decision and evidence">
+    <div class="tabs" role="tablist" aria-label="Panels">
+      <button role="tab" id="tab-decision" aria-selected="true" aria-controls="p-decision">Decision</button>
+      <button role="tab" id="tab-evidence" aria-selected="false" aria-controls="p-evidence">Evidence</button>
+      <button role="tab" id="tab-claims" aria-selected="false" aria-controls="p-claims">Claims</button>
+      <button role="tab" id="tab-proof" aria-selected="false" aria-controls="p-proof">Proof</button>
+      <button role="tab" id="tab-replay" aria-selected="false" aria-controls="p-replay">Replay</button>
+    </div>
+    <div id="p-decision" class="pane" role="tabpanel" aria-labelledby="tab-decision"></div>
+    <div id="p-evidence" class="pane" role="tabpanel" aria-labelledby="tab-evidence" hidden></div>
+    <div id="p-claims" class="pane" role="tabpanel" aria-labelledby="tab-claims" hidden></div>
+    <div id="p-proof" class="pane" role="tabpanel" aria-labelledby="tab-proof" hidden></div>
+    <div id="p-replay" class="pane" role="tabpanel" aria-labelledby="tab-replay" hidden></div>
+  </aside>
+</main>
+
+<section class="story">
+  <div class="col">
+    <h2>What this view does — and refuses to do</h2>
+    <div class="grid3">
+      <article>
+        <h3>1 · A step is admitted only on evidence</h3>
+        <p>A single-mutation step <code>v → w</code> is accepted only if the <em>lower</em> bound of <code>w</code> is at least the <em>upper</em> bound of <code>v</code>. The bounds come from the two measured replicates; the slider adds an <strong>assumed</strong> error bound on top. That inequality is exactly what the Lean checker is about — the compiled receipt, if any, appears in the Proof tab.</p>
+      </article>
+      <article>
+        <h3>2 · Unmeasured is not impossible</h3>
+        <p>Of 160,000 amino-acid genotypes, 871 have no measurement in the source table. Edges touching them stay <em>unknown</em>. A negative answer is reported as <strong>blocked</strong> only if the route is blocked even when every unmeasured genotype is allowed to be perfect; otherwise the answer is <strong>undetermined</strong> and the view names the assay to run.</p>
+      </article>
+      <article>
+        <h3>3 · The answer is a decision, not a score</h3>
+        <p>Open, blocked, or undetermined — with the weakest step, the assumption that would break it, and the evidence behind each row. Best-score optimisation is secondary. This panel is a <strong>descriptive full-data analysis</strong>; it is not a predictive benchmark.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="story alt">
+  <div class="col">
+    <h2>Where this sits in the literature</h2>
+    <p class="lead2">Epistasis, fitness landscapes, indirect adaptive paths and machine-learning-guided directed evolution are all established. We claim none of them.</p>
+    <div class="tablewrap"><table class="compare">
+      <thead><tr><th>Work</th><th>What it does</th><th>What it does not do (that we attempt)</th></tr></thead>
+      <tbody>
+      <tr><td><a href="https://doi.org/10.1073/pnas.2400439121">Johnston et al. 2024</a></td><td>Measured this combinatorially complete TrpB landscape; analysed epistasis and evolutionary paths; benchmarked directed-evolution strategies.</td><td>Not a per-decision certificate with stated assumptions, and not a policy for which assay to run next.</td></tr>
+      <tr><td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11739421/">ALDE (Nat. Commun. 2025)</a></td><td>Active-learning-assisted directed evolution on a wet-lab enzyme landscape; optimises the next batch.</td><td>Optimises variant fitness; here the target is a justified <em>path/cut decision</em> and its evidence trail. Directly comparable on assay efficiency only if we run it — not claimed.</td></tr>
+      <tr><td><a href="https://flip.protein.properties/">FLIP / FLIP2</a></td><td>Standardised splits and tasks for fitness prediction, including TrpB.</td><td>Evaluates predictors, not assay-to-decision procedures. We reuse its caution about splits, not its numbers.</td></tr>
+      <tr><td><a href="https://elifesciences.org/articles/16965">Indirect adaptive paths (eLife)</a>, <a href="https://arxiv.org/abs/2604.22611">detour theory</a></td><td>Show that adaptation can need indirect routes through sign epistasis.</td><td>We do not discover this; we make it checkable per route under declared assumptions.</td></tr>
+      </tbody></table></div>
+    <p class="small">Full comparison and novelty boundaries: <code>docs/novelty.md</code>. A competitive result is not established by this page.</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="col">
+    <p><strong>Data.</strong> Johnston et al., <em>PNAS</em> 121(32):e2400439121, Caltech DATA <a href="https://doi.org/10.22002/h5rah-5z170">10.22002/h5rah-5z170</a>, CC0 1.0 per the record metadata. Source file hashes appear in the Evidence tab.</p>
+    <p><strong>Scope.</strong> No wet-lab experiment was performed by this project. No claim about organisms, tissues, text-to-organism design, or a proof of Darwin. Historical statements by Darwin appear only as <em>motivation</em>. Server-side numbers on this page come from saved artifacts; browser-side route computations use the same measurements and are re-derived on every change.</p>
+    <p class="small">Static page — serve over HTTP (<code>python -m http.server</code> in <code>site/</code>) so <code>data/demo.json</code> can load; the landscape itself also works from <code>file://</code>.</p>
+  </div>
+</footer>
+
+<script src="data/landscape.js"></script>
+<script src="lib.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
