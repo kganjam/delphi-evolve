@@ -1,6 +1,6 @@
 {
  "role": "nca",
- "status": "follow-up 3 delivered (preregistered nonlinear sweep complete, 2520/2520 cells, CPU only); follow-ups 4 (beliefs) and Frontier simulation package pending",
+ "status": "follow-up 3 delivered; beliefs adapter released by director; GPU replay inputs frozen and handed to gpuops (file); Frontier glide simulation package pushed (separate repo)",
  "goal": "NCA/amorphous inverse-design proposal + decisive feasibility experiment (see planning/rethink/nca.md)",
  "model": "Claude Sonnet 5.5 (subscription; metered charge not known; no GPU used)",
  "branch": "work/rethink-nca",
@@ -47,7 +47,9 @@
   "python3 -m scopedesk.oracles.nonlinear_sweep.run pilot (exit 0)",
   "python3 -m scopedesk.oracles.nonlinear_sweep.run sweep ... --workers 2 --budget-seconds 12600 --draws 10 (exit 0, 2520 cells)",
   "orx up/create-experiment/exp run --backend local (exit 0, run f81c0b68)",
-  "python3 -m scopedesk.oracles.nonlinear_sweep.analyze (via orx run, exit 0)"
+  "python3 -m scopedesk.oracles.nonlinear_sweep.analyze (via orx run, exit 0)",
+  "python3 -m scopedesk.oracles.nonlinear_sweep.gpu_replay run/compare (CPU torch pilot, exit 0)",
+  "Frontier: python3 -m engineering.simulation.sweep controls / sweep (exit 0, 254 s), pytest tests/test_simulation.py (21 passed)"
  ],
  "artifacts": [
   "planning/rethink/nca.md",
@@ -275,5 +277,24 @@
    "analyze.py written after the sweep started; a smoke test printed provisional predictions on 14 partial rows",
    "PREREG says about 08:40; commit time 08:34 by date"
   ]
+ },
+ "gpu_replay_handoff": {
+  "file": "/data/artifacts/delphi-evolve-rethink/messages/nca-to-gpuops.md",
+  "commit": "0234681 (work/rethink-nca)",
+  "code": "scopedesk/oracles/nonlinear_sweep/gpu_replay.py (torch float64 port of solver A)",
+  "cpu_pilot": "26 cells (id%100==0): torch-CPU vs numpy flags 26/26, modes 26/26, worst rel amp 1.0e-12; dt-half amp up to 4.4% (flags/modes 26/26); grid-double amp up to 1.1e-5",
+  "gpu_job_submitted_by_me": false,
+  "note": "frozen protocol is zero-flux (Neumann), not periodic"
+ },
+ "frontier_glide_simulation": {
+  "repo": "kganjam/delphi-frontier",
+  "branch": "work/nca-glide",
+  "commit": "4dee158",
+  "files": "engineering/simulation/*, tests/test_simulation.py",
+  "protocol_frozen_commit": "b5458ba",
+  "results": "720 designs converged, 48 Pareto, 0 stalls; controls pass; 21 tests pass",
+  "caveats": "mass drops out at fixed WL/AR; release-speed convention dominates range; coefficients are design assumptions; Park/Choi PDF unreachable; no biological or tissue claim",
+  "gpu": "not used",
+  "interface": "messages/glide-interface-to-guilds.md"
  }
 }
