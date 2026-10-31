@@ -1,0 +1,57 @@
+{
+  "recorded_at": "2026-10-31T07:19:09.435581-07:00",
+  "page": "site/review/index.html",
+  "viewports": {
+    "desktop": {
+      "size": [
+        1440,
+        1080
+      ],
+      "horizontal_overflow_px": 0,
+      "errors": [],
+      "local_links": [
+        "../index.html",
+        "../turing/index.html",
+        "../index.html"
+      ],
+      "screenshots": [
+        "desktop-lab.png",
+        "desktop-full.png"
+      ]
+    },
+    "mobile": {
+      "size": [
+        390,
+        844
+      ],
+      "horizontal_overflow_px": 0,
+      "errors": [],
+      "local_links": [
+        "../index.html",
+        "../turing/index.html",
+        "../index.html"
+      ],
+      "screenshots": [
+        "mobile-lab.png",
+        "mobile-full.png"
+      ]
+    }
+  },
+  "checks": [
+    "Neumann pi:0,2pi:1 growing modes",
+    "periodic2pi:0,4pi:1 growing modes",
+    "fixed ratio1.1 counterexample determinant -21/25000",
+    "fixed-volume n1 rejected,n2 first-order accepted",
+    "browser vs recorded-compile labels",
+    "Price/Fisher limitation visible",
+    "desktop/mobile controls,no console/request errors,no overflow",
+    "local navigation targets exist"
+  ],
+  "source_hashes": {
+    "site/review/README.md": "5762d12e516881345d6192b8de6b2bde3e51e8f146e0ca0005778d931804857f",
+    "site/review/app.js": "2886664e6662d00632c9c7f78e4cc827f8dce4a884313185de3f57368b77e4b5",
+    "site/review/index.html": "033d0c840d6453dcfcbea774d336d9fc4dfcd0b3bcafb7564727e49c7a02ef9b",
+    "site/review/style.css": "2d78ab1561d3f252b5828c538adbb91a16e78db04ddc40a601ed60fda0dbfccd"
+  },
+  "ok": true
+}

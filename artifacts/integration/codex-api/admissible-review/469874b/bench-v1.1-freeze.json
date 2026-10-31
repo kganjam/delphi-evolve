@@ -1,0 +1,208 @@
+{
+  "artifact": "admissible/bench-21-math-claims",
+  "binding_notes": [
+    "Buckets are assigned by what DECIDES the claim, not by apparent difficulty.",
+    "B0 claims are excluded by the RECORD's own math field, not by our judgement.",
+    "Every B1 verdict REQUIRES a passing anti-triviality mutant; B1 is where vacuous proofs hide.",
+    "A Lean proof certifies what the stated model entails. It does not certify that the natural-language statement was translated faithfully, and it says nothing about any organism.",
+    "Where prose and the math field disagree in scope, the expected verdict is NEEDS_SCOPE_CONDITION, and the disagreement is the finding.",
+    "CORRECTION v1.1 (codex-api): B0 split into B0a not-formalizable and B0b formalizable-but-not-settled-by-model-proof. The original B0 conflated them.",
+    "CORRECTION v1.1 (codex-api): the DDI target must be det(J - qD) < 0 at an ACTUAL admissible q, never the sqrt-form textbook inequality, which is the continuum envelope and would bake in the error this work exists to expose.",
+    "CORRECTION v1.1 (codex-api): a supplied scope condition refers to the EXTRACTED RECORD, never to the historical author. No output says Fisher, Hamilton or Turing was wrong."
+  ],
+  "bucket_definitions": {
+    "B0a": "NOT FORMALIZABLE AS STATED. The record's own math field declares no canonical formalization.",
+    "B0b": "FORMALIZABLE BUT NOT SETTLED BY A MODEL PROOF. A formal statement exists (e.g. an estimator), but proving things about it settles nothing about the world, because the claim is empirical.",
+    "B1": "DEFINITIONAL / ARITHMETIC. Reduces to arithmetic or algebra over explicitly given quantities once definitions are fixed. Decidable by exact computation or a short proof. RISK: may be trivially true once the definitions are written, so an anti-triviality mutant is MANDATORY for every B1 verdict.",
+    "B2": "QUANTIFIED ALGEBRAIC PROPOSITION. A universally or existentially quantified algebraic statement over parameters: inequalities, optimality or ESS conditions, monotonicity. Provable with Mathlib's ordered-field machinery. This is where the real formalization work is.",
+    "B3": "ANALYSIS REQUIRED. Needs real analysis, PDE theory, probability limits or asymptotics (travelling-wave existence, Gaussian limits, diffusion approximations). Formalizable in principle, out of reach in one day. Reported as attempted-and-unreached, never as failed."
+  },
+  "claims": [
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B2",
+      "bucket_reason": "Delta_NS wbar = V_A(w)/wbar is an identity over defined quantities, but 'rate of increase in mean fitness' in the prose is the PARTIAL change due to selection only. Prose and math disagree in scope; expect NEEDS_SCOPE_CONDITION.",
+      "claim_id": "fisher-ftns",
+      "iri": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B3",
+      "bucket_reason": "Gaussian limit as M->infinity with O(1/sqrt(M)) error. Central-limit machinery; out of reach today.",
+      "claim_id": "fisher-infinitesimal",
+      "iri": "https://w3id.org/delphi/resource/claim/fisher-infinitesimal",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B3",
+      "bucket_reason": "Travelling-wave existence iff c >= 2 sqrt(sD) is a genuine PDE theorem. Mathlib has no FKPP theory.",
+      "claim_id": "fisher-kpp-speed",
+      "iri": "https://w3id.org/delphi/resource/claim/fisher-kpp-speed",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B2",
+      "bucket_reason": "ESS condition N_m c_m = N_f c_f with the 1:1 corollary under equal cost. Quantified optimality over allocations.",
+      "claim_id": "fisher-sex-ratio",
+      "iri": "https://w3id.org/delphi/resource/claim/fisher-sex-ratio",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B1",
+      "bucket_reason": "Relatedness values 3/4, 1/2, 1/4 are arithmetic once the pedigree convention is fixed. NOTE: the prose infers a PREDISPOSITION to eusociality, which the arithmetic does not establish; r_sister,brother = 1/4 is in the record and cuts against it. Expect NEEDS_SCOPE_CONDITION.",
+      "claim_id": "hamilton-haplodiploidy",
+      "iri": "https://w3id.org/delphi/resource/claim/hamilton-haplodiploidy",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B2",
+      "bucket_reason": "x* = (n-1)/2n as an unbeatable proportion; quantified over n foundresses.",
+      "claim_id": "hamilton-lmc",
+      "iri": "https://w3id.org/delphi/resource/claim/hamilton-lmc",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B2",
+      "bucket_reason": "Delta pbar > 0 iff rb - c > 0 with r,b,c as regression coefficients via Price. Quantified; the regression definition is load-bearing and must be stated.",
+      "claim_id": "hamilton-rule",
+      "iri": "https://w3id.org/delphi/resource/claim/hamilton-rule",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B2",
+      "bucket_reason": "s(a) non-increasing in a: a monotonicity statement over an explicitly given sum.",
+      "claim_id": "hamilton-senescence",
+      "iri": "https://w3id.org/delphi/resource/claim/hamilton-senescence",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B2",
+      "bucket_reason": "u(p) = (1-e^{-4 Ne s p})/(1-e^{-4 Ne s}) plus the neutral limit u(p)=p. Needs exp and a limit, so Mathlib analysis but standard.",
+      "claim_id": "kimura-fixation-probability",
+      "iri": "https://w3id.org/delphi/resource/claim/kimura-fixation-probability",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B3",
+      "bucket_reason": "Asymptotic tbar_1 -> 4 Ne as p -> 0 from the diffusion approximation. Limit of a diffusion-theoretic expression.",
+      "claim_id": "kimura-fixation-time",
+      "iri": "https://w3id.org/delphi/resource/claim/kimura-fixation-time",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B1",
+      "bucket_reason": "H = theta/(1+theta) with theta = 4 Ne mu is algebra once the infinite-alleles model is assumed.",
+      "claim_id": "kimura-heterozygosity",
+      "iri": "https://w3id.org/delphi/resource/claim/kimura-heterozygosity",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B0b",
+      "bucket_reason": "CORRECTED after codex-api review: 'empirical' and 'not formalizable' are different things. The McDonald-Kreitman estimator alpha = 1 - (Ds Pn)/(Dn Ps) IS formalizable. What is true is that proving things about the estimator settles nothing about whether most substitutions are neutral, because that is a question about the world, not about the model.",
+      "claim_id": "kimura-neutral-theory",
+      "iri": "https://w3id.org/delphi/resource/claim/kimura-neutral-theory",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B1",
+      "bucket_reason": "k = 2 N mu * 1/(2N) = mu is one cancellation. HIGH TRIVIALITY RISK: the anti-triviality mutant is what makes this verdict worth anything.",
+      "claim_id": "kimura-substitution-rate",
+      "iri": "https://w3id.org/delphi/resource/claim/kimura-substitution-rate",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B2",
+      "bucket_reason": "The two-part ESS condition is a definition; the load-bearing content is 'every ESS is asymptotically stable under replicator dynamics, not conversely', which is a real theorem with a stated non-converse.",
+      "claim_id": "maynardsmith-ess",
+      "iri": "https://w3id.org/delphi/resource/claim/maynardsmith-ess",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B2",
+      "bucket_reason": "p* = V/C is the unique ESS when C > V. Quantified over payoff parameters with an explicit precondition.",
+      "claim_id": "maynardsmith-hawk-dove",
+      "iri": "https://w3id.org/delphi/resource/claim/maynardsmith-hawk-dove",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B3",
+      "bucket_reason": "'Increasing function of c/s tending to 0' plus a region width of order s up to log factors. Asymptotic analysis.",
+      "claim_id": "maynardsmith-hitchhiking",
+      "iri": "https://w3id.org/delphi/resource/claim/maynardsmith-hitchhiking",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B1",
+      "bucket_reason": "Odds ratio doubling each generation is a one-line recurrence under the stated equal-fecundity, 1:1 assumptions.",
+      "claim_id": "maynardsmith-twofold-cost",
+      "iri": "https://w3id.org/delphi/resource/claim/maynardsmith-twofold-cost",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B2",
+      "bucket_reason": "The ESS persistence density p(x) = (1/V) e^{-x/V} under linear cost. Needs an integral; quantified over strategies.",
+      "claim_id": "maynardsmith-war-of-attrition",
+      "iri": "https://w3id.org/delphi/resource/claim/maynardsmith-war-of-attrition",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B2",
+      "bucket_reason": "Dv f_u + Du g_v > 2 sqrt(Du Dv det J) given tr J < 0, det J > 0. ALREADY PARTLY DONE: our Admissible.lean proves the determinant form, the band, and finite-domain admissibility over the reals. The record's clause 'which requires Du != Dv' needs checking as stated.",
+      "claim_id": "turing-ddi",
+      "iri": "https://w3id.org/delphi/resource/claim/turing-ddi",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B2",
+      "bucket_reason": "k_c^2 = sqrt(det J/(Du Dv)) at onset and lambda ~ sqrt(D) under uniform rescaling. The prose claims spacing is set 'not by the size of the tissue', which our finite-domain result CONTRADICTS as an unconditional statement. Expect NEEDS_SCOPE_CONDITION.",
+      "claim_id": "turing-wavelength",
+      "iri": "https://w3id.org/delphi/resource/claim/turing-wavelength",
+      "verdict": "NOT_ATTEMPTED"
+    },
+    {
+      "anti_triviality_mutant_required": true,
+      "bucket": "B0a",
+      "bucket_reason": "EXCLUDED BY THE RECORD ITSELF: its math field states 'no canonical formalization'. Must not be counted.",
+      "claim_id": "turing-morphogen-hypothesis",
+      "iri": "https://w3id.org/delphi/resource/claim/turing-morphogen-hypothesis",
+      "verdict": "NOT_ATTEMPTED"
+    }
+  ],
+  "counts": {
+    "B0a": 1,
+    "B0b": 1,
+    "B1": 4,
+    "B2": 11,
+    "B3": 4,
+    "total": 21
+  },
+  "frozen_at_utc": "2026-10-31T13:54:58+00:00",
+  "purpose": "Bucket definitions and statement freeze for the 21 Delphi math-domain claims, assigned BEFORE any formalization, per director instruction.",
+  "source": "Delphi MCP delphi_search_claims over the two math domains; retrieved this session.",
+  "verdict_vocabulary": [
+    "PROVED",
+    "REFUTED_AS_STATED",
+    "NEEDS_SCOPE_CONDITION",
+    "NOT_ATTEMPTED"
+  ],
+  "version": "v1.1-freeze"
+}

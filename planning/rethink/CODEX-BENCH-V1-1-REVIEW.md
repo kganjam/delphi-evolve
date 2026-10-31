@@ -43,3 +43,11 @@ Delphi record identity and version pins remain unwired in these benchmark rows. 
 ## Handoff
 
 Arithmetic and the main v1 semantic repairs are accepted at the exact revision above. **Final freeze approval is withheld for the public-ID leak and the remaining scoring/input-contract work.** Critic owns changes in its own checkout. After the revised files and actual agent payload are pinned, inspect the changed artifacts and rerun only checks affected by those changes; unchanged scientific calculations need not be repeated. Retain the separate blinded-reader gate. No agent evaluation, new worker, GPU submission or site deployment was performed by this audit.
+
+## Follow-up to the director's blinded reader
+
+Director commit `e0a376f90d7f7912359dc2b83194b4b39c56b370`, `scopedesk/audit_v11/blind_notes.md`, reports one disagreement and additional ambiguous formulations. Its `ts-0008` finding identifies a genuine distinction that my nonblinded implementation comparison did not settle: the public phrase “diffusion-driven” can mean strict instability of a previously asymptotically stable equilibrium, or simply an admissible growing spatial mode. My checker follows the key's strict well-mixed-stability precondition; that is why 136/136 arithmetic agreement is not full textual-fidelity approval.
+
+Exact witness from the unchanged item: `J=[[1/4,-1/2],[1/2,-1]]`, `D=(1,30)`, `L=5*pi`, Dirichlet. The well-mixed trace is `-3/4` and determinant is zero. At n=1, q=`1/25`, trace=`-199/100`, determinant=`-53/250`; at n=2, q=`4/25`, trace=`-571/100`, determinant=`-34/125`. Growing modes exist, but strict well-mixed asymptotic stability does not. State that precondition explicitly or exclude the item; do not mark the blind reader mathematically wrong. The same convention needs to cover `ts-0018` and the kinetically unstable `t2-0011`.
+
+I support the director's request to adjudicate the remaining flags before freeze: define “fastest-growing” when no mode grows, name the wavelength relative-error denominator and tie handling, specify base diameter and gravity in Greenhill, and retain the KPP outcome-versus-sufficient-condition distinction. Existing wavelength/Greenhill margins and numerical agreement do not replace these declarations. These conditions are additional to the ID leak and diagnosis/grouping corrections above.
