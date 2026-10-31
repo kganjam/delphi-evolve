@@ -1,0 +1,32 @@
+{
+ "fisher-ftns": {
+  "claim_iri": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+  "content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+  "local_nanopub_path": [
+   "math-bio-theorems/nanopubs/unsigned/fisher-ftns.trig"
+  ],
+  "local_record_content_matches_network": true,
+  "network_nanopub": [
+   "https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48"
+  ],
+  "network_record_response_sha256": "bd87ef318815338e55a5336259eb1b7ea309ccfd6c9fd1ab4ecf24bd7689a76a",
+  "pinned_from_source": "network",
+  "primary_source": "Fisher 1930; Price 1972 (doi 10.1111/j.1469-1809.1972.tb00764.x); Ewens 1989 (doi 10.1016/0040-5809(89)90028-2) as cited by the Delphi record - not re-read by this worker",
+  "reviewed_by": "hand-authored by the claim-reuse worker (Claude Sonnet 5.5); NOT an independent human review"
+ },
+ "kimura-fixation-probability": {
+  "claim_iri": "https://w3id.org/delphi/resource/claim/kimura-fixation-probability",
+  "content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+  "local_nanopub_path": [
+   "math-bio-theorems/nanopubs/unsigned/kimura-fixation-probability.trig"
+  ],
+  "local_record_content_matches_network": true,
+  "network_nanopub": [
+   "https://w3id.org/np/RA76F4g68zgxUhMgNanl8KsuUwKDJhYuUgXowdNzSsnMQ"
+  ],
+  "network_record_response_sha256": "8aa59e1c076386b62a73b2d8fa428cff5101bc06c4843505735bd14291386a36",
+  "pinned_from_source": "network",
+  "primary_source": "Kimura 1962, Genetics 47:713 (PMC1210364) - PDF not retrievable here (PMC bot challenge); assumptions checked against the Delphi record and an exact Wright-Fisher chain instead",
+  "reviewed_by": "hand-authored by the claim-reuse worker (Claude Sonnet 5.5); NOT an independent human review"
+ }
+}
