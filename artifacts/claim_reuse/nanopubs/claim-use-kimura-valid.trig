@@ -24,9 +24,9 @@ sub:assertion {
     de:claimRecordResponseSha256 "8aa59e1c076386b62a73b2d8fa428cff5101bc06c4843505735bd14291386a36" ;
     de:adapterId "kimura-fixation-probability/diploid-genic-diffusion" ;
     de:adapterVersion "1.0.0" ;
-    de:adapterSourceSha256 "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8" ;
+    de:adapterSourceSha256 "f371ae67fbc8bb8ed9ea20cde93580dcfc8fe5befb4e5558e9b67fd816f01dab" ;
     de:requestSha256 "1b31b0a6c56b95b5ffb14d2ce12a051437e391531d9b0662d36717ec2f02731a" ;
-    de:responseSha256 "d8e55e6ce5eb94a0338f0f6c55c20859166d1c684823cc724c0528286f7cb2fa" ;
+    de:responseSha256 "6520bf6a83d4a4f0cefccbf16e2e5d0404a43cc0137ad8fbd2c826252040c68d" ;
     de:decision "compute" ;
     de:reasonCode "ok" ;
     de:epistemicStatus "SIMULATED (declared hypothetical scenario; not a measurement)" .
@@ -44,7 +44,7 @@ sub:provenance {
 }
 
 sub:pubinfo {
-  this: dct:created "2026-10-31T08:02:43Z"^^xsd:dateTime ;
+  this: dct:created "2026-10-31T08:04:50Z"^^xsd:dateTime ;
     rdfs:label "Draft: claim use record claim-use-kimura-valid" ;
     npx:hasNanopubType de:ClaimUse ;
     de:signatureStatus "UNSIGNED DRAFT: no trusty URI assigned, not published to any nanopub network" ;

@@ -25,7 +25,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "kimura-fixation-probability/diploid-genic-diffusion",
-     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "source_sha256": "f371ae67fbc8bb8ed9ea20cde93580dcfc8fe5befb4e5558e9b67fd816f01dab",
      "version": "1.0.0"
     },
     "assumptions": {
@@ -55,6 +55,12 @@
     },
     "decision": "compute",
     "epistemic_status": "SIMULATED (declared hypothetical scenario; not a measurement)",
+    "provenance_layers": {
+     "curated_adapter_mapping": "kimura-fixation-probability/diploid-genic-diffusion v1.0.0: hand-authored translation of the record's math into code, bound to content hash bbfd686bfa66ce83...",
+     "new_operationalization": "the request itself (declared parameters/scenario) and any 'added_by_adapter' assumption; not part of the Delphi record",
+     "result_kind": "simulated/predicted calculation from established mathematics; never an observed result",
+     "source_record": "Delphi network record https://w3id.org/delphi/resource/claim/kimura-fixation-probability (response sha256 8aa59e1c076386b6...); unchanged, status as published by Delphi"
+    },
     "reason": "all applicability guards passed",
     "reason_code": "ok",
     "request": {
@@ -78,7 +84,7 @@
      "task": "fixation_probability"
     },
     "request_sha256": "1b31b0a6c56b95b5ffb14d2ce12a051437e391531d9b0662d36717ec2f02731a",
-    "response_sha256": "d8e55e6ce5eb94a0338f0f6c55c20859166d1c684823cc724c0528286f7cb2fa",
+    "response_sha256": "6520bf6a83d4a4f0cefccbf16e2e5d0404a43cc0137ad8fbd2c826252040c68d",
     "result": {
      "Ne": 500,
      "fixation_probability": 0.019801326734058274,
@@ -96,7 +102,7 @@
     "status": "computed",
     "verification": {
      "mutation_exit": 0,
-     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "receipt_sha256": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d",
      "status": "verified",
      "tests_exit": 0
     }
@@ -146,7 +152,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "kimura-fixation-probability/diploid-genic-diffusion",
-     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "source_sha256": "f371ae67fbc8bb8ed9ea20cde93580dcfc8fe5befb4e5558e9b67fd816f01dab",
      "version": "1.0.0"
     },
     "assumptions": {
@@ -176,6 +182,12 @@
     },
     "decision": "compute",
     "epistemic_status": "SIMULATED (declared hypothetical scenario; not a measurement)",
+    "provenance_layers": {
+     "curated_adapter_mapping": "kimura-fixation-probability/diploid-genic-diffusion v1.0.0: hand-authored translation of the record's math into code, bound to content hash bbfd686bfa66ce83...",
+     "new_operationalization": "the request itself (declared parameters/scenario) and any 'added_by_adapter' assumption; not part of the Delphi record",
+     "result_kind": "simulated/predicted calculation from established mathematics; never an observed result",
+     "source_record": "Delphi network record https://w3id.org/delphi/resource/claim/kimura-fixation-probability (response sha256 8aa59e1c076386b6...); unchanged, status as published by Delphi"
+    },
     "reason": "explicit hypothetical scenario",
     "reason_code": "ok",
     "request": {
@@ -216,7 +228,7 @@
      "task": "hypothetical_trajectory"
     },
     "request_sha256": "1c4ad7ef33d095dc92007fc9870f9315d5b543e40381a7b791457a2b866f5380",
-    "response_sha256": "7a433c08f89ae538e719c0e42c8eb12bb9cf410d31b694076b0a32971802ac61",
+    "response_sha256": "e8ed893c36161379d891379ec2be3bde998aff24abb6be7def8887e421facaca",
     "result": {
      "Ne": 1000,
      "labels": [
@@ -277,7 +289,7 @@
     "status": "computed",
     "verification": {
      "mutation_exit": 0,
-     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "receipt_sha256": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d",
      "status": "verified",
      "tests_exit": 0
     }
@@ -311,7 +323,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "kimura-fixation-probability/diploid-genic-diffusion",
-     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "source_sha256": "f371ae67fbc8bb8ed9ea20cde93580dcfc8fe5befb4e5558e9b67fd816f01dab",
      "version": "1.0.0"
     },
     "assumptions": {
@@ -344,6 +356,12 @@
      "model_transfer_refused"
     ],
     "missing_mapping": null,
+    "provenance_layers": {
+     "curated_adapter_mapping": "kimura-fixation-probability/diploid-genic-diffusion v1.0.0: hand-authored translation of the record's math into code, bound to content hash bbfd686bfa66ce83...",
+     "new_operationalization": "the request itself (declared parameters/scenario) and any 'added_by_adapter' assumption; not part of the Delphi record",
+     "result_kind": "simulated/predicted calculation from established mathematics; never an observed result",
+     "source_record": "Delphi network record https://w3id.org/delphi/resource/claim/kimura-fixation-probability (response sha256 8aa59e1c076386b6...); unchanged, status as published by Delphi"
+    },
     "reason": "ploidy='haploid': the claim is a diploid Wright-Fisher diffusion (4Ne s p). Haploid populations (e.g. E. coli) have a different exponent; no haploid adapter exists. Missing mapping: variance-effective size and per-copy s for the haploid model",
     "reason_code": "model_transfer_refused",
     "request": {
@@ -368,13 +386,13 @@
      "task": "fixation_probability"
     },
     "request_sha256": "a9e19186eb6ba5d7473dcdc010f8b67ff3049f8e293b1695369bc9153005394e",
-    "response_sha256": "c2d37d7e66b6ddfee40307a840b7e147c2d6284e94f3468b55fa9057aaabc634",
+    "response_sha256": "3b90f3411906a522e4c96e5244722445e8ade3063d0f52ad89df822abd692768",
     "result": null,
     "schema": "claim-response/v1",
     "status": "refused",
     "verification": {
      "mutation_exit": 0,
-     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "receipt_sha256": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d",
      "status": "verified",
      "tests_exit": 0
     }
@@ -408,7 +426,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "kimura-fixation-probability/diploid-genic-diffusion",
-     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "source_sha256": "f371ae67fbc8bb8ed9ea20cde93580dcfc8fe5befb4e5558e9b67fd816f01dab",
      "version": "1.0.0"
     },
     "assumptions": {
@@ -448,6 +466,12 @@
      "dominance/genic assumption does not apply to a haploid; mutation supply, clonal interference and linkage are outside the claim's no-linkage assumption",
      "an uncertainty model for the conversion (two replicates do not give a calibrated error on s)"
     ],
+    "provenance_layers": {
+     "curated_adapter_mapping": "kimura-fixation-probability/diploid-genic-diffusion v1.0.0: hand-authored translation of the record's math into code, bound to content hash bbfd686bfa66ce83...",
+     "new_operationalization": "the request itself (declared parameters/scenario) and any 'added_by_adapter' assumption; not part of the Delphi record",
+     "result_kind": "simulated/predicted calculation from established mathematics; never an observed result",
+     "source_record": "Delphi network record https://w3id.org/delphi/resource/claim/kimura-fixation-probability (response sha256 8aa59e1c076386b6...); unchanged, status as published by Delphi"
+    },
     "reason": "s_source.kind='trpb_assay_growth_score' is not a selection coefficient. Assay growth scores are not s; refusing. Missing: map from assay growth score (mu minus stop-codon background, pooled selection culture) to relative fitness 1+s in the evolving population's own environment | ploidy/model: the TrpB assay organism is haploid E. coli; the Delphi claim is a diploid Wright-Fisher diffusion (4Ne s p). A haploid mapping (exponent 2Ns for haploid WF) is a different statement that this adapter does not implement | the effective population size Ne of the population in which these variants would arise (not measured by the assay) | dominance/genic assumption does not apply to a haploid; mutation supply, clonal interference and linkage are outside the claim's no-linkage assumption | an uncertainty model for the conversion (two replicates do not give a calibrated error on s); ploidy='haploid': the claim is a diploid Wright-Fisher diffusion (4Ne s p). Haploid populations (e.g. E. coli) have a different exponent; no haploid adapter exists. Missing mapping: variance-effective size and per-copy s for the haploid model",
     "reason_code": "unsupported_quantity_conversion",
     "request": {
@@ -472,13 +496,13 @@
      "task": "fixation_probability"
     },
     "request_sha256": "474fc24a5e5eb3f2ba0699732765418122dc3f409e68c68d61f1544aa3bc4698",
-    "response_sha256": "2524c12b68fa479c60853a826de0870dfdc868043e70bf6c168e3191356cc653",
+    "response_sha256": "a7f9900ae74231b446b7fcbbadf7e1921d1076d3355653eeeccef170aecb12f7",
     "result": null,
     "schema": "claim-response/v1",
     "status": "refused",
     "verification": {
      "mutation_exit": 0,
-     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "receipt_sha256": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d",
      "status": "verified",
      "tests_exit": 0
     }
@@ -511,7 +535,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "fisher-ftns/partial-change",
-     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "source_sha256": "e9cebe8be5c0a8cee73ee739886c870c65e846f4ab6b223402f2f97db0e1ebe2",
      "version": "1.0.0"
     },
     "assumptions": {
@@ -539,6 +563,12 @@
     },
     "decision": "compute",
     "epistemic_status": "PREDICTED selection-component change given the caller's declared V_A (V_A is not estimated here)",
+    "provenance_layers": {
+     "curated_adapter_mapping": "fisher-ftns/partial-change v1.0.0: hand-authored translation of the record's math into code, bound to content hash ecb994996b1f311c...",
+     "new_operationalization": "the request itself (declared parameters/scenario) and any 'added_by_adapter' assumption; not part of the Delphi record",
+     "result_kind": "simulated/predicted calculation from established mathematics; never an observed result",
+     "source_record": "Delphi network record https://w3id.org/delphi/resource/claim/fisher-ftns (response sha256 bd87ef318815338e...); unchanged, status as published by Delphi"
+    },
     "reason": "partial-change reading with stated conditions asserted",
     "reason_code": "ok",
     "request": {
@@ -562,7 +592,7 @@
      "variance_kind": "additive_genetic_variance_in_fitness"
     },
     "request_sha256": "16c73eff2bd0369f50e2fd510efbd05ceab793f3c699773fd562f9921b7a2b9a",
-    "response_sha256": "639a02c1cd18d574225ba8929f4a8c2fc69924a417c93846a69a1b5e467f2c4e",
+    "response_sha256": "986cbe077f8e6b699b9f8e859e039fe03360c638047df0cc122d0012a3468f93",
     "result": {
      "V_A": 0.02,
      "not_a_total_change": true,
@@ -573,7 +603,7 @@
     "status": "computed",
     "verification": {
      "mutation_exit": 0,
-     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "receipt_sha256": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d",
      "status": "verified",
      "tests_exit": 0
     }
@@ -597,7 +627,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "fisher-ftns/partial-change",
-     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "source_sha256": "e9cebe8be5c0a8cee73ee739886c870c65e846f4ab6b223402f2f97db0e1ebe2",
      "version": "1.0.0"
     },
     "assumptions": {
@@ -625,6 +655,12 @@
     },
     "decision": "compute",
     "epistemic_status": "ANALYTIC/SIMULATED two-allele model; not an observation",
+    "provenance_layers": {
+     "curated_adapter_mapping": "fisher-ftns/partial-change v1.0.0: hand-authored translation of the record's math into code, bound to content hash ecb994996b1f311c...",
+     "new_operationalization": "the request itself (declared parameters/scenario) and any 'added_by_adapter' assumption; not part of the Delphi record",
+     "result_kind": "simulated/predicted calculation from established mathematics; never an observed result",
+     "source_record": "Delphi network record https://w3id.org/delphi/resource/claim/fisher-ftns (response sha256 bd87ef318815338e...); unchanged, status as published by Delphi"
+    },
     "reason": "exact one-locus identity check",
     "reason_code": "ok",
     "request": {
@@ -639,7 +675,7 @@
      "task": "one_locus_check"
     },
     "request_sha256": "0c3952fef92edd34a16dc882a86fc09a01920086e3f8f2ae66a8824a649119ae",
-    "response_sha256": "c42840589a7636ef7bedad800820a234963a0abc42e783bfaec163cb45ffd587",
+    "response_sha256": "f09f6e0a7c87c8656c8d449ef5715da0f1fee04943a8c2ba2c5ae466bc5b532e",
     "result": {
      "V_A": 0.008231999999999988,
      "alpha": 0.1399999999999999,
@@ -655,7 +691,7 @@
     "status": "computed",
     "verification": {
      "mutation_exit": 0,
-     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "receipt_sha256": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d",
      "status": "verified",
      "tests_exit": 0
     }
@@ -679,7 +715,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "fisher-ftns/partial-change",
-     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "source_sha256": "e9cebe8be5c0a8cee73ee739886c870c65e846f4ab6b223402f2f97db0e1ebe2",
      "version": "1.0.0"
     },
     "assumptions": {
@@ -707,6 +743,12 @@
     },
     "decision": "compute",
     "epistemic_status": "ANALYTIC/SIMULATED two-allele model; not an observation",
+    "provenance_layers": {
+     "curated_adapter_mapping": "fisher-ftns/partial-change v1.0.0: hand-authored translation of the record's math into code, bound to content hash ecb994996b1f311c...",
+     "new_operationalization": "the request itself (declared parameters/scenario) and any 'added_by_adapter' assumption; not part of the Delphi record",
+     "result_kind": "simulated/predicted calculation from established mathematics; never an observed result",
+     "source_record": "Delphi network record https://w3id.org/delphi/resource/claim/fisher-ftns (response sha256 bd87ef318815338e...); unchanged, status as published by Delphi"
+    },
     "reason": "exact one-locus identity check",
     "reason_code": "ok",
     "request": {
@@ -721,7 +763,7 @@
      "task": "one_locus_check"
     },
     "request_sha256": "7acf933509869a9328007f83c243154e3010bb0d8e0d35e6e3daab355ca08397",
-    "response_sha256": "1ac76b0f8955ed37f27856c566870c4692020a03f066b7b15f5de2832cb99cc6",
+    "response_sha256": "495781553304fcabd3e940d59d68c59193fa59b110204c203b774b4592404bbc",
     "result": {
      "V_A": 0.004199999999999989,
      "alpha": 0.09999999999999987,
@@ -737,7 +779,7 @@
     "status": "computed",
     "verification": {
      "mutation_exit": 0,
-     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "receipt_sha256": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d",
      "status": "verified",
      "tests_exit": 0
     }
@@ -770,7 +812,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "fisher-ftns/partial-change",
-     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "source_sha256": "e9cebe8be5c0a8cee73ee739886c870c65e846f4ab6b223402f2f97db0e1ebe2",
      "version": "1.0.0"
     },
     "assumptions": {
@@ -797,6 +839,12 @@
      "store_status": "active"
     },
     "decision": "refuse",
+    "provenance_layers": {
+     "curated_adapter_mapping": "fisher-ftns/partial-change v1.0.0: hand-authored translation of the record's math into code, bound to content hash ecb994996b1f311c...",
+     "new_operationalization": "the request itself (declared parameters/scenario) and any 'added_by_adapter' assumption; not part of the Delphi record",
+     "result_kind": "simulated/predicted calculation from established mathematics; never an observed result",
+     "source_record": "Delphi network record https://w3id.org/delphi/resource/claim/fisher-ftns (response sha256 bd87ef318815338e...); unchanged, status as published by Delphi"
+    },
     "reason": "FTNS is a statement about the selection component of change in POPULATION mean fitness; it says nothing about whether any particular mutation or route step increases fitness (deleterious and neutral mutations exist; V_A >= 0 does not order individual genotypes)",
     "reason_code": "inference_refused",
     "request": {
@@ -820,13 +868,13 @@
      "variance_kind": "additive_genetic_variance_in_fitness"
     },
     "request_sha256": "a78f8ac4a78c739e6da86da08bbffdcb89dfd0e8c0606c9e4e56fcd36b879bbb",
-    "response_sha256": "2912367f03aa829d60f52f4c4874f50aff4aa2c3810b7d7b81d784fc53cd1b9b",
+    "response_sha256": "c7a432b378d5ea9a3cbef0eb6712e4394ac3735a47cfe6e066833eada9bfb5a3",
     "result": null,
     "schema": "claim-response/v1",
     "status": "refused",
     "verification": {
      "mutation_exit": 0,
-     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "receipt_sha256": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d",
      "status": "verified",
      "tests_exit": 0
     }
@@ -859,7 +907,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "fisher-ftns/partial-change",
-     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "source_sha256": "e9cebe8be5c0a8cee73ee739886c870c65e846f4ab6b223402f2f97db0e1ebe2",
      "version": "1.0.0"
     },
     "assumptions": {
@@ -886,6 +934,12 @@
      "store_status": "active"
     },
     "decision": "refuse",
+    "provenance_layers": {
+     "curated_adapter_mapping": "fisher-ftns/partial-change v1.0.0: hand-authored translation of the record's math into code, bound to content hash ecb994996b1f311c...",
+     "new_operationalization": "the request itself (declared parameters/scenario) and any 'added_by_adapter' assumption; not part of the Delphi record",
+     "result_kind": "simulated/predicted calculation from established mathematics; never an observed result",
+     "source_record": "Delphi network record https://w3id.org/delphi/resource/claim/fisher-ftns (response sha256 bd87ef318815338e...); unchanged, status as published by Delphi"
+    },
     "reason": "the record states that the total change in mean fitness is NOT given by V_A under dominance, epistasis, frequency dependence or a changing environment",
     "reason_code": "inference_refused",
     "request": {
@@ -909,13 +963,13 @@
      "variance_kind": "additive_genetic_variance_in_fitness"
     },
     "request_sha256": "6a9326d06e024c337309b7f7aa755adc44a98e1a2b4198a1a62ab3a261495c17",
-    "response_sha256": "6daaefd781ff4185c426d00629d6dc992d39dd86ff69aa96d4b740f3413f048a",
+    "response_sha256": "b1f34da9364cb7e552117215e3e5699dc16dd08a0cd9b24305d7ee8386714e30",
     "result": null,
     "schema": "claim-response/v1",
     "status": "refused",
     "verification": {
      "mutation_exit": 0,
-     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "receipt_sha256": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d",
      "status": "verified",
      "tests_exit": 0
     }
@@ -948,7 +1002,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "fisher-ftns/partial-change",
-     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "source_sha256": "e9cebe8be5c0a8cee73ee739886c870c65e846f4ab6b223402f2f97db0e1ebe2",
      "version": "1.0.0"
     },
     "assumptions": {
@@ -975,6 +1029,12 @@
      "store_status": "active"
     },
     "decision": "refuse",
+    "provenance_layers": {
+     "curated_adapter_mapping": "fisher-ftns/partial-change v1.0.0: hand-authored translation of the record's math into code, bound to content hash ecb994996b1f311c...",
+     "new_operationalization": "the request itself (declared parameters/scenario) and any 'added_by_adapter' assumption; not part of the Delphi record",
+     "result_kind": "simulated/predicted calculation from established mathematics; never an observed result",
+     "source_record": "Delphi network record https://w3id.org/delphi/resource/claim/fisher-ftns (response sha256 bd87ef318815338e...); unchanged, status as published by Delphi"
+    },
     "reason": "genotypic variance among clones is not identified with additive genetic variance by this record; a clonal/haploid reading is a separate claim needing its own reviewed adapter",
     "reason_code": "variance_refused",
     "request": {
@@ -998,13 +1058,13 @@
      "variance_kind": "clonal_genotypic_variance"
     },
     "request_sha256": "a2abc0f1ffed5656e7f1a49f538943d4cdf565af817073a97729a56d07d0a27b",
-    "response_sha256": "6dfc03b16319e18b73c57d9f76f6295bf953d6049d598c8e3bc17a8af16bf8db",
+    "response_sha256": "0e766fc403458055beb3ad246c81d3e9b5ab84e77e9d743c12ff9b15e13473fb",
     "result": null,
     "schema": "claim-response/v1",
     "status": "refused",
     "verification": {
      "mutation_exit": 0,
-     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "receipt_sha256": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d",
      "status": "verified",
      "tests_exit": 0
     }
@@ -1037,7 +1097,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "fisher-ftns/partial-change",
-     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "source_sha256": "e9cebe8be5c0a8cee73ee739886c870c65e846f4ab6b223402f2f97db0e1ebe2",
      "version": "1.0.0"
     },
     "assumptions": {
@@ -1064,6 +1124,12 @@
      "store_status": "active"
     },
     "decision": "refuse",
+    "provenance_layers": {
+     "curated_adapter_mapping": "fisher-ftns/partial-change v1.0.0: hand-authored translation of the record's math into code, bound to content hash ecb994996b1f311c...",
+     "new_operationalization": "the request itself (declared parameters/scenario) and any 'added_by_adapter' assumption; not part of the Delphi record",
+     "result_kind": "simulated/predicted calculation from established mathematics; never an observed result",
+     "source_record": "Delphi network record https://w3id.org/delphi/resource/claim/fisher-ftns (response sha256 bd87ef318815338e...); unchanged, status as published by Delphi"
+    },
     "reason": "the variance of scores over TrpB genotypes is not a population's additive variance: no genotype frequencies, mating system or fitness definition is available",
     "reason_code": "variance_refused",
     "request": {
@@ -1087,13 +1153,13 @@
      "variance_kind": "landscape_score_variance"
     },
     "request_sha256": "f09c9ff2d8eb92a4deb534adaf2b089aac0e72ba8f5f6ab303578b6a28a7a21b",
-    "response_sha256": "bb9a9b19b2fa4fcda9f4fd4fbf6d1fa5aa5f128a26c4e62f1067203500ae18b0",
+    "response_sha256": "be676b793b7c18767fa688b307d47badbbe83cd254296fcf2ed9d10aac58f2ba",
     "result": null,
     "schema": "claim-response/v1",
     "status": "refused",
     "verification": {
      "mutation_exit": 0,
-     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "receipt_sha256": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d",
      "status": "verified",
      "tests_exit": 0
     }
@@ -1113,7 +1179,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "kimura-fixation-probability/diploid-genic-diffusion",
-     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "source_sha256": "f371ae67fbc8bb8ed9ea20cde93580dcfc8fe5befb4e5558e9b67fd816f01dab",
      "version": "1.0.0"
     },
     "claim_use": {
@@ -1143,7 +1209,7 @@
      "task": "fixation_probability"
     },
     "request_sha256": "1b31b0a6c56b95b5ffb14d2ce12a051437e391531d9b0662d36717ec2f02731a",
-    "response_sha256": "e35ba17a29e942f79536706873683c08fbae62f55aa6d72eef3e30191d9ab81f",
+    "response_sha256": "13a043ec2219d64ae409d41edfff7a8575fd301d9b65c702703c09c6e3099d27",
     "result": null,
     "schema": "claim-response/v1",
     "status": "refused"
@@ -1180,7 +1246,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "kimura-fixation-probability/diploid-genic-diffusion",
-     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "source_sha256": "f371ae67fbc8bb8ed9ea20cde93580dcfc8fe5befb4e5558e9b67fd816f01dab",
      "version": "1.0.0"
     },
     "claim_use": {
@@ -1218,7 +1284,7 @@
      "task": "fixation_probability"
     },
     "request_sha256": "1b31b0a6c56b95b5ffb14d2ce12a051437e391531d9b0662d36717ec2f02731a",
-    "response_sha256": "e96c1db9218fedb0921a46524bf57c89d44144d37ffe082d68d941d3bca88303",
+    "response_sha256": "68ad308d005934b2202b6c0bc2d48c9e3d52d0f2a7d679e26d73a0519ad750a9",
     "result": null,
     "schema": "claim-response/v1",
     "status": "refused"
@@ -1255,7 +1321,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "kimura-fixation-probability/diploid-genic-diffusion",
-     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "source_sha256": "f371ae67fbc8bb8ed9ea20cde93580dcfc8fe5befb4e5558e9b67fd816f01dab",
      "version": "1.0.0"
     },
     "claim_use": {
@@ -1293,7 +1359,7 @@
      "task": "fixation_probability"
     },
     "request_sha256": "1b31b0a6c56b95b5ffb14d2ce12a051437e391531d9b0662d36717ec2f02731a",
-    "response_sha256": "75e0a620ba9a144be265783e8ad9cb10a5d2e2a4a341ea139d21b8ff06561cae",
+    "response_sha256": "9b8a4fc3498b41785101d417c15de11f2f59f101bf6ae90f7d679d6369945aaf",
     "result": null,
     "schema": "claim-response/v1",
     "status": "refused"
@@ -1330,7 +1396,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "kimura-fixation-probability/diploid-genic-diffusion",
-     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "source_sha256": "f371ae67fbc8bb8ed9ea20cde93580dcfc8fe5befb4e5558e9b67fd816f01dab",
      "version": "1.0.0"
     },
     "claim_use": {
@@ -1369,7 +1435,7 @@
      "task": "fixation_probability"
     },
     "request_sha256": "1b31b0a6c56b95b5ffb14d2ce12a051437e391531d9b0662d36717ec2f02731a",
-    "response_sha256": "b381aff50bb68a0605a481f320ba2cb90df72b6c6f9d47d87c10c7ed31ffa221",
+    "response_sha256": "76295931b2b10e270b88f83e724430e8f25fa4785235de94361f452ce7e2aa05",
     "result": null,
     "schema": "claim-response/v1",
     "status": "refused"
@@ -1406,7 +1472,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "kimura-fixation-probability/diploid-genic-diffusion",
-     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "source_sha256": "f371ae67fbc8bb8ed9ea20cde93580dcfc8fe5befb4e5558e9b67fd816f01dab",
      "version": "1.0.0"
     },
     "assumptions": {
@@ -1436,6 +1502,12 @@
     },
     "decision": "compute",
     "epistemic_status": "SIMULATED (declared hypothetical scenario; not a measurement)",
+    "provenance_layers": {
+     "curated_adapter_mapping": "kimura-fixation-probability/diploid-genic-diffusion v1.0.0: hand-authored translation of the record's math into code, bound to content hash bbfd686bfa66ce83...",
+     "new_operationalization": "the request itself (declared parameters/scenario) and any 'added_by_adapter' assumption; not part of the Delphi record",
+     "result_kind": "simulated/predicted calculation from established mathematics; never an observed result",
+     "source_record": "Delphi network record https://w3id.org/delphi/resource/claim/kimura-fixation-probability (response sha256 8aa59e1c076386b6...); unchanged, status as published by Delphi"
+    },
     "reason": "all applicability guards passed",
     "reason_code": "ok",
     "request": {
@@ -1460,7 +1532,7 @@
      "task": "fixation_probability"
     },
     "request_sha256": "a9e19186eb6ba5d7473dcdc010f8b67ff3049f8e293b1695369bc9153005394e",
-    "response_sha256": "5f3d9f249c339d97487a580e030654923db55f2994c0f54854547890023af1a4",
+    "response_sha256": "cc6ff4f52a42d3e1ef9b86f659eacc877c4aacc6c9718fe29e1deb671eb62f2d",
     "result": {
      "Ne": 500,
      "fixation_probability": 0.019801326734058274,
@@ -1478,7 +1550,7 @@
     "status": "computed",
     "verification": {
      "mutation_exit": 0,
-     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "receipt_sha256": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d",
      "status": "verified",
      "tests_exit": 0
     }
@@ -1503,7 +1575,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "kimura-fixation-probability/diploid-genic-diffusion",
-     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "source_sha256": "f371ae67fbc8bb8ed9ea20cde93580dcfc8fe5befb4e5558e9b67fd816f01dab",
      "version": "1.0.0"
     },
     "assumptions": {
@@ -1533,6 +1605,12 @@
     },
     "decision": "compute",
     "epistemic_status": "PREDICTED from a cited external estimate (not verified here)",
+    "provenance_layers": {
+     "curated_adapter_mapping": "kimura-fixation-probability/diploid-genic-diffusion v1.0.0: hand-authored translation of the record's math into code, bound to content hash bbfd686bfa66ce83...",
+     "new_operationalization": "the request itself (declared parameters/scenario) and any 'added_by_adapter' assumption; not part of the Delphi record",
+     "result_kind": "simulated/predicted calculation from established mathematics; never an observed result",
+     "source_record": "Delphi network record https://w3id.org/delphi/resource/claim/kimura-fixation-probability (response sha256 8aa59e1c076386b6...); unchanged, status as published by Delphi"
+    },
     "reason": "all applicability guards passed",
     "reason_code": "ok",
     "request": {
@@ -1557,7 +1635,7 @@
      "task": "fixation_probability"
     },
     "request_sha256": "474fc24a5e5eb3f2ba0699732765418122dc3f409e68c68d61f1544aa3bc4698",
-    "response_sha256": "c8fab588a540ae71653517ef992358634aaad85572eee9197069bd7ae784ecfd",
+    "response_sha256": "a3e68620579972b15055ae531610d3b24024e1de5b538c9ce0d9a7cca3c1e0f0",
     "result": {
      "Ne": 1000,
      "fixation_probability": 0.0005,
@@ -1575,7 +1653,7 @@
     "status": "computed",
     "verification": {
      "mutation_exit": 0,
-     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "receipt_sha256": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d",
      "status": "verified",
      "tests_exit": 0
     }
@@ -1600,7 +1678,7 @@
     "adapter": {
      "hand_authored": true,
      "id": "fisher-ftns/partial-change",
-     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "source_sha256": "e9cebe8be5c0a8cee73ee739886c870c65e846f4ab6b223402f2f97db0e1ebe2",
      "version": "1.0.0"
     },
     "assumptions": {
@@ -1628,6 +1706,12 @@
     },
     "decision": "compute",
     "epistemic_status": "PREDICTED selection-component change given the caller's declared V_A (V_A is not estimated here)",
+    "provenance_layers": {
+     "curated_adapter_mapping": "fisher-ftns/partial-change v1.0.0: hand-authored translation of the record's math into code, bound to content hash ecb994996b1f311c...",
+     "new_operationalization": "the request itself (declared parameters/scenario) and any 'added_by_adapter' assumption; not part of the Delphi record",
+     "result_kind": "simulated/predicted calculation from established mathematics; never an observed result",
+     "source_record": "Delphi network record https://w3id.org/delphi/resource/claim/fisher-ftns (response sha256 bd87ef318815338e...); unchanged, status as published by Delphi"
+    },
     "reason": "partial-change reading with stated conditions asserted",
     "reason_code": "ok",
     "request": {
@@ -1651,7 +1735,7 @@
      "variance_kind": "additive_genetic_variance_in_fitness"
     },
     "request_sha256": "a78f8ac4a78c739e6da86da08bbffdcb89dfd0e8c0606c9e4e56fcd36b879bbb",
-    "response_sha256": "3476be6ff34b89e489c54c0adb38813299a3e9484a4b124fdf666b8a83119739",
+    "response_sha256": "c77cded049b076c532ac9b4219478f7af0b2df0e7f7e506ce36b18c9b64a4924",
     "result": {
      "V_A": 0.02,
      "not_a_total_change": true,
@@ -1662,7 +1746,7 @@
     "status": "computed",
     "verification": {
      "mutation_exit": 0,
-     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "receipt_sha256": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d",
      "status": "verified",
      "tests_exit": 0
     }
@@ -1848,9 +1932,9 @@
    }
   }
  },
- "generated_at_utc": "2026-10-31T08:02:43Z",
+ "generated_at_utc": "2026-10-31T08:04:50Z",
  "kind": "claim-reuse-demo-receipt/v1",
  "labels": "claim computations are SIMULATED/hypothetical; evidence reuse reuses OBSERVED source-table scores; nothing here is a new measurement or biological result",
- "receipt_sha256_body": "40770955e4a3eea4ec309fd677fe83610b77a46a4bda3e096e17ae31548fc31e",
- "seattle_time": "2026-10-31 01:02:45 PDT"
+ "receipt_sha256_body": "660c0210b4a080cf9a5da94d491dfd9bff22ded93d4cb946a7bed9efe4d0e972",
+ "seattle_time": "2026-10-31 01:04:51 PDT"
 }

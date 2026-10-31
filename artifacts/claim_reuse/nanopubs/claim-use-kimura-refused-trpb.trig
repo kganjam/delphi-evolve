@@ -24,9 +24,9 @@ sub:assertion {
     de:claimRecordResponseSha256 "8aa59e1c076386b62a73b2d8fa428cff5101bc06c4843505735bd14291386a36" ;
     de:adapterId "kimura-fixation-probability/diploid-genic-diffusion" ;
     de:adapterVersion "1.0.0" ;
-    de:adapterSourceSha256 "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8" ;
+    de:adapterSourceSha256 "f371ae67fbc8bb8ed9ea20cde93580dcfc8fe5befb4e5558e9b67fd816f01dab" ;
     de:requestSha256 "474fc24a5e5eb3f2ba0699732765418122dc3f409e68c68d61f1544aa3bc4698" ;
-    de:responseSha256 "2524c12b68fa479c60853a826de0870dfdc868043e70bf6c168e3191356cc653" ;
+    de:responseSha256 "a7f9900ae74231b446b7fcbbadf7e1921d1076d3355653eeeccef170aecb12f7" ;
     de:decision "refuse" ;
     de:reasonCode "unsupported_quantity_conversion" ;
     de:epistemicStatus "none: computation refused" .
@@ -44,7 +44,7 @@ sub:provenance {
 }
 
 sub:pubinfo {
-  this: dct:created "2026-10-31T08:02:43Z"^^xsd:dateTime ;
+  this: dct:created "2026-10-31T08:04:50Z"^^xsd:dateTime ;
     rdfs:label "Draft: claim use record claim-use-kimura-refused-trpb" ;
     npx:hasNanopubType de:ClaimUse ;
     de:signatureStatus "UNSIGNED DRAFT: no trusty URI assigned, not published to any nanopub network" ;

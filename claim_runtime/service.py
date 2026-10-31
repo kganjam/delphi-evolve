@@ -136,6 +136,12 @@ class ClaimService:
         resp["verification"] = ver
         if ver["status"] != "verified" and self.require_verified:
             return self._refuse(resp, "unverified", "adapter/claim pair has no passing verification receipt: " + ver["why"])
+        resp["provenance_layers"] = {
+            "source_record": f"Delphi {rec.source} record {iri} (response sha256 {rec.response_sha256[:16]}...); unchanged, status as published by Delphi",
+            "curated_adapter_mapping": f"{adapter_id} v{adapter_version}: hand-authored translation of the record's math into code, bound to content hash {rec.content_sha256()[:16]}...",
+            "new_operationalization": "the request itself (declared parameters/scenario) and any 'added_by_adapter' assumption; not part of the Delphi record",
+            "result_kind": "simulated/predicted calculation from established mathematics; never an observed result",
+        }
         handler = {K.CLAIM_ID: self._kimura, F.CLAIM_ID: self._fisher}[short]
         try:
             return self._finish(handler(req, resp))

@@ -1,0 +1,11 @@
+{
+ "kind": "core-rerun-crosscheck/v1",
+ "seattle_time": "2026-10-31 01:06 PDT",
+ "compared": "query-history genotype code sequences, claim-reuse traces (original shards, tar sha256 626a775a7d028b5b971ac2bd29d1fa5acce742cbc36c276b3a64b7839c40d2ae) vs core's independent rerun files in /data/worktrees/delphi-evolve/core/artifacts/core/replay/shards (uncommitted worktree files at check time)",
+ "original_episodes": 700,
+ "core_rerun_keys": 875,
+ "common_keys": 700,
+ "identical_sequences": 700,
+ "mismatches": 0,
+ "note": "core rerun contains 175 additional keys (not in the preregistered seven-policy 700); they were not used. Reuse counts therefore do not depend on which copy of the histories is used."
+}

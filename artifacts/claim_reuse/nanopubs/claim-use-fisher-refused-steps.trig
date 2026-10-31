@@ -24,9 +24,9 @@ sub:assertion {
     de:claimRecordResponseSha256 "bd87ef318815338e55a5336259eb1b7ea309ccfd6c9fd1ab4ecf24bd7689a76a" ;
     de:adapterId "fisher-ftns/partial-change" ;
     de:adapterVersion "1.0.0" ;
-    de:adapterSourceSha256 "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e" ;
+    de:adapterSourceSha256 "e9cebe8be5c0a8cee73ee739886c870c65e846f4ab6b223402f2f97db0e1ebe2" ;
     de:requestSha256 "a78f8ac4a78c739e6da86da08bbffdcb89dfd0e8c0606c9e4e56fcd36b879bbb" ;
-    de:responseSha256 "2912367f03aa829d60f52f4c4874f50aff4aa2c3810b7d7b81d784fc53cd1b9b" ;
+    de:responseSha256 "c7a432b378d5ea9a3cbef0eb6712e4394ac3735a47cfe6e066833eada9bfb5a3" ;
     de:decision "refuse" ;
     de:reasonCode "inference_refused" ;
     de:epistemicStatus "none: computation refused" .
@@ -44,7 +44,7 @@ sub:provenance {
 }
 
 sub:pubinfo {
-  this: dct:created "2026-10-31T08:02:43Z"^^xsd:dateTime ;
+  this: dct:created "2026-10-31T08:04:50Z"^^xsd:dateTime ;
     rdfs:label "Draft: claim use record claim-use-fisher-refused-steps" ;
     npx:hasNanopubType de:ClaimUse ;
     de:signatureStatus "UNSIGNED DRAFT: no trusty URI assigned, not published to any nanopub network" ;

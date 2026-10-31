@@ -295,3 +295,10 @@ def test_committed_verification_receipt_matches_current_adapters():
     pins = load_pins()
     for cid, (aid, _) in ADAPTERS.items():
         assert verification_status(aid, pins[cid]["content_sha256"], RECEIPT_PATH)["status"] == "verified"
+
+
+def test_response_separates_source_mapping_operationalization_and_result(svc):
+    r = svc().request(D.KIMURA_OK)
+    L = r["provenance_layers"]
+    assert set(L) == {"source_record", "curated_adapter_mapping", "new_operationalization", "result_kind"}
+    assert "never an observed result" in L["result_kind"]

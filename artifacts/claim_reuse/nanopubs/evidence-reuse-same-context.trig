@@ -43,7 +43,7 @@ sub:provenance {
 }
 
 sub:pubinfo {
-  this: dct:created "2026-10-31T08:02:43Z"^^xsd:dateTime ;
+  this: dct:created "2026-10-31T08:04:50Z"^^xsd:dateTime ;
     rdfs:label "Draft: evidence reuse evidence-reuse-same-context" ;
     npx:hasNanopubType de:ClaimUse ;
     de:signatureStatus "UNSIGNED DRAFT: no trusty URI assigned, not published to any nanopub network" ;
