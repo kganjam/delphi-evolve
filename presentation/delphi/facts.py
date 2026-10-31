@@ -427,8 +427,33 @@ def lean_pilot_facts():
             "scope": "integer-arithmetic surrogates written by the experimenter; call-matched, not compute-matched; checker repaired after the outcomes (Addendum D); ceiling, so the primary outcome is uninformative"}
 
 
+def usage_facts():
+    """Real, committed usage of the sponsor tools (baseline TrpB work). No statement about scoring or points."""
+    import csv
+    lr = J("artifacts/scale/library_receipts.json")
+    assert len(lr["models"]) == 5 and len(lr["jobs"]) == 10 and {j["state"] for j in lr["jobs"]} == {"COMPLETED"}
+    assert lr["total_owned_job_gpu_seconds"] == 9475 and round(lr["total_owned_job_gpu_hours"], 2) == 2.63
+    rows = list(csv.DictReader((ROOT / "artifacts/scale/replay_summary.csv").open()))
+    pairs = [(float(r["paired_seed_bootstrap_lo"]), float(r["paired_seed_bootstrap_hi"])) for r in rows if r["paired_seed_bootstrap_lo"] != ""]
+    assert pairs and all(lo <= 0 <= hi for lo, hi in pairs)
+    gl = J("artifacts/services/gemini/usage_ledger.json")
+    assert gl["calls"] == 4 and gl["calls"] <= gl["caps"]["max_calls"] and gl["input_tokens"] == 82481
+    st = [J(f"artifacts/services/nebius/trpb_{g}_openfold2_metrics.json") for g in ("VFVS", "AIKG")]
+    assert all("PREDICTED" in x["epistemic_status"] and 40 <= x["ranking_confidence"] < 50 for x in st)
+    assert "INVALID_REQUEST" in T("artifacts/services/nebius/esmfold2fast_attempt_v0.json")
+    gem_headroom = J("artifacts/bench_headroom/U_gemini/SCORES.json")["all"]["N"]
+    orx = J("artifacts/gpu/orx/receipt.json")
+    assert orx["backend"].startswith("local") and "NOT hosted compute" in orx["backend"] and orx["status"] == "done" and orx["exit_code"] == 0
+    return {"ledger": "B03 (BioNeMo ESM2 on Nebius H100s), R02 (OpenResearch, local CPU analysis), R01 (H100 PDE pilot, worker-reported)", "esm2_sizes": len(lr["models"]), "variants_per_model": min(m["covered"] for m in lr["models"].values()), "jobs": len(lr["jobs"]), "job_seconds": lr["total_owned_job_gpu_seconds"],
+            "h100_hours": round(lr["total_owned_job_gpu_hours"], 2), "comparisons_with_interval_including_zero": len(pairs),
+            "gemini_review_calls": gl["calls"], "gemini_review_cap": gl["caps"]["max_calls"], "gemini_review_input_tokens": gl["input_tokens"], "gemini_review_output_tokens": gl["output_tokens"], "gemini_headroom_calls": gem_headroom,
+            "nebius_structure_calls": len(st), "nebius_structure_ranking_confidence": round(st[0]["ranking_confidence"]),
+            "artifacts": ["artifacts/scale/library_receipts.json", "artifacts/scale/replay_summary.csv", "artifacts/gpu/orx/receipt.json", "artifacts/services/gemini/usage_ledger.json", "artifacts/services/nebius/", "artifacts/bench_headroom/U_gemini/SCORES.json"],
+            "openresearch": "a local CPU analysis was logged; not hosted compute"}
+
+
 def build():
-    return {"headroom": headroom_facts(), "leanpilot": lean_pilot_facts(), "bench": bench_facts(), "repair": repair_facts(), "kills": kill_facts(), "accept": accept_facts(), "price": price_facts(), "turing": turing_facts(), "errors": error_facts(), "scorecard": scorecard_facts(),
+    return {"usage": usage_facts(), "headroom": headroom_facts(), "leanpilot": lean_pilot_facts(), "bench": bench_facts(), "repair": repair_facts(), "kills": kill_facts(), "accept": accept_facts(), "price": price_facts(), "turing": turing_facts(), "errors": error_facts(), "scorecard": scorecard_facts(),
             "robustness": robustness_facts(), "baseline": baseline_facts()}
 
 

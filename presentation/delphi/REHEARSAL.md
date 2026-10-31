@@ -8,12 +8,12 @@ Measured read-aloud (synthetic voice): speech 148.1 s, with 1.5 s assumed per sl
 
 | Slide | Outline beat | Words | Synthetic start | Synthetic length (s) | Your start | Your end |
 |---|---|---|---|---|---|---|
-| 1 | 0:00-0:25 reveal | 57 | 0:00 | 18.49 | | |
-| 2 | 0:25-1:00 check and repair | 68 | 0:20 | 28.2 | | |
-| 3 | 1:00-1:30 compiled nodes and test set | 65 | 0:49 | 23.99 | | |
-| 4 | 1:30-2:15 ledger | 73 | 1:15 | 27.06 | | |
-| 5 | 2:15-2:45 what the collective measured | 63 | 1:43 | 21.62 | | |
-| 6 | 2:45-3:00 close | 68 | 2:06 | 28.77 | | |
+| 1 | 0:00-0:25 reveal | 57 | 0:00 | 19.25 | | |
+| 2 | 0:25-1:00 check and repair | 68 | 0:20 | 27.82 | | |
+| 3 | 1:00-1:30 compiled nodes and test set | 65 | 0:50 | 23.86 | | |
+| 4 | 1:30-2:15 ledger | 73 | 1:15 | 27.28 | | |
+| 5 | 2:15-2:45 what the collective measured | 61 | 1:44 | 21.46 | | |
+| 6 | 2:45-3:00 close | 68 | 2:07 | 28.44 | | |
 
 Pass: total at most 3:00 including slide changes. Write the total here: ______ . If over, use the cuts below and rehearse again.
 
@@ -65,9 +65,9 @@ First-ever; any claim that a named law is wrong; that a pattern forms (linear mo
 
 | File | sha256 |
 |---|---|
-| presentation/delphi/deck.pdf | `1b9b8f995ed9767fd5d151f725c05604e9a304e5cfa6fca79793b4e61af33273` |
-| presentation/delphi/deck.html | `e5b61c6c242deb51c14b6567657249b76a92fdc2278efe7302b2757b48009d47` |
-| presentation/delphi/deck.pptx | `3293bfbf4825893c97dcbc6707a2c8e9c00db30d3c4b3641127ef2246f3041e3` |
+| presentation/delphi/deck.pdf | `17b33632da0197a89b507c858c71aa5fc83baeaeca28f480d5f43bed05eb46cf` |
+| presentation/delphi/deck.html | `6358e2c5c89b54b843a7402aad8fa65fd58102480b5ff9f273ee22ab9e343af1` |
+| presentation/delphi/deck.pptx | `23435c8680736f66cd7b011a3326c4b280c68e8af5805e0777205ac5eb74210c` |
 | presentation/delphi/video/delphi-90s-captioned.mp4 (89.84 s, silent) | `a1b8e9752a9054a24e9251ed2606c467fc6e89404b80f460dadd2602bd4558cb` |
 
 The bundle zip (site, presentation folder and every cited artifact) is built after this sheet and contains it, so its hash is recorded separately in `presentation/delphi/dist/bundle-manifest.json` and `delphi-bundle.zip.sha256`, not here.

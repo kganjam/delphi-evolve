@@ -1,9 +1,9 @@
 {
  "deck": "presentation/delphi/deck.html",
- "claims_checked": 42,
- "inputs_hash_checked": 46,
+ "claims_checked": 43,
+ "inputs_hash_checked": 52,
  "pdf_pages_checked": 6,
- "provenance_head": "7355b26aa196160b34939d695122df291f84d166",
+ "provenance_head": "d595a11c08e31b4222d13edb2cff45585bb7f571",
  "ok": true,
  "errors": [],
  "trace": [
@@ -372,6 +372,29 @@
    "sha256": {
     "artifacts/core/replay/table_primary.csv": "530aca14ec7503a6b58c19b2b6ead9eda12db22a956325921849452ea19d41e6",
     "artifacts/lazysp/results/table_primary.csv": "2e1cd0ac54af789755c23aa2b75aa6ed145d9e6eb6bf638f826c6c3138ebd94f"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "Infrastructure used, receipts only Nebius H100s with NVIDIA BioNeMo ESM2: 5 sizes, 10 jobs, 9,475 recorded job-seconds, no clear benefit (B03) · Nebius hosted OpenFold2: 2 structure calls, predicted, low confidence · OpenResearch: local CPU analysis log · Gemini: 4 bounded review calls and the headroom run · receipts in",
+   "where": "fn",
+   "files": [
+    "artifacts/scale/library_receipts.json",
+    "artifacts/scale/replay_summary.csv",
+    "artifacts/services/gemini/usage_ledger.json",
+    "artifacts/services/nebius/trpb_VFVS_openfold2_metrics.json",
+    "artifacts/services/nebius/trpb_AIKG_openfold2_metrics.json",
+    "artifacts/gpu/orx/receipt.json",
+    "artifacts/bench_headroom/U_gemini/SCORES.json"
+   ],
+   "sha256": {
+    "artifacts/scale/library_receipts.json": "da3f98517fc25c041d516fff70e4933938ff51d29460c87178ea48072fabf3f6",
+    "artifacts/scale/replay_summary.csv": "c6306a5796bf3a0d674720a17746e1309793ea390256fd2744c1f0126697a369",
+    "artifacts/services/gemini/usage_ledger.json": "e5fdb1962332b8d64c0bda5a5d4e31811cf7be8e049585beeaf805b8beda35d5",
+    "artifacts/services/nebius/trpb_VFVS_openfold2_metrics.json": "071d6c032dc7e4fab08d26965a3ebf446dd3b305388ffe5f01d99583d14d5a8d",
+    "artifacts/services/nebius/trpb_AIKG_openfold2_metrics.json": "b9f5d62883b9e15dc61d97d2a01c390d589da7dfef0fb5ff3a41c2a3ad317ae1",
+    "artifacts/gpu/orx/receipt.json": "4c26361cf7855a836c4393a339fb616fda7c6cd7d34e4d6bff784e5c3f361279",
+    "artifacts/bench_headroom/U_gemini/SCORES.json": "6a787ddd1492164ed98e15f72a5473e5360f75c981ab404ba01c61be1ec23ae2"
    }
   },
   {

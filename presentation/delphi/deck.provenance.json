@@ -1,12 +1,10 @@
 {
- "built": "2026-10-31 09:56 PDT",
+ "built": "2026-10-31 10:51 PDT",
  "root": "/data/worktrees/delphi-evolve/submit",
  "git": {
-  "head": "7355b26aa196160b34939d695122df291f84d166",
+  "head": "d595a11c08e31b4222d13edb2cff45585bb7f571",
   "branch": "work/submit",
-  "inputs_untracked_or_modified": [
-   "resentation/delphi/sources.md"
-  ]
+  "inputs_untracked_or_modified": []
  },
  "sha256": {
   "planning/rethink/CLAIM-LEDGER.md": "dad82afcf05e350d1d131b5edf92c9fbdada5635be7da2187653560db2e774dc",
@@ -28,6 +26,12 @@
   "artifacts/rethink_nca/repair.json": "bfc0e56f534c704e6b1ef35216218511f586a3004cd68cba0e0e6addbab9ba03",
   "planning/rethink/nca.md": "c1baffc831fd071e9d514e33354eb23a05f10cdd2705fdf43e793971624d056e",
   "planning/rethink/PITCH-OUTLINE.md": "a55c4ddfcbf4a2043b3b9be585eb11af3a4905ad1e49b3849c814d29c934e77d",
+  "artifacts/scale/library_receipts.json": "da3f98517fc25c041d516fff70e4933938ff51d29460c87178ea48072fabf3f6",
+  "artifacts/scale/replay_summary.csv": "c6306a5796bf3a0d674720a17746e1309793ea390256fd2744c1f0126697a369",
+  "artifacts/gpu/orx/receipt.json": "4c26361cf7855a836c4393a339fb616fda7c6cd7d34e4d6bff784e5c3f361279",
+  "artifacts/services/gemini/usage_ledger.json": "e5fdb1962332b8d64c0bda5a5d4e31811cf7be8e049585beeaf805b8beda35d5",
+  "artifacts/services/nebius/trpb_VFVS_openfold2_metrics.json": "071d6c032dc7e4fab08d26965a3ebf446dd3b305388ffe5f01d99583d14d5a8d",
+  "artifacts/services/nebius/trpb_AIKG_openfold2_metrics.json": "b9f5d62883b9e15dc61d97d2a01c390d589da7dfef0fb5ff3a41c2a3ad317ae1",
   "scopedesk/scorecard/scorecard.json": "e0f7c9b1847d44eb3b4e2ebfe678505c9434198046b9d3f6d6bfed1b8b042df9",
   "scopedesk/scorecard/SCORECARD.md": "c0527c0522d810b0238391ec684d7f87cac194eefbc4376eaabb52673bb4e85e",
   "tasks/results/guilds.json": "e1b0dde57ce912c034d7d4b626eac86642a1322de1192334c3205e2dc125717f",
@@ -92,13 +96,13 @@
   "R02"
  ],
  "spoken_words": {
-  "total": 394,
+  "total": 392,
   "per_slide": [
    57,
    68,
    65,
    73,
-   63,
+   61,
    68
   ]
  }

@@ -28,7 +28,7 @@ Source files and checks are linked in `docs/` and `artifacts/`. Nanopublications
 
 ## Judging and company case
 
-The [public rubric](https://scienceclawhack.ai/) weights scientific significance 20%, potential impact 25%, decentralized agency 20%, collective capability 25%, and execution 10%, with +10 for demonstrated external collaboration. It does not list automatic sponsor-use points. We used Nebius, BioNeMo and OpenResearch, but do not claim an unlisted bonus or another team's reuse.
+The [public rubric](https://scienceclawhack.ai/) weights scientific significance 20%, potential impact 25%, decentralized agency 20%, collective capability 25%, and execution 10%, with +10 for demonstrated external collaboration. The page does not say how sponsor-tool usage is weighted, and that has not been verified either way; we make no claim about points. We did use Nebius H100s with BioNeMo ESM2 and logged a local OpenResearch analysis (see Resources), and we do not claim another team's reuse.
 
 The strongest case is execution and inspectable scientific decisions. The weakest is collective advantage: the study found none, and the benchmark's specialists are deterministic objects in a central process. Do not describe it as a proven decentralized laboratory. The unusual systems combination is useful, but no first-ever novelty claim has been established.
 

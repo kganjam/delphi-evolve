@@ -251,6 +251,26 @@ def register():
           lambda: (f"Single planner {tp[('q2c', 1000)]['certified']}/{tp[('q2c', 1000)]['episodes']} Shared specialists {tp[('collective_shared', 1000)]['certified']}/{tp[('collective_shared', 1000)]['episodes']} "
                    f"Plain lazy search {round(float(lt['alternate']['resolved@1000']) * int(lt['alternate']['episodes']))}/{lt['alternate']['episodes']}")
           if tp[("q2c", 1000)]["certified"] == tp[("collective_shared", 1000)]["certified"] else "MISMATCH")
+    LR = "artifacts/scale/library_receipts.json"
+
+    def usage():
+        lr = T.J(LR)
+        assert {j["state"] for j in lr["jobs"]} == {"COMPLETED"} and lr["total_owned_job_gpu_seconds"] == 9475
+        rows_ = T.C("artifacts/scale/replay_summary.csv")
+        pairs = [(float(r_["paired_seed_bootstrap_lo"]), float(r_["paired_seed_bootstrap_hi"])) for r_ in rows_ if r_["paired_seed_bootstrap_lo"] != ""]
+        assert pairs and all(lo <= 0 <= hi for lo, hi in pairs)  # B03: no clear benefit
+        st = [T.J(f"artifacts/services/nebius/trpb_{g}_openfold2_metrics.json") for g in ("VFVS", "AIKG")]
+        assert all("PREDICTED" in x["epistemic_status"] and x["ranking_confidence"] < 50 for x in st)
+        gl = T.J("artifacts/services/gemini/usage_ledger.json")
+        assert gl["calls"] <= gl["caps"]["max_calls"] and (R / "artifacts/bench_headroom/U_gemini/SCORES.json").exists()
+        orx = T.J("artifacts/gpu/orx/receipt.json")
+        assert orx["backend"].startswith("local") and "NOT hosted compute" in orx["backend"]
+        return (f"Infrastructure used, receipts only Nebius H100s with NVIDIA BioNeMo ESM2: {len(lr['models'])} sizes, {len(lr['jobs'])} jobs, {lr['total_owned_job_gpu_seconds']:,} recorded job-seconds, no clear benefit (B03) · "
+                f"Nebius hosted OpenFold2: {len(st)} structure calls, predicted, low confidence · OpenResearch: local CPU analysis log · "
+                f"Gemini: {gl['calls']} bounded review calls and the headroom run · receipts in")
+    claim(6, "Infrastructure used, receipts only Nebius H100s with NVIDIA BioNeMo ESM2: 5 sizes, 10 jobs, 9,475 recorded job-seconds, no clear benefit (B03) · Nebius hosted OpenFold2: 2 structure calls, predicted, low confidence · OpenResearch: local CPU analysis log · Gemini: 4 bounded review calls and the headroom run · receipts in",
+          [LR, "artifacts/scale/replay_summary.csv", "artifacts/services/gemini/usage_ledger.json", "artifacts/services/nebius/trpb_VFVS_openfold2_metrics.json",
+           "artifacts/services/nebius/trpb_AIKG_openfold2_metrics.json", "artifacts/gpu/orx/receipt.json", "artifacts/bench_headroom/U_gemini/SCORES.json"], usage, kind="fn")
     LS2 = T.J("artifacts/lazysp/results/summary.json")
 
     def gain_note():

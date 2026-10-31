@@ -62,7 +62,7 @@ PEND = '<span class="pend">pending</span>'
 
 def landing(f, commit, review_exists):
     P, T, Bn, Rp, Kl, Ac, Sc, Bl = f["price"], f["turing"], f["bench"], f["repair"], f["kills"], f["accept"], f["scorecard"], f["baseline"]
-    Hd, Lp = f["headroom"], f["leanpilot"]
+    Hd, Lp, Us = f["headroom"], f["leanpilot"], f["usage"]
     W, WIN = P["witnesses"], T["windows"]
     scan = T["scan"]
     head = "".join(f"<th>{E(s['L_over_pi'])}</th>" for s in scan)
@@ -142,6 +142,15 @@ def landing(f, commit, review_exists):
 </div>
 <div class="card"><h3>Scorecard</h3>{Sc['records']} records: {Sc['linked']} linked to scope-check benchmark families, {Sc['related_lemma']} related formal lemma (target unestablished), {Sc['empirical']} empirical/framework, {Sc['no_check']} without a corresponding check. Single-reader statuses, revised after a Codex review of version 0; the revision was not re-reviewed. The {Sc['no_check']} are a backlog, not open problems, and the {Sc['linked']} are not {Sc['linked']} false laws. The records' correspondence to their source papers is not reviewed, and the checks are of declared models only. Source: <span class="mono">scopedesk/scorecard/</span>.</div>
 <p>{FRONTIER}</p>
+<h2>Infrastructure used</h2>
+<div class="card"><table>
+<tr><th>tool</th><th>what ran</th><th>result</th><th>receipts</th></tr>
+<tr><td>Nebius H100s, NVIDIA BioNeMo TransformerEngine ESM2</td><td>{Us['esm2_sizes']} model sizes scored all {Us['variants_per_model']:,} enzyme variants: {Us['jobs']} jobs, all completed, {Us['job_seconds']:,} recorded job-seconds ({Us['h100_hours']} H100-hours); released baseline</td><td>no clear assay-saving benefit (ledger B03)</td><td class="mono">artifacts/scale/</td></tr>
+<tr><td>Nebius hosted scientific-model catalogue</td><td>{Us['nebius_structure_calls']} OpenFold2 structure calls on the enzyme parent and the best variant (single sequence, no templates); an ESMFold2 attempt was blocked by the server</td><td>predicted, low confidence (ranking confidence about {Us['nebius_structure_ranking_confidence']} of 100); not a measurement</td><td class="mono">artifacts/services/nebius/</td></tr>
+<tr><td>OpenResearch</td><td>a local CPU analysis of the enzyme data, logged through the tool</td><td>not hosted compute (ledger R02)</td><td class="mono">artifacts/gpu/orx/</td></tr>
+<tr><td>Gemini</td><td>{Us['gemini_review_calls']} bounded review calls (cap {Us['gemini_review_cap']}; {Us['gemini_review_input_tokens']:,} input and {Us['gemini_review_output_tokens']:,} output tokens), and {Us['gemini_headroom_calls']} calls as a subject of the headroom check</td><td>review opinions, not evidence; headroom result on slide 5</td><td class="mono">artifacts/services/gemini/, artifacts/bench_headroom/</td></tr>
+</table>
+<p>Only tools with committed receipts are listed. Claude Sonnet 5.5 workers ran on subscription capacity; no metered charge is claimed here. The Delphi checks themselves ran on CPU.</p></div>
 <h2>Downloads</h2>
 <ul><li><a href="assets/deck.pdf">Six-slide deck (PDF)</a> · <a href="assets/deck.html">HTML deck</a> · <a href="assets/speaker-notes.md">three-minute script</a> · <a href="blog.html">blog</a></li>
 <li>Numbers are re-derived from committed artifacts by <span class="mono">presentation/delphi/trace.py</span>; the claim ledger is <span class="mono">planning/rethink/CLAIM-LEDGER.md</span>.</li></ul>
@@ -174,7 +183,7 @@ def appendix(f, commit):
 
 def blog_parts(f):
     P, T, Bn, Rp, Kl, Sc, Bl = f["price"], f["turing"], f["bench"], f["repair"], f["kills"], f["scorecard"], f["baseline"]
-    Hd, Lp = f["headroom"], f["leanpilot"]
+    Hd, Lp, Us = f["headroom"], f["leanpilot"], f["usage"]
     V = f["errors"]["stability_mislabel"]
     kc = Kl["kind_counts"]
     A5 = Bn["at5"]["totals"]
@@ -193,6 +202,8 @@ def blog_parts(f):
         ("p", f"We kept a ledger of claims we held that did not survive: {Kl['n_rows']} rows, each with a witness and a kind. {Kl['independent']} were caught by an independent reviewer or validator, {Kl['mixed']} by the author with an independent hold, and {Kl['author_only']} only by the author's own measurement or rule. Kinds are kept separate: prior art {kc['prior art']}, counterexample {kc['counterexample']}, measured {kc['measured']}, mis-operationalised {kc['mis-operationalised']}, convention defect {kc['convention defect']}, process defect {kc['process defect']}, design defect {kc['design defect']}. There is no control arm, so this compares independent audit with self-audit; it is not a measurement of collective intelligence, and one team's day is not a rate for the field. One row is our own theorem, {V['name']}, whose premise (determinant non-negativity) was advertised as stability; the premise also holds for unstable systems. A revised module now compiles a stronger statement, with the determinant assumed and no new mutants yet."),
         ("h2", "What the collective measured"),
         ("p", f"On the controlled enzyme replay, shared specialists matched a single planner ({Bl['shared_1000']} of 100 each) and a plain lazy search reached {Bl['lazysp_1000']}, mostly in one repeated pair, with an assay-count interval that includes zero. In a proof-search pilot on {Lp['lemmas']} frozen integer-arithmetic lemmas every arm certified all {Lp['lemmas']} in every run, a ceiling; library reuse was real but saved no calls or tokens (median calls {Lp['median_calls']['N']:g}, {Lp['median_calls']['P']:g}, {Lp['median_calls']['Q']:g}, {Lp['median_calls']['S']:g}). The statements are arithmetic surrogates, the arms are call-matched and not compute-matched, and the checker was repaired after the outcomes were seen. On the frozen test set, unguarded models without a code tool scored {Hd['claude']['right']} and {Hd['gemini']['right']} of {Hd['claude']['n']}; the checker-tool arm was not run, the effective n is {Hd['families']} families, and the check measures judgement rather than derivation. Two small comparisons showed no advantage for a shared-evidence collective, one of them at a ceiling that could not discriminate; nothing here says that agents need the gate, and the headroom result mostly shows the test set is not hard for a frontier model without tools."),
+        ("h2", "Infrastructure used"),
+        ("p", f"Receipts only. Five BioNeMo ESM2 sizes scored all {Us['variants_per_model']:,} enzyme variants on Nebius H100s ({Us['jobs']} jobs, all completed, {Us['job_seconds']:,} recorded job-seconds) in the released baseline, with no clear assay-saving benefit. Two OpenFold2 structure calls went to the Nebius hosted catalogue and came back predicted and low confidence. OpenResearch logged a local CPU analysis of the same data, which was not hosted compute. Gemini made {Us['gemini_review_calls']} bounded review calls and was a subject of the headroom check. The Delphi checks themselves ran on CPU."),
         ("h2", "Reusable now, and next"),
         ("p", f"The checker, repair enumerator, test set and ledger are in the repository; outside use is none observed yet. Next, as a proposal and not a deployed system: a pilot on a modelling team's recent reuse decisions, and Delphi Frontier, one page per open problem showing what we know, what is next and who is working on it; our own seed questions failed our own validator, 0 of 7 bounded (ledger R21, single-reader, not re-run by the critic). A first scorecard of the {Sc['records']} extracted records has {Sc['linked']} linked to scope-check benchmark families, {Sc['related_lemma']} related formal lemma whose target is unestablished, {Sc['empirical']} empirical or framework, and {Sc['no_check']} without a corresponding check; the statuses are one reader's, revised after a Codex review of version 0, and the revision was not re-reviewed. A misprediction map over a large parameter ensemble is pending."),
     ]

@@ -150,7 +150,7 @@ def test_site_numbers_are_accounted_for():
     assert not left, left
 
 
-HARD_BANNED = [r"More agents did not help", r"more agents did not help", r"\b17 of 20\b", r"\b17 were caught", r"20 ledger rows", r"exact answers", r"Codex reviewed the corrected", r"sourced open problems", r"we ran no experiment", r"Codex's metadata and text check",
+HARD_BANNED = [r"no sponsor", r"sponsor[- ](?:use )?points", r"sponsor bonus",r"More agents did not help", r"more agents did not help", r"\b17 of 20\b", r"\b17 were caught", r"20 ledger rows", r"exact answers", r"Codex reviewed the corrected", r"sourced open problems", r"we ran no experiment", r"Codex's metadata and text check",
                r"132 of 136(?! items of the v1)",r"near-vacuous", r"not_lt", r"saying nothing", r"tautolog", r"19 biological laws", r"Hamilton[/ -]ESS derived", r"compute-matched (?:collective )?advantage", r"Mathlib biology benchmark",
                r"131[- ]item key|eab23bff(?!.*superseded)",r"no machine[- ]checked", r"did not find a prior machine", r"nobody has (?:a )?(?:gate|library|checked)", r"Arcuri", r"PMC9884266",
                r"Villar-Sepulveda", r"solved (?:the )?navier", r"navier[- ]stokes", r"prove2\.me"]

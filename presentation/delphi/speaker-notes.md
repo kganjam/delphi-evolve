@@ -1,6 +1,6 @@
 # Speaker notes: Delphi deck
 
-Built 2026-10-31 09:56 PDT from 7355b26aa196160b34939d695122df291f84d166.
+Built 2026-10-31 10:51 PDT from d595a11c08e31b4222d13edb2cff45585bb7f571.
 
 **Slide 1** (57 words)
 
@@ -18,9 +18,9 @@ The Price identity is already in ATLAS, so ours is a duplicate. We add a compile
 
 The ledger. Five claims we held that did not survive, each with a witness: a diffusion threshold of ten, false at ratio one point one; our liquid bridge key; a regression that tested a different question; ids that leaked labels; our Price node, already in ATLAS. Sixteen of twenty-one rows were caught by an independent reviewer or validator, two with a hold, three only by the author. No control arm: not collective intelligence.
 
-**Slide 5** (63 words)
+**Slide 5** (61 words)
 
-What the collective measured. Shared specialists equal a single planner, seventy-eight of a hundred each; a plain lazy search reaches ninety-six, mostly in one pair. No advantage shown in two small comparisons. Unguarded models without a code tool score one hundred twenty-one and one hundred ten of one hundred twenty-seven; the checker arm was not run. The proof pilot sat at a ceiling.
+What the collective measured. Shared specialists equal a single planner, seventy-eight of a hundred each; a lazy search reaches ninety-six, mostly one pair. No advantage shown in two small comparisons. Unguarded models without a code tool score one hundred twenty-one and one hundred ten of one hundred twenty-seven; the checker arm was not run. The proof pilot sat at a ceiling.
 
 **Slide 6** (68 words)
 

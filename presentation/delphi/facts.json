@@ -1,4 +1,29 @@
 {
+ "usage": {
+  "ledger": "B03 (BioNeMo ESM2 on Nebius H100s), R02 (OpenResearch, local CPU analysis), R01 (H100 PDE pilot, worker-reported)",
+  "esm2_sizes": 5,
+  "variants_per_model": 160000,
+  "jobs": 10,
+  "job_seconds": 9475,
+  "h100_hours": 2.63,
+  "comparisons_with_interval_including_zero": 9,
+  "gemini_review_calls": 4,
+  "gemini_review_cap": 6,
+  "gemini_review_input_tokens": 82481,
+  "gemini_review_output_tokens": 19108,
+  "gemini_headroom_calls": 127,
+  "nebius_structure_calls": 2,
+  "nebius_structure_ranking_confidence": 41,
+  "artifacts": [
+   "artifacts/scale/library_receipts.json",
+   "artifacts/scale/replay_summary.csv",
+   "artifacts/gpu/orx/receipt.json",
+   "artifacts/services/gemini/usage_ledger.json",
+   "artifacts/services/nebius/",
+   "artifacts/bench_headroom/U_gemini/SCORES.json"
+  ],
+  "openresearch": "a local CPU analysis was logged; not hosted compute"
+ },
  "headroom": {
   "ledger": "unledgered (dx-guilds result, preregistered first; checker-tool arm not run)",
   "artifact": "tasks/results/guilds.json",
