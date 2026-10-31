@@ -58,6 +58,8 @@ def emit_blob(name, raw: bytes):
     for i in range(n):
         part = b64[i * CHUNK_CHARS:(i + 1) * CHUNK_CHARS]
         print(f"RESULT_CHUNK {name} {i} {n} {hashlib.sha256(part.encode()).hexdigest()[:12]} {part}", flush=True)
+        if i % 50 == 49:
+            time.sleep(0.4)   # the log API returns <=1000 lines per query and timestamps have 1 s resolution
     print("RESULT_END " + name, flush=True)
 
 
@@ -400,7 +402,7 @@ def main_stage(tk, out_dir, shard, bs, max_variants, max_minutes, pca_k, emit_lo
 
 def parse():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--stage", choices=["probe", "parity", "main"], required=True)
+    ap.add_argument("--stage", choices=["probe", "parity", "main", "all"], required=True)
     ap.add_argument("--out", default="/output/run")
     ap.add_argument("--batch", type=int, default=128)
     ap.add_argument("--shard", type=int, default=4096)
@@ -424,6 +426,14 @@ if __name__ == "__main__":
     elif a.stage == "parity":
         log("env", **env_record())
         parity(tk, a.parity_n, a.batch, a.parity_thr, a.out)
+    elif a.stage == "all":
+        log("env", **env_record())
+        log("output_root_listing", entries=sh("ls -laR /output | head -40"))
+        try:
+            parity(tk, a.parity_n, a.batch, a.parity_thr, os.path.join(a.out, "parity"))
+        except Exception as e:  # noqa: BLE001  (parity is a side check; never block the main sweep)
+            log("parity_failed", error=repr(e))
+        main_stage(tk, a.out, a.shard, a.batch, a.max_variants, a.max_minutes, a.pca_k, not a.no_emit_logs)
     else:
         log("env", **env_record())
         main_stage(tk, a.out, a.shard, a.batch, a.max_variants, a.max_minutes, a.pca_k, not a.no_emit_logs)
