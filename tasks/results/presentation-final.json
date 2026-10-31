@@ -4,7 +4,7 @@
  "completed_pdt": "2026-10-31 ~01:55",
  "model": "claude-sonnet-5-5 (existing Claude Max subscription; no metered API charge established; CLI cost estimates are not subscription spend). No GPU, no subagents, no extra APIs used.",
  "branch": "work/presentation",
- "commit": "see git log; this receipt is committed together with the deck files it describes",
+ "commit": "a671144 (deck, PDF, notes, appendix, video, validator and tests); this field is updated in the following receipt-only commit",
  "inputs": {
   "root": "/data/worktrees/delphi-evolve/release",
   "git_head_deck": "fdf01b5efce38a327fadb078c4f8744c15363e82 (clean for every input path; origin/work/release at that SHA)",
