@@ -1,0 +1,35 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
+<title>Falsification service: how to call it</title>
+<style>:root{--bg:#fff;--fg:#1b1f23;--code:#f2f4f7;--ac:#0b57d0}@media(prefers-color-scheme:dark){:root{--bg:#14181c;--fg:#e6e9ec;--code:#222a31;--ac:#8ab4ff}}
+body{font:16px/1.55 system-ui,sans-serif;max-width:820px;margin:0 auto;padding:16px;background:var(--bg);color:var(--fg)}
+pre{background:var(--code);padding:10px;overflow-x:auto;border-radius:6px;font-size:13px}a{color:var(--ac)}code{background:var(--code);padding:1px 4px;border-radius:3px}h2{margin-top:1.6em}.w{border-left:4px solid #c60;padding:4px 12px;background:var(--code)}</style></head><body>
+<h1>Can your pattern actually form there?</h1>
+<p>Send a two-species reaction-diffusion linearization and a domain. We try to <b>break</b> the claim "a Turing-type instability exists on this domain" with exact rational arithmetic, and return a verdict, the complete list of unstable modes, the smallest domain that admits any, independent cross-checks, and a receipt you can re-run. Optional: a Lean 4 machine-checked proof of the classification.</p>
+<p class=w><b>Scope.</b> A growing linear eigenmode is a prediction of <i>linear instability under the assumptions you declare</i>. It is not evidence of nonlinear pattern formation, of any biology, or of any wet-lab or clinical outcome. A "refuted" verdict means <i>no admissible linear mode grows</i> on that domain for those numbers, not that your system cannot pattern by other routes (growth, nonlinearity, noise, other boundaries).</p>
+<h2>60 seconds: curl</h2>
+<pre>curl -s {{BASE}}/v1/falsify/turing -H 'Content-Type: application/json' -d '{
+  "caller": "your-team-name",
+  "claim": "textbook Turing condition holds, so patterns form",
+  "jacobian": [[1,-2],[2,-3]], "diffusivities": [1,10],
+  "domain": {"dimension":1, "boundary":"neumann", "length_over_pi":"1"},
+  "lean": true }' | python3 -m json.tool | head -60</pre>
+<p>That example passes the textbook condition yet the answer on length&nbsp;&pi; is <code>domain_blocks_pattern</code> (outcome <code>refuted</code>); change <code>length_over_pi</code> to <code>"2"</code> and mode&nbsp;1 goes unstable (<code>survived</code>).</p>
+<h2>Your own units, or a standard model</h2>
+<pre>{"caller":"your-team-name","model":{"name":"brusselator","params":{"A":1,"B":"3/2"}},
+ "diffusivities":[1,30],"domain":{"dimension":1,"boundary":"dirichlet","length":12.5}}</pre>
+<p>Presets: <code>brusselator</code> (A,B), <code>schnakenberg</code> (a,b), <code>gierer_meinhardt</code> (a,b); fixed point verified exactly. Otherwise give the Jacobian at your homogeneous steady state. Numbers may be ints, decimals or exact strings like <code>"3/2"</code>. Physical <code>length</code> uses a rigorous rational bracket of &pi;. 2-D rectangles: <code>"dimension":2, "lengths_over_pi":[3,2]</code>. Boundaries: <code>neumann</code>, <code>dirichlet</code>, <code>periodic</code>.</p>
+<h2>Verdicts</h2>
+<ul><li><code>survived / pattern_possible</code>: &ge;1 admissible mode has det(J&minus;qD)&lt;0 (list returned is complete).</li>
+<li><code>refuted / domain_blocks_pattern</code>: the textbook band is non-empty but no admissible mode lies in it.</li>
+<li><code>refuted / no_turing_instability</code>: no band at all.</li>
+<li><code>out_of_scope</code>: not a 2-species system with a stable well-mixed state, unsupported boundary, etc. (reason given).</li>
+<li><code>unresolvable</code>: marginal mode or bracket too coarse; we say so rather than guess.</li></ul>
+<h2>MCP (Claude Desktop / Claude Code / any MCP client)</h2>
+<p>Remote (streamable HTTP): <code>{{BASE}}/mcp</code>, tool <code>falsify_turing_pattern</code>. Or the stdio proxy (stdlib only; copy <code>falsify/</code> from the repo):</p>
+<pre>claude mcp add falsify -- python3 -m falsify mcp-stdio --endpoint {{BASE}} --caller your-team-name</pre>
+<h2>Check or re-run a receipt</h2>
+<p>Every response has a <code>receipt_id</code>: <code>{{BASE}}/v1/receipts/&lt;id&gt;</code>. Offline: <code>python3 -m falsify verify-receipt receipt.json [--lean]</code>.</p>
+<h2>Is anyone using this?</h2>
+<p>See the public ledger: <a href=/usage>/usage</a>. It separates the Delphi team's own self-test calls (which only show the service is <i>available</i>) from calls by others (<i>used</i>). Caller names are self-declared and unverified. Limits: 30 requests/min and 10 Lean receipts/hour per caller; request bodies &le; 64&nbsp;KB. Requests and results are logged publicly; do not send anything confidential.</p>
+<p>Source: <a href="https://github.com/kganjam/delphi-evolve">github.com/kganjam/delphi-evolve</a> (<code>falsify/</code>, built on <code>turing_scope/</code> and the Delphi claim <code>turing-ddi</code>).</p>
+</body></html>

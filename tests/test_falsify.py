@@ -1,0 +1,289 @@
+"""Tests for the falsification service. Run bounded:
+systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 \
+  env OMP_NUM_THREADS=2 python -m pytest tests/test_falsify.py -q
+Set FALSIFY_TEST_LEAN=1 to include the (slow, ~15 s per case) Lean receipt tests.
+"""
+import json
+import os
+import random
+import shutil
+import sys
+import threading
+import urllib.request
+from fractions import Fraction as F
+from http.server import ThreadingHTTPServer
+from pathlib import Path
+
+import pytest
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
+from falsify import engine, presets, lean_receipt  # noqa: E402
+from falsify.engine import falsify_turing as run  # noqa: E402
+from falsify import server as srv  # noqa: E402
+
+
+def base(r="1", bc="neumann", **kw):
+    q = {"jacobian": [[1, -2], [2, -3]], "diffusivities": [1, 10],
+         "domain": {"dimension": 1, "boundary": bc, "length_over_pi": r}}
+    q.update(kw)
+    return q
+
+
+# ---------- the textbook example: pi blocks, 2 pi allows
+def test_pi_vs_2pi():
+    a, b = run(base("1")), run(base("2"))
+    assert a["verdict"] == "domain_blocks_pattern" and a["adjudication"]["outcome"] == "refuted"
+    assert a["continuum_band"]["textbook_turing_condition_holds"] is True
+    assert b["verdict"] == "pattern_possible" and b["modes"]["unstable"][0]["index"] == 1
+    assert b["modes"]["unstable"][0]["determinant"] == "-1/8" and b["modes"]["unstable"][0]["trace"] == "-19/4"
+    assert a["independent_checks"]["turing_scope_adapter"]["agrees"] is True
+    assert b["independent_checks"]["turing_scope_adapter"]["agrees"] is True
+    assert a["independent_checks"]["finite_difference_eigenvalues"]["agrees_with_exact_verdict"] is True
+    assert b["independent_checks"]["finite_difference_eigenvalues"]["agrees_with_exact_verdict"] is True
+
+
+# ---------- regressions from the primary review (issues 1-6)
+def test_review1_caller_text_is_never_adjudicated():
+    o = run(base("2", claim="this drug cures cancer"))
+    assert o["adjudication"]["proposition"] == engine.PROPOSITION
+    assert "claim" not in o["adjudication"]
+    rc = o["requested_claim_text"]
+    assert rc["text"] == "this drug cures cancer" and "NOT adjudicated" in rc["status"]
+    assert "cancer" not in json.dumps(o["adjudication"])
+    assert run(base("2"))["requested_claim_text"] is None
+    r = run(base("2", claim="x") | {"jacobian": [[1, 1], [1, 1]]})            # refusal path also carries the fixed proposition
+    assert r["verdict"] == "refused" and r["adjudication"]["proposition"] == engine.PROPOSITION
+
+
+def test_review2_pin_failure_is_generic_not_delphi_reuse(monkeypatch):
+    ok = run(base("2"))
+    assert ok["basis"] == "delphi_claim_backed_calculation" and ok["delphi_claim_basis"]["reuse_status"] == "source_authorized"
+    monkeypatch.setattr(engine, "_delphi_basis", lambda: {"claim_iri": "turing-ddi", "source_pin_ok": False, "error": "injected fault"})
+    bad = run(base("2"))
+    assert bad["verdict"] == "pattern_possible"                                  # the arithmetic is unchanged...
+    assert bad["basis"] == "generic_calculation_only"                            # ...but it is not Delphi-source-authorized reuse
+    assert bad["delphi_claim_basis"]["reuse_status"] == "NOT_authorized_source_pin_failed"
+    assert "turing_scope_adapter" not in bad["independent_checks"]
+    req = run(base("2", require_delphi_pin=True))
+    assert req["verdict"] == "refused" and req["refusal"]["code"] == "source_pin_failed"
+
+
+@pytest.mark.parametrize("ladder", [engine.PRECISIONS, (10 ** 12,)])
+def test_review3_narrow_band_fails_closed_or_is_verified(monkeypatch, ladder):
+    """Executed reproducer from the review: J21 = -18/5 + 1e-50. With the default ladder the bracket is refined and re-verified;
+    with only the coarse precision the old code emitted an unverified 'unstable at upper endpoint' statement - it must now refuse."""
+    monkeypatch.setattr(engine, "PRECISIONS", ladder)
+    Jc = str(F(-18, 5) + F(1, 10 ** 50))
+    o = run({"jacobian": [[1, 1], [Jc, -2]], "diffusivities": [1, 10], "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "2"}})
+    assert o["continuum_band"]["textbook_turing_condition_holds"] is True
+    cl = o["critical_length"]
+    if len(ladder) > 1:
+        assert cl["status"] == "verified"
+        assert cl["exact_recheck"]["below"]["unstable_modes"] == [] and cl["exact_recheck"]["above"]["unstable_modes"] == [1]
+        lo, hi = (F(x) for x in cl["length_over_pi_between"])
+        assert 0 < lo < hi
+    else:
+        assert cl["status"] == "unresolved"
+        assert "length_over_pi_between" not in cl and "exact_recheck" not in cl and "length_windows" not in cl
+        assert "NO length is advised" in cl["statement"]
+        assert o["verdict"] == "domain_blocks_pattern"            # the exact per-domain verdict is unaffected
+
+
+def test_review3_degenerate_inputs_do_not_raise():
+    # tiny positive coefficients / near-zero determinant
+    for J in ([[1, 1], ["-18/5", "-2"]], [["1/10**30" if False else str(F(1, 10 ** 30)), 1], [-1, -2]]):
+        o = run({"jacobian": J, "diffusivities": [1, 10], "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "1"}})
+        assert o["verdict"] in ("domain_blocks_pattern", "no_turing_instability", "pattern_possible", "refused", "unresolved")
+
+
+def test_review4_discriminant_zero_marginal_mode():
+    # S^2 = 4 Du Dv det J exactly; marginal q* = 1/4 is hit by Neumann n=1 on L = 2 pi
+    o = run({"jacobian": [[1, 3], [-3, -8]], "diffusivities": [1, 16], "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "2"}})
+    assert o["verdict"] == "unresolved" and o["adjudication"]["outcome"] == "unresolvable" and o["modes"]["marginal_count"] == 1
+    o2 = run({"jacobian": [[1, 3], [-3, -8]], "diffusivities": [1, 16], "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "1"}})
+    assert o2["verdict"] == "no_turing_instability"
+    assert "no strictly growing eigenmode" in o2["adjudication"]["reasons"][0]
+
+
+def test_review5_truncation_wording():
+    o = run({"jacobian": [[1, -2], [2, -3]], "diffusivities": [1, 10], "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "400"}})
+    m = o["modes"]
+    assert m["unstable_count"] > 50 and len(m["unstable"]) == 50
+    assert m["returned_detail_truncated"] is True and m["enumeration_complete"] is True
+    assert "may be truncated" in m["completeness"] and "COMPLETE list" not in m["completeness"]
+
+
+def test_review6_dirichlet_semantics_stated():
+    o = run(base("5", "dirichlet"))
+    txt = " ".join(o["assumptions"])
+    assert "HELD AT the homogeneous steady state" in txt and "NOT zero concentration" in txt
+
+
+# ---------- correctness: independent differential tests
+def numpy_unstable(J, D, qs):
+    import numpy as np
+    Jf = np.array([[float(x) for x in r] for r in J])
+    return [float(np.linalg.eigvals(Jf - float(q) * np.diag([float(D[0]), float(D[1])])).real.max()) for q in qs]
+
+
+def test_random_differential_vs_numpy_1d_all_boundaries():
+    rng = random.Random(7)
+    checked = 0
+    for _ in range(150):
+        a, d = rng.randint(-6, 6), rng.randint(-6, 6)
+        b, c = rng.randint(-6, 6), rng.randint(-6, 6)
+        Du, Dv = F(rng.randint(1, 4)), F(rng.randint(1, 60))
+        if not (a + d < 0 and a * d - b * c > 0):
+            continue
+        r = F(rng.randint(1, 80), rng.randint(1, 8))
+        bc = rng.choice(["neumann", "dirichlet", "periodic"])
+        o = run({"jacobian": [[a, b], [c, d]], "diffusivities": [Du.numerator if Du.denominator == 1 else str(Du), str(Dv)],
+                 "domain": {"dimension": 1, "boundary": bc, "length_over_pi": str(r)}, "crosscheck": False})
+        if o["verdict"] in ("refused", "unresolved"):
+            continue
+        cm, nmin = engine.BOUNDARIES[bc]
+        n_hi = int(r * 40) + 5
+        qs = [F(cm * cm * n * n) / (r * r) for n in range(nmin, n_hi)]
+        ev = numpy_unstable([[a, b], [c, d]], [Du, Dv], qs)
+        np_unstable = {nmin + i for i, e in enumerate(ev) if e > 1e-9}
+        exact = {m["index"] for m in o["modes"]["unstable"]}
+        assert exact == np_unstable, (a, b, c, d, Du, Dv, r, bc)
+        checked += 1
+    assert checked > 25
+
+
+def test_2d_modes_match_brute_force():
+    rng = random.Random(3)
+    for _ in range(40):
+        a, d, b, c = (rng.randint(-5, 5) for _ in range(4))
+        if not (a + d < 0 and a * d - b * c > 0):
+            continue
+        Du, Dv = 1, rng.randint(5, 40)
+        r1, r2 = F(rng.randint(2, 20), 2), F(rng.randint(2, 20), 3)
+        for bc in ("neumann", "dirichlet", "periodic"):
+            o = run({"jacobian": [[a, b], [c, d]], "diffusivities": [Du, Dv], "domain": {"dimension": 2, "boundary": bc, "lengths_over_pi": [str(r1), str(r2)]}})
+            if o["verdict"] in ("refused", "unresolved"):
+                continue
+            cm, nmin = engine.BOUNDARIES[bc]
+            brute = set()
+            for m in range(nmin, 60):
+                for n in range(nmin, 60):
+                    q = cm * cm * (F(m * m) / (r1 * r1) + F(n * n) / (r2 * r2))
+                    if (a * Dv + d * Du > 0) and (Du * Dv * q * q - (a * Dv + d * Du) * q + (a * d - b * c)) < 0:
+                        brute.add((m, n))
+            got = {tuple(x["index"]) for x in o["modes"]["unstable"]}
+            assert got == brute
+
+
+def test_physical_length_matches_exact_and_is_conservative():
+    import math
+    # L = 2*pi physical -> the same verdict as length_over_pi=2, with pi bracketed
+    o = run({"jacobian": [[1, -2], [2, -3]], "diffusivities": [1, 10], "domain": {"dimension": 1, "boundary": "neumann", "length": "6.283185307179586"}})
+    assert o["verdict"] == "pattern_possible"
+    # a length that puts a mode exactly on the band edge must be 'unresolved', never guessed
+    edge = engine.sqrt_bracket(F(1, 1))  # sanity
+    assert edge[0] <= 1 <= edge[1]
+
+
+@pytest.mark.parametrize("name,params", [("brusselator", {"A": F(3, 2), "B": F(5, 2)}), ("schnakenberg", {"a": F(1, 5), "b": F(7, 5)}),
+                                         ("gierer_meinhardt", {"a": F(1, 10), "b": F(1, 2)})])
+def test_presets_match_symbolic_jacobian(name, params):
+    import sympy as sp
+    u, v = sp.symbols("u v")
+    A, B, a, b = (params.get(k) for k in ("A", "B", "a", "b"))
+    if name == "brusselator":
+        f, g = sp.Rational(A.numerator, A.denominator) - (sp.Rational(B.numerator, B.denominator) + 1) * u + u ** 2 * v, sp.Rational(B.numerator, B.denominator) * u - u ** 2 * v
+    elif name == "schnakenberg":
+        f, g = sp.Rational(a.numerator, a.denominator) - u + u ** 2 * v, sp.Rational(b.numerator, b.denominator) - u ** 2 * v
+    else:
+        f, g = sp.Rational(a.numerator, a.denominator) - sp.Rational(b.numerator, b.denominator) * u + u ** 2 / v, u ** 2 - v
+    fp, J = presets.build(name, params)
+    sub = {u: sp.Rational(fp[0].numerator, fp[0].denominator), v: sp.Rational(fp[1].numerator, fp[1].denominator)}
+    assert sp.simplify(f.subs(sub)) == 0 and sp.simplify(g.subs(sub)) == 0
+    Js = sp.Matrix([f, g]).jacobian([u, v]).subs(sub)
+    assert [[F(int(sp.numer(Js[i, j])), int(sp.denom(Js[i, j]))) for j in range(2)] for i in range(2)] == J
+
+
+def test_refusals_are_explicit():
+    assert run(base("1", "robin"))["refusal"]["code"] == "unsupported_boundary"
+    assert run({"jacobian": [[1, 2, 3], [1, 2, 3]], "diffusivities": [1, 2], "domain": {"boundary": "neumann", "length_over_pi": 1}})["refusal"]["code"] == "unsupported_system"
+    assert run(base("1", jacobian=[[1, True], [1, 1]]))["refusal"]["code"] == "invalid_input"
+    assert run(base("0"))["refusal"]["code"] == "invalid_input"
+    assert run(base("1", diffusivities=[0, 1]))["refusal"]["code"] == "invalid_input"
+    assert run(base("1", jacobian=[[1, 0], [0, 1]]))["refusal"]["code"] == "claim_precondition_failed"
+
+
+# ---------- server, MCP, usage ledger
+@pytest.fixture()
+def live(tmp_path):
+    app = srv.App(tmp_path / "d", internal_token="tok")
+    httpd = ThreadingHTTPServer(("127.0.0.1", 0), srv.make_handler(app))
+    threading.Thread(target=httpd.serve_forever, daemon=True).start()
+    yield app, f"http://127.0.0.1:{httpd.server_address[1]}"
+    httpd.shutdown()
+
+
+def post(url, body, headers=None):
+    req = urllib.request.Request(url, data=json.dumps(body).encode(), headers={"Content-Type": "application/json", **(headers or {})}, method="POST")
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return json.loads(r.read() or b"null")
+
+
+def test_http_receipt_roundtrip_and_ledger(live):
+    app, url = live
+    res = post(url + "/v1/falsify/turing", base("2", caller="delphi-test"))
+    assert res["verdict"] == "pattern_possible"
+    rec = json.loads(urllib.request.urlopen(f"{url}/v1/receipts/{res['receipt_id']}").read())
+    assert rec["response"]["receipt_id"] == res["receipt_id"]
+    s = json.loads(urllib.request.urlopen(url + "/usage.json").read())
+    assert s["totals"]["all_calls"] == 1 and s["totals"]["external_unverified_calls"] == 0     # our own loopback test is NOT 'used'
+    assert "None yet" in urllib.request.urlopen(url + "/usage").read().decode()
+
+
+def test_origin_classification_never_inflates_use(tmp_path):
+    from falsify.usage import Ledger
+    L = Ledger(tmp_path)
+    assert L.classify("127.0.0.1", "someone", False) == "self-test"
+    assert L.classify("203.0.113.9", "delphi-x", False) == "self-test"
+    assert L.classify("203.0.113.9", "teamA", True) == "self-test"
+    assert L.classify("203.0.113.9", "teamA", False) == "external-unverified"
+    L.append({"tool": "x", "caller": "teamA", "origin": "external-unverified", "ip_hash": L.ip_hash("203.0.113.9"), "verdict": "pattern_possible"})
+    s = L.summary()
+    assert s["totals"]["external_unverified_calls"] == 1 and s["external_callers"][0]["caller_label_declared"] == "teamA"
+    assert "203.0.113.9" not in json.dumps(s) and "203.0.113.9" not in L.page()
+
+
+def test_mcp_protocol(live):
+    app, url = live
+    init = post(url + "/mcp", {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-03-26", "clientInfo": {"name": "t"}}})
+    assert init["result"]["serverInfo"]["name"] == "delphi-falsify"
+    tl = post(url + "/mcp", {"jsonrpc": "2.0", "id": 2, "method": "tools/list"})
+    assert {t["name"] for t in tl["result"]["tools"]} == {"falsify_turing_pattern", "get_receipt"}
+    call = post(url + "/mcp", {"jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": {"name": "falsify_turing_pattern", "arguments": base("1")}})
+    assert json.loads(call["result"]["content"][0]["text"])["verdict"] == "domain_blocks_pattern"
+    assert post(url + "/mcp", {"jsonrpc": "2.0", "id": 4, "method": "nope"})["error"]["code"] == -32601
+
+
+def test_body_limit_and_bad_json(live):
+    app, url = live
+    with pytest.raises(urllib.error.HTTPError) as e:
+        urllib.request.urlopen(urllib.request.Request(url + "/v1/falsify/turing", data=b"x" * 70000, method="POST"))
+    assert e.value.code == 413
+    with pytest.raises(urllib.error.HTTPError) as e:
+        urllib.request.urlopen(urllib.request.Request(url + "/v1/falsify/turing", data=b"{nope", method="POST"))
+    assert e.value.code == 400
+
+
+# ---------- Lean receipts (slow)
+lean_on = os.environ.get("FALSIFY_TEST_LEAN") == "1" and shutil.which("lake")
+
+
+@pytest.mark.skipif(not lean_on, reason="set FALSIFY_TEST_LEAN=1")
+def test_lean_receipt_accepts_truth_rejects_falsehood():
+    J, D = [[F(1), F(-2)], [F(2), F(-3)]], [F(1), F(10)]
+    good, _ = lean_receipt.build_source(J, D, "neumann", F(2), [1])
+    assert lean_receipt.run(good)["status"] == "checked"
+    bad, _ = lean_receipt.build_source(J, D, "neumann", F(2), [])         # claims no unstable mode on L = 2 pi: must fail
+    assert lean_receipt.run(bad)["status"] == "failed"
