@@ -1,4 +1,4 @@
-# Numeric audit of the five oracle-less families (critic, 2026-10-31 ~09:43 PDT)
+# Numeric audit of the five oracle-less families (critic, 2026-10-31; committed 09:44 PDT, git 471d571)
 
 Script `audit_five_families_numeric.py`, output `five_families_numeric_audit.json`. It imports none of the generator modules (`fam_*.py`) and re-derives each item's verdict from the
 structured parameters with a DIFFERENT method:

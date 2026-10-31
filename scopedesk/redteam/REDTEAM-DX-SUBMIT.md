@@ -1,6 +1,6 @@
 # Red-team of the dx-submit Delphi materials (critic, single-reader, NOT Codex-reviewed)
 
-Written Sat 2026-10-31 ~09:50 PDT (from `date`). I did not write these materials. Read: `planning/rethink/SUBMISSION.md`, `presentation/delphi/blog.md`,
+Committed Sat 2026-10-31 09:44 PDT (git 471d571; time read from git, not typed). I did not write these materials. Read: `planning/rethink/SUBMISSION.md`, `presentation/delphi/blog.md`,
 `presentation/delphi/speaker-notes.md`, the text of `presentation/delphi/deck.html` (all 6 slides, notes, ledger/review footers), parts of `presentation/delphi/facts.py`
 (on `work/submit` @ 59c774b). NOT read: `site/delphi/index.html` in full (only grep hits), storyboard, video captions, REVIEW-BRIEF, PPTX, bundle. Each item is
 checked against my ledger (`scopedesk/ledger/`), the frozen bench, or a committed file; "fix" is a suggested replacement, not an order.
