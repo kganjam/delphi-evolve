@@ -1,0 +1,24 @@
+{
+ "audit": "blinded text-only audit of v1.2 rev3 wording by a bounded Sonnet subagent (same model family as the key's author); saw only model_payload prompts (128 items, incl. qd643fbe2 later excluded)",
+ "agree_with_frozen_127_key": [
+  127,
+  127
+ ],
+ "disagreements": [],
+ "extra_item_not_in_frozen_set": [
+  "qd643fbe2"
+ ],
+ "medium_confidence": [
+  "qc7bdd4c0",
+  "q98a337bc",
+  "q057cbe20",
+  "q38b9d8a3",
+  "q482d1195",
+  "qda9a8ada",
+  "q173c3ae6",
+  "q7f4d606c",
+  "qadf8fa49",
+  "q98f3297f"
+ ],
+ "limits": "same model family; not human; the subagent's own phrasing notes (boundary vocabulary, 'cited statement' implicit, wavelength mode wavelength not stated, Hamilton 'bonus/synergy' naming, class-balance heuristics per family) are recorded in the raw audit file (scratchpad), not adopted"
+}

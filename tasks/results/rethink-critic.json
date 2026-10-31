@@ -1,6 +1,6 @@
 {
  "role": "critic",
- "status": "bench v1.2 candidate rev3 (128 items) after Codex pre-run delta review: linear-target prompts, answer/abstain scoring, 3 uniform-column items excluded; READY TO FREEZE pending Codex re-check and director go; NOT frozen",
+ "status": "Scope Desk bench v1.2 FROZEN (127 items) per director follow-up 8 with disclosed gaps (Codex rev3 text re-check not received; blinded audits same-family on earlier wording; verifier by the generator's author; five families have no oracle); kill ledger delivered",
  "model": "claude-sonnet-5-5 (subscription; metered spend unknown, none inferred)",
  "wall_time_pdt": "2026-10-31 06:00-06:20",
  "artifacts": [
@@ -214,15 +214,22 @@
  },
  "v1_2": {
   "path": "scopedesk/bench/v1_2",
-  "n": 128,
-  "key_sha256": "774f6a08bf77330b8d46dbcbc0fd7aef52da572921dd600c871228e418974c38",
+  "n": 127,
+  "key_sha256": "28645a12f2f4c77fc1acedb10b23b4070832eefa381b88ca65a12b9e4ecdaa2f",
   "candidate_hash_history": [
-   "bc8caf20db7ec56d5075b550af0a03cbb85363bc1501e1434c3b5a83dd1eb046 (135)",
-   "eab23bff6ed85b2fe1bbfb2842e66f8d40897ceb218ce036d3b66d3ff11a9ae4 (131)",
-   "current (128)"
+   "bc8caf20 (135)",
+   "eab23bff (131)",
+   "774f6a08 (128)",
+   "final (127)"
   ],
-  "status": "not frozen"
+  "status": "FROZEN (scopedesk/bench/v1_2/FROZEN.md)"
  },
  "timestamp_note": "Some wall-time labels written in messages/critic-to-director.md and FROZEN.md for v1.1 after 06:50 (e.g. 07:35, 07:40, 07:45, 07:50, 08:00) were estimated, not read from `date`; actual `date` readings in that period were about 07:07-07:21 PDT.",
- "lean_price_note": "Price equation and Fisher FTNS already formalized in facebookresearch/atlas-lean Selection.lean; lean_price/price is a duplicate; Queller/Hamilton-form corollary not found there (code search)."
+ "lean_price_note": "Price equation and Fisher FTNS already formalized in facebookresearch/atlas-lean Selection.lean; lean_price/price is a duplicate; Queller/Hamilton-form corollary not found there (code search).",
+ "ledger": {
+  "path": "scopedesk/ledger/",
+  "rows": 20,
+  "controlled_rows": 2,
+  "commit": "2722f9f"
+ }
 }

@@ -257,6 +257,13 @@
  },
  {
   "family": "turing_finite_domain",
+  "reason": "exact marginal admissible mode: Dirichlet, det(J-qD)=0 at q=1/4, so the linearisation is inconclusive and the key's strict-growth convention (out_of_scope) is a convention choice; dx-collab's reviewed service returns 'unresolved'. Excluded (same family of defect as det J=0). A scan of all Turing 1-D/2-D items found two further items with a marginal mode (t2-0008, t2-0014) whose verdict 'applies' rests on a different, strictly growing mode, so they are retained.",
+  "params": {
+   "id": "ts-0016"
+  }
+ },
+ {
+  "family": "turing_finite_domain",
   "reason": "false-premise Turing item (same pattern as qd03269c6).",
   "params": {
    "id": "ts-0017"

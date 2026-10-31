@@ -1,14 +1,14 @@
 {
- "n": 128,
+ "n": 127,
  "full_text|word_1-2gram": {
   "leave_one_family_out_correct": 62,
-  "n": 128,
-  "acc": 0.4844,
+  "n": 127,
+  "acc": 0.4882,
   "cp95": [
-   0.395,
-   0.574
+   0.399,
+   0.578
   ],
-  "majority_within_family_acc": 0.5391,
+  "majority_within_family_acc": 0.5433,
   "per_family": {
    "fisher_kpp_speed": {
     "acc": 0.438,
@@ -41,9 +41,9 @@
     "majority": 0.6
    },
    "turing_finite_domain": {
-    "acc": 0.545,
-    "n": 22,
-    "majority": 0.545
+    "acc": 0.571,
+    "n": 21,
+    "majority": 0.571
    },
    "wavelength_formula_licence": {
     "acc": 0.357,
@@ -54,13 +54,13 @@
  },
  "full_text|char_3-5gram": {
   "leave_one_family_out_correct": 62,
-  "n": 128,
-  "acc": 0.4844,
+  "n": 127,
+  "acc": 0.4882,
   "cp95": [
-   0.395,
-   0.574
+   0.399,
+   0.578
   ],
-  "majority_within_family_acc": 0.5391,
+  "majority_within_family_acc": 0.5433,
   "per_family": {
    "fisher_kpp_speed": {
     "acc": 0.438,
@@ -93,9 +93,9 @@
     "majority": 0.6
    },
    "turing_finite_domain": {
-    "acc": 0.545,
-    "n": 22,
-    "majority": 0.545
+    "acc": 0.571,
+    "n": 21,
+    "majority": 0.571
    },
    "wavelength_formula_licence": {
     "acc": 0.357,
@@ -105,14 +105,14 @@
   }
  },
  "stem_only_no_conventions|word_1-2gram": {
-  "leave_one_family_out_correct": 60,
-  "n": 128,
-  "acc": 0.4688,
+  "leave_one_family_out_correct": 57,
+  "n": 127,
+  "acc": 0.4488,
   "cp95": [
-   0.38,
-   0.559
+   0.361,
+   0.54
   ],
-  "majority_within_family_acc": 0.5391,
+  "majority_within_family_acc": 0.5433,
   "per_family": {
    "fisher_kpp_speed": {
     "acc": 0.438,
@@ -125,7 +125,7 @@
     "majority": 0.462
    },
    "hamilton_rule_form": {
-    "acc": 0.375,
+    "acc": 0.25,
     "n": 16,
     "majority": 0.5
    },
@@ -135,7 +135,7 @@
     "majority": 0.5
    },
    "kimura_regime": {
-    "acc": 0.5,
+    "acc": 0.438,
     "n": 16,
     "majority": 0.562
    },
@@ -145,9 +145,9 @@
     "majority": 0.6
    },
    "turing_finite_domain": {
-    "acc": 0.545,
-    "n": 22,
-    "majority": 0.545
+    "acc": 0.571,
+    "n": 21,
+    "majority": 0.571
    },
    "wavelength_formula_licence": {
     "acc": 0.357,
@@ -157,14 +157,14 @@
   }
  },
  "stem_only_no_conventions|char_3-5gram": {
-  "leave_one_family_out_correct": 55,
-  "n": 128,
-  "acc": 0.4297,
+  "leave_one_family_out_correct": 58,
+  "n": 127,
+  "acc": 0.4567,
   "cp95": [
-   0.343,
-   0.52
+   0.368,
+   0.547
   ],
-  "majority_within_family_acc": 0.5391,
+  "majority_within_family_acc": 0.5433,
   "per_family": {
    "fisher_kpp_speed": {
     "acc": 0.438,
@@ -182,7 +182,7 @@
     "majority": 0.5
    },
    "hawk_dove_ess": {
-    "acc": 0.25,
+    "acc": 0.438,
     "n": 16,
     "majority": 0.5
    },
@@ -197,9 +197,9 @@
     "majority": 0.6
    },
    "turing_finite_domain": {
-    "acc": 0.545,
-    "n": 22,
-    "majority": 0.545
+    "acc": 0.571,
+    "n": 21,
+    "majority": 0.571
    },
    "wavelength_formula_licence": {
     "acc": 0.357,
@@ -210,18 +210,18 @@
  },
  "top_tokens_full_fit_stem_only": {
   "applies": [
-   "logistic growth",
    "logistic",
+   "logistic growth",
    "and logistic",
    "2ns",
+   "30",
    "is its",
-   "exp 2ns",
-   "exp",
    "reaction",
-   "uniform solid",
+   "exp",
+   "exp 2ns",
    "column base",
-   "20",
-   "30"
+   "uniform solid",
+   "20"
   ],
   "out_of_scope": [
    "and bistable",
@@ -229,13 +229,13 @@
    "bistable kinetics",
    "of its",
    "kinetics",
-   "10",
-   "appears in",
-   "beneficial mutant",
+   "its",
    "value for",
-   "can",
-   "can use",
-   "value"
+   "use kimura",
+   "use",
+   "neutral value",
+   "neutral",
+   "appears in"
   ],
   "underdetermined": [
    "pi the",
@@ -243,13 +243,13 @@
    "hawk",
    "using",
    "for the",
+   "for",
    "expect",
    "should",
    "should expect",
-   "for",
    "15 times",
-   "2u 2v",
-   "two animals"
+   "two animals",
+   "resource"
   ]
  },
  "reading": "Accuracy near or below the within-family majority rate means wording does not transfer across families as a label cue; high within-family cues are possible and are listed for human review (top tokens)."
