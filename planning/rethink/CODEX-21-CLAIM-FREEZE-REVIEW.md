@@ -48,3 +48,26 @@ B1 versus B2 currently classifies proof effort and quantification inconsistently
 - A clean axiom audit certifies proof dependencies, not the accuracy of theorem names/docstrings or translation. Mutants should reject wrong scientific conditions, not merely cause syntax/type errors. Save exact diagnostics and original controls.
 
 Approved next action: revise/freeze full target statements, review changed statements, then run a bounded feasibility or evaluation with the recorded distinctions. This memo is not an authorization to call the existing 21 rows mechanically verified.
+
+## Follow-up: Admissible 469874b, new file discovered at a different path
+
+The director's repeated pointer to `bench/bench-v1-freeze.json` still resolves to the original `dbf233…ba0e` bytes, not the supplied `6d61…0c2f`. The newer repository HEAD `469874b2e5da8a5d503416be8bd071a6919e08a3` additionally contains **`bench/bench-v1.1-freeze.json`**, SHA256 **8028c4f58f028f3ed185477bd2b0975a07311ec260d77ab6b3b2dfda9477c53a**. This 21-record artifact is separate from the critic's 136-item Scope Desk v1.1 benchmark. Do not use the two version names interchangeably.
+
+The newer freeze remains **not approved**:
+
+- Splitting the neutral-theory empirical claim into B0b is an improvement. B0a still incorrectly equates “no canonical formalization” with “not formalizable”; the original binding note also still says the records exclude themselves. Replace that with “no single theorem target supplied here.”
+- Rows still have `bucket_reason` prose rather than complete formal target declarations, defined quantities, preconditions, allowed imports and source-content hashes. The original row-by-row review above still applies. In particular, replicator asymptotic stability, continuous-strategy attrition ESS and a fixation neutral limit are not all ordered-field algebra simply because their expressions contain symbols.
+- The new binding note rejects the continuum sqrt inequality as the DDI target, but the `turing-ddi` row's `bucket_reason` still starts with that inequality. Put the actual admissible-q determinant target in the row and freeze its declaration; a correction in a note does not resolve two competing targets.
+- B3's description says “attempted-and-unreached” even though every row is `NOT_ATTEMPTED`. Report actual attempts and exclusions separately. Do not infer a failed or timed-out proof from a triage decision.
+- `bench/README.md` is still the old bucket/hash narrative. Publish one current, internally consistent contract before evaluation. Already compiled lemmas remain baseline work, not prospective successes against this freeze.
+
+The Lean source at that commit has SHA256 **d63c4d60e63e81d45bec7bd68d70caee6e0a83f4f4a51566eb6983d29c42fbce**, matching the newly changed local `/data/artifacts/admissible-lean/Admissible.lean`. I independently compiled those exact bytes under the required caps using the existing pinned Mathlib cache: **exit 0, 11.051 seconds**, seven printed axiom audits containing only `propext`, `Classical.choice`, `Quot.sound`. A deprecation warning for `push_neg` is not a failure. Snapshots and receipt: `artifacts/integration/codex-api/admissible-review/469874b/`. No new mutants were run in this follow-up.
+
+The substantive improvement is real: `trace_neg_of_wellmixed` derives trace negativity from well-mixed stability, positive diffusion and nonnegative q; `finite_domain_linearly_stable` pairs that conclusion with **strict** determinant positivity. This repairs the earlier tautological finite-domain target. The remaining statement boundaries must still be explicit:
+
+1. `ModeStable` is defined as negative trace plus positive determinant. The new finite-domain theorem proves that predicate. The equivalence to both **complex** matrix eigenvalues having negative real part is not proved in this file.
+2. `real_eigenvalue_neg_of_modeStable` proves negativity of a supplied **real root** of the characteristic polynomial. Its first docstring sentence promises both eigenvalues/real parts; narrow the wording or supply complex-root and matrix-characteristic correspondence.
+3. `unstable_iff_pos_eigenvalue` is unchanged and remains one direction only. Rename it or prove the missing existence/equivalence direction.
+4. `worked_stable_on_pi` still proves no negative determinant, while the new stability theorem needs strict positivity at every mode. For the worked system that stronger result is available mathematically from q=n² and `(5q-1)(2q-1)`, but the connecting strict-positive theorem is not currently present. L>0 is also a physical-domain precondition that should be exposed in any public wrapper; Lean's total division does not make L=0 a valid spatial interval.
+
+Compilation is accepted as a checked implementation result at this revision. It does not approve the remaining names, biological interpretation or 21-record evaluation freeze.

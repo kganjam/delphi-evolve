@@ -1,0 +1,17 @@
+{
+  "recorded_at": "2026-10-31T07:16:30.699693-07:00",
+  "source_commit": "469874b2e5da8a5d503416be8bd071a6919e08a3",
+  "source_sha256": "d63c4d60e63e81d45bec7bd68d70caee6e0a83f4f4a51566eb6983d29c42fbce",
+  "freeze_sha256": "8028c4f58f028f3ed185477bd2b0975a07311ec260d77ab6b3b2dfda9477c53a",
+  "command": [
+    "/home/ubuntu/.elan/bin/lake",
+    "env",
+    "lean",
+    "-j2",
+    "/data/worktrees/delphi-evolve/codex-api/artifacts/integration/codex-api/admissible-review/469874b/Admissible.lean"
+  ],
+  "exit": 0,
+  "wall_seconds": 11.051,
+  "output": "/data/worktrees/delphi-evolve/codex-api/artifacts/integration/codex-api/admissible-review/469874b/Admissible.lean:95:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n'Admissible.D_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Admissible.finite_domain_linearly_stable' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Admissible.trace_neg_of_wellmixed' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Admissible.real_eigenvalue_neg_of_modeStable' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Admissible.worked_continuum' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Admissible.worked_unstable_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Admissible.worked_stable_on_pi' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "scope": "Independent compile of changed source; not a target-fidelity approval. No new mutants executed."
+}
