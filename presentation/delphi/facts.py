@@ -194,9 +194,11 @@ def error_facts():
             "axioms": ax["finite_domain_linearly_stable"], "audited_declarations": len(ax),
             "limits": "does not establish the full eigenvalue or PDE correspondence; no new mutants run; compile review is not a target-fidelity approval"}
     return {
-        "vacuous_theorem": {
-            "ledger": "P01 (note: existing stability theorem names overstate some statements)",
+        "stability_mislabel": {
+            "ledger": "P01 (note: existing stability theorem names overstate some statements); kill ledger R06",
             "file": "artifacts/integration/codex-api/admissible-review/Admissible.lean", "name": "finite_domain_stable",
+            "premise": "determinant non-negativity at every admissible mode", "advertised_as": "finite-domain stability",
+            "witness": "analytic, not Lean-compiled: J = diag(2, 2), Du = Dv = 1, L = pi has D(q) = (2 - q)^2 >= 0 at every q, yet mode n = 1 has two growth eigenvalues",
             "assumed": "for every admissible mode n, NOT(det(J - qD) < 0)", "concluded": "for every n, det(J - qD) >= 0",
             "hL_unused": "hL" not in re.sub(r"\(hL : 0 < L\)", "", m.group(0)),
             "reviewer": "independent review by the Codex API worker (CODEX-21-CLAIM-FREEZE-REVIEW.md, 'Existing Lean file: specific fidelity failures')",
@@ -256,15 +258,116 @@ def baseline_facts():
     tp = {(r["policy"], int(r["budget"])): r for r in csv.DictReader((ROOT / "artifacts/core/replay/table_primary.csv").open()) if r["family"] == "all"}
     lt = {r["variant"]: r for r in csv.DictReader((ROOT / "artifacts/lazysp/results/table_primary.csv").open())}
     cnt = J("artifacts/demo.json")["source"]["counts"]
-    return {"ledger": "B01/B02/B03", "measured_nonstop": cnt["measured_nonstop_genotypes"], "imputed_excluded": cnt["unmeasured_nonstop_genotypes"],
+    clusters = J("artifacts/lazysp/results/exploratory_post_hoc.json")["problem_clusters"]
+    return {"ledger": "B01/B02/B03", "clusters": clusters, "measured_nonstop": cnt["measured_nonstop_genotypes"], "imputed_excluded": cnt["unmeasured_nonstop_genotypes"],
             "q2c_1000": int(tp[("q2c", 1000)]["certified"]), "shared_1000": int(tp[("collective_shared", 1000)]["certified"]),
             "lazysp_1000": round(float(lt["alternate"]["resolved@1000"]) * int(lt["alternate"]["episodes"])),
             "budget": J("artifacts/lazysp/results/summary.json")["tau"],
             "scale": "five ESM2 sizes, 1,100 follow-up episodes: no clear assay-saving benefit (B03)"}
 
 
+def bench_facts():
+    d = "scopedesk/bench/v1_2"
+    ks = {ln.split()[1]: ln.split()[0] for ln in T(f"{d}/KEY.sha256").splitlines() if len(ln.split()) == 2}
+    assert sha(f"{d}/key.jsonl") == ks["key.jsonl"], "key.jsonl changed since KEY.sha256"
+    pub = [json.loads(x) for x in T(f"{d}/instances_public.jsonl").splitlines() if x.strip()]
+    key = [json.loads(x) for x in T(f"{d}/key.jsonl").splitlines() if x.strip()]
+    assert len(pub) == len(key)
+    fam = {}
+    for r in pub:
+        fam[r["family"]] = fam.get(r["family"], 0) + 1
+    status = T(f"{d}/STATUS.md")
+    frozen = T(f"{d}/FROZEN.md")
+    assert ks["key.jsonl"] in frozen and "No agent has run on any version of this bench" in frozen and len(pub) == 127
+    cod = J("artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json")
+    assert cod["all_ok"] is True and cod["n_items"] == 127 and len(cod["checks"]) == 14 and all(c["ok"] for c in cod["checks"].values())
+    at5p = "artifacts/delphi_submit/at5_v1_2_frozen127.json"
+    at5 = J(at5p)
+    assert at5["bench_dir_files_sha256"]["key.jsonl"] == ks["key.jsonl"], "AT5 was computed on a different key than the committed one"
+    al = at5["table"]
+    tot = {"n": 0, "C0": 0, "full": 0, "continuum_only": 0, "record_hash_changed_refused": 0}
+    for fam_name, t in al.items():
+        if fam_name in ("ALL", "all"):
+            continue
+        tot["n"] += t["n"]; tot["C0"] += t["C0"]["agree_with_key"]; tot["full"] += t["full"]["agree_with_key"]
+        tot["continuum_only"] += t["continuum_only"]["agree_with_key"]; tot["record_hash_changed_refused"] += t["record_hash_changed"]["refused"]
+    assert tot == {"n": 50, "C0": 29, "full": 50, "continuum_only": 34, "record_hash_changed_refused": 50}, tot
+    notes = " ".join(at5["notes"])
+    assert "not external validation" in notes
+    mc = J(f"{d}/metadata_check_receipt.json")
+    bl = J("scopedesk/audit_v12/blind_vs_key_v12.json")
+    sem = J("artifacts/integration/codex-api/benchmark-v1-1-review.json")
+    return {"ledger": "P03 (the ledger row still describes the earlier 128-item candidate; Codex receipts cover the frozen 127)", "items": len(pub), "families": len(fam), "family_counts": fam, "key_sha256": ks["key.jsonl"],
+            "key_file": f"{d}/key.jsonl", "status": "frozen (FROZEN.md); Codex metadata/text check 14 of 14 pass; no agent has run on it",
+            "codex_metadata": {"artifact": "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json", "checks": len(cod["checks"]), "all_ok": cod["all_ok"]}, "at5": {"artifact": at5p, "totals": tot, "caveat": "trap-enriched; shares its convention document with the checker; not external validation"},
+            "metadata_check": {"artifact": f"{d}/metadata_check_receipt.json", "keys": sorted(mc.keys())[:6]},
+            "blind_audit": {"artifact": "scopedesk/audit_v12/blind_vs_key_v12.json", "agree": bl["agree"], "n": bl["n"], "scope": "earlier 135-item candidate, one same-family model run"}}
+
+
+def repair_facts():
+    r = J("artifacts/rethink_nca/repair.json")
+    ctl = [x for x in r["repairs"] if x["req"] >= 32 and x["knob"] == "diffusion_ratio"]
+    assert len(ctl) == 16 and len({x["req"] for x in ctl}) == 16 and all(x["found"] for x in ctl)
+    seeds = {len(x["eval"]) for x in ctl}
+    assert seeds == {3}
+    all_ok = sum(1 for x in ctl if all(e["ok"] for e in x["eval"]))
+    mean = sum(x["success"] for x in ctl) / len(ctl)
+    c0 = sum(r["unrepaired_C0_success"][str(x["req"])] for x in ctl) / len(ctl)
+    assert (all_ok, round(mean, 3), c0) == (11, 0.708, 0.0)
+    nine = [x for x in ctl if x["found"]["d"] == 9.0]
+    amp_max = max(e["amp"] for x in nine for e in x["eval"])
+    dl = [x for x in r["repairs"] if x["req"] >= 32 and x["knob"] == "domain_length"]
+    assert all(x["found"] is None for x in dl) and len(dl) == 16
+    tr = [x for x in r["repairs"] if x["req"] < 32 and x["knob"] == "diffusion_ratio"]
+    tr_ok = sum(1 for x in tr if all(e["ok"] for e in x["eval"]))
+    nca = T("planning/rethink/nca.md")
+    assert "refused by `turing-ddi`" in nca and "Dv/Du=1" in nca
+    lv = J("scopedesk/oracles/results/linear_vs_nonlinear.json")
+    g = lv["gate_vs_C0_vs_pde"]
+    assert (g["n_scored"], g["gate_equals_pde"], g["C0_equals_pde"]) == (80, 80, 79)
+    dom = lv["summary"]["dominant_mode_equals_fastest_linear_mode"]
+    return {"ledger": "unledgered (NCA worker artifact; model-only)", "artifact": "artifacts/rethink_nca/repair.json", "requests": len(ctl), "seeds": 3,
+            "gate_refused": len(ctl), "plain_formula_success": c0, "repair_all_seeds": all_ok, "repair_mean": round(mean, 3), "repair_ratio": 9, "repair_ratio_count_at_9": len(nine),
+            "amp_max_at_ratio_9": round(amp_max, 2), "amp_threshold": 0.10, "domain_length_repairs_found": 0, "other_refusals": len(tr), "other_refusals_repair_ok": tr_ok,
+            "nonlinear_grid": {"artifact": "scopedesk/oracles/results/linear_vs_nonlinear.json", "n": g["n_scored"], "gate_agrees": g["gate_equals_pde"], "plain_agrees": g["C0_equals_pde"], "dominant_mode": dom},
+            "scope": "one kinetics (Schnakenberg), 1-D Neumann, 3 noise seeds, no confidence interval; near-onset repaired patterns are marginal; not an experiment"}
+
+
+def kill_facts():
+    k = J("scopedesk/ledger/kill_ledger.json")
+    rows = {r["id"]: r for r in k["rows"]}
+    sm = k["summary"]
+    assert sm["n_rows"] == len(k["rows"]) == 20 and sm["caught_by_independent_vs_author"] == {"independent": 17, "author_only": 3}
+    kinds = sm["kind_counts"]
+    assert sum(kinds.values()) == 20
+    assert "R06" in rows and "NOT vacuous" in rows["R06"]["kind"] and "Analytic witness J=diag(2,2)" in rows["R06"]["witness"]
+    r03 = re.search(r"mode-1 det=(-?\d+/\d+)", rows["R03"]["witness"]).group(1)
+    r13 = re.search(r"(\d+/\d+) vs majority (\d+/\d+)", rows["R13"]["witness"])
+    show = [
+        {"id": "R03", "claim": "Turing needs a diffusion ratio of at least 10", "kind": "counterexample", "witness": f"a Lean-checked linear model with diffusivity ratio 1.1 has a growing mode (determinant {r03})", "by": "independent reviewer"},
+        {"id": "R11", "claim": "Pinned-end liquid bridge unstable beyond L > πr (our benchmark key)", "kind": "convention defect", "witness": "the n=1 mode violates the fixed-volume constraint; caught before any agent ran", "by": "independent reviewer, not the author's verifier"},
+        {"id": "R08", "claim": "Thompson's scaling refuted by a pooled regression", "kind": "mis-operationalised", "witness": "a pooled OLS tests mean allometry, not the buckling limit", "by": "independent reviewer"},
+        {"id": "R13", "claim": "Benchmark ids were label-neutral", "kind": "convention defect", "witness": f"ids encoded generator order: a tree on id suffixes alone scored {r13.group(1)} against {r13.group(2)} for the majority answer", "by": "independent reviewer"},
+        {"id": "R16", "claim": "Our Price node as a novel formalization", "kind": "prior art", "witness": "atlas-lean already proves Price and Fisher; ours was a duplicate", "by": "independent scout, then the author"},
+    ]
+    for sh in show:
+        assert sh["id"] in rows
+    m = {x["id"]: x for x in k["measured_matched_control"]}
+    assert "78/100" in m["M2"]["result"] and "96/100" in m["M1"]["result"]
+    return {"artifact": "scopedesk/ledger/kill_ledger.json", "markdown": "scopedesk/ledger/KILL-LEDGER.md", "n_rows": 20, "independent": 17, "author_only": 3, "kind_counts": kinds,
+            "n_with_both_times": sm["n_with_both_times"], "method": sm["method"], "shown": show, "all_rows": [{k2: r[k2] for k2 in ("id", "claim", "kind", "caught_by", "allowed", "claim_stated_pdt", "kill_recorded_pdt", "duration_min", "witness")} for r in k["rows"]],
+            "r06_note": "R06 corrected by the critic per Codex: determinant non-negativity advertised as stability; the premise is not vacuous and holds for unstable systems", "median_shown": False}
+
+
+def accept_facts():
+    a = J("scopedesk/oracles/results/accept_receipt_fresh_clone.json")
+    assert a["overall_pass"] is True and a["tracked_tree_clean_at_start"] is True
+    return {"artifact": "scopedesk/oracles/results/accept_receipt_fresh_clone.json", "head_sha": a["head_sha"], "seconds": a["total_seconds"], "steps": len(a["steps"]),
+            "scope": "fresh clone at an earlier commit; a receipt for the final SHA is pending"}
+
+
 def build():
-    return {"price": price_facts(), "turing": turing_facts(), "errors": error_facts(), "scorecard": scorecard_facts(),
+    return {"bench": bench_facts(), "repair": repair_facts(), "kills": kill_facts(), "accept": accept_facts(), "price": price_facts(), "turing": turing_facts(), "errors": error_facts(), "scorecard": scorecard_facts(),
             "robustness": robustness_facts(), "baseline": baseline_facts()}
 
 
