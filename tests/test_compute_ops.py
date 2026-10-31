@@ -106,8 +106,26 @@ def test_fail_closed_on_snapshot_error(tmp_path):
     b.step(); assert f.created == []
 
 
+def test_no_yield_when_pool_has_room_and_foreign_job_is_just_provisioning(tmp_path):
+    f = Fake(); b, _ = mk(tmp_path, [{"id": "a"}, {"id": "b"}], f, max_parallel=2)
+    b.step(); assert len(f.created) == 2
+    f.pool.append(B.W("aijob-theirs", "other-team-job", "job", "gpu-h100-sxm", "1gpu-16vcpu-200gb", "PROVISIONING"))
+    b.step()
+    assert f.cancelled == []                                    # 3 of 16 H100s in use: their startup is not blocked by us
+
+
+def test_yield_when_foreign_job_has_waited_past_grace_even_if_pool_not_full(tmp_path):
+    f = Fake(); b, t = mk(tmp_path, [{"id": "a"}, {"id": "b"}], f, max_parallel=2)
+    b.step(); assert len(f.created) == 2
+    t[0] = 1000.0                                               # fake clock: 1000 s after the epoch
+    f.pool.append(B.W("aijob-theirs", "other-team-job", "job", "gpu-h100-sxm", "1gpu-16vcpu-200gb", "QUEUED", "1970-01-01T00:01:00.123456789Z"))   # waiting for 940 s
+    b.step()
+    assert f.cancelled == ["aijob-fake2"]
+
+
 def test_yield_cancels_only_own_lowest_priority_and_requeues(tmp_path):
     f = Fake(); b, _ = mk(tmp_path, [{"id": "a"}, {"id": "b"}], f, max_parallel=2)
+    b.pool_size = 2                                              # pool full: 2 ours + 1 waiting >= 2
     b.step(); assert len(f.created) == 2
     f.pool.append(B.W("aijob-theirs", "other-team-job", "job", "gpu-h100-sxm", "1gpu-16vcpu-200gb", "QUEUED"))
     b.step()
