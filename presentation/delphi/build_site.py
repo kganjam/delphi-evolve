@@ -62,7 +62,7 @@ PEND = '<span class="pend">pending</span>'
 
 def landing(f, commit, review_exists):
     P, T, Bn, Rp, Kl, Ac, Sc, Bl = f["price"], f["turing"], f["bench"], f["repair"], f["kills"], f["accept"], f["scorecard"], f["baseline"]
-    Hd, Lp, Us = f["headroom"], f["leanpilot"], f["usage"]
+    Hd, Lp, Us, Sw = f["headroom"], f["leanpilot"], f["usage"], f["sweep"]
     W, WIN = P["witnesses"], T["windows"]
     scan = T["scan"]
     head = "".join(f"<th>{E(s['L_over_pi'])}</th>" for s in scan)
@@ -150,7 +150,7 @@ def landing(f, commit, review_exists):
 <tr><th>tool</th><th>what ran</th><th>result</th><th>receipts</th></tr>
 <tr><td>Nebius H100s, NVIDIA BioNeMo TransformerEngine ESM2</td><td>{Us['esm2_sizes']} model sizes scored all {Us['variants_per_model']:,} enzyme variants: {Us['jobs']} jobs, all completed, {Us['job_seconds']:,} recorded job-seconds ({Us['h100_hours']} H100-hours); released baseline</td><td>no clear assay-saving benefit (ledger B03)</td><td class="mono">artifacts/scale/</td></tr>
 <tr><td>Nebius hosted scientific-model catalogue</td><td>{Us['nebius_structure_calls']} OpenFold2 structure calls on the enzyme parent and the best variant (single sequence, no templates); an ESMFold2 attempt was blocked by the server</td><td>predicted, low confidence (ranking confidence about {Us['nebius_structure_ranking_confidence']} of 100); not a measurement</td><td class="mono">artifacts/services/nebius/</td></tr>
-<tr><td>OpenResearch</td><td>a local CPU analysis of the enzyme data, logged through the tool</td><td>not hosted compute (ledger R02)</td><td class="mono">artifacts/gpu/orx/</td></tr>
+<tr><td>OpenResearch</td><td>two local CPU analyses, logged through the tool: the enzyme data, and the analysis of the nonlinear sweep (the sweep itself ran outside the tool)</td><td>not hosted compute (ledger R02); no GPU or Nebius used for the sweep</td><td class="mono">artifacts/gpu/orx/, {Sw['receipt']}</td></tr>
 <tr><td>Gemini</td><td>{Us['gemini_review_calls']} bounded review calls (cap {Us['gemini_review_cap']}; {Us['gemini_review_input_tokens']:,} input and {Us['gemini_review_output_tokens']:,} output tokens), and {Us['gemini_headroom_calls']} calls as a subject of the headroom check</td><td>review opinions, not evidence; headroom result on slide 5</td><td class="mono">artifacts/services/gemini/, artifacts/bench_headroom/</td></tr>
 </table>
 <p>Only tools with committed receipts are listed. Claude Sonnet 5.5 workers ran on subscription capacity; no metered charge is claimed here. The Delphi checks themselves ran on CPU.</p></div>
@@ -162,7 +162,7 @@ def landing(f, commit, review_exists):
 
 
 def appendix(f, commit):
-    R, Bl = f["robustness"], f["baseline"]
+    R, Bl, Sw = f["robustness"], f["baseline"], f["sweep"]
     import json as _j
     rows = ""
     raw = _j.loads((Path(FA.ROOT) / R["artifact"]).read_text())
@@ -178,6 +178,14 @@ def appendix(f, commit):
 <div class="scroll"><table><tr><th>ensemble</th><th>noise</th>{''.join(f'<th>{b}</th>' for b in bins)}</tr>{rows}</table></div>
 <p>All four rows rise monotonically with the required ratio. The absolute values move by about 10 to 20 points with the noise definition and sampling box, so no single figure is the answer.</p>
 <div class="scope"><b>Scope.</b> {E(R['scope'])}. This is not a universal robustness cliff and not a property of any organism. It has not been through the claim ledger and its prior art is unchecked. A literature ratio for Nodal and Lefty is <b>not plotted</b>: the source numbers have not been read directly in this tree, and a literature point could only be descriptive context. A diffusion-ratio threshold of 10 as a universal rule is false: a linear counterexample uses 1.1.</div>
+<h2>Where exact linear theory mispredicts the nonlinear outcome (preregistered sweep) <span class="pend">single-reader, not independently reviewed</span></h2>
+<p>Simulated, in two textbook kinetics (Schnakenberg and Brusselator), 1-D Neumann boundaries, CPU only. The design was committed as <span class="mono">{Sw['prereg_commit']}</span> before any scored row; all {Sw['cells']:,} cells ran to completion ({Sw['wall_seconds']:,} s).</p>
+<div class="scroll"><table><tr><th>quantity</th><th>cells</th></tr>
+<tr><td>Linearly stable, yet a finite-amplitude pattern (all Brusselator, large perturbation, just below onset)</td><td>{Sw['r1_k']} of {Sw['r1_n']:,}</td></tr>
+<tr><td>Linearly unstable, yet no pattern by the horizon</td><td>{Sw['r2_k']} of {Sw['r2_n']:,}</td></tr>
+<tr><td>Linearly unstable and patterned, with a dominant wavelength different from the fastest linear mode (mostly longer, {Sw['lower_pct']}% of mismatches)</td><td>{Sw['r3_k']} of {Sw['r3_n']:,} ({Sw['r3_pct']}%)</td></tr>
+<tr><td>Unresolved (the two solvers disagree, or not settled); counted in every denominator</td><td>{Sw['unresolved_k']} of {Sw['cells']:,} ({Sw['unresolved_pct']}%)</td></tr></table></div>
+<div class="scope"><b>Limits.</b> A stated prior, two solvers by one author that share the equations, one family of initial perturbations: a sweep, not a claim about real tissues. Cells share parameter draws and seeds, so the exact intervals in the report treat cells as independent and are too narrow; they are not repeated here. {Sw['predictions_holding']} of 5 preregistered predictions held; {Sw['failed_prediction']} failed as stated because no linearly unstable cell failed to pattern. Not Codex-reviewed. Analysis logged as a local OpenResearch run, not hosted compute; no GPU or Nebius used. Files: <span class="mono">{Sw['report']}</span>, raw rows sha256 <span class="mono">{Sw['rows_sha256'][:8]}…</span>.</div>
 <h2>Released enzyme baseline (preserved, with its nulls)</h2>
 <p>{Bl['measured_nonstop']:,} measured non-stop TrpB variants from the authors' CC0 table; {Bl['imputed_excluded']} imputed-only variants excluded. On the retrospective panel, shared specialists {Bl['shared_1000']}/100 equal the single planner {Bl['q2c_1000']}/100 at {Bl['budget']:,} extra assays; a plain lazy search reaches {Bl['lazysp_1000']}/100. Five protein-model sizes did not establish assay savings. No general superiority claim. Full release: the earlier deck and site in this repository.</p>
 <p><a href="index.html">Back to the Delphi page</a></p>
@@ -214,7 +222,7 @@ def blog_parts(f):
         ("h2", "What the collective measured"),
         ("p", f"On the controlled enzyme replay, shared specialists matched a single planner ({Bl['shared_1000']} of 100 each) and a plain lazy search reached {Bl['lazysp_1000']}, mostly in one repeated pair, with an assay-count interval that includes zero. In a proof-search pilot on {Lp['lemmas']} frozen integer-arithmetic lemmas every arm certified all {Lp['lemmas']} in every run, a ceiling; library reuse was real but saved no calls or tokens (median calls {Lp['median_calls']['N']:g}, {Lp['median_calls']['P']:g}, {Lp['median_calls']['Q']:g}, {Lp['median_calls']['S']:g}). The statements are arithmetic surrogates, the arms are call-matched and not compute-matched, and the checker was repaired after the outcomes were seen. On the frozen test set, unguarded models without a code tool scored {Hd['claude']['right']} and {Hd['gemini']['right']} of {Hd['claude']['n']}; the checker-tool arm was not run, the effective n is {Hd['families']} families, and the check measures judgement rather than derivation. Two small comparisons showed no advantage for a shared-evidence collective, one of them at a ceiling that could not discriminate; nothing here says that agents need the gate, and the headroom result mostly shows the test set is not hard for a frontier model without tools."),
         ("h2", "Infrastructure used"),
-        ("p", f"Receipts only. Five BioNeMo ESM2 sizes scored all {Us['variants_per_model']:,} enzyme variants on Nebius H100s ({Us['jobs']} jobs, all completed, {Us['job_seconds']:,} recorded job-seconds) in the released baseline, with no clear assay-saving benefit. Two OpenFold2 structure calls went to the Nebius hosted catalogue and came back predicted and low confidence. OpenResearch logged a local CPU analysis of the same data, which was not hosted compute. Gemini made {Us['gemini_review_calls']} bounded review calls and was a subject of the headroom check. The Delphi checks themselves ran on CPU."),
+        ("p", f"Receipts only. Five BioNeMo ESM2 sizes scored all {Us['variants_per_model']:,} enzyme variants on Nebius H100s ({Us['jobs']} jobs, all completed, {Us['job_seconds']:,} recorded job-seconds) in the released baseline, with no clear assay-saving benefit. Two OpenFold2 structure calls went to the Nebius hosted catalogue and came back predicted and low confidence. OpenResearch logged two local CPU analyses, one of the same data and one of the nonlinear sweep, neither hosted compute; no GPU or Nebius was used for the sweep. Gemini made {Us['gemini_review_calls']} bounded review calls and was a subject of the headroom check. The Delphi checks themselves ran on CPU."),
         ("h2", "Reusable now, and next"),
         ("p", f"{blog_fx(f)}The checker, repair enumerator, test set and ledger are in the repository; outside use is none observed yet. Next, as a proposal and not a deployed system: a pilot on a modelling team's recent reuse decisions, and Delphi Frontier, one page per open problem showing what we know, what is next and who is working on it; our own seed questions failed our own validator, 0 of 7 bounded (ledger R21, single-reader, not re-run by the critic). A first scorecard of the {Sc['records']} extracted records has {Sc['linked']} linked to scope-check benchmark families, {Sc['related_lemma']} related formal lemma whose target is unestablished, {Sc['empirical']} empirical or framework, and {Sc['no_check']} without a corresponding check; the statuses are one reader's, revised after a Codex review of version 0, and the revision was not re-reviewed. A misprediction map over a large parameter ensemble is pending."),
     ]

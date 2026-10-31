@@ -251,6 +251,27 @@ def register():
           lambda: (f"Single planner {tp[('q2c', 1000)]['certified']}/{tp[('q2c', 1000)]['episodes']} Shared specialists {tp[('collective_shared', 1000)]['certified']}/{tp[('collective_shared', 1000)]['episodes']} "
                    f"Plain lazy search {round(float(lt['alternate']['resolved@1000']) * int(lt['alternate']['episodes']))}/{lt['alternate']['episodes']}")
           if tp[("q2c", 1000)]["certified"] == tp[("collective_shared", 1000)]["certified"] else "MISMATCH")
+    SWD = "scopedesk/oracles/results/nonlinear_sweep"
+
+    def sweep():
+        rep = T.J(f"{SWD}/report.json")
+        o, rows = rep["overall"], [json.loads(x) for x in (R / f"{SWD}/rows.jsonl").read_text().splitlines() if x.strip()]
+        assert len(rows) == o["cells"] and rep["run_status"]["cells_done"] == len(rows)
+        k = lambda key: (o[key]["k"], o[key]["n"])
+        (a, an), (b, bn), (c, cn), (u, un_) = (k("R1_linear_stable_but_nonlinear_pattern"), k("R2_linear_unstable_but_no_pattern"),
+                                              k("R3_linear_unstable_pattern_with_different_dominant_mode"), k("unresolved_mass"))
+        assert o["linear_stable_cells"] == an and o["linear_unstable_cells"] == bn and un_ == o["cells"]
+        by_model = rep["strata"]["model"]
+        assert by_model["schnakenberg"]["R1_linear_stable_but_nonlinear_pattern"]["k"] == 0 and by_model["brusselator"]["R1_linear_stable_but_nonlinear_pattern"]["k"] == a
+        failed = sorted(name.split("_")[0] for name, v in rep["predictions"].items() if not v["holds"])
+        assert failed == ["P3"]
+        rc = T.J(f"{SWD}/orx_receipt.json")
+        assert rc["backend"].startswith("local") and "NOT hosted" in rc["backend"]
+        return (f"Sweep preregistered, simulated, {o['cells']:,} cells of two textbook kinetics: {a} of {an:,} linearly stable cells (all Brusselator, large perturbation, just below onset) still patterned; "
+                f"{b} of {bn:,} unstable cells failed to pattern; dominant wavelength differed from the fastest linear mode in {c} of {cn:,}; {u} unresolved cells are in every denominator. "
+                f"One author, a stated prior, not a claim about tissues; prediction {failed[0]} failed as stated; single-reader, not independently reviewed")
+    claim(2, "Sweep preregistered, simulated, 2,520 cells of two textbook kinetics: 30 of 1,080 linearly stable cells (all Brusselator, large perturbation, just below onset) still patterned; 0 of 1,440 unstable cells failed to pattern; dominant wavelength differed from the fastest linear mode in 461 of 1,440; 59 unresolved cells are in every denominator. One author, a stated prior, not a claim about tissues; prediction P3 failed as stated; single-reader, not independently reviewed",
+          [f"{SWD}/report.json", f"{SWD}/rows.jsonl", f"{SWD}/orx_receipt.json"], sweep, kind="fn")
     LR = "artifacts/scale/library_receipts.json"
 
     def usage():
@@ -266,9 +287,9 @@ def register():
         orx = T.J("artifacts/gpu/orx/receipt.json")
         assert orx["backend"].startswith("local") and "NOT hosted compute" in orx["backend"]
         return (f"Infrastructure used, receipts only Nebius H100s with NVIDIA BioNeMo ESM2: {len(lr['models'])} sizes, {len(lr['jobs'])} jobs, {lr['total_owned_job_gpu_seconds']:,} recorded job-seconds, no clear benefit (B03) · "
-                f"Nebius hosted OpenFold2: {len(st)} structure calls, predicted, low confidence · OpenResearch: local CPU analysis log · "
+                f"Nebius hosted OpenFold2: {len(st)} structure calls, predicted, low confidence · OpenResearch: local CPU analysis logs (enzyme data; nonlinear sweep) · "
                 f"Gemini: {gl['calls']} bounded review calls and the headroom run · receipts in")
-    claim(6, "Infrastructure used, receipts only Nebius H100s with NVIDIA BioNeMo ESM2: 5 sizes, 10 jobs, 9,475 recorded job-seconds, no clear benefit (B03) · Nebius hosted OpenFold2: 2 structure calls, predicted, low confidence · OpenResearch: local CPU analysis log · Gemini: 4 bounded review calls and the headroom run · receipts in",
+    claim(6, "Infrastructure used, receipts only Nebius H100s with NVIDIA BioNeMo ESM2: 5 sizes, 10 jobs, 9,475 recorded job-seconds, no clear benefit (B03) · Nebius hosted OpenFold2: 2 structure calls, predicted, low confidence · OpenResearch: local CPU analysis logs (enzyme data; nonlinear sweep) · Gemini: 4 bounded review calls and the headroom run · receipts in",
           [LR, "artifacts/scale/replay_summary.csv", "artifacts/services/gemini/usage_ledger.json", "artifacts/services/nebius/trpb_VFVS_openfold2_metrics.json",
            "artifacts/services/nebius/trpb_AIKG_openfold2_metrics.json", "artifacts/gpu/orx/receipt.json", "artifacts/bench_headroom/U_gemini/SCORES.json"], usage, kind="fn")
     LS2 = T.J("artifacts/lazysp/results/summary.json")

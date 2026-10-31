@@ -452,6 +452,43 @@ def usage_facts():
             "openresearch": "a local CPU analysis was logged; not hosted compute"}
 
 
+SWEEP_DIR = "scopedesk/oracles/results/nonlinear_sweep"
+
+
+def sweep_facts():
+    """The preregistered nonlinear sweep (NCA worker, single author). Every number is asserted against report.json, rows.jsonl and the orx receipt."""
+    import hashlib
+    rep = J(f"{SWEEP_DIR}/report.json")
+    o = rep["overall"]
+    rows_sha = hashlib.sha256((ROOT / f"{SWEEP_DIR}/rows.jsonl").read_bytes()).hexdigest()
+    assert rows_sha == rep["rows_sha256"] and rows_sha.startswith("a32c2bf7")
+    rs = rep["run_status"]
+    assert rs["cells_total"] == rs["cells_done"] == o["cells"] == 2520 and rs["stopped_by"] == "completion" and rs["git_head"].startswith("cb27cf2")
+    assert (o["linear_stable_cells"], o["linear_unstable_cells"]) == (1080, 1440)
+    r1, r2, r3, un = (o[k] for k in ("R1_linear_stable_but_nonlinear_pattern", "R2_linear_unstable_but_no_pattern",
+                                    "R3_linear_unstable_pattern_with_different_dominant_mode", "unresolved_mass"))
+    assert (r1["k"], r1["n"], r2["k"], r2["n"], r3["k"], r3["n"], un["k"], un["n"]) == (30, 1080, 0, 1440, 461, 1440, 59, 2520)
+    b = rep["strata"]["model"]
+    assert b["brusselator"]["R1_linear_stable_but_nonlinear_pattern"]["k"] == 30 and b["schnakenberg"]["R1_linear_stable_but_nonlinear_pattern"]["k"] == 0
+    r1e = rep["strata"]["eps"]
+    assert sum(v["R1_linear_stable_but_nonlinear_pattern"]["k"] for k, v in r1e.items() if float(k) == 0.3) == 30
+    pred = rep["predictions"]
+    failed = [k for k, v in pred.items() if not v["holds"]]
+    assert len(pred) == 5 and failed == ["P3_R2_concentrated_at_rho_1.03_or_x_2"]
+    lower = pred["P4_R3_ge_0.2_and_mostly_lower"]["lower_share_of_mismatches"]
+    rc = J(f"{SWEEP_DIR}/orx_receipt.json")
+    assert rc["backend"].startswith("local") and "NOT hosted" in rc["backend"] and rc["status"] == "done" and rc["exit_code"] == 0
+    assert "no GPU" in rc["backend"] or "no GPU" in T(f"{SWEEP_DIR}/REPORT.md")
+    prereg = T("scopedesk/oracles/nonlinear_sweep/PREREG.md")
+    assert prereg
+    return {"cells": o["cells"], "stable": o["linear_stable_cells"], "unstable": o["linear_unstable_cells"],
+            "r1_k": r1["k"], "r1_n": r1["n"], "r2_k": r2["k"], "r2_n": r2["n"], "r3_k": r3["k"], "r3_n": r3["n"], "r3_pct": round(100 * r3["k"] / r3["n"]),
+            "lower_pct": round(100 * lower), "unresolved_k": un["k"], "unresolved_pct": round(100 * un["k"] / un["n"], 1), "wall_seconds": round(rs["wall_seconds_this_invocation"]),
+            "prereg_commit": "cb27cf2", "rows_sha256": rows_sha, "failed_prediction": "P3", "predictions_holding": sum(v["holds"] for v in pred.values()),
+            "report": f"{SWEEP_DIR}/REPORT.md", "report_json": f"{SWEEP_DIR}/report.json", "receipt": f"{SWEEP_DIR}/orx_receipt.json",
+            "orx": "analysis logged as a LOCAL orx run; not hosted compute; no GPU or Nebius used for this sweep"}
+
+
 FRONTIER_EXAMPLE = "planning/frontier/oca2-exon21-molino-RESULT.md"
 
 
@@ -473,7 +510,7 @@ def frontier_example_facts():
 
 
 def build():
-    return {"frontier_example": frontier_example_facts(), "usage": usage_facts(), "headroom": headroom_facts(), "leanpilot": lean_pilot_facts(), "bench": bench_facts(), "repair": repair_facts(), "kills": kill_facts(), "accept": accept_facts(), "price": price_facts(), "turing": turing_facts(), "errors": error_facts(), "scorecard": scorecard_facts(),
+    return {"sweep": sweep_facts(), "frontier_example": frontier_example_facts(), "usage": usage_facts(), "headroom": headroom_facts(), "leanpilot": lean_pilot_facts(), "bench": bench_facts(), "repair": repair_facts(), "kills": kill_facts(), "accept": accept_facts(), "price": price_facts(), "turing": turing_facts(), "errors": error_facts(), "scorecard": scorecard_facts(),
             "robustness": robustness_facts(), "baseline": baseline_facts()}
 
 

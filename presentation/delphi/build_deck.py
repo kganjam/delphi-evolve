@@ -24,6 +24,7 @@ import facts as FA  # noqa: E402
 
 E = html.escape
 INPUTS = [
+    "scopedesk/oracles/results/nonlinear_sweep/report.json", "scopedesk/oracles/results/nonlinear_sweep/orx_receipt.json", "scopedesk/oracles/results/nonlinear_sweep/REPORT.md",
     "planning/rethink/CLAIM-LEDGER.md", "planning/rethink/CODEX-BENCH-V1-2-REV3-REVIEW.md", "presentation/delphi/sources.md", "lean_price/README.md", "scopedesk/bench/v1_2/KEY.sha256", "scopedesk/bench/v1_2/key.jsonl", "scopedesk/bench/v1_2/instances_public.jsonl", "scopedesk/bench/v1_2/STATUS.md", "scopedesk/bench/v1_2/FROZEN.md", "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json", "artifacts/delphi_submit/at5_v1_2_frozen127.json", "planning/rethink/CODEX-LEAN19-SLIDE-AND-FREEZE-DECISION.md", "scopedesk/oracles/results/linear_vs_nonlinear.json", "scopedesk/oracles/results/accept_receipt_fresh_clone.json", "scopedesk/audit_v12/blind_vs_key_v12.json", "scopedesk/ledger/kill_ledger.json", "artifacts/rethink_nca/repair.json", "planning/rethink/nca.md", "planning/rethink/PITCH-OUTLINE.md", "artifacts/scale/library_receipts.json", "artifacts/scale/replay_summary.csv", "artifacts/gpu/orx/receipt.json", "artifacts/services/gemini/usage_ledger.json", "artifacts/services/nebius/trpb_VFVS_openfold2_metrics.json", "artifacts/services/nebius/trpb_AIKG_openfold2_metrics.json", "scopedesk/scorecard/scorecard.json", "scopedesk/scorecard/SCORECARD.md", "tasks/results/guilds.json", "artifacts/bench_headroom/U_claude/SCORES.json", "artifacts/bench_headroom/U_gemini/SCORES.json", "lean_commons/PREREG.md", "planning/rethink/ACTIVE-FRONTIER-PITCH-PROPOSAL.md",
     "artifacts/integration/codex-api/price-probe.json", "experiments/price_probe/Price.lean", "experiments/price_probe/Witnesses.lean.inc",
     "artifacts/turing_scope/results.json", "artifacts/turing_scope/lean_receipt.json",
@@ -93,6 +94,10 @@ def build_slides(f, led_ids, prov_head):
 
     # ------------------------------------------------------------ 2 Check + repair (0:25-1:00)
     g = Rp["nonlinear_grid"]
+    Sw = f["sweep"]
+    SW = (f"<b>Sweep</b> preregistered, simulated, {Sw['cells']:,} cells of two textbook kinetics: {Sw['r1_k']} of {Sw['r1_n']:,} linearly stable cells (all Brusselator, large perturbation, just below onset) still patterned; "
+          f"{Sw['r2_k']} of {Sw['r2_n']:,} unstable cells failed to pattern; dominant wavelength differed from the fastest linear mode in {Sw['r3_k']} of {Sw['r3_n']:,}; {Sw['unresolved_k']} unresolved cells are in every denominator. "
+          f"One author, a stated prior, not a claim about tissues; prediction {Sw['failed_prediction']} failed as stated; single-reader, not independently reviewed · {Sw['report']}")
     s2 = f"""{brand(2)}
 <h2 style="font-size:30px;margin:24px 0 8px">A request the plain formula accepts is refused with a witness, repaired, and re-checked by an independent solver.</h2>
 <div class="row" style="gap:10px;align-items:stretch">
@@ -107,7 +112,7 @@ def build_slides(f, led_ids, prov_head):
 <p class="small" style="margin:8px 0 0;font-size:16px">The plain formula's design without repair succeeded on {int(Rp['plain_formula_success'])} of {Rp['requests']}, by construction: equal diffusivities admit no instability for any kinetics.</p>
 <div class="scope" style="margin-top:10px;font-size:15px"><b>Limitation first.</b> The algorithm is trivial. The contribution is the certificate, the refusal and the repair.</div>
 <div class="card" style="padding:8px 12px;margin-top:8px"><h3>Caveats, printed</h3><p class="small" style="margin:0;font-size:14.5px">One kinetics, 1-D Neumann, {Rp['seeds']} noise seeds, no confidence interval; a model-only check, not an experiment. Near-onset repaired patterns are marginal (amplitude up to {Rp['amp_max_at_ratio_9']} against a {Rp['amp_threshold']:.2f} threshold). The other {Rp['requests'] - Rp['repair_all_seeds']} requests did not succeed on all seeds, and repairs for {Rp['other_refusals']} further refusals worked on {Rp['other_refusals_repair_ok']}. No domain-length repair was found. Across {g['n']} nonlinear configurations the gate agreed with the solver on {g['gate_agrees']} and the plain formula on {g['plain_agrees']}; linear theory named the dominant wavelength in {g['dominant_mode']} patterned cases.</p></div>
-{fn('<b>Ledger</b> unledgered (NCA worker artifacts) · artifacts/rethink_nca/repair.json · scopedesk/oracles/results/linear_vs_nonlinear.json · planning/rethink/nca.md', '<b>Review</b> single-reader, not Codex-reviewed: NCA worker artifacts and a critic audit of the checker code', stamp)}"""
+{fn('<b>Ledger</b> unledgered (NCA worker artifacts) · artifacts/rethink_nca/repair.json · scopedesk/oracles/results/linear_vs_nonlinear.json · planning/rethink/nca.md', '<b>Review</b> single-reader, not Codex-reviewed: NCA worker artifacts and a critic audit of the checker code', SW, stamp)}"""
     notes.append("Limitation first: the algorithm is trivial. The contribution is the certificate, the refusal and the repair. Sixteen requests with equal diffusivities, which the plain formula accepts, are refused with a witness. The exact check licenses a repair, raising the ratio to nine. An independent solver then finds a pattern on eleven of sixteen, mean 0.708. One kinetics, three seeds, near-onset and marginal. A model check, not an experiment.")
 
     # ------------------------------------------------------------ 3 Compiled nodes + benchmark (1:00-1:30)
@@ -161,7 +166,7 @@ def build_slides(f, led_ids, prov_head):
     # ------------------------------------------------------------ 6 Close (2:45-3:00)
     U = f["usage"]
     infra = (f"<b>Infrastructure used, receipts only</b> Nebius H100s with NVIDIA BioNeMo ESM2: {U['esm2_sizes']} sizes, {U['jobs']} jobs, {U['job_seconds']:,} recorded job-seconds, no clear benefit (B03) · "
-             f"Nebius hosted OpenFold2: {U['nebius_structure_calls']} structure calls, predicted, low confidence · OpenResearch: local CPU analysis log · "
+             f"Nebius hosted OpenFold2: {U['nebius_structure_calls']} structure calls, predicted, low confidence · OpenResearch: local CPU analysis logs (enzyme data; nonlinear sweep) · "
              f"Gemini: {U['gemini_review_calls']} bounded review calls and the headroom run · receipts in artifacts/scale/ artifacts/services/ artifacts/gpu/orx/")
     s6 = f"""{brand(6)}
 <h2 style="font-size:30px;margin:24px 0 10px">Reusable now: a checker that returns a witness. Outside use: none observed yet.</h2>

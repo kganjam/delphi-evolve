@@ -2,13 +2,21 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Delphi appendix</title><link rel="stylesheet" href="style.css"></head>
 <body><main>
-<p class="status">Appendix · not part of the three-minute pitch · built from commit d595a11c</p>
+<p class="status">Appendix · not part of the three-minute pitch · built from commit b5e0927f</p>
 <h1>Appendix</h1>
 <h2>Robustness sweep <span class="pend">pending</span> <span class="pend">no ledger row</span></h2>
 <p>Simulated, in one two-species linear family. Share of stable systems that keep a Turing instability under 10% parameter noise, by required diffusion ratio, in two sampling ensembles (E1, E2) and two noise definitions. 3,000,000 samples per ensemble.</p>
 <div class="scroll"><table><tr><th>ensemble</th><th>noise</th><th>1.0-1.5</th><th>1.5-2</th><th>2-3</th><th>3-5</th><th>5-10</th><th>10-30</th><th>30-inf</th></tr><tr><td>E1</td><td>uniform</td><td>6.0</td><td>17.3</td><td>31.0</td><td>41.9</td><td>47.8</td><td>64.8</td><td>82.6</td></tr><tr><td>E1</td><td>gaussian</td><td>3.0</td><td>9.5</td><td>18.7</td><td>29.2</td><td>36.0</td><td>51.0</td><td>69.9</td></tr><tr><td>E2</td><td>uniform</td><td>8.9</td><td>21.6</td><td>40.8</td><td>58.7</td><td>70.0</td><td>77.8</td><td>85.7</td></tr><tr><td>E2</td><td>gaussian</td><td>4.3</td><td>11.8</td><td>24.7</td><td>41.5</td><td>55.2</td><td>64.5</td><td>73.5</td></tr></table></div>
 <p>All four rows rise monotonically with the required ratio. The absolute values move by about 10 to 20 points with the noise definition and sampling box, so no single figure is the answer.</p>
 <div class="scope"><b>Scope.</b> one two-species linear family, ensembles E1/E2 and the noise definition chosen by us; absolute values move by about 10 to 20 points with the noise model; not a property of any organism. This is not a universal robustness cliff and not a property of any organism. It has not been through the claim ledger and its prior art is unchecked. A literature ratio for Nodal and Lefty is <b>not plotted</b>: the source numbers have not been read directly in this tree, and a literature point could only be descriptive context. A diffusion-ratio threshold of 10 as a universal rule is false: a linear counterexample uses 1.1.</div>
+<h2>Where exact linear theory mispredicts the nonlinear outcome (preregistered sweep) <span class="pend">single-reader, not independently reviewed</span></h2>
+<p>Simulated, in two textbook kinetics (Schnakenberg and Brusselator), 1-D Neumann boundaries, CPU only. The design was committed as <span class="mono">cb27cf2</span> before any scored row; all 2,520 cells ran to completion (10,055 s).</p>
+<div class="scroll"><table><tr><th>quantity</th><th>cells</th></tr>
+<tr><td>Linearly stable, yet a finite-amplitude pattern (all Brusselator, large perturbation, just below onset)</td><td>30 of 1,080</td></tr>
+<tr><td>Linearly unstable, yet no pattern by the horizon</td><td>0 of 1,440</td></tr>
+<tr><td>Linearly unstable and patterned, with a dominant wavelength different from the fastest linear mode (mostly longer, 84% of mismatches)</td><td>461 of 1,440 (32%)</td></tr>
+<tr><td>Unresolved (the two solvers disagree, or not settled); counted in every denominator</td><td>59 of 2,520 (2.3%)</td></tr></table></div>
+<div class="scope"><b>Limits.</b> A stated prior, two solvers by one author that share the equations, one family of initial perturbations: a sweep, not a claim about real tissues. Cells share parameter draws and seeds, so the exact intervals in the report treat cells as independent and are too narrow; they are not repeated here. 4 of 5 preregistered predictions held; P3 failed as stated because no linearly unstable cell failed to pattern. Not Codex-reviewed. Analysis logged as a local OpenResearch run, not hosted compute; no GPU or Nebius used. Files: <span class="mono">scopedesk/oracles/results/nonlinear_sweep/REPORT.md</span>, raw rows sha256 <span class="mono">a32c2bf7…</span>.</div>
 <h2>Released enzyme baseline (preserved, with its nulls)</h2>
 <p>159,129 measured non-stop TrpB variants from the authors' CC0 table; 871 imputed-only variants excluded. On the retrospective panel, shared specialists 78/100 equal the single planner 78/100 at 1,000 extra assays; a plain lazy search reaches 96/100. Five protein-model sizes did not establish assay savings. No general superiority claim. Full release: the earlier deck and site in this repository.</p>
 <p><a href="index.html">Back to the Delphi page</a></p>

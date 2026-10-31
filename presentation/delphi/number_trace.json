@@ -1,9 +1,9 @@
 {
  "deck": "presentation/delphi/deck.html",
- "claims_checked": 43,
- "inputs_hash_checked": 52,
+ "claims_checked": 44,
+ "inputs_hash_checked": 55,
  "pdf_pages_checked": 6,
- "provenance_head": "d595a11c08e31b4222d13edb2cff45585bb7f571",
+ "provenance_head": "b5e0927f9a02a56073a72aff6be0edca4291fd9e",
  "ok": true,
  "errors": [],
  "trace": [
@@ -375,8 +375,23 @@
    }
   },
   {
+   "slide": 2,
+   "shown": "Sweep preregistered, simulated, 2,520 cells of two textbook kinetics: 30 of 1,080 linearly stable cells (all Brusselator, large perturbation, just below onset) still patterned; 0 of 1,440 unstable cells failed to pattern; dominant wavelength differed from the fastest linear mode in 461 of 1,440; 59 unresolved cells are in every denominator. One author, a stated prior, not a claim about tissues; prediction P3 failed as stated; single-reader, not independently reviewed",
+   "where": "fn",
+   "files": [
+    "scopedesk/oracles/results/nonlinear_sweep/report.json",
+    "scopedesk/oracles/results/nonlinear_sweep/rows.jsonl",
+    "scopedesk/oracles/results/nonlinear_sweep/orx_receipt.json"
+   ],
+   "sha256": {
+    "scopedesk/oracles/results/nonlinear_sweep/report.json": "a080925ee44a47fdbfc3cd36e0bcadea9ece461f9ef0ad49a60ee2d6bc0e1b52",
+    "scopedesk/oracles/results/nonlinear_sweep/rows.jsonl": "a32c2bf7dd3c10162317974ae6a0ecbefa06c1c180a6886dea1bcb8ea4d4c882",
+    "scopedesk/oracles/results/nonlinear_sweep/orx_receipt.json": "a265e0b3859ca6a68acfdfbf58446e893d8a84258159fba11cc6ee92751cc5e8"
+   }
+  },
+  {
    "slide": 6,
-   "shown": "Infrastructure used, receipts only Nebius H100s with NVIDIA BioNeMo ESM2: 5 sizes, 10 jobs, 9,475 recorded job-seconds, no clear benefit (B03) · Nebius hosted OpenFold2: 2 structure calls, predicted, low confidence · OpenResearch: local CPU analysis log · Gemini: 4 bounded review calls and the headroom run · receipts in",
+   "shown": "Infrastructure used, receipts only Nebius H100s with NVIDIA BioNeMo ESM2: 5 sizes, 10 jobs, 9,475 recorded job-seconds, no clear benefit (B03) · Nebius hosted OpenFold2: 2 structure calls, predicted, low confidence · OpenResearch: local CPU analysis logs (enzyme data; nonlinear sweep) · Gemini: 4 bounded review calls and the headroom run · receipts in",
    "where": "fn",
    "files": [
     "artifacts/scale/library_receipts.json",

@@ -28,7 +28,7 @@ On the controlled enzyme replay, shared specialists matched a single planner (78
 
 ## Infrastructure used
 
-Receipts only. Five BioNeMo ESM2 sizes scored all 160,000 enzyme variants on Nebius H100s (10 jobs, all completed, 9,475 recorded job-seconds) in the released baseline, with no clear assay-saving benefit. Two OpenFold2 structure calls went to the Nebius hosted catalogue and came back predicted and low confidence. OpenResearch logged a local CPU analysis of the same data, which was not hosted compute. Gemini made 4 bounded review calls and was a subject of the headroom check. The Delphi checks themselves ran on CPU.
+Receipts only. Five BioNeMo ESM2 sizes scored all 160,000 enzyme variants on Nebius H100s (10 jobs, all completed, 9,475 recorded job-seconds) in the released baseline, with no clear assay-saving benefit. Two OpenFold2 structure calls went to the Nebius hosted catalogue and came back predicted and low confidence. OpenResearch logged two local CPU analyses, one of the same data and one of the nonlinear sweep, neither hosted compute; no GPU or Nebius was used for the sweep. Gemini made 4 bounded review calls and was a subject of the headroom check. The Delphi checks themselves ran on CPU.
 
 ## Reusable now, and next
 

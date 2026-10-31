@@ -1,4 +1,28 @@
 {
+ "sweep": {
+  "cells": 2520,
+  "stable": 1080,
+  "unstable": 1440,
+  "r1_k": 30,
+  "r1_n": 1080,
+  "r2_k": 0,
+  "r2_n": 1440,
+  "r3_k": 461,
+  "r3_n": 1440,
+  "r3_pct": 32,
+  "lower_pct": 84,
+  "unresolved_k": 59,
+  "unresolved_pct": 2.3,
+  "wall_seconds": 10055,
+  "prereg_commit": "cb27cf2",
+  "rows_sha256": "a32c2bf7dd3c10162317974ae6a0ecbefa06c1c180a6886dea1bcb8ea4d4c882",
+  "failed_prediction": "P3",
+  "predictions_holding": 4,
+  "report": "scopedesk/oracles/results/nonlinear_sweep/REPORT.md",
+  "report_json": "scopedesk/oracles/results/nonlinear_sweep/report.json",
+  "receipt": "scopedesk/oracles/results/nonlinear_sweep/orx_receipt.json",
+  "orx": "analysis logged as a LOCAL orx run; not hosted compute; no GPU or Nebius used for this sweep"
+ },
  "frontier_example": {
   "present": false,
   "expected_path": "planning/frontier/oca2-exon21-molino-RESULT.md"

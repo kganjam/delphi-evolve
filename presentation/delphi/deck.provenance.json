@@ -1,12 +1,15 @@
 {
- "built": "2026-10-31 10:51 PDT",
+ "built": "2026-10-31 11:27 PDT",
  "root": "/data/worktrees/delphi-evolve/submit",
  "git": {
-  "head": "d595a11c08e31b4222d13edb2cff45585bb7f571",
+  "head": "b5e0927f9a02a56073a72aff6be0edca4291fd9e",
   "branch": "work/submit",
   "inputs_untracked_or_modified": []
  },
  "sha256": {
+  "scopedesk/oracles/results/nonlinear_sweep/report.json": "a080925ee44a47fdbfc3cd36e0bcadea9ece461f9ef0ad49a60ee2d6bc0e1b52",
+  "scopedesk/oracles/results/nonlinear_sweep/orx_receipt.json": "a265e0b3859ca6a68acfdfbf58446e893d8a84258159fba11cc6ee92751cc5e8",
+  "scopedesk/oracles/results/nonlinear_sweep/REPORT.md": "d10a279833ff957d66f9eef44361fa8936d07e8079d40dcbc2fd331dc1096523",
   "planning/rethink/CLAIM-LEDGER.md": "dad82afcf05e350d1d131b5edf92c9fbdada5635be7da2187653560db2e774dc",
   "planning/rethink/CODEX-BENCH-V1-2-REV3-REVIEW.md": "d02c8bcd9e9690e2ac7656994f93d221617b01bcbd05b6be7d86e9f5c3062278",
   "presentation/delphi/sources.md": "e45e7448083e5fbca6fe2c36db8b54f8fee03e110fa9baf6d687f898e6143bb0",
