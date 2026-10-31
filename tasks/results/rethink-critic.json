@@ -196,6 +196,10 @@
    "output": "scopedesk/bench/audit/repair_knobs_audit_v1_2.json",
    "result": "reaction_scale 9 repairs and diffusion_ratio 6 repairs on the 5 out_of_scope turing_finite_domain items of v1.2: all valid by independent exact check; relative_change formulas verified (|s-1| and |Dv'-Dv|/Dv); sorted; no closer valid value missed on k/4 and k/2 grids; oracle placeholder 'no_repair_in_grid' (value null) agrees with my grid for the one case",
    "not_covered": "2-D PDE; subcritical behaviour; only 5 items; five bench families have no oracle"
+  },
+  "pde_2d": {
+   "script": "scopedesk/bench/audit/audit_pde_2d.py",
+   "result": "6 cases: 5 settled all agree with the exact linear key, 1 nonconverged (reported, not scored); tiny sample"
   }
  },
  "v1_1": {
@@ -237,5 +241,27 @@
   "rows": 20,
   "controlled_rows": 2,
   "commit": "2722f9f"
+ },
+ "codex_frozen_check": {
+  "commit": "6c96810 (work/codex-api)",
+  "result": "metadata exit 0, 14/14 on frozen 70c1254 (127 items); sole removal vs reviewed 128 is qd643fbe2; retained rows unchanged; no further changes requested"
+ },
+ "retrieval_baseline": {
+  "script": "scopedesk/bench/v1_2/retrieval_baseline.py",
+  "output": "scopedesk/bench/v1_2/retrieval_baseline_scores.json",
+  "result": "TF-IDF nearest Delphi math claim (92 claims) per prompt stem: top-1 correct 119/127; policy 'retrieved cited claim => applies, else abstain': coverage 0.937, selective risk 0.513 (61 errors/119), false acceptance 61/65 on non-applies items; behaves like always-applies on retrievable items; Hamilton retrieval 8/16",
+  "inputs": "prompt text + claim corpus only",
+  "limit": "expected-claim mapping by the critic; not a model-based RAG"
+ },
+ "scorecard_v0": {
+  "path": "scopedesk/scorecard/",
+  "counts": {
+   "BENCHMARK-LINKED": 6,
+   "RELATED FORMAL LEMMA, TARGET NOT ESTABLISHED": 1,
+   "EMPIRICAL / FRAMEWORK": 2,
+   "NO CHECK IN THIS SCORECARD": 12
+  },
+  "revision": "v0.1: taxonomy and per-row wording revised per Codex review CODEX-SCORECARD-V0-REVIEW.md (4fe9fb7); legacy a-e labels kept in legacy_status_v0",
+  "limits": "single-reader; record-to-paper correspondence not reviewed; Codex approves the corrected descriptions, not an aggregate success rate"
  }
 }

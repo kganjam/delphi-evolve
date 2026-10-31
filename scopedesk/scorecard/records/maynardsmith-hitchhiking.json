@@ -1,0 +1,36 @@
+{
+ "claim_id": "maynardsmith-hitchhiking",
+ "retrieved_utc": "2026-10-31T15:03:23.825715+00:00",
+ "source": "local",
+ "raw_text_sha256": "06f520a6cc5d6b3084ae39db8a0fb5d2cb5f9fb02daa3b7ca9792f26015e43c4",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/maynardsmith-hitchhiking",
+  "title": "Genetic hitchhiking (selective sweep)",
+  "statement": "When a favourable mutation sweeps to fixation, it reduces genetic variation at closely linked neutral sites, and the reduction is larger the tighter the linkage relative to the strength of selection.",
+  "math": "the relative heterozygosity H_{after}/H_{before} at a neutral site at recombination fraction c is an increasing function of c/s that tends to 0 as c/s \\to 0; the affected region has a width of order s in recombination units, up to logarithmic factors in N",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/maynardsmith-hitchhiking.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/maynardsmith-hitchhiking",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/maynardsmith-hitchhiking.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": "https://doi.org/10.1038/356519a0",
+   "dct:source": "John Maynard Smith (1974) The hitch-hiking effect of a favourable gene",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "Test for a positive correlation between neutral diversity and local recombination rate across the genome, and for diversity troughs around sites of recent adaptive substitution, while modelling background selection as the alternative.",
+   "delphi:context": "Assumptions: a single sweep from a new mutation, deterministic allele-frequency trajectory, two loci. Formal status: proved under these approximations (later refined in coalescent treatments). Background selection produces a similar correlation between diversity and recombination.",
+   "skos:notation": "the relative heterozygosity H_{after}/H_{before} at a neutral site at recombination fraction c is an increasing function of c/s that tends to 0 as c/s \\to 0; the affected region has a width of order s in recombination units, up to logarithmic factors in N",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "When a favourable mutation sweeps to fixation, it reduces genetic variation at closely linked neutral sites, and the reduction is larger the tighter the linkage relative to the strength of selection.",
+   "rdfs:label": "Genetic hitchhiking (selective sweep)"
+  },
+  "assessments": []
+ }
+}

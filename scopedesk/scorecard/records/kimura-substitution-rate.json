@@ -1,0 +1,36 @@
+{
+ "claim_id": "kimura-substitution-rate",
+ "retrieved_utc": "2026-10-31T15:03:23.216518+00:00",
+ "source": "local",
+ "raw_text_sha256": "d830efcaf2555cc78839e4ad5b8c09798c31a36fe397ab28584d4e87a82e73d7",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/kimura-substitution-rate",
+  "title": "Neutral substitution rate equals the mutation rate",
+  "statement": "For neutral mutations the long-run rate of molecular substitution equals the mutation rate per generation, independent of population size, which yields a molecular clock.",
+  "math": "k = 2N\\mu \\cdot \\frac{1}{2N} = \\mu",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/kimura-substitution-rate.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/kimura-substitution-rate",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/kimura-substitution-rate.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": "https://doi.org/10.1038/351652a0",
+   "dct:source": "Motoo Kimura (1968) Evolutionary Rate at the Molecular Level",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "Compare the substitution rate at putatively neutral sites (synonymous sites, pseudogenes) across lineages with independently measured per-generation mutation rates from pedigree sequencing.",
+   "delphi:context": "Assumptions: strictly neutral mutations, mutation rate constant per generation, steady state. Formal status: an exact consequence of the neutral fixation probability. Variation in generation time and weak selection on nearly neutral sites cause departures from strict clock-like rates.",
+   "skos:notation": "k = 2N\\mu \\cdot \\frac{1}{2N} = \\mu",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "For neutral mutations the long-run rate of molecular substitution equals the mutation rate per generation, independent of population size, which yields a molecular clock.",
+   "rdfs:label": "Neutral substitution rate equals the mutation rate"
+  },
+  "assessments": []
+ }
+}

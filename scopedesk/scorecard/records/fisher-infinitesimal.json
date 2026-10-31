@@ -1,0 +1,36 @@
+{
+ "claim_id": "fisher-infinitesimal",
+ "retrieved_utc": "2026-10-31T15:03:20.732806+00:00",
+ "source": "local",
+ "raw_text_sha256": "f3dfcce608c848f2d551c1fea361f0efb1efd65123d147d002518cc1b0c0765c",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/fisher-infinitesimal",
+  "title": "Fisher's infinitesimal model of quantitative inheritance",
+  "statement": "Continuous traits determined by many Mendelian loci of small additive effect produce the observed correlations between relatives, so biometric and Mendelian inheritance are consistent.",
+  "math": "Cov(z_i, z_j) = 2\\Theta_{ij} V_A + \\Delta_{ij} V_D; in the limit of M \\to \\infty loci the offspring trait given parents is Gaussian with mean (z_1+z_2)/2 and segregation variance V_0(1-\\bar{F}), with error O(1/\\sqrt{M}) (Barton, Etheridge and Veber 2017)",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/fisher-infinitesimal.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/fisher-infinitesimal",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/fisher-infinitesimal.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": "https://doi.org/10.1016/j.tpb.2017.06.001",
+   "dct:source": "Ronald A. Fisher (1919) The Correlation between Relatives on the Supposition of Mendelian Inheritance",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "Compare observed correlations between relatives of different degree in large pedigrees with 2*Theta*V_A + Delta*V_D, and check that the within-family segregation variance stays near V_0(1-F) under selection, as the limit theorem predicts.",
+   "delphi:context": "Assumptions: many unlinked loci of small additive effect, random mating, environmental effects independent of genotype. Formal status: the covariance decomposition is proved; the infinitesimal limit, including under selection, is proved by Barton, Etheridge and Veber (2017). Large-effect loci and epistasis break the Gaussian limit.",
+   "skos:notation": "Cov(z_i, z_j) = 2\\Theta_{ij} V_A + \\Delta_{ij} V_D; in the limit of M \\to \\infty loci the offspring trait given parents is Gaussian with mean (z_1+z_2)/2 and segregation variance V_0(1-\\bar{F}), with error O(1/\\sqrt{M}) (Barton, Etheridge and Veber 2017)",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "Continuous traits determined by many Mendelian loci of small additive effect produce the observed correlations between relatives, so biometric and Mendelian inheritance are consistent.",
+   "rdfs:label": "Fisher's infinitesimal model of quantitative inheritance"
+  },
+  "assessments": []
+ }
+}

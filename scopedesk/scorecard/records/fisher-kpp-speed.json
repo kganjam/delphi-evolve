@@ -1,0 +1,36 @@
+{
+ "claim_id": "fisher-kpp-speed",
+ "retrieved_utc": "2026-10-31T15:03:21.001519+00:00",
+ "source": "local",
+ "raw_text_sha256": "a76a0119a2376e606386e741328d9814c730f21c6c1ca486ee8fc2f8552d3a67",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/fisher-kpp-speed",
+  "title": "Fisher-KPP wave of advance of an advantageous gene",
+  "statement": "An advantageous allele spreading through a continuous population advances as a travelling wave whose speed is set by the selection coefficient and the diffusion (dispersal) rate.",
+  "math": "u_t = D u_{xx} + s u(1-u); travelling waves u(x-ct) exist iff c \\ge c^* = 2\\sqrt{sD}; compactly supported initial data spread at asymptotic speed c^*",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/fisher-kpp-speed.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/fisher-kpp-speed",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/fisher-kpp-speed.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": "https://doi.org/10.1016/0001-8708(78)90130-5",
+   "dct:source": "Ronald A. Fisher (1937) The wave of advance of advantageous genes",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "Measure the front speed of a beneficial allele, or of an expanding population, in an experimental range expansion (e.g. bacteria on agar or laboratory insect arenas) with independently measured s and D, and compare it with 2*sqrt(sD).",
+   "delphi:context": "Assumptions: one spatial dimension (extended to R^n), constant diffusion D, logistic (genic) selection with coefficient s, deterministic large-population limit. Formal status: proved; Kolmogorov, Petrovsky and Piskunov (1937) gave the proof independently, and Aronson and Weinberger (1978) proved the asymptotic spreading speed in several dimensions. Finite populations, Allee effects or long-tailed dispersal change the speed.",
+   "skos:notation": "u_t = D u_{xx} + s u(1-u); travelling waves u(x-ct) exist iff c \\ge c^* = 2\\sqrt{sD}; compactly supported initial data spread at asymptotic speed c^*",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "An advantageous allele spreading through a continuous population advances as a travelling wave whose speed is set by the selection coefficient and the diffusion (dispersal) rate.",
+   "rdfs:label": "Fisher-KPP wave of advance of an advantageous gene"
+  },
+  "assessments": []
+ }
+}
