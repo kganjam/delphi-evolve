@@ -262,3 +262,46 @@ def test_docs_do_not_overclaim():
         for bad in ("we beat alde", "outperforms alde", "proves darwin", "published to the nanopub network",
                     "validated market", "customers include", "market size of"):
             assert bad not in txt, (name, bad)
+
+
+# ---- differential test: JS decision vs Python mirror on seeded pairs --------------------
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="node not installed")
+def test_js_python_differential_pairs(scores):
+    import random
+
+    rng = random.Random(20261031)
+    gs = sorted(scores)
+    # bounded work: panel pairs from the parent at moderate kappa, plus random and
+    # unmeasured-adjacent pairs at large kappa where closed sets are small
+    pairs = [("VFVS", t, k) for t in ("AIKG", "CLKG", "VLKG", "ALKG") for k in (2.0, 3.0)]
+    pairs += [(rng.choice(gs), rng.choice(gs), k) for k in (6.0, 8.0) for _ in range(5)]
+    unmeasured = [g for g in ("".join(ev.AA[(i // w) % 20] for w in (8000, 400, 20, 1)) for i in range(160000))
+                  if g not in scores]
+    for u in rng.sample(unmeasured, 4):
+        nbs = [n for n in ev.neighbors(u) if n in scores]
+        pairs.append((nbs[0], rng.choice(gs), 8.0))
+    js = r"""
+const fs=require('fs'); const L=require(process.argv[1]+'/site/lib.js'); global.window={};
+eval(fs.readFileSync(process.argv[1]+'/site/data/landscape.js','utf8').replace('window.TRPB_LANDSCAPE','global.PACK'));
+const D=L.decode(PACK); const pairs=JSON.parse(process.argv[2]);
+console.log(JSON.stringify(pairs.map(([a,b,k])=>{const d=L.decide(D,L.idxOf(a),L.idxOf(b),k,'readnoise');
+  return [d.status, d.route?d.route.length-1:null, d.route? d.route.filter(v=>!D.measured[v]).length : null];})));
+"""
+    r = subprocess.run(["node", "-e", js, str(ROOT), json.dumps(pairs)], capture_output=True, text=True, timeout=300)
+    assert r.returncode == 0, r.stderr
+    got = json.loads(r.stdout)
+    seen = set()
+    for (a, b, k), (status, length, n_unk) in zip(pairs, got):
+        if a == b:
+            continue
+        (pd_, _), (od, _) = ev.reachability(scores, a, b, k, "readnoise")
+        if pd_ is not None:
+            assert (status, length) == ("open", pd_), (a, b, k)
+        elif od is not None:
+            assert status == "undetermined" and length == od and n_unk >= 1, (a, b, k)
+        else:
+            assert status == "blocked", (a, b, k)
+        seen.add(status)
+    assert "open" in seen and "blocked" in seen
+    print("statuses exercised:", sorted(seen))
