@@ -1,0 +1,55 @@
+{
+ "role": "collab",
+ "status": "in_progress: service built, tested and committed; NOT yet publicly hosted; NO external use recorded",
+ "updated_seattle": "2026-10-31 06:25 PDT",
+ "model": "Claude Sonnet 5.5 (existing Max subscription via Claude Code); no metered API spend, no GPU job, no subagents, no cloud resources created",
+ "branch": "work/collab",
+ "code_commit": "bb9d6a4 (falsify/, tests/test_falsify.py); docs + this receipt committed on top",
+ "available_vs_used": {
+  "available": "A bounded instance runs on the build host loopback only (127.0.0.1:18770, systemd user unit delphi-falsify-local, TasksMax=64 MemoryMax=1G). It is NOT reachable by other teams.",
+  "public_url": null,
+  "used_by_others": 0,
+  "ledger_totals_at_write": {"all_calls": 2, "self_test_calls": 2, "external_unverified_calls": 0},
+  "note": "The 2 recorded calls are this worker's own MCP protocol tests (origin self-test). They show the service works, not that anyone else uses it. Ledger: /data/artifacts/delphi-evolve-collab/falsify-data/usage.jsonl (append-only; salt file kept private)."
+ },
+ "deliverables": {
+  "capability": "falsify/engine.py: exact-rational linear-instability falsifier for 2-species reaction-diffusion on 1-D intervals and 2-D rectangles (neumann/dirichlet/periodic), physical lengths via rigorous pi bracket, three exact preset kinetics, complete mode enumeration via tail rule, re-verified critical-length bracket (fail closed), turing_scope adapter cross-check (pinned Delphi record turing-ddi), numpy finite-difference eigenvalue cross-check, per-request Lean 4 receipt (falsify/lean_receipt.py) over the existing TuringScope library",
+  "http": "falsify/server.py: POST /v1/falsify/turing, GET /v1/receipts/<id>, /usage, /usage.json, /howto, /v1/health, /v1/schema, /v1/examples; stdlib only; 64KB body cap, 30 req/min and 10 Lean/hour per caller, Lean slot=1",
+  "mcp": "POST /mcp (streamable HTTP JSON-RPC: initialize, tools/list, tools/call, ping) and stdio proxy `python -m falsify mcp-stdio` that forwards to the hosted endpoint so calls are logged centrally",
+  "usage_logging": "falsify/usage.py: caller (self-declared), salted network hash, channel, request summary, verdict, receipt id, Lean status, latency; origin tagged self-test vs external-unverified; public page /usage",
+  "howto": "falsify/static/howto.html (served at / and /howto) and docs/falsify-howto.md",
+  "outreach_packet": "docs/falsify-outreach-DRAFT.md - prepared, NOT SENT. Sending requires the user's explicit instruction (director sign-off is insufficient)."
+ },
+ "evidence_typing": {"observed": "none", "model_derived": "all service outputs", "simulated": "only the optional float finite-difference cross-check", "not_established": ["nonlinear pattern formation", "any biology", "any wet-lab or clinical implication", "that a caller's declared Jacobian describes a real system"]},
+ "commands_run": [
+  {"cmd": "python3 -m http.server 18765 --bind 0.0.0.0; curl http://34.223.78.181:18765/ (self-probe of the public IP)", "exit": 0, "result": "HTTP 000: not reachable even from the host itself; inbound assumed closed"},
+  {"cmd": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 lake build (turing_scope/lean)", "exit": 0},
+  {"cmd": "python run of falsify.lean_receipt.run on 4 generated Lean files", "exit": 0, "result": "2 true classifications checked (axioms propext/Classical.choice/Quot.sound only); 2 deliberately false classifications rejected (sorryAx/'is false')"},
+  {"cmd": "systemd-run --user --scope ... env OMP_NUM_THREADS=2 FALSIFY_TEST_LEAN=1 python3 -m pytest tests/test_falsify.py -q -rs", "exit": 0, "result": "21 passed, 0 skipped (includes Lean accept/reject and the primary-review regressions)"},
+  {"cmd": "systemd-run --user --scope ... pytest tests/test_turing_scope.py tests/test_falsify.py -q", "exit": 1, "result": "63 passed, 2 skipped, 1 failed: tests/test_turing_scope.py::test_recorded_results_match_a_fresh_run. The same test fails on a clean checkout of base 94f848f (worktree 'corpus'), so it predates this work; unrelated to falsify/ and not modified here."},
+  {"cmd": "systemd-run --user --unit=delphi-falsify-local ... python3 -m falsify.server --port 8765", "exit": 1, "result": "port 8765 already held by another process (not touched); relaunched on 18770 with exit 0"},
+  {"cmd": "mcp python client: streamablehttp_client(http://127.0.0.1:18770/mcp) list_tools+call_tool; stdio_client(python -m falsify mcp-stdio ...) call_tool", "exit": 0, "result": "tools [falsify_turing_pattern, get_receipt]; L=pi -> domain_blocks_pattern; L=2pi -> pattern_possible; both calls appear in the ledger as self-test"},
+  {"cmd": "SendMessage to dx-gpuops (hosting request)", "exit": "failed: no reachable agent named dx-gpuops", "result": "request left as file /data/artifacts/delphi-evolve-rethink/messages/collab-to-primary-and-gpuops.md for the director to relay"}
+ ],
+ "primary_review_findings_addressed": {
+  "1_claim_text": "adjudication.proposition is a fixed formal sentence; caller text returned only as requested_claim_text marked uninterpreted/not adjudicated (test_review1)",
+  "2_source_pin": "pin failure => basis=generic_calculation_only, reuse_status=NOT_authorized_source_pin_failed, adapter check skipped; require_delphi_pin=true refuses (test_review2)",
+  "3_critical_length": "precision ladder 1e12..1e96, exact recheck of both endpoints, else status=unresolved with no length statement; executed reproducer J21=-18/5+1e-50 verified at 1e48 and, with ladder forced to 1e12, now unresolved (test_review3)",
+  "4_disc_zero": "exactly marginal finite mode -> unresolved/unresolvable; no-mode case worded 'no strictly growing eigenmode' (test_review4)",
+  "5_truncation": "enumeration_complete=true, returned_detail_truncated flag; 'COMPLETE list' wording removed (test_review5)",
+  "6_dirichlet": "assumption states perturbation zero with boundary held AT the steady state, not zero concentration (test_review6)"
+ },
+ "limitations": [
+  "Not publicly hosted: sandbox-02 public IP did not accept inbound connections; hosting needs dx-gpuops (Nebius CPU endpoint / Brev / tunnel). No cloud resource was created by this worker.",
+  "Zero external use. Identity of callers is self-declared and unverified; network address shown only as salted hash.",
+  "Lean receipt covers only 1-D, exact length_over_pi, and models Routh-Hurwitz as a definition; dirichlet/periodic mapped to neumann spectrum by stated, unchecked modelling steps; rational J,D scaled by a common integer.",
+  "Scope is two species, linearization at a homogeneous state, isotropic constant diffusion, 1-D/2-D rectangles. The other adjudicators in the pitch (data, solver-disagreement) are not implemented in this service.",
+  "The pitch's four-route 'falsification of any claim' is NOT built; only the Turing-scope instance is."
+ ],
+ "next_steps": [
+  "dx-gpuops/director: provide a public URL and persistent data dir; run `python3 -m falsify.server --host 0.0.0.0 --port 8765 --data-dir <persistent> [--trust-forwarded]`",
+  "Primary: independent retest of work/collab (tests/test_falsify.py::test_review*)",
+  "User: decide whether and to whom the outreach draft is sent (nothing sent)",
+  "At handoff: copy /usage.json of the public instance into this file unmodified; report external calls only if origin=external-unverified entries exist"
+ ]
+}
