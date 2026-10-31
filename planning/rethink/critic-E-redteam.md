@@ -67,6 +67,16 @@ Judgement: E is the stronger **expected story** *only if* a witness-graded detec
 
 **Fallback:** polished baseline (A) plus the Thompson/Tallo + Turing worked examples as an honest "scope and operationalization" appendix, with the family-level result reported as a pilot without a collective claim.
 
+## 7. Probe result and prior-art update (added 06:50 PDT)
+
+**Prior art correction (primary's full-text read, `primary-prior-art-details.md`):** *Benchmarking Agentic Review Systems* (arXiv 2606.19749 App. C) already injects dropped domain restrictions, incorrect implications and experimental misinterpretations across several model families; ShadowBench uses forward and backward Lean implications (passing requires equivalence); DriftBench / "The Faithfulness Gap" (arXiv 2606.16541) proposes counterfactual probes and bidirectional provability fingerprints. So scope-deletion mutants, bidirectional checking and multi-model detection are **not ours**. The only defensible narrow contribution: *executable scientific-test repair with checked witnesses and declared scope*, graded by running the tests. A finite counterexample search cannot certify equivalence (ShadowBench-style proof is stronger); equivalent labels below are "unrefuted + analytic argument".
+
+**Probe run** (`experiments/rethink_wildcard/fidelity_probe.py` → `planning/rethink/wildcard/fidelity_probe.json`, bounded, exit 0): 3 families (Turing finite domain, Kimura neutral limit, Hawk–Dove ESS), 12 mechanical mutants, 20,000 random instances each, refusal ("outside scope") treated as a verdict.
+- 7 consequential, 5 unrefuted-equivalent after label audit; every consequential witness re-verified.
+- **Lesson 1 (first run, uncommitted):** comparing only inside the base scope mislabelled both scope-guard deletions as equivalent. A dropped guard differs only *outside* scope, so a faithful test must **refuse** there and refusal must be graded as a verdict. This is the failure mode of the target task itself and is the strongest design finding of the probe.
+- **Lesson 2:** my first-run expectation that dropping the Hawk–Dove stability clause is consequential was wrong: for the fully mixed p*=V/C, E(p*,q)−E(q,q)=(C/2)(q−p*)²>0, so the clause holds automatically in scope. The harness found my own labelling error; label audits must precede any scoring (one reader only so far).
+- **Lesson 3 (baseline strength):** uniform random differential testing exposes most consequential mutants within 2,000 instances (exposure 15–59%), but only **0.25%** for "continuum instead of admissible modes" in the Turing family (5 of 2,000). A deterministic random-testing baseline is therefore strong on easy mutants and weak on narrow-region ones; LLM auditors have headroom only on narrow-witness mutants. A benchmark made mostly of broad-witness mutants has no headroom.
+
 ## 6. Smallest decisive probe (do first, ≈1 hour)
 
 Take 3 families with exact tests already in the repo (Turing, Kimura limit, Hawk–Dove). Mechanically produce 3 consequential + 1 equivalent mutant each (12 items). Run a single blind reviewer with the witness protocol. If it cannot distinguish consequential from equivalent on 12 items, scale-up is pointless; if it does so trivially (all 12), the task has no headroom and the family set must include harder (D2) items.

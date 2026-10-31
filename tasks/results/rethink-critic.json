@@ -1,6 +1,6 @@
 {
  "role": "critic",
- "status": "memo-1 and candidate-E red-team delivered; awaiting director follow-up goal",
+ "status": "memo-1, candidate-E red-team, fidelity probe and settled-science response delivered; awaiting director follow-up goal",
  "model": "claude-sonnet-5-5 (subscription; metered spend unknown, none inferred)",
  "wall_time_pdt": "2026-10-31 06:00-06:20",
  "artifacts": [
@@ -8,7 +8,12 @@
   "planning/rethink/wildcard/*",
   "experiments/rethink_wildcard/*",
   "tests/test_rethink_wildcard.py",
-  "planning/rethink/critic-E-redteam.md"
+  "planning/rethink/critic-E-redteam.md",
+  "planning/rethink/critic-settled-science.md",
+  "experiments/rethink_wildcard/fidelity_probe.py",
+  "experiments/rethink_wildcard/pde_cost_probe.py",
+  "planning/rethink/wildcard/fidelity_probe.json",
+  "planning/rethink/wildcard/pde_cost_probe.json"
  ],
  "commands_run": [
   {
@@ -54,6 +59,21 @@
    "cmd": "WebSearch x4 + WebFetch arxiv 2606.19749, 2608.29270 (prior art for fidelity benchmarks)",
    "exit": "ok",
    "note": "snippet-level for most; two abstracts read"
+  },
+  {
+   "cmd": "systemd-run ... python3 -I experiments/rethink_wildcard/fidelity_probe.py",
+   "exit": 0,
+   "note": "first run mislabelled scope-drop mutants; corrected after refusal-as-verdict; audit mismatches []"
+  },
+  {
+   "cmd": "systemd-run ... python3 -I experiments/rethink_wildcard/pde_cost_probe.py",
+   "exit": 0,
+   "note": "first attempt (gamma=100) diverged; second 100 solves T=1000 in 20.4s one CPU thread, unrefined"
+  },
+  {
+   "cmd": "WebSearch Halawi/Schoenegger/BrainBench",
+   "exit": "ok",
+   "note": "search-level only; Replication Markets not verified"
   }
  ],
  "limitations": [

@@ -28,3 +28,12 @@ def test_group_folds_hold_out_whole_groups():
         df[col] = np.random.default_rng(0).standard_normal(len(df))
     oof = b.cv_scores(df)
     assert all(not np.isnan(v).any() for v in oof.values())
+
+
+def test_fidelity_probe_labels_and_refusal_verdict():
+    import fidelity_probe as f
+    r = f.run(n_search=3000, n_rate=500)
+    assert r["label_audit"]["mismatches"] == []
+    k = r["families"]["kimura_neutral_limit"]["mutants"]["drop_scope_guard"]
+    assert k["label"] == "consequential" and k["witness_inside_base_scope"] is False and k["witness_reverified"]
+    assert f.verify_repair(f.kimura_base, f.kimura_equiv_form, [f.k_inst(__import__("numpy").random.default_rng(1)) for _ in range(200)])
