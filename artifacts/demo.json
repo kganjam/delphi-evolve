@@ -17448,7 +17448,7 @@
     "HTGR",
     "GTVN"
    ],
-   "status": "blocked (closed set of 1 measured genotypes; all 76-neighbour boundary edges inadmissible or unmeasured)",
+   "status": "no route certifiable at this bound (closed set of 1 measured genotypes; all 76-neighbour boundary edges inadmissible or unmeasured); an actual ascending route may still exist",
    "assumptions": [
     "A1 interval containment (ASSUMED, not proved): each genotype's true assay growth score lies in [lower, upper]",
     "A2 kappa is an assumed sensitivity multiplier on replicate-difference SD/2 by read-count bin; it is NOT a confidence level and gives no coverage claim",
@@ -17460,7 +17460,9 @@
    "semantics": "'blocked' here means NO ROUTE CAN BE CERTIFIED in the measured subgraph under the assumed kappa (intervals that overlap count as not admitted). It does NOT exclude a true non-decreasing path: the strong no-path theorem (blocked_cut_sound) needs every exit certified lower. Lean separates the two (artifacts/proof/CORRESPONDENCE.md, DarwinBridge/Distinction.lean). 'nodes' lists the start/target endpoints, not a path.",
    "lean_checked": true,
    "lean_theorem": "DarwinBridge.admCert_sound (no certifiable route; weaker than blocked_cut_sound)",
-   "lean_certificate_path": "artifacts/proof/core_kappa2_adm_cut_htgr_gtvn.json"
+   "lean_certificate_path": "artifacts/proof/core_kappa2_adm_cut_htgr_gtvn.json",
+   "core_status": "blocked (closed set of 1 measured genotypes; all 76-neighbour boundary edges inadmissible or unmeasured)",
+   "verdict": "no_route_certifiable"
   }
  ],
  "kappa_sweep": [

@@ -278,9 +278,9 @@
         <p>No measured-only route survives. If ${d.unknownNodes.map((n) => `<code>${L.genoOf(n)}</code>`).join(", ")} turned out to be good enough, a ${d.route.length - 1}-step route would exist. <strong>Assay request:</strong> measure ${d.unknownNodes.map((n) => L.genoOf(n)).join(", ")}.</p></div>`;
     } else {
       const nr = d.nearest;
-      verdict = `<div class="verdict blocked"><span class="tag">Blocked · in this declared graph</span><h4>No admissible route — even if every unmeasured genotype were perfect</h4>
+      verdict = `<div class="verdict blocked"><span class="tag">No route certifiable · at this assumed bound</span><h4>No guaranteed-ascending route — even if every unmeasured genotype were perfect</h4>
         <p>Everything reachable from ${esc(sName)} under these assumptions is a closed set of <strong>${d.closedSetSize.toLocaleString()}</strong> genotypes; all <strong>${d.boundaryEdges.toLocaleString()}</strong> single-substitution edges leaving it are rejected.${nr ? ` Nearest miss: <code>${L.genoOf(nr.from)} → ${L.genoOf(nr.to)}</code> misses by ${fmt(-nr.margin, 4)}.` : ""}</p>
-        <p class="hint">This is a certificate about the measured four-residue graph at this assumed error bound. It does not show that no evolutionary path exists in the full protein sequence space.</p></div>`;
+        <p class="hint"><strong>An actual ascending route may still exist.</strong> A step is admitted only if the next lower bound reaches the previous upper bound, so overlapping intervals are not admitted. This does not rule out every ascending route (that stronger statement needs every exit certified lower — see the Proof tab), and it says nothing about the full protein sequence space.</p></div>`;
     }
     const dd = state.mode === "readnoise" ? 100 : 1e4;
     const brk = (state.maxEps === null && state._maxPending) ? "computing…"
@@ -469,16 +469,22 @@
     }
     return `<table class="kv">${Object.entries(o).map(([k, v]) => `<tr><th>${esc(k)}</th><td class="${typeof v === "object" && v !== null ? "t" : ""}">${typeof v === "object" && v !== null ? (depth < 2 ? kvTable(v, depth + 1) : `<pre class="json">${esc(JSON.stringify(v, null, 1).slice(0, 4000))}</pre>`) : scalar(v)}</td></tr>`).join("")}</table>`;
   }
+  const distinctionCard = () => `<h3>Two different “no route” statements</h3><div class="card">
+      <p><b>1 · No route certifiable at this bound</b> <span class="chip sim">what the browser and the benchmark report</span></p>
+      <p>A step <code>u → v</code> is admitted only if <code>lower(v) ≥ upper(u)</code>. Overlapping intervals are <em>not</em> admitted, so a closed set under this rule shows that nothing can be <em>guaranteed</em> ascending. <strong>An actual ascending route may still exist.</strong></p>
+      <p><b>2 · All ascending routes ruled out (strong cut)</b> <span class="chip observed">Lean, only where a receipt exists</span></p>
+      <p>Every edge leaving the set must be certified lower: <code>upper(v) &lt; lower(u)</code>. Only the strong certificates <code>artifacts/proof/trpb_blocked_*.json</code> carry this.</p>
+      <p class="hint">Counterexample, kernel-checked in <code>lean/DarwinBridge/Distinction.lean</code>: A = [0, 2], B = [1, 3]. The admitted-step rule rejects A → B, yet f(A) = 1, f(B) = 2 lies inside both intervals and ascends.</p></div>`;
   function renderProof() {
     const el = $("#p-proof"), p = state.demo && state.demo.proof;
-    if (!p || (p.exit_code == null && p.mutation_exit_code == null)) { el.innerHTML = `<div class="na"><b>No proof receipt loaded.</b>${p && p.note ? `<p>demo.json says: ${esc(p.note)}</p>` : ""}<p>The site shows proof status only from a compiled receipt in <code>demo.json → proof</code> (theorem, command, kernel exit code, mutant exit code). None is present, so nothing is claimed — in particular, the in-browser route test on the Decision tab is <em>not</em> the Lean-checked certificate.</p></div>`; return; }
+    if (!p || (p.exit_code == null && p.mutation_exit_code == null)) { el.innerHTML = `<div class="na"><b>No proof receipt loaded.</b>${p && p.note ? `<p>demo.json says: ${esc(p.note)}</p>` : ""}<p>The site shows proof status only from a compiled receipt in <code>demo.json → proof</code> (theorem, command, kernel exit code, mutant exit code). None is present, so nothing is claimed — in particular, the in-browser route test on the Decision tab is <em>not</em> the Lean-checked certificate.</p></div>` + distinctionCard(); return; }
     const compiled = p.exit_code === 0 && typeof p.mutation_exit_code === "number" && p.mutation_exit_code !== 0;
     const partial = p.exit_code === 0 && !compiled;
     el.innerHTML = `<div class="verdict ${compiled ? "open" : "undetermined"}"><span class="tag">${compiled ? "Receipt: compiled, mutant rejected" : partial ? "Receipt incomplete" : "Not compiled / unverified"}</span>
       <h4>${esc(p.theorem ?? "theorem not named")}</h4><p>status field: <code>${esc(p.status ?? "unknown")}</code> · kernel exit <code>${esc(p.exit_code ?? "unknown")}</code> · mutant exit <code>${esc(p.mutation_exit_code ?? "unknown")}</code></p>
       <p class="hint">${compiled ? "Both exit codes are read from the receipt: the original compiled and the scientific-condition mutant was rejected." : "A green state needs original exit 0 and a non-zero mutant exit; the receipt does not show both."}</p></div>
       <h3>Receipt</h3>${kvTable(p)}
-      <p class="hint">Correspondence between the Lean statement and the edge rule used here is documented by the proof worker; check it before relying on the receipt.</p>`;
+      <p class="hint">Correspondence between each Lean statement and the edge rule it covers is in <code>artifacts/proof/CORRESPONDENCE.md</code>; check it before relying on the receipt.</p>` + distinctionCard();
   }
   /* Core output (demo.json): every route and sweep row is re-derived here from the packed measurements. */
   function coreHtml(d) {
@@ -491,7 +497,7 @@
         let verdict = "route has fewer than 2 nodes or an unparsable genotype";
         if (idx.length === 2 && idx.every((i) => i >= 0) && L.hamming(idx[0], idx[1]) > 1) {
           const dec = L.decide(D, idx[0], idx[1], kappa, "readnoise"); // endpoints of a start/target pair, not a path
-          verdict = `endpoint pair, not a path → browser decision: <b>${dec.status}</b>${dec.status === "blocked" ? ` (closed set of ${dec.closedSetSize.toLocaleString()})` : dec.route ? ` (${dec.route.length - 1} steps)` : ""}`;
+          verdict = `endpoint pair, not a path → browser decision: <b>${dec.status === "blocked" ? "no route certifiable" : dec.status}</b>${dec.status === "blocked" ? ` (closed set of ${dec.closedSetSize.toLocaleString()})` : dec.route ? ` (${dec.route.length - 1} steps)` : ""}`;
         } else if (idx.length > 1 && idx.every((i) => i >= 0) && idx.some((v, s) => s > 0 && L.hamming(idx[s - 1], v) !== 1)) {
           verdict = "contains a step that is not a single substitution";
         } else if (idx.length > 1 && idx.every((i) => i >= 0)) {
@@ -512,7 +518,7 @@
       h += `<h3>κ sweep: core vs browser (${esc(d.pair.start)} → ${esc(d.pair.target)})</h3><table class="mini"><tr><th>κ</th><th>core</th><th>browser</th><th></th></tr>` + d.kappa_sweep.map((row) => {
         const dec = L.decide(D, s, tt, row.kappa, "readnoise"), sr = L.search(D, s, -1, row.kappa, "readnoise", false);
         const bOpen = dec.status === "open", bLen = bOpen ? dec.route.length - 1 : null, ok = bOpen === row.open && bLen === row.shortest_route_edges && sr.reached === row.reachable_from_start;
-        return `<tr><td>${row.kappa}</td><td>${row.open ? "open" : "blocked"}, ${row.shortest_route_edges ?? "–"} steps, ${row.reachable_from_start} reached</td><td>${bOpen ? "open" : dec.status}, ${bLen ?? "–"} steps, ${sr.reached} reached</td><td class="${ok ? "" : "bad"}">${ok ? "match" : "✕ differs"}</td></tr>`;
+        return `<tr><td>${row.kappa}</td><td>${row.open ? "open" : "no route certifiable"}, ${row.shortest_route_edges ?? "–"} steps, ${row.reachable_from_start} reached</td><td>${bOpen ? "open" : (dec.status === "blocked" ? "no route certifiable" : dec.status)}, ${bLen ?? "–"} steps, ${sr.reached} reached</td><td class="${ok ? "" : "bad"}">${ok ? "match" : "✕ differs"}</td></tr>`;
       }).join("") + `</table>`;
     }
     const ex = d.replay_example;

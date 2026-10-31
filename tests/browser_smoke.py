@@ -72,8 +72,8 @@ def run():
         before = pg.inner_text("#dec-dyn")
         pg.evaluate("()=>{const e=document.querySelector('#eps');e.value=6;e.dispatchEvent(new Event('input'))}")
         after = pg.inner_text("#dec-dyn")
-        if before == after or "BLOCKED" not in after.upper():
-            fails.append("slider at max must flip the decision to blocked")
+        if before == after or "NO ROUTE CERTIFIABLE" not in after.upper() or "MAY STILL EXIST" not in after.upper():
+            fails.append("slider at max must flip the decision to 'no route certifiable' and say an ascending route may still exist")
         pg.click("#tab-evidence")
         if "Genotype" not in pg.inner_text("#p-evidence"):
             fails.append("evidence tab empty")
