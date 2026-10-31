@@ -301,6 +301,7 @@
     "fix_branch": "kganjam/delphi-frontier work/critic-honesty-fixes from base ac311552d095, commits e4ab195 b9f603b 81ca466 aa29a6d (pushed, exit 0)",
     "probe_control_failed": "declared control 2 failed at one prior (89.53% vs >90%); not retrofitted",
     "correction": "critic's '148 no source' register claim withdrawn: all 250 entries carry attestations (465)",
-    "not_touched": "frontier/models.py store.py tests website GOAL.md"
+    "not_touched": "frontier/models.py store.py tests website GOAL.md",
+    "lean_fix": "kganjam/delphi-frontier work/critic-lean-f5 from c2c1c6e, commit 47dd9a2 pushed exit 0; Admissible.lean exit 0 (16 standard axiom prints); 4 false mutants rejected, controls exit 1; tests/test_admissible_lean.py 5 passed exit 0; mutation red exit 1"
   }
 }
