@@ -1,0 +1,23 @@
+{
+ "core_certificate": "artifacts/core/certificates/route_VFVS_AIKG_kappa2.json",
+ "core_body_sha256": "cc7c0cc2d045d2c0fb614a7a19591aefa70e7d71cadac9aeaf0f85a7dd75ad52",
+ "route": [
+  "VFVS",
+  "VFMS",
+  "SFMS",
+  "SIMS",
+  "SIMG",
+  "SIKG",
+  "AIKG"
+ ],
+ "nodes": 7,
+ "recompute_exact_matches": 7,
+ "recompute_mismatch_gt_1e-6": [],
+ "python_mirror_accepts": true,
+ "lean_original_build_exit": 0,
+ "lean_mutant_swap_build_exit": 1,
+ "lean_mutant_rejected_by_kernel_decide": true,
+ "lean_module": "DarwinBridge.Certs.CoreKappa2RouteVfvsaikg",
+ "scope_note": "route statement only; not a blocked/cut certificate",
+ "ok": true
+}

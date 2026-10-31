@@ -54,6 +54,21 @@
       "cmd": "python3 scripts/browser_smoke.py site /tmp/integ/shots (headless Chromium, desktop 1280 and mobile 390)",
       "exit": 1,
       "result": "FAIL: (a) GET data/demo.json 404 -> console error on both viewports; (b) mobile horizontal overflow 21 px from section.map-card (411 px in 390 px viewport). 0 uncaught page errors; 40 focusable controls; 12 distinct focus stops in 12 Tab presses; no layout overflow on desktop."
+    },
+    {
+      "cmd": "python3 -m pytest -q tests (system python, capped)",
+      "exit": 1,
+      "result": "38 passed, 2 failed: rdflib not installed/declared"
+    },
+    {
+      "cmd": "python3 -m venv /tmp/integ/venv; pip install '.[test]'; python -m pytest -q tests (capped)",
+      "exit": "0,0",
+      "result": "40 passed, 14 warnings (rdflib deprecation) after adding rdflib and scipy to pyproject"
+    },
+    {
+      "cmd": "python3 scripts/bridge_core_cert.py artifacts/core/certificates/route_VFVS_AIKG_kappa2.json data/raw/summary_AA.csv /tmp/integ/bridgework artifacts/integration/core_kappa2_route_lean.json",
+      "exit": 0,
+      "result": "core kappa=2 route VFVS>VFMS>SFMS>SIMS>SIMG>SIKG>AIKG: 7/7 intervals recomputed exactly from raw CSV; Lean original builds (exit 0); swapped-route mutant rejected by kernel decide (exit 1)"
     }
   ],
   "findings": [
@@ -70,13 +85,21 @@
     "GPU prior leakage check pending: Ctx.prior accepts a 160k-vector; a prior is only admissible if label-free (zero-shot ESM score) or refit inside each episode on admissible observations. A prior regressed on all labels would leak.",
     "Fixed in integration tree: scripts/fetch_data.py sent 'kris.ganjam@alleninstitute.org' in the HTTP User-Agent to CaltechDATA; replaced with the repository URL (no personal email sent to external services). Core worker should not reintroduce it.",
     "site (experience ef9485a) is honest when data is absent: chips read 'demo.json: not present', 'Lean receipt: none', 'Replay benchmark: none', 'GPU run: none recorded'. In-browser epsilon=0 route VFVS>VFMS>VFMG>VIMG>VIKG>AIKG is identical to the Lean-certified trpb_route_delta0 route; weakest step margin 0.0026. Real count/license/DOI shown.",
-    "Open integration defects: site requests data/demo.json (404 until core's demo exists; final deploy must ship it); mobile overflow 21 px (section.map-card) in experience-owned site/style.css - not edited while that worker is active."
+    "Open integration defects: site requests data/demo.json (404 until core's demo exists; final deploy must ship it); mobile overflow 21 px (section.map-card) in experience-owned site/style.css - not edited while that worker is active.",
+    "F1 (see planning/INTEGRATION-FINDINGS.md): core 'blocked' = no certifiable route (edges with overlapping intervals dropped); its shipped cut HTGR>GTVN is closed set {HTGR} with only 6/76 neighbours certified lower and 70 overlapping/higher, so Lean's blocked_cut_sound would reject it. Core blocked results must be worded 'no certified route in the measured subgraph', never 'certified impossible'.",
+    "F2: core (mean +/- kappa*sd_bin/2, kappa=2) and proof (replicate envelope +/- uniform delta) use different interval models. Bridged: core's kappa=2 VFVS>AIKG route is now Lean-kernel-checked via a delta=0 table (scripts/bridge_core_cert.py).",
+    "F3: pyproject.toml lacked rdflib and scipy; fixed in integration (clean-venv test run 40 passed)."
   ],
   "artifacts": [
     "scripts/audit_data.py",
     "scripts/check_demo.py",
     "scripts/integ_mutants.py",
-    "scripts/browser_smoke.py"
+    "scripts/browser_smoke.py",
+    "scripts/bridge_core_cert.py",
+    "artifacts/integration/core_kappa2_route_lean.json",
+    "artifacts/integration/core_kappa2_route_lean.certificate.json",
+    "artifacts/integration/core_kappa2_route.input.json",
+    "planning/INTEGRATION-FINDINGS.md"
   ],
   "limitations": [
     "experience nanopub validation is rdflib structural only (worker-reported, not rerun by me).",

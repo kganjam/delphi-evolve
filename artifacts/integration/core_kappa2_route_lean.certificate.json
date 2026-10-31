@@ -1,0 +1,168 @@
+{
+ "schema": "darwin-bridge-proof-cert/1",
+ "kind": "route",
+ "label": "core_kappa2_route_VFVSAIKG",
+ "theorem": "DarwinBridge.routeCert_sound",
+ "graph_scope": {
+  "name": "four-site-20^4-single-substitution",
+  "vertices": "all 20^4 = 160000 four-letter genotypes over ACDEFGHIKLMNPQRSTVWY (no stop codon)",
+  "edges": "two genotypes differing at exactly one of the four positions",
+  "positions": [
+   "AA1",
+   "AA2",
+   "AA3",
+   "AA4"
+  ],
+  "alphabet": "ACDEFGHIKLMNPQRSTVWY",
+  "not_claimed": "nothing about sequence space beyond these four sites, nor about biology"
+ },
+ "source": {
+  "sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+  "file": "summary_AA.csv",
+  "doi": "10.22002/h5rah-5z170",
+  "license": "CC0 1.0",
+  "note": "intervals are core's kappa=2 model; r1=lower, r2=upper, delta=0 reproduces them exactly",
+  "interval_model": {
+   "rule": "lower=round(mean(r1,r2)*1e6)-eps, upper=round(mean(r1,r2)*1e6)+eps, eps=ceil(kappa*sd_bin/2*1e6); r_k = raw mu_k minus mean raw mu of stop-codon rows; all integers (1e-6 growth-rate units)",
+   "kappa": 2.0,
+   "sd_bin_edges_min_input_count": [
+    20,
+    50,
+    200
+   ],
+   "sd_bin_values": [
+    0.014953,
+    0.009995,
+    0.005851,
+    0.002992
+   ],
+   "units": "1e-6 growth-rate units, integers"
+  }
+ },
+ "scale_exponent": 6,
+ "delta_scaled": 0,
+ "delta_decimal": "0",
+ "delta_status": "ASSUMED sensitivity bound (delta): not a confidence interval; two replicates cannot support simultaneous 95% bounds across 159,129 variants",
+ "outward_rounded_values": 0,
+ "interval_rule": "[min(r1,r2) - delta, max(r1,r2) + delta] on scaled exact integers",
+ "start": "VFVS",
+ "target": "AIKG",
+ "table": [
+  {
+   "genotype": "AIKG",
+   "idx": [
+    0,
+    7,
+    8,
+    5
+   ],
+   "r1": 347769,
+   "r2": 367759,
+   "r1_text": "0.347769",
+   "r2_text": "0.367759"
+  },
+  {
+   "genotype": "SFMS",
+   "idx": [
+    15,
+    4,
+    10,
+    15
+   ],
+   "r1": 177532,
+   "r2": 183516,
+   "r1_text": "0.177532",
+   "r2_text": "0.183516"
+  },
+  {
+   "genotype": "SIKG",
+   "idx": [
+    15,
+    7,
+    8,
+    5
+   ],
+   "r1": 282679,
+   "r2": 294381,
+   "r1_text": "0.282679",
+   "r2_text": "0.294381"
+  },
+  {
+   "genotype": "SIMG",
+   "idx": [
+    15,
+    7,
+    10,
+    5
+   ],
+   "r1": 206567,
+   "r2": 218269,
+   "r1_text": "0.206567",
+   "r2_text": "0.218269"
+  },
+  {
+   "genotype": "SIMS",
+   "idx": [
+    15,
+    7,
+    10,
+    15
+   ],
+   "r1": 184855,
+   "r2": 190839,
+   "r1_text": "0.184855",
+   "r2_text": "0.190839"
+  },
+  {
+   "genotype": "VFMS",
+   "idx": [
+    17,
+    4,
+    10,
+    15
+   ],
+   "r1": 152944,
+   "r2": 158928,
+   "r1_text": "0.152944",
+   "r2_text": "0.158928"
+  },
+  {
+   "genotype": "VFVS",
+   "idx": [
+    17,
+    4,
+    17,
+    15
+   ],
+   "r1": 141759,
+   "r2": 147743,
+   "r1_text": "0.141759",
+   "r2_text": "0.147743"
+  }
+ ],
+ "assumptions": [
+  "A1 (interval containment): the true scaled growth value of every LISTED genotype lies in [min(r1,r2)-delta, max(r1,r2)+delta]. This is an assumption about the assay, not proved.",
+  "A2 (scope): genotypes not listed, including imputed or stop-containing ones, are UNKNOWN; the theorem never constrains them and no certificate relies on them except as members of S.",
+  "A3 (graph): only the declared four-site single-substitution graph; absence of a route here is not absence of a biological route."
+ ],
+ "limitations": [
+  "delta is an assumed sensitivity bound, not a statistical confidence bound.",
+  "Python text->integer conversion is checked by evolve.proof.verify_against_source, not by Lean.",
+  "Growth in the E. coli selection assay is a proxy for function, not kcat/KM.",
+  "Fitness values are real measurements only at listed rows; this certificate is descriptive (full-data), not a prediction benchmark."
+ ],
+ "route": [
+  "VFVS",
+  "VFMS",
+  "SFMS",
+  "SIMS",
+  "SIMG",
+  "SIKG",
+  "AIKG"
+ ],
+ "bridged_from": {
+  "file": "route_VFVS_AIKG_kappa2.json",
+  "body_sha256": "cc7c0cc2d045d2c0fb614a7a19591aefa70e7d71cadac9aeaf0f85a7dd75ad52"
+ },
+ "certificate_sha256": "ae710875411f436993d46989d08f8ee22662badfcc18525b7f08415d8e18ca28"
+}
