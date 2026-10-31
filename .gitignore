@@ -12,3 +12,4 @@ logs/
 node_modules/
 .openai/
 artifacts/core/replay/shards/
+artifacts/core/replay_kappa*/shards/

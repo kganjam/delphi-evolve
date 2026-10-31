@@ -1,0 +1,896 @@
+{
+ "schema": "delphi-evolve/core-certificate/v1",
+ "kind": "cut",
+ "label": "smallest blocked pair in panel (illustrative)",
+ "graph_scope": {
+  "name": "measured-subgraph-of-four-site-20^4-single-substitution",
+  "vertices": "the 159,129 non-stop genotypes with a measurement in summary_AA.csv",
+  "edges": "two genotypes differing at exactly one of the four positions",
+  "outside_scope": "871 unmeasured library genotypes and all stop-containing genotypes; a certificate says NOTHING about paths through them",
+  "not_claimed": "absence of a route here is not absence of an evolutionary route in biology or in full sequence space"
+ },
+ "dataset": {
+  "summary_AA_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+  "manifest": "data/manifest.json",
+  "doi": "10.22002/h5rah-5z170",
+  "license": "CC0 1.0"
+ },
+ "interval_model": {
+  "rule": "lower=round(mean(r1,r2)*1e6)-eps, upper=round(mean(r1,r2)*1e6)+eps, eps=ceil(kappa*sd_bin/2*1e6); r_k = raw mu_k minus mean raw mu of stop-codon rows; all integers (1e-6 growth-rate units)",
+  "kappa": 2.0,
+  "sd_bin_edges_min_input_count": [
+   20,
+   50,
+   200
+  ],
+  "sd_bin_values": [
+   0.014953,
+   0.009995,
+   0.005851,
+   0.002992
+  ],
+  "units": "1e-6 growth-rate units, integers"
+ },
+ "edge_rule": "u->v admissible iff lower[v] >= upper[u]",
+ "start": "HTGR",
+ "target": "GTVN",
+ "assumptions": [
+  "A1 interval containment (ASSUMED, not proved): each genotype's true assay growth score lies in [lower, upper]",
+  "A2 kappa is an assumed sensitivity multiplier on replicate-difference SD/2 by read-count bin; it is NOT a confidence level and gives no coverage claim",
+  "A3 scores are cellular growth-selection proxies (E. coli Trp auxotrophy), not purified-enzyme kcat/KM",
+  "A4 graph scope is the measured subgraph only (see graph_scope)"
+ ],
+ "software": {
+  "python": "3.13.12",
+  "numpy": "2.4.4"
+ },
+ "closed_set": [
+  "HTGR"
+ ],
+ "boundary": [
+  {
+   "from": "HTGR",
+   "to": "ITGR",
+   "reason": "inadmissible",
+   "margin": -16957
+  },
+  {
+   "from": "HTGR",
+   "to": "KTGR",
+   "reason": "inadmissible",
+   "margin": -24445
+  },
+  {
+   "from": "HTGR",
+   "to": "LTGR",
+   "reason": "inadmissible",
+   "margin": -13065
+  },
+  {
+   "from": "HTGR",
+   "to": "MTGR",
+   "reason": "inadmissible",
+   "margin": -16057
+  },
+  {
+   "from": "HTGR",
+   "to": "NTGR",
+   "reason": "inadmissible",
+   "margin": -14469
+  },
+  {
+   "from": "HTGR",
+   "to": "PTGR",
+   "reason": "inadmissible",
+   "margin": -16541
+  },
+  {
+   "from": "HTGR",
+   "to": "QTGR",
+   "reason": "inadmissible",
+   "margin": -24294
+  },
+  {
+   "from": "HTGR",
+   "to": "RTGR",
+   "reason": "inadmissible",
+   "margin": -10840
+  },
+  {
+   "from": "HTGR",
+   "to": "STGR",
+   "reason": "inadmissible",
+   "margin": -8506
+  },
+  {
+   "from": "HTGR",
+   "to": "TTGR",
+   "reason": "inadmissible",
+   "margin": -13509
+  },
+  {
+   "from": "HTGR",
+   "to": "VTGR",
+   "reason": "inadmissible",
+   "margin": -10860
+  },
+  {
+   "from": "HTGR",
+   "to": "WTGR",
+   "reason": "inadmissible",
+   "margin": -10755
+  },
+  {
+   "from": "HTGR",
+   "to": "YTGR",
+   "reason": "inadmissible",
+   "margin": -8374
+  },
+  {
+   "from": "HTGR",
+   "to": "ATGR",
+   "reason": "inadmissible",
+   "margin": -10159
+  },
+  {
+   "from": "HTGR",
+   "to": "CTGR",
+   "reason": "inadmissible",
+   "margin": -16102
+  },
+  {
+   "from": "HTGR",
+   "to": "DTGR",
+   "reason": "inadmissible",
+   "margin": -7121
+  },
+  {
+   "from": "HTGR",
+   "to": "ETGR",
+   "reason": "inadmissible",
+   "margin": -16861
+  },
+  {
+   "from": "HTGR",
+   "to": "FTGR",
+   "reason": "inadmissible",
+   "margin": -9634
+  },
+  {
+   "from": "HTGR",
+   "to": "GTGR",
+   "reason": "inadmissible",
+   "margin": -11477
+  },
+  {
+   "from": "HTGR",
+   "to": "HVGR",
+   "reason": "inadmissible",
+   "margin": -14645
+  },
+  {
+   "from": "HTGR",
+   "to": "HWGR",
+   "reason": "inadmissible",
+   "margin": -17601
+  },
+  {
+   "from": "HTGR",
+   "to": "HYGR",
+   "reason": "inadmissible",
+   "margin": -11800
+  },
+  {
+   "from": "HTGR",
+   "to": "HAGR",
+   "reason": "inadmissible",
+   "margin": -9420
+  },
+  {
+   "from": "HTGR",
+   "to": "HCGR",
+   "reason": "inadmissible",
+   "margin": -11050
+  },
+  {
+   "from": "HTGR",
+   "to": "HDGR",
+   "reason": "inadmissible",
+   "margin": -10954
+  },
+  {
+   "from": "HTGR",
+   "to": "HEGR",
+   "reason": "inadmissible",
+   "margin": -24341
+  },
+  {
+   "from": "HTGR",
+   "to": "HFGR",
+   "reason": "inadmissible",
+   "margin": -13988
+  },
+  {
+   "from": "HTGR",
+   "to": "HGGR",
+   "reason": "inadmissible",
+   "margin": -12818
+  },
+  {
+   "from": "HTGR",
+   "to": "HHGR",
+   "reason": "inadmissible",
+   "margin": -12879
+  },
+  {
+   "from": "HTGR",
+   "to": "HIGR",
+   "reason": "inadmissible",
+   "margin": -22406
+  },
+  {
+   "from": "HTGR",
+   "to": "HKGR",
+   "reason": "inadmissible",
+   "margin": -17036
+  },
+  {
+   "from": "HTGR",
+   "to": "HLGR",
+   "reason": "inadmissible",
+   "margin": -12697
+  },
+  {
+   "from": "HTGR",
+   "to": "HMGR",
+   "reason": "inadmissible",
+   "margin": -22114
+  },
+  {
+   "from": "HTGR",
+   "to": "HNGR",
+   "reason": "inadmissible",
+   "margin": -14761
+  },
+  {
+   "from": "HTGR",
+   "to": "HPGR",
+   "reason": "inadmissible",
+   "margin": -13471
+  },
+  {
+   "from": "HTGR",
+   "to": "HQGR",
+   "reason": "inadmissible",
+   "margin": -10649
+  },
+  {
+   "from": "HTGR",
+   "to": "HRGR",
+   "reason": "inadmissible",
+   "margin": -6681
+  },
+  {
+   "from": "HTGR",
+   "to": "HSGR",
+   "reason": "inadmissible",
+   "margin": -11354
+  },
+  {
+   "from": "HTGR",
+   "to": "HTHR",
+   "reason": "inadmissible",
+   "margin": -12571
+  },
+  {
+   "from": "HTGR",
+   "to": "HTIR",
+   "reason": "inadmissible",
+   "margin": -10561
+  },
+  {
+   "from": "HTGR",
+   "to": "HTKR",
+   "reason": "inadmissible",
+   "margin": -9619
+  },
+  {
+   "from": "HTGR",
+   "to": "HTLR",
+   "reason": "inadmissible",
+   "margin": -11988
+  },
+  {
+   "from": "HTGR",
+   "to": "HTMR",
+   "reason": "inadmissible",
+   "margin": -19024
+  },
+  {
+   "from": "HTGR",
+   "to": "HTNR",
+   "reason": "inadmissible",
+   "margin": -25042
+  },
+  {
+   "from": "HTGR",
+   "to": "HTPR",
+   "reason": "inadmissible",
+   "margin": -12849
+  },
+  {
+   "from": "HTGR",
+   "to": "HTQR",
+   "reason": "inadmissible",
+   "margin": -18784
+  },
+  {
+   "from": "HTGR",
+   "to": "HTRR",
+   "reason": "inadmissible",
+   "margin": -16639
+  },
+  {
+   "from": "HTGR",
+   "to": "HTSR",
+   "reason": "inadmissible",
+   "margin": -7565
+  },
+  {
+   "from": "HTGR",
+   "to": "HTTR",
+   "reason": "inadmissible",
+   "margin": -13627
+  },
+  {
+   "from": "HTGR",
+   "to": "HTVR",
+   "reason": "inadmissible",
+   "margin": -17798
+  },
+  {
+   "from": "HTGR",
+   "to": "HTWR",
+   "reason": "inadmissible",
+   "margin": -18836
+  },
+  {
+   "from": "HTGR",
+   "to": "HTYR",
+   "reason": "inadmissible",
+   "margin": -12434
+  },
+  {
+   "from": "HTGR",
+   "to": "HTAR",
+   "reason": "inadmissible",
+   "margin": -10091
+  },
+  {
+   "from": "HTGR",
+   "to": "HTCR",
+   "reason": "inadmissible",
+   "margin": -12766
+  },
+  {
+   "from": "HTGR",
+   "to": "HTDR",
+   "reason": "inadmissible",
+   "margin": -6320
+  },
+  {
+   "from": "HTGR",
+   "to": "HTER",
+   "reason": "inadmissible",
+   "margin": -20290
+  },
+  {
+   "from": "HTGR",
+   "to": "HTFR",
+   "reason": "inadmissible",
+   "margin": -12330
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGS",
+   "reason": "inadmissible",
+   "margin": -8414
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGT",
+   "reason": "inadmissible",
+   "margin": -17718
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGV",
+   "reason": "inadmissible",
+   "margin": -24746
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGW",
+   "reason": "inadmissible",
+   "margin": -15472
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGY",
+   "reason": "inadmissible",
+   "margin": -14406
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGA",
+   "reason": "inadmissible",
+   "margin": -15648
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGC",
+   "reason": "inadmissible",
+   "margin": -15992
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGD",
+   "reason": "inadmissible",
+   "margin": -25177
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGE",
+   "reason": "inadmissible",
+   "margin": -21062
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGF",
+   "reason": "inadmissible",
+   "margin": -19133
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGG",
+   "reason": "inadmissible",
+   "margin": -24756
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGH",
+   "reason": "inadmissible",
+   "margin": -19308
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGI",
+   "reason": "inadmissible",
+   "margin": -19144
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGK",
+   "reason": "inadmissible",
+   "margin": -27808
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGL",
+   "reason": "inadmissible",
+   "margin": -11247
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGM",
+   "reason": "inadmissible",
+   "margin": -17059
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGN",
+   "reason": "inadmissible",
+   "margin": -7850
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGP",
+   "reason": "inadmissible",
+   "margin": -13760
+  },
+  {
+   "from": "HTGR",
+   "to": "HTGQ",
+   "reason": "inadmissible",
+   "margin": -24557
+  }
+ ],
+ "nodes": {
+  "HTGR": {
+   "measured": true,
+   "lower": 1615,
+   "upper": 13317
+  },
+  "ITGR": {
+   "measured": true,
+   "lower": -3640,
+   "upper": 2344
+  },
+  "KTGR": {
+   "measured": true,
+   "lower": -11128,
+   "upper": -5144
+  },
+  "LTGR": {
+   "measured": true,
+   "lower": 252,
+   "upper": 6236
+  },
+  "MTGR": {
+   "measured": true,
+   "lower": -2740,
+   "upper": 8962
+  },
+  "NTGR": {
+   "measured": true,
+   "lower": -1152,
+   "upper": 4832
+  },
+  "PTGR": {
+   "measured": true,
+   "lower": -3224,
+   "upper": 2760
+  },
+  "QTGR": {
+   "measured": true,
+   "lower": -10977,
+   "upper": 725
+  },
+  "RTGR": {
+   "measured": true,
+   "lower": 2477,
+   "upper": 8461
+  },
+  "STGR": {
+   "measured": true,
+   "lower": 4811,
+   "upper": 10795
+  },
+  "TTGR": {
+   "measured": true,
+   "lower": -192,
+   "upper": 5792
+  },
+  "VTGR": {
+   "measured": true,
+   "lower": 2457,
+   "upper": 8441
+  },
+  "WTGR": {
+   "measured": true,
+   "lower": 2562,
+   "upper": 8546
+  },
+  "YTGR": {
+   "measured": true,
+   "lower": 4943,
+   "upper": 16645
+  },
+  "ATGR": {
+   "measured": true,
+   "lower": 3158,
+   "upper": 9142
+  },
+  "CTGR": {
+   "measured": true,
+   "lower": -2785,
+   "upper": 3199
+  },
+  "DTGR": {
+   "measured": true,
+   "lower": 6196,
+   "upper": 12180
+  },
+  "ETGR": {
+   "measured": true,
+   "lower": -3544,
+   "upper": 2440
+  },
+  "FTGR": {
+   "measured": true,
+   "lower": 3683,
+   "upper": 15385
+  },
+  "GTGR": {
+   "measured": true,
+   "lower": 1840,
+   "upper": 7824
+  },
+  "HVGR": {
+   "measured": true,
+   "lower": -1328,
+   "upper": 4656
+  },
+  "HWGR": {
+   "measured": true,
+   "lower": -4284,
+   "upper": 7418
+  },
+  "HYGR": {
+   "measured": true,
+   "lower": 1517,
+   "upper": 13219
+  },
+  "HAGR": {
+   "measured": true,
+   "lower": 3897,
+   "upper": 9881
+  },
+  "HCGR": {
+   "measured": true,
+   "lower": 2267,
+   "upper": 13969
+  },
+  "HDGR": {
+   "measured": true,
+   "lower": 2363,
+   "upper": 14065
+  },
+  "HEGR": {
+   "measured": true,
+   "lower": -11024,
+   "upper": 678
+  },
+  "HFGR": {
+   "measured": true,
+   "lower": -671,
+   "upper": 11031
+  },
+  "HGGR": {
+   "measured": true,
+   "lower": 499,
+   "upper": 6483
+  },
+  "HHGR": {
+   "measured": true,
+   "lower": 438,
+   "upper": 12140
+  },
+  "HIGR": {
+   "measured": true,
+   "lower": -9089,
+   "upper": 2613
+  },
+  "HKGR": {
+   "measured": true,
+   "lower": -3719,
+   "upper": 7983
+  },
+  "HLGR": {
+   "measured": true,
+   "lower": 620,
+   "upper": 6604
+  },
+  "HMGR": {
+   "measured": true,
+   "lower": -8797,
+   "upper": 2905
+  },
+  "HNGR": {
+   "measured": true,
+   "lower": -1444,
+   "upper": 10258
+  },
+  "HPGR": {
+   "measured": true,
+   "lower": -154,
+   "upper": 11548
+  },
+  "HQGR": {
+   "measured": true,
+   "lower": 2668,
+   "upper": 14370
+  },
+  "HRGR": {
+   "measured": true,
+   "lower": 6636,
+   "upper": 12620
+  },
+  "HSGR": {
+   "measured": true,
+   "lower": 1963,
+   "upper": 13665
+  },
+  "HTHR": {
+   "measured": true,
+   "lower": 746,
+   "upper": 6730
+  },
+  "HTIR": {
+   "measured": true,
+   "lower": 2756,
+   "upper": 14458
+  },
+  "HTKR": {
+   "measured": true,
+   "lower": 3698,
+   "upper": 15400
+  },
+  "HTLR": {
+   "measured": true,
+   "lower": 1329,
+   "upper": 7313
+  },
+  "HTMR": {
+   "measured": true,
+   "lower": -5707,
+   "upper": 5995
+  },
+  "HTNR": {
+   "measured": true,
+   "lower": -11725,
+   "upper": -23
+  },
+  "HTPR": {
+   "measured": true,
+   "lower": 468,
+   "upper": 6452
+  },
+  "HTQR": {
+   "measured": true,
+   "lower": -5467,
+   "upper": 6235
+  },
+  "HTRR": {
+   "measured": true,
+   "lower": -3322,
+   "upper": 2662
+  },
+  "HTSR": {
+   "measured": true,
+   "lower": 5752,
+   "upper": 11736
+  },
+  "HTTR": {
+   "measured": true,
+   "lower": -310,
+   "upper": 5674
+  },
+  "HTVR": {
+   "measured": true,
+   "lower": -4481,
+   "upper": 7221
+  },
+  "HTWR": {
+   "measured": true,
+   "lower": -5519,
+   "upper": 6183
+  },
+  "HTYR": {
+   "measured": true,
+   "lower": 883,
+   "upper": 12585
+  },
+  "HTAR": {
+   "measured": true,
+   "lower": 3226,
+   "upper": 9210
+  },
+  "HTCR": {
+   "measured": true,
+   "lower": 551,
+   "upper": 12253
+  },
+  "HTDR": {
+   "measured": true,
+   "lower": 6997,
+   "upper": 18699
+  },
+  "HTER": {
+   "measured": true,
+   "lower": -6973,
+   "upper": 4729
+  },
+  "HTFR": {
+   "measured": true,
+   "lower": 987,
+   "upper": 12689
+  },
+  "HTGS": {
+   "measured": true,
+   "lower": 4903,
+   "upper": 16605
+  },
+  "HTGT": {
+   "measured": true,
+   "lower": -4401,
+   "upper": 7301
+  },
+  "HTGV": {
+   "measured": true,
+   "lower": -11429,
+   "upper": 8561
+  },
+  "HTGW": {
+   "measured": true,
+   "lower": -2155,
+   "upper": 17835
+  },
+  "HTGY": {
+   "measured": true,
+   "lower": -1089,
+   "upper": 10613
+  },
+  "HTGA": {
+   "measured": true,
+   "lower": -2331,
+   "upper": 9371
+  },
+  "HTGC": {
+   "measured": true,
+   "lower": -2675,
+   "upper": 9027
+  },
+  "HTGD": {
+   "measured": true,
+   "lower": -11860,
+   "upper": -158
+  },
+  "HTGE": {
+   "measured": true,
+   "lower": -7745,
+   "upper": 12245
+  },
+  "HTGF": {
+   "measured": true,
+   "lower": -5816,
+   "upper": 14174
+  },
+  "HTGG": {
+   "measured": true,
+   "lower": -11439,
+   "upper": 263
+  },
+  "HTGH": {
+   "measured": true,
+   "lower": -5991,
+   "upper": 5711
+  },
+  "HTGI": {
+   "measured": true,
+   "lower": -5827,
+   "upper": 5875
+  },
+  "HTGK": {
+   "measured": true,
+   "lower": -14491,
+   "upper": 5499
+  },
+  "HTGL": {
+   "measured": true,
+   "lower": 2070,
+   "upper": 8054
+  },
+  "HTGM": {
+   "measured": true,
+   "lower": -3742,
+   "upper": 7960
+  },
+  "HTGN": {
+   "measured": true,
+   "lower": 5467,
+   "upper": 17169
+  },
+  "HTGP": {
+   "measured": true,
+   "lower": -443,
+   "upper": 11259
+  },
+  "HTGQ": {
+   "measured": true,
+   "lower": -11240,
+   "upper": 8750
+  }
+ },
+ "body_sha256": "fbc1e2d3dd483fae78458cfd324879f15c5c834155ed96903d905b8d0478a8ef"
+}
