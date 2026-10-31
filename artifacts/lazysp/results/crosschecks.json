@@ -1,0 +1,6 @@
+{
+ "note": "Cross-checks run by the lazy-baseline worker (commands in tasks/results/lazy-baseline.json).",
+ "q2c_saved_vs_core_rerun": {"core_artifact": "origin/work/core:artifacts/core/replay/episodes.csv (commit 7f722cd)", "q2c_episodes_compared": 100, "status_equal": 100, "assays_equal": 100, "note": "saved original q2c rows (artifacts/recovery/episodes.csv, used as comparator) equal core's later rerun on status and assays for all 100 episodes"},
+ "candidate_path_caching_vs_replan_every_iteration": {"episodes": "seed 0, episode indices 0,2,3, selectors forward/alternate/reverse (9 runs)", "identical_query_sequences": 9, "different": 0, "note": "forced full re-search at every iteration gives the same assay sequence as keeping a still-valid incumbent path; informational, tie-breaking could in principle differ"},
+ "smoke_seed0_vs_panel_seed0": {"shards_compared": 5, "identical_qlogs": 5}
+}

@@ -1,0 +1,121 @@
+{
+ "role": "core",
+ "status": "completed",
+ "branch": "work/core",
+ "commit": "7f2ba753a5fb73d3b31fc560ce5dfd13c9565577",
+ "model": "Claude Sonnet 5.5 (claude-sonnet-5-5), existing subscription; no metered API charge known; CLI cost estimates are not subscription spend",
+ "wall_time_seattle": "2026-10-31 ~00:00 to ~01:15 PDT (before the Nov 1 2026 DST change)",
+ "summary": "Audited loader + measured-graph truth + sound query-to-certify ledger + 11-policy matched-budget replay (20 seeds x 5 pairs, 1000 assays, censoring retained), paired analysis, plots, query logs, demo.json, integer-interval certificates. Collective shows NO advantage over a single planner; learned GP surrogate hurts beyond ~250 assays; evidence isolation hurts the better planner.",
+ "commands_run": [
+  {
+   "cmd": "python scripts/fetch_data.py --write-manifest (range reads of data.zip)",
+   "exit": 0,
+   "note": "28.4 MB over 10 HTTP range requests; sha256 equal to scout copies"
+  },
+  {
+   "cmd": "python -m evolve audit",
+   "exit": 0,
+   "note": "noise_model_check ok; counts in artifacts/core/audit.json"
+  },
+  {
+   "cmd": "python -m evolve replay (main, seeds 0-19, chunks of 5 seeds, each in systemd-run scope TasksMax=128 MemoryMax=4G MemorySwapMax=0 RuntimeMaxSec=600)",
+   "exit": 0,
+   "note": "all chunks exit 0; first main run produced EMPTY shards for seeds 5-19 due to my own edit dropping rows.append (found when n=25 episodes/policy appeared); deleted and re-ran; regression test added"
+  },
+  {
+   "cmd": "python -m evolve replay --policies collective_shared_rr / q2c_nomodel / collective_{shared,isolated}_c (post-hoc ablations)",
+   "exit": 0
+  },
+  {
+   "cmd": "python -m evolve replay --kappa 1.0 and 3.0, seeds 0-9, 5 policies",
+   "exit": 0
+  },
+  {
+   "cmd": "python -m evolve summarize (x3 dirs)",
+   "exit": 0
+  },
+  {
+   "cmd": "python -m evolve demo --output artifacts/demo.json",
+   "exit": 0
+  },
+  {
+   "cmd": "python -m pytest tests/test_core_data_graph.py tests/test_core_replay.py",
+   "exit": 0,
+   "note": "29 passed"
+  },
+  {
+   "cmd": "fresh clone of pushed work/core: fetch_data.py + audit + demo + pytest",
+   "exit": 0,
+   "note": "network fetch hashes matched; demo.json identical except generated_at; 29 passed"
+  }
+ ],
+ "artifacts": [
+  "artifacts/demo.json",
+  "artifacts/core/README.md",
+  "artifacts/core/audit.json",
+  "artifacts/core/protocol.json",
+  "artifacts/core/certificates/route_VFVS_AIKG_kappa2.json",
+  "artifacts/core/certificates/cut_HTGR_GTVN_kappa2.json",
+  "artifacts/core/replay/{episodes,table_primary,table_paired}.csv",
+  "artifacts/core/replay/summary.json",
+  "artifacts/core/replay/{cert_vs_assays,outcomes_at_budget,ablation_cert_vs_assays,ablation_outcomes_at_budget}.png",
+  "artifacts/core/replay/queries/queries__*.tsv.gz",
+  "artifacts/core/replay/events/*.jsonl.gz",
+  "artifacts/core/replay_kappa1.0/",
+  "artifacts/core/replay_kappa3.0/",
+  "data/manifest.json",
+  "scripts/fetch_data.py",
+  "evolve/",
+  "tests/test_core_*.py"
+ ],
+ "key_results_from_tables": {
+  "seeds": 20,
+  "episodes_per_policy": 100,
+  "budget_assays": 1000,
+  "false_certificates_all_policies": 0,
+  "full_data_verification_failures": 0,
+  "cert_rate_at_1000": {
+   "random": 0.21,
+   "greedy": 0.08,
+   "uncertainty": 0.13,
+   "directed": 0.32,
+   "q2c": 0.78,
+   "q2c_nomodel_posthoc": 0.96,
+   "collective_shared": 0.78,
+   "collective_isolated": 0.77,
+   "collective_shared_c_posthoc": 0.96,
+   "collective_isolated_c_posthoc": 0.65
+  },
+  "paired_q2c_minus_directed_at_1000": "+0.46 [0.40,0.53] seed-cluster bootstrap, 46/0/54",
+  "paired_collective_shared_minus_q2c_at_1000": "0.00, tied in 100/100 (no collective advantage)",
+  "paired_shared_c_minus_isolated_c_at_1000": "+0.31 [0.24,0.37]"
+ },
+ "site_integration": {
+  "boundary": "artifacts/demo.json (copy to site/data/demo.json); fields per specs/CONTRACT.md plus extras: graph_scope, interval_model, pair, kappa_sweep (route existence vs assumed kappa for slider), routes[].steps/weakest_step_index/breaks_at_kappa, replay_example (worked shared-collective episode with queries and specialist events), benchmark.key_numbers_derived_from_tables",
+  "unavailable_blocks": "proof, compute, claims are explicitly unavailable/null/[]; coordinator should merge proof/gpu/claims receipts rather than editing numbers",
+  "node_layout": "nodes[].grid is a projection (AA1,AA2)x(AA3,AA4), not geometry"
+ },
+ "interfaces_for_other_workers": {
+  "proof": "artifacts/core/certificates/*.json carry integer micro-unit lower/upper, route or closed set+boundary, dataset sha256, scope, assumptions. Interval rule differs from origin/work/proof (they use [min(r1,r2)-delta,max(r1,r2)+delta] on their own scale); reconcile or document before claiming the Lean checker validates core's replay certificates. Nothing here has been Lean-checked.",
+  "gpu": "optional prior hook: policy name suffix '+prior' with env EVOLVE_PRIOR_NPY=(160000,) float array of predicted scores in evolve.data.encode order; no prior run exists so foundation-model prior vs no prior is NOT DONE"
+ },
+ "limitations": [
+  "Retrospective replay over already-assayed labels; no wet-lab result, no new variant",
+  "Truth is finite measured-graph reachability under an ASSUMED interval model (kappa=2 main; 1 and 3 sensitivity on 10 seeds); not biological truth; blocked != impossible in sequence space",
+  "False certificates = 0 is guaranteed by construction (certificates use only revealed labels); not evidence of calibration. No coverage claim exists; replicate sign agreement of open certs (587/587 consistent) is descriptive, not held-out validation",
+  "q2c_nomodel, collective_shared_rr and *_c variants were added after seeing 7-policy results (post hoc, exploratory; optimistic margins); protocol.json lists 7 policies",
+  "GP hyperparameters fixed a priori, untuned; GP-vs-no-model result is specific to this implementation",
+  "Family B is 1 start x 4 targets x 20 initial-set seeds, not 80 independent pairs; 8 blocked pairs only; blocked certification is policy-independent",
+  "Collective: distinct specialist objects with logged proposals/challenges/decisions, but fixed in-process scheduling; shared collective == single planner, so no decentralised-agency advantage is shown; isolated arm has a free duplicate-answer leak",
+  "Noise bins calibrated on replicate differences over all rows (population-level, frozen pre-replay); two replicates give no rigorous simultaneous confidence bands",
+  "No ALDE re-implementation or comparison; ALDE inspected as prior art only; no foundation-model prior comparison; no Delphi claim import (claims=[])",
+  "Event logs are hash-chained but unsigned; only seed 0 specialist events saved; GPU unused"
+ ],
+ "next_steps": [
+  "Reconcile certificate interval rule with proof worker and run Lean checker on route_VFVS_AIKG_kappa2.json / cut certificates",
+  "Run +prior policies if gpu worker produces a real (160000,) prior",
+  "Tune or replace GP surrogate under a pre-registered protocol and re-test q2c vs q2c_nomodel on fresh seeds",
+  "Add held-out replicate validation at the decision level and more blocked pairs",
+  "Wire demo.json to site and merge proof/gpu receipts"
+ ]
+}

@@ -3,7 +3,7 @@
 Written 2026-10-31 (Seattle PDT, ~00:45) by the resources worker (Claude Sonnet 5.5), branch `work/resources`.
 Everything below is traceable to files under `artifacts/services/`. Gemini outputs are **model opinion**; each item
 was checked by the worker against code or data and given a verdict. Nothing here is a wet-lab or biological result.
-The central scientific contribution of the project is query-to-certify, **not** structure prediction.
+The required demonstration is the query-to-certify benchmark and operational claim reuse. Structure predictions are auxiliary evidence, and the overall novelty assessment remains separate from this service receipt.
 
 ## 1. Ready-to-use receipt (for the integrator)
 
@@ -27,7 +27,7 @@ The central scientific contribution of the project is query-to-certify, **not** 
   **Single-sequence dummy MSA; no external MSA, no templates, no relaxation.** The tool exposes no seed field, so the seed is unspecified.
 * Input: 397-aa Tm9D8s\* construct from CaltechDATA `h5rah-5z170` `tm9d8s_AAs.fasta` (sha256 `d56ebe8d…bbc6c`, verified by the gpu worker; header `Tm9D8*`; includes the C-terminal `LEHHHHHH` tag). VFVS is the parent; AIKG substitutes residues 183/184/227/228 only. Numbering is the 1-based index into the construct (Met1); PDB residue numbers equal it (tested). No mapping to wild-type *T. maritima* numbering is claimed.
 * Confidence is poor: VFVS ranking confidence 40.8, pTM 0.263, mean pLDDT 40.8, 0.5% of residues pLDDT >= 70; the four sites have pLDDT 24 to 49. AIKG: 41.5, 0.262, 41.5.
-* Against the deposited crystal structure of the same parent (`Tm9D8s_refine_19.pdb`, sha256 `1e2bcd9e…9676`, CC0), the prediction does **not** reproduce the fold: Calpha RMSD 28.5 Å (chain A, Kabsch, 389 common residues), 1% of Calpha within 4 Å. The four sites are displaced 12 to 22 Å after global superposition. The two predictions differ from each other by 5.9 Å Calpha RMSD, far more than four point substitutions justify, so that difference is model noise.
+* Against the deposited crystal structure of the same parent (`Tm9D8s_refine_19.pdb`, sha256 `1e2bcd9e…9676`, CC0), the prediction does **not** reproduce the fold: Calpha RMSD 28.5 Å (chain A, Kabsch, 389 common residues), 1% of Calpha within 4 Å. The four sites are displaced 12 to 22 Å after global superposition. The two predictions differ from each other by 5.9 Å Calpha RMSD. Given their low confidence and the parent prediction's disagreement with the experimental structure, this difference cannot be attributed to a mutation-induced conformational change. The number of substitutions alone does not establish how much a structure can change.
 * pLDDT is model self-confidence, not functional confidence. A coordinate difference between predicted models is not causal evidence for the fitness difference. This is **predicted**, the growth scores beside it are **observed**; the panel shows them separately.
 * Downloaded bytes and hashes are retained; signed URLs were used in memory and never stored; the team bucket name is omitted. Wall times: VFVS 00:29:59 to 00:35:38 PDT (338.6 s; about 5 min queue, inference 19.7 s), AIKG 00:38:31 to 00:41:09 PDT.
 

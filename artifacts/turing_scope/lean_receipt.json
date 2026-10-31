@@ -1,0 +1,89 @@
+{
+ "timestamp_seattle": "2026-10-31 01:49:10 PDT",
+ "lean_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+ "build": {
+  "command": "lake build",
+  "exit": 0,
+  "output_tail": [
+   "\u2714 [2/5] Built TuringScope.Basic (787ms)",
+   "\u2714 [3/5] Built TuringScope.Instance (665ms)",
+   "\u2714 [4/5] Built TuringScope (275ms)",
+   "Build completed successfully (5 jobs)."
+  ]
+ },
+ "forbidden_tokens_in_source": [],
+ "axiom_audit": {
+  "command": "lake env lean Audit.lean",
+  "exit": 0,
+  "distinct_axiom_sets": [
+   "propext, Classical.choice, Quot.sound"
+  ],
+  "unexpected_axioms": []
+ },
+ "sources": {
+  "turing_scope/lean/TuringScope/Basic.lean": "c737af890fce057a7cddc1aabe3645857d54c99f6ef24e9af6f2992fd379b4f3",
+  "turing_scope/lean/TuringScope/Instance.lean": "cd41565a3a8c5cde681b8605611268c047cbec5e66f3a12c3c90f989dd198780",
+  "turing_scope/lean/TuringScope.lean": "f9dceaf463126365de9ed64b0e4b7c6b3bd481782b7725c1e4a42ceba508b19d"
+ },
+ "mutants": [
+  {
+   "file": "turing_scope/lean/mutants/Control_unmutated.lean",
+   "sha256": "d4c720d46976e035e449392087bae245cdbb1599604ff44d14c188808bdfbb81",
+   "description": "unmutated claim (L=2\u03c0, original law): must compile",
+   "expected_exit_nonzero": false,
+   "exit": 0,
+   "as_expected": true,
+   "first_error": "",
+   "proved_false_by_decide": false
+  },
+  {
+   "file": "turing_scope/lean/mutants/M1_law_reaction_d.lean",
+   "sha256": "590ec0751ad96723f7c4c0fdbcecf1b9e30b6dd59b41872483082b6c260c7ace",
+   "description": "source-law mutation: g_v -3 -> -2",
+   "expected_exit_nonzero": true,
+   "exit": 1,
+   "as_expected": true,
+   "first_error": "/data/worktrees/delphi-evolve/release/turing_scope/lean/mutants/M1_law_reaction_d.lean:6:50: error: Tactic `decide` proved that the proposition",
+   "proved_false_by_decide": true
+  },
+  {
+   "file": "turing_scope/lean/mutants/M2_law_diffusion_ratio.lean",
+   "sha256": "fa4ff47cd99164eeb0fd37d43b989920828001d613d116a09705f423d10d7e3c",
+   "description": "source-law mutation: Dv 10 -> 1 (equal diffusivities)",
+   "expected_exit_nonzero": true,
+   "exit": 1,
+   "as_expected": true,
+   "first_error": "/data/worktrees/delphi-evolve/release/turing_scope/lean/mutants/M2_law_diffusion_ratio.lean:6:50: error: Tactic `decide` proved that the proposition",
+   "proved_false_by_decide": true
+  },
+  {
+   "file": "turing_scope/lean/mutants/M3_domain_short.lean",
+   "sha256": "85876169c4007b2d1eafe284d334d2db78c87615096bfd5449be9eea955a848f",
+   "description": "domain mutation: L=\u03c0, claim mode 1 unstable",
+   "expected_exit_nonzero": true,
+   "exit": 1,
+   "as_expected": true,
+   "first_error": "/data/worktrees/delphi-evolve/release/turing_scope/lean/mutants/M3_domain_short.lean:6:50: error: Tactic `decide` proved that the proposition",
+   "proved_false_by_decide": true
+  }
+ ],
+ "generic_law_mutants": [
+  {
+   "name": "reaction_cross_term",
+   "before": "- (m.b * M) * (m.c * M)",
+   "after": "+ (m.b * M) * (m.c * M)",
+   "exit": 1,
+   "killed_in_model_file": true,
+   "first_error": "error: TuringScope/Basic.lean:64:25: `grind` failed"
+  },
+  {
+   "name": "neumann_mode_spectrum",
+   "before": "(n : Int) ^ 2 * s ^ 2",
+   "after": "(n : Int) * s ^ 2",
+   "exit": 1,
+   "killed_in_model_file": true,
+   "first_error": "error: TuringScope/Basic.lean:126:2: `grind` failed"
+  }
+ ],
+ "ok": true
+}

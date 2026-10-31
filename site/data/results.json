@@ -1548,7 +1548,7 @@
   "family A has 8 blocked pairs; blocked certification is the same for all policies because a cut needs every neighbour assayed",
   "false certificates are 0 by construction (certificates use only revealed labels), so that column is a check, not a finding",
   "policies marked post-hoc were added after the first results and are exploratory; best-of-several selection is optimistic",
-  "no ALDE implementation and no foundation-model prior was run; comparisons are against this repository's own policies",
+  "ALDE was not run; these original/post-hoc core arms do not include a foundation-model prior. Later LazySP and GPU-prior follow-ups are reported separately",
   "'no route certifiable' (called blocked in the tables) means no chain of steps with lower(next) >= upper(current) exists in the measured subgraph; an actual ascending route may still exist",
   "the noise bins are estimated over all 159,129 measured rows before the replay: a transductive sensitivity calibration, not an independently held-out replicate validation; kappa is an assumed multiplier, not a confidence level",
   "query-efficient path finding is established (LazySP, Bayesian active edge evaluation); only the enzyme-assay setting, the replay and the certificates are ours"

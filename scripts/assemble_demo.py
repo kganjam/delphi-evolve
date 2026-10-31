@@ -7,7 +7,7 @@
 Refuses (nonzero exit) if receipts contradict each other. It never turns a missing result into a
 pass: absent GPU/benchmark stay 'unavailable'.
 """
-import hashlib, json, pathlib, sys
+import hashlib, json, pathlib, shutil, sys
 
 R = pathlib.Path(__file__).resolve().parents[1]
 J = lambda p: json.load(open(R / p))
@@ -111,18 +111,18 @@ cl = J("artifacts/evidence/demo_claims.json")["claims"]
 demo["claims"] = cl
 demo["claims_status"] = "Delphi records queried live 2026-10-31 (local and network kept separate); relation is motivation/context only; nanopub drafts are unsigned and unpublished"
 
+from evolve.release_evidence import claim_block, compute_block, lazysp_block
+try:
+    demo["operational_claims"] = claim_block(R)
+    lazysp = lazysp_block(R)
+except (ValueError, OSError, KeyError) as error:
+    errs.append(f"claim-runtime integration: {error}")
+
 # --- compute (GPU) ----------------------------------------------------------------------------
-gp = R / "tasks/results/gpu.json"
-if gp.exists():
-    g = json.load(open(gp))
-    demo["compute"] = {"status": g.get("status", "unknown"), "provider": g.get("provider"), "model": g.get("model"),
-                       "job_id": g.get("job_id") or g.get("job_ids"), "artifacts": g.get("artifacts", []),
-                       "receipt": "tasks/results/gpu.json",
-                       "note": "predictions guide measurement only; never discharge an empirical premise"}
-    if g.get("status") in ("completed", "passed") and not demo["compute"]["job_id"]:
-        errs.append("gpu receipt completed without job id")
-else:
-    demo["compute"].setdefault("note", "no GPU receipt integrated")
+try:
+    demo["compute"] = compute_block(R)
+except (ValueError, OSError, KeyError) as error:
+    errs.append(f"GPU integration: {error}")
 
 if errs:
     print(json.dumps({"ok": False, "errors": errs}, indent=1)); sys.exit(1)
@@ -130,5 +130,17 @@ out = json.dumps(demo, indent=1)
 (R / "artifacts/demo.json").write_text(out)
 (R / "site/data").mkdir(parents=True, exist_ok=True)
 (R / "site/data/demo.json").write_text(out)
+if lazysp.get("status") == "completed":
+    (R / "site/data/lazysp.json").write_text(json.dumps(lazysp, indent=1))
+if demo.get("operational_claims", {}).get("status") == "recorded":
+    destination = R / "site/claims"
+    destination.mkdir(parents=True, exist_ok=True)
+    for name in ("index.html", "receipt.js", "bench.js"):
+        shutil.copyfile(R / "claim_runtime/demo" / name, destination / name)
+if (R / "artifacts/turing_scope/results.json").exists():
+    destination = R / "site/turing"
+    destination.mkdir(parents=True, exist_ok=True)
+    for name in ("index.html", "data.js"):
+        shutil.copyfile(R / "turing_scope/site" / name, destination / name)
 print(json.dumps({"ok": True, "sha256": hashlib.sha256(out.encode()).hexdigest(), "proof": demo["proof"]["status"],
                   "compute": demo["compute"]["status"], "benchmark": demo["benchmark"]["status"]}))

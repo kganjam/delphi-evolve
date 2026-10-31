@@ -46,6 +46,7 @@ with sync_playwright() as p:
         for _ in range(12):
             pg.keyboard.press("Tab")
             seen.add(pg.evaluate("(document.activeElement.tagName||'')+'#'+(document.activeElement.id||'')+'.'+((document.activeElement.textContent||'').trim().slice(0,20))"))
+        pg.evaluate("window.scrollTo(0, 0)")
         pg.screenshot(path=str(out / f"site_{name}.png"), full_page=True)
         text = pg.inner_text("body")
         report["viewports"][name] = {"console": console, "page_errors": errors, "failed_requests": failed,

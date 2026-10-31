@@ -35,7 +35,7 @@ def main(path):
     fails, soft = [], []
     need(d, TOP, "top", fails)
     need(d.get("source"), SRC, "source", fails)
-    for i, n in enumerate(d.get("nodes", [])[:5000]):
+    for i, n in enumerate(d.get("nodes", [])):
         need(n, NODE, f"nodes[{i}]", fails)
         if isinstance(n, dict):
             if n.get("evidence_kind") not in KINDS_OK:
@@ -77,7 +77,7 @@ def main(path):
         if want not in flat:
             soft.append(f"source.counts does not mention {want}")
     p = d.get("proof", {}) if isinstance(d.get("proof"), dict) else {}
-    if p.get("status") in ("passed", "verified", "ok", "compiled"):
+    if p.get("status") in ("passed", "verified", "ok", "compiled", "completed"):
         if p.get("exit_code") != 0:
             fails.append("proof status positive but exit_code != 0")
         if p.get("mutation_exit_code") in (None, 0):

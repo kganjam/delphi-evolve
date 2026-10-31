@@ -1,0 +1,852 @@
+{
+ "kind": "recorded outputs of `python -m turing_scope demo` (Python adapter run); NOT a Lean proof, NOT an observation",
+ "generated_seattle": "2026-10-31 01:49:58 PDT",
+ "evidence_type": "model-derived",
+ "pins": {
+  "turing-ddi": {
+   "content_sha256": "43de1d39496e0d2a8df133d0e537bed158bf3c68d23c28a764c2356715aa4f66",
+   "response_sha256": "2a04297ce4848074b0851707c77fbeeec2832f333108dc66ae54395e0bd06f1f",
+   "source": "local",
+   "nanopubs": [
+    "math-bio-theorems/nanopubs/unsigned/turing-ddi.trig"
+   ]
+  },
+  "turing-wavelength": {
+   "content_sha256": "e0d541383aa5d6334d794b60753e371dc781b01f0bc1b45e3d0ec337208a7559",
+   "response_sha256": "83ca44031701766e4b0dc6d42b1b5bcefc03640e4145906333ea335f704bed21",
+   "source": "local",
+   "nanopubs": [
+    "math-bio-theorems/nanopubs/unsigned/turing-wavelength.trig"
+   ]
+  }
+ },
+ "short_domain": {
+  "adapter": "turing-scope/two-species-linear-neumann-1d",
+  "adapter_version": "1.0.0",
+  "request_id": "example-short_L_pi",
+  "verdict": "stable",
+  "reasons": [
+   "every admissible Neumann mode (n=0 and all n>=1) has trace<0 and det>0: linearly stable",
+   "the continuum instability band is non-empty but contains no admissible q_n on this domain"
+  ],
+  "evidence_type": "model-derived",
+  "observed": null,
+  "inputs": {
+   "jacobian": [
+    [
+     "1",
+     "-2"
+    ],
+    [
+     "2",
+     "-3"
+    ]
+   ],
+   "diffusivities": [
+    "1",
+    "10"
+   ],
+   "fixed_point": {
+    "declared": true,
+    "description": "Homogeneous steady state (u*,v*) DECLARED by the requester. The Jacobian is the linearization there; the adapter does not verify either, and no measurement is involved."
+   },
+   "domain": {
+    "dimension": 1,
+    "boundary": "neumann_zero_flux",
+    "length_over_pi": "1",
+    "length": "1*pi"
+   }
+  },
+  "derived": {
+   "trace_J": "-2",
+   "det_J": "1",
+   "S": "7",
+   "DuDv": "10"
+  },
+  "band": {
+   "record_inequality": "D_v f_u + D_u g_v > 2 sqrt(D_u D_v det J)  <=>  S>0 and S^2 > 4 Du Dv det J",
+   "S": "7",
+   "discriminant_S2_minus_4DuDv_detJ": "9",
+   "band_exists": true,
+   "exact": true,
+   "q_lower": "1/5",
+   "q_upper": "1/2",
+   "unstable_when": "q strictly between the endpoints (det J - q D < 0)",
+   "det_polynomial": "10 q^2 - 7 q + 1",
+   "trace_polynomial": "-2 - 11 q"
+  },
+  "modes": [
+   {
+    "n": 0,
+    "q": "0",
+    "trace": "-2",
+    "determinant": "1",
+    "class": "stable",
+    "wavelength_over_pi": null,
+    "covered_by_tail_theorem": false
+   },
+   {
+    "n": 1,
+    "q": "1",
+    "trace": "-13",
+    "determinant": "4",
+    "class": "stable",
+    "wavelength_over_pi": "2",
+    "covered_by_tail_theorem": true
+   },
+   {
+    "n": 2,
+    "q": "4",
+    "trace": "-46",
+    "determinant": "133",
+    "class": "stable",
+    "wavelength_over_pi": "1",
+    "covered_by_tail_theorem": true
+   },
+   {
+    "n": 3,
+    "q": "9",
+    "trace": "-101",
+    "determinant": "748",
+    "class": "stable",
+    "wavelength_over_pi": "2/3",
+    "covered_by_tail_theorem": true
+   },
+   {
+    "n": 4,
+    "q": "16",
+    "trace": "-178",
+    "determinant": "2449",
+    "class": "stable",
+    "wavelength_over_pi": "1/2",
+    "covered_by_tail_theorem": true
+   }
+  ],
+  "unstable_modes": [],
+  "tail": {
+   "first_tail_mode_n": 1,
+   "rule": "for q >= max(S,0)/(Du Dv): det = q(DuDv q - S) + det J >= det J > 0 and tr = tr J - (Du+Dv)q < 0",
+   "scope": "modes n=0..0 classified exactly one by one; every n>=1 (infinitely many) covered by the rule above",
+   "lean": "TuringScope.neumann_tail_hurwitz (parameterized in J, Du, Dv, p, s, n0)"
+  },
+  "wavelength": {
+   "status": "not_licensed",
+   "meaning": "licensed = the record's stated applicability conditions hold under the declared thresholds; not_licensed = do NOT use lambda_c = 2 pi/k_c as the pattern wavelength",
+   "conditions": [
+    {
+     "condition": "near onset (declared tolerance)",
+     "passed": true,
+     "measure": "S^2/(4 Du Dv det J) - 1 (0 at onset, >0 supercritical)",
+     "value": "9/40",
+     "declared_max": "1/2"
+    },
+    {
+     "condition": "domain large compared with lambda_c (declared multiple)",
+     "passed": false,
+     "measure": "L/lambda_c = r k_c / 2 (k_c approx; the pass test uses the exact inequality r^4 det J/(DuDv) >= (4 m^2)^2)",
+     "value_approx": 0.28117066259517454,
+     "declared_min": "5"
+    }
+   ],
+   "infinite_domain_wavelength_over_pi_approx": 3.5565588200778455,
+   "formula": "k_c^2 = sqrt(det J/(Du Dv)); lambda_c = 2 pi/k_c (turing-wavelength record notation; evaluated in float)",
+   "discrete_unstable_mode_wavelengths_over_pi": [],
+   "note": "On a finite domain only the mode wavelengths 2L/n are available (cf. Turing 1952: wavelengths on a ring must divide the circumference)."
+  },
+  "source_checks": [
+   {
+    "claim": "turing-ddi",
+    "ok": true,
+    "reason": "accepted",
+    "detail": "",
+    "iri": "https://w3id.org/delphi/resource/claim/turing-ddi",
+    "content_sha256": "43de1d39496e0d2a8df133d0e537bed158bf3c68d23c28a764c2356715aa4f66",
+    "pinned_content_sha256": "43de1d39496e0d2a8df133d0e537bed158bf3c68d23c28a764c2356715aa4f66",
+    "response_sha256": "2a04297ce4848074b0851707c77fbeeec2832f333108dc66ae54395e0bd06f1f",
+    "pinned_response_sha256": "2a04297ce4848074b0851707c77fbeeec2832f333108dc66ae54395e0bd06f1f",
+    "source": "local",
+    "nanopubs": [
+     "math-bio-theorems/nanopubs/unsigned/turing-ddi.trig"
+    ],
+    "changed_fields": [],
+    "status": "active",
+    "path": "/data/worktrees/delphi-evolve/release/turing_scope/sources/turing-ddi.local.mcp.json"
+   },
+   {
+    "claim": "turing-wavelength",
+    "ok": true,
+    "reason": "accepted",
+    "detail": "",
+    "iri": "https://w3id.org/delphi/resource/claim/turing-wavelength",
+    "content_sha256": "e0d541383aa5d6334d794b60753e371dc781b01f0bc1b45e3d0ec337208a7559",
+    "pinned_content_sha256": "e0d541383aa5d6334d794b60753e371dc781b01f0bc1b45e3d0ec337208a7559",
+    "response_sha256": "83ca44031701766e4b0dc6d42b1b5bcefc03640e4145906333ea335f704bed21",
+    "pinned_response_sha256": "83ca44031701766e4b0dc6d42b1b5bcefc03640e4145906333ea335f704bed21",
+    "source": "local",
+    "nanopubs": [
+     "math-bio-theorems/nanopubs/unsigned/turing-wavelength.trig"
+    ],
+    "changed_fields": [],
+    "status": "active",
+    "path": "/data/worktrees/delphi-evolve/release/turing_scope/sources/turing-wavelength.local.mcp.json"
+   }
+  ],
+  "claim_iris": [
+   "https://w3id.org/delphi/resource/claim/turing-ddi",
+   "https://w3id.org/delphi/resource/claim/turing-wavelength"
+  ],
+  "assumptions": {
+   "recorded_by_delphi": [
+    "two species",
+    "smooth kinetics, linearization about a homogeneous steady state",
+    "fixed domain without growth or mechanics",
+    "turing-wavelength: near onset of instability and domain large compared with the wavelength"
+   ],
+   "added_by_adapter": [
+    "1-D interval with homogeneous Neumann (zero-flux) ends; modes cos(n pi x / L); NOT Turing's ring (periodic) setting",
+    "q_n = (n pi / L)^2 with L = r*pi, r an exact rational supplied by the requester",
+    "stable/unstable means the Routh-Hurwitz sign test of the 2x2 mode matrix (trace<0 and det>0) at every admissible mode",
+    "the homogeneous fixed point and its Jacobian are DECLARED by the requester; the adapter does not check f(u*,v*)=0 or the Jacobian's origin",
+    "'near onset' and 'domain large' thresholds, when a wavelength question is asked, are REQUESTER-DECLARED operationalizations; the Delphi record gives no numbers"
+   ]
+  },
+  "not_established": [
+   "nonlinear pattern existence, selection or amplitude (linear analysis only)",
+   "any biological, chemical or nanofabricated system realizing these parameters",
+   "that the declared Jacobian/diffusivities describe any real tissue (no measurement is used)",
+   "behaviour under domain growth, mechanics, noise, other boundary conditions or higher dimensions"
+  ],
+  "epistemic_labels": {
+   "observed": "none: no measurement is used",
+   "model_derived": "all numbers in this object",
+   "simulated": "none",
+   "unknown": [
+    "nonlinear pattern existence, selection or amplitude (linear analysis only)",
+    "any biological, chemical or nanofabricated system realizing these parameters",
+    "that the declared Jacobian/diffusivities describe any real tissue (no measurement is used)",
+    "behaviour under domain growth, mechanics, noise, other boundary conditions or higher dimensions"
+   ]
+  }
+ },
+ "long_domain": {
+  "adapter": "turing-scope/two-species-linear-neumann-1d",
+  "adapter_version": "1.0.0",
+  "request_id": "example-long_L_2pi",
+  "verdict": "linearly_unstable",
+  "reasons": [
+   "1 admissible Neumann mode(s) have det(J - q D) < 0: n = [1]"
+  ],
+  "evidence_type": "model-derived",
+  "observed": null,
+  "inputs": {
+   "jacobian": [
+    [
+     "1",
+     "-2"
+    ],
+    [
+     "2",
+     "-3"
+    ]
+   ],
+   "diffusivities": [
+    "1",
+    "10"
+   ],
+   "fixed_point": {
+    "declared": true,
+    "description": "Homogeneous steady state (u*,v*) DECLARED by the requester. The Jacobian is the linearization there; the adapter does not verify either, and no measurement is involved."
+   },
+   "domain": {
+    "dimension": 1,
+    "boundary": "neumann_zero_flux",
+    "length_over_pi": "2",
+    "length": "2*pi"
+   }
+  },
+  "derived": {
+   "trace_J": "-2",
+   "det_J": "1",
+   "S": "7",
+   "DuDv": "10"
+  },
+  "band": {
+   "record_inequality": "D_v f_u + D_u g_v > 2 sqrt(D_u D_v det J)  <=>  S>0 and S^2 > 4 Du Dv det J",
+   "S": "7",
+   "discriminant_S2_minus_4DuDv_detJ": "9",
+   "band_exists": true,
+   "exact": true,
+   "q_lower": "1/5",
+   "q_upper": "1/2",
+   "unstable_when": "q strictly between the endpoints (det J - q D < 0)",
+   "det_polynomial": "10 q^2 - 7 q + 1",
+   "trace_polynomial": "-2 - 11 q"
+  },
+  "modes": [
+   {
+    "n": 0,
+    "q": "0",
+    "trace": "-2",
+    "determinant": "1",
+    "class": "stable",
+    "wavelength_over_pi": null,
+    "covered_by_tail_theorem": false
+   },
+   {
+    "n": 1,
+    "q": "1/4",
+    "trace": "-19/4",
+    "determinant": "-1/8",
+    "class": "unstable",
+    "wavelength_over_pi": "4",
+    "eigenvalue_discriminant": "369/16",
+    "max_eigenvalue_approx": 0.0261715890373182,
+    "eigenvalues_real": true,
+    "covered_by_tail_theorem": false
+   },
+   {
+    "n": 2,
+    "q": "1",
+    "trace": "-13",
+    "determinant": "4",
+    "class": "stable",
+    "wavelength_over_pi": "2",
+    "covered_by_tail_theorem": true
+   },
+   {
+    "n": 3,
+    "q": "9/4",
+    "trace": "-107/4",
+    "determinant": "287/8",
+    "class": "stable",
+    "wavelength_over_pi": "4/3",
+    "covered_by_tail_theorem": true
+   },
+   {
+    "n": 4,
+    "q": "4",
+    "trace": "-46",
+    "determinant": "133",
+    "class": "stable",
+    "wavelength_over_pi": "1",
+    "covered_by_tail_theorem": true
+   }
+  ],
+  "unstable_modes": [
+   1
+  ],
+  "tail": {
+   "first_tail_mode_n": 2,
+   "rule": "for q >= max(S,0)/(Du Dv): det = q(DuDv q - S) + det J >= det J > 0 and tr = tr J - (Du+Dv)q < 0",
+   "scope": "modes n=0..1 classified exactly one by one; every n>=2 (infinitely many) covered by the rule above",
+   "lean": "TuringScope.neumann_tail_hurwitz (parameterized in J, Du, Dv, p, s, n0)"
+  },
+  "wavelength": {
+   "status": "not_licensed",
+   "meaning": "licensed = the record's stated applicability conditions hold under the declared thresholds; not_licensed = do NOT use lambda_c = 2 pi/k_c as the pattern wavelength",
+   "conditions": [
+    {
+     "condition": "near onset (declared tolerance)",
+     "passed": true,
+     "measure": "S^2/(4 Du Dv det J) - 1 (0 at onset, >0 supercritical)",
+     "value": "9/40",
+     "declared_max": "1/2"
+    },
+    {
+     "condition": "domain large compared with lambda_c (declared multiple)",
+     "passed": false,
+     "measure": "L/lambda_c = r k_c / 2 (k_c approx; the pass test uses the exact inequality r^4 det J/(DuDv) >= (4 m^2)^2)",
+     "value_approx": 0.5623413251903491,
+     "declared_min": "5"
+    }
+   ],
+   "infinite_domain_wavelength_over_pi_approx": 3.5565588200778455,
+   "formula": "k_c^2 = sqrt(det J/(Du Dv)); lambda_c = 2 pi/k_c (turing-wavelength record notation; evaluated in float)",
+   "discrete_unstable_mode_wavelengths_over_pi": [
+    "4"
+   ],
+   "note": "On a finite domain only the mode wavelengths 2L/n are available (cf. Turing 1952: wavelengths on a ring must divide the circumference)."
+  },
+  "source_checks": [
+   {
+    "claim": "turing-ddi",
+    "ok": true,
+    "reason": "accepted",
+    "detail": "",
+    "iri": "https://w3id.org/delphi/resource/claim/turing-ddi",
+    "content_sha256": "43de1d39496e0d2a8df133d0e537bed158bf3c68d23c28a764c2356715aa4f66",
+    "pinned_content_sha256": "43de1d39496e0d2a8df133d0e537bed158bf3c68d23c28a764c2356715aa4f66",
+    "response_sha256": "2a04297ce4848074b0851707c77fbeeec2832f333108dc66ae54395e0bd06f1f",
+    "pinned_response_sha256": "2a04297ce4848074b0851707c77fbeeec2832f333108dc66ae54395e0bd06f1f",
+    "source": "local",
+    "nanopubs": [
+     "math-bio-theorems/nanopubs/unsigned/turing-ddi.trig"
+    ],
+    "changed_fields": [],
+    "status": "active",
+    "path": "/data/worktrees/delphi-evolve/release/turing_scope/sources/turing-ddi.local.mcp.json"
+   },
+   {
+    "claim": "turing-wavelength",
+    "ok": true,
+    "reason": "accepted",
+    "detail": "",
+    "iri": "https://w3id.org/delphi/resource/claim/turing-wavelength",
+    "content_sha256": "e0d541383aa5d6334d794b60753e371dc781b01f0bc1b45e3d0ec337208a7559",
+    "pinned_content_sha256": "e0d541383aa5d6334d794b60753e371dc781b01f0bc1b45e3d0ec337208a7559",
+    "response_sha256": "83ca44031701766e4b0dc6d42b1b5bcefc03640e4145906333ea335f704bed21",
+    "pinned_response_sha256": "83ca44031701766e4b0dc6d42b1b5bcefc03640e4145906333ea335f704bed21",
+    "source": "local",
+    "nanopubs": [
+     "math-bio-theorems/nanopubs/unsigned/turing-wavelength.trig"
+    ],
+    "changed_fields": [],
+    "status": "active",
+    "path": "/data/worktrees/delphi-evolve/release/turing_scope/sources/turing-wavelength.local.mcp.json"
+   }
+  ],
+  "claim_iris": [
+   "https://w3id.org/delphi/resource/claim/turing-ddi",
+   "https://w3id.org/delphi/resource/claim/turing-wavelength"
+  ],
+  "assumptions": {
+   "recorded_by_delphi": [
+    "two species",
+    "smooth kinetics, linearization about a homogeneous steady state",
+    "fixed domain without growth or mechanics",
+    "turing-wavelength: near onset of instability and domain large compared with the wavelength"
+   ],
+   "added_by_adapter": [
+    "1-D interval with homogeneous Neumann (zero-flux) ends; modes cos(n pi x / L); NOT Turing's ring (periodic) setting",
+    "q_n = (n pi / L)^2 with L = r*pi, r an exact rational supplied by the requester",
+    "stable/unstable means the Routh-Hurwitz sign test of the 2x2 mode matrix (trace<0 and det>0) at every admissible mode",
+    "the homogeneous fixed point and its Jacobian are DECLARED by the requester; the adapter does not check f(u*,v*)=0 or the Jacobian's origin",
+    "'near onset' and 'domain large' thresholds, when a wavelength question is asked, are REQUESTER-DECLARED operationalizations; the Delphi record gives no numbers"
+   ]
+  },
+  "not_established": [
+   "nonlinear pattern existence, selection or amplitude (linear analysis only)",
+   "any biological, chemical or nanofabricated system realizing these parameters",
+   "that the declared Jacobian/diffusivities describe any real tissue (no measurement is used)",
+   "behaviour under domain growth, mechanics, noise, other boundary conditions or higher dimensions"
+  ],
+  "epistemic_labels": {
+   "observed": "none: no measurement is used",
+   "model_derived": "all numbers in this object",
+   "simulated": "none",
+   "unknown": [
+    "nonlinear pattern existence, selection or amplitude (linear analysis only)",
+    "any biological, chemical or nanofabricated system realizing these parameters",
+    "that the declared Jacobian/diffusivities describe any real tissue (no measurement is used)",
+    "behaviour under domain growth, mechanics, noise, other boundary conditions or higher dimensions"
+   ]
+  }
+ },
+ "numeric_crosscheck": {
+  "L=pi": {
+   "available": true,
+   "method": "numpy.linalg.eigvals on float(J - q diag(D))",
+   "modes_checked": 2001,
+   "mismatches": [],
+   "ambiguous_within_1e-9": [],
+   "numpy_unstable_modes": [],
+   "max_real_eigenvalue_by_mode_first6": [
+    {
+     "n": 0,
+     "max_real_eig": -0.999999978926576
+    },
+    {
+     "n": 1,
+     "max_real_eig": -0.31534156157350957
+    },
+    {
+     "n": 2,
+     "max_real_eig": -3.1002512578675976
+    },
+    {
+     "n": 3,
+     "max_real_eig": -8.04708490574528
+    },
+    {
+     "n": 4,
+     "max_real_eig": -15.02703196437227
+    },
+    {
+     "n": 5,
+     "max_real_eig": -24.017468581446906
+    }
+   ],
+   "limitation": "modes beyond n=2000 are covered only by the analytic tail rule, not by this float sweep",
+   "agrees": true
+  },
+  "L=2pi": {
+   "available": true,
+   "method": "numpy.linalg.eigvals on float(J - q diag(D))",
+   "modes_checked": 2001,
+   "mismatches": [],
+   "ambiguous_within_1e-9": [],
+   "numpy_unstable_modes": [
+    1
+   ],
+   "max_real_eigenvalue_by_mode_first6": [
+    {
+     "n": 0,
+     "max_real_eig": -0.999999978926576
+    },
+    {
+     "n": 1,
+     "max_real_eig": 0.0261715890373182
+    },
+    {
+     "n": 2,
+     "max_real_eig": -0.31534156157350957
+    },
+    {
+     "n": 3,
+     "max_real_eig": -1.41608596067352
+    },
+    {
+     "n": 4,
+     "max_real_eig": -3.1002512578675976
+    },
+    {
+     "n": 5,
+     "max_real_eig": -5.316463358972378
+    }
+   ],
+   "limitation": "modes beyond n=2000 are covered only by the analytic tail rule, not by this float sweep",
+   "agrees": true
+  }
+ },
+ "length_scan": [
+  {
+   "length_over_pi": "1/2",
+   "verdict": "stable",
+   "unstable_modes": [],
+   "q_of_unstable_modes": []
+  },
+  {
+   "length_over_pi": "3/4",
+   "verdict": "stable",
+   "unstable_modes": [],
+   "q_of_unstable_modes": []
+  },
+  {
+   "length_over_pi": "1",
+   "verdict": "stable",
+   "unstable_modes": [],
+   "q_of_unstable_modes": []
+  },
+  {
+   "length_over_pi": "3/2",
+   "verdict": "linearly_unstable",
+   "unstable_modes": [
+    1
+   ],
+   "q_of_unstable_modes": [
+    "4/9"
+   ]
+  },
+  {
+   "length_over_pi": "2",
+   "verdict": "linearly_unstable",
+   "unstable_modes": [
+    1
+   ],
+   "q_of_unstable_modes": [
+    "1/4"
+   ]
+  },
+  {
+   "length_over_pi": "5/2",
+   "verdict": "stable",
+   "unstable_modes": [],
+   "q_of_unstable_modes": []
+  },
+  {
+   "length_over_pi": "3",
+   "verdict": "linearly_unstable",
+   "unstable_modes": [
+    2
+   ],
+   "q_of_unstable_modes": [
+    "4/9"
+   ]
+  },
+  {
+   "length_over_pi": "4",
+   "verdict": "linearly_unstable",
+   "unstable_modes": [
+    2
+   ],
+   "q_of_unstable_modes": [
+    "1/4"
+   ]
+  },
+  {
+   "length_over_pi": "5",
+   "verdict": "linearly_unstable",
+   "unstable_modes": [
+    3
+   ],
+   "q_of_unstable_modes": [
+    "9/25"
+   ]
+  },
+  {
+   "length_over_pi": "6",
+   "verdict": "linearly_unstable",
+   "unstable_modes": [
+    3,
+    4
+   ],
+   "q_of_unstable_modes": [
+    "1/4",
+    "4/9"
+   ]
+  }
+ ],
+ "source_faults": {
+  "unchanged_source": {
+   "description": "bundled snapshot, unmodified",
+   "request_id": "example-short_L_pi",
+   "verdict": "stable",
+   "refusal": null,
+   "unstable_modes": [],
+   "wavelength_status": "not_licensed",
+   "source_checks": [
+    {
+     "claim": "turing-ddi",
+     "ok": true,
+     "reason": "accepted",
+     "changed_fields": []
+    },
+    {
+     "claim": "turing-wavelength",
+     "ok": true,
+     "reason": "accepted",
+     "changed_fields": []
+    }
+   ]
+  },
+  "source_missing": {
+   "description": "FAULT INJECTION: turing-ddi record file deleted from the snapshot",
+   "request_id": "example-short_L_pi",
+   "verdict": "refused",
+   "refusal": {
+    "code": "source_missing",
+    "detail": "turing-ddi: record file absent"
+   },
+   "unstable_modes": null,
+   "wavelength_status": null,
+   "source_checks": [
+    {
+     "claim": "turing-ddi",
+     "ok": false,
+     "reason": "source_missing",
+     "changed_fields": []
+    }
+   ]
+  },
+  "source_withdrawn": {
+   "description": "FAULT INJECTION: snapshot marks turing-ddi withdrawn",
+   "request_id": "example-short_L_pi",
+   "verdict": "refused",
+   "refusal": {
+    "code": "source_withdrawn",
+    "detail": "turing-ddi: snapshot marks claim withdrawn"
+   },
+   "unstable_modes": null,
+   "wavelength_status": null,
+   "source_checks": [
+    {
+     "claim": "turing-ddi",
+     "ok": false,
+     "reason": "source_withdrawn",
+     "changed_fields": []
+    }
+   ]
+  },
+  "source_changed": {
+   "description": "FAULT INJECTION: delphi:context of turing-ddi edited (assumption text altered)",
+   "request_id": "example-short_L_pi",
+   "verdict": "refused",
+   "refusal": {
+    "code": "claim_changed",
+    "detail": "turing-ddi: pinned fields differ from reviewed record"
+   },
+   "unstable_modes": null,
+   "wavelength_status": null,
+   "source_checks": [
+    {
+     "claim": "turing-ddi",
+     "ok": false,
+     "reason": "claim_changed",
+     "changed_fields": [
+      "delphi:context"
+     ]
+    }
+   ]
+  },
+  "wavelength_source_withdrawn": {
+   "description": "FAULT INJECTION: only turing-wavelength withdrawn; stability verdict must survive, wavelength answer must refuse",
+   "request_id": "example-short_L_pi",
+   "verdict": "stable",
+   "refusal": null,
+   "unstable_modes": [],
+   "wavelength_status": "refused",
+   "source_checks": [
+    {
+     "claim": "turing-ddi",
+     "ok": true,
+     "reason": "accepted",
+     "changed_fields": []
+    },
+    {
+     "claim": "turing-wavelength",
+     "ok": false,
+     "reason": "source_withdrawn",
+     "changed_fields": []
+    }
+   ]
+  },
+  "wrong_boundary_periodic": {
+   "description": "domain declared periodic (ring); adapter supports only zero-flux Neumann",
+   "request_id": "example-short_L_pi+periodic",
+   "verdict": "refused",
+   "refusal": {
+    "code": "unsupported_boundary",
+    "detail": "boundary 'periodic_ring' refused; supported: 'neumann_zero_flux'. Dirichlet, periodic/ring, mixed or unspecified boundaries have different admissible q-spectra."
+   },
+   "unstable_modes": null,
+   "wavelength_status": null,
+   "source_checks": [
+    {
+     "claim": "turing-ddi",
+     "ok": true,
+     "reason": "accepted",
+     "changed_fields": []
+    }
+   ]
+  },
+  "wrong_boundary_dirichlet": {
+   "description": "domain declared Dirichlet",
+   "request_id": "example-short_L_pi+dirichlet",
+   "verdict": "refused",
+   "refusal": {
+    "code": "unsupported_boundary",
+    "detail": "boundary 'dirichlet' refused; supported: 'neumann_zero_flux'. Dirichlet, periodic/ring, mixed or unspecified boundaries have different admissible q-spectra."
+   },
+   "unstable_modes": null,
+   "wavelength_status": null,
+   "source_checks": [
+    {
+     "claim": "turing-ddi",
+     "ok": true,
+     "reason": "accepted",
+     "changed_fields": []
+    }
+   ]
+  },
+  "boundary_undeclared": {
+   "description": "boundary omitted",
+   "request_id": "example-short_L_pi+noboundary",
+   "verdict": "refused",
+   "refusal": {
+    "code": "unsupported_boundary",
+    "detail": "boundary None refused; supported: 'neumann_zero_flux'. Dirichlet, periodic/ring, mixed or unspecified boundaries have different admissible q-spectra."
+   },
+   "unstable_modes": null,
+   "wavelength_status": null,
+   "source_checks": [
+    {
+     "claim": "turing-ddi",
+     "ok": true,
+     "reason": "accepted",
+     "changed_fields": []
+    }
+   ]
+  },
+  "growing_domain_declared": {
+   "description": "requester says the domain grows",
+   "request_id": "example-short_L_pi+growth",
+   "verdict": "refused",
+   "refusal": {
+    "code": "assumption_not_declared",
+    "detail": "assumptions.fixed_domain_no_growth must be declared true (turing-ddi context)"
+   },
+   "unstable_modes": null,
+   "wavelength_status": null,
+   "source_checks": [
+    {
+     "claim": "turing-ddi",
+     "ok": true,
+     "reason": "accepted",
+     "changed_fields": []
+    }
+   ]
+  },
+  "unstable_without_diffusion": {
+   "description": "tr J>0: not a diffusion-driven setting",
+   "request_id": "example-short_L_pi+wellmixed_unstable",
+   "verdict": "refused",
+   "refusal": {
+    "code": "claim_precondition_failed",
+    "detail": "turing-ddi assumes a state stable without diffusion (tr J<0, det J>0); got tr J=4, det J=-1. The record does not license a diffusion-driven classification here."
+   },
+   "unstable_modes": null,
+   "wavelength_status": null,
+   "source_checks": [
+    {
+     "claim": "turing-ddi",
+     "ok": true,
+     "reason": "accepted",
+     "changed_fields": []
+    }
+   ]
+  }
+ },
+ "law_mutations": {
+  "Dv_10_to_1": {
+   "description": "diffusion contrast removed (Dv=Du=1)",
+   "L=pi": {
+    "verdict": "stable",
+    "unstable_modes": [],
+    "continuum_band_exists": false
+   },
+   "L=2pi": {
+    "verdict": "stable",
+    "unstable_modes": [],
+    "continuum_band_exists": false
+   }
+  },
+  "d_minus3_to_minus2": {
+   "description": "reaction law g_v changed -3 -> -2",
+   "L=pi": {
+    "verdict": "stable",
+    "unstable_modes": [],
+    "continuum_band_exists": false
+   },
+   "L=2pi": {
+    "verdict": "stable",
+    "unstable_modes": [],
+    "continuum_band_exists": false
+   }
+  },
+  "Dv_10_to_30": {
+   "description": "diffusion contrast raised (Dv=30)",
+   "L=pi": {
+    "verdict": "stable",
+    "unstable_modes": [],
+    "continuum_band_exists": true
+   },
+   "L=2pi": {
+    "verdict": "linearly_unstable",
+    "unstable_modes": [
+     1
+    ],
+    "continuum_band_exists": true
+   }
+  }
+ }
+}

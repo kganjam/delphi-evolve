@@ -1,0 +1,103 @@
+{
+  "commit": "317203a04d597b141a5769cc866fa8489e5af9fe",
+  "steps": [
+    {
+      "step": "clone",
+      "required": true,
+      "cmd": "git clone -q https://github.com/kganjam/delphi-evolve.git /data/artifacts/delphi-release-reproduction-0139/repo",
+      "exit": 0,
+      "seconds": 2,
+      "log": "clone.log"
+    },
+    {
+      "step": "checkout",
+      "required": true,
+      "cmd": "git -C /data/artifacts/delphi-release-reproduction-0139/repo checkout -q 317203a",
+      "exit": 0,
+      "seconds": 1,
+      "log": "checkout.log"
+    },
+    {
+      "step": "fetch_data",
+      "required": true,
+      "cmd": "cap python3 scripts/fetch_data.py",
+      "exit": 0,
+      "seconds": 5,
+      "log": "fetch_data.log"
+    },
+    {
+      "step": "venv",
+      "required": true,
+      "cmd": "python3 -m venv /data/artifacts/delphi-release-reproduction-0139/venv",
+      "exit": 0,
+      "seconds": 3,
+      "log": "venv.log"
+    },
+    {
+      "step": "pip_install",
+      "required": true,
+      "cmd": "cap /data/artifacts/delphi-release-reproduction-0139/venv/bin/pip install -q .[test]",
+      "exit": 0,
+      "seconds": 25,
+      "log": "pip_install.log"
+    },
+    {
+      "step": "audit",
+      "required": true,
+      "cmd": "cap /data/artifacts/delphi-release-reproduction-0139/venv/bin/python -m evolve audit",
+      "exit": 0,
+      "seconds": 1,
+      "log": "audit.log"
+    },
+    {
+      "step": "pytest",
+      "required": true,
+      "cmd": "cap /data/artifacts/delphi-release-reproduction-0139/venv/bin/python -m pytest -q tests",
+      "exit": 0,
+      "seconds": 171,
+      "log": "pytest.log"
+    },
+    {
+      "step": "check_proofs",
+      "required": true,
+      "cmd": "cap python3 scripts/check_proofs.py",
+      "exit": 0,
+      "seconds": 148,
+      "log": "check_proofs.log"
+    },
+    {
+      "step": "integ_mutants",
+      "required": true,
+      "cmd": "cap python3 -I scripts/integ_mutants.py . /data/artifacts/delphi-release-reproduction-0139/mutwork",
+      "exit": 0,
+      "seconds": 57,
+      "log": "integ_mutants.log"
+    },
+    {
+      "step": "browser_smoke",
+      "required": false,
+      "cmd": "cap python3 scripts/browser_smoke.py site /data/artifacts/delphi-release-reproduction-0139/shots",
+      "exit": 0,
+      "seconds": 5,
+      "log": "browser_smoke.log"
+    },
+    {
+      "step": "check_demo",
+      "required": true,
+      "cmd": "python3 -I scripts/check_demo.py site/data/demo.json",
+      "exit": 0,
+      "seconds": 0,
+      "log": "check_demo.log"
+    }
+  ],
+  "all_required_passed": true,
+  "scope_note": "Fresh clone at this exact commit. Later Turing/LazySP/scale/presentation changes are separate checks, not included in this run.",
+  "test_result": "238 passed,2 skipped,26 rdflib deprecation warnings; skips: optional original query-shard cache and network ESM2-8M smoke.",
+  "proof_result": "Core Lean check exit0: named source-linked certificates; all reported instance mutants and10 source-law mutants rejected;4 additional integration mutants rejected.",
+  "log_sha256": {
+    "pytest.log": "b7ceb003dd0e193e4e39f567e8c2ef2fe38f116cf2460fab4b152b2168af74bc",
+    "check_proofs.log": "eb885b0071980b01faadaac4d8740a163ae2bc75d41525c948cf1949d99efe82",
+    "integ_mutants.log": "6d5c978c41fa607838f6c5093a548451fbcfc6480482503a398ed7d72c61a299",
+    "browser_smoke.log": "af23d6ae4bd333748eb8cd40e0133b95ebe560285a14bca8c8c4a0a8eeca4c16"
+  }
+}

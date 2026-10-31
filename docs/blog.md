@@ -1,6 +1,6 @@
 # Which experiment would justify the next step? A query-to-certify view of a measured enzyme landscape
 
-*Darwin's Bridge / Delphi Evolve, ScienceClaw 2026 prototype. Every number below is filled from a saved artifact by `python -m evolve.evidence docs`; where an artifact is missing the text says so. Nothing here is a wet-lab result.*
+*Darwin's Bridge / Delphi Evolve, ScienceClaw 2026 prototype. Every number below is filled from a saved artifact by `python -m evolve.evidence docs`; where an artifact is missing the text says so. This project performed no new wet-lab experiment; the source measurements were made by the cited study.*
 
 ## The question
 
@@ -17,7 +17,7 @@ The data are real: Johnston et al. (PNAS 2024) measured bacterial growth for ess
 | Nanopublication drafts, parsed with rdflib | all valid: yes; unsigned, not published | `artifacts/evidence/nanopubs/` |
 | Descriptive full-data route analysis | ran | `artifacts/evidence/route_summary.json` |
 | Interactive site; browser logic cross-checked against a Python mirror | ran | `tests/test_evidence.py`; experience result: completed |
-| Core worker's audited loader, measured-graph truth, replay protocol | not integrated into this checkout | `tasks/results/core.json` |
+| Core worker's audited loader, measured-graph truth, replay protocol | completed | `tasks/results/core.json` |
 | Lean conditional certificate (proof worker) | completed | `tasks/results/proof.json` |
 | GPU foundation-model prior (BioNeMo / ESM2) | completed | `tasks/results/gpu.json` |
 | Retrospective assay-budget replay | benchmark status in demo.json: completed | `artifacts/core/replay/` |
@@ -41,13 +41,39 @@ Related work already analyses route accessibility on this table (Johnston et al.
 
 The proposed contribution is not the regressor. It is to pose the engineering decision (is a route open, or cut?) as the object to certify, to choose assays that settle *that* decision, and to attach the decision to its evidence and scope. Evidence that this saves assays comes only from the retrospective replay, where each policy starts from the same observations and pays for measurements from an oracle: 20 fixed seeds, 100 episodes per policy, budget 1000 assays beyond the initial observations, unresolved episodes kept in the denominator. Fraction of episodes with a sound certificate at 1000 assays: random frontier 0.21, greedy walk 0.08, GP uncertainty 0.13, our single deterministic best-first policy 0.32, query-to-certify (GP-priced) 0.78, collective with shared evidence 0.78, collective with isolated evidence 0.77. Paired against the best-first policy, query-to-certify differs by 0.46 (seed-cluster bootstrap 0.4 to 0.53). The collective with shared evidence differs from the single query-to-certify policy by 0 at 1000 assays: no collective advantage was found. A no-model variant added after the first results certifies 0.96 and is exploratory. The specialists are deterministic software objects in one process, not live language-model agents, and the shared and isolated arms differ in arbitration as well as evidence (a round-robin control for the shared arm matches it). False certificates are zero by construction, so that is a check, not a finding. All comparators are this repository's own policies; ALDE was not implemented or run. A closed (blocked) answer here means no route can be certified from the measurements and the assumed bound — not that no true route exists.
 
+## The stronger baseline changed the conclusion
+
+We subsequently implemented a node-query adaptation of established LazySP with exact optimistic A* search, the same paid-query oracle, initial observations and certificate rule. Its selectors were fixed before this follow-up, after the original experiment. The primary alternating selector resolves **96/100** cases at1,000 additional assays; the original model-assisted Q2C resolves 78. The saved300 follow-up traces were re-read against the raw measurements and a fresh ledger with no discrepancies. Our model-assisted policy is **not demonstrated to beat established lazy path search**.
+
+This is not broad superiority evidence for LazySP either: much of the completion-rate gap is one repeatedly tested endpoint pair, and the primary comparison's restricted-mean assay difference has an uncertainty interval including zero. The secondary forward selector used fewer assays on this panel. See [the complete follow-up and its exploratory analyses](lazysp.md). The value of this experiment is a decision benchmark that makes such corrections visible.
+
 ## Machine-checked certificate
 
-The proof worker's Lean work is meant to state interval-path soundness and a cut theorem and to check dataset-linked certificates, rejecting a mutated one. Whether it compiled is a fact about its receipt, not about this text. Status as rendered: completed; the original compiles, the axioms used are only propext and Quot.sound, and mutants that break the dominance inequality or open a cut edge are rejected by the kernel. The in-browser check on the site is *not* the Lean-checked object; the Proof tab shows nothing green unless `demo.json` carries a receipt with kernel exit 0 and a non-zero mutant exit.
+The Lean project states interval-path soundness and separate weak and strong cut theorems, checks named dataset-linked certificates, and rejects meaningful mutants. The bridged VFVS→AIKG route has seven nodes; all seven integer intervals were independently re-derived from the raw CSVs exactly. The individual replay decisions were checked in Python, not each compiled in Lean. Status as rendered: completed; the original compiles, the axioms used are only propext and Quot.sound, and mutants that break the dominance inequality or open a cut edge are rejected by the kernel. The in-browser check on the site is *not* the Lean-checked object; the Proof tab shows nothing green unless `demo.json` carries a receipt with kernel exit 0 and a non-zero mutant exit.
 
 ## Delphi and Darwin
 
 We queried the Delphi MCP live. Its local source reports 880 claims and its network source 375; both are kept and labelled. Text searches for "epistasis" and "fitness landscape" returned no claims in either source — a limited text match, not proof that Delphi lacks related knowledge. We link our operational hypothesis ("on this finite measured graph, does a route with every step admitted exist?") to Darwin's chapter VI claim `darwin1859-ch06-08` as *motivation by analogy only*; it does not test, support or refute that statement, and Delphi's own LLM assessors rated it largely not empirically resolvable. The drafts (`artifacts/evidence/nanopubs/*.trig`) carry temporary URIs, no signature and no trusty URI; they are **not published** to any network.
+
+## Existing claims now change execution
+
+Historical Darwin links are context. They do not make the benchmark a test of Darwin. The separate `claim_runtime` demonstration uses existing Delphi **Kimura fixation-probability** and **Fisher fundamental-theorem** records operationally. A hand-authored adapter checks declared assumptions and the pinned source before it runs. An appropriate hypothetical diploid model computes; an attempt to reinterpret haploid E. coli growth as a selection coefficient refuses. A Fisher request that confuses a selection component with total change also refuses. Withdrawing or changing the source changes an otherwise valid decision to refusal.
+
+This is not automatic theorem extraction. The source records and the additional assumptions introduced by the adapter remain separately visible. The recorded verification rejected 9 guard mutants and 7 source mutants. The browser trace displays recorded executions; the Python CLI performs the calculation.
+
+For evidence reuse, we replayed actual recorded measurement requests through ordinary caching and typed evidence reuse. In the same context they save the **same** repeated lookups: the graph's incremental count advantage is 0. The additional contribution is refusing deliberately mismatched contexts in software fixtures. Those tests do not establish adaptive-policy improvement or a wet-lab saving. See [the claim-reuse methods](claim-reuse.md).
+
+## What the GPUs actually contributed
+
+NVIDIA BioNeMo ESM2-650M produced a label-free prior for 160,000 variants on a Nebius H100, with the successful job and artifact hashes saved. The companion analysis found weak zero-shot association with growth (Spearman about 0.17–0.18) and almost no added predictive value over one-hot identity in an optimistic random-split ridge comparison. The completed embedding run is not evidence that the prior improves the assay policy; that requires a separate matched replay. OpenResearch ran the companion analysis locally on CPU. See [the compute receipt and methods](compute.md).
+
+[Anthropic's biomolecular-modeling study](https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling) and [Adaptyv's experimental binder report](https://www.adaptyvbio.com/blog/anthropic-1) set a higher bar than an attractive generated sequence. We do not compete with their experimental binding results. Our narrower question is how a design decision acquires checkable evidence, and when a scientific model or measurement may legitimately be reused.
+
+## From this prototype to inverse design
+
+The long-term interface is a desired biological function, a proposed intervention, and the evidence needed to justify it. Neural cellular automata, bioelectric control and morphogenetic computation are possible future domains, but they already have substantial inverse-design prior art. A trained simulator matching its own targets is not independent biological validation. The reviewed [research synthesis](research/inverse-design-synthesis.md) keeps those directions separate from the completed enzyme experiment.
+
+The immediate next study should use a prospectively frozen protocol and an independent assay context, retain the lazy path-search comparator and add an established active-learning baseline, and measure cost and time to a decision. Current error bins were fitted to all replicates; our uncertainty sweep is transductive sensitivity analysis, not held-out uncertainty validation. The panel repeats four endpoint pairs across initial observations, so its 100 episodes are not 100 independent biological targets.
 
 ## What this is not
 
@@ -68,4 +94,4 @@ python -m venv .venv && .venv/bin/pip install pandas numpy rdflib pytest
 
 
 ---
-*Rendered 2026-10-31 01:27:34 PDT by `python -m evolve.evidence docs` from: delphi, demo, evsite, experience, gpu, integrator, landscape, nano, proof, results, route. Edit `docs/blog.template.md`, not this file.*
+*Rendered 2026-10-31 01:59:00 PDT by `python -m evolve.evidence docs` from: claimcheck, claimreuse, core, delphi, demo, evsite, experience, gpu, integrator, landscape, lazysp, nano, policies, proof, results, route. Edit `docs/blog.template.md`, not this file.*

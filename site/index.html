@@ -96,6 +96,36 @@
     <h2>Does asking the right assay save experiments? <span class="aside">retrospective replay, not a prospective result</span></h2>
     <p class="lead2">Each policy starts from the same 96 observed genotypes plus the start and target, then pays an oracle for every further measurement. A certificate is issued only from revealed labels; runs without one by the budget stay in the denominator. The single-policy baselines are this repository's own, not ALDE.</p>
     <div id="results-body"><div class="na">Loading replay results…</div></div>
+    <div id="lazysp-result" class="card"><p>Loading the stronger path-search follow-up…</p></div>
+  </div>
+</section>
+
+<section class="story alt">
+  <div class="col">
+    <h2>When a claim becomes a calculation</h2>
+    <p class="lead2">Delphi already contains mathematical claims. We bind two of them to explicit model assumptions: the right context permits a calculation; the wrong context, a changed source, or a withdrawn claim causes a refusal.</p>
+    <div class="grid3">
+      <article><h3>Kimura: calculate or refuse</h3><p>A declared diploid population can use the fixation model. An enzyme growth assay in haploid <em>E. coli</em> cannot silently become a selection coefficient.</p></article>
+      <article><h3>Fisher: keep the scope</h3><p>The selection component of change is not a promise that total fitness rises at every mutation. The adapter rejects that transfer.</p></article>
+      <article><h3>Reuse the evidence</h3><p>Same-context reuse matches ordinary caching. Typed records additionally catch deliberately injected context errors; those are software tests, not wet-lab savings.</p></article>
+    </div>
+    <p><a class="artifact-link" href="claims/index.html">Explore the recorded claim → decision traces ↗</a> <span class="hint">Hand-authored adapters; recorded executions, not a live browser backend.</span></p>
+  </div>
+</section>
+
+<section class="story" id="compute">
+  <div class="col">
+    <h2>A model prior, with its limits visible</h2>
+    <p class="lead2">NVIDIA BioNeMo ESM2-650M scored all 160,000 variants on a Nebius H100. Its zero-shot scores correlate weakly with measured growth (Spearman 0.17–0.18). A random-split check found almost no added predictive value beyond amino-acid identity.</p>
+    <p>These are predictions, not new measurements. The completed GPU sweep does not establish an assay-policy improvement. The OpenResearch integration ran the companion analysis locally on CPU. <a href="https://github.com/kganjam/delphi-evolve/blob/main/docs/compute.md">Read the runs, comparisons and limitations ↗</a></p>
+  </div>
+</section>
+
+<section class="story" id="domain-check">
+  <div class="col">
+    <h2>Before simulating a pattern, check the domain</h2>
+    <p class="lead2">The same declared reaction and diffusion parameters can admit an unstable mode on one domain and none on another. An existing Delphi Turing claim now drives a source-pinned check of those assumptions.</p>
+    <p><a href="turing/index.html">Explore the domain-length example ↗</a> This is linear mathematics for a declared model. Lean checks its algebra and mode bounds; numerical eigenvalues provide a separate cross-check. No cells, tissue or fabricated material were measured.</p>
   </div>
 </section>
 

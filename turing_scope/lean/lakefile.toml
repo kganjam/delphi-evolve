@@ -1,0 +1,5 @@
+name = "TuringScope"
+defaultTargets = ["TuringScope"]
+
+[[lean_lib]]
+name = "TuringScope"

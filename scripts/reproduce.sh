@@ -3,8 +3,18 @@
 # Every step runs under systemd-run caps (TasksMax=256, MemoryMax=4G, no swap, 600 s) with <=2 threads.
 # Writes {step, cmd, exit, seconds} for each step to OUT; exit status is nonzero if any REQUIRED step failed.
 set -u
+if [ "${DELPHI_REPRODUCE_ACTIVE:-}" = 1 ]; then
+  echo "Refusing nested reproduction runner" >&2
+  exit 2
+fi
+export DELPHI_REPRODUCE_ACTIVE=1
 URL="$1"; REF="$2"; W="$3"; OUT="$4"
-rm -rf "$W"; mkdir -p "$W"; : > "$OUT.lines"
+if [ -e "$W" ] || [ -e "$OUT" ] || [ -e "$OUT.lines" ]; then
+  echo "Use a new work directory and output path; existing reproduction evidence is never overwritten" >&2
+  exit 2
+fi
+mkdir -p "$W" || exit 2
+: > "$OUT.lines"
 cap() { systemd-run --user --scope -q -p TasksMax=256 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 \
         env OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 PATH="$HOME/.elan/bin:$PATH" "$@"; }
 FAILED=0
@@ -27,7 +37,7 @@ step pytest 1 cap "$W/venv/bin/python" -m pytest -q tests
 step check_proofs 1 cap python3 scripts/check_proofs.py
 step integ_mutants 1 cap python3 -I scripts/integ_mutants.py . "$W/mutwork"
 step browser_smoke 0 cap python3 scripts/browser_smoke.py site "$W/shots"
-step check_demo 0 python3 -I scripts/check_demo.py site/data/demo.json
+step check_demo 1 python3 -I scripts/check_demo.py site/data/demo.json
 python3 - "$OUT" "$W/commit.json" <<'P'
 import json,sys
 lines=[json.loads(l) for l in open(sys.argv[1]+'.lines')]

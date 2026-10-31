@@ -1,0 +1,38 @@
+{
+ "request_id": "example-short_L_pi",
+ "system": {
+  "kind": "two_species_reaction_diffusion_linearization",
+  "jacobian": [
+   [
+    "1",
+    "-2"
+   ],
+   [
+    "2",
+    "-3"
+   ]
+  ],
+  "diffusivities": [
+   "1",
+   "10"
+  ],
+  "fixed_point": {
+   "declared": true,
+   "description": "Homogeneous steady state (u*,v*) DECLARED by the requester. The Jacobian is the linearization there; the adapter does not verify either, and no measurement is involved."
+  }
+ },
+ "domain": {
+  "dimension": 1,
+  "boundary": "neumann_zero_flux",
+  "length_over_pi": "1"
+ },
+ "assumptions": {
+  "linearization_about_homogeneous_steady_state": true,
+  "fixed_domain_no_growth": true,
+  "no_mechanical_coupling": true
+ },
+ "wavelength": {
+  "near_onset_max_excess": "1/2",
+  "min_domain_over_wavelength": "5"
+ }
+}

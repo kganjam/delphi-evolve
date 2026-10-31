@@ -1,0 +1,8 @@
+{
+  "snapshot_id": "turing-scope-bundled-2026-10-31",
+  "note": "Raw Delphi MCP delphi_get_claim responses (source=local). 'status' may be edited to simulate withdrawal; the bundled copy is active.",
+  "claims": {
+    "turing-ddi": {"file": "turing-ddi.local.mcp.json", "status": "active"},
+    "turing-wavelength": {"file": "turing-wavelength.local.mcp.json", "status": "active"}
+  }
+}
