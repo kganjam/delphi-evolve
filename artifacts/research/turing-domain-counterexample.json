@@ -1,0 +1,112 @@
+{
+  "kind": "exact rational model analysis, not biological observation or Lean proof",
+  "source_claim": "https://w3id.org/delphi/resource/claim/turing-ddi",
+  "jacobian": [
+    [
+      "1",
+      "-2"
+    ],
+    [
+      "2",
+      "-3"
+    ]
+  ],
+  "diffusivities": [
+    "1",
+    "10"
+  ],
+  "homogeneous_trace": "-2",
+  "homogeneous_determinant": "1",
+  "S": "7",
+  "discriminant": "9",
+  "continuum_unstable_q_interval": [
+    "1/5",
+    "1/2"
+  ],
+  "cases": [
+    {
+      "length_in_pi_units": 1,
+      "boundary": "homogeneous Neumann",
+      "checked_modes": [
+        {
+          "n": 0,
+          "q": "0",
+          "trace": "-2",
+          "determinant": "1",
+          "linearly_unstable": false
+        },
+        {
+          "n": 1,
+          "q": "1",
+          "trace": "-13",
+          "determinant": "4",
+          "linearly_unstable": false
+        },
+        {
+          "n": 2,
+          "q": "4",
+          "trace": "-46",
+          "determinant": "133",
+          "linearly_unstable": false
+        },
+        {
+          "n": 3,
+          "q": "9",
+          "trace": "-101",
+          "determinant": "748",
+          "linearly_unstable": false
+        },
+        {
+          "n": 4,
+          "q": "16",
+          "trace": "-178",
+          "determinant": "2449",
+          "linearly_unstable": false
+        }
+      ]
+    },
+    {
+      "length_in_pi_units": 2,
+      "boundary": "homogeneous Neumann",
+      "checked_modes": [
+        {
+          "n": 0,
+          "q": "0",
+          "trace": "-2",
+          "determinant": "1",
+          "linearly_unstable": false
+        },
+        {
+          "n": 1,
+          "q": "1/4",
+          "trace": "-19/4",
+          "determinant": "-1/8",
+          "linearly_unstable": true
+        },
+        {
+          "n": 2,
+          "q": "1",
+          "trace": "-13",
+          "determinant": "4",
+          "linearly_unstable": false
+        },
+        {
+          "n": 3,
+          "q": "9/4",
+          "trace": "-107/4",
+          "determinant": "287/8",
+          "linearly_unstable": false
+        },
+        {
+          "n": 4,
+          "q": "4",
+          "trace": "-46",
+          "determinant": "133",
+          "linearly_unstable": false
+        }
+      ]
+    }
+  ],
+  "analytic_tail": "For q>=1, 10q^2-7q+1=q(10q-7)+1>=4>0; trace=-2-11q<0. At L=pi, n=0 has trace=-2 and determinant=1, and all n>=1 have q=n^2>=1. Thus every Neumann mode is linearly stable. At L=2pi, n=1 has q=1/4 and determinant=-1/8, hence a positive eigenvalue.",
+  "limit": "This demonstrates an applicability condition for the continuum instability criterion, not a refutation of Turing or a guarantee of nonlinear pattern stability."
+}
