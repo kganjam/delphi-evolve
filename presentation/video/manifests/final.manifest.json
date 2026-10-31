@@ -1,0 +1,183 @@
+{
+ "recorded_seattle": "2026-10-31 02:05:10 PDT",
+ "source": {
+  "mode": "site",
+  "source_dir": "/data/worktrees/delphi-evolve/release/site",
+  "source_tree_sha256": "08e18955dfc05da267e120f8f2df61c03906a6839503ac0b3fc9d3b1a046e231",
+  "source_files": 20,
+  "git_toplevel": "/data/worktrees/delphi-evolve/release",
+  "git_head": "fcbc98f9f6206a49fe36d89b0c080867437ef859",
+  "git_branch": "work/release",
+  "git_dirty_paths": [],
+  "has_data_demo_json": true
+ },
+ "video": {
+  "path": "/tmp/vfinal2/darwins-bridge-walkthrough.mp4",
+  "sha256": "465c577c7feea656a62f43a4f3cab4bc410bb5101c9c78818a71bcfa1c5ad394",
+  "bytes": 1797649,
+  "duration_s": 90.12,
+  "resolution": "1280x720",
+  "audio": "none (silent)"
+ },
+ "status": "recorded from a site with data/demo.json",
+ "url_served": "ephemeral 127.0.0.1 port (in-process server, shut down)",
+ "interaction_log": [
+  {
+   "t": 3.1,
+   "step": "hover-map",
+   "ok": true
+  },
+  {
+   "t": 5.6,
+   "step": "click-map",
+   "ok": true
+  },
+  {
+   "t": 8.2,
+   "step": "tab-decision",
+   "ok": true
+  },
+  {
+   "t": 8.2,
+   "step": "scroll-panel",
+   "ok": true
+  },
+  {
+   "t": 11.2,
+   "step": "slider-0",
+   "ok": true
+  },
+  {
+   "t": 12.2,
+   "step": "verdict-at-0",
+   "ok": true,
+   "result": "OPEN \u00b7 MEASURED SUBGRAPH 5-step route, every step admitted Under the assumptions below, each step has a lower bound at or above the previous genotype\u2019s upper bo"
+  },
+  {
+   "t": 14.7,
+   "step": "slider-2",
+   "ok": true
+  },
+  {
+   "t": 15.7,
+   "step": "verdict-at-2",
+   "ok": true,
+   "result": "OPEN \u00b7 MEASURED SUBGRAPH 6-step route, every step admitted Under the assumptions below, each step has a lower bound at or above the previous genotype\u2019s upper bo"
+  },
+  {
+   "t": 18.3,
+   "step": "slider-3",
+   "ok": true
+  },
+  {
+   "t": 19.3,
+   "step": "verdict-at-3",
+   "ok": true,
+   "result": "OPEN \u00b7 MEASURED SUBGRAPH 7-step route, every step admitted Under the assumptions below, each step has a lower bound at or above the previous genotype\u2019s upper bo"
+  },
+  {
+   "t": 21.8,
+   "step": "slider-6",
+   "ok": true
+  },
+  {
+   "t": 22.8,
+   "step": "verdict-at-6",
+   "ok": true,
+   "result": "NO ROUTE CERTIFIABLE \u00b7 AT THIS ASSUMED BOUND No guaranteed-ascending route \u2014 even if every unmeasured genotype were perfect Everything reachable from VFVS under"
+  },
+  {
+   "t": 26.4,
+   "step": "reset",
+   "ok": true
+  },
+  {
+   "t": 26.4,
+   "step": "tab-evidence",
+   "ok": true
+  },
+  {
+   "t": 30.4,
+   "step": "tab-proof",
+   "ok": true
+  },
+  {
+   "t": 30.9,
+   "step": "proof-pane-text",
+   "ok": true,
+   "result": "RECEIPT: COMPILED, MUTANT REJECTED\nDarwinBridge.routeCert_sound; DarwinBridge.blockedCert_sound (conditional on assumed interval containment)\n\nstatus field: completed \u00b7 kernel exit 0 \u00b7 mutant exit 1\n\nBoth exit codes are read from the receipt: the original compiled and the scientific-condition mutant"
+  },
+  {
+   "t": 36.5,
+   "step": "scroll-results",
+   "ok": true
+  },
+  {
+   "t": 43.5,
+   "step": "scroll-lazysp-card",
+   "ok": true
+  },
+  {
+   "t": 43.5,
+   "step": "lazysp-card-text",
+   "ok": true,
+   "result": "The stronger baseline changed the conclusion\n\nEstablished lazy path search resolves 96/100 cases with the primary alternating selector. Our original model-assisted planner is not demonstrated to beat it.\n\nLazySP selector\tBasis\tCertified at 1,000 assays\tRestricted-mean assays\nalternate\tprimary follow-up\t96/100\t476.6\nforward\tsecondary follow-up\t96/100\t369.6\nreverse\tsecondary follow-up\t49/100\t593.9\n\nFollow-up node-query adaptation of established LazySP; same 100 episodes and 1,000-assay budget. Selectors were declared before this follow-up, after the original experiment. The apparent gain over original Q2C is concentrated in one repeated endpoint pair. This does not establish general superiorit"
+  },
+  {
+   "t": 57.0,
+   "step": "open-claims",
+   "ok": true,
+   "result": true
+  },
+  {
+   "t": 57.0,
+   "step": "claims-top",
+   "ok": true
+  },
+  {
+   "t": 57.4,
+   "step": "scenario-valid",
+   "ok": true,
+   "result": {
+    "scenario": "kimura_valid_calculation \u2014 existing Delphi math claim drives a SIMULATED calculation",
+    "guard": "ion s is a per-copy selection coefficient in the evolving population's own environment, NOT an assay score guards passed",
+    "calc": "CALCULATION / REFUSAL {  \"Ne\": 500,  \"fixation_probability\": 0.019801326734058274,  \"neutral_expectation\": 0.001,  \"p\": 0.001,  \"ratio_to_ne"
+   }
+  },
+  {
+   "t": 63.2,
+   "step": "scenario-haploid",
+   "ok": true,
+   "result": {
+    "scenario": "kimura_refused_haploid_model_transfer \u2014 invalid model transfer: haploid population",
+    "guard": "ection coefficient in the evolving population's own environment, NOT an assay score guard failed: model_transfer_refused",
+    "calc": "CALCULATION / REFUSAL ploidy='haploid': the claim is a diploid Wright-Fisher diffusion (4Ne s p). Haploid populations (e.g. E. coli) have a "
+   }
+  },
+  {
+   "t": 68.5,
+   "step": "scenario-trpb-score",
+   "ok": true,
+   "result": {
+    "scenario": "kimura_refused_trpb_assay_score_as_s \u2014 default TrpB request: growth score is not s; names ",
+    "guard": "efficient in the evolving population's own environment, NOT an assay score guard failed: unsupported_quantity_conversion",
+    "calc": "CALCULATION / REFUSAL s_source.kind='trpb_assay_growth_score' is not a selection coefficient. Assay growth scores are not s; refusing. Missi"
+   }
+  },
+  {
+   "t": 73.5,
+   "step": "scroll-changes",
+   "ok": true
+  },
+  {
+   "t": 80.5,
+   "step": "scroll-evidence",
+   "ok": true
+  }
+ ],
+ "console_errors": [],
+ "page_errors": [],
+ "problems": [],
+ "ffmpeg": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+ "captions_policy": "persistent bottom line labels MEASURED vs ASSUMED and states a static Lean receipt is not proof for every slider position; no fabricated lab imagery"
+}

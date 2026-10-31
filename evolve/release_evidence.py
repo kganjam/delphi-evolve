@@ -4,6 +4,7 @@ from __future__ import annotations
 import hashlib
 import csv
 import json
+import gzip
 from pathlib import Path
 
 
@@ -92,3 +93,65 @@ def lazysp_block(root: Path) -> dict:
                      "Selectors were declared before this follow-up, after the original experiment. "
                      "The apparent gain over original Q2C is concentrated in one repeated endpoint pair. "
                      "This does not establish general superiority. No route certifiable is not biological impossibility."}
+
+
+def scale_block(root: Path) -> dict:
+    """Recount the complete prior follow-up; do not promote partial panels to results."""
+    import numpy as np
+
+    base = root / "artifacts/scale"
+    if not (base / "replay_summary.csv").exists():
+        return {"status": "unavailable"}
+    receipt = json.loads((base / "library_receipts.json").read_text())
+    model_keys = {"te8m", "te35m", "te150m", "te650m", "te3b"}
+    if set(receipt["models"]) != model_keys or any(m["covered"] != 160000 for m in receipt["models"].values()):
+        raise ValueError("Scale requires five complete 160,000-variant model libraries")
+    jobs = receipt["jobs"]
+    if len(jobs) != 10 or len({j["id"] for j in jobs}) != 10 or any(j["state"] != "COMPLETED" for j in jobs):
+        raise ValueError("Scale requires ten distinct completed recorded jobs")
+    prior = receipt["priors_z_npz"]
+    p = (root / prior["file"]).resolve()
+    if not p.is_relative_to(root.resolve()) or hashlib.sha256(p.read_bytes()).hexdigest() != prior["sha256"]:
+        raise ValueError("Scale compact prior bytes do not match receipt")
+    with np.load(p) as arrays:
+        expected_keys = {f"{m}__{q}" for m in model_keys for q in ("mm_ctx", "mm_wt")}
+        if set(arrays.files) != expected_keys or any(arrays[k].shape != (160000,) or not np.isfinite(arrays[k]).all() for k in arrays.files):
+            raise ValueError("Scale priors have missing, nonfinite or mis-sized arrays")
+    with gzip.open(base / "replay_rows.jsonl.gz", "rt") as handle:
+        rows = [json.loads(line) for line in handle]
+    configs = {("q2c", "none"), ("collective_shared", "none"),
+               ("collective_shared", "esm_te3b_mm_ctx"), ("collective_shared", "shuf_te3b_mm_ctx")}
+    configs |= {("q2c", f"esm_{m}_mm_ctx") for m in model_keys}
+    configs |= {("q2c", f"shuf_{m}_mm_ctx") for m in ("te150m", "te3b")}
+    if len(rows) != 1100 or {(r["policy"], r["prior_tag"]) for r in rows} != configs:
+        raise ValueError("Scale requires exactly 11 declared configurations and 1,100 episodes")
+    tables = list(csv.DictReader((base / "replay_summary.csv").open()))
+    if len(tables) != 11 or {(r["policy"], r["tag"]) for r in tables} != configs:
+        raise ValueError("Scale summary configurations differ from the declared panel")
+    output = []
+    with (root / "artifacts/core/replay/episodes.csv").open() as handle:
+        panel = {(r["family"], int(r["seed"]), r["start"], r["target"]) for r in csv.DictReader(handle) if r["policy"] == "q2c"}
+    for table in tables:
+        selected = [r for r in rows if (r["policy"], r["prior_tag"]) == (table["policy"], table["tag"])]
+        keys = {(r["family"], r["seed"], r["start"], r["target"]) for r in selected}
+        if len(selected) != 100 or len(keys) != 100 or keys != panel or {r["seed"] for r in selected} != set(range(20)):
+            raise ValueError("Scale configuration contains incomplete or duplicated episodes")
+        if any(r["bmax"] != 1000 or r["core_commit"] != "8883518" or not 0 <= r["assays"] <= 1000 for r in selected):
+            raise ValueError("Scale budget, pinned implementation or assay count is invalid")
+        for budget in (100, 250, 500, 1000):
+            certified = [r for r in selected if r["certificate"] is not None and r["assays"] <= budget]
+            if len(certified) != int(table[f"cert@{budget}"]) or sum(not r["correct"] for r in certified) != int(table[f"false@{budget}"]):
+                raise ValueError("Scale summary differs from episode certificate counts")
+        rmst = sum(r["assays"] if r["certificate"] is not None else 1000 for r in selected) / 100
+        if abs(rmst - float(table["rmst@1000"])) > 1e-8:
+            raise ValueError("Scale summary differs from episode assay counts")
+        output.append({"policy": table["policy"], "prior": table["tag"], "certified": int(table["cert@1000"]),
+                       "episodes": 100, "rmst_assays": rmst,
+                       "interval": [float(table[k]) for k in ("paired_seed_bootstrap_lo", "paired_seed_bootstrap_hi")] if table["tag"] != "none" else None})
+    return {"status": "completed", "models": 5, "variants_per_model": 160000, "episodes": 1100,
+            "comparisons": output, "all_rmst_intervals_include_zero": all(r["interval"] is None or r["interval"][0] <= 0 <= r["interval"][1] for r in output),
+            "source_sha256": {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
+                              for p in (base / "replay_rows.jsonl.gz", base / "replay_summary.csv", base / "library_receipts.json")},
+            "scope": "Separate follow-up on the same repeated-target panel; no clear assay-saving benefit under the tested prior integration. "
+                     "Episode rows and summaries recounted; these runs did not retain per-query traces. "
+                     "Protein model outputs remain predictions; intervals are descriptive seed bootstraps, not calibrated coverage."}

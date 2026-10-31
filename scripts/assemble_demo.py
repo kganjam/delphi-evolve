@@ -111,10 +111,11 @@ cl = J("artifacts/evidence/demo_claims.json")["claims"]
 demo["claims"] = cl
 demo["claims_status"] = "Delphi records queried live 2026-10-31 (local and network kept separate); relation is motivation/context only; nanopub drafts are unsigned and unpublished"
 
-from evolve.release_evidence import claim_block, compute_block, lazysp_block
+from evolve.release_evidence import claim_block, compute_block, lazysp_block, scale_block
 try:
     demo["operational_claims"] = claim_block(R)
     lazysp = lazysp_block(R)
+    scale = scale_block(R)
 except (ValueError, OSError, KeyError) as error:
     errs.append(f"claim-runtime integration: {error}")
 
@@ -132,6 +133,8 @@ out = json.dumps(demo, indent=1)
 (R / "site/data/demo.json").write_text(out)
 if lazysp.get("status") == "completed":
     (R / "site/data/lazysp.json").write_text(json.dumps(lazysp, indent=1))
+if scale.get("status") == "completed":
+    (R / "site/data/scale.json").write_text(json.dumps(scale, indent=1))
 if demo.get("operational_claims", {}).get("status") == "recorded":
     destination = R / "site/claims"
     destination.mkdir(parents=True, exist_ok=True)
@@ -142,5 +145,11 @@ if (R / "artifacts/turing_scope/results.json").exists():
     destination.mkdir(parents=True, exist_ok=True)
     for name in ("index.html", "data.js"):
         shutil.copyfile(R / "turing_scope/site" / name, destination / name)
+for relative in ("deck.html", "deck.pdf", "video/darwins-bridge-walkthrough.mp4"):
+    source = R / "presentation" / relative
+    if source.exists():
+        destination = R / "site/presentation" / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, destination)
 print(json.dumps({"ok": True, "sha256": hashlib.sha256(out.encode()).hexdigest(), "proof": demo["proof"]["status"],
                   "compute": demo["compute"]["status"], "benchmark": demo["benchmark"]["status"]}))

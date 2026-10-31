@@ -1,0 +1,30 @@
+{
+ "source_commit": "220c80cb26949a745116520ae467dce9175fd48e",
+ "files": {
+  "embed_trpb.py": {
+   "from": "gpu/embed_trpb.py",
+   "bytes": 20466,
+   "sha256": "c4b3348f877d798de68ab5e3668d76b1495f0d890df652e57eb7a183419c893a"
+  },
+  "trpb_ref.py": {
+   "from": "gpu/trpb_ref.py",
+   "bytes": 3327,
+   "sha256": "fbe06c6e93b7d83706a2840c59bec9e3427802fb17c06f3acb36a6f33af3ced8"
+  },
+  "data/tm9d8s_AAs.fasta": {
+   "from": "gpu/data/tm9d8s_AAs.fasta",
+   "bytes": 412,
+   "sha256": "d56ebe8d8c556d80bf97329ec34c872b737fb84953f0d83dfe015894e54bbc6c"
+  },
+  "recover_from_logs.py": {
+   "from": "gpu/recover_from_logs.py",
+   "bytes": 2600,
+   "sha256": "a8b1963f17039cd5444fe9f2233e6bc8d7b2e81a587aaa6cca5a4e4fe6a418db"
+  },
+  "fetch_job_logs.py": {
+   "from": "gpu/fetch_job_logs.py",
+   "bytes": 1876,
+   "sha256": "bfb9f6138c9e84a82b79f95ad60757d143ddb2be741276a73b578143cb1c46e8"
+  }
+ }
+}

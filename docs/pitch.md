@@ -45,4 +45,4 @@ From a promising design to an experiment we can justify.”
 
 
 ---
-*Rendered 2026-10-31 01:59:00 PDT by `python -m evolve.evidence docs` from: claimcheck, claimreuse, core, delphi, demo, evsite, experience, gpu, integrator, landscape, lazysp, nano, policies, proof, results, route. Edit `docs/pitch.template.md`, not this file.*
+*Rendered 2026-10-31 02:18:04 PDT by `python -m evolve.evidence docs` from: claimcheck, claimreuse, core, delphi, demo, evsite, experience, gpu, integrator, landscape, lazysp, nano, policies, proof, results, route, scale. Edit `docs/pitch.template.md`, not this file.*

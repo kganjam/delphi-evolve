@@ -5,6 +5,14 @@
   if (!root) return;
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const pct = (x) => (100 * x).toFixed(0) + "%";
+  const scale = document.getElementById("scale-result");
+  if (scale) fetch("data/scale.json").then(r => {
+    if (!r.ok) throw new Error(r.status);
+    return r.json();
+  }).then(d => {
+    if (d.status !== "completed") throw new Error("incomplete prior follow-up");
+    scale.innerHTML = `<p><strong>${d.episodes.toLocaleString()} follow-up replay episodes.</strong> ${d.all_rmst_intervals_include_zero ? "No clear assay-saving benefit: every descriptive interval for the paired change in restricted-mean assays includes zero." : "Inspect the separate comparison table for outcomes."}</p><p>${esc(d.scope)}</p>`;
+  }).catch(e => { scale.textContent = `Prior results unavailable: ${e.message}.`; });
   const sgn = (x) => (x >= 0 ? "+" : "−") + Math.abs(x).toFixed(2);
   fetch("data/results.json").then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(render).catch((e) => {
     root.innerHTML = `<div class="na"><b>No replay results loaded</b> (data/results.json: ${esc(e.message || e)}). Nothing is shown rather than a placeholder.</div>`;

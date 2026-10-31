@@ -11,9 +11,10 @@
 - [x] Run bounded Nebius BioNeMo inference and compare with simpler baselines.
 - [x] Log an actual OpenResearch experiment.
 - [x] Build interactive site, blog, three-minute pitch and video storyboard from measured outputs.
-- [ ] Complete final fresh-checkout reproduction, deck/video, and final Site deployment (initial Site is deployed).
-- [ ] Finish stronger LazySP baseline and model-size/prior ablations; publish actual outcomes.
-- [ ] Finish bounded Turing domain/applicability example; do not conflate it with biological validation.
+- [x] Complete fresh-checkout reproduction and final six-slide deck / 90-second video.
+- [ ] Publish the final Site and downloadable submission bundle (packaging in progress).
+- [x] Complete and audit the stronger LazySP baseline and five-size/prior ablation; negative findings retained.
+- [x] Complete the bounded Turing domain/applicability example; generic-law mutations rejected.
 - [x] Produce reusable evidence/nanopub bundle. Public-network publication remains distinct from a local draft.
 
 Data cache: /data/artifacts/v2-scout/data/caltech/ (uncommitted source artifacts, tracked download manifest required).
@@ -44,3 +45,17 @@ Initial owner-private Site deployed: https://delphi-evolve.lefthill1.chatgpt.sit
 - Release checks: 18 passed, 1 skipped (optional network ESM2-8M test); another28 evidence/release checks passed. Desktop/mobile browser smoke passed with0 horizontal overflow,0 failed requests,0 page errors. Temporary demo generation now keeps audited repository certificates unchanged. These checks do not claim a full clean-host reproduction.
 - Presentation worker was stalled after its final message on a stale background poll. Coordinator checked its clean/pushed tree, stopped only that owned scope, and restarted a bounded final-artifact task.
 - Remaining: fresh checkout run, final deck/PDF/video, optional stronger comparisons and Turing example, final deployment and handoff. No competition submission receipt or prospective lab result exists.
+
+## Final artifact checkpoint — 2026-10-31 02:23 PDT
+
+- [x] 2,500 replay episodes across core (1,100), LazySP (300), and prior follow-up (1,100), on the same repeated-target panel. Strong search 96/100; original Q2C 78/100; no collective uplift; no clear prior benefit.
+- [x] Fresh-checkout base reproduction: 238 passed, two documented skips; Lean and mutation checks passed. Later follow-ups have separately scoped receipts, not a claimed full rerun on final main.
+- [x] Scale coordinator audit: all five full-library hashes and coverage, ten recomputed correlations, complete episode and paired-bootstrap recount; ten live jobs COMPLETED. 30 GPU harness tests and 53 release/evidence/presentation checks passed.
+- [x] Six PDF pages, 385 spoken words, no slide overflow; desktop/mobile site smoke has no console/page/request errors or horizontal overflow.
+- [x] Actual claim adapters and Turing example integrated; public nanopub publication and external team reuse are unperformed.
+- [x] Requested GitHub write invitations issued; five invitations remain pending acceptance.
+- [ ] Final publication receipt and download bundle.
+
+Known scientific limit: independently held-out biological validation called for by the original contract was not achieved. Both replicates inform the sensitivity calibration. We disclose this unmet condition; we do not replace it with descriptive replicate agreement. No wet-lab or broad biological-validity claim is released.
+
+Handoff: `HANDOFF.md`. The original timestamped integration log above is historical; its remaining-work statements are superseded by this checkpoint.

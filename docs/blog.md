@@ -65,13 +65,17 @@ For evidence reuse, we replayed actual recorded measurement requests through ord
 
 ## What the GPUs actually contributed
 
-NVIDIA BioNeMo ESM2-650M produced a label-free prior for 160,000 variants on a Nebius H100, with the successful job and artifact hashes saved. The companion analysis found weak zero-shot association with growth (Spearman about 0.17–0.18) and almost no added predictive value over one-hot identity in an optimistic random-split ridge comparison. The completed embedding run is not evidence that the prior improves the assay policy; that requires a separate matched replay. OpenResearch ran the companion analysis locally on CPU. See [the compute receipt and methods](compute.md).
+NVIDIA BioNeMo ESM2-650M produced a label-free prior for 160,000 variants on a Nebius H100, with the successful job and artifact hashes saved. The companion analysis found weak zero-shot association with growth (Spearman about 0.17–0.18) and almost no added predictive value over one-hot identity in an optimistic random-split ridge comparison. OpenResearch ran that companion analysis locally on CPU. See [the compute receipt and methods](compute.md).
+
+The completed follow-up expanded to 5 model sizes, from 8M to 3B parameters, and 1100 replay episodes. It tested priors against no-prior and shuffled-prior controls under the same assay budget. Every descriptive interval for the paired change in restricted-mean assays includes zero. We found no clear assay-saving benefit under this integration; this is not a general result about protein models. The compact priors and episode rows are reusable; per-query traces were not retained for this follow-up. See [all five sizes, configurations and controls](scale.md).
 
 [Anthropic's biomolecular-modeling study](https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling) and [Adaptyv's experimental binder report](https://www.adaptyvbio.com/blog/anthropic-1) set a higher bar than an attractive generated sequence. We do not compete with their experimental binding results. Our narrower question is how a design decision acquires checkable evidence, and when a scientific model or measurement may legitimately be reused.
 
 ## From this prototype to inverse design
 
 The long-term interface is a desired biological function, a proposed intervention, and the evidence needed to justify it. Neural cellular automata, bioelectric control and morphogenetic computation are possible future domains, but they already have substantial inverse-design prior art. A trained simulator matching its own targets is not independent biological validation. The reviewed [research synthesis](research/inverse-design-synthesis.md) keeps those directions separate from the completed enzyme experiment.
+
+We also implemented a bounded example from an existing Delphi Turing claim. Holding reaction and diffusion parameters fixed, a finite zero-flux domain of length π has no admissible unstable mode, while length 2π has one. Lean checks the parameterized dispersion algebra and mode bounds; independent numerical eigenvalues cross-check the calculation. This makes a model's applicability executable before attempting inverse design. It does not train an NCA, prove a PDE solution or validate a biological pattern. See [the domain example](turing-scope.md).
 
 The immediate next study should use a prospectively frozen protocol and an independent assay context, retain the lazy path-search comparator and add an established active-learning baseline, and measure cost and time to a decision. Current error bins were fitted to all replicates; our uncertainty sweep is transductive sensitivity analysis, not held-out uncertainty validation. The panel repeats four endpoint pairs across initial observations, so its 100 episodes are not 100 independent biological targets.
 
@@ -94,4 +98,4 @@ python -m venv .venv && .venv/bin/pip install pandas numpy rdflib pytest
 
 
 ---
-*Rendered 2026-10-31 01:59:00 PDT by `python -m evolve.evidence docs` from: claimcheck, claimreuse, core, delphi, demo, evsite, experience, gpu, integrator, landscape, lazysp, nano, policies, proof, results, route. Edit `docs/blog.template.md`, not this file.*
+*Rendered 2026-10-31 02:18:04 PDT by `python -m evolve.evidence docs` from: claimcheck, claimreuse, core, delphi, demo, evsite, experience, gpu, integrator, landscape, lazysp, nano, policies, proof, results, route, scale. Edit `docs/blog.template.md`, not this file.*

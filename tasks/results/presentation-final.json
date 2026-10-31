@@ -1,0 +1,90 @@
+{
+ "role": "presentation-final",
+ "status": "completed",
+ "completed_pdt": "2026-10-31 ~01:55",
+ "model": "claude-sonnet-5-5 (existing Claude Max subscription; no metered API charge established; CLI cost estimates are not subscription spend). No GPU, no subagents, no extra APIs used.",
+ "branch": "work/presentation",
+ "commit": "a671144 (deck, PDF, notes, appendix, video, validator and tests); this field is updated in the following receipt-only commit",
+ "inputs": {
+  "root": "/data/worktrees/delphi-evolve/release",
+  "git_head_deck": "fdf01b5efce38a327fadb078c4f8744c15363e82 (clean for every input path; origin/work/release at that SHA)",
+  "git_head_video": "317203a04d597b141a5769cc866fa8489e5af9fe (site/ and artifacts/{core,claim_reuse,proof,gpu,integration,demo.json} byte-identical between 317203a and fdf01b5 per git diff --stat; only turing_scope/ was added)",
+  "shards": "git-ignored in release; validated from /data/worktrees/delphi-evolve/core/artifacts/core/replay/shards (220 shards, 0 empty) AND from the committed immutable queries/queries__<arm>.tsv.gz traces in release (11 arms, per-episode paid-query count == episodes.csv assays)"
+ },
+ "commands_run": [
+  {
+   "cmd": "python3 presentation/build_deck.py --root /data/worktrees/delphi-evolve/release --shards-dir /data/worktrees/delphi-evolve/core/artifacts/core/replay/shards (systemd-run scope 4G/swap0/128 tasks/600 s, OMP_NUM_THREADS=2)",
+   "exit": 0,
+   "result": "FINAL deck.html; validator: 20 seeds x 5 pairs x 11 arms = 1100 episodes, 0 empty shards, panel_complete_11 true; spoken words 378 (cap 420)"
+  },
+  {
+   "cmd": "python3 presentation/export_pdf.py presentation/deck.html --shots presentation/screenshots (same scope)",
+   "exit": 0,
+   "result": "deck.pdf pages=6, console errors [], per-slide layout check: content ends above the footnote strip on all 6, no clipped text; screenshots inspected by eye for slides 1,3,4,5,6 and PDF pages rasterised and viewed"
+  },
+  {
+   "cmd": "python3 -m pytest -q presentation/tests (same scope)",
+   "exit": 0,
+   "result": "11 passed (empty shard rejected incl. in a post-hoc arm; 5-seed run rejected vs 20-seed protocol; dropped episode rejected; no shards + no traces rejected; query-trace tamper rejected when shards absent; 11-arm panel accepted only when complete and verified; partial post-hoc arm not shown; final render from TEST-ONLY synthetic fixture; draft has no replay numbers)"
+  },
+  {
+   "cmd": "ad hoc check: parse slide-4 table in deck.html, compare 11 rows (@250, @1000, mean assays, false certificates) with artifacts/core/replay/table_primary.csv",
+   "exit": 0,
+   "result": "11 rows, 0 mismatches"
+  },
+  {
+   "cmd": "python3 presentation/video/record_video.py --site /data/worktrees/delphi-evolve/release/site --out /tmp/vfinal --require-demo (same scope)",
+   "exit": 0,
+   "result": "78.08 s, 1,706,150 bytes, 1280x720 silent, problems [], no console/page errors; manifest status 'recorded from a site with data/demo.json'"
+  }
+ ],
+ "artifacts": {
+  "deck_html": "presentation/deck.html",
+  "deck_html_sha256": "658c231292d7689bf2eb873ed17c5c8f4cc36115a65e34a8fe4117f7d712d586",
+  "pdf": "presentation/deck.pdf",
+  "pdf_pages": 6,
+  "pdf_sha256": "9b926072e3dc0b939ce6040a339cd98149263866ce308e8c8fd7bd5cbc988e16",
+  "screenshots": "presentation/screenshots/deck-slide1..6.png (1280x720)",
+  "speaker_notes": "presentation/speaker-notes.md",
+  "speaker_notes_sha256": "3a4a27d4ba8eba9011fe988e950393622073877b9dda6f9486c4f71396b7376a",
+  "spoken_words": 378,
+  "spoken_words_per_slide": [
+   42,
+   50,
+   57,
+   83,
+   82,
+   64
+  ],
+  "appendix": "presentation/appendix.md (pending items, all 11 arms, long limitations; not slide material)",
+  "appendix_sha256": "0d0acfcc3d278574aba5fe65d7a9debd1a8fc7a80789f71bff1c95d3ad87608e",
+  "provenance": "presentation/deck.provenance.json (git head, input SHA-256s, validation info, pending items)",
+  "video": "presentation/video/darwins-bridge-walkthrough.mp4",
+  "video_sha256": "194aa80a5a458caf0cdd68d632cce75ed7e2ce789a704c59d0bad4fa5ce0e37e",
+  "video_bytes": 1706150,
+  "video_duration_s": 78.08,
+  "video_manifest": "presentation/video/manifests/final.manifest.json (source tree SHA-256, interaction log, verdict text per slider position, claim-scenario texts)",
+  "storyboard": "presentation/video/storyboard.md"
+ },
+ "slide_summary": [
+  "1 problem: 24 orders, every direct order steps down; certified 6-step detour",
+  "2 measured landscape: 159,129 of 160,000; 871 unknown; no imputed rows used",
+  "3 kappa sweep 5->6->7 then 'no route certifiable' (not 'none exists')",
+  "4 original 7 arms (Q2C 78, shared 78, isolated 77, directed 32, random 21 at 1000 assays) + 4 POST HOC arms labelled as chosen after observing the run (no-GP Q2C 96, shared no-GP 96, isolated no-GP 65, round-robin 78); at 250 assays no-GP 16 vs Q2C 43; no collective uplift; 20 seed clusters, 80 repeated cases + 20 seed-chosen pairs, not 100 independent targets; 0 false certificates = structural consistency",
+  "5 actual Delphi claim reuse: Kimura/Fisher hash-pinned hand-authored adapters + applicability guard compute/refuse; withdraw/delete/edit source -> refuse; same-context reuse == ordinary cache (95.3% of 488,601 recorded requests either way); fault fixtures are not savings; not claimed to improve the TrpB route benchmark",
+  "6 Lean conditional (generic theorems, weak/strong cuts, one 7-node route 7/7 exact recompute; interval containment ASSUMED; transductive sensitivity; not every episode kernel-checked) + ESM2-650M prior on Nebius H100 (Spearman 0.17-0.18, ~no gain over one-hot in random-split ridge; OpenResearch ran locally on CPU) + pilot ask; contribution = assay decisions with machine-checkable conditional certificates and typed reusable evidence"
+ ],
+ "limitations": [
+  "LazySP-style baseline and GPU-prior policy ablation were NOT complete at render time (lazy-baseline worker had only preregistration + seed-0 smoke; scale worker had no replay). The deck and appendix state this as pending; no benefit is claimed. build_deck.py detects result files under artifacts/lazysp/panel and artifacts/scale/**/prior_replay* and, if present, says only that a result file exists but is not quoted - it does not invent numbers. Re-run the builder after those results are integrated and write the new sentences by hand.",
+  "Deck numbers come from artifacts/core/replay/*.csv in release at fdf01b5; if the integrator regenerates the replay, rebuild.",
+  "Video was recorded at 317203a; the site tree is unchanged at fdf01b5 (see inputs). Video is silent with burned-in captions; no narration.",
+  "Adapters were authored and reviewed by the authoring model, not by a population geneticist (stated in slide footer and appendix).",
+  "The Turing-domain Lean example (turing_scope) is merged in release but is not presented; mentioned only as roadmap in the appendix.",
+  "Spend: no metered charge established; no GPU/API consumption by this worker.",
+  "Slide fonts for tables are small (13px) at 1280x720 on slide 4 because the 11-arm table must fit; legible in the PDF at full size."
+ ],
+ "next_steps": [
+  "Coordinator: link presentation/deck.pdf, presentation/video/darwins-bridge-walkthrough.mp4 and presentation/speaker-notes.md from the site/deploy; do not edit them.",
+  "If LazySP or GPU-prior replay results are integrated: rerun build_deck.py with --root <new release> --shards-dir <core shards>, then export_pdf.py and record_video.py --require-demo; add result slides by hand."
+ ]
+}

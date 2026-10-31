@@ -112,14 +112,14 @@ Do not spend compute for sponsor logos. GPU max means productive bounded jobs. U
 
 ## 24-hour execution and kill gates
 
-T0 is kickoff; actual wall-clock timestamps belong in STATUS.md. Internal deliverable deadline T0+24h, with a deployable version at T0+18h. Official site says slides due Sunday Nov 1 at 1pm in Boston; interpreting venue time yields **10am PST (UTC−8)** in Seattle, after the DST transition. This is separate from our internal deadline.
+These were planned hour allocations, not measured durations. Checkmarks below record delivered scope; work finished earlier through parallel execution. T0 is kickoff; actual wall-clock timestamps belong in STATUS.md. Internal deliverable deadline T0+24h, with a deployable version at T0+18h. Official site says slides due Sunday Nov 1 at 1pm in Boston; interpreting venue time yields **10am PST (UTC−8)** in Seattle, after the DST transition. This is separate from our internal deadline.
 
-- [ ] H0–2: original data downloaded and audited; exact assay semantic contract; tiny route computed; all workers active.
-- [ ] H2–6: data loader, sparse graph, measured baseline, first Lean checker, first real screen. Kill gate: absent real data means switch to audited GFP; no switch merely to improve a disappointing result.
-- [ ] H6–10: budgeted replay and strong baselines, evidence events, Delphi import, initial GPU run. BioNeMo setup gets at most two hours before explicit fallback.
-- [ ] H10–14: complete ablations, uncertainty/sensitivity results, mutation proof checks; no new product scope.
-- [ ] H14–18: results integrated into site, draft nanopubs validated, CLI/API another team can run, replay video and slides.
-- [ ] H18–22: fresh checkout reproduction; leakage and claims audit; factual blog, 3-minute pitch rehearsal, fallback recording.
+- [x] H0–2: original data downloaded and audited; exact assay semantic contract; tiny route computed; all workers active.
+- [x] H2–6: data loader, sparse graph, measured baseline, first Lean checker, first real screen. Kill gate: absent real data means switch to audited GFP; no switch merely to improve a disappointing result.
+- [x] H6–10: budgeted replay and strong baselines, evidence events, Delphi import, initial GPU run. BioNeMo setup gets at most two hours before explicit fallback.
+- [x] H10–14: complete ablations, uncertainty/sensitivity results, mutation proof checks; no new product scope.
+- [x] H14–18: results integrated into site, draft nanopubs validated, CLI/API another team can run, replay video and slides.
+- [x] H18–22: fresh checkout reproduction; leakage and claims audit; factual blog, 3-minute pitch rehearsal, fallback recording.
 - [ ] H22–24: freeze scientific results, verify links and artifacts, package submission. Leave actual human presentation/submission steps explicit if no submission credentials exist.
 
 ## Pitch and venture
@@ -149,3 +149,7 @@ Why competitive: one understandable consequential task; real data; adversarial s
 - Local resource guide: /home/ubuntu/git/scienceclaw-hackathon-ideas/resources/research/nebius-compute.md.
 
 Scouts' reports are leads until checked. Final results and spend belong in the new repository's run manifests, not in this planning document.
+
+## Final decision after experiments
+
+The original model-assisted planner did not beat the established LazySP-style comparator. Collective sharing did not improve completion over a single planner, and five-size ESM2 priors did not establish a benefit under the tested integration. Retain the measured decision/evidence layer and use the simpler method as the next pilot comparator. This is a systems prototype, not an algorithmic win. Source-pinned Kimura/Fisher/Turing adapters now make actual applicability decisions. NCA and bioelectric inverse design remain researched expansion candidates; the implemented Turing domain example is a bounded mathematical prerequisite. See `HANDOFF.md` for delivered artifacts, scientific limitations, and the external presentation step.

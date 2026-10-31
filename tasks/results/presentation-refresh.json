@@ -1,0 +1,89 @@
+{
+ "role": "presentation-refresh",
+ "status": "completed",
+ "completed_pdt": "2026-10-31 02:08",
+ "model": "claude-sonnet-5-5 (existing Claude Max subscription; no metered API charge established; CLI cost estimates are not subscription spend). No GPU, no subagents, no extra APIs used.",
+ "branch": "work/presentation",
+ "commit": "95fa703 (deck, PDF, notes, appendix, video, validator, tests); this receipt's status/commit fields are updated in the following receipt-only commit",
+ "inputs": {
+  "root": "/data/worktrees/delphi-evolve/release",
+  "git_head": "fcbc98f9f6206a49fe36d89b0c080867437ef859 (work/release, git status clean for every input path, also origin/work/release; tree of site/ identical to 43fa7b9 'Publish the stronger LazySP comparison')",
+  "lazysp_files_used": "artifacts/lazysp/results/{summary.json,table_primary.csv,episodes.csv,exploratory_post_hoc.json,audit.json} (+ episodes_with_original.csv, table_paired.csv, crosschecks.json hashed in provenance); the old builder looked at the wrong path artifacts/lazysp/panel/",
+  "shards": "validated from /data/worktrees/delphi-evolve/core/artifacts/core/replay/shards and from committed query traces (as in presentation-final)",
+  "provenance_sha256_count": 41,
+  "inputs_untracked_or_modified": []
+ },
+ "commands_run": [
+  {
+   "cmd": "python3 presentation/build_deck.py --root /data/worktrees/delphi-evolve/release (dirty release, trial) --out-dir /tmp/pdeck; export_pdf.py on it; read screenshots",
+   "exit": 0,
+   "result": "trial only: found slide-5 overflow (682>666 px) and 407 spoken words; fixed (Turing sentence moved to a left-column card; notes trimmed to 385). Not committed."
+  },
+  {
+   "cmd": "python3 -m pytest -q presentation/tests (systemd-run scope 4G/swap0/128 tasks/600 s, OMP_NUM_THREADS=2)",
+   "exit": 0,
+   "result": "19 passed: 11 earlier tests (empty shard, 5-vs-20 seeds, dropped episode, trace tamper, 11-arm only when complete+verified, draft has no replay numbers, final render) + 8 new LazySP guards (reads results/ not panel/, dropped episode, audit error, summary disagrees with episodes, paired counts disagree with core q2c, final refuses without or with unaudited LazySP, final deck/appendix/notes contain no 'pending')"
+  },
+  {
+   "cmd": "python3 presentation/build_deck.py --root /data/worktrees/delphi-evolve/release --shards-dir /data/worktrees/delphi-evolve/core/artifacts/core/replay/shards (same scope)",
+   "exit": 0,
+   "result": "FINAL; 20 seeds x 5 x 11 arms valid; LazySP 3 x 100 episodes, 300 shards audited 0 errors, resolved@B/RMST/status counts/paired counts re-derived from episodes.csv and core replay; spoken words 385 (cap 420); per slide [42,50,57,84,82,70]"
+  },
+  {
+   "cmd": "python3 presentation/export_pdf.py presentation/deck.html --shots presentation/screenshots (same scope)",
+   "exit": 0,
+   "result": "pdf pages=6, console errors [], layout check ok on all 6 slides (content bottoms 553/653/616/622/649/618 px vs footnote strip at 649-666), no clipped text; all 6 screenshots inspected by eye"
+  },
+  {
+   "cmd": "python3 presentation/video/record_video.py --site /data/worktrees/delphi-evolve/release/site --out /tmp/vfinal2 --require-demo (same scope)",
+   "exit": 0,
+   "result": "90.12 s, 1,797,649 bytes, 1280x720 silent, problems [], console/page errors none, 0 failed interaction steps; recorded 2026-10-31 02:05:10 PDT from site tree at fcbc98f; captures #lazysp-result card (card text contained 96/100 and 'not demonstrated to beat' so the baseline captions were used)"
+  },
+  {
+   "cmd": "ffmpeg frame extraction at 40 s and 48 s of an earlier identical-structure recording (/tmp/vtest) read by eye: replay bars with post hoc hatching, then the #lazysp-result card with the caption 'The original Q2C does not beat it'",
+   "exit": 0,
+   "result": "visually confirmed"
+  }
+ ],
+ "artifacts": {
+  "deck_html": "presentation/deck.html",
+  "deck_html_sha256": "23d9a41ee4c628c81a14fc72216e456230c6dda8e871e297bd07560973419d6a",
+  "pdf": "presentation/deck.pdf",
+  "pdf_pages": 6,
+  "pdf_sha256": "1f288048f77633f6c2f07681bacc22de533f4dd5c9fdf6598c272b21bb9c0e04",
+  "screenshots": "presentation/screenshots/deck-slide1..6.png",
+  "speaker_notes": "presentation/speaker-notes.md",
+  "speaker_notes_sha256": "974e71a57596dc6d2d549a343776fa1db45b760fe41c480dc754648c0644eb71",
+  "spoken_words": 385,
+  "appendix": "presentation/appendix.md",
+  "appendix_sha256": "2b44a95a3a252b7125d2f456e69ab43c9a4cbad2012440a0ca9ca69a0f123367",
+  "provenance": "presentation/deck.provenance.json",
+  "video": "presentation/video/darwins-bridge-walkthrough.mp4",
+  "video_sha256": "465c577c7feea656a62f43a4f3cab4bc410bb5101c9c78818a71bcfa1c5ad394",
+  "video_bytes": 1797649,
+  "video_duration_s": 90.12,
+  "video_source_git_head": "fcbc98f9f6206a49fe36d89b0c080867437ef859",
+  "video_source_tree_sha256": "08e18955dfc05da267e120f8f2df61c03906a6839503ac0b3fc9d3b1a046e231",
+  "video_source_dirty_paths": [],
+  "video_manifest": "presentation/video/manifests/final.manifest.json",
+  "storyboard": "presentation/video/storyboard.md"
+ },
+ "slide_changes": [
+  "4 rewritten around the strong baseline: LazySP-style alternate 96 (@250 50%, RMST 477), forward 96, reverse 49; Q2C 78 (43%, 483); shared specialists 78 (no uplift); POST HOC no-GP 96 (16% @250); directed 32; random 21. Paired alternate minus Q2C +18 pp [+14,+22] preregistered seed bootstrap; post hoc 24-problem-cluster [0,+51]; RMST -6.5 [-53,+49] includes 0; 18 only-LazySP / 0 only-Q2C, 17 of 18 at VFVS->ALKG. States: no Q2C superiority, existing node-query adaptation not our invention, protocol preregistered before its new episodes but after the original study, one enzyme, assumed intervals, about 24 effective problems.",
+  "5 gains one model-derived Turing line (L=pi no admissible unstable mode, L=2pi n=1 determinant -1/8; Lean checks the dispersion algebra, not the PDE or biology), computed from artifacts/turing_scope/results.json and lean_receipt.json, shown only if both are consistent",
+  "6: Not-new box says LazySP/BAEE were run as the strong baseline and ALDE was not; Not-shown says Q2C beating LazySP; kernel-check caveat covers 1,400 replay-episode certificates; GPU prior replay 'not available in this release' (scale branch has only a descriptive ablation, nothing quoted)",
+  "appendix: LazySP section with full numbers, post hoc cluster result and 3-row table, all 11 core arms, Turing appendix; 'pending' removed everywhere for LazySP"
+ ],
+ "limitations": [
+  "The 78 vs 32 headline from presentation-final is replaced; any earlier PDF/video from commit a671144 is stale.",
+  "Sources: artifacts/core/replay shards are git-ignored in release; validated from the core worktree and the committed query traces, as before.",
+  "Video is silent with burned-in captions; 90.1 s (6 s over the 84 s allowance given the extra card-hold, still under the 95 s cap).",
+  "The model-size/GPU-prior policy ablation (work/scale) was not awaited; only the known 650M weak prior is stated. The scale branch's committed descriptive ablation was not read for quotation and nothing from it is claimed.",
+  "Adapters were authored and reviewed by the authoring model, not a population geneticist. The Turing line is model-derived and was read from release artifacts, not independently re-run by this worker.",
+  "No COORDINATOR-NOTICE.md was found in any worktree under /data/worktrees/delphi-evolve at depth 3; the instructions in the task message were followed.",
+  "Spend: no metered charge established; no GPU/API use by this worker."
+ ],
+ "next_steps": [
+  "Integrator: link presentation/deck.pdf, video and speaker notes; do not hand-edit. Rebuild with build_deck.py --root <release> if the release moves; the builder rejects any LazySP file that fails the audit/cardinality checks."
+ ]
+}

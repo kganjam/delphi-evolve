@@ -1,6 +1,6 @@
 {
-  "status": "in_progress",
-  "scope": "Coordinator integration checks; release still awaits final core/GPU/presentation integration.",
+  "status": "checks_completed_publication_in_progress",
+  "scope": "Original integration runs retained; final scoped checks added below.",
   "recorded_at_seattle": "2026-10-31T01:15:57.710355-07:00",
   "code_head": "af9721efe9ca062646dbb3b222c65207d72da9f2",
   "checks": [
@@ -39,5 +39,32 @@
     "The first uv venv selected Python3.14 without inherited numerical packages; it was not used for the passing test run",
     "Corrected an unsupported structural interpretation: low-confidence predicted differences cannot be attributed to mutation effects",
     "Source-only scout reports and new inverse-design proposals are not completed experiments"
-  ]
+  ],
+  "historical_status": "in_progress",
+  "final_checks": {
+    "recorded_at_seattle": "2026-10-31 02:23 PDT",
+    "source_commit": "27d9c069d6fba4b9d9ecc9fc093d941bb8339bd2",
+    "gpu_harness": {
+      "exit": 0,
+      "result": "30 passed in 0.80s"
+    },
+    "release_evidence_presentation": {
+      "exit": 0,
+      "result": "53 passed in 52.20s; 14 rdflib deprecation warnings"
+    },
+    "browser": {
+      "exit": 0,
+      "result": "desktop and mobile: 0 page/console/request errors, 0 horizontal overflow"
+    },
+    "pdf": {
+      "exit": 0,
+      "result": "6 pages, 385 spoken words, all slide layout checks passed"
+    },
+    "fresh_checkout_receipt": "artifacts/integration/fresh-checkout-317203a0.json",
+    "scale_audit": "artifacts/integration/scale-coordinator-audit.json",
+    "limitations": [
+      "Final source has targeted follow-up checks, not a second full clean-host rerun.",
+      "No independent held-out biological validation or prospective measurement."
+    ]
+  }
 }
