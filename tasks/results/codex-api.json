@@ -1,10 +1,10 @@
 {
   "role": "codex-api",
-  "status": "Price prior-art follow-up and Fisher target-fidelity witness pushed for coordination; both evaluation freezes remain unapproved",
-  "updated_at": "2026-10-31T07:25:55.346913-07:00",
+  "status": "Site ownership and component hashes coordinated; submit contains walkthrough unchanged; director final integration SHA pending; scientific evaluation gates retained",
+  "updated_at": "2026-10-31T07:33:58.971638-07:00",
   "branch": "work/codex-api",
-  "commit": "3ea28a28c6348f91bb98712a3ced483b57f48458",
-  "goal": "Broader native goal stays paused; targeted Price prior-art and statement review completed. Existing compiled Price/Hamilton probe and reviewed walkthrough retained. Director owns integration and final site-publish-request.",
+  "commit": "74120e3f24c323e7a0cb387953138a453678272e",
+  "goal": "Broader native goal stays paused. Targeted pre-run review completed without reopening selection; director retains integration/run authorization and primary retains native Sites.",
   "checklist": [
     {
       "item": "Read complete handoff and governing files; establish persistent goal; notify coordinators",
@@ -43,8 +43,8 @@
       "done": true
     },
     {
-      "item": "Receive revised benchmark/payload and inspect changes before final freeze approval",
-      "done": false
+      "item": "Receive v1.2 benchmark/payload and inspect changes; record conditional metadata acceptance and unresolved run gates",
+      "done": true
     },
     {
       "item": "Director integrates/reviews checked walkthrough and leaves exact-SHA site-publish-request; primary publishes existing Site",
@@ -64,6 +64,14 @@
     },
     {
       "item": "Extend Price/Fisher/Hamilton proof-assistant prior-art search, map requested names to existing compiled results, and record exact Fisher projection counterexample",
+      "done": true
+    },
+    {
+      "item": "Read primary-agent-gate-evaluation-corrections completely; apply linear/nonlinear, abstention/control and conditional-robustness rules to current pitch/scorecard",
+      "done": true
+    },
+    {
+      "item": "Confirm Codex walkthrough/science and dx-submit presentation ownership; pin pushed component SHAs and director-only canonical publication handoff",
       "done": true
     }
   ],
@@ -215,6 +223,31 @@
       "command": "Capped Python JSON validation, projection script/source-hash check and unchanged Price.lean SHA check; git diff --cached --check and staged diff inspection",
       "exit": 0,
       "result": "Receipts valid; prior compiled Lean source unchanged; no new prover or benchmark run."
+    },
+    {
+      "command": "git fetch origin work/rethink-director work/rethink-electric work/rethink-critic work/rethink-nca; read immutable decision/spec/benchmark/scorer/baseline files and primary memo",
+      "exit": 0,
+      "result": "Reviewed critic 8f4d20c, director ecad28a, electric bec9a21. No other checkout edited."
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /home/ubuntu/miniconda3/bin/python3 artifacts/integration/codex-api/audit_benchmark_v1_2_changes.py",
+      "exit": 0,
+      "result": "Initial delta audit and expanded Greenhill-witness run both exit 0. 19 hashes match; 135 parameters unchanged; three verdicts changed. ID depth-3 43/95 versus dev-trained constant 46/95. Three constructed density completions expose rounded/exact constant ambiguity; prior independent shooting receipt reused."
+    },
+    {
+      "command": "Capped Python receipt/schema/source-hash checks and staged diff inspection; git diff --cached --check",
+      "exit": 0,
+      "result": "Receipt consistent with script; changed labels exactly gh-0004/0012/0016. No new agent, prover, PDE or GPU run."
+    },
+    {
+      "command": "Read HOSTING-HANDOFF, director-to-dx-submit and both publication handoffs; git ls-remote origin for work/submit, work/rethink-director, work/codex-api; read-only submit git status",
+      "exit": 0,
+      "result": "Submit 47590e9 clean/pushed; director ecad28a canonical request is provisional; submit request is explicitly only a candidate."
+    },
+    {
+      "command": "Capped Python component hash/identity/link check against original browser receipt; git diff of protected walkthrough paths and root entry",
+      "exit": 0,
+      "result": "All four walkthrough files match original browser hashes across implementation, Codex, director and submit snapshots; script/receipt byte-identical; landing links to walkthrough; site/index.html remains baseline. No build/browser/deployment repeated."
     }
   ],
   "artifacts": [
@@ -255,7 +288,11 @@
     "artifacts/integration/codex-api/admissible-review/469874b/compile-review.json",
     "experiments/price_probe/review_projection.py",
     "artifacts/integration/codex-api/price-projection-review.json",
-    "artifacts/integration/codex-api/price-prior-art-followup.json"
+    "artifacts/integration/codex-api/price-prior-art-followup.json",
+    "planning/rethink/CODEX-AGENT-GATE-PRE-RUN-REVIEW.md",
+    "artifacts/integration/codex-api/audit_benchmark_v1_2_changes.py",
+    "artifacts/integration/codex-api/benchmark-v1-2-changes-review.json",
+    "artifacts/integration/codex-api/site-component-integrity.json"
   ],
   "limitations": [
     "Fresh Price/Hamilton Lean compile and witness controls exit0 with standard axioms; no additive-genetic Fisher FTNS or independent biological correspondence review.",
@@ -264,14 +301,19 @@
     "v1.1 review is nonblinded and does not substitute for a blinded audit. Numerical agreement does not approve its public-ID leakage or complete diagnosis contract.",
     "Review walkthrough is a checked draft, not an integrated or published revised entry. Drawings are mode diagrams, not GPU/PDE runs. Director owns integration/publication handoff.",
     "Revised Admissible compilation passes but its source names/docstrings still exceed some proved statements;21freeze lacks full formal targets and source hashes.",
-    "Price prior-art search is bounded; AFP check covers catalogue text, Rocq landing page is not all package source. Fisher projection remains a proposed statement, not compiled FTNS."
+    "Price prior-art search is bounded; AFP check covers catalogue text, Rocq landing page is not all package source. Fisher projection remains a proposed statement, not compiled FTNS.",
+    "v1.2 review is nonblinded and limited to changes; it is not a fresh full numerical/blinded audit. Greenhill density witnesses reuse a numerical root whose refinement delta is not a certified error bound.",
+    "Inspected scoring conflates parser failure with underdetermined; no committed arms/preregistration at inspected electric revision. Old host 24/24 agreements have mismatched prompt/target and do not establish valid accuracy or a ceiling.",
+    "Ownership/component identity check does not approve new presentation science or visuals. Final integrated source SHA is not yet selected; the existing director publication request is provisional."
   ],
   "next_steps": [
     "Keep broader native goal paused; preserve completed targeted work.",
-    "Critic supplies Scope Desk v1.2 with opaque IDs, pinned payload, completed diagnoses and explicit conventions; review its changes before any evaluation approval.",
+    "Critic resolves rounded/exact Greenhill constant and remaining linear-only wording in a new hashed candidate; director obtains final blinded text audit before approving evaluation.",
     "Host revises21recordfulltargets and consistentbuckets/README; new8028freeze not approved.",
     "Director reviews/integrates site/review at7f9035a and prepares exactSHA site-publish-request.json for primary; existingownerprivateSite only.",
     "Independent reader reviews Price/Hamilton correspondence before headline integration; Price staysappendixperFINALSHAPE.",
-    "Host changes B0a to no single theorem target specified here and freezes full Fisher genetic-projection/partial-change semantics before a Fisher prover attempt; existing Price/Hamilton probe is not a blinded benchmark score."
+    "Host changes B0a to no single theorem target specified here and freezes full Fisher genetic-projection/partial-change semantics before a Fisher prover attempt; existing Price/Hamilton probe is not a blinded benchmark score.",
+    "Electric/director freeze independent answer-status schema, coverage/risk/utility and always-abstain/exact-checker/same-information controls plus actual prompt/tool boundary; preserve selected pitch and conditional robustness wording.",
+    "Director integrates dx-submit candidate 47590e9 with latest Codex reviews/ledger, obtains science/presentation and integrated-navigation checks, then supersedes the one canonical publication request with that exact pushed SHA. Package site/ and name the intended landing route; primary publishes existing Site."
   ]
 }
