@@ -1,16 +1,91 @@
 {
  "role": "scale",
- "status": "in_progress",
- "updated": "2026-10-31T00:32-07:00 PDT",
+ "status": "completed",
+ "updated": "2026-10-31T02:20 PDT",
  "commit": "see git log work/scale",
- "summary": "Controller, runner, assembly and policy-replay harness built and fixture-tested. No scale GPU job launched yet: waiting for the gpu worker's first working full-library BioNeMo job (its first main job aijob-e00d27jgpd2n9kwva1 FAILED on np.savez to the bucket mount, EINVAL).",
+ "summary": "Ten owned 1-GPU shard jobs (2.63 H100-hours wall) produced complete 160,000-variant ESM2-TE libraries for 8M/35M/150M/650M/3B; cross-checked against the gpu worker's independent 650M run; descriptive size ablation (rho 0.17-0.21, no growth with size, top-1% enrichment plateaus at 650M); policy replay with prior vs shuffled control on core's q2c/collective_shared: no detectable benefit, 0 false certificates. 15B deliberately not run. Yield path never triggered live.",
  "jobs": {
-  "owned": [],
-  "peers_counted_not_cancellable": [
-   "aijob-e00gqrf19pjdrbyat3 (COMPLETED)",
-   "aijob-e00d27jgpd2n9kwva1 (FAILED)"
+  "owned": [
+   {
+    "id": "aijob-e00kejm199cp3hq1nt",
+    "name": "delphi-evolve-scale-te3b-u0-5-074404",
+    "model_key": "te3b",
+    "state": "COMPLETED",
+    "gpu_seconds": 1102
+   },
+   {
+    "id": "aijob-e00db00w7bzzp973r0",
+    "name": "delphi-evolve-scale-te150m-u0-31-074511",
+    "model_key": "te150m",
+    "state": "COMPLETED",
+    "gpu_seconds": 1007
+   },
+   {
+    "id": "aijob-e00hsqc8eyxhaps2rw",
+    "name": "delphi-evolve-scale-te3b-u6-11-075857",
+    "model_key": "te3b",
+    "state": "COMPLETED",
+    "gpu_seconds": 1068
+   },
+   {
+    "id": "aijob-e00nga5q6vjqbbee30",
+    "name": "delphi-evolve-scale-te3b-u12-16-080004",
+    "model_key": "te3b",
+    "state": "COMPLETED",
+    "gpu_seconds": 938
+   },
+   {
+    "id": "aijob-e00y49t1xsfxm7cmqf",
+    "name": "delphi-evolve-scale-te3b-u17-21-080112",
+    "model_key": "te3b",
+    "state": "COMPLETED",
+    "gpu_seconds": 935
+   },
+   {
+    "id": "aijob-e00zv8gre71k3mxt1s",
+    "name": "delphi-evolve-scale-te3b-u22-26-080322",
+    "model_key": "te3b",
+    "state": "COMPLETED",
+    "gpu_seconds": 931
+   },
+   {
+    "id": "aijob-e00msfjf9v25bjzb2w",
+    "name": "delphi-evolve-scale-te3b-u27-31-080429",
+    "model_key": "te3b",
+    "state": "COMPLETED",
+    "gpu_seconds": 928
+   },
+   {
+    "id": "aijob-e00bz2z168xhb8sqj0",
+    "name": "delphi-evolve-scale-te650m-u0-31-080639",
+    "model_key": "te650m",
+    "state": "COMPLETED",
+    "gpu_seconds": 1577
+   },
+   {
+    "id": "aijob-e00cgjqnrbdeeybnj5",
+    "name": "delphi-evolve-scale-te35m-u0-31-080849",
+    "model_key": "te35m",
+    "state": "COMPLETED",
+    "gpu_seconds": 569
+   },
+   {
+    "id": "aijob-e00j9xfkkz9rpeakz6",
+    "name": "delphi-evolve-scale-te8m-u0-31-081200",
+    "model_key": "te8m",
+    "state": "COMPLETED",
+    "gpu_seconds": 420
+   }
   ],
-  "unexecuted_planned": "see artifacts/scale/launch_queue.json"
+  "peers_counted_not_cancellable": [
+   "aijob-e00gqrf19pjdrbyat3",
+   "aijob-e00d27jgpd2n9kwva1",
+   "aijob-e00whrj05xvrnbfxtx"
+  ],
+  "cancellations": [],
+  "peak_concurrent_owned_h100": 8,
+  "monitor_cycles": 57,
+  "other_team_waiting_cycles": 0
  },
  "commands_run": [
   {
@@ -32,6 +107,26 @@
    "cmd": "nebius ai job list/endpoint list --format json; job logs paging probes",
    "exit": 0,
    "result": "log API limit 1000 lines/query; default 100"
+  },
+  {
+   "cmd": "gpu_batch.controller monitor --launch (systemd scope 512M/32 tasks/3h)",
+   "exit": 0,
+   "result": "launched 10 jobs by priority; exited when idle"
+  },
+  {
+   "cmd": "gpu_batch.assemble recover/library x7 jobs-sets",
+   "exit": 0,
+   "result": "all units sha256-verified; 5 libraries complete"
+  },
+  {
+   "cmd": "gpu_batch.ablation --core-commit 8883518 --boot 200",
+   "exit": 0,
+   "result": "artifacts/scale/ablation_descriptive.json"
+  },
+  {
+   "cmd": "gpu_batch.prior_replay run/summarize (11 configs x 20 seeds, 1 thread each)",
+   "exit": 0,
+   "result": "artifacts/scale/replay_summary.csv"
   }
  ],
  "limitations": [
@@ -41,8 +136,25 @@
   "No actual metered GPU charge known (unknown, not zero)."
  ],
  "next_steps": [
-  "Launch pilot 3B shard after gpu worker's main job shows shard_done; size batches from measured throughput.",
-  "Run monitor with --launch during all jobs.",
-  "Assemble libraries, descriptive Spearman, policy replay with shuffled control."
- ]
+  "Core/integrator may import priors via docs/scale.md contract; evaluate site_rp/mean_rp embedding kernels if core adds a kernel hook.",
+  "15B only if a policy-level effect appears with smaller models."
+ ],
+ "artifacts": [
+  "gpu_batch/",
+  "docs/scale.md",
+  "artifacts/scale/job_manifest.json",
+  "artifacts/scale/queue_log.jsonl",
+  "artifacts/scale/library_receipts.json",
+  "artifacts/scale/ablation_descriptive.json",
+  "artifacts/scale/replay_summary.csv",
+  "artifacts/scale/replay_rows.jsonl.gz",
+  "artifacts/scale/priors_z.npz",
+  "/data/artifacts/delphi-evolve-scale/arrays/*_library.npz (untracked, sha256 in library_receipts.json)"
+ ],
+ "scientific_use": "Prior quality vs ESM2 size and scoring protocol; tested as a prior in core's q2c and collective_shared policies with a shuffled-prior control. Negative result reported.",
+ "charges": {
+  "metered_gpu_charge": "unknown (not zero)",
+  "gpu_job_wall_hours": 2.63,
+  "claude": "Sonnet 5.5 via managed subscription; CLI estimates are not spend"
+ }
 }

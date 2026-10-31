@@ -46,3 +46,69 @@ Limitation: the Nebius documentation does not enumerate job states for us. The W
 * Model ablation: ESM2 TE checkpoints 8M, 35M, 150M, 650M (gpu worker), 3B, optionally 15B, with fixed revisions in `shard_runner.REGISTRY`.
 * Primary prior for the policy replay: `mm_ctx`, chosen now for every model. Others are descriptive.
 * Replay: `q2c` and `collective_shared` at core's frozen 20-seed panel, 1000-assay budget; baselines `none`, `shuf_*` control, `esm_*`. Per-episode OLS calibration uses only the free initial observations (see `prior_replay.py`). Paired differences use a seed-cluster bootstrap and are descriptive, not coverage claims.
+
+## Results (2026-10-31, run 00:44-02:13 PDT; all numbers from saved artifacts)
+
+### Compute actually used
+Ten owned single-H100 jobs, 2.63 H100-hours of job wall time (`artifacts/scale/library_receipts.json`; includes image pull and model load). Peak concurrent own H100s counted by the monitor: 8 (cap 10; the gpu worker's 650M job had finished). 57 monitor cycles, 0 failed listings, **0 cycles with another team's job waiting, 0 releases**: the yield path ran live only as a no-op; it is verified by fixtures, not by a real eviction. Metered charge: unknown (the event covers Nebius; no invoice seen), not zero.
+
+Measured throughput (variants/s, six passes per variant incl. random projection, batch 64, H100): 8M and 35M not logged separately here, 150M 217, 650M 126, 3B 36.7. A 3B unit of 5,000 variants took 136 s plus 7 s of paced log emission; model load 227 s (12 GB download); NGC image pull about 7 min. Peak GPU memory 7.7 GB for 3B at batch 64. Each unit ships as ~1.6 MB (354 log lines). 15B was NOT run: the size curve below is flat from 150M to 3B, so a 61 GB-checkpoint, ~7 GPU-hour run had no evidence behind it.
+
+### Reproducibility cross-check against the gpu worker (independent job, batch 128 vs 64)
+650M TE, all 160,000 variants: `lp_masked_obs` mean |diff| 1.5e-5, max 0.078 (bf16); `lp_unmasked_obs` mean 6.8e-7, max 0.031; WT table identical; correlation of summed scores 0.99999996. Their job `aijob-e00whrj05xvrnbfxtx`, mine `aijob-e00bz2z168xhb8sqj0`.
+
+### Descriptive size/protocol ablation vs measured TrpB growth (`artifacts/scale/ablation_descriptive.json`)
+159,129 measured genotypes, y = core's bg-subtracted two-replicate mean. Spearman rho of the label-free prior (variant-resampling bootstrap 95% interval is descriptive, variants are not independent draws):
+
+| model | mm_wt | mm_ctx | unmasked | allmask | top-1% overlap (mm_ctx) |
+|---|---|---|---|---|---|
+| 8M | 0.194 | 0.182 | 0.158 | 0.192 | 0.12 |
+| 35M | 0.187 | 0.176 | 0.129 | 0.182 | 0.22 |
+| 150M | 0.202 | 0.196 | 0.172 | 0.207 | 0.28 |
+| 650M | 0.170 | 0.173 | 0.183 | 0.175 | 0.35 |
+| 3B | 0.171 | 0.170 | 0.182 | 0.171 | 0.34 |
+
+Reading: weak positive rank association (rho about 0.17-0.21) that does not grow with model size; top-1% enrichment (chance 0.01) rises from 0.12 to about 0.35 and plateaus at 650M. The cheapest protocol (additive WT-context table, 4 forward passes) is as good as the context-aware ones. This is evaluation only; it chose nothing.
+
+### Does the prior help query-to-certify? (`artifacts/scale/replay_summary.csv`, `replay_rows.jsonl.gz`)
+Core commit 8883518, core's frozen 20-seed panel (100 episodes per row), budget 1000, prior `mm_ctx` calibrated per episode from free initial observations. Mean assays-or-1000-if-uncertified (RMST@1000); difference vs the same policy with no prior, paired by episode, seed-cluster bootstrap interval (descriptive):
+
+| policy | prior | RMST@1000 | diff vs none [interval] | certified@1000 | false certificates |
+|---|---|---|---|---|---|
+| q2c | none | 483.1 | | 78 | 0 |
+| q2c | 8M | 464.5 | -18.6 [-45.7, +7.5] | 79 | 0 |
+| q2c | 35M | 486.2 | +3.2 [-20.7, +29.3] | 78 | 0 |
+| q2c | 150M | 453.2 | -29.9 [-86.3, +21.2] | 80 | 0 |
+| q2c | 650M | 490.1 | +7.0 [-20.3, +36.4] | 78 | 0 |
+| q2c | 3B | 475.5 | -7.6 [-34.2, +14.9] | 77 | 0 |
+| q2c | shuffled 150M (control) | 463.6 | -19.5 [-59.2, +19.1] | 77 | 0 |
+| q2c | shuffled 3B (control) | 463.5 | -19.6 [-43.7, +3.5] | 80 | 0 |
+| collective_shared | none | 466.9 | | 78 | 0 |
+| collective_shared | 3B | 466.9 | -0.0 [-39.1, +39.7] | 78 | 0 |
+| collective_shared | shuffled 3B | 460.5 | -6.5 [-32.3, +25.0] | 78 | 0 |
+
+**Result: no detectable benefit.** Every interval contains zero, no size shows a trend, and the shuffled-prior controls move RMST as much as the real priors (-19.5, -19.6), so the differences are within what perturbing the surrogate does. No false certificates in any configuration (certification still rests on revealed measurements). The honest statement is "an ESM2 zero-shot prior of 8M-3B parameters did not measurably reduce assays-to-certificate for core's q2c or shared-collective policies at this budget on this landscape". Not tested: a supervised/embedding kernel, other priors, other budgets, 650M with collective_shared, and the other three scoring protocols in the replay.
+
+## Reuse contract (exact IDs)
+
+Durable (untracked, this host): `/data/artifacts/delphi-evolve-scale/arrays/{te8m,te35m,te150m,te650m,te3b}_library.npz` with sha256 in `artifacts/scale/library_receipts.json`. Keys: `have` (160000 bool, all True), `lp_un`, `lp_mask`, `lp_all` (160000,4) f32, `site_rp` (160000,4,32) f16, `mean_rp` (160000,32) f16, `raw_<protocol>`, `z_<protocol>`, `meta_json` (repo, revision, rp seed). Row i is the genotype `trpb_ref.all_genotypes()[i]` (= `evolve.data.encode` order, site 183 slowest; asserted in tests). Tracked: `artifacts/scale/priors_z.npz` (keys `<model>__mm_ctx`, `<model>__mm_wt`, z-scored, float32; NOT score units). Raw per-unit blobs and job logs: `/data/artifacts/delphi-evolve-scale/recovered/<job-id>/`.
+
+| model | repo @ revision | jobs |
+|---|---|---|
+| te8m | nvidia/esm2_t6_8M_UR50D @ 3674a6ac | aijob-e00j9xfkkz9rpeakz6 |
+| te35m | nvidia/esm2_t12_35M_UR50D @ ca13c2d4 | aijob-e00cgjqnrbdeeybnj5 |
+| te150m | nvidia/esm2_t30_150M_UR50D @ a2e82bef | aijob-e00db00w7bzzp973r0 |
+| te650m | nvidia/esm2_t33_650M_UR50D @ 118f470e | aijob-e00bz2z168xhb8sqj0 (gpu worker: aijob-e00whrj05xvrnbfxtx) |
+| te3b | nvidia/esm2_t36_3B_UR50D @ 0850cbdf | aijob-e00kejm199cp3hq1nt, -e00hsqc8eyxhaps2rw, -e00nga5q6vjqbbee30, -e00y49t1xsfxm7cmqf, -e00zv8gre71k3mxt1s, -e00msfjf9v25bjzb2w |
+
+To use a prior in a core policy: take `z`, then per episode fit `prior = a + b z` by OLS on that episode's free initial observations (`gpu_batch.prior_replay.episode_prior`) and pass it as `prior=` to `run_episode`. Do not use a shared slope fitted on all labels. For the demo `compute` block: provider Nebius, models above (BioNeMo TransformerEngine checkpoints, bf16), job IDs above; state the null replay result with it. All fields are `predicted`, never `observed`.
+
+Reproduce: `python -m gpu_batch.controller monitor --launch` with the queue in `artifacts/scale/launch_queue.json` (needs the Nebius `hackathon` profile), then `gpu_batch.assemble recover|library`, `gpu_batch.ablation`, `gpu_batch.prior_replay run|summarize`.
+
+## Limitations
+* The yield-to-other-teams path was never triggered live. Job state names are inferred; unknown states are treated as waiting.
+* One landscape, one enzyme, four sites; cell-growth proxy, not catalysis.
+* Replay uses 20 seeds (core's panel); intervals are descriptive resampling summaries, not coverage claims, and the surrogate/policy randomness makes a +/-20-assay swing unremarkable (see shuffled controls).
+* Random-projection embeddings (`site_rp`, `mean_rp`) were produced and shipped but not yet evaluated downstream; no claim is made about them.
+* Nebius LLM inference was not used: only a cloud IAM token is configured, no AI Studio API key. Brev, OpenAI: not touched.
+* Actual metered charges: unknown.
