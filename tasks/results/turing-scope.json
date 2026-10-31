@@ -1,0 +1,114 @@
+{
+ "role": "turing-scope",
+ "status": "completed",
+ "completed_seattle": "2026-10-31 01:45 PDT",
+ "model": "Claude Sonnet 5.5 (existing Max subscription via Claude Code); no metered API spend, no GPU job, no subagents",
+ "branch": "work/turing-scope",
+ "commit": "9656b66 (code, artifacts, docs, tests); this receipt is committed on top",
+ "summary": "Source-pinned, hand-authored adapter making existing Delphi claims turing-ddi / turing-wavelength an executable finite-domain applicability check (exact rationals, 1-D zero-flux Neumann, q_n=n^2/r^2). J=[[1,-2],[2,-3]], Du=1, Dv=10: L=pi stable (no admissible mode in the band 1/5<q<1/2), L=2pi linearly unstable (n=1, q=1/4, trace -19/4, det -1/8). Established mathematics, model-derived only; observed=none.",
+ "evidence_typing": {
+  "observed": "none",
+  "model_derived": "all adapter outputs",
+  "simulated": "none",
+  "not_established": [
+   "nonlinear patterns",
+   "any real tissue / nanofabricated material",
+   "that the declared J,D describe anything real",
+   "growth/mechanics/other boundaries/higher dimensions"
+  ]
+ },
+ "commands_run": [
+  {
+   "cmd": "delphi_get_claim id=turing-ddi / turing-wavelength source=local via keyless MCP (curl)",
+   "exit": 0,
+   "time_seattle": "2026-10-31 01:32:10 PDT",
+   "note": "first attempt used wrong argument name (claim) -> MCP validation error; corrected to id. turing-ddi raw hash reproduced the earlier artifact (2a04..); turing-wavelength raw bytes 83ca.. differ from earlier recorded 81d6.. with identical parsed content, repeat fetches stable"
+  },
+  {
+   "cmd": "curl Turing 1952 PDF (Caltech course mirror) + pdftotext; read ring/wavelength passage",
+   "exit": 0,
+   "note": "PDF sha256 b0441c55..; not redistributed; Royal Society page returned 403"
+  },
+  {
+   "cmd": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 lake build (turing_scope/lean)",
+   "exit": 0
+  },
+  {
+   "cmd": "... python3 -m turing_scope lean-check",
+   "exit": 0,
+   "artifact": "artifacts/turing_scope/lean_receipt.json",
+   "detail": "build exit 0; axioms only propext/Classical.choice/Quot.sound; no sorry/admit/native_decide; Control exit 0; M1 (d:-3->-2), M2 (Dv:10->1), M3 (L=pi) each exit 1 because decide proves the claim false"
+  },
+  {
+   "cmd": "... python3 -m turing_scope demo",
+   "exit": 0,
+   "artifacts": [
+    "artifacts/turing_scope/results.json",
+    "turing_scope/site/data.js"
+   ]
+  },
+  {
+   "cmd": "... python3 -m pytest tests/test_turing_scope.py -q",
+   "exit": 0,
+   "result": "42 passed, 2 skipped (claim_runtime hash-compat when claim_runtime absent; optional Lean rebuild)"
+  },
+  {
+   "cmd": "PYTHONPATH=/tmp/cr (claim_runtime/common.py read from origin/work/release, not copied) pytest -k hash_convention",
+   "exit": 0,
+   "result": "1 passed: content hash convention identical to claim_runtime"
+  },
+  {
+   "cmd": "TURING_SCOPE_RUN_LEAN=1 pytest -k compiles_and_mutants",
+   "exit": 0,
+   "result": "1 passed"
+  },
+  {
+   "cmd": "adapter self-mutations (tail cutoff off-by-one; det<0 test removed) then pytest",
+   "exit": 1,
+   "result": "3 and 9 test failures respectively (tests detect adapter bugs); adapter restored, suite green"
+  },
+  {
+   "cmd": "python -m turing_scope check ... --crosscheck ; ... sources ; --source turing-ddi=FILE",
+   "exit": "0 / 0 / 0"
+  },
+  {
+   "cmd": "playwright chromium headless screenshots of turing_scope/site/index.html (L=pi, 2pi, 3pi)",
+   "exit": 0,
+   "result": "no page errors; label collisions found and fixed"
+  }
+ ],
+ "tests": "tests/test_turing_scope.py: exact band endpoints (1/5,1/2), polynomial (5q-1)(2q-1), short-domain stability to n=300 vs independent reference, L=2pi witness matching saved research artifact, non-monotone length scan, tail rule vs exact brute force on 150 random stable-kinetics models, minimality of cutoff, resource-cap refusal, numpy eigvals cross-check (independent of trace/det formulas) over 400 modes x 4 lengths, scipy expm growth, source missing/withdrawn/changed(4 fields)/re-pinned-without-assumptions/wrong IRI/garbage, wavelength-source-only withdrawal, explicit snapshot file + unwrapped record, wrong boundaries (periodic, dirichlet, robin, none), scope refusals, law mutations, wavelength gate, evidence typing, CLI exit codes, results/data.js freshness, Lean receipt hashes",
+ "artifacts": {
+  "adapter": "turing_scope/{source,adapter,crosscheck,demo,cli,lean_check}.py",
+  "sources": "turing_scope/sources/ (raw Delphi MCP records, pins.json, provenance.json, manifest.json)",
+  "lean": "turing_scope/lean/ (TuringScope/Basic.lean, Instance.lean, Audit.lean, mutants/)",
+  "site": "turing_scope/site/{index.html,data.js}",
+  "results": "artifacts/turing_scope/results.json",
+  "lean_receipt": "artifacts/turing_scope/lean_receipt.json",
+  "docs": "docs/turing-scope.md",
+  "tests": "tests/test_turing_scope.py"
+ },
+ "sha256": {
+  "artifacts/turing_scope/results.json": "cb9ee62092dbcfc114c93953267a1494356fcb4c6141a3e9da0f84d6d65182dc",
+  "artifacts/turing_scope/lean_receipt.json": "93f80400333a0447e5b71d0472e315603f74bebd1486f859f9d82d3a9f6c6fd7",
+  "turing_scope/site/data.js": "b7f1cb2082cd47f5f02e3e8a7fecbc1e6790b218818ce257b47f5be1ed38cc77",
+  "turing_scope/site/index.html": "0b73c56fe67d6849bcdfcdad02d3085deacda8d66dd111cc227ac134a736d027",
+  "turing_scope/sources/pins.json": "see file; content sha256 turing-ddi 43de1d39496e..., turing-wavelength e0d541383aa5..."
+ },
+ "limitations": [
+  "Lean defines stability by the Routh-Hurwitz sign test (trace<0, det>0); it does NOT prove the eigenvalue equivalence, real eigenvalues/IVT, or any PDE or biological statement. Python numpy eigvals is a floating-point cross-check on n<=2000 only; modes beyond are covered by the analytic tail rule (Lean neumann_tail_hurwitz).",
+  "Adapter-added domain choice: 1-D zero-flux Neumann interval; Turing's own finite-domain discussion is a ring. Periodic/Dirichlet are refused, not supported.",
+  "Wavelength gate thresholds (near-onset tolerance, domain/lambda multiple) are requester-declared; the Delphi record gives none.",
+  "Fixed point and Jacobian are declared, not verified; J is a hand-picked illustration, not fitted to any system.",
+  "Delphi records are local unsigned nanopubs; no network nanopub ID exists or is claimed. Adapter reviewed by the authoring model only, not an independent human.",
+  "claim_runtime is absent from this branch so the module has its own small loader (hash convention verified compatible); an integrator may later swap in claim_runtime.common.",
+  "Site shows recorded Python outputs; only L=pi and L=2pi carry full mode tables, other lengths show recorded scan verdicts. Not computed in browser. Light/dark CSS present; only light mode was screenshotted.",
+  "No novelty, prospective, wet-lab or nanofabrication claim. Finite-domain Turing analysis is classical."
+ ],
+ "next_steps": [
+  "Integrator: copy turing_scope/site/{index.html,data.js} to site/turing/ and link from site if wanted (self-contained). I did not touch site/ or any deployment metadata.",
+  "Optionally merge with claim_runtime: replace turing_scope/source.py hashing with claim_runtime.common after both land (test_hash_convention then runs instead of skipping).",
+  "Possible extension, not done: periodic ring boundary (q=(2n/r)^2) and a nonlinear/numerical PDE check, clearly labeled simulated."
+ ],
+ "usage_cost": "No metered charges incurred by this worker; Claude Code subscription session, CLI cost estimate not subscription spend."
+}
