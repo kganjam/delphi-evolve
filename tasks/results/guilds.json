@@ -363,7 +363,7 @@
   {
    "cmd": "python -m pytest tests/test_lean_commons.py -k 'not deterministic'",
    "exit": 0,
-   "result": "28 passed"
+   "result": "27 passed, 1 deselected (the slow deterministic-arm test, which passed in an earlier run before the checker repair)"
   },
   {
    "cmd": "python -m bench_headroom.run claude|gemini + score",
