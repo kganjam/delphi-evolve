@@ -1,5 +1,7 @@
 # Working contract
 
+User-directed reassessment (2026-10-31): `planning/rethink/GOAL.md` and the assigned role brief authorize evaluating a stronger scientific direction beyond the original TrpB-only build. Preserve the released baseline and all scientific-honesty rules. The new phase uses standalone Claude tmux sessions with native `/goal`, not Orchestra's task queue or supervisor; its managed subscription allocation is permitted. The designated director coordinates the four existing sessions and may assign their follow-up goals.
+
 Read planning/PLAN.md, specs/CONTRACT.md, STATUS.md, tasks/semantics-review.md (when present) and your task brief first. This is a new project, not the MorphoSwarm backlog. planning/legacy-reference is explanatory history, not governing scope. Scouts are attributed leads until independently checked.
 
 - Work in your assigned git worktree/task branch. One writer per checkout. Do not edit another worker's tree or main. Commit explicit paths, inspect staged diff, push verified commits. No git add -A, hard reset, clean or forced push. The integrator merges branches after reading both changes.
