@@ -1,0 +1,58 @@
+{
+ "audit": "blinded model_payload-only audit of Scope Desk bench v1.2 candidate",
+ "key_sha256": "bc8caf20db7ec56d5075b550af0a03cbb85363bc1501e1434c3b5a83dd1eb046",
+ "auditor": "separate bounded Claude Sonnet 5.5 subagent; sees only the pinned model payload (opaque id + prompt)",
+ "limits": "same model family as key author; one run; sees declared conventions",
+ "agree": 132,
+ "n": 135,
+ "disagreements": [
+  {
+   "id": "qd03269c6",
+   "key": "out_of_scope",
+   "blind": "applies",
+   "blind_rule": "condition predicts False; admissible modes on P domain give growth=False",
+   "blind_ambiguity": "requester claims the inequality holds but it is false for these numbers; I judged the true condition (predicts no instability, no mode grows) => applies; a reading that treats the requester's claim/conclusion as the cited statement would give out_of_scope"
+  },
+  {
+   "id": "qb3a9a976",
+   "key": "out_of_scope",
+   "blind": "applies",
+   "blind_rule": "condition predicts False; admissible modes on D domain give growth=False",
+   "blind_ambiguity": "requester claims the inequality holds but it is false for these numbers; I judged the true condition (predicts no instability, no mode grows) => applies; a reading that treats the requester's claim/conclusion as the cited statement would give out_of_scope"
+  },
+  {
+   "id": "q14a0b329",
+   "key": "out_of_scope",
+   "blind": "applies",
+   "blind_rule": "condition predicts False; admissible modes on N domain give growth=False",
+   "blind_ambiguity": "requester claims the inequality holds but it is false for these numbers; I judged the true condition (predicts no instability, no mode grows) => applies; a reading that treats the requester's claim/conclusion as the cited statement would give out_of_scope"
+  }
+ ],
+ "ambiguity_flagged_ids": [
+  "qc7bdd4c0",
+  "q98a337bc",
+  "q59310210",
+  "q77350570",
+  "q057cbe20",
+  "q44e7d930",
+  "q17503050",
+  "q38b9d8a3",
+  "qd03269c6",
+  "q482d1195",
+  "qda9a8ada",
+  "q173c3ae6",
+  "qb3a9a976",
+  "q4f9af15e",
+  "qd1785ff6",
+  "q7f4d606c",
+  "q58b2a4da",
+  "q7cf8687e",
+  "qe5dc45b1",
+  "q14a0b329",
+  "qb8ec2271",
+  "qa5ed7dfd",
+  "q57bc947d",
+  "qadf8fa49",
+  "q98f3297f"
+ ]
+}
