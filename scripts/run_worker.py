@@ -23,15 +23,29 @@ def main():
     parser.add_argument("--rounds", type=int, default=3)
     parser.add_argument("--interactive", action="store_true",
                         help="Run an ordinary Claude TUI in the enclosing tmux pane; set /goal there")
+    parser.add_argument("--resume", type=uuid.UUID,
+                        help="Resume a saved Claude session instead of creating a new conversation")
+    parser.add_argument("--account",
+                        help="Reuse a named available subscription when recovering a saved session")
     args = parser.parse_args()
     if os.environ.get("DELPHI_WORKER_ACTIVE"):
         raise SystemExit("Refusing a nested worker launcher")
     from orchestra.auth import acquire_credentials, release_credentials
 
     wid = "delphi-evolve-" + args.role + "-" + str(uuid.uuid4())
-    session = str(uuid.uuid4())
+    session = str(args.resume or uuid.uuid4())
     args.logs.mkdir(parents=True, exist_ok=True)
-    creds = acquire_credentials(worker_id=wid, preferred="claude", requested_model="sonnet")
+    if args.account:
+        # Recovery keeps the original account's session store. This is managed
+        # auth only: no credential file is read or copied by this launcher.
+        from orchestra.auth import _acquire_provider, provider_status
+        rows = provider_status(refresh=False)["providers"]
+        account = next((row for row in rows if row.get("name") == args.account), None)
+        if not account or not account.get("available") or not args.account.startswith(("max_", "ent_")):
+            raise SystemExit("Requested subscription is unavailable; refusing recovery")
+        creds = _acquire_provider(0, args.account, worker_id=wid)
+    else:
+        creds = acquire_credentials(worker_id=wid, preferred="claude", requested_model="sonnet")
     if creds is None:
         raise SystemExit("No available managed Claude subscription allocation")
     # Allocator can serve several harness-backed providers. Require an OAuth
@@ -53,13 +67,14 @@ def main():
         "model": "sonnet", "account": creds.provider,
         "worktree": str(args.worktree), "cost_basis": "subscription; CLI estimates are not spend",
         "interactive": args.interactive,
+        "resumed": bool(args.resume),
     }, indent=2) + "\n")
     try:
         if args.interactive:
             # No task queue, supervisor, print-mode loop or API fallback. The user can
             # attach to this ordinary Claude session and edit its native /goal.
             command = ["/home/ubuntu/.local/bin/claude", "--model", "sonnet",
-                       "--effort", "high", "--session-id", session,
+                       "--effort", "high", "--resume" if args.resume else "--session-id", session,
                        "--allowedTools", "Read", "Write", "Edit", "Bash", "WebFetch", "WebSearch"]
             result = subprocess.run(command, cwd=args.worktree, env=env, check=False)
             (args.logs / "interactive.exit").write_text(str(result.returncode) + "\n")
@@ -76,7 +91,7 @@ def main():
                        "--effort", "high", "--allowedTools", "Read", "Write", "Edit", "Bash",
                        "WebFetch", "WebSearch", "--max-turns", "100", "--verbose",
                        "--output-format", "stream-json"]
-            command += ["--session-id" if round_no == 0 else "--resume", session]
+            command += ["--session-id" if round_no == 0 and not args.resume else "--resume", session]
             with (args.logs / f"round-{round_no}.jsonl").open("w") as out, \
                  (args.logs / f"round-{round_no}.err").open("w") as err:
                 result = subprocess.run(command, input=prompt, text=True, cwd=args.worktree,
