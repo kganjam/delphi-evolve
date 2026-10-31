@@ -39,6 +39,21 @@
       "cmd": "python3 -m evolve audit in the fresh clone (capped, OMP/OPENBLAS threads 2)",
       "exit": 0,
       "result": "counts 193170/34041/159129/871/overlap 0; noise_check_ok True; regenerated artifacts/core/audit.json byte-identical to committed (git status clean)"
+    },
+    {
+      "cmd": "python3 -I scripts/integ_mutants.py . /tmp/integ/mutwork (capped)",
+      "exit": 0,
+      "result": "baseline builds; 4/4 integrator mutants fail specifically in the kernel decide proof of routeCertB/blockedCertB = true"
+    },
+    {
+      "cmd": "python3 scripts/check_proofs.py in fresh clone of work/integration@f2298ac (capped, data fetched from CaltechDATA)",
+      "exit": 0,
+      "result": "PASS certificates_present(3), lean_files_match_certificate_json, python_mirror_accepts_certificates, certificate_tied_to_source_csv(91 rows re-read), no_sorry_admit_native_decide_axiom_unsafe, fresh_lake_build_original, axiom_audit 20/20 [Quot.sound, propext], 26 instance mutants as expected, python mirror agrees on mutants, 8/8 Lean-source mutants rejected; wall 48.6 s"
+    },
+    {
+      "cmd": "python3 scripts/browser_smoke.py site /tmp/integ/shots (headless Chromium, desktop 1280 and mobile 390)",
+      "exit": 1,
+      "result": "FAIL: (a) GET data/demo.json 404 -> console error on both viewports; (b) mobile horizontal overflow 21 px from section.map-card (411 px in 390 px viewport). 0 uncaught page errors; 40 focusable controls; 12 distinct focus stops in 12 Tab presses; no layout overflow on desktop."
     }
   ],
   "findings": [
@@ -53,11 +68,15 @@
     "Label definitions differ across workers but are numerically near-identical: core (uncommitted at review) uses mu_k minus the per-replicate stop-codon mean; proof/experience use the authors' mu_k-bg column. Independent check over 159,129 non-stop rows: (mu_k - mu_k-bg) has mean 0.1320, SD 0.0003; 252/321 low-read rows (median ~10 reads) deviate >0.001 from the stop-mean, 23/34 by >0.01. Neither is max-normalised. Negligible for certificate nodes (>=109 reads except target AIKG 27/29) relative to assumed delta 0.005, but the site must state one definition per number.",
     "Preliminary read-only review of uncommitted core code (evolve/oracle.py, replay.py; policies do not import the landscape, they see only Ledger/Ctx): oracle reveals only queried labels; truth BFS and verify_route/verify_cut are audit-only; start/target and 96 initial observations are shared across policies; right-censoring is retained. Family B fixes start VFVS and targets AIKG/CLKG/VLKG/ALKG from published biology but reveals start and target labels free, which must be stated in the benchmark text. Final judgement waits for the committed code.",
     "GPU prior leakage check pending: Ctx.prior accepts a 160k-vector; a prior is only admissible if label-free (zero-shot ESM score) or refit inside each episode on admissible observations. A prior regressed on all labels would leak.",
-    "Fixed in integration tree: scripts/fetch_data.py sent 'kris.ganjam@alleninstitute.org' in the HTTP User-Agent to CaltechDATA; replaced with the repository URL (no personal email sent to external services). Core worker should not reintroduce it."
+    "Fixed in integration tree: scripts/fetch_data.py sent 'kris.ganjam@alleninstitute.org' in the HTTP User-Agent to CaltechDATA; replaced with the repository URL (no personal email sent to external services). Core worker should not reintroduce it.",
+    "site (experience ef9485a) is honest when data is absent: chips read 'demo.json: not present', 'Lean receipt: none', 'Replay benchmark: none', 'GPU run: none recorded'. In-browser epsilon=0 route VFVS>VFMS>VFMG>VIMG>VIKG>AIKG is identical to the Lean-certified trpb_route_delta0 route; weakest step margin 0.0026. Real count/license/DOI shown.",
+    "Open integration defects: site requests data/demo.json (404 until core's demo exists; final deploy must ship it); mobile overflow 21 px (section.map-card) in experience-owned site/style.css - not edited while that worker is active."
   ],
   "artifacts": [
     "scripts/audit_data.py",
-    "scripts/check_demo.py"
+    "scripts/check_demo.py",
+    "scripts/integ_mutants.py",
+    "scripts/browser_smoke.py"
   ],
   "limitations": [
     "experience nanopub validation is rdflib structural only (worker-reported, not rerun by me).",
