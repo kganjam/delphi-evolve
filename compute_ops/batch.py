@@ -192,6 +192,42 @@ def extract_result(lines: list[str]):
     return meta, blob
 
 
+def extract_parts(lines: list[str]):
+    """Warm-worker parts: -> list of (meta, blob|None) for every COMPLETE part (BEGIN ... END) in log order; verifies sha256 per part; a part whose meta says truncated has blob None.
+    Tolerates a log cut in the middle of a later part (that part is ignored: it is incomplete)."""
+    parts, cur, b64, seen = [], None, [], set()
+    for ln in lines:
+        i = ln.find("COPS_PART_BEGIN ")
+        if i >= 0:
+            cur = json.loads(ln[i + 16:]); b64 = []; seen = set(); continue
+        if cur is not None and "COPS_PART_END" in ln:
+            if cur.get("truncated"):
+                parts.append((cur, None))
+            else:
+                blob = base64.b64decode("".join(b64))
+                if hashlib.sha256(blob).hexdigest() != cur["sha256"] or len(blob) != cur["bytes"]:
+                    raise ValueError(f"part {cur.get('id')} digest mismatch (log lines lost or duplicated)")
+                parts.append((cur, blob))
+            cur = None; continue
+        j = ln.find("COPS_B64 ")
+        if cur is not None and j >= 0 and ln not in seen:
+            seen.add(ln); b64.append(ln[j + 9:].strip())
+    return parts
+
+
+def write_parts(parts, outdir):
+    """Idempotently write each part's files under <outdir>/parts/<seq>-<id>/ and a parts_manifest.json. Returns the manifest rows."""
+    outdir = Path(outdir); rows = []
+    for meta, blob in parts:
+        d = outdir / "parts" / f"{meta['seq']:02d}-{meta['id']}"
+        if blob is not None:
+            d.mkdir(parents=True, exist_ok=True)
+            tarfile.open(fileobj=io.BytesIO(blob), mode="r:gz").extractall(d, filter="data") if hasattr(tarfile, "data_filter") else tarfile.open(fileobj=io.BytesIO(blob), mode="r:gz").extractall(d)
+        rows.append({k: meta.get(k) for k in ("seq", "id", "rc", "timed_out", "start_utc", "end_utc", "wall_s", "bytes", "sha256", "truncated", "NOT_RETURNED")})
+    save(outdir / "parts_manifest.json", rows)
+    return rows
+
+
 # ------------------------------------------------------------------ controller
 @dataclass
 class Run:
@@ -346,8 +382,11 @@ class Batch:
             lines = self.cloud.logs(r.job_id, t0, dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=2))
             d.mkdir(parents=True, exist_ok=True); (d / "job.log").write_text("\n".join(lines) + "\n")
             meta, blob = extract_result(lines)
+            parts = extract_parts(lines)
+            if parts:                                # warm-worker item: every complete part is written even if the final result failed
+                r.result["parts"] = write_parts(parts, d)
         except Exception as e:                      # noqa: BLE001
-            meta, blob = None, None; r.result = {"error": f"{type(e).__name__}: {str(e)[:200]}"}
+            meta, blob = None, None; r.result = {**r.result, "error": f"{type(e).__name__}: {str(e)[:200]}"}
         if blob is not None:
             with tarfile.open(fileobj=io.BytesIO(blob), mode="r:gz") as tf:
                 tf.extractall(d / "out", filter="data")
@@ -380,6 +419,8 @@ def main(argv=None):
     r.add_argument("--deadline-min", type=float); r.add_argument("--dry-run", action="store_true")
     r.add_argument("--base", default="."); r.add_argument("--outdir", default=str(OUTDIR))
     sub.add_parser("status")
+    pa = sub.add_parser("parts", help="extract every complete warm-worker part from a job's log (works while the job is still running)")
+    pa.add_argument("job_id"); pa.add_argument("--outdir", required=True)
     c = sub.add_parser("collect", help="fetch + verify results of an existing job we created (recovery path)")
     c.add_argument("job_id"); c.add_argument("item_id"); c.add_argument("--tag", default="recovered"); c.add_argument("--outdir", default=str(OUTDIR))
     a = ap.parse_args(argv)
@@ -389,6 +430,12 @@ def main(argv=None):
         print(json.dumps({"total": len(snap), "active": [vars(w) for w in act],
                           "our_active_h100": b.ours_active_gpus(snap), "foreign_waiting_h100": len(b.foreign_waiting(snap))}, indent=1))
         return 0
+    if a.cmd == "parts":
+        if not a.job_id.startswith("aijob-"):
+            raise SystemExit("job id must look like aijob-...")
+        now = dt.datetime.now(dt.timezone.utc)
+        rows = write_parts(extract_parts(Cloud().logs(a.job_id, now - dt.timedelta(hours=6), now + dt.timedelta(minutes=2))), a.outdir)
+        print(json.dumps(rows, indent=1)); return 0
     if a.cmd == "collect":
         if not a.job_id.startswith("aijob-"):
             raise SystemExit("job id must look like aijob-...")

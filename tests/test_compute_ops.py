@@ -177,3 +177,39 @@ def test_total_inject_size_guard(tmp_path):
     (tmp_path / "big.bin").write_bytes(os.urandom(50_000))      # incompressible: > 48 KB raw in total
     with pytest.raises(ValueError):
         B.create_argv({"id": "x", "script": "s.py", "files": ["big.bin"]}, "delphi-evolve-ops-t-x", tmp_path, tmp_path / "tmp")
+
+
+def _run_worker(tmp_path, queue):
+    import json, subprocess, sys
+    (tmp_path / "q.json").write_text(json.dumps(queue))
+    (tmp_path / "w.py").write_text("import os,sys,time\nopen(os.path.join(os.environ['COPS_OUT'],'o.txt'),'w').write('x'*int(sys.argv[1]))\ntime.sleep(float(sys.argv[2]))\n")
+    env = dict(__import__("os").environ, WARM_PARTS_DIR=str(tmp_path / "parts"), COPS_OUT=str(tmp_path / "out"), WARM_CWD=str(tmp_path))
+    p = subprocess.run([sys.executable, str(__import__("pathlib").Path(B.__file__).parent / "warm_worker.py"), str(tmp_path / "q.json")], capture_output=True, text=True, env=env, timeout=120)
+    return p, p.stdout.splitlines()
+
+
+def test_warm_worker_sequential_parts_roundtrip_cap_timeout_and_budget_skip(tmp_path):
+    import json, sys
+    W = lambda i, n, sl, to, **k: {"id": i, "argv": [sys.executable, "w.py", str(n), str(sl)], "timeout_s": to, **k}
+    q = {"queue_id": "t", "max_wall_s": 40, "margin_s": 1, "workloads": [W("a", 5000, 0, 10), W("big", 800000, 0, 10, max_part_bytes=500), W("slow", 10, 30, 2), W("late", 10, 0, 100)]}
+    p, lines = _run_worker(tmp_path, q)
+    parts = B.extract_parts(lines)
+    ids = [m["id"] for m, _ in parts]
+    assert ids == ["a", "big", "slow"]                              # 'late' needs 101 s of a 40 s budget: skipped, recorded
+    assert parts[0][1] is not None and parts[1][1] is None and parts[1][0]["truncated"] and "NOT_RETURNED" in parts[1][0]   # over-cap output is flagged loudly, not silently dropped
+    assert parts[2][0]["timed_out"] is True
+    rec = json.loads((tmp_path / "out" / "queue_receipts.json").read_text())["workloads"]
+    assert [r["status"] for r in rec] == ["done", "done", "failed", "not_run_budget"]
+    rows = B.write_parts(parts, tmp_path / "ret")
+    assert (tmp_path / "ret" / "parts" / "00-a" / "o.txt").read_text() == "x" * 5000 and len(rows) == 3
+
+
+def test_extract_parts_ignores_incomplete_trailing_part_and_detects_loss(tmp_path):
+    import json, sys
+    q = {"queue_id": "t", "max_wall_s": 60, "margin_s": 1, "workloads": [{"id": "a", "argv": [sys.executable, "w.py", "20000", "0"], "timeout_s": 10}, {"id": "b", "argv": [sys.executable, "w.py", "20000", "0"], "timeout_s": 10}]}
+    _, lines = _run_worker(tmp_path, q)
+    cut = [i for i, l in enumerate(lines) if "COPS_PART_END" in l][0] + 5          # log cut inside part b
+    assert [m["id"] for m, _ in B.extract_parts(lines[:cut])] == ["a"]
+    bad = [l for i, l in enumerate(lines) if not (i == 3 and "COPS_B64" in l)]       # one data line lost
+    with pytest.raises(ValueError):
+        B.extract_parts(bad)
