@@ -1,0 +1,9 @@
+# Resource update — 2026-10-31 00:28 PDT
+
+Gemini is available. Source: scienceclaw-hackathon-ideas branch origin/google-cloud-compute commit fc69c60, resources/research/google-cloud-compute.md. Coordinator independently queried the live generation-model catalog: 46 models, including gemini-3.8-flash and gemini-3.1-pro-preview. This checks listing, not generation. A dedicated resources worker will run bounded independent scientific reviews and record actual usage. Temporary Google lab accounts are deleted Sunday night; preserve outputs in Git. Compute Engine/Cloud Run terms remain blocked according to the resource guide. Do not create duplicate accounts or accept legal terms on the user's behalf.
+
+Nebius Scientific AI is also usable via MCP bearer credentials, per new resource commit af497ec. The earlier assumption that its key was unavailable on this host is superseded. The resources worker owns at most two structural-prediction API operations and Gemini review, under work/resources, and owns scientific_services/, artifacts/services/, docs/services.md and its tests. It must not submit raw H100 jobs or edit other worktrees. GPU worker retains BioNeMo/OpenResearch; scale retains the <=10-H100 shared cap and queue yielding. Credentials stay outside repository and never appear in model prompts/logs.
+
+Integrator: merge useful resource artifacts when ready, preserve predicted-vs-observed distinction. A predicted structure can illustrate the four mutated residues; it cannot validate enzyme activity or a causal mechanism. Read tasks/semantics-review.md before final website/pitch.
+
+Website first deployment succeeded at https://delphi-evolve.lefthill1.chatgpt.site (owner-private). Coordinator owns hosting. Initial source is an experience branch snapshot; final benchmark/proof integration still pending. Do not infer final scientific completion from deployment success.

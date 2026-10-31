@@ -101,14 +101,14 @@ Delphi's hosted MCP was called live: local overview reports 880 claims across fi
 | Resource | Useful job | Limit / fallback |
 |---|---|---|
 | Claude Max | Three or more independent implementation workers and an integrator; Sonnet first | Use available subscription quota; no manual reset grants or unlimited API spend |
-| Nebius H100 | Batched protein embeddings/inference, GPU surrogate evaluation if warranted | One shared GPU for our team, bounded job, preserve outputs before expiry; never cancel others |
+| Nebius H100 | Batched protein embeddings/inference, GPU surrogate evaluation if warranted | User amendment Oct31: up to 10 H100s for our team while others are not queueing; bounded sharded jobs, preserve outputs, yield capacity when other teams request it; never cancel others |
 | BioNeMo | ESM2 inference as a tested representation/prior baseline | Verify actual BioNeMo invocation; ordinary ESM2 is labeled ordinary ESM2 |
 | NVIDIA Brev | Dedicated GPU fallback or extension | Total authorized credits $150; reserve $30, stop before cap; check live hourly rate and terminate our own idle instance |
 | OpenResearch | Literature-grounded experiment project and run ledger | Use official alphaXiv CLI, record actual experiment; do not substitute an unrelated similarly named service |
 | Nebius scientific workspace | Optional model/structure jobs | Team API key may be absent; do not make the core dependent on access |
 | CPU host | Graphs, small regressions, Lean, website | Task/process/memory caps; no training large models here |
 
-Do not spend compute for sponsor logos. GPU max means productive bounded jobs, not monopolizing the shared event pool. No model pretraining. No structure-as-function claim. A null result from a sponsor model is a valid result.
+Do not spend compute for sponsor logos. GPU max means productive bounded jobs. User permits up to 10 H100s while others are not queueing; return capacity when they do. CPU capacity and Nebius LLMs may also be used for useful measured work. No model pretraining. No structure-as-function claim. A null result from a sponsor model is a valid result.
 
 ## 24-hour execution and kill gates
 

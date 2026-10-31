@@ -1,0 +1,7 @@
+# User steering, 31 October 2026
+
+The user authorizes up to 10 Nebius H100s until other teams try to claim them. This supersedes the original one-GPU task constraint. Keep total own active jobs <=10, monitor unrelated queued/pending workloads, and yield our capacity by ending lowest-priority checkpointed shards. Do not cancel others. Use CPU resources under existing memory/process/CPU thread limits. Nebius LLMs are authorized if authenticated access and useful tasks exist; do not invent access or treat GPU credits as unlimited LLM billing.
+
+Scaling starts only after an actual model job works. New scale worker owns gpu_batch/ and its own job names, original GPU worker retains gpu/. No duplicate jobs for the same result. Require a concrete scientific gain (more held-out coverage, representation/model ablation, bootstrap computations), not GPU utilization for its own sake. The core comparative certificate benchmark remains the priority.
+
+GitHub collaboration: copied human access and pending invitations from MorphoSwarm. Write invitations sent to tkuhn, ashleycaselli, fractastical (Joel Dietz), kavitahkulkarni (Kavita Kulkarni), xX-its-amit-Xx (Amit Shenoy). Amit was matched by exact supplied author-email in GitHub commit search; raw emails are intentionally absent from repository records. Existing owner remains admin. Invitations are pending until accepted; sending is not acceptance.
