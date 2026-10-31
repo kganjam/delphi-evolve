@@ -13,15 +13,19 @@
   ],
   "findings": [
     "ALDE (PMC11739421) already uses TrpB and GB1 four-residue landscapes in simulation with greedy/UCB/Thompson acquisition; ALDE does not address certificates, path reachability or assay selection for a decision. Novelty claim must be limited to query-to-certify, never 'ML-guided TrpB optimisation'.",
-    "experience 18f0164: counts (193170/159129/871/0/34041) and sha256 for summary_AA.csv and KNN file match independent recount; score = mean(mu_1-bg, mu_2-bg), not max-normalised. Descriptive VFVS->AIKG route_summary: min-step 5 at assumed bound 0 and 0.005 -> 7, none at 0.01/0.02. Labeled descriptive by worker; the bounds are assumed, not confidence intervals."
+    "experience 18f0164: counts (193170/159129/871/0/34041) and sha256 for summary_AA.csv and KNN file match independent recount; score = mean(mu_1-bg, mu_2-bg), not max-normalised. Descriptive VFVS->AIKG route_summary: min-step 5 at assumed bound 0 and 0.005 -> 7, none at 0.01/0.02. Labeled descriptive by worker; the bounds are assumed, not confidence intervals.",
+    "gpu local commit 05930e0 (not pushed at 00:10 PDT; no GPU job run yet): reference FASTA 397 aa, sha256 d56ebe8d..., positions 183/184/227/228 = V,F,V,S independently confirmed in the committed FASTA. Not yet compared against the original data.zip member."
   ],
   "artifacts": [
-    "scripts/audit_data.py"
+    "scripts/audit_data.py",
+    "scripts/check_demo.py"
   ],
   "limitations": [
     "At 00:08 PDT only the experience worker had pushed a commit (18f0164, evidence tooling); core/proof/gpu had none. Only that commit's counts, hashes and route_summary were checked; its nanopub validation is rdflib structural only (worker-reported, not rerun by me)."
   ],
   "next_steps": [
-    "Fetch worker branches, merge, run checklist items, fresh-checkout reproduction."
+    "Run scripts/check_demo.py on core's artifacts/demo.json once it exists",
+    "Fetch and merge worker branches; run per-role tests under systemd-run caps",
+    "Fresh-checkout reproduction"
   ]
 }
