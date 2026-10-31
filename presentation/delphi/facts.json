@@ -1,4 +1,8 @@
 {
+ "frontier_example": {
+  "present": false,
+  "expected_path": "planning/frontier/oca2-exon21-molino-RESULT.md"
+ },
  "usage": {
   "ledger": "B03 (BioNeMo ESM2 on Nebius H100s), R02 (OpenResearch, local CPU analysis), R01 (H100 PDE pilot, worker-reported)",
   "esm2_sizes": 5,

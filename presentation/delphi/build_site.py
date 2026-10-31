@@ -74,7 +74,10 @@ def landing(f, commit, review_exists):
     wit = "".join(f"<details><summary>Drop: {E(v['drops'])} <span class='mono'>({E(k)})</span></summary><p>{E(v['reading'])}</p></details>" for k, v in W.items() if k != "reversed_cost_is_false")
     wit += f"<details><summary>Drop: {E(W['reversed_cost_is_false']['drops'])} <span class='mono'>(reversed_cost_is_false; plus {len(P['mutants'])} changed-target mutants the compiler rejects)</span></summary><p>{E(W['reversed_cost_is_false']['reading'])}</p></details>"
     kc = Kl["kind_counts"]
-    FRONTIER = ('Delphi Frontier map (a proposal, nothing deployed; single-reader, not independently reviewed; it does not endorse our seed questions, which failed our own validator, 0 of 7 bounded, ledger R21): <a href="../review/frontier.html">the Frontier map from the review worker</a>.'
+    FX = f["frontier_example"]
+    FX_TXT = (" One example of the claim, bounded test, result loop (a labelled example only, never evidence for the checker): one published claim about a cavefish gene re-tested against a later, different assembly was consistent with the claim (exact k-mer absence, positive controls present); the test was preregistered before the result (commits " + FX["prereg_commit"] + " then " + FX["result_commit"] + " in the separate delphi-frontier repository). It is single-reader, not independently reviewed; n=1 per population, haploid assemblies, nothing causal, and the other cavefish population was not tested."
+              if FX.get("present") else "")
+    FRONTIER = ('Delphi Frontier map (a proposal, nothing deployed; single-reader, not independently reviewed; it does not endorse our seed questions, which failed our own validator, 0 of 7 bounded, ledger R21): <a href="../review/frontier.html">the Frontier map from the review worker</a>.' + FX_TXT
                 if (Path(FA.ROOT) / "site/review/frontier.html").exists() else f"Delphi Frontier map: {PEND}")
     lrows = "".join(f"<tr><td>{E(r['id'])}</td><td>{E(r['claim'])}</td><td>{E(r['kind'])}</td><td>{E(r['caught_by'])}</td><td>{E(r['allowed'])}</td><td class='mono'>{E(str(r['claim_stated_pdt']))}</td><td class='mono'>{E(str(r['kill_recorded_pdt']))}</td><td>{E(str(r['duration_min']))}</td></tr>" for r in Kl["all_rows"])
     V = f["errors"]["stability_mislabel"]
@@ -181,6 +184,14 @@ def appendix(f, commit):
 """
 
 
+def blog_fx(f):
+    fx = f["frontier_example"]
+    if not fx.get("present"):
+        return ""
+    return ("A labelled example of the claim, bounded test, result loop, which is not evidence for the checker: one published claim about a cavefish gene was re-tested against a later, different assembly and was consistent with the claim (exact k-mer absence, positive controls present). The test was preregistered before the result (commits " + fx["prereg_commit"] + " then " + fx["result_commit"]
+            + " in the separate delphi-frontier repository); it is single-reader and not independently reviewed, with one sample per population, haploid assemblies, nothing causal, and the other population not tested. ")
+
+
 def blog_parts(f):
     P, T, Bn, Rp, Kl, Sc, Bl = f["price"], f["turing"], f["bench"], f["repair"], f["kills"], f["scorecard"], f["baseline"]
     Hd, Lp, Us = f["headroom"], f["leanpilot"], f["usage"]
@@ -205,7 +216,7 @@ def blog_parts(f):
         ("h2", "Infrastructure used"),
         ("p", f"Receipts only. Five BioNeMo ESM2 sizes scored all {Us['variants_per_model']:,} enzyme variants on Nebius H100s ({Us['jobs']} jobs, all completed, {Us['job_seconds']:,} recorded job-seconds) in the released baseline, with no clear assay-saving benefit. Two OpenFold2 structure calls went to the Nebius hosted catalogue and came back predicted and low confidence. OpenResearch logged a local CPU analysis of the same data, which was not hosted compute. Gemini made {Us['gemini_review_calls']} bounded review calls and was a subject of the headroom check. The Delphi checks themselves ran on CPU."),
         ("h2", "Reusable now, and next"),
-        ("p", f"The checker, repair enumerator, test set and ledger are in the repository; outside use is none observed yet. Next, as a proposal and not a deployed system: a pilot on a modelling team's recent reuse decisions, and Delphi Frontier, one page per open problem showing what we know, what is next and who is working on it; our own seed questions failed our own validator, 0 of 7 bounded (ledger R21, single-reader, not re-run by the critic). A first scorecard of the {Sc['records']} extracted records has {Sc['linked']} linked to scope-check benchmark families, {Sc['related_lemma']} related formal lemma whose target is unestablished, {Sc['empirical']} empirical or framework, and {Sc['no_check']} without a corresponding check; the statuses are one reader's, revised after a Codex review of version 0, and the revision was not re-reviewed. A misprediction map over a large parameter ensemble is pending."),
+        ("p", f"{blog_fx(f)}The checker, repair enumerator, test set and ledger are in the repository; outside use is none observed yet. Next, as a proposal and not a deployed system: a pilot on a modelling team's recent reuse decisions, and Delphi Frontier, one page per open problem showing what we know, what is next and who is working on it; our own seed questions failed our own validator, 0 of 7 bounded (ledger R21, single-reader, not re-run by the critic). A first scorecard of the {Sc['records']} extracted records has {Sc['linked']} linked to scope-check benchmark families, {Sc['related_lemma']} related formal lemma whose target is unestablished, {Sc['empirical']} empirical or framework, and {Sc['no_check']} without a corresponding check; the statuses are one reader's, revised after a Codex review of version 0, and the revision was not re-reviewed. A misprediction map over a large parameter ensemble is pending."),
     ]
 
 

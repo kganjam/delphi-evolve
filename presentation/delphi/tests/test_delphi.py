@@ -227,3 +227,39 @@ def test_every_slide_footnote_carries_a_review_status_and_unreviewed_items_say_s
         assert "Review" in s["fn"], f"slide {i} footnote has no review status"
     for i in (2, 4, 5, 6):
         assert "single-reader" in sl[i - 1]["fn"], f"slide {i} must label its unreviewed items single-reader"
+
+
+def test_frontier_example_is_absent_until_its_result_is_committed_in_tree_and_carries_its_limits(tmp_path):
+    sys.path.insert(0, str(D))
+    import facts as FA
+    old = FA.ROOT
+    try:
+        FA.ROOT = tmp_path
+        (tmp_path / "planning/frontier").mkdir(parents=True)
+        assert FA.frontier_example_facts()["present"] is False
+        p = tmp_path / FA.FRONTIER_EXAMPLE
+        base = "Preregistration f497073, result 9f237ae. Single-reader. n=1 per population, haploid assemblies, nothing causal, Pachon not tested."
+        p.write_text(base.replace("Pachon", "another population"))
+        try:
+            FA.frontier_example_facts()
+            raise AssertionError("must require the Pachon limit")
+        except AssertionError as e:
+            assert "pachon" in str(e).lower()
+        p.write_text(base)
+        fx = FA.frontier_example_facts()
+        assert fx["present"] and fx["prereg_commit"] == "f497073" and fx["result_commit"] == "9f237ae"
+        p.write_text(base.replace("f497073", "0000000"))
+        try:
+            FA.frontier_example_facts()
+            raise AssertionError("must require both commit ids")
+        except AssertionError as e:
+            assert "commit" in str(e).lower()
+    finally:
+        FA.ROOT = old
+
+
+def test_site_has_no_cavefish_text_while_the_result_is_not_in_the_tree():
+    if (REPO / "planning/frontier/oca2-exon21-molino-RESULT.md").exists():
+        return
+    for k, x in _texts().items():
+        assert not re.search(r"cavefish|oca2|exon 21", x, re.I), k

@@ -452,8 +452,28 @@ def usage_facts():
             "openresearch": "a local CPU analysis was logged; not hosted compute"}
 
 
+FRONTIER_EXAMPLE = "planning/frontier/oca2-exon21-molino-RESULT.md"
+
+
+def frontier_example_facts():
+    """The oca2 exon-21 re-test, only if its result file is committed in THIS tree (director ruling). Otherwise nothing is shown.
+    When present it must carry the two commit ids, the limits, and the single-reader label; the word 'solved' is never used."""
+    p = ROOT / FRONTIER_EXAMPLE
+    if not p.exists():
+        return {"present": False, "expected_path": FRONTIER_EXAMPLE}
+    t = p.read_text()
+    prereg = re.search(r"\bf497073\b", t)
+    result = re.search(r"\b9f237ae\b", t)
+    assert prereg and result, "the result file must name the preregistration commit f497073 and the result commit 9f237ae"
+    low = t.lower()
+    for need in ("single-reader", "n=1", "haploid", "nothing causal", "pachon"):
+        assert need in low, f"result file lacks the required limit: {need}"
+    return {"present": True, "path": FRONTIER_EXAMPLE, "prereg_commit": "f497073", "result_commit": "9f237ae", "sha256": sha(FRONTIER_EXAMPLE),
+            "label": "single-reader, not independently reviewed"}
+
+
 def build():
-    return {"usage": usage_facts(), "headroom": headroom_facts(), "leanpilot": lean_pilot_facts(), "bench": bench_facts(), "repair": repair_facts(), "kills": kill_facts(), "accept": accept_facts(), "price": price_facts(), "turing": turing_facts(), "errors": error_facts(), "scorecard": scorecard_facts(),
+    return {"frontier_example": frontier_example_facts(), "usage": usage_facts(), "headroom": headroom_facts(), "leanpilot": lean_pilot_facts(), "bench": bench_facts(), "repair": repair_facts(), "kills": kill_facts(), "accept": accept_facts(), "price": price_facts(), "turing": turing_facts(), "errors": error_facts(), "scorecard": scorecard_facts(),
             "robustness": robustness_facts(), "baseline": baseline_facts()}
 
 
