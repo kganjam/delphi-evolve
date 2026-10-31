@@ -88,6 +88,18 @@ class Graph:
 
 
 # ----------------------------------------------------------------- bundle gates
+def unlicensed_available(records) -> list[str]:
+    """Mirror of delphi-frontier's `_unlicensed_available_content` (561157e): a record whose `payload.source` asserts the node HOLDS content
+    (`content_available`) with no stated licence. Stricter than the store in one way: a blank/whitespace licence counts as unstated.
+    This layer never publishes such a record even if a node served it (defence in depth: the store refuses it at four boundaries)."""
+    out = []
+    for r in records:
+        src = (r.get("payload") or {}).get("source")
+        if isinstance(src, dict) and src.get("content_available") and not str(src.get("license") or "").strip():
+            out.append(f"{r.get('kind')}/{r.get('id')}")
+    return out
+
+
 def check_bundle(b: dict, *, status_change: bool = False) -> dict:
     """Independently re-verify everything the publication relies on. Returns a normalised view or raises NotPublishable.
 
@@ -102,6 +114,10 @@ def check_bundle(b: dict, *, status_change: bool = False) -> dict:
     re_ev = verify_record(b["review_event"], "Event")
     pr_ev = verify_record(b["proposal_event"], "Event")
     ev = [verify_record(e, "Evidence") for e in b.get("evidence", [])]
+    off = unlicensed_available([t, a, re_ev, pr_ev, *ev])
+    if off:
+        raise NotPublishable("refusing to publish content asserted available under an unstated licence: " + ", ".join(off[:5])
+                             + " (a digest is integrity, not permission; set Source.license or content_available=false)")
     if t["kind"] not in PUBLISHABLE_KINDS:
         raise NotPublishable(f"{t['kind']} records have no publication binding yet (implemented: {', '.join(PUBLISHABLE_KINDS)})")
     for r in (t, a, re_ev, pr_ev, *ev):
@@ -126,6 +142,9 @@ def check_bundle(b: dict, *, status_change: bool = False) -> dict:
             raise NotPublishable(f"dimension {name} reviewer {d.get('reviewer')!r} is not the assessment issuer")
         if not d.get("rationale"):
             raise NotPublishable(f"dimension {name} has no rationale")
+    ir = dims["independent_replication"]
+    if ir["status"] == "passed" and not ir.get("evidence_links"):
+        raise NotPublishable("independent_replication is 'passed' with no linked record: a receipt must not imply replication it cannot show")
     if dec == "accepted":
         bad = [n for n, d in dims.items() if d["status"] not in ("passed", "not_applicable")]
         if bad:
@@ -218,6 +237,11 @@ def build_trig(b: dict, *, code_commit: str, created: str, supersedes: str | Non
     _pv(A, "sub:review", idx, "independence_rationale", a["payload"]["independence_rationale"])
     _list_props(A, "sub:review", idx, "review_limitation", a["payload"]["limitations"])
     _pv(A, "sub:review", idx, "scope_limit", SCOPE_LIMIT)
+    irs = v["dims"]["independent_replication"]["status"]
+    _pv(A, "sub:review", idx, "replication_status", irs,
+        ("Recorded as passed by the node's reviewer on the strength of the linked records. Frontier API data alone cannot establish independent "
+         "replication, so check those records before relying on it.") if irs == "passed" else
+        f"This receipt does NOT imply independent replication (dimension status: {irs}).")
     # reviewed item: quoted, uninterpreted
     A.add("sub:item", "a", "schema:Claim" if kind == "Claim" else "schema:CreativeWork")
     A.add("sub:item", "schema:name", esc(tp["title"]))
@@ -240,6 +264,10 @@ def build_trig(b: dict, *, code_commit: str, created: str, supersedes: str | Non
                 _pv(A, "sub:item", idx, f, tp[f])
     src = tp.get("source") or {}
     has_source = bool(src.get("uri") or src.get("locator") or src.get("content_sha256"))
+    lic = str(src.get("license") or "").strip()
+    _pv(A, "sub:item", idx, "quoted_text_note",
+        "Text above is quoted as stored in the Frontier record by its issuer. No source passage is reproduced by this layer."
+        + (f" Source licence as declared by the node: {lic}." if lic else " The source licence is unstated and the node holds no source bytes (content_available=false); reference and digest only."))
     if not has_source:
         _pv(A, "sub:item", idx, "source_status", "no source recorded",
             "Curator statement. It must not be read as a sourced field-level claim or open problem.")

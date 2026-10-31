@@ -582,3 +582,118 @@ def test_cli_plan_is_dry_run_and_refuses_production(tmp_path, capsys):
     f.write_text("x")
     assert main(["plan-test-publish", str(f), "--uri", "https://w3id.org/np/RA" + "A" * 43, "--registry", "https://test.registry.knowledgepixels.com"]) == 0
     assert '"sent": false' in capsys.readouterr().out
+
+
+# ------------------------------------------------------------------ licence gate mirror, replication honesty
+def with_source(b, **changes):
+    return mutate_target(b, lambda t: t["payload"]["source"].update(**changes))
+
+
+def test_content_available_without_a_stated_licence_is_never_published():
+    for lic in (None, "", "   "):
+        refuses(with_source(bundle(), content_available=True, license=lic), "unstated licence")
+    # stated licence + held content: published with the licence carried as declared by the node
+    trig = build_trig(with_source(bundle(), content_available=True, license="CC-BY-4.0"), code_commit=C, created=T)
+    assert "Source licence as declared by the node: CC-BY-4.0" in trig
+    # evidence records are covered too
+    b = bundle()
+    b["evidence"][0]["payload"]["source"].update(content_available=True, license=None)
+    redigest(b["evidence"][0])
+    refuses(b, "unstated licence|digest|not linked|no dimension links")
+    assert binding.unlicensed_available([{"kind": "X", "id": "y", "payload": {"source": {"content_available": True, "license": " "}}}]) == ["X/y"]
+    assert binding.unlicensed_available([{"kind": "X", "id": "y", "payload": {"source": {"content_available": False, "license": None}}}]) == []
+
+
+def test_unstated_licence_with_no_held_bytes_is_labelled_reference_only():
+    trig = build_trig(with_source(bundle(), license=None), code_commit=C, created=T)
+    assert "source licence is unstated and the node holds no source bytes" in trig and "No source passage is reproduced" in trig
+
+
+def test_receipt_never_implies_replication_it_does_not_have():
+    for name in ("accepted_v1", "accepted_v2", "accepted_imported", "accepted_problem_unsourced"):
+        trig = build_trig(bundle(name), code_commit=C, created=T)
+        assert "does NOT imply independent replication" in trig and not re.search(r"\b(replicated|validated)\b", trig)
+    # 'passed' replication with no linked record is refused; with a linked record it is published with the caveat
+    refuses(mutate_assessment(bundle(), lambda p: p["dimensions"]["independent_replication"].update(status="passed")), "implies? replication|no linked record")
+    b = bundle()
+    link = ref(b["evidence"][0])
+    ok = mutate_assessment(b, lambda p: p["dimensions"]["independent_replication"].update(status="passed", evidence_links=[link]))
+    trig = build_trig(ok, code_commit=C, created=T)
+    assert "cannot establish independent replication" in trig and conform(trig) == []
+
+
+# ------------------------------------------------------------------ the receipt verifier (a party that does not trust us)
+def sign_text(text, tmp_path, key, name="x"):
+    from falsify.nanopub import sign_local
+    u, o = tmp_path / f"{name}.unsigned.trig", tmp_path / f"{name}.signed.trig"
+    u.write_text(text)
+    sign_local(u, key, o)
+    return o
+
+
+@needs_np
+def test_verifier_accepts_a_faithful_receipt_and_rejects_each_kind_of_infidelity(tmp_path, key):
+    from frontier_pub.pipeline import prepare
+    from frontier_pub.verify import verify_receipt
+    b = bundle()
+    r = prepare(b, ledger_mod.Ledger(tmp_path / "l.json"), out_dir=tmp_path, key_pem=key, code_commit=C, created=T)
+    good = verify_receipt(Path(r["signed"]), b)
+    assert good["ok"] and all(good["checks"].values()) and len(good["checks"]) >= 9, good
+    # (1) the records are a different version
+    assert not verify_receipt(Path(r["signed"]), bundle("accepted_v2"))["ok"]
+    # (2) the node later turns out to have recorded a different dimension status (same ids, re-digested)
+    other = mutate_assessment(bundle(), lambda p: p["dimensions"]["statistical_adequacy"].update(status="not_applicable"))
+    res = verify_receipt(Path(r["signed"]), other)
+    assert not res["ok"] and not res["checks"]["each_dimension_matches_its_record"]
+    # (3) bytes changed after signing
+    t = tmp_path / "t.trig"
+    t.write_text(Path(r["signed"]).read_text().replace("FIXTURE STATEMENT v1.", "FIXTURE STATEMENT v9.", 1))
+    assert verify_receipt(t, b)["checks"]["trusty_uri_and_signature"] is False
+    # (4) a VALIDLY SIGNED file that injects a composite rating
+    unsigned = build_trig(b, code_commit=C, created=T)
+    injected = unsigned.replace("schema:author sub:reviewer ;\n    schema:claimReviewed", 'schema:author sub:reviewer ;\n    schema:ratingValue "0.93" ;\n    schema:claimReviewed', 1)
+    assert injected != unsigned
+    res = verify_receipt(sign_text(injected, tmp_path, key, "inj"), b)
+    assert res["checks"]["trusty_uri_and_signature"] and not res["ok"] and not res["checks"]["no_numeric_or_composite_rating_predicate"]
+    # (5) a VALIDLY SIGNED file whose quoted statement was altered
+    altered = sign_text(unsigned.replace('"FIXTURE STATEMENT v1."', '"A DIFFERENT STATEMENT."'), tmp_path, key, "alt")
+    res = verify_receipt(altered, b)
+    assert res["checks"]["trusty_uri_and_signature"] and not res["checks"]["statement_equals_record"] and not res["checks"]["equals_fresh_rendering"]
+    # (6) a VALIDLY SIGNED file with the operator removed from provenance
+    no_op = unsigned.replace('schema:identifier "operator-b"', 'schema:identifier "redacted"')
+    res = verify_receipt(sign_text(no_op, tmp_path, key, "noop"), b)
+    assert not res["ok"] and not res["checks"]["issuer_operator_namespace_present"]
+    # (7) records that fail the node's own rules are refused before anything else
+    bad = with_source(bundle(), content_available=True, license=None)
+    assert verify_receipt(Path(r["signed"]), bad)["checks"]["record_digests_and_node_rules"] is False
+
+
+@needs_np
+def test_verifier_handles_every_fixture_kind_and_the_corrections(tmp_path, key):
+    from frontier_pub.pipeline import prepare
+    from frontier_pub.verify import verify_receipt
+    L = ledger_mod.Ledger(tmp_path / "l.json")
+    for name in ("accepted_imported", "accepted_problem_unsourced"):
+        b = bundle(name)
+        r = prepare(b, ledger_mod.Ledger(tmp_path / f"{name}.json"), out_dir=tmp_path / name, key_pem=key, code_commit=C, created=T)
+        res = verify_receipt(Path(r["signed"]), b)
+        assert res["ok"], (name, res)
+    # superseding correction: the fresh rendering must include the npx:supersedes recovered from the file
+    r1 = prepare(bundle("accepted_v2"), L, out_dir=tmp_path / "c", key_pem=key, code_commit=C, created=T)
+    L.mark_test_published(r1["entry"]["np_uri"], registry="fake", observed_is_test=True, fetched_back=True, authorization_sha256="x")
+    r3 = prepare(bundle("disputed_v2"), L, out_dir=tmp_path / "c", key_pem=key, code_commit=C, created=T, status_change=True)
+    res = verify_receipt(Path(r3["signed"]), bundle("disputed_v2"), status_change=True)
+    assert res["ok"], res
+
+
+def test_trig_parser_refuses_what_it_cannot_read():
+    from frontier_pub.verify import parse_trig
+    with pytest.raises(NotPublishable):
+        parse_trig("@prefix a: <http://x/> .\nfoo bar baz")
+    q, _ = parse_trig(build_trig(bundle(), code_commit=C, created=T))
+    assert len(q) > 200
+
+
+def test_the_nodes_own_licence_gate_was_observed_refusing_at_the_door():
+    assert FIX["bundles"]["store_licence_gate"].startswith("Forbidden: Refusing to store content asserted available under an unstated licence")
+    assert FIX["meta"]["frontier_commit"] == "7fe28f2c4e977a022e3dd1d2c9cb1bf63328b640"

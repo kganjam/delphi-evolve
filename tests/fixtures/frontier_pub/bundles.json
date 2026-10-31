@@ -2,8 +2,8 @@
  "bundles": {
   "accepted_imported": {
    "assessment": {
-    "created_at": "2026-10-31T16:45:40.892365+00:00",
-    "id": "06c03382-f145-446f-9fce-0506b058e0a9",
+    "created_at": "2026-10-31T17:25:42.431337+00:00",
+    "id": "013077fb-23de-48eb-a571-0bbb80798c86",
     "issuer": "bob",
     "kind": "Assessment",
     "namespace": "node-a",
@@ -62,13 +62,13 @@
       "id": "imported-fixture-claim",
       "kind": "Claim",
       "namespace": "node-b",
-      "version": "902c18946647196f0aaf40798c3bf3b8dffe037a776d51123ee6149058013da3"
+      "version": "e1d7afeb568d1d59605a416008c6bb177d63ecea739780b3748f00a60b841e4e"
      }
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-review",
-    "version": "1b84ba98a5969bbf19247b0bb2f29da78f3c20433575d34d3759eb87b3ee9055",
+    "version": "e9603bf8430d468242385e353357d99ef2c2fa61bd835b4b7512696d7b448c10",
     "visibility": "public"
    },
    "evidence": [],
@@ -77,15 +77,15 @@
     "status": "accepted"
    },
    "proposal_event": {
-    "created_at": "2026-10-31T16:45:40.872006+00:00",
-    "id": "ace0b620-044f-4e82-a1c8-7946830c1331",
+    "created_at": "2026-10-31T17:25:42.418426+00:00",
+    "id": "f474228d-0a27-4042-8694-e8f730260a86",
     "issuer": "alice",
     "kind": "Event",
     "namespace": "node-a",
     "payload": {
      "actor": "alice",
      "details": {
-      "bundle_sha256": "c4f0fa368b7d9d26ca720538c5fd2fce8b00de8483d7644a48ce258bdc5071ab",
+      "bundle_sha256": "8c8e2e425c702d47e099077ec76b368904cfbbd56ed4dd786aae5be2bdfaa4dd",
       "issuer_authenticated": false
      },
      "event_type": "record_imported",
@@ -94,19 +94,19 @@
       "id": "imported-fixture-claim",
       "kind": "Claim",
       "namespace": "node-b",
-      "version": "902c18946647196f0aaf40798c3bf3b8dffe037a776d51123ee6149058013da3"
+      "version": "e1d7afeb568d1d59605a416008c6bb177d63ecea739780b3748f00a60b841e4e"
      },
-     "witnessed_at": "2026-10-31T16:45:40.871799+00:00"
+     "witnessed_at": "2026-10-31T17:25:42.418286+00:00"
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-transaction",
-    "version": "35b93cd7c7bd372a2ba1e09762a0aaee708932c7de153634639e8379fa578d76",
+    "version": "b2ea17c6f5c57d4625a5415a883e5ff8eca5023fd233f6c8384c80e5564dbd12",
     "visibility": "public"
    },
    "review_event": {
-    "created_at": "2026-10-31T16:45:40.897758+00:00",
-    "id": "657107b5-1108-4e1a-baad-79e8149ba401",
+    "created_at": "2026-10-31T17:25:42.434999+00:00",
+    "id": "ae75b453-f0cf-4f39-9a10-63999017bf66",
     "issuer": "bob",
     "kind": "Event",
     "namespace": "node-a",
@@ -114,10 +114,10 @@
      "actor": "bob",
      "details": {
       "assessment": {
-       "id": "06c03382-f145-446f-9fce-0506b058e0a9",
+       "id": "013077fb-23de-48eb-a571-0bbb80798c86",
        "kind": "Assessment",
        "namespace": "node-a",
-       "version": "1b84ba98a5969bbf19247b0bb2f29da78f3c20433575d34d3759eb87b3ee9055"
+       "version": "e9603bf8430d468242385e353357d99ef2c2fa61bd835b4b7512696d7b448c10"
       }
      },
      "event_type": "review_recorded",
@@ -126,18 +126,18 @@
       "id": "imported-fixture-claim",
       "kind": "Claim",
       "namespace": "node-b",
-      "version": "902c18946647196f0aaf40798c3bf3b8dffe037a776d51123ee6149058013da3"
+      "version": "e1d7afeb568d1d59605a416008c6bb177d63ecea739780b3748f00a60b841e4e"
      },
-     "witnessed_at": "2026-10-31T16:45:40.897640+00:00"
+     "witnessed_at": "2026-10-31T17:25:42.434923+00:00"
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-transaction",
-    "version": "05be9a1b6a272d9afa3afa583195aa8d64312779e597decc29ec4b5f1a9e4e32",
+    "version": "738ae443058c77ea4e2e67a7fd9db843f891de8bd60257f08969c94f650a2db4",
     "visibility": "public"
    },
    "target": {
-    "created_at": "2026-10-31T16:45:40.813332+00:00",
+    "created_at": "2026-10-31T17:25:42.394666+00:00",
     "id": "imported-fixture-claim",
     "issuer": "erin",
     "kind": "Claim",
@@ -166,15 +166,15 @@
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
-    "version": "902c18946647196f0aaf40798c3bf3b8dffe037a776d51123ee6149058013da3",
+    "version": "e1d7afeb568d1d59605a416008c6bb177d63ecea739780b3748f00a60b841e4e",
     "visibility": "public"
    },
    "target_is_head": true
   },
   "accepted_problem_unsourced": {
    "assessment": {
-    "created_at": "2026-10-31T16:45:41.008436+00:00",
-    "id": "7dc35585-e3db-4db4-b5b2-2c7a3f228b50",
+    "created_at": "2026-10-31T17:25:42.481875+00:00",
+    "id": "1a321320-c6af-44ad-b60a-e6800d4ec33b",
     "issuer": "bob",
     "kind": "Assessment",
     "namespace": "node-a",
@@ -233,13 +233,13 @@
       "id": "pub-fixture-problem",
       "kind": "Problem",
       "namespace": "node-a",
-      "version": "7d63014087423681164fd7f679ca91831649072d1b172430625e505082e7e178"
+      "version": "01e75be893ef78fd3d236f47c58d40bf88de3df6a4b8181628bd68c2e1fcee58"
      }
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-review",
-    "version": "6ade305ebe39e750137b6ed312b0edd698951a903808ebc2f02f4476ccdcc323",
+    "version": "93a90f9aa6705d6cf9cf9b70a5c818c265c86cb5004683dbdf04be060f61e1b5",
     "visibility": "public"
    },
    "evidence": [],
@@ -248,8 +248,8 @@
     "status": "accepted"
    },
    "proposal_event": {
-    "created_at": "2026-10-31T16:45:40.980445+00:00",
-    "id": "2eedf41b-6a1f-4e62-9bb6-91389cea726f",
+    "created_at": "2026-10-31T17:25:42.468026+00:00",
+    "id": "7d1d3c50-e1b3-4f03-b72b-09a3122ff572",
     "issuer": "alice",
     "kind": "Event",
     "namespace": "node-a",
@@ -262,19 +262,19 @@
       "id": "pub-fixture-problem",
       "kind": "Problem",
       "namespace": "node-a",
-      "version": "7d63014087423681164fd7f679ca91831649072d1b172430625e505082e7e178"
+      "version": "01e75be893ef78fd3d236f47c58d40bf88de3df6a4b8181628bd68c2e1fcee58"
      },
-     "witnessed_at": "2026-10-31T16:45:40.980365+00:00"
+     "witnessed_at": "2026-10-31T17:25:42.467939+00:00"
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-transaction",
-    "version": "82d522c634dd584a03eb2719864200f8fe8b98d1ed7fbca957e03b4af664a1c0",
+    "version": "1bf526a9697043468533fe634405805beee12115c352c635251cd89602cf8a94",
     "visibility": "public"
    },
    "review_event": {
-    "created_at": "2026-10-31T16:45:41.013388+00:00",
-    "id": "a4d8dfe4-ae3a-4203-9b67-bea69d4061c6",
+    "created_at": "2026-10-31T17:25:42.485252+00:00",
+    "id": "ba4362be-9583-4c29-84e4-caa848937083",
     "issuer": "bob",
     "kind": "Event",
     "namespace": "node-a",
@@ -282,10 +282,10 @@
      "actor": "bob",
      "details": {
       "assessment": {
-       "id": "7dc35585-e3db-4db4-b5b2-2c7a3f228b50",
+       "id": "1a321320-c6af-44ad-b60a-e6800d4ec33b",
        "kind": "Assessment",
        "namespace": "node-a",
-       "version": "6ade305ebe39e750137b6ed312b0edd698951a903808ebc2f02f4476ccdcc323"
+       "version": "93a90f9aa6705d6cf9cf9b70a5c818c265c86cb5004683dbdf04be060f61e1b5"
       }
      },
      "event_type": "review_recorded",
@@ -294,18 +294,18 @@
       "id": "pub-fixture-problem",
       "kind": "Problem",
       "namespace": "node-a",
-      "version": "7d63014087423681164fd7f679ca91831649072d1b172430625e505082e7e178"
+      "version": "01e75be893ef78fd3d236f47c58d40bf88de3df6a4b8181628bd68c2e1fcee58"
      },
-     "witnessed_at": "2026-10-31T16:45:41.013263+00:00"
+     "witnessed_at": "2026-10-31T17:25:42.485144+00:00"
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-transaction",
-    "version": "0c294b40f54f671b4967372a99705986807fd12dce180351bbf1309aada5c5d5",
+    "version": "92d3cf901ce32c65fc86cf247fd29a22852f7702323d80a7427060d2ee7de18d",
     "visibility": "public"
    },
    "target": {
-    "created_at": "2026-10-31T16:45:40.977806+00:00",
+    "created_at": "2026-10-31T17:25:42.465818+00:00",
     "id": "pub-fixture-problem",
     "issuer": "alice",
     "kind": "Problem",
@@ -338,15 +338,15 @@
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
-    "version": "7d63014087423681164fd7f679ca91831649072d1b172430625e505082e7e178",
+    "version": "01e75be893ef78fd3d236f47c58d40bf88de3df6a4b8181628bd68c2e1fcee58",
     "visibility": "public"
    },
    "target_is_head": true
   },
   "accepted_v1": {
    "assessment": {
-    "created_at": "2026-10-31T16:45:39.615665+00:00",
-    "id": "175339c7-6585-4647-b172-21dc157e177e",
+    "created_at": "2026-10-31T17:25:42.023109+00:00",
+    "id": "c889b050-9143-42df-8b13-68307f282a16",
     "issuer": "bob",
     "kind": "Assessment",
     "namespace": "node-a",
@@ -383,7 +383,7 @@
          "id": "fixture-evidence-pub-fixture-claim",
          "kind": "Evidence",
          "namespace": "node-a",
-         "version": "d5f46e4bbf13cbb7c7777578f95a4663a78fdf5e0b6c23c8e4f722f7ec93f915"
+         "version": "35e7465a39b83a6f276e6d3924427ba477d1edd16cb725884788b6a785da1ebb"
         }
        ],
        "rationale": "Workflow-control rationale for source_fidelity; not a scientific review.",
@@ -412,18 +412,18 @@
       "id": "pub-fixture-claim",
       "kind": "Claim",
       "namespace": "node-a",
-      "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+      "version": "c251a8158c62b4f16ec1e98d7d85f6ce37a9f635df8e9dc35cceec13747ee3c9"
      }
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-review",
-    "version": "ad0e6a3ef7a0659211585d45f63956dc9abed6a6df652f6ed05048ad0bd04361",
+    "version": "6f50d27bd5bbbdabef860d5e0fb495b608435195532023f5971379560818fe98",
     "visibility": "public"
    },
    "evidence": [
     {
-     "created_at": "2026-10-31T16:45:39.541319+00:00",
+     "created_at": "2026-10-31T17:25:42.006578+00:00",
      "id": "fixture-evidence-pub-fixture-claim",
      "issuer": "alice",
      "kind": "Evidence",
@@ -466,14 +466,14 @@
        "id": "pub-fixture-claim",
        "kind": "Claim",
        "namespace": "node-a",
-       "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+       "version": "c251a8158c62b4f16ec1e98d7d85f6ce37a9f635df8e9dc35cceec13747ee3c9"
       },
       "uncertainty": "Unknown"
      },
      "predecessor": null,
      "schema_version": "frontier-record-0.1",
      "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
-     "version": "d5f46e4bbf13cbb7c7777578f95a4663a78fdf5e0b6c23c8e4f722f7ec93f915",
+     "version": "35e7465a39b83a6f276e6d3924427ba477d1edd16cb725884788b6a785da1ebb",
      "visibility": "public"
     }
    ],
@@ -482,8 +482,8 @@
     "status": "accepted"
    },
    "proposal_event": {
-    "created_at": "2026-10-31T16:45:39.427133+00:00",
-    "id": "e06e743f-ce98-45be-aa18-688cf959d691",
+    "created_at": "2026-10-31T17:25:41.991670+00:00",
+    "id": "9984d4f6-fedf-40d9-80b1-13c5c63c1680",
     "issuer": "alice",
     "kind": "Event",
     "namespace": "node-a",
@@ -496,19 +496,19 @@
       "id": "pub-fixture-claim",
       "kind": "Claim",
       "namespace": "node-a",
-      "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+      "version": "c251a8158c62b4f16ec1e98d7d85f6ce37a9f635df8e9dc35cceec13747ee3c9"
      },
-     "witnessed_at": "2026-10-31T16:45:39.426962+00:00"
+     "witnessed_at": "2026-10-31T17:25:41.991463+00:00"
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-transaction",
-    "version": "c08adced2942968b032b6f7f4e172869da305d9829e6a5a70183b3ffba10d3ee",
+    "version": "304d11be0c2c7c165c0f7c9c692c4cab7ffcefd6bfb68408e0922a5140ad2e6b",
     "visibility": "public"
    },
    "review_event": {
-    "created_at": "2026-10-31T16:45:39.620467+00:00",
-    "id": "a36cc4ce-a35f-49ad-a34a-a46d41e5c110",
+    "created_at": "2026-10-31T17:25:42.027477+00:00",
+    "id": "f88b0476-bceb-4ed5-a89b-c3870d8cad44",
     "issuer": "bob",
     "kind": "Event",
     "namespace": "node-a",
@@ -516,10 +516,10 @@
      "actor": "bob",
      "details": {
       "assessment": {
-       "id": "175339c7-6585-4647-b172-21dc157e177e",
+       "id": "c889b050-9143-42df-8b13-68307f282a16",
        "kind": "Assessment",
        "namespace": "node-a",
-       "version": "ad0e6a3ef7a0659211585d45f63956dc9abed6a6df652f6ed05048ad0bd04361"
+       "version": "6f50d27bd5bbbdabef860d5e0fb495b608435195532023f5971379560818fe98"
       }
      },
      "event_type": "review_recorded",
@@ -528,18 +528,18 @@
       "id": "pub-fixture-claim",
       "kind": "Claim",
       "namespace": "node-a",
-      "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+      "version": "c251a8158c62b4f16ec1e98d7d85f6ce37a9f635df8e9dc35cceec13747ee3c9"
      },
-     "witnessed_at": "2026-10-31T16:45:39.620374+00:00"
+     "witnessed_at": "2026-10-31T17:25:42.027354+00:00"
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-transaction",
-    "version": "55710cbcb63c32f372c22b04a350b7466635b56b6f87bf909e4e84bd4618ebad",
+    "version": "31fca50e037337031c8de79b637a635ba26e9f5f460fa5465886e24694a725f7",
     "visibility": "public"
    },
    "target": {
-    "created_at": "2026-10-31T16:45:39.418088+00:00",
+    "created_at": "2026-10-31T17:25:41.987762+00:00",
     "id": "pub-fixture-claim",
     "issuer": "alice",
     "kind": "Claim",
@@ -568,15 +568,15 @@
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
-    "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd",
+    "version": "c251a8158c62b4f16ec1e98d7d85f6ce37a9f635df8e9dc35cceec13747ee3c9",
     "visibility": "public"
    },
    "target_is_head": true
   },
   "accepted_v1_via_http": {
    "assessment": {
-    "created_at": "2026-10-31T16:45:39.615665+00:00",
-    "id": "175339c7-6585-4647-b172-21dc157e177e",
+    "created_at": "2026-10-31T17:25:42.023109+00:00",
+    "id": "c889b050-9143-42df-8b13-68307f282a16",
     "issuer": "bob",
     "kind": "Assessment",
     "namespace": "node-a",
@@ -613,7 +613,7 @@
          "id": "fixture-evidence-pub-fixture-claim",
          "kind": "Evidence",
          "namespace": "node-a",
-         "version": "d5f46e4bbf13cbb7c7777578f95a4663a78fdf5e0b6c23c8e4f722f7ec93f915"
+         "version": "35e7465a39b83a6f276e6d3924427ba477d1edd16cb725884788b6a785da1ebb"
         }
        ],
        "rationale": "Workflow-control rationale for source_fidelity; not a scientific review.",
@@ -642,18 +642,18 @@
       "id": "pub-fixture-claim",
       "kind": "Claim",
       "namespace": "node-a",
-      "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+      "version": "c251a8158c62b4f16ec1e98d7d85f6ce37a9f635df8e9dc35cceec13747ee3c9"
      }
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-review",
-    "version": "ad0e6a3ef7a0659211585d45f63956dc9abed6a6df652f6ed05048ad0bd04361",
+    "version": "6f50d27bd5bbbdabef860d5e0fb495b608435195532023f5971379560818fe98",
     "visibility": "public"
    },
    "evidence": [
     {
-     "created_at": "2026-10-31T16:45:39.541319+00:00",
+     "created_at": "2026-10-31T17:25:42.006578+00:00",
      "id": "fixture-evidence-pub-fixture-claim",
      "issuer": "alice",
      "kind": "Evidence",
@@ -696,14 +696,14 @@
        "id": "pub-fixture-claim",
        "kind": "Claim",
        "namespace": "node-a",
-       "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+       "version": "c251a8158c62b4f16ec1e98d7d85f6ce37a9f635df8e9dc35cceec13747ee3c9"
       },
       "uncertainty": "Unknown"
      },
      "predecessor": null,
      "schema_version": "frontier-record-0.1",
      "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
-     "version": "d5f46e4bbf13cbb7c7777578f95a4663a78fdf5e0b6c23c8e4f722f7ec93f915",
+     "version": "35e7465a39b83a6f276e6d3924427ba477d1edd16cb725884788b6a785da1ebb",
      "visibility": "public"
     }
    ],
@@ -712,8 +712,8 @@
     "status": "accepted"
    },
    "proposal_event": {
-    "created_at": "2026-10-31T16:45:39.427133+00:00",
-    "id": "e06e743f-ce98-45be-aa18-688cf959d691",
+    "created_at": "2026-10-31T17:25:41.991670+00:00",
+    "id": "9984d4f6-fedf-40d9-80b1-13c5c63c1680",
     "issuer": "alice",
     "kind": "Event",
     "namespace": "node-a",
@@ -726,19 +726,19 @@
       "id": "pub-fixture-claim",
       "kind": "Claim",
       "namespace": "node-a",
-      "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+      "version": "c251a8158c62b4f16ec1e98d7d85f6ce37a9f635df8e9dc35cceec13747ee3c9"
      },
-     "witnessed_at": "2026-10-31T16:45:39.426962+00:00"
+     "witnessed_at": "2026-10-31T17:25:41.991463+00:00"
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-transaction",
-    "version": "c08adced2942968b032b6f7f4e172869da305d9829e6a5a70183b3ffba10d3ee",
+    "version": "304d11be0c2c7c165c0f7c9c692c4cab7ffcefd6bfb68408e0922a5140ad2e6b",
     "visibility": "public"
    },
    "review_event": {
-    "created_at": "2026-10-31T16:45:39.620467+00:00",
-    "id": "a36cc4ce-a35f-49ad-a34a-a46d41e5c110",
+    "created_at": "2026-10-31T17:25:42.027477+00:00",
+    "id": "f88b0476-bceb-4ed5-a89b-c3870d8cad44",
     "issuer": "bob",
     "kind": "Event",
     "namespace": "node-a",
@@ -746,10 +746,10 @@
      "actor": "bob",
      "details": {
       "assessment": {
-       "id": "175339c7-6585-4647-b172-21dc157e177e",
+       "id": "c889b050-9143-42df-8b13-68307f282a16",
        "kind": "Assessment",
        "namespace": "node-a",
-       "version": "ad0e6a3ef7a0659211585d45f63956dc9abed6a6df652f6ed05048ad0bd04361"
+       "version": "6f50d27bd5bbbdabef860d5e0fb495b608435195532023f5971379560818fe98"
       }
      },
      "event_type": "review_recorded",
@@ -758,18 +758,18 @@
       "id": "pub-fixture-claim",
       "kind": "Claim",
       "namespace": "node-a",
-      "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+      "version": "c251a8158c62b4f16ec1e98d7d85f6ce37a9f635df8e9dc35cceec13747ee3c9"
      },
-     "witnessed_at": "2026-10-31T16:45:39.620374+00:00"
+     "witnessed_at": "2026-10-31T17:25:42.027354+00:00"
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-transaction",
-    "version": "55710cbcb63c32f372c22b04a350b7466635b56b6f87bf909e4e84bd4618ebad",
+    "version": "31fca50e037337031c8de79b637a635ba26e9f5f460fa5465886e24694a725f7",
     "visibility": "public"
    },
    "target": {
-    "created_at": "2026-10-31T16:45:39.418088+00:00",
+    "created_at": "2026-10-31T17:25:41.987762+00:00",
     "id": "pub-fixture-claim",
     "issuer": "alice",
     "kind": "Claim",
@@ -798,15 +798,15 @@
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
-    "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd",
+    "version": "c251a8158c62b4f16ec1e98d7d85f6ce37a9f635df8e9dc35cceec13747ee3c9",
     "visibility": "public"
    },
    "target_is_head": true
   },
   "accepted_v2": {
    "assessment": {
-    "created_at": "2026-10-31T16:45:39.787580+00:00",
-    "id": "c102b27d-ef06-41d6-b343-0e5ed0c22259",
+    "created_at": "2026-10-31T17:25:42.127901+00:00",
+    "id": "9145915f-0df9-44b5-ad5a-934653b0b8f1",
     "issuer": "dana",
     "kind": "Assessment",
     "namespace": "node-a",
@@ -865,13 +865,13 @@
       "id": "pub-fixture-claim",
       "kind": "Claim",
       "namespace": "node-a",
-      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+      "version": "1372857ebbbf821639b1610c8b22e5b3b91e2a802286c0d38e06433d2e56bd2d"
      }
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-review",
-    "version": "4e785bb5c78b9135f83dc2394c5f688c188740878344da587d9cfa7290377027",
+    "version": "fe66a6e3744cba5eb13c4b9b2c983082a48c7b029d8f9b011be489e013763862",
     "visibility": "public"
    },
    "evidence": [],
@@ -880,8 +880,8 @@
     "status": "accepted"
    },
    "proposal_event": {
-    "created_at": "2026-10-31T16:45:39.760299+00:00",
-    "id": "3b79f873-1d11-4870-8539-93188e3febf0",
+    "created_at": "2026-10-31T17:25:42.116865+00:00",
+    "id": "0431d7f3-1117-490f-81fd-4c441b41013f",
     "issuer": "alice",
     "kind": "Event",
     "namespace": "node-a",
@@ -894,19 +894,19 @@
       "id": "pub-fixture-claim",
       "kind": "Claim",
       "namespace": "node-a",
-      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+      "version": "1372857ebbbf821639b1610c8b22e5b3b91e2a802286c0d38e06433d2e56bd2d"
      },
-     "witnessed_at": "2026-10-31T16:45:39.760173+00:00"
+     "witnessed_at": "2026-10-31T17:25:42.116742+00:00"
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-transaction",
-    "version": "89640155d8372a61b327e3b400974cc29cd0f23360dec236075052ed0be1f874",
+    "version": "35ef0d1bbd00b83ba26f97e22783cd64d8f5180de011a08ca2fc327fb777485c",
     "visibility": "public"
    },
    "review_event": {
-    "created_at": "2026-10-31T16:45:39.791208+00:00",
-    "id": "62910861-5d58-45ef-9c51-7b203f45350e",
+    "created_at": "2026-10-31T17:25:42.131980+00:00",
+    "id": "35123aee-1c91-4c11-b597-56987d1f3e27",
     "issuer": "dana",
     "kind": "Event",
     "namespace": "node-a",
@@ -914,10 +914,10 @@
      "actor": "dana",
      "details": {
       "assessment": {
-       "id": "c102b27d-ef06-41d6-b343-0e5ed0c22259",
+       "id": "9145915f-0df9-44b5-ad5a-934653b0b8f1",
        "kind": "Assessment",
        "namespace": "node-a",
-       "version": "4e785bb5c78b9135f83dc2394c5f688c188740878344da587d9cfa7290377027"
+       "version": "fe66a6e3744cba5eb13c4b9b2c983082a48c7b029d8f9b011be489e013763862"
       }
      },
      "event_type": "review_recorded",
@@ -926,18 +926,18 @@
       "id": "pub-fixture-claim",
       "kind": "Claim",
       "namespace": "node-a",
-      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+      "version": "1372857ebbbf821639b1610c8b22e5b3b91e2a802286c0d38e06433d2e56bd2d"
      },
-     "witnessed_at": "2026-10-31T16:45:39.791108+00:00"
+     "witnessed_at": "2026-10-31T17:25:42.131822+00:00"
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-transaction",
-    "version": "9cf6e8e1ab66e3afaf474d0dcbb82ff4ed867f9a6669aa0389f2a45fa66f500f",
+    "version": "7aa27ae7d3aa06d5de5bac8f41c85758e17e5583334ba319258e115a342ff80d",
     "visibility": "public"
    },
    "target": {
-    "created_at": "2026-10-31T16:45:39.757067+00:00",
+    "created_at": "2026-10-31T17:25:42.114696+00:00",
     "id": "pub-fixture-claim",
     "issuer": "alice",
     "kind": "Claim",
@@ -963,18 +963,18 @@
      "statement": "FIXTURE STATEMENT v2.",
      "title": "Protocol fixture, not scientific data"
     },
-    "predecessor": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd",
+    "predecessor": "c251a8158c62b4f16ec1e98d7d85f6ce37a9f635df8e9dc35cceec13747ee3c9",
     "schema_version": "frontier-record-0.1",
     "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
-    "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f",
+    "version": "1372857ebbbf821639b1610c8b22e5b3b91e2a802286c0d38e06433d2e56bd2d",
     "visibility": "public"
    },
    "target_is_head": true
   },
   "accepted_v2_after_dispute_state": {
    "assessment": {
-    "created_at": "2026-10-31T16:45:39.787580+00:00",
-    "id": "c102b27d-ef06-41d6-b343-0e5ed0c22259",
+    "created_at": "2026-10-31T17:25:42.127901+00:00",
+    "id": "9145915f-0df9-44b5-ad5a-934653b0b8f1",
     "issuer": "dana",
     "kind": "Assessment",
     "namespace": "node-a",
@@ -1033,13 +1033,13 @@
       "id": "pub-fixture-claim",
       "kind": "Claim",
       "namespace": "node-a",
-      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+      "version": "1372857ebbbf821639b1610c8b22e5b3b91e2a802286c0d38e06433d2e56bd2d"
      }
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-review",
-    "version": "4e785bb5c78b9135f83dc2394c5f688c188740878344da587d9cfa7290377027",
+    "version": "fe66a6e3744cba5eb13c4b9b2c983082a48c7b029d8f9b011be489e013763862",
     "visibility": "public"
    },
    "evidence": [],
@@ -1048,8 +1048,8 @@
     "status": "disputed"
    },
    "proposal_event": {
-    "created_at": "2026-10-31T16:45:39.760299+00:00",
-    "id": "3b79f873-1d11-4870-8539-93188e3febf0",
+    "created_at": "2026-10-31T17:25:42.116865+00:00",
+    "id": "0431d7f3-1117-490f-81fd-4c441b41013f",
     "issuer": "alice",
     "kind": "Event",
     "namespace": "node-a",
@@ -1062,19 +1062,19 @@
       "id": "pub-fixture-claim",
       "kind": "Claim",
       "namespace": "node-a",
-      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+      "version": "1372857ebbbf821639b1610c8b22e5b3b91e2a802286c0d38e06433d2e56bd2d"
      },
-     "witnessed_at": "2026-10-31T16:45:39.760173+00:00"
+     "witnessed_at": "2026-10-31T17:25:42.116742+00:00"
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-transaction",
-    "version": "89640155d8372a61b327e3b400974cc29cd0f23360dec236075052ed0be1f874",
+    "version": "35ef0d1bbd00b83ba26f97e22783cd64d8f5180de011a08ca2fc327fb777485c",
     "visibility": "public"
    },
    "review_event": {
-    "created_at": "2026-10-31T16:45:39.791208+00:00",
-    "id": "62910861-5d58-45ef-9c51-7b203f45350e",
+    "created_at": "2026-10-31T17:25:42.131980+00:00",
+    "id": "35123aee-1c91-4c11-b597-56987d1f3e27",
     "issuer": "dana",
     "kind": "Event",
     "namespace": "node-a",
@@ -1082,10 +1082,10 @@
      "actor": "dana",
      "details": {
       "assessment": {
-       "id": "c102b27d-ef06-41d6-b343-0e5ed0c22259",
+       "id": "9145915f-0df9-44b5-ad5a-934653b0b8f1",
        "kind": "Assessment",
        "namespace": "node-a",
-       "version": "4e785bb5c78b9135f83dc2394c5f688c188740878344da587d9cfa7290377027"
+       "version": "fe66a6e3744cba5eb13c4b9b2c983082a48c7b029d8f9b011be489e013763862"
       }
      },
      "event_type": "review_recorded",
@@ -1094,18 +1094,18 @@
       "id": "pub-fixture-claim",
       "kind": "Claim",
       "namespace": "node-a",
-      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+      "version": "1372857ebbbf821639b1610c8b22e5b3b91e2a802286c0d38e06433d2e56bd2d"
      },
-     "witnessed_at": "2026-10-31T16:45:39.791108+00:00"
+     "witnessed_at": "2026-10-31T17:25:42.131822+00:00"
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-transaction",
-    "version": "9cf6e8e1ab66e3afaf474d0dcbb82ff4ed867f9a6669aa0389f2a45fa66f500f",
+    "version": "7aa27ae7d3aa06d5de5bac8f41c85758e17e5583334ba319258e115a342ff80d",
     "visibility": "public"
    },
    "target": {
-    "created_at": "2026-10-31T16:45:39.757067+00:00",
+    "created_at": "2026-10-31T17:25:42.114696+00:00",
     "id": "pub-fixture-claim",
     "issuer": "alice",
     "kind": "Claim",
@@ -1131,18 +1131,18 @@
      "statement": "FIXTURE STATEMENT v2.",
      "title": "Protocol fixture, not scientific data"
     },
-    "predecessor": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd",
+    "predecessor": "c251a8158c62b4f16ec1e98d7d85f6ce37a9f635df8e9dc35cceec13747ee3c9",
     "schema_version": "frontier-record-0.1",
     "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
-    "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f",
+    "version": "1372857ebbbf821639b1610c8b22e5b3b91e2a802286c0d38e06433d2e56bd2d",
     "visibility": "public"
    },
    "target_is_head": true
   },
   "disputed_v2": {
    "assessment": {
-    "created_at": "2026-10-31T16:45:39.837854+00:00",
-    "id": "c9b357e3-013e-49b0-9633-838ea692dab1",
+    "created_at": "2026-10-31T17:25:42.162214+00:00",
+    "id": "aee16ed6-7893-40ca-9cde-eaa1cfcf6fe1",
     "issuer": "frank",
     "kind": "Assessment",
     "namespace": "node-a",
@@ -1201,13 +1201,13 @@
       "id": "pub-fixture-claim",
       "kind": "Claim",
       "namespace": "node-a",
-      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+      "version": "1372857ebbbf821639b1610c8b22e5b3b91e2a802286c0d38e06433d2e56bd2d"
      }
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-review",
-    "version": "b2252605d0b1c8badb12d1609b81d01e7cbf01674182dcc4541638c2568a8b32",
+    "version": "48a9375e3e029ae368f0e219eabae22f088caf37025d8f6de01beb47ece679f7",
     "visibility": "public"
    },
    "evidence": [],
@@ -1216,8 +1216,8 @@
     "status": "disputed"
    },
    "proposal_event": {
-    "created_at": "2026-10-31T16:45:39.760299+00:00",
-    "id": "3b79f873-1d11-4870-8539-93188e3febf0",
+    "created_at": "2026-10-31T17:25:42.116865+00:00",
+    "id": "0431d7f3-1117-490f-81fd-4c441b41013f",
     "issuer": "alice",
     "kind": "Event",
     "namespace": "node-a",
@@ -1230,19 +1230,19 @@
       "id": "pub-fixture-claim",
       "kind": "Claim",
       "namespace": "node-a",
-      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+      "version": "1372857ebbbf821639b1610c8b22e5b3b91e2a802286c0d38e06433d2e56bd2d"
      },
-     "witnessed_at": "2026-10-31T16:45:39.760173+00:00"
+     "witnessed_at": "2026-10-31T17:25:42.116742+00:00"
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-transaction",
-    "version": "89640155d8372a61b327e3b400974cc29cd0f23360dec236075052ed0be1f874",
+    "version": "35ef0d1bbd00b83ba26f97e22783cd64d8f5180de011a08ca2fc327fb777485c",
     "visibility": "public"
    },
    "review_event": {
-    "created_at": "2026-10-31T16:45:39.843268+00:00",
-    "id": "0eb7089b-a96a-4669-8d2c-f032b5a20b6f",
+    "created_at": "2026-10-31T17:25:42.166322+00:00",
+    "id": "c8fbb056-dfdc-413b-add2-f19fbd69c395",
     "issuer": "frank",
     "kind": "Event",
     "namespace": "node-a",
@@ -1250,10 +1250,10 @@
      "actor": "frank",
      "details": {
       "assessment": {
-       "id": "c9b357e3-013e-49b0-9633-838ea692dab1",
+       "id": "aee16ed6-7893-40ca-9cde-eaa1cfcf6fe1",
        "kind": "Assessment",
        "namespace": "node-a",
-       "version": "b2252605d0b1c8badb12d1609b81d01e7cbf01674182dcc4541638c2568a8b32"
+       "version": "48a9375e3e029ae368f0e219eabae22f088caf37025d8f6de01beb47ece679f7"
       }
      },
      "event_type": "review_recorded",
@@ -1262,18 +1262,18 @@
       "id": "pub-fixture-claim",
       "kind": "Claim",
       "namespace": "node-a",
-      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+      "version": "1372857ebbbf821639b1610c8b22e5b3b91e2a802286c0d38e06433d2e56bd2d"
      },
-     "witnessed_at": "2026-10-31T16:45:39.843119+00:00"
+     "witnessed_at": "2026-10-31T17:25:42.166229+00:00"
     },
     "predecessor": null,
     "schema_version": "frontier-record-0.1",
     "source_uri": "urn:frontier:local-transaction",
-    "version": "312cc48293a5b8e08f0eaa2a94225834f8e01aa811929d0e29e19764a86ab8df",
+    "version": "3845da44b654e824d659cdea49dd7e05e4fa8d42ad0a6603fb1b7360e0569ee5",
     "visibility": "public"
    },
    "target": {
-    "created_at": "2026-10-31T16:45:39.757067+00:00",
+    "created_at": "2026-10-31T17:25:42.114696+00:00",
     "id": "pub-fixture-claim",
     "issuer": "alice",
     "kind": "Claim",
@@ -1299,69 +1299,70 @@
      "statement": "FIXTURE STATEMENT v2.",
      "title": "Protocol fixture, not scientific data"
     },
-    "predecessor": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd",
+    "predecessor": "c251a8158c62b4f16ec1e98d7d85f6ce37a9f635df8e9dc35cceec13747ee3c9",
     "schema_version": "frontier-record-0.1",
     "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
-    "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f",
+    "version": "1372857ebbbf821639b1610c8b22e5b3b91e2a802286c0d38e06433d2e56bd2d",
     "visibility": "public"
    },
    "target_is_head": true
   },
-  "private_public_read": "Missing: Exact record version unavailable"
+  "private_public_read": "Missing: Exact record version unavailable",
+  "store_licence_gate": "Forbidden: Refusing to store content asserted available under an unstated licence: Claim/pub-fixture-unlicensed. Set Source.license, or set content_available=false and share the digest only."
  },
  "meta": {
-  "frontier_commit": "42cd967a97becefbb1ce67f43ce4be953ce1ec09",
-  "generated_at": "2026-10-31T16:45:41Z",
+  "frontier_commit": "7fe28f2c4e977a022e3dd1d2c9cb1bf63328b640",
+  "generated_at": "2026-10-31T17:25:42Z",
   "note": "All reviews in these fixtures are software workflow controls on a throwaway database; none is a scientific review.",
   "refs": {
    "c1": {
     "id": "pub-fixture-claim",
     "kind": "Claim",
     "namespace": "node-a",
-    "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+    "version": "c251a8158c62b4f16ec1e98d7d85f6ce37a9f635df8e9dc35cceec13747ee3c9"
    },
    "c2": {
     "id": "pub-fixture-claim",
     "kind": "Claim",
     "namespace": "node-a",
-    "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+    "version": "1372857ebbbf821639b1610c8b22e5b3b91e2a802286c0d38e06433d2e56bd2d"
    },
    "cb": {
     "id": "imported-fixture-claim",
     "kind": "Claim",
     "namespace": "node-b",
-    "version": "902c18946647196f0aaf40798c3bf3b8dffe037a776d51123ee6149058013da3"
+    "version": "e1d7afeb568d1d59605a416008c6bb177d63ecea739780b3748f00a60b841e4e"
    },
    "r1": {
-    "id": "175339c7-6585-4647-b172-21dc157e177e",
+    "id": "c889b050-9143-42df-8b13-68307f282a16",
     "kind": "Assessment",
     "namespace": "node-a",
-    "version": "ad0e6a3ef7a0659211585d45f63956dc9abed6a6df652f6ed05048ad0bd04361"
+    "version": "6f50d27bd5bbbdabef860d5e0fb495b608435195532023f5971379560818fe98"
    },
    "r2": {
-    "id": "c102b27d-ef06-41d6-b343-0e5ed0c22259",
+    "id": "9145915f-0df9-44b5-ad5a-934653b0b8f1",
     "kind": "Assessment",
     "namespace": "node-a",
-    "version": "4e785bb5c78b9135f83dc2394c5f688c188740878344da587d9cfa7290377027"
+    "version": "fe66a6e3744cba5eb13c4b9b2c983082a48c7b029d8f9b011be489e013763862"
    },
    "r3": {
-    "id": "c9b357e3-013e-49b0-9633-838ea692dab1",
+    "id": "aee16ed6-7893-40ca-9cde-eaa1cfcf6fe1",
     "kind": "Assessment",
     "namespace": "node-a",
-    "version": "b2252605d0b1c8badb12d1609b81d01e7cbf01674182dcc4541638c2568a8b32"
+    "version": "48a9375e3e029ae368f0e219eabae22f088caf37025d8f6de01beb47ece679f7"
    },
    "ri": {
-    "id": "06c03382-f145-446f-9fce-0506b058e0a9",
+    "id": "013077fb-23de-48eb-a571-0bbb80798c86",
     "kind": "Assessment",
     "namespace": "node-a",
-    "version": "1b84ba98a5969bbf19247b0bb2f29da78f3c20433575d34d3759eb87b3ee9055"
+    "version": "e9603bf8430d468242385e353357d99ef2c2fa61bd835b4b7512696d7b448c10"
    }
   }
  },
  "private_records": {
   "assessment": {
-   "created_at": "2026-10-31T16:45:41.119945+00:00",
-   "id": "6fb6b884-cf5f-4f6f-822e-c92353018c34",
+   "created_at": "2026-10-31T17:25:42.532772+00:00",
+   "id": "39cbdd33-2fd7-49e1-ab0b-b167f51c886e",
    "issuer": "bob",
    "kind": "Assessment",
    "namespace": "node-a",
@@ -1420,17 +1421,17 @@
      "id": "pub-fixture-private",
      "kind": "Claim",
      "namespace": "node-a",
-     "version": "0dc9e88f28f33d82b2d00bc39df80e2e2d197084a22fb9227d1fc878629bbfec"
+     "version": "d347e1e56530320e58ed75e8a7c73db3d90de445e4b2aae8258a9aae6ec7b5ee"
     }
    },
    "predecessor": null,
    "schema_version": "frontier-record-0.1",
    "source_uri": "urn:frontier:local-review",
-   "version": "fdfbd76d2a1128ab2c9a262adfd8a8ee99e96429fa35b971be823e19c114907e",
+   "version": "8affb0e9acf9a740ae4c257c5bba58f8033a802800439d1d3e0588f958f86ca9",
    "visibility": "private"
   },
   "target": {
-   "created_at": "2026-10-31T16:45:41.088682+00:00",
+   "created_at": "2026-10-31T17:25:42.516934+00:00",
    "id": "pub-fixture-private",
    "issuer": "alice",
    "kind": "Claim",
@@ -1459,7 +1460,7 @@
    "predecessor": null,
    "schema_version": "frontier-record-0.1",
    "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
-   "version": "0dc9e88f28f33d82b2d00bc39df80e2e2d197084a22fb9227d1fc878629bbfec",
+   "version": "d347e1e56530320e58ed75e8a7c73db3d90de445e4b2aae8258a9aae6ec7b5ee",
    "visibility": "private"
   }
  }

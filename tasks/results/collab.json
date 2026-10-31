@@ -250,6 +250,20 @@
     "cmd": "python3 -m pytest tests/test_falsify_nanopub.py -q (bounded)",
     "exit": 0,
     "result": "12 passed"
+   },
+   {
+    "cmd": "FRONTIER_SRC=<extract of 7fe28f2> python3 -m pytest tests/test_frontier_pub.py tests/test_falsify_nanopub.py -q -p no:cacheprovider (bounded)",
+    "exit": 0,
+    "result": "78 passed (66 frontier_pub incl. Frontier digest cross-check + 12 falsify_nanopub)"
+   },
+   {
+    "cmd": "four guard-removal mutations of the new code (licence mirror, replication gate, verifier fresh-rendering check, verifier signature check)",
+    "result": "each made at least one test fail; baseline 65 passed 1 skipped without FRONTIER_SRC"
+   },
+   {
+    "cmd": "bash scripts/frontier_pub_pg.sh python3 scripts/frontier_pub_make_fixtures.py tests/fixtures/frontier_pub 7fe28f2c… (private throwaway Postgres)",
+    "exit": 0,
+    "result": "fixtures regenerated; real store refused an unlicensed held-content claim: Forbidden: Refusing to store content asserted available under an unstated licence"
    }
   ],
   "implemented": [
@@ -258,7 +272,10 @@
    "local signing (key outside repo) + independent verification + tamper control",
    "ledger with supersession chain and no-fork guard; status-change (dispute) correction",
    "test-registry publisher behind a user-authorization record, exercised only on a loopback fake",
-   "read-only collector over Store and loopback HTTP read endpoints"
+   "read-only collector over Store and loopback HTTP read endpoints",
+   "receipt verifier (python -m frontier_pub verify-receipt): trusty+signature, record digests+node rules, field-by-field agreement, quad-for-quad equality with a fresh rendering",
+   "licence mirror (content_available without a stated licence refused for every record in a bundle; blank counts as unstated)",
+   "replication statement in every receipt; 'passed' replication without a linked record refused"
   ],
   "designed_not_built": [
    "Action/Evidence/other kinds",
@@ -273,7 +290,8 @@
    "No real registry was contacted; POST content type and status-document flag name are not verified against a real registry",
    "fixtures are fake claims with workflow-control reviews",
    "ASK paper text could not be matched to its PDF hash (LFS pointer)",
-   "profile IRI points at a doc that is not yet on main"
+   "profile IRI points at a doc that is not yet on main",
+   "verifier proves the file faithfully renders given records and is correctly signed; it cannot show the records are true or that a passage was not pasted into free text of a record whose source says content_available=false (the store has the same blind spot)"
   ],
   "needs_user": [
    "authorize (or not) any test-registry publication, with the user's own words",
@@ -281,6 +299,7 @@
    "licence and third-party policy",
    "merge docs/frontier-publication-layer.md to main before any publish",
    "time anchor"
-  ]
+  ],
+  "reframe_2026_10_31": "Receipt for a party who does not trust us (fable-frontier-design.md sec.6): added frontier_pub/verify.py (4-step verifier, 7 negative controls incl. validly-signed infidelities), mirror of the store's unlicensed-content refusal over every record, explicit replication statement + gate on unlinked 'passed'. Fixtures regenerated against delphi-frontier 7fe28f2c4e977a022e3dd1d2c9cb1bf63328b640."
  }
 }

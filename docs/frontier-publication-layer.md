@@ -5,7 +5,8 @@ No registry (test or production) has been contacted by this code. No nanopublica
 publisher exists, is inert by default, and was exercised only against a loopback fake. There is no production publish path.
 This file is also the profile IRI cited by every draft (`dct:conformsTo`), so it must be on `main` before any publish.
 
-Frontier pin: `kganjam/delphi-frontier` `42cd967a97becefbb1ce67f43ce4be953ce1ec09` (models.py blob `4faad6c2…`, store.py blob `f235c33f…`).
+Frontier pin: the binding was written against `kganjam/delphi-frontier` `42cd967a97becefbb1ce67f43ce4be953ce1ec09` (models.py blob `4faad6c2…`); fixtures were
+regenerated against `7fe28f2c4e977a022e3dd1d2c9cb1bf63328b640`, which adds the store's licence gate (`561157e`) and leaves `models.py` unchanged.
 Read from a `git archive` extract; nothing was written to that repository. Its working tree had another session's uncommitted edits,
 which is why the pin is a commit and not the tree.
 
@@ -22,9 +23,30 @@ which is why the pin is a commit and not the tree.
 | Production | nothing. Not in the code, enforced by a source test | any |
 | Queries | none new (the SPARQL builders of the Scope Desk profile are separate) | A profile-specific `get-latest-version-of-np` chain-head check before superseding (SPEC-007 rule 4); today the chain head comes from the local ledger |
 
-Tests: `tests/test_frontier_pub.py`, 59 tests (58 plus the Frontier digest cross-check when `FRONTIER_SRC` is set). Fixtures come from Frontier's
+Tests: `tests/test_frontier_pub.py`, 66 tests (65 plus the Frontier digest cross-check when `FRONTIER_SRC` is set). Fixtures come from Frontier's
 **real `Store`** on a private throwaway PostgreSQL 16 (`scripts/frontier_pub_pg.sh`, `scripts/frontier_pub_make_fixtures.py`); every review in them
 is a software workflow control, not a scientific review, and says so in its own rationale text.
+
+## 1a. Design target (HOST/Fable reframe, 2026-10-31): a receipt that a party who does not trust us can check
+
+Per `fable-frontier-design.md` section 6 there are three selfish reasons to use the substrate (lease, receipt, inherited refutations) and none for private scratch work.
+This layer is the *receipt*. So the test of success is not "publishes nicely"; it is: **can a stranger decide, without believing us, that this file is exactly a faithful
+rendering of the Frontier records it names?** `frontier_pub/verify.py` (`python -m frontier_pub verify-receipt <signed.trig> <bundle.json>`) does that in four steps and
+reports each check separately: (1) trusty URI + signature with a second implementation; (2) every record digest recomputed, and the node's review rules re-run; (3) field-by-field
+agreement read straight from the records and the parsed file (seven named dimensions, each status and rationale; issuer; both operators; node namespace; version digests; the quoted
+statement; no eighth dimension; no numeric rating predicate); (4) quad-for-quad equality with a fresh rendering of the records (signature block excluded).
+It has seven negative controls, including three that carry a **valid signature** (an injected `schema:ratingValue`, an altered statement, a redacted operator): a signature proves
+who signed, not that the content matches the records, which is why step 4 exists. It does not establish that the records are true, that reviewers are who the node says, or that the node's clock is right.
+
+**Licence (store gate `561157e`, main).** The store refuses to store/serve/export/import a record whose `payload.source` has `content_available=true` and no licence. This layer mirrors that
+rule over *every* record in a bundle (target, assessment, both Events, evidence), stricter in one respect: a blank licence is unstated. A refused bundle is never built. Where the source
+licence is unstated and no bytes are held (`content_available=false`), the receipt says so ("reference and digest only"), and says no source passage is reproduced. Where a licence is stated
+it is carried as *declared by the node*. The nanopub's own `dct:license` (CC BY 4.0 prepared) is still the owner's decision; the layer cannot grant rights over text it does not own.
+Not detectable by any code here: a contributor who pasted a source passage into `statement`/`context`/a rationale of a record whose source says `content_available=false`. The store has the same blind spot.
+
+**Replication.** The receipt always carries `replication_status` = the dimension's own status, with the sentence "This receipt does NOT imply independent replication" unless it is `passed`. A
+`passed` replication with no linked record is refused (a receipt must not imply what it cannot show). If it is `passed` with linked records, the receipt says Frontier API data alone cannot
+establish independent replication and tells the reader to check those records. Tests assert the words "replicated" and "validated" appear nowhere in any fixture's output.
 
 ## 2. The binding: which Frontier field becomes which triple
 

@@ -24,6 +24,8 @@ def main(argv=None):
     b.add_argument("--created", required=True), b.add_argument("--status-change", action="store_true")
     t = sub.add_parser("plan-test-publish", help="DRY RUN of the test-registry POST: prints the request, sends nothing")
     t.add_argument("signed"), t.add_argument("--uri", required=True), t.add_argument("--registry", required=True)
+    v = sub.add_parser("verify-receipt", help="check a signed nanopub against the Frontier records it claims to render (needs no trust in the issuer)")
+    v.add_argument("signed"), v.add_argument("bundle"), v.add_argument("--status-change", action="store_true")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "collect":
@@ -35,6 +37,11 @@ def main(argv=None):
             r = prepare(bundle, Ledger(Path(a.ledger)), out_dir=Path(a.out_dir), key_pem=Path(a.key), code_commit=a.commit,
                         created=a.created, status_change=a.status_change)
             print(json.dumps({k: r[k] for k in ("signed", "verified")}, indent=1))
+        elif a.cmd == "verify-receipt":
+            from .verify import verify_receipt
+            r = verify_receipt(Path(a.signed), json.loads(Path(a.bundle).read_text()), status_change=a.status_change)
+            print(json.dumps(r, indent=1))
+            return 0 if r["ok"] else 1
         elif a.cmd == "plan-test-publish":
             print(json.dumps(post_test(Path(a.signed), a.uri, a.registry, None, dry_run=True), indent=1))
     except NotPublishable as e:

@@ -124,11 +124,18 @@ except Exception as e:      # noqa
     out["private_public_read"] = f"{type(e).__name__}: {e}"
 private_with_token = {"target": a.get(fref(cp), TOK["alice"])["record"], "assessment": rq}
 
+# 7. the node's own licence gate (delphi-frontier 561157e): held content with no stated licence is refused AT THE DOOR
+try:
+    a.submit(TOK["alice"], "u1", claim(a, "pub-fixture-unlicensed", "X.", src={**source(), "content_available": True, "license": None}))
+    out["store_licence_gate"] = "NOT REFUSED"
+except Exception as e:      # noqa
+    out["store_licence_gate"] = f"{type(e).__name__}: {e}"
+
 # the facts a reviewer of this run needs
 meta = {"frontier_commit": FRONTIER_COMMIT, "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "note": "All reviews in these fixtures are software workflow controls on a throwaway database; none is a scientific review.",
         "refs": {"c1": fref(c1), "r1": fref(r1), "c2": fref(c2), "r2": fref(r2), "r3": fref(r3), "cb": fref(cb), "ri": fref(ri)}}
 OUT.mkdir(parents=True, exist_ok=True)
 (OUT / "bundles.json").write_text(json.dumps({"meta": meta, "bundles": out, "private_records": private_with_token}, sort_keys=True, indent=1, default=str))
-print(json.dumps({"written": str(OUT / "bundles.json"), "keys": sorted(out), "private_public_read": out["private_public_read"]}))
+print(json.dumps({"written": str(OUT / "bundles.json"), "keys": sorted(out), "private_public_read": out["private_public_read"], "store_licence_gate": out["store_licence_gate"]}))
 srv.shutdown()
