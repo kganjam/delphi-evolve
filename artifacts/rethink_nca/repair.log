@@ -1,0 +1,32 @@
+eval_batch r=9 samples=3
+eval_batch r=10 samples=15
+eval_batch r=21 samples=3
+eval_batch r=20 samples=15
+eval_batch r=30 samples=12
+eval_batch r=40 samples=12
+{
+ "domain_length/treatment_refused": {
+  "requests": 2,
+  "repair_found": 2,
+  "repaired_success_mean_over_found": 0.0,
+  "unrepaired_C0_success_mean": 1.0
+ },
+ "domain_length/control_d1": {
+  "requests": 16,
+  "repair_found": 0,
+  "repaired_success_mean_over_found": null,
+  "unrepaired_C0_success_mean": 0.0
+ },
+ "diffusion_ratio/treatment_refused": {
+  "requests": 2,
+  "repair_found": 2,
+  "repaired_success_mean_over_found": 0.0,
+  "unrepaired_C0_success_mean": 1.0
+ },
+ "diffusion_ratio/control_d1": {
+  "requests": 16,
+  "repair_found": 16,
+  "repaired_success_mean_over_found": 0.7083333333333333,
+  "unrepaired_C0_success_mean": 0.0
+ }
+}

@@ -1,0 +1,5 @@
+eval_batch r=10 samples=12
+eval_batch r=20 samples=6
+eval_batch r=30 samples=6
+eval_batch r=40 samples=9
+{"label": "POST HOC: same resolution, new noise seeds (+100)", "n": 33, "success_flag_agreement": 0.7575757575757576, "dominant_mode_agreement": 0.5757575757575758}

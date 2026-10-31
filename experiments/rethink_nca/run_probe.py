@@ -11,6 +11,7 @@ import json
 import math
 import sys
 import time
+from fractions import Fraction
 from pathlib import Path
 
 import numpy as np
@@ -141,7 +142,7 @@ def stage_design(log=print):
             for c in cands:
                 need.add((c, float(q["d"]), q["r"]))
         # Gmis: continuum band only, no admissible-mode check
-        ql, qu = (float(gate_res[q["id"]]["band_q"][0]), float(gate_res[q["id"]]["band_q"][1]))
+        ql, qu = (float(Fraction(gate_res[q["id"]]["band_q"][0])), float(Fraction(gate_res[q["id"]]["band_q"][1])))
         qt = (2 * math.pi / q["lam"]) ** 2
         lo, hi = max(qt / qu, GR[0]), min(qt / ql, GR[1])
         if lo < hi:
@@ -376,9 +377,36 @@ def stage_convergence(log=print):
     log(json.dumps(summ, indent=1))
 
 
+def stage_noise_baseline(log=print):
+    """POST HOC diagnostic: same designs/resolution, different IC noise seeds. Separates realisation noise from discretisation."""
+    data = json.loads((OUT / "evaluated.json").read_text())
+    reqs = {q["id"]: q for q in data["requests"]}
+    sub = [d for d in data["designs"] if d["arm"] in ("D", "G") and d["decision"] == "accept"][::6]
+    items = []
+    for d in sub:
+        q = reqs[d["req"]]
+        for s in EVAL_SEEDS:
+            items.append({"gamma": d["gamma"], "d": q["d"], "r": q["r"], "lam": q["lam"], "seed": s})
+    # evaluator with seeds shifted by +100 (same resolution, new noise)
+    keep = list(EVAL_SEEDS)
+    EVAL_SEEDS[:] = [s + 100 for s in keep]
+    try:
+        evs = _eval_batch([{"gamma": d["gamma"], "d": reqs[d["req"]]["d"], "r": reqs[d["req"]]["r"], "lam": reqs[d["req"]]["lam"]} for d in sub], log)
+    finally:
+        EVAL_SEEDS[:] = keep
+    same_flag, same_m, n = [], [], 0
+    for d, e in zip(sub, evs):
+        for base, new_ in zip(d["eval"], e):
+            same_flag.append(base["ok"] == new_["ok"]); same_m.append(base["m"] == new_["m"])
+    out = {"label": "POST HOC: same resolution, new noise seeds (+100)", "n": len(same_flag),
+           "success_flag_agreement": float(np.mean(same_flag)), "dominant_mode_agreement": float(np.mean(same_m))}
+    (OUT / "noise_baseline.json").write_text(json.dumps(out, indent=1))
+    log(json.dumps(out))
+
+
 def main(argv=None):
     stage = (argv or sys.argv)[1]
-    {"design": stage_design, "evaluate": stage_evaluate, "repair": stage_repair, "convergence": stage_convergence}[stage]()
+    {"design": stage_design, "evaluate": stage_evaluate, "repair": stage_repair, "convergence": stage_convergence, "noise_baseline": stage_noise_baseline}[stage]()
 
 
 if __name__ == "__main__":

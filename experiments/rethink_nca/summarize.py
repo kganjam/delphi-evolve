@@ -84,7 +84,7 @@ def main():
     out["claim_record_changed_refusals"] = {"refused": data["tampered_record_refusals"], "of": data["n_requests"]}
     out["controls_C0_hallucinated_success_requests"] = int(sum(req_success(by[("C0", None)][i]) > 0 for i in ctrl))
     out["controls_pattern_count_by_arm_seeds"] = {
-        f"{a}{'' if s is None else s}": int(sum(1 for i in ctrl if by[(a, s)][i]["decision"] == "accept"
+        f"{a}{'' if s is None else s}": int(sum(1 for i in ctrl if i in by[(a, s)] and by[(a, s)][i]["decision"] == "accept"
                                                  and any(e["patterned"] for e in by[(a, s)][i].get("eval", []))))
         for (a, s) in by}
     # decision rules from protocol
