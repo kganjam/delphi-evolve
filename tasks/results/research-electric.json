@@ -6,7 +6,7 @@
   "metered_spend": "unknown; not inferred from CLI",
   "wall_time_seattle": {
     "start": "2026-10-31 00:56 PDT",
-    "end": "2026-10-31 01:25 PDT (clock-read)"
+    "end": "2026-10-31 01:14 PDT (clock-read)"
   },
   "deliverables": [
     "docs/research/research-electric.md",

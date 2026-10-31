@@ -1,7 +1,7 @@
 # Research-electric: bioelectric fields, electrobiofabrication, ion-channel actuators
 
 Author: research worker, model = subscription Claude Sonnet 5.5 (repo-required). Metered spend: unknown, not inferred from CLI.
-Run: first pass 2026-10-31 00:56 to 01:03 PDT, second pass 01:04 to 01:25 PDT, Seattle (clock-read, not estimated). Branch `work/research-electric`. No GPU, no paid service, no messages sent, no agents spawned.
+Run: first pass 2026-10-31 00:56 to 01:03 PDT, second pass 01:04 to 01:14 PDT, Seattle (clock-read, not estimated). Branch `work/research-electric`. No GPU, no paid service, no messages sent, no agents spawned.
 Machine-readable companion: `artifacts/research/research-electric.json` (every source with how far I read it).
 
 Labels: **[READ]** I read the body or raw data. **[ABS]** abstract or search snippet only. **[INF]** my inference. **[PILOT]** my quick count on a real file; descriptive, not a benchmark result.
