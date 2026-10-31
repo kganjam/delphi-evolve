@@ -1,9 +1,9 @@
 {
   "role": "codex-api",
-  "status": "Lean pre-run hold documented; active-frontier proposal pushed; v1.2 rev3 metadata/text gate passes with README corrections; R06 mapping corrected; private Delphi Frontier repository created and five write invitations verified",
-  "updated_at": "2026-10-31T07:51:23.358095-07:00",
+  "status": "Director follow-up complete: all19 frozen integer targets and current PREREG reviewed for slide wording; numerical results await committed repaired replay; latest127-item freeze metadata passes14/14 and retained rows are unchanged",
+  "updated_at": "2026-10-31T07:54:50.077508-07:00",
   "branch": "work/codex-api",
-  "commit": "269fd3b467f7269b45ec3f2c967dc119ec7887e3",
+  "commit": "4f2fc45c67c39c122380d69a3868398f266680c9",
   "goal": "Broader native goal remains paused. Completed the specifically assigned Lean pre-run review and user-requested open-problem/active-knowledge pitch proposal; director retains run/integration authority.",
   "checklist": [
     {
@@ -100,6 +100,14 @@
     },
     {
       "item": "Create user-approved delphi-frontier repository and mirror active/pending collaborator write access from delphi-evolve",
+      "done": true
+    },
+    {
+      "item": "Recheck all19 guilds target statements and current PREREG; issue row-level slide wording and numerical-results gate",
+      "done": true
+    },
+    {
+      "item": "Verify latest127-item critic freeze metadata and retained-row identity against the reviewed128-item candidate",
       "done": true
     }
   ],
@@ -316,6 +324,26 @@
       "command": "gh api: read authenticated login, source repo collaborators/invitations, target existence; POST user/repos private delphi-frontier; five sequential PUT collaborator invitations; re-read repo/invitations/collaborators",
       "exit": 0,
       "result": "Created private kganjam/delphi-frontier, owner kganjam; verified five pending write invitations copied from source active/pending roster. Credentials never read or printed. Target existence GET404 was expected before creation; all mutations/read-back succeed."
+    },
+    {
+      "command": "Read-only git diff, target/PREREG reads and SHA256 comparison of guilds working files against feb5dbd",
+      "exit": 0,
+      "result": "Targets, definitions, contract and original freeze unchanged; PREREG-only manifest mismatch; checker/accounting/agent repairs uncommitted at inspection. No new Lean proof audit or arm executed."
+    },
+    {
+      "command": "Pinned git-object snapshot and JSON row-identity comparison: critic ffcd315 to70c1254",
+      "exit": 0,
+      "result": "Exactly qd643fbe2 removed from all4 data files, no additions, all127 retained row objects identical."
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 -I pinned70c1254/scopedesk/bench/v1_2/metadata_check.py OUT.json",
+      "exit": 0,
+      "result": "14/14 metadata checks pass for127 items. Current key28645a12...aa2f; model payload6c571db1...ee42."
+    },
+    {
+      "command": "tmux literal follow-up to existing guilds %59 and director %51",
+      "exit": 0,
+      "result": "Flagged current uncommitted publication patch: helpers added before replay then duplicated in candidate closure; requested validate-before-publish. No acknowledgement claimed."
     }
   ],
   "artifacts": [
@@ -369,7 +397,11 @@
     "artifacts/integration/codex-api/audit_bench_v1_2_rev3.py",
     "artifacts/integration/codex-api/bench-v1-2-rev3-metadata.json",
     "artifacts/integration/codex-api/bench-v1-2-rev3-initial-delta.json",
-    "artifacts/integration/codex-api/bench-v1-2-rev3-delta.json"
+    "artifacts/integration/codex-api/bench-v1-2-rev3-delta.json",
+    "planning/rethink/CODEX-LEAN19-SLIDE-AND-FREEZE-DECISION.md",
+    "artifacts/integration/codex-api/lean19-slide-review-state.json",
+    "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json",
+    "artifacts/integration/codex-api/bench-v1-2-frozen127-delta.json"
   ],
   "limitations": [
     "Fresh Price/Hamilton Lean compile and witness controls exit0 with standard axioms; no additive-genetic Fisher FTNS or independent biological correspondence review.",
@@ -386,7 +418,8 @@
     "New 21-record Mathlib target freeze/preregistration remains unavailable/unapproved; existing 19-target integer experiment is a separate historical study.",
     "Active-frontier design is a product proposal, not a deployed federation or proof of collective advantage; SciDEX/ASK already describe adjacent architecture.",
     "v1.2 rev3 approval covers requested metadata/text gate plus22 exact Turing-1D labels, not a new blinded128-item audit or permission to run Lean arms. Source README still needs bookkeeping corrections.",
-    "Delphi Frontier is private; five collaborators are invited, not yet confirmed accepted. No code migration, deployment or external adoption claimed."
+    "Delphi Frontier is private; five collaborators are invited, not yet confirmed accepted. No code migration, deployment or external adoption claimed.",
+    "Current19-target statements are unchanged but checker repairs are still uncommitted at inspection; no numerical slide result is approved. The127-item gate is metadata/text only; prior retained-row checks apply by identity."
   ],
   "next_steps": [
     "Keep broader native goal paused; preserve completed targeted work.",
@@ -398,6 +431,7 @@
     "Host-confirmed existing runner owner repairs exact-target verification, helper restrictions, clean replay, proof-term dependency extraction and atomic reservations; director freezes full Mathlib targets and matched-resource preregistration before a three-target pilot.",
     "Director and dx-submit review ACTIVE-FRONTIER-PITCH-PROPOSAL.md as a narrative extension around the existing demonstration; show proposed actions and actual receipts with distinct statuses, preserving current file ownership.",
     "Runner owner/director freeze the independent answer-status schema, coverage/risk/utility, always-abstain/exact-checker/same-information controls and actual prompt/tool boundary for the separate Scope Desk headroom check.",
-    "Critic corrects rev3 README bookkeeping and publishes FROZEN with exact reviewed key/payload hashes after director go; retain changed-parameter and historical-audit disclosures."
+    "Critic/director append the current127-item Codex metadata/text approval and exact hashes to freeze history; do not revert to superseded131 or128 candidates.",
+    "Guilds commits repaired checker, atomic publication/accounting and clean historical replay receipts; director/Codex review exact quantitative results before slides."
   ]
 }

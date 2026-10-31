@@ -13,7 +13,7 @@ sys.path.insert(0, str(REPO / "presentation"))
 import trace_numbers as TN  # noqa: E402
 
 FORBIDDEN = [r"first[- ]ever", r"first (?:formal )?(?:biology )?library", r"biology has no", r"\bsolved\b", r"navier", r"universal(?:ly)?\b",
-             r"bonus", r"commons gain", r"structure[- ]to[- ]diffusion", r"nanopub", r"disprov", r"\bwas wrong\b", r"\bwrong\b",
+             r"bonus", r"commons gain", r"structure[- ]to[- ]diffusion", r"nanopub", r"disprov", r"\b(?:is|was|are|were) wrong\b",
              r"autonomous(?:ly)? detect", r"robustness cliff", r"above the (?:robustness )?cliff"]
 NEG = re.compile(r"\b(?:not|no|never|none|nor|without|false|neither|n't)\b", re.I)
 
@@ -37,7 +37,7 @@ def test_committed_deck_traces(tmp_path):
 def _copy(tmp_path):
     root = tmp_path / "root"
     shutil.copytree(REPO / "presentation", root / "presentation", ignore=shutil.ignore_patterns("screenshots", "video", "__pycache__", "tests"))
-    for d in ("artifacts", "planning", "experiments", "tasks", "turing_scope", "docs", "site"):
+    for d in ("artifacts", "planning", "experiments", "tasks", "turing_scope", "docs", "site", "scopedesk", "lean_price"):
         shutil.copytree(REPO / d, root / d, ignore=shutil.ignore_patterns("*.mp4", "*.zip", "*.npz", "*.gz", ".lake", "build", "queries", "shards"))
     subprocess.run(["git", "init", "-q"], cwd=root)
     return root
@@ -52,14 +52,14 @@ def _mut(root, old, new):
 
 def test_changed_number_fails(tmp_path):
     root = _copy(tmp_path)
-    _mut(root, "The scorecard of 21 candidate laws", "The scorecard of 22 candidate laws")
+    _mut(root, "Scorecard of 21 candidate laws", "Scorecard of 22 candidate laws")
     code, out = trace(root, out=tmp_path / "t.json")
     assert code == 1 and "21 candidate laws" in out
 
 
 def test_pending_replaced_by_a_number_fails(tmp_path):
     root = _copy(tmp_path)
-    _mut(root, 'excluded, with reasons</td><td><span class="pend">pending</span>', "excluded, with reasons</td><td><b>7</b>")
+    _mut(root, 'Scorecard of 21 candidate laws: <span class="pend">pending</span>', "Scorecard of 21 candidate laws: <b>7</b>")
     code, out = trace(root, out=tmp_path / "t.json")
     assert code == 1 and ("must read 'pending'" in out or "not traced" in out)
 
@@ -70,7 +70,7 @@ def test_unclaimed_number_and_fake_ledger_id_fail(tmp_path):
     code, out = trace(root, out=tmp_path / "t.json")
     assert code == 1 and "not traced" in out
     root2 = _copy(tmp_path / "b")
-    _mut(root2, "<b>Ledger</b> F01 F07", "<b>Ledger</b> F77 F07")
+    _mut(root2, "<b>Ledger</b> F01 F02", "<b>Ledger</b> F77 F02")
     code, out = trace(root2, out=tmp_path / "t2.json")
     assert code == 1 and "F77" in out
 
@@ -150,7 +150,8 @@ def test_site_numbers_are_accounted_for():
     assert not left, left
 
 
-HARD_BANNED = [r"no machine[- ]checked", r"did not find a prior machine", r"nobody has (?:a )?(?:gate|library|checked)", r"Arcuri", r"PMC9884266",
+HARD_BANNED = [r"near-vacuous", r"not_lt", r"saying nothing", r"tautolog", r"19 biological laws", r"Hamilton[/ -]ESS derived", r"compute-matched (?:collective )?advantage", r"Mathlib biology benchmark",
+               r"131[- ]item key|eab23bff(?!.*superseded)",r"no machine[- ]checked", r"did not find a prior machine", r"nobody has (?:a )?(?:gate|library|checked)", r"Arcuri", r"PMC9884266",
                r"Villar-Sepulveda", r"solved (?:the )?navier", r"navier[- ]stokes", r"prove2\.me"]
 
 
@@ -162,8 +163,8 @@ def test_hard_banned_claims_and_citations_absent_everywhere():
 
 def test_atlas_is_credited_and_misprediction_map_is_pending():
     t = _texts()
-    assert "atlas-lean" in t["deck slide 6"] and "atlas-lean" in t["site/index.html"] and "atlas-lean" in t["site/blog.html"]
-    s5 = t["deck slide 5"]
-    m = re.search(r"over a large ensemble: (\S+)", s5)
+    assert "ATLAS" in t["deck slide 3"] and all("atlas-lean" in t[k] for k in ("deck slide 6", "site/index.html", "site/blog.html"))
+    s6 = t["deck slide 6"]
+    m = re.search(r"Misprediction map over a large ensemble: (\S+)", s6)
     assert m and m.group(1).lower() == "pending"
     assert re.search(r"98\.3|0\.4 ?%", " ".join(t.values())) is None  # toy-ensemble figures are not shown

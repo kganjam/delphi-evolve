@@ -1,0 +1,973 @@
+{
+ "label": "",
+ "bench_dir_files_sha256": {
+  "key.jsonl": "28645a12f2f4c77fc1acedb10b23b4070832eefa381b88ca65a12b9e4ecdaa2f",
+  "instances_full.jsonl": "2409c3b4c9fb9a85f374abfc9629691e6a9b6046a01f669c7672ad9fd5bac28e"
+ },
+ "bench_commit": null,
+ "table": {
+  "turing_finite_domain": {
+   "n": 21,
+   "key_counts": {
+    "underdetermined": 4,
+    "applies": 12,
+    "out_of_scope": 5
+   },
+   "C0": {
+    "agree_with_key": 14,
+    "of": 21,
+    "ci95_exact": [
+     0.43,
+     0.854
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 7,
+    "changed_vs_full_gate": 7
+   },
+   "full": {
+    "agree_with_key": 21,
+    "of": 21,
+    "ci95_exact": [
+     0.839,
+     1.0
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 0,
+    "changed_vs_full_gate": 0
+   },
+   "record_removed": {
+    "agree_with_key": 14,
+    "of": 21,
+    "ci95_exact": [
+     0.43,
+     0.854
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 7,
+    "changed_vs_full_gate": 7
+   },
+   "record_hash_changed": {
+    "agree_with_key": 0,
+    "of": 21,
+    "ci95_exact": [
+     0.0,
+     0.161
+    ],
+    "refused": 21,
+    "wrong_non_refusal": 0,
+    "changed_vs_full_gate": 21
+   },
+   "continuum_only": {
+    "agree_with_key": 14,
+    "of": 21,
+    "ci95_exact": [
+     0.43,
+     0.854
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 7,
+    "changed_vs_full_gate": 7
+   },
+   "C0_wrong_but_full_right": 7,
+   "C0_right_but_full_wrong": 0
+  },
+  "turing_2d_rectangle": {
+   "n": 15,
+   "key_counts": {
+    "applies": 9,
+    "out_of_scope": 4,
+    "underdetermined": 2
+   },
+   "C0": {
+    "agree_with_key": 10,
+    "of": 15,
+    "ci95_exact": [
+     0.384,
+     0.882
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 5,
+    "changed_vs_full_gate": 5
+   },
+   "full": {
+    "agree_with_key": 15,
+    "of": 15,
+    "ci95_exact": [
+     0.782,
+     1.0
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 0,
+    "changed_vs_full_gate": 0
+   },
+   "record_removed": {
+    "agree_with_key": 10,
+    "of": 15,
+    "ci95_exact": [
+     0.384,
+     0.882
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 5,
+    "changed_vs_full_gate": 5
+   },
+   "record_hash_changed": {
+    "agree_with_key": 0,
+    "of": 15,
+    "ci95_exact": [
+     0.0,
+     0.218
+    ],
+    "refused": 15,
+    "wrong_non_refusal": 0,
+    "changed_vs_full_gate": 15
+   },
+   "continuum_only": {
+    "agree_with_key": 10,
+    "of": 15,
+    "ci95_exact": [
+     0.384,
+     0.882
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 5,
+    "changed_vs_full_gate": 5
+   },
+   "C0_wrong_but_full_right": 5,
+   "C0_right_but_full_wrong": 0
+  },
+  "wavelength_formula_licence": {
+   "n": 14,
+   "key_counts": {
+    "out_of_scope": 9,
+    "applies": 5
+   },
+   "C0": {
+    "agree_with_key": 5,
+    "of": 14,
+    "ci95_exact": [
+     0.128,
+     0.649
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 9,
+    "changed_vs_full_gate": 9
+   },
+   "full": {
+    "agree_with_key": 14,
+    "of": 14,
+    "ci95_exact": [
+     0.768,
+     1.0
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 0,
+    "changed_vs_full_gate": 0
+   },
+   "record_removed": {
+    "agree_with_key": 5,
+    "of": 14,
+    "ci95_exact": [
+     0.128,
+     0.649
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 9,
+    "changed_vs_full_gate": 9
+   },
+   "record_hash_changed": {
+    "agree_with_key": 0,
+    "of": 14,
+    "ci95_exact": [
+     0.0,
+     0.232
+    ],
+    "refused": 14,
+    "wrong_non_refusal": 0,
+    "changed_vs_full_gate": 14
+   },
+   "continuum_only": {
+    "agree_with_key": 10,
+    "of": 14,
+    "ci95_exact": [
+     0.419,
+     0.916
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 4,
+    "changed_vs_full_gate": 4
+   },
+   "C0_wrong_but_full_right": 9,
+   "C0_right_but_full_wrong": 0
+  },
+  "ALL": {
+   "n": 50,
+   "key_counts": {
+    "underdetermined": 6,
+    "applies": 26,
+    "out_of_scope": 18
+   },
+   "C0": {
+    "agree_with_key": 29,
+    "of": 50,
+    "ci95_exact": [
+     0.432,
+     0.718
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 21,
+    "changed_vs_full_gate": 21
+   },
+   "full": {
+    "agree_with_key": 50,
+    "of": 50,
+    "ci95_exact": [
+     0.929,
+     1.0
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 0,
+    "changed_vs_full_gate": 0
+   },
+   "record_removed": {
+    "agree_with_key": 29,
+    "of": 50,
+    "ci95_exact": [
+     0.432,
+     0.718
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 21,
+    "changed_vs_full_gate": 21
+   },
+   "record_hash_changed": {
+    "agree_with_key": 0,
+    "of": 50,
+    "ci95_exact": [
+     0.0,
+     0.071
+    ],
+    "refused": 50,
+    "wrong_non_refusal": 0,
+    "changed_vs_full_gate": 50
+   },
+   "continuum_only": {
+    "agree_with_key": 34,
+    "of": 50,
+    "ci95_exact": [
+     0.533,
+     0.805
+    ],
+    "refused": 0,
+    "wrong_non_refusal": 16,
+    "changed_vs_full_gate": 16
+   },
+   "C0_wrong_but_full_right": 21,
+   "C0_right_but_full_wrong": 0
+  }
+ },
+ "rows": [
+  {
+   "id": "qc7bdd4c0",
+   "family": "turing_finite_domain",
+   "key": "underdetermined",
+   "key_conditions": [
+    "BC_UNSTATED"
+   ],
+   "C0": "applies",
+   "full": "underdetermined",
+   "full_conditions": [
+    "BC_UNSTATED"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q8343e9c9",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "qa20f8997",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q77350570",
+   "family": "turing_finite_domain",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "WELLMIXED_STABLE"
+   ],
+   "C0": "out_of_scope",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "WELLMIXED_STABLE"
+   ],
+   "record_removed": "out_of_scope",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "out_of_scope"
+  },
+  {
+   "id": "q5a6512d2",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q973b2d4f",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "C0": "applies",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "out_of_scope"
+  },
+  {
+   "id": "q67e0c178",
+   "family": "wavelength_formula_licence",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q34171653",
+   "family": "turing_2d_rectangle",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "C0": "applies",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q17503050",
+   "family": "turing_finite_domain",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "WELLMIXED_STABLE"
+   ],
+   "C0": "out_of_scope",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "WELLMIXED_STABLE"
+   ],
+   "record_removed": "out_of_scope",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "out_of_scope"
+  },
+  {
+   "id": "q38b9d8a3",
+   "family": "turing_2d_rectangle",
+   "key": "underdetermined",
+   "key_conditions": [
+    "BC_UNSTATED"
+   ],
+   "C0": "applies",
+   "full": "underdetermined",
+   "full_conditions": [
+    "BC_UNSTATED"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q92f2ccd2",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q5b57638f",
+   "family": "turing_2d_rectangle",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "C0": "applies",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q76e41417",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "C0": "applies",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "out_of_scope"
+  },
+  {
+   "id": "qb02ba59a",
+   "family": "wavelength_formula_licence",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "qd5e4b6b4",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q9920d68c",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "C0": "applies",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "out_of_scope"
+  },
+  {
+   "id": "q482d1195",
+   "family": "turing_2d_rectangle",
+   "key": "underdetermined",
+   "key_conditions": [
+    "BC_UNSTATED"
+   ],
+   "C0": "applies",
+   "full": "underdetermined",
+   "full_conditions": [
+    "BC_UNSTATED"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "qda9a8ada",
+   "family": "turing_finite_domain",
+   "key": "underdetermined",
+   "key_conditions": [
+    "BC_UNSTATED"
+   ],
+   "C0": "applies",
+   "full": "underdetermined",
+   "full_conditions": [
+    "BC_UNSTATED"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "qa047e33a",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q17fe64c4",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "qf88e65a0",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "LARGE_DOMAIN"
+   ],
+   "C0": "applies",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "LARGE_DOMAIN"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q0322ba85",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q6b8f0acf",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q5ca988d8",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q84df581b",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "NEAR_ONSET"
+   ],
+   "C0": "applies",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "NEAR_ONSET"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "out_of_scope"
+  },
+  {
+   "id": "q5e8142dd",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q40aff276",
+   "family": "wavelength_formula_licence",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q175189fd",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "LARGE_DOMAIN"
+   ],
+   "C0": "applies",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "LARGE_DOMAIN"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q7f4d606c",
+   "family": "turing_finite_domain",
+   "key": "underdetermined",
+   "key_conditions": [
+    "BC_UNSTATED"
+   ],
+   "C0": "applies",
+   "full": "underdetermined",
+   "full_conditions": [
+    "BC_UNSTATED"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q2a7d8a44",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q82fbdb86",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "NEAR_ONSET"
+   ],
+   "C0": "applies",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "NEAR_ONSET"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "out_of_scope"
+  },
+  {
+   "id": "q7cf8687e",
+   "family": "turing_finite_domain",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "C0": "applies",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "qc8c2157c",
+   "family": "turing_2d_rectangle",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "WELLMIXED_STABLE"
+   ],
+   "C0": "out_of_scope",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "WELLMIXED_STABLE"
+   ],
+   "record_removed": "out_of_scope",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "out_of_scope"
+  },
+  {
+   "id": "qa80033f9",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q8567b50f",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q723697b1",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "qcca31b33",
+   "family": "turing_finite_domain",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "C0": "applies",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q1ccdea35",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "NEAR_ONSET"
+   ],
+   "C0": "applies",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "NEAR_ONSET"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "out_of_scope"
+  },
+  {
+   "id": "q4d903fb8",
+   "family": "turing_2d_rectangle",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "C0": "applies",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q3831c7fa",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "qf261c3f7",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q78684eca",
+   "family": "wavelength_formula_licence",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q9e9da3d5",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "LARGE_DOMAIN"
+   ],
+   "C0": "applies",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "LARGE_DOMAIN"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "qa5ed7dfd",
+   "family": "turing_finite_domain",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "C0": "applies",
+   "full": "out_of_scope",
+   "full_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q26c103da",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "qa9957691",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q38507081",
+   "family": "wavelength_formula_licence",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "out_of_scope"
+  },
+  {
+   "id": "q9a01b7b8",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q90cbf6c9",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "C0": "applies",
+   "full": "applies",
+   "full_conditions": [],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  },
+  {
+   "id": "q98f3297f",
+   "family": "turing_finite_domain",
+   "key": "underdetermined",
+   "key_conditions": [
+    "BC_UNSTATED"
+   ],
+   "C0": "applies",
+   "full": "underdetermined",
+   "full_conditions": [
+    "BC_UNSTATED"
+   ],
+   "record_removed": "applies",
+   "record_hash_changed": "refused_source",
+   "continuum_only": "applies"
+  }
+ ],
+ "notes": [
+  "C0 = plain textbook inequality for Turing families; for the wavelength family C0 = 'the formula is adequate' (always applies)",
+  "record_removed falls back to C0 by construction; continuum_only = records valid, finite-domain/boundary/dimensionality ignored",
+  "record_hash_changed refuses every item: it measures provenance dependence, not scientific value",
+  "agreement with the key shares the bench's convention document; not external validation"
+ ]
+}

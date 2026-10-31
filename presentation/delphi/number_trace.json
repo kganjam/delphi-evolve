@@ -1,25 +1,25 @@
 {
  "deck": "presentation/delphi/deck.html",
- "claims_checked": 26,
- "inputs_hash_checked": 22,
+ "claims_checked": 40,
+ "inputs_hash_checked": 40,
  "pdf_pages_checked": 6,
- "provenance_head": "47590e9530d42a8e79033f4c618853cb0625eec3",
+ "provenance_head": "87f2e19116ee5999f9e5146b8277ea9ddf6b7dba",
  "ok": true,
  "errors": [],
  "trace": [
   {
    "slide": 1,
-   "shown": "compiled in Lean 4",
+   "shown": "On a tissue of length π no admissible mode is in the band; at 2π one is.",
    "where": "html",
    "files": [
-    "artifacts/turing_scope/lean_receipt.json"
+    "artifacts/turing_scope/results.json"
    ],
    "sha256": {
-    "artifacts/turing_scope/lean_receipt.json": "d9961d8662748c3eb347accf9c103ffe5db1f988e7d74cf8183564f0b743d021"
+    "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50"
    }
   },
   {
-   "slide": 2,
+   "slide": 1,
    "shown": "J = [[1, -2], [2, -3]], diffusivities D = (1, 10)",
    "where": "html",
    "files": [
@@ -30,7 +30,7 @@
    }
   },
   {
-   "slide": 2,
+   "slide": 1,
    "shown": "1-D Neumann boundaries",
    "where": "html",
    "files": [
@@ -41,7 +41,7 @@
    }
   },
   {
-   "slide": 2,
+   "slide": 1,
    "shown": "det(J − qD) = (5q-1)(2q-1), so the continuum band is 1/5 < q < 1/2",
    "where": "html",
    "files": [
@@ -52,18 +52,7 @@
    }
   },
   {
-   "slide": 2,
-   "shown": "The algorithm is trivial: count admissible modes in the band; exact for rational L/π. The offer is a certificate and packaging, not new mathematics. Exactly, mode n grows iff 2n² < (L/π)² < 5n²: growth for L/π in (√2, √5) and every L/π above 2√2; stable window √5 ≤ L/π ≤ 2√2.",
-   "where": "html",
-   "files": [
-    "artifacts/turing_scope/results.json"
-   ],
-   "sha256": {
-    "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50"
-   }
-  },
-  {
-   "slide": 2,
+   "slide": 1,
    "shown": "length L / π 1/2 3/4 1 3/2 2 5/2 3 4 5 6 linear verdict stable stable stable grows grows stable grows grows grows grows",
    "where": "html",
    "files": [
@@ -74,8 +63,8 @@
    }
   },
   {
-   "slide": 2,
-   "shown": "Lean 4.35.0: L = π admits no unstable mode; L = 2π admits one (n = 1, det = -1/8). Build exit 0; 3 law and domain mutants rejected. Only these two lengths are compiled.",
+   "slide": 1,
+   "shown": "Lean 4.35.0: L = π admits no unstable mode; L = 2π admits one (n = 1, det = -1/8). Build exit 0; 3 mutants rejected. Only these two lengths are compiled.",
    "where": "html",
    "files": [
     "artifacts/turing_scope/lean_receipt.json",
@@ -89,47 +78,93 @@
    }
   },
   {
-   "slide": 3,
-   "shown": "mean fitness × trait change = 1 while selection covariance = 0",
+   "slide": 1,
+   "shown": "Mode n grows iff 2n² < (L/π)² < 5n².",
    "where": "html",
    "files": [
-    "artifacts/integration/codex-api/price-probe.json",
-    "experiments/price_probe/Witnesses.lean.inc"
+    "artifacts/turing_scope/results.json"
    ],
    "sha256": {
-    "artifacts/integration/codex-api/price-probe.json": "513bc9173014f4effdbd76e9b30f52c7dcdc8924d69e1d9692974b2d826eb5da",
-    "experiments/price_probe/Witnesses.lean.inc": "7e29341d65ea9968d192c7c0ead754984126ad288926eb547ca228c3d43d1715"
+    "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "Target wavelength, equal diffusivities (Dv/Du = 1). 16 requests.",
+   "where": "html",
+   "files": [
+    "artifacts/rethink_nca/repair.json",
+    "planning/rethink/nca.md"
+   ],
+   "sha256": {
+    "artifacts/rethink_nca/repair.json": "bfc0e56f534c704e6b1ef35216218511f586a3004cd68cba0e0e6addbab9ba03",
+    "planning/rethink/nca.md": "c1baffc831fd071e9d514e33354eb23a05f10cdd2705fdf43e793971624d056e"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "No admissible unstable mode (turing-ddi). 16 of 16.",
+   "where": "html",
+   "files": [
+    "artifacts/rethink_nca/repair.json",
+    "planning/rethink/nca.md"
+   ],
+   "sha256": {
+    "artifacts/rethink_nca/repair.json": "bfc0e56f534c704e6b1ef35216218511f586a3004cd68cba0e0e6addbab9ba03",
+    "planning/rethink/nca.md": "c1baffc831fd071e9d514e33354eb23a05f10cdd2705fdf43e793971624d056e"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "Raise Dv/Du to 9 (most requests); the exact check licenses it.",
+   "where": "html",
+   "files": [
+    "artifacts/rethink_nca/repair.json"
+   ],
+   "sha256": {
+    "artifacts/rethink_nca/repair.json": "bfc0e56f534c704e6b1ef35216218511f586a3004cd68cba0e0e6addbab9ba03"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "Independent solver: pattern on 11 of 16 requests, mean 0.708.",
+   "where": "html",
+   "files": [
+    "artifacts/rethink_nca/repair.json"
+   ],
+   "sha256": {
+    "artifacts/rethink_nca/repair.json": "bfc0e56f534c704e6b1ef35216218511f586a3004cd68cba0e0e6addbab9ba03"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "The plain formula's design without repair succeeded on 0 of 16.",
+   "where": "html",
+   "files": [
+    "artifacts/rethink_nca/repair.json"
+   ],
+   "sha256": {
+    "artifacts/rethink_nca/repair.json": "bfc0e56f534c704e6b1ef35216218511f586a3004cd68cba0e0e6addbab9ba03"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "One kinetics, 1-D Neumann, 3 noise seeds, no confidence interval; a model-only check, not an experiment. Near-onset repaired patterns are marginal (amplitude up to 0.18 against a 0.10 threshold). The other 5 requests did not succeed on all seeds, and repairs for 2 further refusals worked on 0. No domain-length repair was found. Across 80 nonlinear configurations the gate agreed with the solver on 80 and the plain formula on 79; linear theory named the dominant wavelength in 43/61 patterned cases.",
+   "where": "html",
+   "files": [
+    "artifacts/rethink_nca/repair.json",
+    "planning/rethink/nca.md",
+    "scopedesk/oracles/results/linear_vs_nonlinear.json"
+   ],
+   "sha256": {
+    "artifacts/rethink_nca/repair.json": "bfc0e56f534c704e6b1ef35216218511f586a3004cd68cba0e0e6addbab9ba03",
+    "planning/rethink/nca.md": "c1baffc831fd071e9d514e33354eb23a05f10cdd2705fdf43e793971624d056e",
+    "scopedesk/oracles/results/linear_vs_nonlinear.json": "13a2729be6994dd23c47c16c9068da99d85eee66ec63ecbf13891b2a04e4b983"
    }
   },
   {
    "slide": 3,
-   "shown": "trait mean rises although r·b − c = -1",
-   "where": "html",
-   "files": [
-    "artifacts/integration/codex-api/price-probe.json",
-    "experiments/price_probe/Witnesses.lean.inc"
-   ],
-   "sha256": {
-    "artifacts/integration/codex-api/price-probe.json": "513bc9173014f4effdbd76e9b30f52c7dcdc8924d69e1d9692974b2d826eb5da",
-    "experiments/price_probe/Witnesses.lean.inc": "7e29341d65ea9968d192c7c0ead754984126ad288926eb547ca228c3d43d1715"
-   }
-  },
-  {
-   "slide": 3,
-   "shown": "yes: change = -1/6, variance 1/4",
-   "where": "html",
-   "files": [
-    "artifacts/integration/codex-api/price-probe.json",
-    "experiments/price_probe/Witnesses.lean.inc"
-   ],
-   "sha256": {
-    "artifacts/integration/codex-api/price-probe.json": "513bc9173014f4effdbd76e9b30f52c7dcdc8924d69e1d9692974b2d826eb5da",
-    "experiments/price_probe/Witnesses.lean.inc": "7e29341d65ea9968d192c7c0ead754984126ad288926eb547ca228c3d43d1715"
-   }
-  },
-  {
-   "slide": 3,
-   "shown": "Lean exit 0; axioms: propext, Classical.choice, Quot.sound only. 4 witness controls exit 0. 2 changed-target mutants rejected (exit 1).",
+   "shown": "Lean exit 0, standard axioms only, 4 witness controls, 2 changed-sign mutants rejected.",
    "where": "html",
    "files": [
     "artifacts/integration/codex-api/price-probe.json"
@@ -140,102 +175,240 @@
   },
   {
    "slide": 3,
-   "shown": "(source sha a5d38f13…)",
-   "where": "fn",
+   "shown": "A critic's code search found no Hamilton form in ATLAS; not exhaustive.",
+   "where": "html",
    "files": [
-    "artifacts/integration/codex-api/price-probe.json"
+    "lean_price/README.md"
    ],
    "sha256": {
-    "artifacts/integration/codex-api/price-probe.json": "513bc9173014f4effdbd76e9b30f52c7dcdc8924d69e1d9692974b2d826eb5da"
+    "lean_price/README.md": "a9795524f156c8b711a39cac5b4f03d8f383d6ffc98bece27f9f413c1e6a7f36"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "A proof-search pilot on 19 frozen integer-arithmetic lemmas, with shared, private and sequential library controls; checker repair and result replay are under review.",
+   "where": "html",
+   "files": [
+    "planning/rethink/CODEX-LEAN19-SLIDE-AND-FREEZE-DECISION.md"
+   ],
+   "sha256": {
+    "planning/rethink/CODEX-LEAN19-SLIDE-AND-FREEZE-DECISION.md": "1cccf1a0889ba5199736ec1e6d96c78411281ec45266cad3a2ccf09b3a5b9622"
    }
   },
   {
    "slide": 3,
-   "shown": "Whether the ATLAS biology library (facebookresearch/atlas-lean) already covers Price or Hamilton is unchecked.",
+   "shown": "Version 1.2: 127 requests, 8 families, key hash 28645a12….",
    "where": "html",
    "files": [
-    "presentation/delphi/sources.md"
+    "scopedesk/bench/v1_2/key.jsonl",
+    "scopedesk/bench/v1_2/KEY.sha256",
+    "scopedesk/bench/v1_2/instances_public.jsonl"
    ],
    "sha256": {
-    "presentation/delphi/sources.md": "d1a8beddf1d7e64b08b9d342bb11c286c0e30003fa42b971336b7773174da324"
+    "scopedesk/bench/v1_2/key.jsonl": "28645a12f2f4c77fc1acedb10b23b4070832eefa381b88ca65a12b9e4ecdaa2f",
+    "scopedesk/bench/v1_2/KEY.sha256": "be295adfb382da0f3b0f733002450a902e524391bdb458b79c8cb632ae1d8e1d",
+    "scopedesk/bench/v1_2/instances_public.jsonl": "70b5e0fcb8a31a1d13abfdf1202e92afe988ae5e05ccf86bab95cbc3771b4f61"
    }
   },
   {
    "slide": 3,
-   "shown": "Price 1970; the Price–Fisher–Hamilton link is in Frank 1997.",
+   "shown": "Turing, 2-D Turing and wavelength items.",
    "where": "html",
    "files": [
-    "planning/rethink/DECISION.md",
-    "planning/rethink/PRICE-PRIOR-ART-AND-PROBE.md"
+    "artifacts/delphi_submit/at5_v1_2_frozen127.json"
    ],
    "sha256": {
-    "planning/rethink/DECISION.md": "6a9ac643205ec4524a9c3d5282a001cd1b4e06bb6a6a5aaacc9c7192fbb7e424",
-    "planning/rethink/PRICE-PRIOR-ART-AND-PROBE.md": "76a727e4a3f6374297f26a89f05c292561d7890528630af4b2e1dd5ad684f852"
+    "artifacts/delphi_submit/at5_v1_2_frozen127.json": "a54f643dd4a5cbb86399abac6fe2c4ce4b546cbb74e4064080c261c486008845"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "Frozen. Codex's metadata and text check passes (14 of 14). No agent has run on it yet.",
+   "where": "html",
+   "files": [
+    "scopedesk/bench/v1_2/FROZEN.md",
+    "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json"
+   ],
+   "sha256": {
+    "scopedesk/bench/v1_2/FROZEN.md": "afb917ca61220785f15961cbdd23e65455aba041f56134c8ff0500f86086da6c",
+    "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json": "27627e6b32b4e585a68d5bc1b86fa05588115cf1de7e177348b7404d0de09c91"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "Audit trail: a blinded payload-only audit agreed on 132 of 135 items of an earlier candidate.",
+   "where": "html",
+   "files": [
+    "scopedesk/audit_v12/blind_vs_key_v12.json"
+   ],
+   "sha256": {
+    "scopedesk/audit_v12/blind_vs_key_v12.json": "704fa7e08f9b2775723d6e9504e365d3f84ca1c230d66979717023c2c0df8ef0"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "Gate with the record 50 / 50 Plain textbook formula 29 / 50 Continuum condition only 34 / 50 Record hash altered: refuses 50 / 50",
+   "where": "html",
+   "files": [
+    "artifacts/delphi_submit/at5_v1_2_frozen127.json",
+    "scopedesk/bench/v1_2/KEY.sha256"
+   ],
+   "sha256": {
+    "artifacts/delphi_submit/at5_v1_2_frozen127.json": "a54f643dd4a5cbb86399abac6fe2c4ce4b546cbb74e4064080c261c486008845",
+    "scopedesk/bench/v1_2/KEY.sha256": "be295adfb382da0f3b0f733002450a902e524391bdb458b79c8cb632ae1d8e1d"
    }
   },
   {
    "slide": 4,
-   "shown": "Assumed: for every admissible mode n, NOT(det(J - qD) < 0). Concluded: for every n, det(J - qD) >= 0.",
+   "shown": "Turing needs a diffusion ratio of at least 10",
    "where": "html",
    "files": [
-    "artifacts/integration/codex-api/admissible-review/Admissible.lean",
-    "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md"
+    "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "artifacts/integration/codex-api/admissible-review/Admissible.lean": "c51b98a8c4218c5e272223c5d710de0d765804d78beace544850f9749cf07236",
-    "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md": "1f74952718505d1e5dcae1ac898ab2c0f1cbfc5684ee6469853b479fc413e2f7"
+    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
    }
   },
   {
    "slide": 4,
-   "shown": "a revised module compiles every admissible mode has trace < 0 and det > 0 (exit 0, standard axioms). Trace is derived; determinant positivity is assumed.",
+   "shown": "a Lean-checked linear model with diffusivity ratio 1.1 has a growing mode (determinant -21/25000)",
    "where": "html",
    "files": [
-    "artifacts/integration/codex-api/admissible-review/469874b/compile-review.json",
-    "artifacts/integration/codex-api/admissible-review/469874b/Admissible.lean"
+    "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "artifacts/integration/codex-api/admissible-review/469874b/compile-review.json": "5cb952befeba82b45b0d46f463cbc8e6712c6080704b0f5b104d8fdb7ae0a8fb",
-    "artifacts/integration/codex-api/admissible-review/469874b/Admissible.lean": "d63c4d60e63e81d45bec7bd68d70caee6e0a83f4f4a51566eb6983d29c42fbce"
+    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
    }
   },
   {
    "slide": 4,
-   "shown": "the requirement that det(J - qD) < 0 at an actual admissible q",
+   "shown": "Pinned-end liquid bridge unstable beyond L > πr (our benchmark key)",
    "where": "html",
    "files": [
-    "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md"
+    "scopedesk/ledger/kill_ledger.json"
    ],
    "sha256": {
-    "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md": "1f74952718505d1e5dcae1ac898ab2c0f1cbfc5684ee6469853b479fc413e2f7"
+    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "the n=1 mode violates the fixed-volume constraint; caught before any agent ran",
+   "where": "html",
+   "files": [
+    "scopedesk/ledger/kill_ledger.json"
+   ],
+   "sha256": {
+    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "ids encoded generator order: a tree on id suffixes alone scored 58/96 against 43/96 for the majority answer",
+   "where": "html",
+   "files": [
+    "scopedesk/ledger/kill_ledger.json"
+   ],
+   "sha256": {
+    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "Also in the ledger: our theorem advertised as stability whose premise, determinant non-negativity, also holds for unstable systems (R06); a stronger statement now compiles (F10).",
+   "where": "html",
+   "files": [
+    "scopedesk/ledger/kill_ledger.json"
+   ],
+   "sha256": {
+    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "20 ledger rows: 17 were caught by an independent reviewer or a measurement, 3 by the author's own check.",
+   "where": "html",
+   "files": [
+    "scopedesk/ledger/kill_ledger.json"
+   ],
+   "sha256": {
+    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "Kinds: prior art 7, counterexample 1, measured 4, mis-operationalised 3, convention defect 4, process defect 1.",
+   "where": "html",
+   "files": [
+    "scopedesk/ledger/kill_ledger.json"
+   ],
+   "sha256": {
+    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
    }
   },
   {
    "slide": 5,
-   "shown": "The scorecard of 21 candidate laws",
+   "shown": "159,129 measured variants, 1,000 extra assays.",
    "where": "html",
    "files": [
-    "artifacts/integration/codex-api/admissible-review/committed-freeze.json"
+    "artifacts/demo.json",
+    "artifacts/lazysp/results/summary.json"
    ],
    "sha256": {
-    "artifacts/integration/codex-api/admissible-review/committed-freeze.json": "dbf233d1ebe7156576e8e24bb4f7b7f3f6c3c75d4552efde198798eeb482ba0e"
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8",
+    "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c"
    }
   },
   {
    "slide": 5,
-   "shown": "records in the frozen list 21",
+   "shown": "Single planner 78/100 Shared specialists 78/100 Plain lazy search 96/100",
    "where": "html",
    "files": [
-    "artifacts/integration/codex-api/admissible-review/committed-freeze.json"
+    "artifacts/core/replay/table_primary.csv",
+    "artifacts/lazysp/results/table_primary.csv"
    ],
    "sha256": {
-    "artifacts/integration/codex-api/admissible-review/committed-freeze.json": "dbf233d1ebe7156576e8e24bb4f7b7f3f6c3c75d4552efde198798eeb482ba0e"
+    "artifacts/core/replay/table_primary.csv": "530aca14ec7503a6b58c19b2b6ead9eda12db22a956325921849452ea19d41e6",
+    "artifacts/lazysp/results/table_primary.csv": "2e1cd0ac54af789755c23aa2b75aa6ed145d9e6eb6bf638f826c6c3138ebd94f"
    }
   },
   {
    "slide": 5,
-   "shown": "(sha dbf233d1…)",
-   "where": "fn",
+   "shown": "about 24 distinct problems",
+   "where": "html",
+   "files": [
+    "artifacts/lazysp/results/exploratory_post_hoc.json"
+   ],
+   "sha256": {
+    "artifacts/lazysp/results/exploratory_post_hoc.json": "7d86b2b32cbbb3242eeb958a05fe31b11bcf3719bfbfa144169b7c9fb4dba2c1"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "(R09)",
+   "where": "html",
+   "files": [
+    "scopedesk/ledger/kill_ledger.json"
+   ],
+   "sha256": {
+    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "(exit 0, 56.6 s)",
+   "where": "html",
+   "files": [
+    "scopedesk/oracles/results/accept_receipt_fresh_clone.json"
+   ],
+   "sha256": {
+    "scopedesk/oracles/results/accept_receipt_fresh_clone.json": "d153293339556a22b76227ecf483dda8020b9e91a5d5960b7aa6b42de1d6b0f5"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "Scorecard of 21 candidate laws",
+   "where": "html",
    "files": [
     "artifacts/integration/codex-api/admissible-review/committed-freeze.json"
    ],
@@ -256,18 +429,7 @@
   },
   {
    "slide": 6,
-   "shown": "ATLAS (facebookresearch/atlas-lean, MathlibExt/Biology)",
-   "where": "html",
-   "files": [
-    "presentation/delphi/sources.md"
-   ],
-   "sha256": {
-    "presentation/delphi/sources.md": "d1a8beddf1d7e64b08b9d342bb11c286c0e30003fa42b971336b7773174da324"
-   }
-  },
-  {
-   "slide": 6,
-   "shown": "Rashid et al. 2017 (HOL Light)",
+   "shown": "Rashid et al. 2017",
    "where": "html",
    "files": [
     "planning/rethink/PRIOR-ART-VERDICT.md"
@@ -289,28 +451,24 @@
   },
   {
    "slide": 6,
-   "shown": "The 21-record scorecard",
+   "shown": "ATLAS (facebookresearch/atlas-lean)",
    "where": "html",
    "files": [
-    "artifacts/integration/codex-api/admissible-review/committed-freeze.json"
+    "presentation/delphi/sources.md"
    ],
    "sha256": {
-    "artifacts/integration/codex-api/admissible-review/committed-freeze.json": "dbf233d1ebe7156576e8e24bb4f7b7f3f6c3c75d4552efde198798eeb482ba0e"
+    "presentation/delphi/sources.md": "3f5a32166a1ddfed0ca55e86af33dc3e3539e3e38b26371e77d43015b1e09dca"
    }
   },
   {
    "slide": 6,
-   "shown": "159,129 measured variants; specialists 78/100 equal the single planner 78/100; a plain lazy search reaches 96/100.",
+   "shown": "Delphi Frontier, nothing deployed: one page per open problem showing what we know, what's next and who is working on it.",
    "where": "html",
    "files": [
-    "artifacts/demo.json",
-    "artifacts/core/replay/table_primary.csv",
-    "artifacts/lazysp/results/table_primary.csv"
+    "planning/rethink/ACTIVE-FRONTIER-PITCH-PROPOSAL.md"
    ],
    "sha256": {
-    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8",
-    "artifacts/core/replay/table_primary.csv": "530aca14ec7503a6b58c19b2b6ead9eda12db22a956325921849452ea19d41e6",
-    "artifacts/lazysp/results/table_primary.csv": "2e1cd0ac54af789755c23aa2b75aa6ed145d9e6eb6bf638f826c6c3138ebd94f"
+    "planning/rethink/ACTIVE-FRONTIER-PITCH-PROPOSAL.md": "5f926fc1399f1368422a8b50130798717aafd3ce4e7d10fc35c6da91b5b63e97"
    }
   }
  ]

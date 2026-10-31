@@ -1,0 +1,24 @@
+{
+ "reaction_scale": {
+  "checked": 9,
+  "invalid": [],
+  "relative_change_mismatch": [],
+  "unsorted_items": 0,
+  "closer_valid_missed": []
+ },
+ "diffusion_ratio": {
+  "checked": 6,
+  "invalid": [],
+  "relative_change_mismatch": [],
+  "unsorted_items": 0,
+  "closer_valid_missed": [],
+  "oracle_says_no_repair_in_grid": [
+   "qcca31b33"
+  ]
+ },
+ "items": 5,
+ "items_with_no_repair_for_knob": {
+  "reaction_scale": 2,
+  "diffusion_ratio": 3
+ }
+}

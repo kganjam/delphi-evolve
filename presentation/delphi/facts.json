@@ -1,4 +1,363 @@
 {
+ "bench": {
+  "ledger": "P03 (the ledger row still describes the earlier 128-item candidate; Codex receipts cover the frozen 127)",
+  "items": 127,
+  "families": 8,
+  "family_counts": {
+   "turing_finite_domain": 21,
+   "fisher_kpp_speed": 16,
+   "kimura_regime": 16,
+   "hamilton_rule_form": 16,
+   "greenhill_buckling": 13,
+   "turing_2d_rectangle": 15,
+   "hawk_dove_ess": 16,
+   "wavelength_formula_licence": 14
+  },
+  "key_sha256": "28645a12f2f4c77fc1acedb10b23b4070832eefa381b88ca65a12b9e4ecdaa2f",
+  "key_file": "scopedesk/bench/v1_2/key.jsonl",
+  "status": "frozen (FROZEN.md); Codex metadata/text check 14 of 14 pass; no agent has run on it",
+  "codex_metadata": {
+   "artifact": "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json",
+   "checks": 14,
+   "all_ok": true
+  },
+  "at5": {
+   "artifact": "artifacts/delphi_submit/at5_v1_2_frozen127.json",
+   "totals": {
+    "n": 50,
+    "C0": 29,
+    "full": 50,
+    "continuum_only": 34,
+    "record_hash_changed_refused": 50
+   },
+   "caveat": "trap-enriched; shares its convention document with the checker; not external validation"
+  },
+  "metadata_check": {
+   "artifact": "scopedesk/bench/v1_2/metadata_check_receipt.json",
+   "keys": [
+    "all_ok",
+    "checks",
+    "key_sha256",
+    "n_items"
+   ]
+  },
+  "blind_audit": {
+   "artifact": "scopedesk/audit_v12/blind_vs_key_v12.json",
+   "agree": 132,
+   "n": 135,
+   "scope": "earlier 135-item candidate, one same-family model run"
+  }
+ },
+ "repair": {
+  "ledger": "unledgered (NCA worker artifact; model-only)",
+  "artifact": "artifacts/rethink_nca/repair.json",
+  "requests": 16,
+  "seeds": 3,
+  "gate_refused": 16,
+  "plain_formula_success": 0.0,
+  "repair_all_seeds": 11,
+  "repair_mean": 0.708,
+  "repair_ratio": 9,
+  "repair_ratio_count_at_9": 12,
+  "amp_max_at_ratio_9": 0.18,
+  "amp_threshold": 0.1,
+  "domain_length_repairs_found": 0,
+  "other_refusals": 2,
+  "other_refusals_repair_ok": 0,
+  "nonlinear_grid": {
+   "artifact": "scopedesk/oracles/results/linear_vs_nonlinear.json",
+   "n": 80,
+   "gate_agrees": 80,
+   "plain_agrees": 79,
+   "dominant_mode": "43/61"
+  },
+  "scope": "one kinetics (Schnakenberg), 1-D Neumann, 3 noise seeds, no confidence interval; near-onset repaired patterns are marginal; not an experiment"
+ },
+ "kills": {
+  "artifact": "scopedesk/ledger/kill_ledger.json",
+  "markdown": "scopedesk/ledger/KILL-LEDGER.md",
+  "n_rows": 20,
+  "independent": 17,
+  "author_only": 3,
+  "kind_counts": {
+   "prior art": 7,
+   "counterexample": 1,
+   "measured": 4,
+   "mis-operationalised": 3,
+   "convention defect": 4,
+   "process defect": 1
+  },
+  "n_with_both_times": 18,
+  "method": "kill_recorded - claim_stated in minutes, only where both times are derivable and ordered; times are file mtimes (messages) or git commit times; mtime = last modification, commit time = commit not utterance, so durations are rough, may be inflated or deflated, and rows differ in kind (prior-art lookups, audits, measurements)",
+  "shown": [
+   {
+    "id": "R03",
+    "claim": "Turing needs a diffusion ratio of at least 10",
+    "kind": "counterexample",
+    "witness": "a Lean-checked linear model with diffusivity ratio 1.1 has a growing mode (determinant -21/25000)",
+    "by": "independent reviewer"
+   },
+   {
+    "id": "R11",
+    "claim": "Pinned-end liquid bridge unstable beyond L > πr (our benchmark key)",
+    "kind": "convention defect",
+    "witness": "the n=1 mode violates the fixed-volume constraint; caught before any agent ran",
+    "by": "independent reviewer, not the author's verifier"
+   },
+   {
+    "id": "R08",
+    "claim": "Thompson's scaling refuted by a pooled regression",
+    "kind": "mis-operationalised",
+    "witness": "a pooled OLS tests mean allometry, not the buckling limit",
+    "by": "independent reviewer"
+   },
+   {
+    "id": "R13",
+    "claim": "Benchmark ids were label-neutral",
+    "kind": "convention defect",
+    "witness": "ids encoded generator order: a tree on id suffixes alone scored 58/96 against 43/96 for the majority answer",
+    "by": "independent reviewer"
+   },
+   {
+    "id": "R16",
+    "claim": "Our Price node as a novel formalization",
+    "kind": "prior art",
+    "witness": "atlas-lean already proves Price and Fisher; ours was a duplicate",
+    "by": "independent scout, then the author"
+   }
+  ],
+  "all_rows": [
+   {
+    "id": "R01",
+    "claim": "First machine-checked formal biology library / no such library exists",
+    "kind": "prior art",
+    "caught_by": "independent reviewer (primary + scouts)",
+    "allowed": "Machine-checked biology libraries already exist; ours is a complement (Turing/finite-domain statements), not a first.",
+    "claim_stated_pdt": "2026-10-31T06:25:42-07:00",
+    "kill_recorded_pdt": "2026-10-31T06:36:22-07:00",
+    "duration_min": 10.7,
+    "witness": "messages/primary-prior-art-verdict.md; messages/2026-10-31-ATLAS-and-the-surviving-claim.md (Rashid et al. 2017 HOL Light; lean-bio; crnt-lean; facebookresearch/atlas-lean MathlibExt/Biology)"
+   },
+   {
+    "id": "R02",
+    "claim": "A shared verified lemma commons is our mechanism / novelty",
+    "kind": "prior art + negative replication",
+    "caught_by": "independent reviewer (primary)",
+    "allowed": "Shared-library reuse is published (Prove2Me etc.); our four-arm measurement tests it at matched budget and a null is a result.",
+    "claim_stated_pdt": "2026-10-31T06:25:42-07:00",
+    "kill_recorded_pdt": "2026-10-31T06:36:22-07:00",
+    "duration_min": 10.7,
+    "witness": "messages/2026-10-31-POST-AUDIT-what-survives.md (LEGO-Prover, LeanAgent, Prove Together; Berlot-Attwell arXiv 2504.03048: no direct reuse, no compute-adjusted advantage)"
+   },
+   {
+    "id": "R03",
+    "claim": "Turing needs a diffusion ratio >= 10",
+    "kind": "counterexample",
+    "caught_by": "independent reviewer (codex-api)",
+    "allowed": "There is no universal diffusion-ratio threshold; the required ratio depends on the kinetics (two-species floor r*>1).",
+    "claim_stated_pdt": "2026-10-31T06:37:01-07:00",
+    "kill_recorded_pdt": "2026-10-31T06:53:19-07:00",
+    "duration_min": 16.3,
+    "witness": "messages/2026-10-31-DIFFUSION-GAP-KILLED.md: Lean-checked J=[[1,-1],[1011/1000,-101/100]], Du=1, Dv=1.1, L=5pi Neumann, mode-1 det=-21/25000 (codex-api); closed form r*=(sqrt(det J)+sqrt(-bc))^2/a^2 is classical (Murray)"
+   },
+   {
+    "id": "R04",
+    "claim": "Real proteins cannot reach the required diffusion ratio",
+    "kind": "prior art",
+    "caught_by": "independent reviewer (critic + scout)",
+    "allowed": "Effective ratios in tissue are set by binding and retention (Mueller 2012; Kuhn 2022); a bare Stokes-Einstein ratio is not the relevant quantity.",
+    "claim_stated_pdt": "2026-10-31T06:37:01-07:00",
+    "kill_recorded_pdt": "2026-10-31T06:57:16-07:00",
+    "duration_min": 20.3,
+    "witness": "messages/2026-10-31-DELPHI-FRAMING-AND-DIFFUSION-VERDICT.md; critic note planning/rethink/critic-diffusion-ratio.md (Mueller 2012 Science 336:721 measured Nodal/Lefty effective ratio; Kuhn 2022 Nat Commun: binding/retention, not size)"
+   },
+   {
+    "id": "R05",
+    "claim": "Physics knows where its equations stop; biology does not (as a novelty claim)",
+    "kind": "prior art",
+    "caught_by": "independent reviewer (external model review)",
+    "allowed": "The finite-domain scope caveats are textbook; what we built is a checkable, versioned statement of them.",
+    "claim_stated_pdt": "2026-10-31T06:51:57-07:00",
+    "kill_recorded_pdt": "2026-10-31T07:09:45-07:00",
+    "duration_min": 17.8,
+    "witness": "messages/2026-10-31-THE-PIVOT-gate-is-for-agents.md (independent Gemini review: the scope conflicts are in textbooks and Wikipedia); messages/2026-10-31-THE-REFRAME-zero-for-ten.md"
+   },
+   {
+    "id": "R06",
+    "claim": "`finite_domain_stable` Lean theorem advertised as finite-domain STABILITY (its premise was determinant non-negativity)",
+    "kind": "mis-operationalised (determinant nonnegativity advertised as stability; NOT vacuous premises)",
+    "caught_by": "independent reviewer (Codex)",
+    "allowed": "A theorem whose premise is determinant non-negativity was advertised as stability; the premise holds for unstable systems. It compiled and passed an axiom audit, which shows those checks do not establish that a statement means what its name says.",
+    "claim_stated_pdt": "not derivable",
+    "kill_recorded_pdt": "2026-10-31T07:05:34-07:00",
+    "duration_min": "not derivable",
+    "witness": "Codex commit b4e60db: planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md (original theorem paragraph) and the exact source snapshot artifacts/integration/codex-api/admissible-review/Admissible.lean (sha256 c51b98a8c4218c5e272223c5d710de0d765804d78beace544850f9749cf07236); messages/codex-price-probe-progress.md states the finding. Analytic witness J=diag(2,2), Du=Dv=1, L=pi: D(q)=(2-q)^2>=0 for all q satisfies the premise, yet mode n=1 (q=1) has both growth eigenvalues +1 (no new Lean compile of this witness is claimed). A stronger theorem `finite_domain_linearly_stable` was added later (commit 469874b; compiled by Codex at 7f9035a), so the historical defect was partly repaired. Earlier ledger text describing it as 'not_lt / saying nothing' came from THE-REFRAME and is NOT the accurate description."
+   },
+   {
+    "id": "R07",
+    "claim": "Operationalization-fidelity benchmark is a new contribution",
+    "kind": "prior art",
+    "caught_by": "independent reviewer (primary; critic search-level)",
+    "allowed": "Mutation/witness-based fidelity checking is published; our narrow gap is executable scientific-test repair with checked witnesses tied to a stated scope.",
+    "claim_stated_pdt": "2026-10-31T06:11:29-07:00",
+    "kill_recorded_pdt": "2026-10-31T06:17:21-07:00",
+    "duration_min": 5.9,
+    "witness": "messages/primary-prior-art-details.md (DriftBench arXiv 2606.16541; ShadowBench 2608.29270; Benchmarking Agentic Review Systems 2606.19749); planning/rethink/critic-E-redteam.md"
+   },
+   {
+    "id": "R08",
+    "claim": "Thompson d~h^(3/2) refuted by a pooled Tallo regression",
+    "kind": "mis-operationalised",
+    "caught_by": "independent reviewer (primary)",
+    "allowed": "A pooled OLS tests mean allometry, not Thompson's buckling limit; no slope here confirms or refutes the claim.",
+    "claim_stated_pdt": "2026-10-31T06:02:10-07:00",
+    "kill_recorded_pdt": "2026-10-31T06:10:47-07:00",
+    "duration_min": 8.6,
+    "witness": "messages/primary-selection-review.md (Thompson pp.19-20 is a self-weight buckling envelope; Tallo 2022 already compared the exponent with 2/3); scopedesk/bench/descriptive/thompson_repair.json (commit 895f0a2) keeps four operationalisations separate"
+   },
+   {
+    "id": "R09",
+    "claim": "LLM agents hallucinate past scope conditions without a gate",
+    "kind": "measured null (on a mismatched run)",
+    "caught_by": "the measurement itself (author) + independent reviewer (Codex) on the design",
+    "allowed": "Exploratory label agreement on a run whose prompt and scoring target did not match; not a ceiling and not evidence for or against a gate.",
+    "claim_stated_pdt": "2026-10-31T07:09:45-07:00",
+    "kill_recorded_pdt": "2026-10-31T07:13:17-07:00",
+    "duration_min": 3.5,
+    "witness": "messages/2026-10-31-STATE.md (24 questions, 12 traps; two frontier models 24/24); Codex correction messages/codex-agent-gate-pre-run-review-ready.md: nonlinear prompts scored against linear labels"
+   },
+   {
+    "id": "R10",
+    "claim": "The robustness tax as a headline",
+    "kind": "prior art (partial)",
+    "caught_by": "independent reviewer (critic, scout)",
+    "allowed": "Low required ratio costs robustness is a known direction; our quantification is conditional on the stated noise model and kinetics.",
+    "claim_stated_pdt": "2026-10-31T07:01:07-07:00",
+    "kill_recorded_pdt": "2026-10-31T07:27:59-07:00",
+    "duration_min": 26.9,
+    "witness": "messages/2026-10-31-THE-REFRAME-zero-for-ten.md row 10; critic note in messages/critic-to-director.md (Murray 1982, Maini et al. 2012, arXiv 2309.04741, arXiv 1708.09645)"
+   },
+   {
+    "id": "R11",
+    "claim": "Bench v1 Rayleigh-Plateau pinned-end threshold l > pi*r (director's assignment text, adopted unchecked by the critic)",
+    "kind": "convention defect (wrong physics)",
+    "caught_by": "independent reviewer (Codex), not the author's verifier",
+    "allowed": "The benchmark's own scope condition was wrong; it was caught by an independent audit before any agent ran.",
+    "claim_stated_pdt": "2026-10-31T06:40:58-07:00",
+    "kill_recorded_pdt": "2026-10-31T06:54:03-07:00",
+    "duration_min": 13.1,
+    "witness": "planning/rethink/CODEX-BENCHMARK-SEMANTICS.md (commit 19fae04, work/codex-api): fixed-volume bridge needs zero first-order volume change, so n=1 is inadmissible and the pinned limit is L>2*pi*R (Martinez/Perales/Meseguer)"
+   },
+   {
+    "id": "R12",
+    "claim": "Bench v1 request conventions underspecified (wavelength tolerance, Hamilton kernel, Allee invasion, Turing target) and 4 AT3-disputed ids",
+    "kind": "convention defect",
+    "caught_by": "independent reviewers (director's subagent, Codex)",
+    "allowed": "v1 was put on hold; v1.1/v1.2 declare targets and conventions in every request.",
+    "claim_stated_pdt": "2026-10-31T06:40:58-07:00",
+    "kill_recorded_pdt": "2026-10-31T06:48:04-07:00",
+    "duration_min": 7.1,
+    "witness": "scopedesk/bench/AMENDMENT_001.json; director audit commit d8768fd (132/136); planning/rethink/CODEX-BENCHMARK-SEMANTICS.md"
+   },
+   {
+    "id": "R13",
+    "claim": "Bench v1/v1.1 numeric public ids were label-neutral",
+    "kind": "convention defect (label leak)",
+    "caught_by": "independent reviewer (Codex)",
+    "allowed": "Public ids encoded generator order; v1.2 uses opaque hashed ids with a private map.",
+    "claim_stated_pdt": "2026-10-31T06:40:58-07:00",
+    "kill_recorded_pdt": "2026-10-31T07:14:12-07:00",
+    "duration_min": 33.2,
+    "witness": "planning/rethink/CODEX-BENCH-V1-1-REVIEW.md (commit d23663a): id-suffix-only depth-3 tree 58/96 vs majority 43/96"
+   },
+   {
+    "id": "R14",
+    "claim": "Three uniform-column density-unlisted items are 'applies' because the printed and exact coefficients agree to 0.04%",
+    "kind": "convention defect",
+    "caught_by": "independent reviewer (Codex)",
+    "allowed": "Approximate agreement does not imply identical binary outcomes at every density; the three items were excluded.",
+    "claim_stated_pdt": "2026-10-31T07:16:45-07:00",
+    "kill_recorded_pdt": "2026-10-31T07:31:31-07:00",
+    "duration_min": 14.8,
+    "witness": "planning/rethink/CODEX-AGENT-GATE-PRE-RUN-REVIEW.md (commit 8db96d6): rho=822.256954 kg/m3 gives opposite predictions for the printed 0.788 and the exact constant; items excluded in v1.2 rev3 (commit af7f38e)"
+   },
+   {
+    "id": "R15",
+    "claim": "v1.1 'FROZEN 07:40 PDT' (timestamps estimated, not read from `date`)",
+    "kind": "process defect (unmeasured timestamp, premature freeze)",
+    "caught_by": "author (re-read `date`) and the director's/Codex's hold",
+    "allowed": "Wall times in this project come from git commit times or `date`, never from memory; v1.1 was never frozen.",
+    "claim_stated_pdt": "2026-10-31T07:16:45-07:00",
+    "kill_recorded_pdt": "2026-10-31T07:20:02-07:00",
+    "duration_min": 3.3,
+    "witness": "scopedesk/bench/v1_1/FROZEN.md withdrawn in commit b66629f; correction section in messages/critic-to-director.md"
+   },
+   {
+    "id": "R16",
+    "claim": "The Price equation formalization (lean_price) as a novel node / 'no formalization found'",
+    "kind": "prior art",
+    "caught_by": "independent scout (host) then verified by the author",
+    "allowed": "Price and Fisher are already formalized (atlas-lean); our Queller/Hamilton-form corollary was not found there (code search, not exhaustive).",
+    "claim_stated_pdt": "2026-10-31T07:06:17-07:00",
+    "kill_recorded_pdt": "2026-10-31T07:37:11-07:00",
+    "duration_min": 30.9,
+    "witness": "lean_price/README.md correction; facebookresearch/atlas-lean MathlibExt/Biology/PopulationGenetics/Selection.lean (Price and Fisher FTNS, no sorry); messages/2026-10-31-ATLAS-and-the-surviving-claim.md"
+   },
+   {
+    "id": "R17",
+    "claim": "Binder-view fusion beats the best single scorer (collective of scorers)",
+    "kind": "measured null (preregistered rule)",
+    "caught_by": "the author's own frozen acceptance rule",
+    "allowed": "Fusing precomputed views did not beat the best single view on this selected set; no decision improvement was shown.",
+    "claim_stated_pdt": "not derivable",
+    "kill_recorded_pdt": "2026-10-31T06:15:43-07:00",
+    "duration_min": "not derivable",
+    "witness": "planning/rethink/wildcard/binder_views_check.json: fused AUROC 0.61 vs best single 0.68; difference interval [-0.17, +0.02] includes 0"
+   },
+   {
+    "id": "R18",
+    "claim": "Delphi math claims give free machine-checkable ground truth at scale (880 claims)",
+    "kind": "measured scale reduction",
+    "caught_by": "author-run measurement (single reader; not independently confirmed)",
+    "allowed": "Only a pilot-sized subset of Delphi's math claims is machine-decidable as stated (single-reader triage).",
+    "claim_stated_pdt": "2026-10-31T06:02:00-07:00",
+    "kill_recorded_pdt": "2026-10-31T06:15:43-07:00",
+    "duration_min": 13.7,
+    "witness": "planning/rethink/wildcard/claim_decidability.json: of 880 local claims 92 carry math; single-reader triage 33 decidable as written (18 trivial), 29 need an authored model, 12 empirical, 18 prose"
+   },
+   {
+    "id": "R19",
+    "claim": "A forecasting market of heterogeneous guilds shows a collective advantage; 'Settled Science' tiers",
+    "kind": "mis-operationalised (design defect)",
+    "caught_by": "independent reviewers (primary, critic)",
+    "allowed": "A committee under enforced information asymmetry is not evidence of collective advantage without a pooled-agent control.",
+    "claim_stated_pdt": "2026-10-31T06:20:00-07:00",
+    "kill_recorded_pdt": "2026-10-31T06:22:27-07:00",
+    "duration_min": 2.4,
+    "witness": "messages/primary-market-review.md; planning/rethink/critic-settled-science.md (commit 5586efc): no pooled-information control; tier-3 is a ProteinGym-style label; contamination"
+   },
+   {
+    "id": "R20",
+    "claim": "H100s are necessary for counterexample search over reaction-diffusion parameters",
+    "kind": "measured (resource claim refuted)",
+    "caught_by": "author-run measurement",
+    "allowed": "Closed-form and 2x2 checks do not need GPUs; GPUs are justified only for workloads a CPU cannot do in time.",
+    "claim_stated_pdt": "2026-10-31T06:20:00-07:00",
+    "kill_recorded_pdt": "2026-10-31T06:23:15-07:00",
+    "duration_min": 3.2,
+    "witness": "planning/rethink/wildcard/turing_scope_prevalence.json: 10,000,000 2x2 Turing screens in 15.5 s on one CPU thread; pde_cost_probe.json: 100 nonlinear solves to T=1000 in 20.4 s (unrefined)"
+   }
+  ],
+  "r06_note": "R06 corrected by the critic per Codex: determinant non-negativity advertised as stability; the premise is not vacuous and holds for unstable systems",
+  "median_shown": false
+ },
+ "accept": {
+  "artifact": "scopedesk/oracles/results/accept_receipt_fresh_clone.json",
+  "head_sha": "29a5c478b1ba54c806e402809bab2283cde0e567",
+  "seconds": 56.6,
+  "steps": 5,
+  "scope": "fresh clone at an earlier commit; a receipt for the final SHA is pending"
+ },
  "price": {
   "ledger": "F07",
   "artifact": "artifacts/integration/codex-api/price-probe.json",
@@ -292,10 +651,13 @@
   }
  },
  "errors": {
-  "vacuous_theorem": {
-   "ledger": "P01 (note: existing stability theorem names overstate some statements)",
+  "stability_mislabel": {
+   "ledger": "P01 (note: existing stability theorem names overstate some statements); kill ledger R06",
    "file": "artifacts/integration/codex-api/admissible-review/Admissible.lean",
    "name": "finite_domain_stable",
+   "premise": "determinant non-negativity at every admissible mode",
+   "advertised_as": "finite-domain stability",
+   "witness": "analytic, not Lean-compiled: J = diag(2, 2), Du = Dv = 1, L = pi has D(q) = (2 - q)^2 >= 0 at every q, yet mode n = 1 has two growth eigenvalues",
    "assumed": "for every admissible mode n, NOT(det(J - qD) < 0)",
    "concluded": "for every n, det(J - qD) >= 0",
    "hL_unused": true,
@@ -407,6 +769,7 @@
  },
  "baseline": {
   "ledger": "B01/B02/B03",
+  "clusters": 24,
   "measured_nonstop": 159129,
   "imputed_excluded": 871,
   "q2c_1000": 78,

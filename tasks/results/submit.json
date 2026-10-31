@@ -104,7 +104,6 @@
   "Before upload: rerun bash presentation/rebuild.sh and confirm exit 0 on the final commit."
  ],
  "delphi_phase": {
-  "written_pdt": "2026-10-31 ~07:45",
   "spine": "Delphi: from candidate laws to checked theorems (director FINAL SHAPE)",
   "owns": [
    "site/delphi/",
@@ -161,17 +160,16 @@
    "no submission receipt"
   ],
   "artifacts": {
-   "presentation/delphi/deck.pdf": "eae9700e2b3c0e0d005576b812aeda1649d8bd6e4c23f5d60aa38850fbc2e172",
-   "presentation/delphi/deck.html": "5eb23a3a4e24dde45573db9c9a8c9e92801369f521fb48408b5be6f7f0d310d2",
-   "presentation/delphi/speaker-notes.md": "3a99bfb3ca8eb2592072d5ad147407fcc560223d0be9e7a2b3269706920d81c6",
-   "presentation/delphi/timing.json": "154e23889e4fb4972d9c90a5d61d3002e2cd8f4e3bacb15602ec2039a4a6c26b",
-   "presentation/delphi/number_trace.json": "ee0b171529868ed16ba5fd6aaa5f1c4aa6f2389995581577c2b9847cd58039a5",
-   "presentation/delphi/sources.md": "d1a8beddf1d7e64b08b9d342bb11c286c0e30003fa42b971336b7773174da324",
-   "site/delphi/index.html": "5a8336e53526d143d65532bd98719c7373a9b3a0b343311aa7551b1f64a7e8c0",
-   "site/delphi/appendix.html": "bed13954892c587f5b028865bd3df22a8170c4d4c4f33b056901aacb5993638b",
-   "site/delphi/blog.html": "0fd44e0036e8dc48c87fb1de8e0560ddbf8331b238453060111e58daf222e540"
+   "presentation/delphi/deck.pdf": "f88979bea10cfb1803a1f21caaa2c8836934c5a509cda313d9a749119ce49cdc",
+   "presentation/delphi/deck.html": "2b782bbd8f20b54992008d4d318ac28d014cc6b3f4e9de582949ce3ea5e68ea6",
+   "presentation/delphi/speaker-notes.md": "d203116b1c03dca09ec593407ae53c60ede0c20c3c1b453b1d53cb2418e14bd8",
+   "presentation/delphi/timing.json": "3f79883b2a8ad8d2cabd3335f5a37288e78082ef09ec86ac0f302e031ecadbe9",
+   "presentation/delphi/number_trace.json": "ad5902dd7576e29a94b19a2d0e1d7dab04450143791232c3a3e3fa6bab635fdf",
+   "artifacts/delphi_submit/at5_v1_2_frozen127.json": "a54f643dd4a5cbb86399abac6fe2c4ce4b546cbb74e4064080c261c486008845",
+   "site/delphi/index.html": "cb81dd59c6e89ecd0fe340de330fa7360d7f503381a4b28847c8f01f8d845929",
+   "site/delphi/blog.html": "6e1dfe9eb7450cbeab97229c66e53fe216834e6178106ea90c05e7b48538de8e"
   },
-  "corrections_0940": {
+  "corrections_atlas": {
    "trigger": "messages/2026-10-31-ATLAS-and-the-surviving-claim.md (pasted by user)",
    "done": [
     "ATLAS credited (deck, site, blog); Price 'bounded search' sentence removed; no 'no machine-checked library' claim anywhere (hard-banned by test)",
@@ -188,6 +186,45 @@
    ],
    "tests": "pytest presentation/delphi/tests: 11 passed",
    "timing": "2:33-2:34 (synthetic voice)"
+  },
+  "note_on_times": "Earlier clock stamps in this record and in the message files were wrong (taken from a memo's clock). Authoritative times come from `date`.",
+  "directors_review": {
+   "applied": [
+    "merged origin/work/rethink-director and origin/work/codex-api",
+    "slide 3, site and blog now say our Price lemma duplicates ATLAS (critic's correction in lean_price/README.md)",
+    "timestamps corrected",
+    "SUBMISSION.md marks presentation/speaker-notes.md as the TrpB baseline script"
+   ],
+   "held": "pitch reorder (survivors first, killed-claims ledger second) is drafted at presentation/delphi/drafts/ but NOT built: the director says to keep the deck as is until critic's scopedesk/ledger/ data arrives"
+  },
+  "outline_build": {
+   "date_stamp": "08:00 PDT (system date)",
+   "built_to": "planning/rethink/PITCH-OUTLINE.md",
+   "slides": [
+    "reveal",
+    "check and repair",
+    "compiled nodes and frozen test set",
+    "kill ledger",
+    "collective measured",
+    "close"
+   ],
+   "claims_traced": 40,
+   "tests": "11 passed",
+   "script": "399 words, 2:34-2:35 synthetic voice",
+   "corrections": [
+    "frozen 127-item key 28645a12; 131/128 superseded",
+    "AT5 recomputed on the frozen key: 50 items, gate 50/50, plain 29/50, continuum only 34/50 (artifacts/delphi_submit/, re-run and compared by trace.py)",
+    "R06 reworded per critic/Codex",
+    "Lean-19 pilot: permitted caption only; results pending; call-matched not compute-matched",
+    "Delphi Frontier mentioned once as a proposal"
+   ],
+   "not_done": [
+    "no Lean-pilot numbers",
+    "no agent-evaluation numbers",
+    "no median of kill durations",
+    "no recorded video or human rehearsal",
+    "ledger row P03 still describes the 128-item candidate (not mine to edit)"
+   ]
   }
  }
 }

@@ -1,27 +1,27 @@
 # Speaker notes: Delphi deck
 
-Built 2026-10-31 07:38 PDT from 47590e9530d42a8e79033f4c618853cb0625eec3.
+Built 2026-10-31 08:00 PDT from 87f2e19116ee5999f9e5146b8277ea9ddf6b7dba.
 
-**Slide 1** (59 words)
+**Slide 1** (56 words)
 
-Delphi turns candidate laws into checked theorems. The conditions behind these laws are known to experts, so we do not present them as discoveries. The problem is an agent applying a law outside its scope without checking. We make that check executable and sort everything three ways: proved, simulated, observed. We ran no experiment. Anything unmeasured is marked pending.
+The textbook inequality is green. On a tissue of length pi, no admissible mode is in the band; at two pi, one is. This is a linear statement for a declared model, classical mathematics. What is new is only that a program checks it, with a witness, before a law is applied. We ran no experiment.
 
-**Slide 2** (75 words)
+**Slide 2** (68 words)
 
-First check, limitation first. The algorithm is trivial: count admissible modes in the band. The offer is a certificate, not new mathematics. Take a declared model where the textbook condition holds. At length pi no mode is in the band, so it is stable. At three halves pi and two pi a mode grows; at five halves pi it is stable again. Only pi and two pi are compiled in Lean. Nonlinear simulation is pending.
+Limitation first: the algorithm is trivial. The contribution is the certificate, the refusal and the repair. Sixteen requests with equal diffusivities, which the plain formula accepts, are refused with a witness. The exact check licenses a repair, raising the ratio to nine. An independent solver then finds a pattern on eleven of sixteen, mean 0.708. One kinetics, three seeds, near-onset and marginal. A model check, not an experiment.
 
-**Slide 3** (57 words)
+**Slide 3** (71 words)
 
-Second check. The Price identity, a selection-only lemma, and a conditional Hamilton regression theorem depend on each other in the Lean source. Each assumption has an exact compiled witness showing what breaks without it, and two changed-sign versions are rejected. Fisher's additive genetic theorem is pending. This is established mathematics, a regression statement, not a causal rule.
+The Price identity is already in ATLAS, so ours is a duplicate. We add a conditional Hamilton regression theorem, compiled, with witnesses and rejected mutants. The test set is frozen, one hundred twenty-seven requests with exact answers; no agent has run on it. On the fifty Turing and wavelength items the gate agrees with the key on all fifty, the plain formula on twenty-nine. Trap-enriched, our own conventions: not external validation.
 
-**Slide 4** (71 words)
+**Slide 4** (75 words)
 
-Our own failure. We wrote a theorem assuming no mode has negative determinant and concluding every mode has non-negative determinant. A tautology. It compiled and passed the axiom audit. An independent reviewer caught it, not us. A revised version now compiles, with the determinant assumed and no mutants yet. Five more errors from this team were each caught by independent review. That is the check working, not a machine detecting alone.
+The ledger. Five claims we held that did not survive, each with a witness: a diffusion threshold of ten, false at ratio one point one; our own liquid bridge key; a regression that tested a different question; benchmark ids that leaked labels; and our Price node, already in ATLAS. Seventeen of twenty rows were caught by an independent reviewer or a measurement, three by the author. No control arm: audit versus self-audit, not collective intelligence.
 
-**Slide 5** (65 words)
+**Slide 5** (63 words)
 
-The scorecard of twenty-one candidate laws checked as theorems is pending: the first freeze was not approved, so no compiled count exists. So is the misprediction map, which asks what fraction of textbook-Turing parameter sets are stable on a finite domain. The agent evaluation needs a corrected freeze, an always-refuse baseline, the checker without a model, and the unguarded agent. A null will be shown.
+What the collective measured. On the one controlled task, shared specialists equal a single planner, seventy-eight of a hundred each, and a plain lazy search reaches ninety-six. More agents did not help. The proof-search pilot on nineteen integer lemmas awaits checker repair and replay. The one agent run we have used mismatched its prompts: exploratory, not a ceiling. What worked was independent review.
 
-**Slide 6** (70 words)
+**Slide 6** (66 words)
 
-Credit first. ATLAS, an open Lean biology library from Facebook Research, already exists; we aim to complement it, not compete. Also Prove2Me, Rashid 2017, lean-bio, crnt-lean and Ripple. We claim no experiment, no first library, no universal threshold, and not that any named law is wrong. Pending: the scorecard, the map, Fisher, second-reader review, and offering Turing statements to ATLAS. Make the assumptions behind a model decision executable and auditable.
+Reusable now: a checker that returns a witness. Outside use: none observed yet. Next, a proposal: a pilot on a modelling team's recent reuse decisions, and Delphi Frontier, one page per open problem: what we know, what is next, who is working on it. Nothing is deployed. Scorecard pending. Credit ATLAS, Prove2Me and earlier formal biology. Make the assumptions behind a model decision executable and auditable.

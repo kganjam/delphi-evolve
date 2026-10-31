@@ -24,7 +24,7 @@ import facts as FA  # noqa: E402
 
 E = html.escape
 INPUTS = [
-    "planning/rethink/CLAIM-LEDGER.md", "presentation/delphi/sources.md",
+    "planning/rethink/CLAIM-LEDGER.md", "planning/rethink/CODEX-BENCH-V1-2-REV3-REVIEW.md", "presentation/delphi/sources.md", "lean_price/README.md", "scopedesk/bench/v1_2/KEY.sha256", "scopedesk/bench/v1_2/key.jsonl", "scopedesk/bench/v1_2/instances_public.jsonl", "scopedesk/bench/v1_2/STATUS.md", "scopedesk/bench/v1_2/FROZEN.md", "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json", "artifacts/delphi_submit/at5_v1_2_frozen127.json", "planning/rethink/CODEX-LEAN19-SLIDE-AND-FREEZE-DECISION.md", "scopedesk/oracles/results/linear_vs_nonlinear.json", "scopedesk/oracles/results/accept_receipt_fresh_clone.json", "scopedesk/audit_v12/blind_vs_key_v12.json", "scopedesk/ledger/kill_ledger.json", "artifacts/rethink_nca/repair.json", "planning/rethink/nca.md", "planning/rethink/PITCH-OUTLINE.md", "planning/rethink/ACTIVE-FRONTIER-PITCH-PROPOSAL.md",
     "artifacts/integration/codex-api/price-probe.json", "experiments/price_probe/Price.lean", "experiments/price_probe/Witnesses.lean.inc",
     "artifacts/turing_scope/results.json", "artifacts/turing_scope/lean_receipt.json",
     "artifacts/rethink_director/MathlibProbe_host.lean", "tasks/results/rethink-director.json",
@@ -65,131 +65,108 @@ table.t3 td,table.t3 th{padding:5px 6px}
 
 
 def build_slides(f, led_ids, prov_head):
-    P, T, Er, Sc, Rb, Bl = f["price"], f["turing"], f["errors"], f["scorecard"], f["robustness"], f["baseline"]
+    P, T, Bn, Rp, Kl, Ac, Bl = f["price"], f["turing"], f["bench"], f["repair"], f["kills"], f["accept"], f["baseline"]
     fn = lambda *parts: '<div class="fn">' + " · ".join(parts) + "</div>"
     stamp = f"artifacts @ {prov_head[:8]}"
     brand = lambda i: f'<div class="brand"><i></i>Delphi · from candidate laws to checked theorems</div><div class="num">{i} / 6</div>'
     pend = '<span class="pend">pending</span>'
     notes = []
 
-    # ---------------------------------------------------------------- slide 1
+    # ------------------------------------------------------------ 1 Reveal (0:00-0:25)
     scan = T["scan"]
-    s1 = f"""{brand(1)}
-<h1 class="hero" style="font-size:58px;margin-top:70px">Delphi: from candidate laws to <em>checked theorems</em></h1>
-<p class="lede" style="font-size:26px;max-width:1040px">Experts know the conditions behind a law. An agent applying that law to a new setting does not reliably check them. We make the check executable, and keep proved, simulated and observed apart.</p>
-<div class="row" style="gap:18px;margin-top:8px">
- <div class="col card"><h3><span class="pf pr">Proved</span> compiled in Lean 4</h3><p class="small" style="margin:0;font-size:16px">A finite Turing instance, and Price identity to a conditional Hamilton regression theorem, each under stated assumptions with rejected mutants.</p></div>
- <div class="col card"><h3><span class="pf si">Simulated</span></h3><p class="small" style="margin:0;font-size:16px">Nonlinear solver outcomes and the agent evaluation: {pend}</p></div>
- <div class="col card"><h3><span class="pf ob">Observed</span></h3><p class="small" style="margin:0;font-size:16px"><b>None.</b> We ran no experiment. The released enzyme baseline is appendix only.</p></div>
-</div>
-<div class="scope" style="margin-top:14px;font-size:15.5px"><b>The caveats are not our discovery.</b> What is new here is only that they are checked by a program before a law is applied, and that we show our own failures.</div>
-{fn('<b>Ledger</b> F01 F07 F05 P01 P02 P03 · planning/rethink/CLAIM-LEDGER.md', stamp)}"""
-    notes.append("Delphi turns candidate laws into checked theorems. The conditions behind these laws are known to experts, so we do not present them as discoveries. The problem is an agent applying a law outside its scope without checking. We make that check executable and sort everything three ways: proved, simulated, observed. We ran no experiment. Anything unmeasured is marked pending.")
-
-    # ---------------------------------------------------------------- slide 2
     cells_h = "".join(f"<th style='text-align:center'>{E(s['L_over_pi'])}</th>" for s in scan)
     cells_v = "".join(f"<td class='{'u' if s['verdict'] == 'linearly_unstable' else 's'}'>{'grows' if s['verdict'] == 'linearly_unstable' else 'stable'}</td>" for s in scan)
     nmut = sum(1 for m in T["lean"]["mutants"] if m["exit"] != 0)
     w = T["windows"]
-    sq = lambda x: x.replace("sqrt(", "√").replace(")", "")
-    T_ww = f"L/π in ({sq(w['unstable_first'][0])}, {sq(w['unstable_first'][1])})"
-    T_wb = sq(w["unstable_beyond"]).replace("*", "")
-    T_gap = f"{sq(w['stable_gap'][0])} ≤ L/π ≤ {sq(w['stable_gap'][1]).replace('*', '')}"
-    s2 = f"""{brand(2)}
-<h2 style="font-size:31px;margin:24px 0 8px">The continuum Turing conditions hold, yet a finite domain can admit <em>no growing mode</em>, and not monotonically in size.</h2>
+    s1 = f"""{brand(1)}
+<h2 style="font-size:32px;margin:24px 0 8px">The textbook inequality is green. On a tissue of length π no admissible mode is in the band; at 2π one is.</h2>
 <div class="card" style="padding:8px 12px"><div class="small" style="font-size:14px;margin-bottom:4px">Declared model: J = [[{T['J'][0][0]}, {T['J'][0][1]}], [{T['J'][1][0]}, {T['J'][1][1]}]], diffusivities D = ({T['D'][0]}, {T['D'][1]}), 1-D Neumann boundaries; det(J − qD) = {T['det_factored']}, so the continuum band is {T['continuum_band'][0]} &lt; q &lt; {T['continuum_band'][1]}. Admissible modes are q = (nπ/L)².</div>
 <table class="t3"><tr><th style="text-align:left">length L / π</th>{cells_h}</tr><tr><td style="text-align:left">linear verdict</td>{cells_v}</tr></table></div>
 <div class="row" style="gap:14px;margin-top:10px">
- <div class="col card" style="padding:8px 12px"><h3><span class="pf pr">Proved</span> compiled instance</h3><p class="small" style="margin:0;font-size:14.5px">Lean {T['lean']['version']}: L = π admits no unstable mode; L = 2π admits one (n = {T['two_pi']['unstable_modes'][0]}, det = {T['two_pi']['n1_det']}). Build exit {T['lean']['build_exit']}; {nmut} law and domain mutants rejected. Only these two lengths are compiled.</p></div>
- <div class="col card" style="padding:8px 12px"><h3><span class="pf ex">Exact arithmetic</span></h3><p class="small" style="margin:0;font-size:14.5px">The whole strip above is exact rational arithmetic, not Lean-compiled. Over the reals with Mathlib, a host probe re-run by the director shows no admissible mode lies in the band at L = π.</p></div>
- <div class="col card" style="padding:8px 12px"><h3><span class="pf si">Simulated</span> / <span class="pf ob">Observed</span></h3><p class="small" style="margin:0;font-size:14.5px">Nonlinear solver check: {pend}. Observed tissue pattern: <b>none</b>.</p></div>
+ <div class="col card" style="padding:8px 12px"><h3><span class="pf pr">Proved</span> compiled instance</h3><p class="small" style="margin:0;font-size:14.5px">Lean {T['lean']['version']}: L = π admits no unstable mode; L = 2π admits one (n = {T['two_pi']['unstable_modes'][0]}, det = {T['two_pi']['n1_det']}). Build exit {T['lean']['build_exit']}; {nmut} mutants rejected. Only these two lengths are compiled.</p></div>
+ <div class="col card" style="padding:8px 12px"><h3><span class="pf ex">Exact arithmetic</span></h3><p class="small" style="margin:0;font-size:14.5px">The whole strip is exact rational arithmetic. Mode n grows iff {w['c_lo']}n² &lt; (L/π)² &lt; {w['c_hi']}n².</p></div>
+ <div class="col card" style="padding:8px 12px"><h3><span class="pf ob">Observed</span></h3><p class="small" style="margin:0;font-size:14.5px"><b>None.</b> We ran no experiment.</p></div>
 </div>
-<div class="scope" style="margin-top:10px;font-size:14.5px"><b>Limitation first.</b> The algorithm is trivial: count admissible modes in the band; exact for rational L/π. The offer is a certificate and packaging, not new mathematics. Exactly, mode n grows iff {w['c_lo']}n² &lt; (L/π)² &lt; {w['c_hi']}n²: growth for {T_ww} and every L/π above {T_wb}; stable window {T_gap}. Non-monotone size dependence is textbook-derivable and not claimed as new; the literature citation is being verified.<br><b>Scope.</b> A linear-mode statement for this declared model, not whether a pattern forms; we are not saying Turing was wrong.</div>
-{fn('<b>Ledger</b> F01 F02 (Mathlib probe: no ledger row yet, director receipt) · artifacts/turing_scope/results.json, lean_receipt.json · artifacts/rethink_director/MathlibProbe_host.lean', stamp)}"""
-    notes.append("First check, limitation first. The algorithm is trivial: count admissible modes in the band. The offer is a certificate, not new mathematics. Take a declared model where the textbook condition holds. At length pi no mode is in the band, so it is stable. At three halves pi and two pi a mode grows; at five halves pi it is stable again. Only pi and two pi are compiled in Lean. Nonlinear simulation is pending.")
+<div class="scope" style="margin-top:10px;font-size:14.5px"><b>Classical mathematics, a linear-mode statement for a declared model.</b> It is not a claim that a pattern forms, and not that Turing was wrong. What is new is only that a program checks it, with a witness, before a law is applied.</div>
+{fn('<b>Ledger</b> F01 F02 · artifacts/turing_scope/results.json, lean_receipt.json · the same slider is in the walkthrough at site/review/ (F09)', stamp)}"""
+    notes.append("The textbook inequality is green. On a tissue of length pi, no admissible mode is in the band; at two pi, one is. This is a linear statement for a declared model, classical mathematics. What is new is only that a program checks it, with a witness, before a law is applied. We ran no experiment.")
 
-    # ---------------------------------------------------------------- slide 3
+    # ------------------------------------------------------------ 2 Check + repair (0:25-1:00)
+    g = Rp["nonlinear_grid"]
+    s2 = f"""{brand(2)}
+<h2 style="font-size:30px;margin:24px 0 8px">A request the plain formula accepts is refused with a witness, repaired, and re-checked by an independent solver.</h2>
+<div class="row" style="gap:10px;align-items:stretch">
+ <div class="col card" style="padding:8px 10px"><h3>Request</h3><p class="small" style="margin:0;font-size:15px">Target wavelength, equal diffusivities (Dv/Du = 1). {Rp['requests']} requests.</p></div>
+ <div class="arrow" style="align-self:center">→</div>
+ <div class="col card" style="padding:8px 10px"><h3><span class="pf ex">Exact</span> Refused</h3><p class="small" style="margin:0;font-size:15px">No admissible unstable mode (turing-ddi). {Rp['gate_refused']} of {Rp['requests']}.</p></div>
+ <div class="arrow" style="align-self:center">→</div>
+ <div class="col card" style="padding:8px 10px"><h3><span class="pf ex">Exact</span> Repair</h3><p class="small" style="margin:0;font-size:15px">Raise Dv/Du to {Rp['repair_ratio']} (most requests); the exact check licenses it.</p></div>
+ <div class="arrow" style="align-self:center">→</div>
+ <div class="col card" style="padding:8px 10px"><h3><span class="pf si">Simulated</span> Solver</h3><p class="small" style="margin:0;font-size:15px">Independent solver: pattern on {Rp['repair_all_seeds']} of {Rp['requests']} requests, mean {Rp['repair_mean']}.</p></div>
+</div>
+<p class="small" style="margin:8px 0 0;font-size:16px">The plain formula's design without repair succeeded on {int(Rp['plain_formula_success'])} of {Rp['requests']}.</p>
+<div class="scope" style="margin-top:10px;font-size:15px"><b>Limitation first.</b> The algorithm is trivial. The contribution is the certificate, the refusal and the repair.</div>
+<div class="card" style="padding:8px 12px;margin-top:8px"><h3>Caveats, printed</h3><p class="small" style="margin:0;font-size:14.5px">One kinetics, 1-D Neumann, {Rp['seeds']} noise seeds, no confidence interval; a model-only check, not an experiment. Near-onset repaired patterns are marginal (amplitude up to {Rp['amp_max_at_ratio_9']} against a {Rp['amp_threshold']:.2f} threshold). The other {Rp['requests'] - Rp['repair_all_seeds']} requests did not succeed on all seeds, and repairs for {Rp['other_refusals']} further refusals worked on {Rp['other_refusals_repair_ok']}. No domain-length repair was found. Across {g['n']} nonlinear configurations the gate agreed with the solver on {g['gate_agrees']} and the plain formula on {g['plain_agrees']}; linear theory named the dominant wavelength in {g['dominant_mode']} patterned cases.</p></div>
+{fn('<b>Ledger</b> unledgered (NCA worker artifacts) · artifacts/rethink_nca/repair.json · scopedesk/oracles/results/linear_vs_nonlinear.json · planning/rethink/nca.md', stamp)}"""
+    notes.append("Limitation first: the algorithm is trivial. The contribution is the certificate, the refusal and the repair. Sixteen requests with equal diffusivities, which the plain formula accepts, are refused with a witness. The exact check licenses a repair, raising the ratio to nine. An independent solver then finds a pattern on eleven of sixteen, mean 0.708. One kinetics, three seeds, near-onset and marginal. A model check, not an experiment.")
+
+    # ------------------------------------------------------------ 3 Compiled nodes + benchmark (1:00-1:30)
     W = P["witnesses"]
-    dep = P["depends_on"]
+    A5 = Bn["at5"]["totals"]
     s3 = f"""{brand(3)}
-<h2 style="font-size:30px;margin:24px 0 10px">Price identity, then a selection-only lemma, then a <em>conditional</em> Hamilton regression theorem: a real proof dependency.</h2>
-<div class="row" style="gap:20px">
- <div class="col" style="flex:.9">
-  <div class="node">price</div><div class="arrow">↓ used by</div>
-  <div class="node">selection_only</div><div class="arrow">↓ used by</div>
-  <div class="node">hamilton_regression</div>
-  <div class="node pn" style="margin-top:12px">Fisher additive-genetic theorem · PENDING</div>
-  <p class="small" style="font-size:13.5px;margin:8px 0 0">The dependencies are read from the Lean source. A fixed-fitness variance corollary also compiles; it is <b>not</b> Fisher's theorem.</p>
- </div>
- <div class="col" style="flex:1.5">
-  <div class="card" style="padding:8px 12px"><h3>Drop an assumption: the exact compiled witness</h3>
-  <table style="font-size:14px"><tr><th style="text-align:left">assumption dropped</th><th style="text-align:left">what the witness shows</th></tr>
-  <tr><td style="text-align:left">perfect transmission</td><td style="text-align:left">mean fitness × trait change = {W['transmission_is_needed']['mean_fitness_times_change']} while selection covariance = {W['transmission_is_needed']['selection_covariance']}</td></tr>
-  <tr><td style="text-align:left">residual orthogonality</td><td style="text-align:left">trait mean rises although r·b − c = {W['residual_assumption_is_needed']['criterion_value']}</td></tr>
-  <tr><td style="text-align:left">correct sign of the cost term</td><td style="text-align:left">the sign-reversed criterion is false on the same population</td></tr>
-  <tr><td style="text-align:left">premises satisfiable?</td><td style="text-align:left">yes: change = {W['regression_premises_nonvacuous']['change']}, variance {W['regression_premises_nonvacuous']['var_z']}</td></tr></table></div>
-  <div class="card" style="padding:8px 12px;margin-top:8px"><h3><span class="pf pr">Proved</span> receipt</h3><p class="small" style="margin:0;font-size:14.5px">Lean exit {P['original_exit']}; axioms: propext, Classical.choice, Quot.sound only. {len(W)} witness controls exit {P['witness_exit']}. {len(P['mutants'])} changed-target mutants rejected (exit {P['mutants'][0]['exit']}). Statement-fidelity review by a second reader: {pend}</p></div>
- </div>
+<h2 style="font-size:30px;margin:24px 0 10px">Two compiled nodes, and a test set with exact answers that the checker is scored against.</h2>
+<div class="row" style="gap:18px">
+ <div class="col"><div class="card" style="padding:9px 12px"><h3><span class="pf pr">Proved</span> proof dependencies</h3>
+  <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;font:600 14px var(--mono)"><span class="node pn" style="border-style:solid;color:var(--ink2);background:var(--card)">price · ATLAS has it; ours duplicates</span><span class="arrow">→</span><span class="node">selection_only</span><span class="arrow">→</span><span class="node">hamilton_regression</span></div>
+  <p class="small" style="margin:8px 0 0;font-size:14.5px">Conditional Hamilton regression theorem. Lean exit {P['original_exit']}, standard axioms only, {len(W)} witness controls, {len(P['mutants'])} changed-sign mutants rejected. A critic's code search found no Hamilton form in ATLAS; not exhaustive. Second-reader review: {pend}</p></div>
+  <div class="card" style="padding:9px 12px;margin-top:8px"><h3>Test set</h3><p class="small" style="margin:0;font-size:14.5px">Version 1.2: <b>{Bn['items']}</b> requests, <b>{Bn['families']}</b> families, key hash {Bn['key_sha256'][:8]}…. <b>Frozen.</b> Codex's metadata and text check passes (14 of 14). No agent has run on it yet. Audit trail: a blinded payload-only audit agreed on {Bn['blind_audit']['agree']} of {Bn['blind_audit']['n']} items of an earlier candidate.</p></div></div>
+ <div class="col"><div class="card" style="padding:9px 12px"><h3>Checker against the key</h3><p class="small" style="margin:0 0 4px;font-size:14px">Turing, 2-D Turing and wavelength items.</p>
+  <table style="font-size:15px"><tr><th style="text-align:left">method</th><th>agrees</th></tr>
+  <tr><td style="text-align:left"><b>Gate with the record</b></td><td><b>{A5['full']} / {A5['n']}</b></td></tr>
+  <tr><td style="text-align:left">Plain textbook formula</td><td>{A5['C0']} / {A5['n']}</td></tr>
+  <tr><td style="text-align:left">Continuum condition only</td><td>{A5['continuum_only']} / {A5['n']}</td></tr>
+  <tr><td style="text-align:left">Record hash altered: refuses</td><td>{A5['record_hash_changed_refused']} / {A5['n']}</td></tr></table>
+  <p class="small" style="margin:6px 0 0;font-size:14px"><b>Printed caveat:</b> the set is trap-enriched and shares its convention document with the checker. This is not external validation. The last row shows provenance dependence only.</p></div></div>
 </div>
-<div class="scope" style="margin-top:10px;font-size:14.5px"><b>Established mathematics.</b> Price 1970; the Price–Fisher–Hamilton link is in Frank 1997. Whether the ATLAS biology library (facebookresearch/atlas-lean) already covers Price or Hamilton is unchecked. This is a statistical regression statement, not a causal cost–benefit rule.</div>
-{fn('<b>Ledger</b> F07 · artifacts/integration/codex-api/price-probe.json (source sha ' + P['source_sha256'][:8] + '…) · experiments/price_probe/ · interactive walkthrough: site/review/ (F09)', stamp)}"""
-    notes.append("Second check. The Price identity, a selection-only lemma, and a conditional Hamilton regression theorem depend on each other in the Lean source. Each assumption has an exact compiled witness showing what breaks without it, and two changed-sign versions are rejected. Fisher's additive genetic theorem is pending. This is established mathematics, a regression statement, not a causal rule.")
+{fn('<b>Ledger</b> F07 P03 · artifacts/integration/codex-api/price-probe.json · lean_price/README.md · scopedesk/bench/v1_2/ · artifacts/delphi_submit/at5_v1_2_frozen127.json · artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json', stamp)}"""
+    notes.append("The Price identity is already in ATLAS, so ours is a duplicate. We add a conditional Hamilton regression theorem, compiled, with witnesses and rejected mutants. The test set is frozen, one hundred twenty-seven requests with exact answers; no agent has run on it. On the fifty Turing and wavelength items the gate agrees with the key on all fifty, the plain formula on twenty-nine. Trap-enriched, our own conventions: not external validation.")
 
-    # ---------------------------------------------------------------- slide 4
-    V = Er["vacuous_theorem"]
-    rows = "".join(
-        f"<tr><td style='text-align:left'>{e['n']}. {E(e['what'])}</td><td style='text-align:left;font-size:13px'>{E(e['caught_by'])}</td><td style='text-align:left;font-size:12.5px'>{E(e['ledger'])}</td></tr>"
-        for e in Er["five"])
+    # ------------------------------------------------------------ 4 Ledger (1:30-2:15)
+    rows = "".join(f"<tr><td style='text-align:left'>{E(r['claim'])}</td><td style='text-align:left'><b>{E(r['kind'])}</b></td><td style='text-align:left'>{E(r['witness'])}</td></tr>" for r in Kl["shown"])
+    kc = Kl["kind_counts"]
     s4 = f"""{brand(4)}
-<h2 style="font-size:30px;margin:24px 0 8px">Our own near-vacuous theorem compiled, passed the axiom audit, and was caught by an <em>independent reviewer</em>.</h2>
-<div class="row" style="gap:18px">
- <div class="col" style="flex:1">
-  <div class="card" style="padding:9px 14px"><h3>{E(V['name'])}, in our Admissible file</h3>
-  <p class="small" style="margin:0 0 5px;font-size:15px"><b>Assumed:</b> {E(V['assumed'])}.<br><b>Concluded:</b> {E(V['concluded'])}.<br>A restatement. The length hypothesis is unused. It is <b>not</b> linear asymptotic stability.</p>
-  <p class="small" style="margin:0;font-size:14.5px">A clean axiom audit certifies proof dependencies, not whether the statement says what its name claims. The reviewer's check did.</p>
-  <p class="small" style="margin:6px 0 0;font-size:14.5px"><b>Replacement:</b> a revised module compiles <i>every admissible mode has trace &lt; 0 and det &gt; 0</i> (exit {V['replacement']['compile_exit']}, standard axioms). Trace is derived; determinant positivity is assumed. No new mutants yet; eigenvalue and PDE correspondence not established.</p></div>
-  <div class="scope" style="margin-top:8px;font-size:14px"><b>This is the system working.</b> Caught by independent review with exact witnesses, not by a machine detecting autonomously.</div>
- </div>
- <div class="col" style="flex:1.1"><div class="card" style="padding:8px 10px"><h3>Five more validity errors this team made</h3>
-  <table style="font-size:13.5px"><tr><th style="text-align:left">error</th><th style="text-align:left">caught by</th><th style="text-align:left">ledger</th></tr>{rows}</table></div></div>
-</div>
-{fn('<b>Ledger</b> P01 F04 F05 F08 F10 P05 · artifacts/integration/codex-api/admissible-review/Admissible.lean · artifacts/integration/codex-api/admissible-review/469874b/compile-review.json · planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md', stamp)}"""
-    notes.append("Our own failure. We wrote a theorem assuming no mode has negative determinant and concluding every mode has non-negative determinant. A tautology. It compiled and passed the axiom audit. An independent reviewer caught it, not us. A revised version now compiles, with the determinant assumed and no mutants yet. Five more errors from this team were each caught by independent review. That is the check working, not a machine detecting alone.")
+<h2 style="font-size:30px;margin:24px 0 8px">The ledger: claims we held that did not survive, each with a witness and the kind of failure kept separate.</h2>
+<div class="card" style="padding:8px 10px"><table style="font-size:14.5px"><tr><th style="text-align:left">claim we held</th><th style="text-align:left">kind</th><th style="text-align:left">witness</th></tr>{rows}</table></div>
+<div class="scope" style="margin-top:10px;font-size:15px"><b>{Kl['n_rows']} ledger rows: {Kl['independent']} were caught by an independent reviewer or a measurement, {Kl['author_only']} by the author's own check.</b> There is no control arm: this compares independent audit with self-audit. It is not a measurement of collective intelligence. Kinds: prior art {kc['prior art']}, counterexample {kc['counterexample']}, measured {kc['measured']}, mis-operationalised {kc['mis-operationalised']}, convention defect {kc['convention defect']}, process defect {kc['process defect']}.</div>
+<p class="small" style="margin:8px 0 0;font-size:14.5px">Also in the ledger: our theorem advertised as stability whose premise, determinant non-negativity, also holds for unstable systems (R06); a stronger statement now compiles (F10). One team, one day: not a rate. No median is shown.</p>
+{fn('<b>Ledger</b> F04 F05 F08 F10 A01 · scopedesk/ledger/KILL-LEDGER.md and kill_ledger.json (all rows, witnesses, times and caveats)', stamp)}"""
+    notes.append("The ledger. Five claims we held that did not survive, each with a witness: a diffusion threshold of ten, false at ratio one point one; our own liquid bridge key; a regression that tested a different question; benchmark ids that leaked labels; and our Price node, already in ATLAS. Seventeen of twenty rows were caught by an independent reviewer or a measurement, three by the author. No control arm: audit versus self-audit, not collective intelligence.")
 
-    # ---------------------------------------------------------------- slide 5
+    # ------------------------------------------------------------ 5 Collective (2:15-2:45)
+    bar = lambda v, label, cls: f'<div style="display:flex;align-items:center;gap:10px;margin:8px 0"><div style="width:230px;font-size:15px">{label}</div><div style="flex:1;background:var(--rule);border-radius:4px;height:26px"><div style="width:{v}%;height:26px;background:{cls};border-radius:4px"></div></div><div style="width:70px;font:700 16px var(--mono)">{v}/100</div></div>'
     s5 = f"""{brand(5)}
-<h2 style="font-size:30px;margin:24px 0 10px">The scorecard of {Sc['records']} candidate laws checked as theorems: every result is <em>pending</em>.</h2>
-<div class="row" style="gap:18px">
- <div class="col"><div class="card" style="padding:10px 14px"><h3>Scorecard</h3>
-  <table style="font-size:15px"><tr><td style="text-align:left">records in the frozen list</td><td><b>{Sc['records']}</b></td></tr>
-  <tr><td style="text-align:left">compiled with proof, axiom audit and a failing mutant</td><td>{pend}</td></tr>
-  <tr><td style="text-align:left">excluded, with reasons</td><td>{pend}</td></tr>
-  <tr><td style="text-align:left">source-correspondence review</td><td>{pend}</td></tr></table>
-  <p class="small" style="margin:8px 0 0;font-size:14px">The first freeze is not approved; a revised freeze with full formal statements is required before any count is reported.</p></div></div>
- <div class="col"><div class="card" style="padding:10px 14px"><h3>Do agents need the gate?</h3>
-  <table style="font-size:15px"><tr><td style="text-align:left">benchmark freeze</td><td>{pend}</td></tr><tr><td style="text-align:left">agent arms and matched budgets</td><td>{pend}</td></tr><tr><td style="text-align:left">coverage, false acceptance, false refusal</td><td>{pend}</td></tr></table>
-  <p class="small" style="margin:8px 0 0;font-size:14px">To count: an always-refuse baseline, the same exact checker without a model, and the unguarded agent. A refusal is not a correct answer. A null will be shown.</p></div></div>
+<h2 style="font-size:30px;margin:24px 0 10px">What the collective measured: more agents did not help on the one controlled task. Independent review is what caught errors.</h2>
+<div class="card" style="padding:10px 16px"><h3><span class="pf si">Simulated</span> retrospective enzyme panel</h3><p class="small" style="margin:0 0 4px;font-size:14.5px">{Bl['measured_nonstop']:,} measured variants, {Bl['budget']:,} extra assays.</p>
+{bar(Bl['q2c_1000'], 'Single planner', '#d9480f')}{bar(Bl['shared_1000'], 'Shared specialists', '#15202b')}{bar(Bl['lazysp_1000'], 'Plain lazy search', '#2b6e3f')}
+<p class="small" style="margin:6px 0 0;font-size:14.5px">No collective advantage. One repeated panel, about {Bl['clusters']} distinct problems; the lazy search's gain sits mostly in one pair.</p></div>
+<div class="row" style="gap:14px;margin-top:10px">
+ <div class="col card" style="padding:9px 12px"><h3>Proof-search pilot</h3><p class="small" style="margin:0;font-size:14.5px">A proof-search pilot on 19 frozen integer-arithmetic lemmas, with shared, private and sequential library controls; checker repair and result replay are under review. Results: {pend}</p></div>
+ <div class="col card" style="padding:9px 12px"><h3>Do agents need the gate?</h3><p class="small" style="margin:0;font-size:15px">Not measured. The only run used prompts that did not match their labels: exploratory agreement, not a ceiling (R09). Scored comparison: {pend}</p></div>
 </div>
-<div class="card" style="padding:10px 14px;margin-top:12px"><h3>Misprediction map</h3><p class="small" style="margin:0;font-size:16px">Among parameter sets that pass the textbook Turing test, the fraction that are stable on a finite domain of length L, over a large ensemble: {pend} Not yet run on the GPUs; earlier toy-ensemble figures are not shown.</p></div>
-<div class="scope" style="margin-top:12px;font-size:15px"><b>No scores are shown.</b> An earlier benchmark version was retired for input errors. Its successor's numerical verdicts reproduced, but its freeze was withheld because answer information leaks through public IDs. We do not claim that more agents beat fewer.</div>
-{fn('<b>Ledger</b> P01 P02 P03 F08 · artifacts/integration/codex-api/admissible-review/committed-freeze.json (sha ' + Sc['freeze_sha256'][:8] + '…) · planning/rethink/CODEX-BENCH-V1-1-REVIEW.md', stamp)}"""
-    notes.append("The scorecard of twenty-one candidate laws checked as theorems is pending: the first freeze was not approved, so no compiled count exists. So is the misprediction map, which asks what fraction of textbook-Turing parameter sets are stable on a finite domain. The agent evaluation needs a corrected freeze, an always-refuse baseline, the checker without a model, and the unguarded agent. A null will be shown.")
+{fn('<b>Ledger</b> B02 B03 P02 P03 · artifacts/core/replay/table_primary.csv · artifacts/lazysp/results/ · scopedesk/ledger/kill_ledger.json (M1, M2, R09)', stamp)}"""
+    notes.append("What the collective measured. On the one controlled task, shared specialists equal a single planner, seventy-eight of a hundred each, and a plain lazy search reaches ninety-six. More agents did not help. The proof-search pilot on nineteen integer lemmas awaits checker repair and replay. The one agent run we have used mismatched its prompts: exploratory, not a ceiling. What worked was independent review.")
 
-    # ---------------------------------------------------------------- slide 6
+    # ------------------------------------------------------------ 6 Close (2:45-3:00)
     s6 = f"""{brand(6)}
-<h2 style="font-size:30px;margin:24px 0 10px">What this is, what it is not, and whose work it stands on.</h2>
-<div class="row" style="gap:18px">
- <div class="col"><div class="card" style="padding:9px 14px;height:100%"><h3>Credit</h3><p class="small" style="margin:0;font-size:14.5px">
-  Collaborative formalization architecture: <b>Prove2Me</b> (arXiv 2608.28433). Prior formal biology: <b>ATLAS</b> (facebookresearch/atlas-lean, MathlibExt/Biology), <b>Rashid et al. 2017</b> (HOL Light), <b>lean-bio</b>, <b>crnt-lean</b>, <b>Ripple</b> (arXiv 2607.13531). We aim to complement ATLAS, not compete with it. Price–Fisher–Hamilton: Price, Frank. Turing: Turing, Murray.</p></div></div>
- <div class="col"><div class="card" style="padding:9px 14px;height:100%"><h3>We do not claim</h3><p class="small" style="margin:0;font-size:14.5px">
-  Any experiment, a first library, a universal threshold, that any named law is wrong (a scope condition refers to the extracted record), or that agents beat a plain check.</p></div></div>
- <div class="col"><div class="card" style="padding:9px 14px;height:100%"><h3>Still pending</h3><p class="small" style="margin:0;font-size:14.5px">
-  The 21-record scorecard · the agent evaluation · Fisher additive-genetic · second-reader review of the Price statements · mutants for the replacement theorem · Turing statements offered to ATLAS · public use of the tool.</p></div></div>
+<h2 style="font-size:30px;margin:24px 0 10px">Reusable now: a checker that returns a witness. Outside use: none observed yet.</h2>
+<div class="row" style="gap:16px">
+ <div class="col"><div class="card" style="padding:9px 14px;height:100%"><h3>Now</h3><p class="small" style="margin:0;font-size:15px">The checker, repair enumerator, test set and ledger are in this repository. A fresh-clone acceptance run passed (exit 0, {Ac['seconds']} s) at an earlier commit; a receipt for the final commit is {pend}</p></div></div>
+ <div class="col"><div class="card" style="padding:9px 14px;height:100%"><h3>Next, a proposal</h3><p class="small" style="margin:0;font-size:15px">A pilot on a modelling team's recent reuse decisions. Delphi Frontier, nothing deployed: one page per open problem showing what we know, what's next and who is working on it. Scorecard of {f['scorecard']['records']} candidate laws: {pend} Misprediction map over a large ensemble: {pend}</p></div></div>
+ <div class="col"><div class="card" style="padding:9px 14px;height:100%"><h3>Credit, and what we do not claim</h3><p class="small" style="margin:0;font-size:15px">ATLAS (facebookresearch/atlas-lean), Prove2Me (arXiv 2608.28433), Rashid et al. 2017, lean-bio, crnt-lean, Ripple (arXiv 2607.13531). No first library, no universal threshold, and no claim that a named law is wrong.</p></div></div>
 </div>
-<div class="scope" style="margin-top:12px;font-size:15px"><b>Preserved baseline.</b> The earlier enzyme work stays in the appendix with its nulls: {Bl['measured_nonstop']:,} measured variants; specialists {Bl['shared_1000']}/100 equal the single planner {Bl['q2c_1000']}/100; a plain lazy search reaches {Bl['lazysp_1000']}/100.</div>
-<p style="font:500 26px/1.2 var(--serif);margin:16px 0 0;max-width:1120px">Make the assumptions behind a biological-model decision <em style="font-style:normal;border-bottom:4px solid var(--orange)">executable and auditable</em>.</p>
-{fn('<b>Ledger</b> A01 A02 B01 B02 B03 P07 P08 · planning/rethink/PRIOR-ART-VERDICT.md · artifacts/core/replay/table_primary.csv', stamp)}"""
-    notes.append("Credit first. ATLAS, an open Lean biology library from Facebook Research, already exists; we aim to complement it, not compete. Also Prove2Me, Rashid 2017, lean-bio, crnt-lean and Ripple. We claim no experiment, no first library, no universal threshold, and not that any named law is wrong. Pending: the scorecard, the map, Fisher, second-reader review, and offering Turing statements to ATLAS. Make the assumptions behind a model decision executable and auditable.")
+<p style="font:500 26px/1.2 var(--serif);margin:18px 0 0;max-width:1120px">Make the assumptions behind a biological-model decision <em style="font-style:normal;border-bottom:4px solid var(--orange)">executable and auditable</em>.</p>
+{fn('<b>Ledger</b> A01 A02 P01 P07 P08 · scopedesk/oracles/results/accept_receipt_fresh_clone.json · planning/rethink/PRIOR-ART-VERDICT.md', stamp)}"""
+    notes.append("Reusable now: a checker that returns a witness. Outside use: none observed yet. Next, a proposal: a pilot on a modelling team's recent reuse decisions, and Delphi Frontier, one page per open problem: what we know, what is next, who is working on it. Nothing is deployed. Scorecard pending. Credit ATLAS, Prove2Me and earlier formal biology. Make the assumptions behind a model decision executable and auditable.")
     return [s1, s2, s3, s4, s5, s6], notes
 
 

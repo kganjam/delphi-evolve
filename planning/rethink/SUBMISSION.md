@@ -6,13 +6,17 @@ Owner: `submit` worker (Claude Sonnet 5.5, existing subscription). Written Sat O
 
 **No upload location has been found and no submission receipt exists.** Nothing has been uploaded, sent or submitted by this worker or, as far as the repository shows, by anyone. The deck is ready; where it goes is unknown. That is the single highest-risk item, and it is a human action (below) because it needs inboxes, the ScienceClaw Discord or a person at the Media Lab, none of which this worker can reach.
 
-## Update 07:40 PDT: the spine changed; the deck is now Delphi
+## Update: the spine changed; the deck is now Delphi (times in this file come from `date`; earlier stamps here were wrong)
 
 The TrpB deck described below (`presentation/deck.*`, `rebuild.sh`, `trace_numbers.py`) is the **preserved baseline**. The pitch deck is now `presentation/delphi/` ("Delphi: from candidate laws to checked theorems"); site `site/delphi/`; see `presentation/delphi/README.md`. Rebuild and gate: `bash presentation/delphi/rebuild.sh`. Submission-channel findings, the countdown, the deadline and the go/no-go checklist below are unchanged and still govern. **Still no upload location and no receipt.**
 
 - Delphi checklist additions: [x] deck, PDF, speaker notes, blog, storyboard, landing page built from committed artifacts and the claim ledger; [x] 23 slide numbers re-derived by `presentation/delphi/trace.py`, every benchmark/scorecard metric reads "pending"; [x] script measured aloud (synthetic voice) at 2:33 to 2:36 including assumed gaps, about 25 s under 3:00 (`presentation/delphi/timing.json`); [ ] human stopwatch rehearsal; [ ] PPTX export of the Delphi deck (only the TrpB deck has one); [ ] scorecard / agent-evaluation numbers (pending, owned by others); [ ] director's proposal to open with compiled artifacts and make the kill ledger the second beat (not adopted; needs committed artifacts and ledger rows for each row shown).
 
-### Corrections applied 09:40 PDT (ATLAS memo)
+### Deck rebuilt to the director's pitch outline (`date` 08:00 PDT)
+
+`presentation/delphi/` now follows `planning/rethink/PITCH-OUTLINE.md`: reveal, check and repair, compiled nodes with the frozen test set, the kill ledger (from `scopedesk/ledger/`), what the collective measured, close. 40 slide claims are re-derived by `trace.py`; 11 tests; script 399 words, read aloud by a synthetic voice at 2:34 to 2:35, about 25 s under 3:00 (no human rehearsal). Corrections applied: test set is the frozen 127-item key (28645a12…; the 131 and 128-item versions are superseded); the checker-versus-key numbers were recomputed on that key (50 items: gate 50/50, plain formula 29/50, continuum only 34/50) in `artifacts/delphi_submit/`; R06 is described as determinant non-negativity advertised as stability (not "vacuous"); the 19-lemma proof-search pilot appears only as the permitted caption with results pending, call-matched not compute-matched; no Lean-pilot numbers are shown. Delphi Frontier appears once, as a proposal, nothing deployed. Still no organizer upload channel and no receipt.
+
+### Corrections applied (ATLAS memo)
 
 - No Delphi material claims that no machine-checked biology library exists. ATLAS (`facebookresearch/atlas-lean`, `MathlibExt/Biology`) is credited on slide 6, the site and the blog; whether it already covers Price/Hamilton is stated as unchecked; the earlier "bounded search found no Price formalization" sentence was removed. Offering Turing statements to its `WantedExt/Biology` is shown as pending, not done.
 - Slide 2 and the site now state the limitation first (trivial algorithm; value is certificate and packaging) and the exact windows (mode n grows iff 2n² < (L/π)² < 5n²; stable window √5 ≤ L/π ≤ 2√2), recomputed exactly by `presentation/delphi/trace.py`. Non-monotone size dependence is stated as not new.
@@ -93,9 +97,9 @@ Limits of this check: it proves slide numbers are re-derived from committed file
 
 Files to bring: `presentation/deck.pdf` (primary), `presentation/deck.pptx` (**image-only fallback**, speaker notes attached, not editable text; for a PowerPoint / Google Slides requirement), `presentation/deck.html` (offline, works without network; `n` shows notes), `presentation/video/darwins-bridge-walkthrough.mp4` (90 s silent fallback; its manifest pins the earlier build source). Keep copies on the presenting laptop and a USB stick; don't depend on venue Wi-Fi.
 
-## Three-minute script, timed
+## Three-minute script, timed (TrpB BASELINE script; the pitch script is `presentation/delphi/speaker-notes.md`, timing in `presentation/delphi/timing.json`)
 
-Script: `presentation/speaker-notes.md` (generated from the deck, 385 words; its slide timestamps are nominal budgets).
+**Do not present from the baseline script below; it describes the TrpB slides.** Script: `presentation/speaker-notes.md` (generated from the TrpB deck, 385 words; its slide timestamps are nominal budgets).
 Timing: **read aloud by a local neural voice (Piper, `en_US-lessac-medium`) and measured from the audio**, `presentation/timing.json`, tool `presentation/time_script.py`. Five runs gave 2:43 to 2:45 (the table is the committed run, 2:45), including 1.5 s per slide change (an assumption). **Speech alone 158 s; about 15 s under the team's 3:00 budget.**
 
 | Slide | Words | Seconds | Starts |

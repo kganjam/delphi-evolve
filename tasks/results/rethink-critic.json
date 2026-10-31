@@ -190,6 +190,12 @@
     "pde": "12 cases on the two declared kinetics: 9 settled all agree with an independently derived exact linear key; 2 nonconverged and 1 not_settled are reported and not scored"
    },
    "not_covered": "reaction_scale and diffusion_ratio repair knobs; 2-D PDE; subcritical/nonlinear behaviour of linearly stable states (oracle declares it unprobed); only 12 PDE cases; five bench families have no oracle"
+  },
+  "repair_knobs": {
+   "script": "scopedesk/bench/audit/audit_repair_knobs.py",
+   "output": "scopedesk/bench/audit/repair_knobs_audit_v1_2.json",
+   "result": "reaction_scale 9 repairs and diffusion_ratio 6 repairs on the 5 out_of_scope turing_finite_domain items of v1.2: all valid by independent exact check; relative_change formulas verified (|s-1| and |Dv'-Dv|/Dv); sorted; no closer valid value missed on k/4 and k/2 grids; oracle placeholder 'no_repair_in_grid' (value null) agrees with my grid for the one case",
+   "not_covered": "2-D PDE; subcritical behaviour; only 5 items; five bench families have no oracle"
   }
  },
  "v1_1": {

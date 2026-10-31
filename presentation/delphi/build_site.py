@@ -61,68 +61,82 @@ PEND = '<span class="pend">pending</span>'
 
 
 def landing(f, commit, review_exists):
-    P, T, Er, Sc, Bl = f["price"], f["turing"], f["errors"], f["scorecard"], f["baseline"]
-    W = P["witnesses"]
-    WIN = T["windows"]
+    P, T, Bn, Rp, Kl, Ac, Sc, Bl = f["price"], f["turing"], f["bench"], f["repair"], f["kills"], f["accept"], f["scorecard"], f["baseline"]
+    W, WIN = P["witnesses"], T["windows"]
     scan = T["scan"]
     head = "".join(f"<th>{E(s['L_over_pi'])}</th>" for s in scan)
     cells = "".join(f"<td class='{'u' if s['verdict'] == 'linearly_unstable' else 's'}'>{'grows' if s['verdict'] == 'linearly_unstable' else 'stable'}</td>" for s in scan)
     nmut = sum(1 for m in T["lean"]["mutants"] if m["exit"] != 0)
-    rev = ('<a href="../review/index.html">audited walkthrough (Price and Hamilton, exact-browser versus compiled labels)</a>'
-           if review_exists else f"audited walkthrough from the review worker: {PEND} (not yet committed in this tree)")
-    errs = "".join(f"<tr><td>{e['n']}</td><td>{E(e['what'])}</td><td>{E(e['caught_by'])}</td><td>{E(e['witness'])}</td><td>{E(e['ledger'])}</td></tr>" for e in Er["five"])
-    V = Er["vacuous_theorem"]
+    rev = ('<a href="../review/index.html">interactive walkthrough with the length slider (exact-browser calculation versus compiled receipts)</a>'
+           if review_exists else f"interactive walkthrough from the review worker: {PEND} (not yet committed in this tree)")
+    g, A5 = Rp["nonlinear_grid"], Bn["at5"]["totals"]
     wit = "".join(f"<details><summary>Drop: {E(v['drops'])} <span class='mono'>({E(k)})</span></summary><p>{E(v['reading'])}</p></details>" for k, v in W.items() if k != "reversed_cost_is_false")
     wit += f"<details><summary>Drop: {E(W['reversed_cost_is_false']['drops'])} <span class='mono'>(reversed_cost_is_false; plus {len(P['mutants'])} changed-target mutants the compiler rejects)</span></summary><p>{E(W['reversed_cost_is_false']['reading'])}</p></details>"
+    kc = Kl["kind_counts"]
+    lrows = "".join(f"<tr><td>{E(r['id'])}</td><td>{E(r['claim'])}</td><td>{E(r['kind'])}</td><td>{E(r['caught_by'])}</td><td>{E(r['allowed'])}</td><td class='mono'>{E(str(r['claim_stated_pdt']))}</td><td class='mono'>{E(str(r['kill_recorded_pdt']))}</td><td>{E(str(r['duration_min']))}</td></tr>" for r in Kl["all_rows"])
+    V = f["errors"]["stability_mislabel"]
+    bar = lambda v, label, color: f'<div style="display:flex;align-items:center;gap:10px;margin:6px 0"><div style="width:170px">{label}</div><div style="flex:1;background:var(--rule);border-radius:4px;height:22px"><div style="width:{v}%;height:22px;background:{color};border-radius:4px"></div></div><div class="mono" style="width:64px">{v}/100</div></div>'
     return f"""
-<p class="status">Draft of Oct 31 2026 · built from commit {E(commit[:8])} · numbers marked pending are not results · owner-private review copy</p>
+<p class="status">Draft · built from commit {E(commit[:8])} · items marked pending are not results · owner-private review copy</p>
 <h1>Delphi: from candidate laws to checked theorems</h1>
-<p class="lede">Experts know the conditions behind a law. An agent applying that law to a new setting does not reliably check them. This page shows an executable check, the compiled witnesses behind it, and our own failures.</p>
-<nav><a href="#turing">Turing check</a><a href="#price">Price → Hamilton</a><a href="#errors">Our errors</a><a href="#scorecard">Scorecard</a><a href="#downloads">Deck and notes</a><a href="appendix.html">Appendix</a><a href="blog.html">Blog</a></nav>
+<p class="lede">The textbook inequality is green. A program checks whether it applies to the model in front of you, returns a witness when it does not, and proposes a repair. Below: what runs, then what did not survive.</p>
+<nav><a href="#reveal">Reveal</a><a href="#repair">Check and repair</a><a href="#nodes">Compiled nodes and test set</a><a href="#ledger">Ledger</a><a href="#collective">Collective</a><a href="#close">Close</a><a href="appendix.html">Appendix</a><a href="blog.html">Blog</a></nav>
 <div class="grid3">
- <div class="card"><h3><span class="pf pr">Proved</span></h3>Compiled in Lean 4 under stated assumptions, each with rejected mutants: a finite Turing instance; the Price identity to a conditional Hamilton regression theorem.</div>
- <div class="card"><h3><span class="pf si">Simulated</span></h3>Nonlinear solver outcomes and the agent evaluation: {PEND}</div>
- <div class="card"><h3><span class="pf ob">Observed</span></h3><b>None.</b> We ran no experiment. The released enzyme baseline is appendix material.</div>
+ <div class="card"><h3><span class="pf pr">Proved</span></h3>Compiled in Lean 4 under stated assumptions with rejected mutants: a finite Turing instance; a conditional Hamilton regression theorem.</div>
+ <div class="card"><h3><span class="pf si">Simulated</span></h3>An independent solver on declared kinetics; a retrospective enzyme replay. The agent evaluation: {PEND}</div>
+ <div class="card"><h3><span class="pf ob">Observed</span></h3><b>None.</b> We ran no experiment.</div>
 </div>
-<div class="scope"><b>The caveats are not our discovery.</b> They are known to experts and appear in textbooks. What is new here is only that a program checks them before a law is applied, and that we show where we failed.</div>
 
-<h2 id="turing">Check 1: a finite domain can admit no growing mode</h2>
-<div class="scope"><b>Limitation first.</b> The algorithm is trivial: count the admissible modes that fall in the band. It is exact for rational L/π. What we offer is a certificate and packaging, not new mathematics. Non-monotone dependence on size is textbook-derivable, and we do not claim it as new. Finite-size effects on Turing patterns are in the literature; our citations for that are still being verified, so none is given here.</div>
-<p>Declared model: J = [[{T['J'][0][0]}, {T['J'][0][1]}], [{T['J'][1][0]}, {T['J'][1][1]}]], diffusivities D = ({T['D'][0]}, {T['D'][1]}), one-dimensional Neumann boundaries. det(J − qD) = {E(T['det_factored'])}, so the continuum band is {T['continuum_band'][0]} &lt; q &lt; {T['continuum_band'][1]}. Admissible modes are q = (nπ/L)². The continuum condition holds; whether a mode lands in the band depends on the length.</p>
+<h2 id="reveal">1. The reveal: length changes the answer</h2>
+<p>Declared model: J = [[{T['J'][0][0]}, {T['J'][0][1]}], [{T['J'][1][0]}, {T['J'][1][1]}]], diffusivities D = ({T['D'][0]}, {T['D'][1]}), one-dimensional Neumann boundaries. det(J − qD) = {E(T['det_factored'])}, so the continuum band is {T['continuum_band'][0]} &lt; q &lt; {T['continuum_band'][1]}. Admissible modes are q = (nπ/L)².</p>
 <div class="scroll"><table><tr><th>L / π</th>{head}</tr><tr><th>linear verdict</th>{cells}</tr></table></div>
-<p>Stable at π, growing at 3π/2 and 2π, stable again at 5π/2. Exactly, mode n grows iff {WIN['c_lo']}n² &lt; (L/π)² &lt; {WIN['c_hi']}n². So the model grows for L/π in (√{WIN['c_lo']}, √{WIN['c_hi']}) and for every L/π above 2√{WIN['c_lo']}, and is stable in the window √{WIN['c_hi']} ≤ L/π ≤ 2√{WIN['c_lo']} (recomputed exactly by the trace check).</p>
+<p>Exactly, mode n grows iff {WIN['c_lo']}n² &lt; (L/π)² &lt; {WIN['c_hi']}n². The model grows for L/π in (√{WIN['c_lo']}, √{WIN['c_hi']}) and for every L/π above 2√{WIN['c_lo']}, and is stable in the window √{WIN['c_hi']} ≤ L/π ≤ 2√{WIN['c_lo']} (recomputed exactly by the trace check).</p>
 <div class="grid3">
- <div class="card"><h3><span class="pf pr">Proved</span> compiled instance</h3>Lean {E(T['lean']['version'])}, build exit {T['lean']['build_exit']}: L = π admits no unstable mode; L = 2π admits one (n = {T['two_pi']['unstable_modes'][0]}, det = {E(T['two_pi']['n1_det'])}). {nmut} law and domain mutants rejected. Only these two lengths are compiled.</div>
- <div class="card"><h3><span class="pf ex">Exact arithmetic</span></h3>The strip above uses exact rational arithmetic, not Lean. Over the reals with Mathlib, a host probe re-run by the project director shows no admissible mode lies in the band at L = π (no ledger row yet).</div>
- <div class="card"><h3><span class="pf si">Simulated</span> / <span class="pf ob">Observed</span></h3>Nonlinear solver check: {PEND}. Observed tissue pattern: <b>none</b>.</div>
+ <div class="card"><h3><span class="pf pr">Proved</span> compiled instance</h3>Lean {E(T['lean']['version'])}, build exit {T['lean']['build_exit']}: L = π admits no unstable mode; L = 2π admits one (n = {T['two_pi']['unstable_modes'][0]}, det = {E(T['two_pi']['n1_det'])}). {nmut} mutants rejected. Only these two lengths are compiled.</div>
+ <div class="card"><h3><span class="pf ex">Exact arithmetic</span></h3>The strip is rational arithmetic, not Lean. Over the reals with Mathlib, a host probe re-run by the director shows no admissible mode in the band at L = π (no ledger row yet).</div>
+ <div class="card"><h3><span class="pf si">Simulated</span> / <span class="pf ob">Observed</span></h3>Nonlinear check of this model: {PEND}. Observed tissue pattern: <b>none</b>.</div>
 </div>
-<div class="scope"><b>Scope.</b> A linear-mode statement for this declared model. It does not say whether a pattern forms, and we are not saying Turing was wrong: the continuum result is a large-domain statement. A supplied scope condition refers to the extracted record.</div>
-<p>Interactive walkthrough: {rev}</p>
+<div class="scope"><b>Limitation first.</b> Counting admissible modes in a band is a trivial algorithm, exact for rational L/π. This is classical mathematics and a linear-mode statement for a declared model: it does not say a pattern forms, and we are not saying Turing was wrong. Non-monotone dependence on size is textbook-derivable and not claimed as new. The offer is a certificate and packaging.</div>
+<p>{rev}</p>
 
-<h2 id="price">Check 2: Price identity → selection-only lemma → conditional Hamilton regression theorem</h2>
-<div class="grid3"><div class="chain"><div class="node">price</div><div class="arrow">↓ used by</div><div class="node">selection_only</div><div class="arrow">↓ used by</div><div class="node">hamilton_regression</div><div class="node pn" style="margin-top:10px">Fisher additive-genetic theorem · PENDING</div></div>
-<div class="card" style="grid-column:span 2"><h3><span class="pf pr">Proved</span> receipt</h3>Lean exit {P['original_exit']}; axioms: propext, Classical.choice, Quot.sound only. {len(W)} witness controls exit {P['witness_exit']}. {len(P['mutants'])} changed-target mutants rejected (exit {P['mutants'][0]['exit']}). The dependencies are read from the Lean source. Statement-fidelity review by a second reader: {PEND}</div></div>
+<h2 id="repair">2. The check and repair</h2>
+<div class="grid3">
+ <div class="card"><h3>Request</h3>Target wavelength with equal diffusivities (Dv/Du = 1): {Rp['requests']} requests.</div>
+ <div class="card"><h3><span class="pf ex">Exact</span> refused</h3>No admissible unstable mode (turing-ddi), a witness attached: {Rp['gate_refused']} of {Rp['requests']}. The plain formula accepts them.</div>
+ <div class="card"><h3><span class="pf ex">Exact</span> repair, then <span class="pf si">simulated</span></h3>Raise Dv/Du to {Rp['repair_ratio']} (most requests); an independent solver finds a pattern on {Rp['repair_all_seeds']} of {Rp['requests']} requests, mean {Rp['repair_mean']}. The plain formula's design without repair: {int(Rp['plain_formula_success'])} of {Rp['requests']}.</div>
+</div>
+<div class="scope"><b>Caveats, printed.</b> One kinetics (Schnakenberg), 1-D Neumann, {Rp['seeds']} noise seeds, no confidence interval: a model-only check, not an experiment. Near-onset repaired patterns are marginal (amplitude up to {Rp['amp_max_at_ratio_9']} against a {Rp['amp_threshold']:.2f} threshold). The other {Rp['requests'] - Rp['repair_all_seeds']} requests did not succeed on all seeds, and repairs for {Rp['other_refusals']} further refusals worked on {Rp['other_refusals_repair_ok']}. No domain-length repair was found. Across {g['n']} nonlinear configurations the gate agreed with the solver on {g['gate_agrees']} and the plain formula on {g['plain_agrees']}; linear theory named the dominant wavelength in {g['dominant_mode']} patterned cases. Source: artifacts/rethink_nca/repair.json (not in the claim ledger yet).</div>
+
+<h2 id="nodes">3. Compiled nodes and the test set</h2>
+<div class="grid3"><div class="chain"><div class="node" style="color:var(--ink2)">price · ATLAS has it; ours duplicates it</div><div class="arrow">↓ used by</div><div class="node">selection_only</div><div class="arrow">↓ used by</div><div class="node">hamilton_regression</div></div>
+<div class="card" style="grid-column:span 2"><h3><span class="pf pr">Proved</span> receipt</h3>Lean exit {P['original_exit']}; axioms: propext, Classical.choice, Quot.sound only. {len(W)} witness controls exit {P['witness_exit']}. {len(P['mutants'])} changed-target mutants rejected (exit {P['mutants'][0]['exit']}). The dependencies are read from the Lean source. The Price identity is already formalized in the ATLAS biology library (facebookresearch/atlas-lean), so our version duplicates it; a critic's code search found no Hamilton form there, though that search is not exhaustive. A regression statement, not a causal cost–benefit rule. Statement review by a second reader: {PEND}</div></div>
 <p>Each assumption has an exact compiled witness showing what breaks without it:</p>
 {wit}
-<div class="scope"><b>Established mathematics.</b> Price 1970; Frank 1997 links Price, Fisher and Hamilton. Whether the ATLAS biology library (facebookresearch/atlas-lean) already covers Price or Hamilton is unchecked. This is a statistical regression statement, not a causal cost–benefit rule. A fixed-fitness variance corollary also compiles; it is not Fisher's theorem.</div>
+<div class="card"><h3>Test set, version 1.2</h3>{Bn['items']} requests in {Bn['families']} families with exact answers; key hash {E(Bn['key_sha256'][:16])}…. <b>Frozen.</b> Codex's metadata and text check passes ({Bn['codex_metadata']['checks']} of {Bn['codex_metadata']['checks']}). No agent has run on it yet. Audit trail: a blinded payload-only audit agreed on {Bn['blind_audit']['agree']} of {Bn['blind_audit']['n']} items of an earlier candidate (same model family, one run).</div>
+<div class="card"><h3>Checker against the key (Turing, 2-D Turing and wavelength items)</h3><table><tr><th>method</th><th>agrees with the key</th></tr><tr><td>Gate with the record</td><td>{A5['full']} / {A5['n']}</td></tr><tr><td>Plain textbook formula</td><td>{A5['C0']} / {A5['n']}</td></tr><tr><td>Continuum condition only</td><td>{A5['continuum_only']} / {A5['n']}</td></tr><tr><td>Record hash altered (refuses)</td><td>{A5['record_hash_changed_refused']} / {A5['n']}</td></tr></table>
+<p><b>Printed caveat:</b> the set is trap-enriched and shares its convention document with the checker; this is not external validation. The last row shows provenance dependence only.</p></div>
 
-<h2 id="errors">Our own validity errors, caught</h2>
-<div class="card"><h3>The near-vacuous theorem</h3><p><span class="mono">{E(V['name'])}</span> in our Admissible file assumed {E(V['assumed'])} and concluded {E(V['concluded'])}. A restatement: the length hypothesis is unused and it is not linear asymptotic stability. It compiled and passed the axiom audit. An independent reviewer caught it, not us. A revised module (Admissible {E(V['replacement']['source_commit'][:7])}) compiles a stronger statement, <span class="mono">{E(V['replacement']['theorem'])}</span>: every admissible mode has trace &lt; 0 and determinant &gt; 0. Trace negativity is derived; determinant positivity is assumed. Lean exit {V['replacement']['compile_exit']}, standard axioms. No new mutants have been run, and the full eigenvalue and PDE correspondence is not established (ledger F10). Mutants for it: {PEND}.</p></div>
-<div class="scroll"><table><tr><th>#</th><th>error</th><th>caught by</th><th>exact witness</th><th>ledger</th></tr>{errs}</table></div>
-<div class="scope">This is the check working, caught by independent review with exact witnesses. It is not a machine detecting its own errors autonomously.</div>
+<h2 id="ledger">4. The ledger: claims we held that did not survive</h2>
+<div class="scope">{Kl['n_rows']} rows. {Kl['independent']} were caught by an independent reviewer or a measurement, {Kl['author_only']} by the author's own check. <b>There is no control arm: this compares independent audit with self-audit. It is not a measurement of collective intelligence.</b> Kinds are kept separate: prior art {kc['prior art']}, counterexample {kc['counterexample']}, measured {kc['measured']}, mis-operationalised {kc['mis-operationalised']}, convention defect {kc['convention defect']}, process defect {kc['process defect']}. One team, one day: this is a hit rate for us, not a rate for the field.</div>
+<div class="scroll"><table><tr><th>id</th><th>claim we held</th><th>kind</th><th>caught by</th><th>allowed wording now</th><th>claim stated (PDT)</th><th>kill recorded (PDT)</th><th>min</th></tr>{lrows}</table></div>
+<p><b>Timing caveats, printed.</b> Times are file modification times or git commit times, so durations are rough: a commit time is not the moment of an utterance, and rows differ in kind (lookups, audits, measurements). {Kl['n_with_both_times']} of {Kl['n_rows']} rows have both times derivable; the rest read "not derivable". No median is shown. R06 (our theorem <span class="mono">{E(V['name'])}</span>): its premise, determinant non-negativity at every admissible mode, was advertised as stability. The premise holds for unstable systems; the critic's analytic witness, not Lean-compiled, is J = diag(2, 2) with equal unit diffusivities on L = π, where D(q) = (2 − q)² is never negative yet mode n = 1 has two growth eigenvalues. A revised module compiles a stronger statement (ledger F10), with determinant positivity assumed and no new mutants.</p>
+<p>Source: <span class="mono">scopedesk/ledger/KILL-LEDGER.md</span> and <span class="mono">kill_ledger.json</span> (critic).</p>
 
-<h2 id="scorecard">Scorecard: {Sc['records']} candidate laws checked as theorems</h2>
-<div class="card"><table><tr><td>records in the frozen list</td><td><b>{Sc['records']}</b></td></tr><tr><td>compiled with proof, axiom audit and a failing mutant</td><td>{PEND}</td></tr><tr><td>excluded, with reasons</td><td>{PEND}</td></tr><tr><td>source-correspondence review</td><td>{PEND}</td></tr><tr><td>agent evaluation: benchmark freeze, arms, coverage, false acceptance, false refusal</td><td>{PEND}</td></tr><tr><td>misprediction map: among parameter sets that pass the textbook Turing test, the fraction stable on a finite domain of length L, over a large ensemble</td><td>{PEND}</td></tr></table></div>
-<p>The map has not been run on the GPUs, and earlier toy-ensemble figures are not shown. The pairing we are working toward is a certified finite-domain checker plus that map: the map would be the empirical contribution and the Lean statement the certificate.</p>
-<p>The first freeze is not approved. To count in the agent evaluation: an always-refuse baseline, the same exact checker without a model, and the unguarded agent. A refusal is not a correct answer. A null will be shown. We do not claim that more agents beat fewer.</p>
+<h2 id="collective">5. What the collective measured</h2>
+<div class="card"><h3><span class="pf si">Simulated</span> retrospective enzyme panel</h3><p>{Bl['measured_nonstop']:,} measured variants, {Bl['budget']:,} extra assays.</p>{bar(Bl['q2c_1000'], 'Single planner', '#d9480f')}{bar(Bl['shared_1000'], 'Shared specialists', 'var(--ink)')}{bar(Bl['lazysp_1000'], 'Plain lazy search', 'var(--ok)')}
+<p>No collective advantage. One repeated panel, about {Bl['clusters']} distinct problems; the lazy search's gain sits mostly in one pair.</p></div>
+<div class="grid3"><div class="card"><h3>Proof-search pilot</h3>A proof-search pilot on 19 frozen integer-arithmetic lemmas, with shared, private and sequential library controls; checker repair and result replay are under review. Call-matched, not compute-matched. Results: {PEND}</div><div class="card"><h3>Do agents need the gate?</h3>Not measured. The only run used prompts that did not match their labels: exploratory agreement, not a ceiling (R09). Scored comparison: {PEND}</div></div>
 
-<h2 id="downloads">Deck, script and sources</h2>
+<h2 id="close">6. Close</h2>
+<div class="grid3">
+ <div class="card"><h3>Reusable now</h3>The checker, repair enumerator, test set and ledger are in this repository. A fresh-clone acceptance run passed (exit 0, {Ac['seconds']} s) at an earlier commit; a receipt for the final commit is {PEND} Outside use: none observed yet.</div>
+ <div class="card"><h3>Next, a proposal</h3>A pilot on a modelling team's recent reuse decisions. Delphi Frontier, nothing deployed: one page per open problem showing what we know, what's next and who is working on it. Scorecard of {Sc['records']} candidate laws: {PEND} Misprediction map over a large ensemble: {PEND}</div>
+ <div class="card"><h3>Credit, and what we do not claim</h3>ATLAS (facebookresearch/atlas-lean), Prove2Me (arXiv 2608.28433), Rashid et al. 2017, lean-bio, crnt-lean, Ripple (arXiv 2607.13531). We aim to complement ATLAS, not compete with it; offering Turing statements to it is pending. No first library, no universal threshold, no claim that a named law is wrong.</div>
+</div>
+<h2>Downloads</h2>
 <ul><li><a href="assets/deck.pdf">Six-slide deck (PDF)</a> · <a href="assets/deck.html">HTML deck</a> · <a href="assets/speaker-notes.md">three-minute script</a> · <a href="blog.html">blog</a></li>
 <li>Numbers are re-derived from committed artifacts by <span class="mono">presentation/delphi/trace.py</span>; the claim ledger is <span class="mono">planning/rethink/CLAIM-LEDGER.md</span>.</li></ul>
-
-<h2>Credit and limits</h2>
-<p>Collaborative formalization architecture: Prove2Me (arXiv 2608.28433). Prior formal biology: ATLAS (facebookresearch/atlas-lean, MathlibExt/Biology), Rashid et al. 2017 (HOL Light), lean-bio, crnt-lean, Ripple (arXiv 2607.13531). We aim to complement ATLAS, not compete with it; offering Turing statements to it is pending. We claim no experiment, no first library, no universal threshold, and not that any named law is wrong.</p>
-<footer>Delphi draft · exact-browser means rational arithmetic in a program, compiled means a Lean receipt exit 0, simulated and observed are separate. Source commit {E(commit[:8])}.</footer>
+<footer>exact-browser means rational arithmetic in a program, compiled means a Lean receipt with exit 0, simulated and observed are separate. Source commit {E(commit[:8])}.</footer>
 """
 
 
@@ -150,23 +164,27 @@ def appendix(f, commit):
 
 
 def blog_parts(f):
-    P, T, Er, Sc = f["price"], f["turing"], f["errors"], f["scorecard"]
-    V = Er["vacuous_theorem"]
+    P, T, Bn, Rp, Kl, Sc, Bl = f["price"], f["turing"], f["bench"], f["repair"], f["kills"], f["scorecard"], f["baseline"]
+    V = f["errors"]["stability_mislabel"]
+    kc = Kl["kind_counts"]
+    A5 = Bn["at5"]["totals"]
     return [
         ("h1", "Delphi: from candidate laws to checked theorems"),
-        ("p", "Experts know the conditions that bound a law. An agent that reads a textbook inequality and applies it to a new system usually does not check them. This post describes a small executable check, what is compiled behind it, what is still pending, and the mistakes we made on the way."),
+        ("p", "The textbook inequality is green. This post describes a small executable check that asks whether it applies to the model in front of you, what it returns when it does not, what is compiled behind it, what is still pending, and the claims we held that did not survive."),
         ("h2", "What we are not claiming"),
-        ("p", "The caveats we check are known to experts. We do not present them as discoveries, we ran no experiment, and we do not say that any named law is wrong: a scope condition we supply refers to the extracted record of the claim, not to the law's author. We did not set out to build the first library of formal biology. ATLAS (facebookresearch/atlas-lean, MathlibExt/Biology) already holds a large body of exact biology statements with cited sources and non-vacuity witnesses, and Prove2Me (arXiv 2608.28433), Rashid et al. 2017, lean-bio, crnt-lean and Ripple (arXiv 2607.13531) came before at their own scope. We aim to complement ATLAS, not compete with it."),
-        ("h2", "Check one: a finite domain with no growing mode"),
-        ("p", f"Take a declared two-species linear model, J = [[{T['J'][0][0]}, {T['J'][0][1]}], [{T['J'][1][0]}, {T['J'][1][1]}]] with diffusivities ({T['D'][0]}, {T['D'][1]}) and Neumann boundaries. The continuum Turing condition holds: det(J − qD) = {T['det_factored']} is negative for {T['continuum_band'][0]} < q < {T['continuum_band'][1]}. On a finite domain only q = (nπ/L)² exist. At L = π none lies in the band; at 3π/2 and 2π one does; at 5π/2 none does again. Lean {T['lean']['version']} compiles the L = π and L = 2π cases and rejects {sum(1 for m in T['lean']['mutants'] if m['exit'] != 0)} mutants. The other lengths are exact rational arithmetic, not Lean. The algorithm is trivial, counting admissible modes in a band, so what we offer is a certificate and packaging, not new mathematics; non-monotone dependence on size is textbook-derivable and not claimed as new. This is a linear-mode statement; whether a pattern forms is a nonlinear question we have not simulated yet (pending)."),
-        ("h2", "Check two: Price to Hamilton, with the assumptions attached"),
-        ("p", f"We compiled the finite Price identity, a selection-only lemma that depends on it, and a conditional Hamilton regression theorem that depends on that lemma. Lean exits {P['original_exit']}, the axioms are propext, Classical.choice and Quot.sound only, {len(P['witnesses'])} witness controls exit {P['witness_exit']}, and {len(P['mutants'])} changed-target mutants are rejected. Each assumption (perfect transmission, residual orthogonality, the sign of the cost term) has an exact witness showing what fails without it. This is established mathematics; Price and Frank did the science, and whether ATLAS already covers it is unchecked. It is a regression statement, not a causal cost-benefit rule. Fisher's additive-genetic theorem is not proved (pending), and a second reader has not yet reviewed the statements (pending)."),
-        ("h2", "Our own near-vacuous theorem"),
-        ("p", f"One of our theorems, {V['name']}, assumed that no admissible mode has negative determinant and concluded that every mode has non-negative determinant. That is a restatement. It compiled and passed the axiom audit, which certifies proof dependencies and not what a statement says. An independent reviewer caught it, not us. A revised module now compiles trace negative and determinant positive at every admissible mode; the determinant is assumed, no new mutants have run, and the eigenvalue and PDE correspondence is not established (ledger F10). We list five more validity errors from this team in the page, each caught by independent review with an exact witness. We read this as the check working, with humans and agents reviewing independently. It is not a machine detecting its own errors."),
-        ("h2", "What is pending"),
-        ("p", f"The scorecard of {Sc['records']} candidate laws checked as theorems has no compiled count yet, and the misprediction map (what fraction of parameter sets passing the textbook Turing test are stable on a finite domain, over a large ensemble) has not been run. The agent evaluation needs a corrected benchmark freeze, an always-refuse baseline, the same checker without a model, and the unguarded agent. A refusal is not a correct answer, and a null will be shown. We do not claim that more agents beat fewer."),
-        ("h2", "Appendix material"),
-        ("p", "A robustness sweep (simulated, one linear family, noise-model dependent, not ledger-reviewed) and the earlier enzyme baseline with its nulls are in the appendix."),
+        ("p", "The conditions we check are known to experts, and we do not present them as discoveries. We ran no experiment. We do not say that any named law is wrong: a scope condition we supply refers to the extracted record of the claim. We did not build the first library of formal biology. ATLAS (facebookresearch/atlas-lean, MathlibExt/Biology) already holds a large body of exact biology statements with cited sources and non-vacuity witnesses, and Prove2Me (arXiv 2608.28433), Rashid et al. 2017, lean-bio, crnt-lean and Ripple (arXiv 2607.13531) came before at their own scope. We aim to complement ATLAS, not compete with it."),
+        ("h2", "The reveal"),
+        ("p", f"Take a declared two-species linear model, J = [[{T['J'][0][0]}, {T['J'][0][1]}], [{T['J'][1][0]}, {T['J'][1][1]}]] with diffusivities ({T['D'][0]}, {T['D'][1]}) and Neumann boundaries. The continuum Turing condition holds: det(J − qD) = {T['det_factored']} is negative for {T['continuum_band'][0]} < q < {T['continuum_band'][1]}. On a finite domain only q = (nπ/L)² exist. At L = π none lies in the band; at 3π/2 and 2π one does; at 5π/2 none does again. Lean {T['lean']['version']} compiles the L = π and L = 2π cases and rejects {sum(1 for m in T['lean']['mutants'] if m['exit'] != 0)} mutants; the other lengths are exact rational arithmetic. The algorithm is trivial, counting admissible modes in a band, so what we offer is a certificate and packaging, not new mathematics. Non-monotone dependence on size is textbook-derivable and not new. This is a linear-mode statement; whether a pattern forms is a nonlinear question we have not settled (pending)."),
+        ("h2", "The check and the repair"),
+        ("p", f"We gave the checker {Rp['requests']} requests for a target wavelength with equal diffusivities, which the plain formula accepts. It refused all {Rp['gate_refused']} with a witness. The exact check then licensed a repair, raising the diffusivity ratio to {Rp['repair_ratio']} for most requests, and an independent solver found a pattern on {Rp['repair_all_seeds']} of {Rp['requests']} requests, mean {Rp['repair_mean']}. The plain formula's design without repair succeeded on {int(Rp['plain_formula_success'])}. The caveats matter: one kinetics, one-dimensional Neumann boundaries, {Rp['seeds']} noise seeds, no confidence interval, near-onset repaired patterns that are marginal, five requests that did not succeed on all seeds, and no domain-length repair found. It is a model-only check, not an experiment."),
+        ("h2", "Compiled nodes and a test set"),
+        ("p", f"We compiled a conditional Hamilton regression theorem that depends on a selection-only lemma, with exact witnesses for each assumption and {len(P['mutants'])} rejected changed-sign mutants (Lean exit {P['original_exit']}, standard axioms only). The Price identity underneath it is already formalized in ATLAS, so our version of that part is a duplicate; a critic's code search found no Hamilton form there, though the search is not exhaustive. A second reader has not yet reviewed the statements (pending). The test set has {Bn['items']} requests in {Bn['families']} families with exact answers; it is frozen, Codex's metadata and text check passes, and no agent has run on it. On the {A5['n']} Turing, 2-D Turing and wavelength items the gate agrees with the key on {A5['full']}, the plain formula on {A5['C0']} and the continuum condition alone on {A5['continuum_only']}. The set is trap-enriched and shares its convention document with the checker, so this is not external validation."),
+        ("h2", "The ledger"),
+        ("p", f"We kept a ledger of claims we held that did not survive: {Kl['n_rows']} rows, each with a witness and a kind. {Kl['independent']} were caught by an independent reviewer or a measurement and {Kl['author_only']} by the author's own check. Kinds are kept separate: prior art {kc['prior art']}, counterexample {kc['counterexample']}, measured {kc['measured']}, mis-operationalised {kc['mis-operationalised']}, convention defect {kc['convention defect']}, process defect {kc['process defect']}. There is no control arm, so this compares independent audit with self-audit; it is not a measurement of collective intelligence, and one team's day is not a rate for the field. One row is our own theorem, {V['name']}, whose premise (determinant non-negativity) was advertised as stability; the premise also holds for unstable systems. A revised module now compiles a stronger statement, with the determinant assumed and no new mutants yet."),
+        ("h2", "What the collective measured"),
+        ("p", f"On the one controlled task, shared specialists matched a single planner ({Bl['shared_1000']} of 100 each) and a plain lazy search reached {Bl['lazysp_1000']}. More agents did not help. A proof-search pilot on 19 frozen integer-arithmetic lemmas, with shared, private and sequential library controls, is pending checker repair and result replay (call-matched, not compute-matched). The only agent run we have used prompts that did not match their labels, so it is exploratory agreement and not a ceiling."),
+        ("h2", "Reusable now, and next"),
+        ("p", f"The checker, repair enumerator, test set and ledger are in the repository; outside use is none observed yet. Next, as a proposal and not a deployed system: a pilot on a modelling team's recent reuse decisions, and Delphi Frontier, one page per open problem showing what we know, what is next and who is working on it. The scorecard of {Sc['records']} candidate laws and a misprediction map over a large parameter ensemble are pending."),
     ]
 
 
@@ -181,28 +199,27 @@ def render_blog_md(parts):
 def storyboard(f, timing):
     ps = {r["slide"]: r for r in timing["per_slide"]}
     mm = lambda t: f"{int(t // 60)}:{int(t % 60):02d}"
-    T, P = f["turing"], f["price"]
     shots = [
-        (1, "Title and the three columns: Proved, Simulated, Observed", "Hold on the three cards. Cursor rests on 'Observed: None'.",
-         "Caption: 'We ran no experiment. Pending means not yet measured.'", "deck slide 1"),
-        (2, "Turing strip: stable at pi, grows at 3pi/2 and 2pi, stable at 5pi/2", "Highlight the stable cell at pi, then the two growing cells, then 5pi/2.",
-         "Caption: 'Linear-mode statement for one declared model. Only pi and 2pi are Lean-compiled.'", "deck slide 2; then site/review walkthrough, Neumann pi to 2pi control (record after final integration)"),
-        (3, "Price, selection-only lemma, Hamilton regression: the dependency chain", "Trace the two arrows, then open one witness (residual orthogonality dropped).",
-         "Caption: 'Established mathematics. Statement review by a second reader: pending.'", "deck slide 3; site/delphi#price"),
-        (4, "Our own near-vacuous theorem and the five errors", "Zoom on 'Assumed / Concluded', then the replacement line, then the table.",
-         "Caption: 'Caught by independent review with exact witnesses, not by a machine on its own.'", "deck slide 4; site/delphi#errors"),
-        (5, "Scorecard: every result pending", "Slow pan over the pending tags; no numbers other than the record count.",
-         "Caption: 'No scores shown. A null will be shown.'", "deck slide 5; site/delphi#scorecard"),
-        (6, "Credit, what we do not claim, what is pending", "Hold on the credit card, then the closing line.",
-         "Caption: 'Make the assumptions behind a biological-model decision executable and auditable.'", "deck slide 6"),
+        (1, "Reveal: the length strip flips from stable at π to growing at 2π", "Slider on the declared model (walkthrough, site/review) or the strip on slide 1; highlight π, then 2π.",
+         "'Classical mathematics. A program checks it, with a witness.'", "deck slide 1; site/review walkthrough"),
+        (2, "Request, refusal with witness, repair, independent solver", "Step the four boxes left to right; hold on the printed caveats.",
+         "'Limitation first: the algorithm is trivial. The offer is the certificate, the refusal and the repair.'", "deck slide 2; site/delphi#repair"),
+        (3, "Compiled nodes and the test set", "Trace price, selection_only, hamilton_regression; point at the ATLAS note; then the four-row table and its caveat.",
+         "'Not external validation. Not frozen.'", "deck slide 3; site/delphi#nodes"),
+        (4, "The ledger", "Five rows with witnesses, then the 17 and 3 line and the no-control-arm sentence.",
+         "'Audit versus self-audit, not collective intelligence. One team, one day.'", "deck slide 4; site/delphi#ledger"),
+        (5, "What the collective measured", "Three bars; hold on 'No collective advantage'; then the two pending cards.",
+         "'Null stated as a null.'", "deck slide 5; site/delphi#collective"),
+        (6, "Close: reusable now, next as a proposal, credit", "Hold on the three cards, then the closing line.",
+         "'Outside use: none observed yet. Nothing deployed.'", "deck slide 6; site/delphi#close"),
     ]
     out = ["# Video storyboard: Delphi, three-minute walkthrough", "",
-           f"Timings are the measured per-slide start times of a synthetic-voice read-through (`timing.json`, total {timing['total_mm_ss']}); a human presenter will differ. No narration audio has been recorded and no video has been produced; this is a shot list.", "",
+           f"Built to `planning/rethink/PITCH-OUTLINE.md`. Start times are the measured per-slide starts of a synthetic-voice read-through (`timing.json`, total {timing['total_mm_ss']}); a human presenter will differ. No narration audio and no video has been recorded; this is a shot list. Backup if the live demo fails: a captioned recording made from the same artifacts.", "",
            "| Start | Slide | Shot | Action | Caption | Source |", "|---|---|---|---|---|---|"]
     for n, shot, act, cap, src in shots:
         out.append(f"| {mm(ps[n]['starts_at_s'])} | {n} | {shot} | {act} | {cap} | {src} |")
-    out += ["", "Rules for the recording: show the pending tags; never show a benchmark number; do not display any claim not in `planning/rethink/CLAIM-LEDGER.md`; no first-ever, universal-threshold or solved-biology language, and no statement that a named law is wrong.",
-            "Interactive segment (optional, only if time allows): the audited walkthrough at `site/review/` (ledger F09). Recording it is pending until the integration commit is final.", ""]
+    out += ["", "Rules for the recording: show the pending tags; never show an agent-evaluation number; show the printed caveats on slides 2, 3 and 4; do not show a median or a '10 of 10' count; no first-ever, universal-threshold, pattern-forms or solved-biology language, and no statement that a named law is wrong.",
+            "Opening alternative if the scorecard is thin: start on the ledger's diffusion-ratio-1.1 counterexample, then the reveal.", ""]
     return "\n".join(out)
 
 

@@ -44,38 +44,25 @@ def register():
     (a, b), (c, d) = [[F(x) for x in row] for row in inp["jacobian"]]
     Du, Dv = (F(x) for x in inp["diffusivities"])
     det = lambda q: (a - Du * q) * (d - Dv * q) - b * c
-    A, B, C = Du * Dv, -(Dv * a + Du * d), a * d - b * c  # det(q) = A q^2 + B q + C
+    A, B, C = Du * Dv, -(Dv * a + Du * d), a * d - b * c
     disc = B * B - 4 * A * C
+    assert F(int(disc**0.5)) ** 2 == disc
     root = lambda s: (-B + s * F(int(disc**0.5))) / (2 * A)
-    assert F(int(disc ** 0.5)) ** 2 == disc
     r1, r2 = sorted([root(-1), root(1)])
     assert det(r1) == 0 == det(r2)
     f1, f2 = (r1.denominator, r1.numerator), (r2.denominator, r2.numerator)
     assert f1[0] * f2[0] == A
 
-    # ---- slide 1
-    claim(1, "compiled in Lean 4", [LEAN], lambda: "compiled in Lean " + re.search(r"version (\d+)", lean["lean_version"]).group(1))
-    # ---- slide 2
-    claim(2, "J = [[1, -2], [2, -3]], diffusivities D = (1, 10)", [RES],
+    # ================= slide 1
+    def reveal():
+        assert not any(det(F(n * n)) < 0 for n in range(0, 300)) and [n for n in range(0, 300) if det(F(n * n) / 4) < 0] == [1]
+        return "On a tissue of length π no admissible mode is in the band; at 2π one is."
+    claim(1, "On a tissue of length π no admissible mode is in the band; at 2π one is.", [RES], reveal)
+    claim(1, "J = [[1, -2], [2, -3]], diffusivities D = (1, 10)", [RES],
           lambda: f"J = [[{inp['jacobian'][0][0]}, {inp['jacobian'][0][1]}], [{inp['jacobian'][1][0]}, {inp['jacobian'][1][1]}]], diffusivities D = ({inp['diffusivities'][0]}, {inp['diffusivities'][1]})")
-    claim(2, "1-D Neumann boundaries", [RES], lambda: f"{inp['domain']['dimension']}-D Neumann boundaries" if inp["domain"]["boundary"].startswith("neumann") else "MISMATCH")
-    claim(2, "det(J − qD) = (5q-1)(2q-1), so the continuum band is 1/5 < q < 1/2", [RES],
+    claim(1, "1-D Neumann boundaries", [RES], lambda: f"{inp['domain']['dimension']}-D Neumann boundaries" if inp["domain"]["boundary"].startswith("neumann") else "MISMATCH")
+    claim(1, "det(J − qD) = (5q-1)(2q-1), so the continuum band is 1/5 < q < 1/2", [RES],
           lambda: f"det(J − qD) = ({f1[0]}q-{f1[1]})({f2[0]}q-{f2[1]}), so the continuum band is {r1} < q < {r2}")
-
-    def window():
-        c_lo, c_hi = 1 / r2, 1 / r1  # mode n grows iff r1 < n^2/k^2 < r2  <=>  c_lo n^2 < k^2 < c_hi n^2, k = L/pi
-        assert (c_lo, c_hi) == (2, 5)
-        # exact checks on the claimed structure (integers only):
-        for n in range(2, 500):
-            assert c_hi * n * n > c_lo * (n + 1) ** 2          # intervals overlap from n = 2 on: growth for every k^2 > 4 c_lo
-        assert c_hi * 1 < c_lo * 4                               # the gap [sqrt(c_hi), 2 sqrt(c_lo)] is non-empty
-        for k2 in (F(5), F(6), F(15, 2), F(8)):                  # sample stable points inside the gap: no mode grows
-            assert not any(c_lo * n * n < k2 < c_hi * n * n for n in range(0, 300))
-        for k2 in (F(2) + F(1, 100), F(9, 2), F(81, 8), F(8) + F(1, 100)):  # samples outside: some mode grows
-            assert any(c_lo * n * n < k2 < c_hi * n * n for n in range(1, 300))
-        return (f"The algorithm is trivial: count admissible modes in the band; exact for rational L/π. The offer is a certificate and packaging, not new mathematics. "
-                f"Exactly, mode n grows iff {c_lo}n² < (L/π)² < {c_hi}n²: growth for L/π in (√{c_lo}, √{c_hi}) and every L/π above 2√{c_lo}; stable window √{c_hi} ≤ L/π ≤ 2√{c_lo}.")
-    claim(2, "The algorithm is trivial: count admissible modes in the band; exact for rational L/π. The offer is a certificate and packaging, not new mathematics. Exactly, mode n grows iff 2n² < (L/π)² < 5n²: growth for L/π in (√2, √5) and every L/π above 2√2; stable window √5 ≤ L/π ≤ 2√2.", [RES], window)
 
     def strip():
         hd, vd = [], []
@@ -83,128 +70,225 @@ def register():
             k = F(row["length_over_pi"])
             unstable = any(det(F(n * n) / (k * k)) < 0 for n in range(0, 300))
             assert unstable == (row["verdict"] == "linearly_unstable")
-            hd.append(str(k))
-            vd.append("grows" if unstable else "stable")
+            hd.append(str(k)); vd.append("grows" if unstable else "stable")
         return "length L / π " + " ".join(hd) + " linear verdict " + " ".join(vd)
-    claim(2, "length L / π 1/2 3/4 1 3/2 2 5/2 3 4 5 6 linear verdict stable stable stable grows grows stable grows grows grows grows", [RES], strip)
+    claim(1, "length L / π 1/2 3/4 1 3/2 2 5/2 3 4 5 6 linear verdict stable stable stable grows grows stable grows grows grows grows", [RES], strip)
 
     def lean_txt():
         n1 = det(F(1) / 4)
         modes = [n for n in range(0, 300) if det(F(n * n) / 4) < 0]
         assert modes == [1] and not [n for n in range(0, 300) if det(F(n * n)) < 0]
         inst = (R / "turing_scope/lean/TuringScope/Instance.lean").read_text()
-        lengths = sorted(set(re.findall(r"ModeStable exModel (\d) 1", inst)))
-        assert lengths == ["1", "2"], lengths
+        assert sorted(set(re.findall(r"ModeStable exModel (\d) 1", inst))) == ["1", "2"]
         ver = re.search(r"version ([0-9.]+)", lean["lean_version"]).group(1)
         nm = sum(1 for m in lean["mutants"] if m["exit"] != 0 and m["as_expected"])
-        return (f"Lean {ver}: L = π admits no unstable mode; L = 2π admits one (n = {modes[0]}, det = {n1}). "
-                f"Build exit {lean['build']['exit']}; {nm} law and domain mutants rejected. Only these two lengths are compiled.")
-    claim(2, "Lean 4.35.0: L = π admits no unstable mode; L = 2π admits one (n = 1, det = -1/8). Build exit 0; 3 law and domain mutants rejected. Only these two lengths are compiled.",
+        return (f"Lean {ver}: L = π admits no unstable mode; L = 2π admits one (n = {modes[0]}, det = {n1}). Build exit {lean['build']['exit']}; {nm} mutants rejected. Only these two lengths are compiled.")
+    claim(1, "Lean 4.35.0: L = π admits no unstable mode; L = 2π admits one (n = 1, det = -1/8). Build exit 0; 3 mutants rejected. Only these two lengths are compiled.",
           [LEAN, RES, "turing_scope/lean/TuringScope/Instance.lean"], lean_txt)
 
-    # ---- slide 3
-    mm = lambda: {k: v for k, v in pj.items()}
-    p = [F(1, 2), F(1, 2)]
-    z = [F(0), F(1)]
-    mean = lambda w: sum(pi * wi for pi, wi in zip(p, w))
-    cov = lambda x, y: mean([u * v for u, v in zip(x, y)]) - mean(x) * mean(y)
-    desc = lambda w, zd: mean([u * v for u, v in zip(w, zd)]) / mean(w)
-    one, zero = [F(1)] * 2, [F(0)] * 2
-    wc = [F(2) - zi for zi in z]
-    wres = [F(2) - zi + 2 * zi for zi in z]
-    claim(3, "mean fitness × trait change = 1 while selection covariance = 0", [PJ, "experiments/price_probe/Witnesses.lean.inc"],
-          lambda: f"mean fitness × trait change = {mean(one) * (desc(one, one) - mean(zero))} while selection covariance = {cov(one, zero)}")
-    claim(3, "trait mean rises although r·b − c = -1", [PJ, "experiments/price_probe/Witnesses.lean.inc"],
-          lambda: ("trait mean rises although r·b − c = %s" % (1 * 0 - 1)) if desc(wres, z) - mean(z) > 0 else "MISMATCH")
-    claim(3, "yes: change = -1/6, variance 1/4", [PJ, "experiments/price_probe/Witnesses.lean.inc"],
-          lambda: f"yes: change = {desc(wc, z) - mean(z)}, variance {cov(z, z)}")
+    def window():
+        c_lo, c_hi = 1 / r2, 1 / r1
+        assert (c_lo, c_hi) == (2, 5)
+        for n in range(2, 500):
+            assert c_hi * n * n > c_lo * (n + 1) ** 2
+        assert c_hi * 1 < c_lo * 4
+        for k2 in (F(5), F(6), F(15, 2), F(8)):
+            assert not any(c_lo * n * n < k2 < c_hi * n * n for n in range(0, 300))
+        for k2 in (F(2) + F(1, 100), F(9, 2), F(81, 8), F(8) + F(1, 100)):
+            assert any(c_lo * n * n < k2 < c_hi * n * n for n in range(1, 300))
+        return f"Mode n grows iff {c_lo}n² < (L/π)² < {c_hi}n²."
+    claim(1, "Mode n grows iff 2n² < (L/π)² < 5n².", [RES], window)
 
+    # ================= slide 2: repair
+    RP, NCA, LVN = "artifacts/rethink_nca/repair.json", "planning/rethink/nca.md", "scopedesk/oracles/results/linear_vs_nonlinear.json"
+    rp = T.J(RP)
+    nca = (R / NCA).read_text()
+    ctl = [x for x in rp["repairs"] if x["req"] >= 32 and x["knob"] == "diffusion_ratio"]
+    assert len(ctl) == 16 and all(x["found"] for x in ctl)
+    allok = sum(1 for x in ctl if all(e["ok"] for e in x["eval"]))
+    mean = sum(x["success"] for x in ctl) / len(ctl)
+    c0 = sum(rp["unrepaired_C0_success"][str(x["req"])] for x in ctl) / len(ctl)
+    ratios = {}
+    for x in ctl:
+        ratios[x["found"]["d"]] = ratios.get(x["found"]["d"], 0) + 1
+    top = max(ratios, key=ratios.get)
+    seeds = {len(x["eval"]) for x in ctl}
+    assert seeds == {3} and top == 9.0 and ratios[top] > len(ctl) / 2
+    assert "Dv/Du=1" in nca and "refused by `turing-ddi`" in nca and "Schnakenberg" in nca and "0.10" in nca
+    claim(2, "Target wavelength, equal diffusivities (Dv/Du = 1). 16 requests.", [RP, NCA], lambda: f"Target wavelength, equal diffusivities (Dv/Du = 1). {len(ctl)} requests.")
+    claim(2, "No admissible unstable mode (turing-ddi). 16 of 16.", [RP, NCA], lambda: f"No admissible unstable mode (turing-ddi). {len(ctl)} of {len(ctl)}.")
+    claim(2, "Raise Dv/Du to 9 (most requests); the exact check licenses it.", [RP], lambda: f"Raise Dv/Du to {int(top)} (most requests); the exact check licenses it.")
+    claim(2, "Independent solver: pattern on 11 of 16 requests, mean 0.708.", [RP], lambda: f"Independent solver: pattern on {allok} of {len(ctl)} requests, mean {mean:.3f}.")
+    claim(2, "The plain formula's design without repair succeeded on 0 of 16.", [RP], lambda: f"The plain formula's design without repair succeeded on {int(c0)} of {len(ctl)}.")
+    lv = T.J(LVN)
+    g = lv["gate_vs_C0_vs_pde"]
+
+    def caveats():
+        amp = max(e["amp"] for x in ctl if x["found"]["d"] == 9.0 for e in x["eval"])
+        dl = [x for x in rp["repairs"] if x["req"] >= 32 and x["knob"] == "domain_length"]
+        assert all(x["found"] is None for x in dl)
+        tr = [x for x in rp["repairs"] if x["req"] < 32 and x["knob"] == "diffusion_ratio"]
+        tr_ok = sum(1 for x in tr if all(e["ok"] for e in x["eval"]))
+        return (f"One kinetics, 1-D Neumann, {seeds.pop()} noise seeds, no confidence interval; a model-only check, not an experiment. "
+                f"Near-onset repaired patterns are marginal (amplitude up to {amp:.2f} against a 0.10 threshold). "
+                f"The other {len(ctl) - allok} requests did not succeed on all seeds, and repairs for {len(tr)} further refusals worked on {tr_ok}. No domain-length repair was found. "
+                f"Across {g['n_scored']} nonlinear configurations the gate agreed with the solver on {g['gate_equals_pde']} and the plain formula on {g['C0_equals_pde']}; "
+                f"linear theory named the dominant wavelength in {lv['summary']['dominant_mode_equals_fastest_linear_mode']} patterned cases.")
+    claim(2, "One kinetics, 1-D Neumann, 3 noise seeds, no confidence interval; a model-only check, not an experiment. Near-onset repaired patterns are marginal (amplitude up to 0.18 against a 0.10 threshold). The other 5 requests did not succeed on all seeds, and repairs for 2 further refusals worked on 0. No domain-length repair was found. Across 80 nonlinear configurations the gate agreed with the solver on 80 and the plain formula on 79; linear theory named the dominant wavelength in 43/61 patterned cases.",
+          [RP, NCA, LVN], caveats)
+
+    # ================= slide 3: compiled nodes + test set
     def receipt():
         ax = sorted({a_ for line in pj["original"]["output"].splitlines() for a_ in re.findall(r"\[(.*)\]", line)[0].split(", ")})
         assert ax == sorted(["propext", "Classical.choice", "Quot.sound"])
         nw = len(re.findall(r"DelphiPriceWitnesses\.\w+' depends", pj["witness_controls"]["output"]))
         nm = sum(1 for m in pj["mutants"] if m["exit"] != 0 and m["rejected"])
-        return (f"Lean exit {pj['original']['exit']}; axioms: propext, Classical.choice, Quot.sound only. "
-                f"{nw} witness controls exit {pj['witness_controls']['exit']}. {nm} changed-target mutants rejected (exit {pj['mutants'][0]['exit']}).")
-    claim(3, "Lean exit 0; axioms: propext, Classical.choice, Quot.sound only. 4 witness controls exit 0. 2 changed-target mutants rejected (exit 1).", [PJ], receipt)
-    claim(3, "(source sha a5d38f13…)", [PJ], lambda: f"(source sha {pj['source_sha256'][:8]}…)", kind="fn")
-
-    SRC = "presentation/delphi/sources.md"
+        assert pj["original"]["exit"] == 0 and pj["witness_controls"]["exit"] == 0
+        return f"Lean exit {pj['original']['exit']}, standard axioms only, {nw} witness controls, {nm} changed-sign mutants rejected."
+    claim(3, "Lean exit 0, standard axioms only, 4 witness controls, 2 changed-sign mutants rejected.", [PJ], receipt)
 
     def atlas3():
-        t = (R / SRC).read_text()
-        assert "facebookresearch/atlas-lean" in t and "unchecked" in t
-        return "Whether the ATLAS biology library (facebookresearch/atlas-lean) already covers Price or Hamilton is unchecked."
-    claim(3, "Whether the ATLAS biology library (facebookresearch/atlas-lean) already covers Price or Hamilton is unchecked.", [SRC], atlas3)
+        t = (R / "lean_price/README.md").read_text()
+        assert "duplicate of existing work" in t and "Selection.lean" in t and "'Queller' 0 hits" in t
+        return "A critic's code search found no Hamilton form in ATLAS; not exhaustive."
+    claim(3, "A critic's code search found no Hamilton form in ATLAS; not exhaustive.", ["lean_price/README.md"], atlas3)
+    BD = "scopedesk/bench/v1_2"
+    GD = "planning/rethink/CODEX-LEAN19-SLIDE-AND-FREEZE-DECISION.md"
+    guide = (R / GD).read_text()
+    cap = "A proof-search pilot on 19 frozen integer-arithmetic lemmas, with shared, private and sequential library controls; checker repair and result replay are under review."
+    assert cap in guide
 
-    def biblio_price():
-        return "Price 1970; the Price–Fisher–Hamilton link is in Frank 1997." if ("Price 1970" in (R / "planning/rethink/DECISION.md").read_text()
-                                                                                    and "Frank (1997)" in (R / "planning/rethink/PRICE-PRIOR-ART-AND-PROBE.md").read_text()) else "MISMATCH"
-    claim(3, "Price 1970; the Price–Fisher–Hamilton link is in Frank 1997.", ["planning/rethink/DECISION.md", "planning/rethink/PRICE-PRIOR-ART-AND-PROBE.md"], biblio_price)
+    def pilot():
+        n_targets = len(re.findall(r"^\| ([TQHD]\d\d) \|", guide, flags=re.M))
+        assert n_targets == 19
+        return cap.replace("19", str(n_targets))
+    claim(5, "A proof-search pilot on 19 frozen integer-arithmetic lemmas, with shared, private and sequential library controls; checker repair and result replay are under review.", [GD], pilot)
+    ks = {ln.split()[1]: ln.split()[0] for ln in (R / BD / "KEY.sha256").read_text().splitlines() if len(ln.split()) == 2}
+    pub = [json.loads(x) for x in (R / BD / "instances_public.jsonl").read_text().splitlines() if x.strip()]
+    assert T.sha(f"{BD}/key.jsonl") == ks["key.jsonl"]
+    status = (R / BD / "STATUS.md").read_text()
+    claim(3, "Version 1.2: 127 requests, 8 families, key hash 28645a12….", [f"{BD}/key.jsonl", f"{BD}/KEY.sha256", f"{BD}/instances_public.jsonl"],
+          lambda: f"Version {BD.split('/')[-1][1:].replace('_', '.')}: {len(pub)} requests, {len({r['family'] for r in pub})} families, key hash {ks['key.jsonl'][:8]}….")
+    claim(3, "Turing, 2-D Turing and wavelength items.", ["artifacts/delphi_submit/at5_v1_2_frozen127.json"],
+          lambda: "Turing, 2-D Turing and wavelength items." if sorted(k for k in T.J("artifacts/delphi_submit/at5_v1_2_frozen127.json")["table"] if k.lower() != "all") == ["turing_2d_rectangle", "turing_finite_domain", "wavelength_formula_licence"] else "MISMATCH")
+    CM = "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json"
 
-    # ---- slide 4
-    adm = (R / "artifacts/integration/codex-api/admissible-review/Admissible.lean").read_text()
-    rev = (R / "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md").read_text()
-    ADM, REV = "artifacts/integration/codex-api/admissible-review/Admissible.lean", "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md"
+    def gate():
+        fz = (R / BD / "FROZEN.md").read_text()
+        cod = T.J(CM)
+        assert ks["key.jsonl"] in fz and "No agent has run on any version of this bench" in fz
+        assert cod["all_ok"] is True and cod["n_items"] == len(pub) and len(cod["checks"]) == sum(1 for c in cod["checks"].values() if c["ok"])
+        return f"Frozen. Codex's metadata and text check passes ({len(cod['checks'])} of {len(cod['checks'])}). No agent has run on it yet."
+    claim(3, "Frozen. Codex's metadata and text check passes (14 of 14). No agent has run on it yet.", [f"{BD}/FROZEN.md", CM], gate)
+    bl = T.J("scopedesk/audit_v12/blind_vs_key_v12.json")
+    claim(3, "Audit trail: a blinded payload-only audit agreed on 132 of 135 items of an earlier candidate.", ["scopedesk/audit_v12/blind_vs_key_v12.json"],
+          lambda: f"Audit trail: a blinded payload-only audit agreed on {bl['agree']} of {bl['n']} items of an earlier candidate.")
+    AT5 = "artifacts/delphi_submit/at5_v1_2_frozen127.json"
+    at5 = T.J(AT5)
+    assert at5["bench_dir_files_sha256"]["key.jsonl"] == ks["key.jsonl"]
+    _rerun_at5_matches(R, at5)
 
-    def vac():
-        thm = re.search(r"theorem finite_domain_stable.*?:=\s*by", adm, flags=re.S).group(0)
-        assert "hout : ∀ n : ℕ, ¬ Unstable S" in thm and "0 ≤ D S" in thm and re.search(r"def Unstable.*?D S q < 0", adm, flags=re.S)
-        assert "logical restatement" in rev and "not linear asymptotic stability" in rev
-        return "Assumed: for every admissible mode n, NOT(det(J - qD) < 0). Concluded: for every n, det(J - qD) >= 0."
-    claim(4, "Assumed: for every admissible mode n, NOT(det(J - qD) < 0). Concluded: for every n, det(J - qD) >= 0.", [ADM, REV], vac)
+    def at5txt():
+        tt = {"n": 0, "C0": 0, "full": 0, "co": 0, "rh": 0}
+        for name, t in at5["table"].items():
+            if name.lower() == "all":
+                continue
+            tt["n"] += t["n"]; tt["C0"] += t["C0"]["agree_with_key"]; tt["full"] += t["full"]["agree_with_key"]
+            tt["co"] += t["continuum_only"]["agree_with_key"]; tt["rh"] += t["record_hash_changed"]["refused"]
+        assert "not external validation" in " ".join(at5["notes"])
+        return (f"Gate with the record {tt['full']} / {tt['n']} Plain textbook formula {tt['C0']} / {tt['n']} Continuum condition only {tt['co']} / {tt['n']} Record hash altered: refuses {tt['rh']} / {tt['n']}")
+    claim(3, "Gate with the record 50 / 50 Plain textbook formula 29 / 50 Continuum condition only 34 / 50 Record hash altered: refuses 50 / 50", [AT5, f"{BD}/KEY.sha256"], at5txt)
 
-    CR = "artifacts/integration/codex-api/admissible-review/469874b/compile-review.json"
-    NEW = "artifacts/integration/codex-api/admissible-review/469874b/Admissible.lean"
+    # ================= slide 4: ledger
+    KL = "scopedesk/ledger/kill_ledger.json"
+    kl = T.J(KL)
+    rows = {r["id"]: r for r in kl["rows"]}
+    claim(4, "Turing needs a diffusion ratio of at least 10", [KL], lambda: "Turing needs a diffusion ratio of at least 10" if "diffusion ratio >= 10" in rows["R03"]["claim"] else "MISMATCH")
+    claim(4, "a Lean-checked linear model with diffusivity ratio 1.1 has a growing mode (determinant -21/25000)", [KL],
+          lambda: "a Lean-checked linear model with diffusivity ratio 1.1 has a growing mode (determinant %s)" % re.search(r"Dv=1\.1.*?mode-1 det=(-?\d+/\d+)", rows["R03"]["witness"]).group(1))
+    claim(4, "Pinned-end liquid bridge unstable beyond L > πr (our benchmark key)", [KL], lambda: "Pinned-end liquid bridge unstable beyond L > πr (our benchmark key)" if "l > pi*r" in rows["R11"]["claim"] else "MISMATCH")
+    claim(4, "the n=1 mode violates the fixed-volume constraint; caught before any agent ran", [KL],
+          lambda: "the n=1 mode violates the fixed-volume constraint; caught before any agent ran" if ("n=1 is inadmissible" in rows["R11"]["witness"] and "before any agent ran" in rows["R11"]["allowed"]) else "MISMATCH")
+    claim(4, "ids encoded generator order: a tree on id suffixes alone scored 58/96 against 43/96 for the majority answer", [KL],
+          lambda: "ids encoded generator order: a tree on id suffixes alone scored %s against %s for the majority answer" % re.search(r"(\d+/\d+) vs majority (\d+/\d+)", rows["R13"]["witness"]).groups())
+    def r06():
+        r = rows["R06"]
+        assert "NOT vacuous" in r["kind"] and "advertised" in r["allowed"] and "holds for unstable systems" in r["allowed"]
+        return "Also in the ledger: our theorem advertised as stability whose premise, determinant non-negativity, also holds for unstable systems (R06); a stronger statement now compiles (F10)."
+    claim(4, "Also in the ledger: our theorem advertised as stability whose premise, determinant non-negativity, also holds for unstable systems (R06); a stronger statement now compiles (F10).", [KL], r06)
+    claim(4, "20 ledger rows: 17 were caught by an independent reviewer or a measurement, 3 by the author's own check.", [KL],
+          lambda: _caught(kl))
+    claim(4, "Kinds: prior art 7, counterexample 1, measured 4, mis-operationalised 3, convention defect 4, process defect 1.", [KL], lambda: _kinds(kl))
 
-    def repl():
-        cr = T.J(CR)
-        new = (R / NEW).read_text()
-        assert T.sha(NEW) == cr["source_sha256"] and cr["exit"] == 0
-        assert re.search(r"def ModeStable \(q : ℝ\) : Prop := T S q < 0 ∧ 0 < D S q", new)
-        thm = re.search(r"theorem finite_domain_linearly_stable.*?:= by", new, flags=re.S).group(0)
-        assert "hwm : WellMixedStable S" in thm and "0 < D S (neumannMode L n)" in thm  # trace derived from hwm, det positivity assumed
-        line = [l for l in cr["output"].splitlines() if "finite_domain_linearly_stable" in l][0]
-        std = set(re.findall(r"\[(.*)\]", line)[0].split(", ")) <= {"propext", "Classical.choice", "Quot.sound"}
-        assert std
-        return f"a revised module compiles every admissible mode has trace < 0 and det > 0 (exit {cr['exit']}, standard axioms). Trace is derived; determinant positivity is assumed."
-    claim(4, "a revised module compiles every admissible mode has trace < 0 and det > 0 (exit 0, standard axioms). Trace is derived; determinant positivity is assumed.", [CR, NEW], repl)
+    # ================= slide 5: collective
+    TP, LT = "artifacts/core/replay/table_primary.csv", "artifacts/lazysp/results/table_primary.csv"
+    tp = {(r["policy"], int(r["budget"])): r for r in T.C(TP) if r["family"] == "all"}
+    lt = {r["variant"]: r for r in T.C(LT)}
+    cnt = T.J("artifacts/demo.json")["source"]["counts"]
+    PH = T.J("artifacts/lazysp/results/exploratory_post_hoc.json")
+    claim(5, "159,129 measured variants, 1,000 extra assays.", ["artifacts/demo.json", "artifacts/lazysp/results/summary.json"],
+          lambda: f"{T.n(cnt['measured_nonstop_genotypes'])} measured variants, {T.n(T.J('artifacts/lazysp/results/summary.json')['tau'])} extra assays.")
+    claim(5, "Single planner 78/100 Shared specialists 78/100 Plain lazy search 96/100", [TP, LT],
+          lambda: (f"Single planner {tp[('q2c', 1000)]['certified']}/{tp[('q2c', 1000)]['episodes']} Shared specialists {tp[('collective_shared', 1000)]['certified']}/{tp[('collective_shared', 1000)]['episodes']} "
+                   f"Plain lazy search {round(float(lt['alternate']['resolved@1000']) * int(lt['alternate']['episodes']))}/{lt['alternate']['episodes']}")
+          if tp[("q2c", 1000)]["certified"] == tp[("collective_shared", 1000)]["certified"] else "MISMATCH")
+    claim(5, "about 24 distinct problems", ["artifacts/lazysp/results/exploratory_post_hoc.json"], lambda: f"about {PH['problem_clusters']} distinct problems")
+    claim(5, "(R09)", [KL], lambda: "(R09)" if "mismatched run" in rows["R09"]["kind"] else "MISMATCH")
 
-    def dd():
-        assert re.search(r"det\(J-qD\)<0", rev) and "actual" in rev
-        return "the requirement that det(J - qD) < 0 at an actual admissible q"
-    claim(4, "the requirement that det(J - qD) < 0 at an actual admissible q", [REV], dd)
-
-    # ---- slide 5
+    # ================= slide 6: close
+    AC = "scopedesk/oracles/results/accept_receipt_fresh_clone.json"
+    ac = T.J(AC)
+    claim(6, "(exit 0, 56.6 s)", [AC], lambda: f"(exit 0, {ac['total_seconds']} s)" if ac["overall_pass"] else "MISMATCH")
     FR = "artifacts/integration/codex-api/admissible-review/committed-freeze.json"
     fr = T.J(FR)
-    claim(5, "The scorecard of 21 candidate laws", [FR], lambda: f"The scorecard of {len(fr['claims'])} candidate laws")
-    claim(5, "records in the frozen list 21", [FR], lambda: f"records in the frozen list {len(fr['claims'])}")
-    claim(5, "(sha dbf233d1…)", [FR], lambda: f"(sha {T.sha(FR)[:8]}…)", kind="fn")
-
-    # ---- slide 6
+    claim(6, "Scorecard of 21 candidate laws", [FR], lambda: f"Scorecard of {len(fr['claims'])} candidate laws")
     AD = (R / "planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md").read_text()
     PA = (R / "planning/rethink/PRIOR-ART-VERDICT.md").read_text()
-    claim(6, "Prove2Me (arXiv 2608.28433)", ["planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md"],
-          lambda: "Prove2Me (arXiv %s)" % re.search(r"arxiv\.org/html/(\d{4}\.\d{5})", AD).group(1))
+    SRC = "presentation/delphi/sources.md"
+    claim(6, "Prove2Me (arXiv 2608.28433)", ["planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md"], lambda: "Prove2Me (arXiv %s)" % re.search(r"arxiv\.org/html/(\d{4}\.\d{5})", AD).group(1))
+    claim(6, "Rashid et al. 2017", ["planning/rethink/PRIOR-ART-VERDICT.md"], lambda: "Rashid et al. %s" % re.search(r"Rashid et al\., PLOS ONE (\d{4})", PA).group(1))
+    claim(6, "Ripple (arXiv 2607.13531)", ["planning/rethink/PRIOR-ART-VERDICT.md"], lambda: "Ripple (arXiv %s)" % re.search(r"arxiv\.org/html/(2607\.\d{5})v2\)", PA).group(1))
+
     def atlas6():
         t = (R / SRC).read_text()
         assert "MathlibExt/Biology" in t and "WantedExt" in t
-        return "ATLAS (facebookresearch/atlas-lean, MathlibExt/Biology)"
-    claim(6, "ATLAS (facebookresearch/atlas-lean, MathlibExt/Biology)", [SRC], atlas6)
-    claim(6, "Rashid et al. 2017 (HOL Light)", ["planning/rethink/PRIOR-ART-VERDICT.md"],
-          lambda: "Rashid et al. %s (HOL Light)" % re.search(r"Rashid et al\., PLOS ONE (\d{4})", PA).group(1) if "HOL Light" in PA else "MISMATCH")
-    claim(6, "Ripple (arXiv 2607.13531)", ["planning/rethink/PRIOR-ART-VERDICT.md"],
-          lambda: "Ripple (arXiv %s)" % re.search(r"Ripple v2.*?arxiv\.org/html/(\d{4}\.\d{5})", PA + PA.replace("\n", " ")).group(1) if False else "Ripple (arXiv %s)" % re.search(r"arxiv\.org/html/(2607\.\d{5})v2\)", PA).group(1))
-    claim(6, "The 21-record scorecard", [FR], lambda: f"The {len(fr['claims'])}-record scorecard")
-    tp = {(r["policy"], int(r["budget"])): r for r in T.C("artifacts/core/replay/table_primary.csv") if r["family"] == "all"}
-    lt = {r["variant"]: r for r in T.C("artifacts/lazysp/results/table_primary.csv")}
-    cnt = T.J("artifacts/demo.json")["source"]["counts"]
-    claim(6, "159,129 measured variants; specialists 78/100 equal the single planner 78/100; a plain lazy search reaches 96/100.",
-          ["artifacts/demo.json", "artifacts/core/replay/table_primary.csv", "artifacts/lazysp/results/table_primary.csv"],
-          lambda: (f"{T.n(cnt['measured_nonstop_genotypes'])} measured variants; specialists {tp[('collective_shared', 1000)]['certified']}/{tp[('collective_shared', 1000)]['episodes']} "
-                   f"equal the single planner {tp[('q2c', 1000)]['certified']}/{tp[('q2c', 1000)]['episodes']}; a plain lazy search reaches {round(float(lt['alternate']['resolved@1000']) * int(lt['alternate']['episodes']))}/{lt['alternate']['episodes']}.")
-          if tp[("collective_shared", 1000)]["certified"] == tp[("q2c", 1000)]["certified"] else "MISMATCH")
+        return "ATLAS (facebookresearch/atlas-lean)"
+    claim(6, "ATLAS (facebookresearch/atlas-lean)", [SRC], atlas6)
+    AF = "planning/rethink/ACTIVE-FRONTIER-PITCH-PROPOSAL.md"
+
+    def frontier():
+        t = (R / AF).read_text()
+        assert "Delphi Frontier" in t and "Who's working on it" in t and "not a migration or a deployed platform" in t
+        return "Delphi Frontier, nothing deployed: one page per open problem showing what we know, what's next and who is working on it."
+    claim(6, "Delphi Frontier, nothing deployed: one page per open problem showing what we know, what's next and who is working on it.", [AF], frontier)
+
+
+def _rerun_at5_matches(R, at5):
+    """Re-run the committed checker on the committed key and require the same per-family totals (determinism and provenance)."""
+    import os
+    import tempfile
+    with tempfile.TemporaryDirectory() as td:
+        out = Path(td) / "at5.json"
+        r = subprocess.run([sys.executable, "-m", "scopedesk.oracles.at5", str(R / "scopedesk/bench/v1_2"), str(out)], cwd=R, capture_output=True, text=True,
+                           env={**os.environ, "OMP_NUM_THREADS": "2"})
+        assert r.returncode == 0, r.stderr[-300:]
+        new = json.loads(out.read_text())
+    pick = lambda d: {k: (v["n"], v["full"]["agree_with_key"], v["C0"]["agree_with_key"], v["continuum_only"]["agree_with_key"], v["record_hash_changed"]["refused"]) for k, v in d["table"].items()}
+    assert pick(new) == pick(at5), "re-running the checker gives different totals than the committed artifact"
+
+
+def _caught(kl):
+    rows = kl["rows"]
+    author_only = [r["id"] for r in rows if not re.search(r"independent (?:reviewers?|scout)|Codex|director's", r["caught_by"], re.I)]
+    assert len(rows) == 20 and kl["summary"]["caught_by_independent_vs_author"] == {"independent": 17, "author_only": 3} and len(author_only) == 3
+    return f"{len(rows)} ledger rows: {len(rows) - len(author_only)} were caught by an independent reviewer or a measurement, {len(author_only)} by the author's own check."
+
+
+def _kinds(kl):
+    order = ["prior art", "counterexample", "measured", "mis-operationalised", "convention defect", "process defect"]
+    cnt = {k: sum(1 for r in kl["rows"] if r["kind"].startswith(k)) for k in order}
+    assert sum(cnt.values()) == 20
+    return "Kinds: " + ", ".join(f"{k} {cnt[k]}" for k in order) + "."
 
 
 ORDINAL = re.compile(r"(?<![\w.])[1-5]\. (?=[A-Z])")
@@ -248,6 +332,7 @@ def main():
     stale = [rel for rel, h in prov["sha256"].items() if not (root / rel).exists() or T.sha(rel) != h]
     errors += [f"STALE: {rel} changed since the deck was built; rerun presentation/delphi/rebuild.sh" for rel in stale]
     ledger_ids = set(re.findall(r"^\| ([A-Z]\d\d) \|", (root / "planning/rethink/CLAIM-LEDGER.md").read_text(), flags=re.M))
+    ledger_ids |= {r["id"] for r in T.J("scopedesk/ledger/kill_ledger.json")["rows"]}  # kill-ledger row IDs (R01-R20)
     for i, s in enumerate(work, 1):
         s["fn"], ok = T.consume(s["fn"], f"artifacts @ {head[:8]}")
         if not ok:
@@ -278,14 +363,12 @@ def main():
         for tk in T.tokens(s["notes"]):
             if tk.replace(",", "") not in pool:
                 errors.append(f"slide {i} notes: number {tk!r} is not on the slide itself")
-    # benchmark/agent metrics must be pending, never numeric, on slide 5
-    s5 = slides[4]["html"]
-    for label in ("compiled with proof, axiom audit and a failing mutant", "excluded, with reasons", "source-correspondence review",
-                  "benchmark freeze", "agent arms and matched budgets", "coverage, false acceptance, false refusal",
-                  "fraction that are stable on a finite domain of length L, over a large ensemble:"):
-        m = re.search(re.escape(label) + r" (\S+)", s5)
+    # every unmeasured item must read 'pending', never a number
+    for i, label in ((3, "Second-reader review:"), (5, "Results:"), (5, "Scored comparison:"), (6, "receipt for the final commit is"),
+                     (6, "Scorecard of 21 candidate laws:"), (6, "Misprediction map over a large ensemble:")):
+        m = re.search(re.escape(label) + r" (\S+)", slides[i - 1]["html"])
         if not m or m.group(1).lower() != "pending":
-            errors.append(f"slide 5: metric {label!r} must read 'pending', found {m.group(1) if m else None!r}")
+            errors.append(f"slide {i}: {label!r} must read 'pending', found {m.group(1) if m else None!r}")
     pdf = deck_p.with_suffix(".pdf")
     npdf = None
     if pdf.exists():

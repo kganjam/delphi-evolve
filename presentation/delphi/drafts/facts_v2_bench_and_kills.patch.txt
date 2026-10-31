@@ -1,0 +1,67 @@
+diff --git a/presentation/delphi/facts.py b/presentation/delphi/facts.py
+index 6ca55e9..edba1b9 100644
+--- a/presentation/delphi/facts.py
++++ b/presentation/delphi/facts.py
+@@ -263,8 +263,61 @@ def baseline_facts():
+             "scale": "five ESM2 sizes, 1,100 follow-up episodes: no clear assay-saving benefit (B03)"}
+ 
+ 
++def bench_facts():
++    d = "scopedesk/bench/v1_2"
++    ks = {ln.split()[1]: ln.split()[0] for ln in T(f"{d}/KEY.sha256").splitlines() if len(ln.split()) == 2}
++    assert sha(f"{d}/key.jsonl") == ks["key.jsonl"], "key.jsonl changed since KEY.sha256"
++    pub = [json.loads(x) for x in T(f"{d}/instances_public.jsonl").splitlines() if x.strip()]
++    key = [json.loads(x) for x in T(f"{d}/key.jsonl").splitlines() if x.strip()]
++    assert len(pub) == len(key) == 131
++    fam = {}
++    for r in pub:
++        fam[r["family"]] = fam.get(r["family"], 0) + 1
++    status = T(f"{d}/STATUS.md")
++    assert "READY-TO-FREEZE" in status
++    ledger = T("planning/rethink/CLAIM-LEDGER.md")
++    assert re.search(r"\| P03 \|.*v1\.2 approved", ledger)  # ledger lists 'v1.2 approved' among wordings to reject
++    oa = J("scopedesk/bench/audit/oracle_layer_audit_v1_2.json")
++    assert oa["agree"] == oa["n"] and not oa["disagreements"]
++    gate = T("scopedesk/oracles/gate.py")
++    modes = [m for m in ("full", "record_removed", "record_hash_changed", "continuum_only") if re.search(r"^\s+%s\s" % m, gate, flags=re.M)]
++    assert len(modes) == 4 and (ROOT / "scopedesk/oracles/repair.py").exists()
++    return {"ledger": "P03 (v1.2 not approved; text and scoring gates remain)", "items": len(pub), "families": len(fam), "family_counts": fam,
++            "verdicts": sorted({r["verdict"] for r in key}), "key_sha256": ks["key.jsonl"], "key_file": f"{d}/key.jsonl", "key_sha_file": f"{d}/KEY.sha256",
++            "status": "READY-TO-FREEZE, not approved", "oracle_audit": {"artifact": "scopedesk/bench/audit/oracle_layer_audit_v1_2.json", "n": oa["n"], "agree": oa["agree"], "families": len(oa["by_family"]),
++                                                                  "ledger": "unledgered; checker and key written by different workers, same team and method"},
++            "gate_modes": modes, "repair": "scopedesk/oracles/repair.py"}
++
++
++def kill_facts():
++    led = T("planning/rethink/CLAIM-LEDGER.md")
++    pa = T("planning/rethink/PRIOR-ART-VERDICT.md")
++    src = T("presentation/delphi/sources.md")
++    assert "atlas-lean" in src and "Rashid" in pa and "A01" in led
++    lp = T("lean_price/README.md")
++    assert re.search(r"duplicate of existing work", lp) and "Selection.lean" in lp
++    svc = J("artifacts/integration/codex-api/service-fixed-review.json")["cases"]["ratio_1_1_counterexample"]["request"]
++    d1, d2 = F(svc["diffusivities"][0]), F(svc["diffusivities"][1])
++    ratio = d2 / d1
++    assert ratio == F(11, 10)
++    sem = J("artifacts/integration/codex-api/benchmark-semantic-audit.json")
++    n_rp = len(sem["rayleigh_affected_key_ids"])
++    p03 = re.search(r"\| P03 \|.*", led).group(0)
++    assert "24/24" in p03 and "mismatched" in p03
++    rows = [
++        {"claim": "A first machine-checked biology library", "kind": "prior art", "witness": "ATLAS (facebookresearch/atlas-lean) and earlier systems already exist", "ledger": "A01", "files": ["planning/rethink/PRIOR-ART-VERDICT.md", "presentation/delphi/sources.md"]},
++        {"claim": "Our Price lemma as a contribution", "kind": "prior art", "witness": "ATLAS Selection.lean already states the Price identity (critic's code reading)", "ledger": "unledgered", "files": ["lean_price/README.md"]},
++        {"claim": "A diffusion-ratio threshold of 10 is universal", "kind": "counterexample", "witness": f"a linear model with diffusivity ratio {float(ratio):g} grows", "ledger": "F04", "files": ["artifacts/integration/codex-api/service-fixed-review.json"]},
++        {"claim": "Our pinned liquid-bridge answer key", "kind": "mis-operationalised", "witness": f"the n=1 mode changes volume; {n_rp} labels affected", "ledger": "F05", "files": ["artifacts/integration/codex-api/benchmark-semantic-audit.json"]},
++        {"claim": "Our theorem finite_domain_stable", "kind": "mis-operationalised", "witness": "assumed no negative determinant, concluded non-negative determinant", "ledger": "P01 F10", "files": ["artifacts/integration/codex-api/admissible-review/Admissible.lean", "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md"]},
++        {"claim": "Agents miss scope (24 of 24 answered correctly)", "kind": "mis-operationalised", "witness": "prompts did not match their labels; the run shows neither accuracy nor a ceiling", "ledger": "P03", "files": ["planning/rethink/CLAIM-LEDGER.md"]},
++    ]
++    return {"rows": rows, "by_kind": {k: sum(1 for r in rows if r["kind"] == k) for k in sorted({r["kind"] for r in rows})},
++            "commons": {"ledger": "A02", "prior_art": "LEGO-Prover; Berlot-Attwell et al. negative replication", "file": "planning/rethink/PRIOR-ART-VERDICT.md"}}
++
++
+ def build():
+-    return {"price": price_facts(), "turing": turing_facts(), "errors": error_facts(), "scorecard": scorecard_facts(),
++    return {"bench": bench_facts(), "kills": kill_facts(), "price": price_facts(), "turing": turing_facts(), "errors": error_facts(), "scorecard": scorecard_facts(),
+             "robustness": robustness_facts(), "baseline": baseline_facts()}
+ 
+ 
