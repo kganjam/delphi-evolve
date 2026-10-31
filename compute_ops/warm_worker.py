@@ -15,7 +15,7 @@ import base64, hashlib, io, json, os, shutil, subprocess, sys, tarfile, time
 T0 = time.time()
 Q = json.load(open(sys.argv[1]))
 OUT = os.environ.get("COPS_OUT", "/work/out"); os.makedirs(OUT, exist_ok=True)
-PARTS = os.environ.get("WARM_PARTS_DIR", "/work/parts"); os.makedirs(PARTS, exist_ok=True)
+PARTS = os.environ.get("WARM_PARTS_DIR", "/work/parts")
 MAX_WALL = min(float(Q.get("max_wall_s", 7200)), 7200.0)
 MARGIN = float(Q.get("margin_s", 60))
 utc = lambda: time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
@@ -39,6 +39,14 @@ def emit_part(seq, wid, meta, data):
     print("COPS_PART_END", flush=True)
 
 
+if os.environ.get("PREFLIGHT"):       # validate the frozen queue locally: run every workload with PREFLIGHT=1 (entries exit after imports/inputs), emit nothing
+    bad = 0
+    for seq, w in enumerate(Q["workloads"]):
+        e = dict(os.environ, **{k: str(v) for k, v in {**Q.get("env", {}), **w.get("env", {})}.items()}, COPS_OUT=OUT, PREFLIGHT="1")
+        r = subprocess.run(w["argv"], cwd=os.environ.get("WARM_CWD", "."), env=e, capture_output=True, text=True, timeout=180)
+        print(f"preflight {seq} {w['id']} rc={r.returncode} {(r.stdout + r.stderr).strip()[-160:]}"); bad += r.returncode != 0
+    sys.exit(1 if bad else 0)
+os.makedirs(PARTS, exist_ok=True)
 receipts_start = utc()
 tel = None
 if shutil.which("nvidia-smi"):                                     # one sampler for the whole allocation; per-workload windows are in the receipts
