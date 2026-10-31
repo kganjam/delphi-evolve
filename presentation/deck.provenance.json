@@ -1,8 +1,8 @@
 {
- "built": "2026-10-31 01:49 PDT",
+ "built": "2026-10-31 02:04 PDT",
  "root": "/data/worktrees/delphi-evolve/release",
  "git": {
-  "head": "fdf01b5efce38a327fadb078c4f8744c15363e82",
+  "head": "fcbc98f9f6206a49fe36d89b0c080867437ef859",
   "branch": "work/release",
   "inputs_untracked_or_modified": []
  },
@@ -20,6 +20,19 @@
   "artifacts/gpu/compute_block.json": "4fced9f17ee83909e99a62162c9532e9da2755d44a3dbbe819ded30e79b07f5b",
   "tasks/results/gpu.json": "5ee568e4951200a5540d595b45107f427718dc0399c362c47bc3e08e01b9c302",
   "artifacts/gpu/orx/receipt.json": "4c26361cf7855a836c4393a339fb616fda7c6cd7d34e4d6bff784e5c3f361279",
+  "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50",
+  "artifacts/turing_scope/lean_receipt.json": "d9961d8662748c3eb347accf9c103ffe5db1f988e7d74cf8183564f0b743d021",
+  "site/data/lazysp.json": "cda3ba059530a297bd9b5e4d83f539818c25b16a0aef3a4cde06a71d950738aa",
+  "docs/lazysp.md": "1135ba2198cd8f4f8af5ce5c144b4ed457aa909659645947409b615a1bb8ce1a",
+  "docs/pitch.md": "0031d013a6902eae2540e0865ba3da6315b15ed7375304ad7073857af8b5948f",
+  "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c",
+  "artifacts/lazysp/results/table_primary.csv": "2e1cd0ac54af789755c23aa2b75aa6ed145d9e6eb6bf638f826c6c3138ebd94f",
+  "artifacts/lazysp/results/episodes.csv": "a8d78cca2469e5f8ad8159ca297a5257dec6a2350f8ea2f6f5bde93e969a8b7f",
+  "artifacts/lazysp/results/exploratory_post_hoc.json": "7d86b2b32cbbb3242eeb958a05fe31b11bcf3719bfbfa144169b7c9fb4dba2c1",
+  "artifacts/lazysp/results/audit.json": "dc6c3edab0d9f394047dd1d12052cfd574bc8bf32d3424b410786fac0f460dbb",
+  "artifacts/lazysp/results/episodes_with_original.csv": "25d9b21d81a8128e14c51adbb9d6f33fd558ffd4db63a62fd33782e44eb0b7e7",
+  "artifacts/lazysp/results/table_paired.csv": "a06dae594a10039e652bc1bc1613735a88f14cedbb467f0627440bd4f8a88c17",
+  "artifacts/lazysp/results/crosschecks.json": "0bf8f2b07a33e817c642ad0407858bacd96701ab6cb86688d1cdac5f625ad2bb",
   "artifacts/core/replay/summary.json": "2c8552dc07b870af89560f413ecc7dcb9229c786f8321a6cc1bb5c1f355a8b13",
   "artifacts/core/replay/table_primary.csv": "530aca14ec7503a6b58c19b2b6ead9eda12db22a956325921849452ea19d41e6",
   "artifacts/core/replay/table_paired.csv": "e2069c442a1c490eda99154d79b86d585085dfd8a98ba8dbf101cbd8d7056036",
@@ -76,7 +89,58 @@
    "collective_isolated_c",
    "collective_shared_rr"
   ],
-  "panel_complete_11": true
+  "panel_complete_11": true,
+  "lazysp": {
+   "stats": {
+    "alternate": {
+     "n": 100,
+     "resolved": 96,
+     "open": 91,
+     "blocked": 5,
+     "resolved_at": {
+      "100": 0.27,
+      "250": 0.5,
+      "500": 0.55,
+      "750": 0.56,
+      "1000": 0.96
+     },
+     "rmst": 476.59
+    },
+    "forward": {
+     "n": 100,
+     "resolved": 96,
+     "open": 91,
+     "blocked": 5,
+     "resolved_at": {
+      "100": 0.29,
+      "250": 0.54,
+      "500": 0.55,
+      "750": 0.96,
+      "1000": 0.96
+     },
+     "rmst": 369.62
+    },
+    "reverse": {
+     "n": 100,
+     "resolved": 49,
+     "open": 49,
+     "blocked": 0,
+     "resolved_at": {
+      "100": 0.26,
+      "250": 0.27,
+      "500": 0.49,
+      "750": 0.49,
+      "1000": 0.49
+     },
+     "rmst": 593.88
+    }
+   },
+   "only_lazysp_by_pair": {
+    "VFVS\u2192ALKG": 17,
+    "VFVS\u2192AIKG": 1
+   },
+   "audit_shards": 300
+  }
  },
  "posthoc_arms_shown": [
   "q2c_nomodel",
@@ -84,9 +148,7 @@
   "collective_isolated_c",
   "collective_shared_rr"
  ],
- "pending": {
-  "lazysp": "pending, not complete at render time (see appendix); no benefit is claimed.",
-  "gpu_prior_replay": "pending, not complete at render time"
- },
- "spoken_words": 378
+ "lazysp": "complete and audited: {\"stats\": {\"alternate\": {\"n\": 100, \"resolved\": 96, \"open\": 91, \"blocked\": 5, \"resolved_at\": {\"100\": 0.27, \"250\": 0.5, \"500\": 0.55, \"750\": 0.56, \"1000\": 0.96}, \"rmst\": 476.59}, \"forward\": {\"n\": 100, \"resolved\": 96, \"open\": 91, \"blocked\": 5, \"resolved_at\": {\"100\": 0.29, \"250\": 0.54, \"500\": 0.55, \"750\": 0.96, \"1000\": 0.96}, \"rmst\": 369.62}, \"reverse\": {\"n\": 100, \"resolved\": 49, \"open\": 49, \"blocked\": 0, \"resolved_at\": {\"100\": 0.26, \"250\": 0.27, \"500\": 0.49, \"750\": 0.49, \"1000\": 0.49}, \"rmst\": 593.88}}, \"only_lazysp_by_pair\": {\"VFVS\\u2192ALKG\": 17, \"VFVS\\u2192AIKG\": 1}, \"audit_shards\": 300}",
+ "gpu_prior_replay": "not available in this release",
+ "spoken_words": 385
 }

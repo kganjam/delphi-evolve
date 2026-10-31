@@ -20,10 +20,10 @@ python3 presentation/build_deck.py --root ... --allow-draft                     
 python3 presentation/export_pdf.py presentation/deck.html --shots presentation/screenshots
 ```
 
-A draft never overwrites `deck.html`. The replay slide's headline is generated from the data: it states the single-policy vs random numbers, and describes specialists vs the single policy as "higher than", "lower than" or "not distinguishable from" according to whether the seed-cluster bootstrap interval in `table_paired.csv` excludes 0. Negative outcomes therefore print as negative. The four post hoc arms (no-GP single and shared/isolated specialists, round-robin) are shown only if complete and verified, under a separator that says they were added after the original run was observed. Pending items (LazySP-style baseline, GPU-prior policy ablation) are stated as pending unless a result file exists, and are never given numbers by the builder.
+A draft never overwrites `deck.html`. Slide 4 is generated from the data. The headline compares the LazySP-style follow-up (`artifacts/lazysp/results/`, NOT `.../panel/`) with the original query-to-certify planner. `validate.py::validate_lazysp` rejects the build unless the follow-up has 3 variants x 100 episodes, every shard audited with 0 errors, and `summary.json`, `table_primary.csv` and the paired only-LazySP / only-Q2C / both counts all re-derive from `episodes.csv` and the core replay. The four core post hoc arms (no-GP single and shared/isolated specialists, round-robin) are shown only if complete and verified, under a label that says they were chosen after the original run was observed. The GPU-prior policy replay is not part of this release; the builder never gives it numbers.
 
 ## Caveats carried on the slides
 * "κ" is an assumed sensitivity, not a confidence level.
 * A replay "blocked/no route certifiable" is not the Lean no-path theorem (see `planning/INTEGRATION-FINDINGS.md` F1).
 * Specialists are deterministic software objects in one process (F7); shared vs isolated differ in evidence visibility *and* arbitration.
-* Query-efficient path evaluation is prior art (LazySP, BAEE); ALDE already studies active learning on this landscape and was not run.
+* Query-efficient path evaluation is prior art (LazySP, BAEE) and our LazySP-style baseline is an existing node-query adaptation; ALDE already studies active learning on this landscape and was not run.

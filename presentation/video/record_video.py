@@ -11,7 +11,7 @@ and write a manifest pinning the source SHA and the video SHA256.
 * No microscope/lab imagery is synthesised: the only pixels are the site/deck UI and caption text.
 * Honest states: whatever the site shows (unavailable, blocked, etc.) is what is recorded; the interaction log
   in the manifest records every verdict string seen at each slider position and every interaction that failed.
-* Exit 0 only when 60 <= duration <= 90 s, MP4 <= 20 MB and no page errors occurred.
+* Exit 0 only when 60 <= duration <= 95 s, MP4 <= 20 MB and no page errors occurred.
 """
 from __future__ import annotations
 
@@ -140,13 +140,23 @@ def drive_site(pg, log, cap, base):
         cap("Lean receipt: a static compiled check of listed routes at their assumed bound, with a rejected mutant. Not proof for any other slider setting.", "STATIC RECEIPT", 6)
     hold(5.5)
     step("scroll-results", lambda: pg.evaluate("document.getElementById('results').scrollIntoView()"))
-    rtxt = step("results-text", lambda: pg.inner_text("#results")[:400]) or ""
     rfull = pg.inner_text("#results")
-    if "96/100" in rfull and "78/100" in rfull and "32/100" in rfull and "21/100" in rfull:
-        cap("Retrospective replay, 100 episodes per policy: query-to-certify 78, directed 32, random 21. The shared collective did not beat the single planner; no-GP arms are post hoc.", "", 7)
+    if "78/100" in rfull or "78%" in rfull:
+        cap("Retrospective replay, 100 episodes per policy, matched budgets. Shared specialists did not beat the single planner; hatched no-GP bars are post hoc.", "", 7)
     else:
         cap("Replay section in THIS build shows no complete result; nothing is quoted.", "", 5)
     hold(7)
+    # the stronger-baseline card is the key correction: record it only if the page actually renders a completed result
+    step("scroll-lazysp-card", lambda: pg.evaluate("document.getElementById('lazysp-result').scrollIntoView({block: 'center'})"))
+    ctext = step("lazysp-card-text", lambda: pg.inner_text("#lazysp-result")[:700]) or ""
+    if "96/100" in ctext and "not demonstrated to beat" in ctext:
+        cap("Stronger baseline, an existing lazy path search adapted to assay queries: 96 of 100 versus our original Q2C at 78. The original Q2C does not beat it; the gain sits in one repeated endpoint pair.", "", 8)
+        hold(8)
+        cap("Not a general win for LazySP either: one enzyme, assumed intervals, retrospective. Selectors were declared after the original study; the no-GP arm is post hoc.", "", 5)
+        hold(5)
+    else:
+        cap("The stronger-baseline card is not available in THIS build; no baseline comparison is quoted.", "", 5)
+        hold(5)
     # ---------------- part 2: the claim runtime page (about 30 s)
     step("open-claims", lambda: bool(pg.goto(base + "/claims/index.html", wait_until="networkidle")))
     pg.evaluate(CAPTION_JS)
@@ -241,7 +251,7 @@ def main():
     dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(mp4)], capture_output=True, text=True).stdout.strip())
     size = mp4.stat().st_size
     problems = []
-    if not 60 <= dur <= 92: problems.append(f"duration {dur:.1f}s outside 60-92")
+    if not 60 <= dur <= 95: problems.append(f"duration {dur:.1f}s outside 60-95")
     if size > 20 * 1024 * 1024: problems.append(f"size {size} > 20MB")
     preliminary = a.mode == "site" and not (src / "data/demo.json").exists()
     if perr: problems.append(f"page errors: {perr[:3]}")

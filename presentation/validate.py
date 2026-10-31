@@ -174,6 +174,104 @@ def validate_replay(root: Path, shards_dir: Path | None = None) -> tuple[list[st
     return errs, info
 
 
+LAZY_VARIANTS = ["alternate", "forward", "reverse"]
+LAZY_FILES = ["summary.json", "table_primary.csv", "episodes.csv", "exploratory_post_hoc.json", "audit.json"]
+LAZY_TAU = 1000
+LAZY_BUDGETS = (100, 250, 500, 750, 1000)
+
+
+def lazysp_stats(rows: list[dict]) -> dict:
+    """Resolved@B and restricted-mean assays (tau=1000, unresolved counted as tau) from raw episode rows."""
+    n = len(rows)
+    res = [r for r in rows if r["certificate"] in ("open", "blocked")]
+    out = {"n": n, "resolved": len(res), "open": sum(r["certificate"] == "open" for r in rows), "blocked": sum(r["certificate"] == "blocked" for r in rows),
+           "resolved_at": {b: sum(1 for r in res if float(r["assays"]) <= b) / n for b in LAZY_BUDGETS}}
+    out["rmst"] = sum(min(float(r["assays"]), LAZY_TAU) if r["certificate"] in ("open", "blocked") else LAZY_TAU for r in rows) / n
+    return out
+
+
+def validate_lazysp(root: Path, core_episodes: list[dict] | None = None, seeds: int = 20) -> tuple[list[str], dict]:
+    """The strong LazySP-style follow-up lives in artifacts/lazysp/results/ (NOT .../panel/).
+
+    Complete = 3 variants x seeds x 5 episodes, every shard audited with zero errors, every number in summary.json and
+    table_primary.csv re-derived from episodes.csv, and (when the core q2c rows are supplied) the paired
+    only-LazySP / only-q2c / both / neither counts in summary.json re-derived from the episodes themselves.
+    """
+    errs: list[str] = []
+    info: dict = {}
+    d = Path(root) / "artifacts/lazysp/results"
+    for f in LAZY_FILES:
+        if not (d / f).exists():
+            errs.append(f"missing {d / f}")
+    if errs:
+        return errs, info
+    summ, audit, post = _load(d / "summary.json"), _load(d / "audit.json"), _load(d / "exploratory_post_hoc.json")
+    ep = read_csv(d / "episodes.csv")
+    tp = read_csv(d / "table_primary.csv")
+    full = seeds * EPISODES_PER_SEED
+    stats: dict = {}
+    by_v: dict = {}
+    for v in LAZY_VARIANTS:
+        pol = f"lazysp_{v}"
+        rows = [r for r in ep if r["policy"] == pol]
+        by_v[v] = rows
+        keys = {(int(r["seed"]), r["family"], r["start"], r["target"]) for r in rows}
+        per_seed: dict = {}
+        for r in rows:
+            per_seed[int(r["seed"])] = per_seed.get(int(r["seed"]), 0) + 1
+        if len(rows) != full or len(keys) != full or sorted(per_seed) != list(range(seeds)) or any(c != EPISODES_PER_SEED for c in per_seed.values()):
+            errs.append(f"{pol}: {len(rows)} rows / {len(keys)} distinct episodes over seeds {sorted(per_seed)[:3]}.. != {seeds} seeds x {EPISODES_PER_SEED} = {full}")
+            continue
+        sv = summ.get("variants", {}).get(v, {})
+        if not (sv.get("complete_panel") is True and sv.get("status") == "COMPLETE_100" and sv.get("episodes_present") == full):
+            errs.append(f"{pol}: summary.json does not report a COMPLETE_100 panel")
+        a = audit.get(v, {})
+        if a.get("shards_audited") != full or a.get("errors"):
+            errs.append(f"{pol}: audit.json shards_audited={a.get('shards_audited')} errors={len(a.get('errors') or [])} (need {full} shards, 0 errors)")
+        if any(r["verified_by_full_data"] not in ("True", "true") and r["certificate"] in ("open", "blocked") for r in rows) or any(r["correct"] in ("False", "false") for r in rows):
+            errs.append(f"{pol}: an issued certificate is not full-data verified / correct")
+        st = lazysp_stats(rows)
+        stats[v] = st
+        for b in LAZY_BUDGETS:
+            if abs(st["resolved_at"][b] - float(sv.get("resolved_at", {}).get(str(b), -9))) > 1e-9:
+                errs.append(f"{pol}@{b}: episodes.csv gives {st['resolved_at'][b]} but summary.json says {sv.get('resolved_at', {}).get(str(b))}")
+        if abs(st["rmst"] - float(sv.get("rmst_assays", -9))) > 0.01:
+            errs.append(f"{pol}: RMST from episodes {st['rmst']:.2f} != summary.json {sv.get('rmst_assays')}")
+        if {k: c for k, c in sv.get("status_counts", {}).items() if c} != {k: c for k, c in (("open", st["open"]), ("blocked", st["blocked"]), ("unresolved", full - st["resolved"])) if c}:
+            errs.append(f"{pol}: status_counts in summary.json disagree with episodes.csv")
+        tr = next((r for r in tp if r["variant"] == v), None)
+        if tr is None or int(tr["episodes"]) != full or abs(float(tr["resolved@1000"]) - st["resolved_at"][1000]) > 0.005 or abs(float(tr["rmst_assays"]) - st["rmst"]) > 0.06:
+            errs.append(f"{pol}: table_primary.csv row disagrees with episodes.csv")
+        elif int(tr["false_certificates"]) or int(tr["full_data_verification_failures"]):
+            errs.append(f"{pol}: nonzero false certificates / verification failures recorded")
+    if core_episodes is not None and not errs:
+        q = {(int(r["seed"]), r["family"], r["start"], r["target"]): r for r in core_episodes if r["policy"] == "q2c"}
+        lz = {(int(r["seed"]), r["family"], r["start"], r["target"]): r for r in by_v["alternate"]}
+        if set(q) != set(lz):
+            errs.append("core q2c episodes and lazysp_alternate episodes are not the same panel")
+        else:
+            ok = lambda r: r["certificate"] in ("open", "blocked") and float(r["assays"]) <= LAZY_TAU
+            only_lz = [k for k in lz if ok(lz[k]) and not ok(q[k])]
+            only_q = [k for k in lz if ok(q[k]) and not ok(lz[k])]
+            both = [k for k in lz if ok(q[k]) and ok(lz[k])]
+            pr = summ["variants"]["alternate"]["paired"]["q2c"]
+            if (len(only_lz), len(only_q), len(both)) != (pr["resolved_only_by_lazysp"], pr["resolved_only_by_comparator"], pr["both_resolved"]):
+                errs.append(f"paired counts from episodes {(len(only_lz), len(only_q), len(both))} != summary.json {(pr['resolved_only_by_lazysp'], pr['resolved_only_by_comparator'], pr['both_resolved'])}")
+            by_pair: dict = {}
+            for k in only_lz:
+                lab = f"{k[2]}→{k[3]}" if k[1] == "B" else "family A"
+                by_pair[lab] = by_pair.get(lab, 0) + 1
+            info["only_lazysp_by_pair"] = by_pair
+            info["only_lazysp"], info["only_q2c"], info["both"] = len(only_lz), len(only_q), len(both)
+            if abs(stats["alternate"]["rmst"] - float(pr["rmst_lazysp"])) > 0.01 or abs(float(pr["rmst_comparator"]) - sum(min(float(q[k]["assays"]), LAZY_TAU) if ok(q[k]) else LAZY_TAU for k in q) / len(q)) > 0.5:
+                errs.append("RMST in summary.json paired block disagrees with episodes")
+    if "POST HOC" not in str(post.get("label", "")).upper():
+        errs.append("exploratory_post_hoc.json is not labelled POST HOC")
+    info["stats"] = stats
+    info["post_hoc_clusters"] = post.get("problem_clusters")
+    return errs, info
+
+
 def validate_misc(root: Path) -> list[str]:
     errs = []
     root = Path(root)

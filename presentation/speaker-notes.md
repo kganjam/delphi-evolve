@@ -1,6 +1,6 @@
 # Speaker notes
 
-Built 2026-10-31 01:49 PDT from fdf01b5efce38a327fadb078c4f8744c15363e82.
+Built 2026-10-31 02:04 PDT from fcbc98f9f6206a49fe36d89b0c080867437ef859.
 
 **Slide 1** (0:00-0:20)
 
@@ -16,12 +16,12 @@ Challenge the assumption. Kappa is how much we distrust each measurement. The sh
 
 **Slide 4** (1:05-1:50)
 
-Does asking for the decisive assay save measurements? Retrospectively, matched budgets, 20 seed clusters. At 1000 assays, query-to-certify certifies 78 of 100; directed 32; random 21. Specialists sharing evidence: 78. No collective uplift. Dropping the learned model, an arm chosen after seeing the original run, reaches 96, but only 16 versus 43 at 250 assays. A hundred episodes are not a hundred independent targets; zero false certificates is a consistency check. LazySP-style baseline: still pending, so Q2C is not claimed to beat it.
+Does asking for the decisive assay save measurements? We added a stronger baseline from the literature: lazy path search, adapted to assay queries. At 1000 assays it certifies 96 of 100; our model-assisted planner 78; specialists sharing evidence 78, so no collective uplift. A post hoc arm without the learned model also reaches 96, but only 16 versus 43 at 250 assays. The gain over our planner sits mostly in one repeated endpoint pair, so we claim no superiority. One enzyme, assumed intervals, retrospective.
 
 **Slide 5** (1:50-2:30)
 
-Delphi claims are now executable. Kimura and Fisher run through hand-authored, hash-pinned adapters with an applicability guard. A valid diploid calculation computes; the haploid E. coli transfer, and a TrpB score used as a selection coefficient, are refused. Withdraw or edit the source and the answer flips to refuse. Ordinary caching already captures same-context reuse, identically; typed guards matter when the context is wrong. This is bounded, assumption-aware knowledge execution, not theorem extraction, and it does not improve the TrpB route benchmark.
+Delphi claims become executable. Kimura and Fisher run through hand-authored, hash-pinned adapters with an applicability guard. A valid diploid calculation computes; a haploid E. coli transfer, or a TrpB score used as a selection coefficient, is refused. Withdraw or edit the source and the answer flips to refuse. Ordinary caching already captures same-context reuse. A Turing example is model-derived: the domain decides whether an unstable mode is admissible. Bounded knowledge execution, not theorem extraction; it does not improve the TrpB route benchmark.
 
 **Slide 6** (2:30-3:00)
 
-Lean checks the generic route and cut theorems, plus one seven-node route recomputed exactly from raw data, conditional on assumed intervals. The ESM2 prior is predicted, weakly correlated, not measured, and its replay is still pending. The contribution is compact: assay decisions with machine-checkable conditional certificates and typed reusable evidence. Not the first query-efficient pathfinding. Next: one lab, one prior campaign, one prospective round.
+Lean checks the generic route and cut theorems, plus one seven-node route recomputed exactly from raw data, conditional on assumed intervals. The ESM2 prior is predicted, weakly correlated, not measured, and its use in policy replay is not part of this release. The contribution is compact: assay decisions with machine-checkable conditional certificates and typed reusable evidence. Not the first query-efficient pathfinding. Next: one lab, one prior campaign, one prospective round.

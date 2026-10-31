@@ -1,12 +1,26 @@
-# Appendix — long limitations and pending items (not slide material)
+# Appendix — limitations, all arms and the LazySP follow-up (not slide material)
 
-Built 2026-10-31 01:49 PDT from artifacts commit `fdf01b5efce38a327fadb078c4f8744c15363e82`. Every number below is read from the files named in `deck.provenance.json`.
+Built 2026-10-31 02:04 PDT from artifacts commit `fcbc98f9f6206a49fe36d89b0c080867437ef859`. Every number below is read from the files named in `deck.provenance.json`.
 
-## Pending at render time (no benefit claimed)
+## Strong LazySP-style follow-up (complete, independently audited)
 
-* **Current strong LazySP-style baseline** on the same 100 episodes per policy: pending, not complete at render time; no benefit is claimed. The worker's branch records a preregistration and a seed-0 smoke test only. Until it is complete, query-to-certify (Q2C) is **not** claimed to beat a LazySP-style policy; LazySP and BAEE are prior art for query-efficient path evaluation.
-* **GPU-prior policy ablation** (replay with the ESM2 prior as input): pending, not complete at render time. The prior's agreement with the measured data was computed (weak Spearman) but its effect on assay decisions is untested.
-* **Roadmap only:** an optional second-domain Lean example (Turing-model applicability check) is in progress on another branch; nothing from it is claimed here.
+* Result files (read from `artifacts/lazysp/results/`): summary.json, table_primary.csv, episodes.csv, exploratory_post_hoc.json, audit.json. 3 variants x 100 episodes, none missing. Audit: 300 shards replayed from their saved assay logs against the source data and a fresh core ledger, 0 errors. This deck re-derived resolved@B, restricted-mean assays, status counts and the paired only-LazySP / only-Q2C / both counts from `episodes.csv` and the core replay before rendering; any mismatch rejects the build.
+* Provenance of the idea: LazySP (Dellin & Srinivasa, ICAPS 2016) and Bayesian active edge evaluation (Choudhury et al., IJCAI 2018). The node-query adaptation (assaying a vertex instead of evaluating an edge) is an existing adaptation of that prior art, not our algorithmic invention. The original directed-Hamming frontier policy was a weak comparator to LazySP.
+* Timing of the protocol: the follow-up was preregistered before its new baseline episodes ran, but after the original study (so the original panel's outcomes were known). Primary selector: alternate; forward and reverse were declared secondary. Post hoc rows are labelled as such.
+* Paired alternate minus saved Q2C (100 episodes): resolved@1000 +18 pp [+14, +22] (preregistered seed-cluster bootstrap, 20 clusters); 18 episodes only LazySP, 0 only Q2C, 78 both, 4 neither. Restricted-mean assays -6.5 [-53, +49]: includes 0.
+* Where the gain sits: the 18 LazySP-only episodes by endpoint pair are VFVS→AIKG: 1, VFVS→ALKG: 17. Four fixed published-parent targets recur across 20 seeds, so the panel behaves like about 24 independent problems. A POST HOC problem-cluster bootstrap (24 clusters; exploratory, not preregistered) gives resolved@1000 +18 pp [+0, +51] and restricted-mean assays -6.5 [-183, +209]. The completion advantage is not established at the problem level. Budget sensitivity: at 750 assays Q2C is ahead of the alternate selector, so quote any figure with its budget.
+* Conclusion kept: the original Q2C planner is not demonstrated to beat a lazy path-search baseline; the old 78-versus-32 headline (Q2C versus our own directed frontier) lacked this baseline. No claim that LazySP is generally better, no calibrated confidence, no other landscape, no biological impossibility from a `blocked` result.
+
+| follow-up arm | status | @100 | @250 | @500 | @750 | @1000 | restricted-mean assays | open / blocked / unresolved |
+|---|---|---|---|---|---|---|---|---|
+| lazysp_alternate | preregistered primary | 27% | 50% | 55% | 56% | 96% | 476.6 | 91 / 5 / 4 |
+| lazysp_forward | preregistered secondary | 29% | 54% | 55% | 96% | 96% | 369.6 | 91 / 5 / 4 |
+| lazysp_reverse | preregistered secondary | 26% | 27% | 49% | 49% | 49% | 593.9 | 49 / 0 / 51 |
+
+## Not part of this release (no benefit claimed)
+
+* **GPU-prior policy ablation** (replay with the ESM2 prior as input): not available in this release. The prior's agreement with the measured data was computed (weak Spearman) but its effect on assay decisions is untested; a model-size ablation is in progress on another branch and nothing from it is claimed here.
+* **ALDE** (active-learning-assisted directed evolution) was not run; it is the closest prior art on this landscape.
 
 ## All arms, certified fraction of 100 episodes (family: all)
 
@@ -38,7 +52,8 @@ Arm names: `collective_shared_c` = shared specialists without the GP; `collectiv
 ## Lean scope
 
 * Kernel-checked: generic route-soundness and cut theorems (conditional on assumed interval containment); one VFVS→AIKG κ=2 seven-node route with an exact raw-CSV recompute (7/7); a swapped-route mutant is rejected.
-* Not kernel-checked: the individual decisions of the 1,100 replay episodes; source/nanopub claims do not become verified biology because Lean compiled.
+* Not kernel-checked: the individual decisions of the 1,100 core replay episodes and the 300 LazySP follow-up episodes (the latter are audited by replay against a fresh ledger, which is not a Lean proof); source/nanopub claims do not become verified biology because Lean compiled.
+* Turing-domain example (`artifacts/turing_scope/`): two existing Delphi records (turing-ddi, turing-wavelength), source-pinned by content hash, with a requester-declared Jacobian J = [['1', '-2'], ['2', '-3']], D_u = 1, D_v = 10, 1-D zero-flux (Neumann) domain. L = pi: stable, no admissible unstable mode although a continuum instability band exists; L = 2 pi: linearly_unstable at n = 1 (q = 1/4, determinant -1/8, negative). Exact rational check; 2001 modes cross-checked in floating point, modes beyond that covered by the analytic tail rule. Lean Lean (version 4.35.0 compiled the parameterised dispersion algebra, the infinite-mode tail and the instantiation; 4/4 witness mutants behaved as expected and 2/2 generic-law mutants were rejected. Lean does not show eigenvalue/Routh-Hurwitz equivalence, the PDE, or any biological pattern; the fixed point is declared, not measured. Evidence type: model-derived.
 
 ## Claim runtime limits
 
