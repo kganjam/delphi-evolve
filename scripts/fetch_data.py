@@ -39,7 +39,7 @@ MEMBERS = {
     "summary_AA.csv": "data/figure_data/4-site_merged_replicates/20230827/four-site_summary_AA_data.csv",
     "KNN_imputed_TrpB.csv": "data/figure_data/4-site_imputed/20230828_KNN_imputed_TrpB.csv",
 }
-UA = {"User-Agent": "delphi-evolve-fetch/0.1 (+research; contact kris.ganjam@alleninstitute.org)"}
+UA = {"User-Agent": "delphi-evolve-fetch/0.1 (+https://github.com/kganjam/delphi-evolve)"}
 
 
 class RangeFile(io.RawIOBase):
