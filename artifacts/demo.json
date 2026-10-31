@@ -2928,6 +2928,44 @@
    "raw_mu_2": 0.1473225655574915,
    "min_input_count": 123,
    "evidence_kind": "observed"
+  },
+  {
+   "id": "GTVN",
+   "genotype": "GTVN",
+   "grid": [
+    116,
+    351
+   ],
+   "observed_score": 0.16576,
+   "replicate_1": 0.16553,
+   "replicate_2": 0.165991,
+   "lower": 0.162768,
+   "upper": 0.168752,
+   "lower_micro": 162768,
+   "upper_micro": 168752,
+   "raw_mu_1": 0.2975197361875269,
+   "raw_mu_2": 0.3017653228339975,
+   "min_input_count": 560,
+   "evidence_kind": "observed"
+  },
+  {
+   "id": "HTGR",
+   "genotype": "HTGR",
+   "grid": [
+    136,
+    114
+   ],
+   "observed_score": 0.007466,
+   "replicate_1": 0.004869,
+   "replicate_2": 0.010062,
+   "lower": 0.001615,
+   "upper": 0.013317,
+   "lower_micro": 1615,
+   "upper_micro": 13317,
+   "raw_mu_1": 0.1368587865848018,
+   "raw_mu_2": 0.1458368617750723,
+   "min_input_count": 131,
+   "evidence_kind": "observed"
   }
  ],
  "edges": [
@@ -17382,7 +17420,8 @@
    ],
    "weakest_step_index": 2,
    "breaks_at_kappa": 2.45,
-   "lean_receipt": null
+   "lean_receipt": "artifacts/integration/core_kappa2_route_lean.json",
+   "lean_certificate_path": "artifacts/integration/core_kappa2_route_lean.certificate.json"
   },
   {
    "id": "tempting-direct",
@@ -17417,7 +17456,11 @@
     "A4 graph scope is the measured subgraph only (see graph_scope)"
    ],
    "certificate_path": "artifacts/core/certificates/cut_HTGR_GTVN_kappa2.json",
-   "note": "pair chosen for illustration as the smallest blocked pair in the frozen panel"
+   "note": "pair chosen for illustration as the smallest blocked pair in the frozen panel",
+   "semantics": "'blocked' here means NO ROUTE CAN BE CERTIFIED in the measured subgraph under the assumed kappa (intervals that overlap count as not admitted). It does NOT exclude a true non-decreasing path: the strong no-path theorem (blocked_cut_sound) needs every exit certified lower. Lean separates the two (artifacts/proof/CORRESPONDENCE.md, DarwinBridge/Distinction.lean). 'nodes' lists the start/target endpoints, not a path.",
+   "lean_checked": true,
+   "lean_theorem": "DarwinBridge.admCert_sound (no certifiable route; weaker than blocked_cut_sound)",
+   "lean_certificate_path": "artifacts/proof/core_kappa2_adm_cut_htgr_gtvn.json"
   }
  ],
  "kappa_sweep": [
@@ -17470,8 +17513,65 @@
    "shortest_route_edges": null
   }
  ],
- "claims": [],
- "claims_status": "unavailable: Delphi claim import is not performed by the core worker; no claim IDs are asserted",
+ "claims": [
+  {
+   "id": "darwin1859-ch06-08@local",
+   "source_uri": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-08",
+   "statement": "If any complex organ were shown to exist that could not possibly have been formed by numerous, successive, slight modifications, the theory of natural selection would break down; no such case is known.",
+   "relation_to_test": "motivation-by-analogy; not equivalentTo and not a test of this claim",
+   "status": "unresolved; Delphi local source; nanopub darwin-origin/nanopubs/unsigned/darwin1859-ch06-08.trig"
+  },
+  {
+   "id": "darwin1859-ch06-08@network",
+   "source_uri": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-08",
+   "statement": "If any complex organ were shown to exist that could not possibly have been formed by numerous, successive, slight modifications, the theory of natural selection would break down; no such case is known.",
+   "relation_to_test": "motivation-by-analogy; not equivalentTo and not a test of this claim",
+   "status": "unresolved; Delphi network source; nanopub https://w3id.org/np/RAJN9-vmRYhQZuloSCaF9rPE2_wnkcoTI4XxbYcVt_uS4"
+  },
+  {
+   "id": "darwin1859-ch06-16@local",
+   "source_uri": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-16",
+   "statement": "The rule that nature makes no leaps is not strictly true of living organisms alone, but if all past organisms are included it must be strictly true.",
+   "relation_to_test": "motivation-by-analogy; not equivalentTo and not a test of this claim",
+   "status": "unresolved; Delphi local source; nanopub darwin-origin/nanopubs/unsigned/darwin1859-ch06-16.trig"
+  },
+  {
+   "id": "darwin1859-ch06-16@network",
+   "source_uri": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-16",
+   "statement": "The rule that nature makes no leaps is not strictly true of living organisms alone, but if all past organisms are included it must be strictly true.",
+   "relation_to_test": "motivation-by-analogy; not equivalentTo and not a test of this claim",
+   "status": "unresolved; Delphi network source; nanopub https://w3id.org/np/RAovYvW0y_yQKkjjMPr41Vjnzl81xI1rxAqMlF4ogNap4"
+  },
+  {
+   "id": "darwin1859-ch01-17@local",
+   "source_uri": "https://w3id.org/delphi/resource/claim/darwin1859-ch01-17",
+   "statement": "Among the causes of change in domestic races, including conditions of life, use and disuse, correlation and crossing, the accumulative action of selection, whether methodical or unconscious, is by far the predominant power.",
+   "relation_to_test": "motivation-by-analogy; not equivalentTo and not a test of this claim",
+   "status": "unresolved; Delphi local source; nanopub darwin-origin/nanopubs/unsigned/darwin1859-ch01-17.trig"
+  },
+  {
+   "id": "darwin1859-ch01-17@network",
+   "source_uri": "https://w3id.org/delphi/resource/claim/darwin1859-ch01-17",
+   "statement": "Among the causes of change in domestic races, including conditions of life, use and disuse, correlation and crossing, the accumulative action of selection, whether methodical or unconscious, is by far the predominant power.",
+   "relation_to_test": "motivation-by-analogy; not equivalentTo and not a test of this claim",
+   "status": "unresolved; Delphi network source; nanopub https://w3id.org/np/RAGG5Y2WGfHtfOj6nZhD18twOU3GNco-Q2EpYx_kavHcg"
+  },
+  {
+   "id": "fisher-ftns@local",
+   "source_uri": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+   "statement": "The rate of increase in mean fitness of a population due to natural selection equals its additive genetic variance in fitness at that time.",
+   "relation_to_test": "context only (partial-change theorem; Delphi notes it fails for total change under epistasis)",
+   "status": "unresolved; Delphi local source; nanopub math-bio-theorems/nanopubs/unsigned/fisher-ftns.trig"
+  },
+  {
+   "id": "fisher-ftns@network",
+   "source_uri": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+   "statement": "The rate of increase in mean fitness of a population due to natural selection equals its additive genetic variance in fitness at that time.",
+   "relation_to_test": "context only (partial-change theorem; Delphi notes it fails for total change under epistasis)",
+   "status": "unresolved; Delphi network source; nanopub https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48"
+  }
+ ],
+ "claims_status": "Delphi records queried live 2026-10-31 (local and network kept separate); relation is motivation/context only; nanopub drafts are unsigned and unpublished",
  "benchmark": {
   "status": "completed",
   "protocol": "artifacts/core/protocol.json",
@@ -17670,20 +17770,36 @@
   }
  },
  "proof": {
-  "status": "unavailable",
-  "theorem": null,
-  "command": null,
-  "exit_code": null,
-  "mutation_exit_code": null,
-  "receipt": null,
-  "note": "core worker emits integer-interval certificates (certificates/*.json) for the proof worker; nothing here has been Lean-checked"
+  "status": "completed",
+  "theorem": "DarwinBridge.routeCert_sound; DarwinBridge.blockedCert_sound (conditional on assumed interval containment)",
+  "command": "python scripts/check_proofs.py",
+  "exit_code": 0,
+  "mutation_exit_code": 1,
+  "receipt": "artifacts/proof/receipt.json",
+  "lean_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "wall_seconds": 117.5,
+  "axioms_used": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "scope": "Lean-checked: proof-worker route certificates, strong blocked certificates (all exits certified lower) and the admissible-cut certificate for core's HTGR>GTVN example ('no certifiable route', weaker); plus the bridged core kappa=2 VFVS>AIKG ROUTE. NOT Lean-checked: the replay's individual episode decisions (they are sound by construction from revealed labels and re-verified against full data in Python). 'Blocked' in core never means 'no true route' (planning/INTEGRATION-FINDINGS.md F1).",
+  "bridged_core_route": {
+   "receipt": "artifacts/integration/core_kappa2_route_lean.json",
+   "certificate": "artifacts/integration/core_kappa2_route_lean.certificate.json",
+   "lean_original_build_exit": 0,
+   "lean_mutant_swap_build_exit": 1,
+   "intervals_recomputed_from_raw_csv_exact": "7/7"
+  },
+  "assumption": "Interval containment is ASSUMED; two replicates do not give simultaneous confidence bands."
  },
  "compute": {
   "status": "unavailable",
   "provider": null,
   "model": null,
   "job_id": null,
-  "artifacts": []
+  "artifacts": [],
+  "note": "no GPU receipt integrated"
  },
  "replay_example": {
   "policy": "collective_shared",

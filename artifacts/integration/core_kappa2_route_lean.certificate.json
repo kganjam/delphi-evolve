@@ -162,7 +162,7 @@
  ],
  "bridged_from": {
   "file": "route_VFVS_AIKG_kappa2.json",
-  "body_sha256": "cc7c0cc2d045d2c0fb614a7a19591aefa70e7d71cadac9aeaf0f85a7dd75ad52"
+  "body_sha256": "7523e36108a982f44ce7d4ec68b33a828a83b332044e93075e6ac631579a5794"
  },
- "certificate_sha256": "ae710875411f436993d46989d08f8ee22662badfcc18525b7f08415d8e18ca28"
+ "certificate_sha256": "53bafa1ed25e3c88578547f87078618433e0a339cf671c434ff69996f73bcbde"
 }

@@ -1,0 +1,1554 @@
+{
+ "source_tables": [
+  "artifacts/core/replay/table_primary.csv",
+  "artifacts/core/replay/table_paired.csv",
+  "artifacts/core/protocol.json",
+  "artifacts/core/replay/summary.json"
+ ],
+ "kind": "retrospective simulated assay-budget replay over already-measured labels; benchmark truth = finite measured-graph reachability under the declared ASSUMED interval model (kappa=2)",
+ "seeds": 20,
+ "episodes_per_policy": 100,
+ "budgets": [
+  100,
+  250,
+  500,
+  1000
+ ],
+ "protocol_panel_sha256": "bb6c144e8f0eba1079d6353d9c7f612a02df30afa7770ce94a064a47ad9b9bcf",
+ "frozen_policies": [
+  "collective_isolated",
+  "collective_shared",
+  "directed",
+  "greedy",
+  "q2c",
+  "random",
+  "uncertainty"
+ ],
+ "policies": [
+  {
+   "id": "random",
+   "label": "random frontier",
+   "frozen_in_protocol": true,
+   "by_family": {
+    "all": {
+     "100": {
+      "episodes": 100,
+      "certified": 4,
+      "cert_rate": 0.04,
+      "unresolved_censored": 96,
+      "false_certificates": 0,
+      "rmst_assays": 98.51
+     },
+     "250": {
+      "episodes": 100,
+      "certified": 7,
+      "cert_rate": 0.07,
+      "unresolved_censored": 93,
+      "false_certificates": 0,
+      "rmst_assays": 240.13
+     },
+     "500": {
+      "episodes": 100,
+      "certified": 14,
+      "cert_rate": 0.14,
+      "unresolved_censored": 86,
+      "false_certificates": 0,
+      "rmst_assays": 464.22
+     },
+     "1000": {
+      "episodes": 100,
+      "certified": 21,
+      "cert_rate": 0.21,
+      "unresolved_censored": 79,
+      "false_certificates": 0,
+      "rmst_assays": 877.4
+     }
+    },
+    "A": {
+     "100": {
+      "episodes": 20,
+      "certified": 4,
+      "cert_rate": 0.2,
+      "unresolved_censored": 16,
+      "false_certificates": 0,
+      "rmst_assays": 92.55
+     },
+     "250": {
+      "episodes": 20,
+      "certified": 7,
+      "cert_rate": 0.35,
+      "unresolved_censored": 13,
+      "false_certificates": 0,
+      "rmst_assays": 200.65
+     },
+     "500": {
+      "episodes": 20,
+      "certified": 7,
+      "cert_rate": 0.35,
+      "unresolved_censored": 13,
+      "false_certificates": 0,
+      "rmst_assays": 363.15
+     },
+     "1000": {
+      "episodes": 20,
+      "certified": 8,
+      "cert_rate": 0.4,
+      "unresolved_censored": 12,
+      "false_certificates": 0,
+      "rmst_assays": 666.5
+     }
+    },
+    "B": {
+     "100": {
+      "episodes": 80,
+      "certified": 0,
+      "cert_rate": 0.0,
+      "unresolved_censored": 80,
+      "false_certificates": 0,
+      "rmst_assays": 100.0
+     },
+     "250": {
+      "episodes": 80,
+      "certified": 0,
+      "cert_rate": 0.0,
+      "unresolved_censored": 80,
+      "false_certificates": 0,
+      "rmst_assays": 250.0
+     },
+     "500": {
+      "episodes": 80,
+      "certified": 7,
+      "cert_rate": 0.0875,
+      "unresolved_censored": 73,
+      "false_certificates": 0,
+      "rmst_assays": 489.4875
+     },
+     "1000": {
+      "episodes": 80,
+      "certified": 13,
+      "cert_rate": 0.1625,
+      "unresolved_censored": 67,
+      "false_certificates": 0,
+      "rmst_assays": 930.125
+     }
+    }
+   }
+  },
+  {
+   "id": "greedy",
+   "label": "greedy walk",
+   "frozen_in_protocol": true,
+   "by_family": {
+    "all": {
+     "100": {
+      "episodes": 100,
+      "certified": 3,
+      "cert_rate": 0.03,
+      "unresolved_censored": 97,
+      "false_certificates": 0,
+      "rmst_assays": 98.58
+     },
+     "250": {
+      "episodes": 100,
+      "certified": 7,
+      "cert_rate": 0.07,
+      "unresolved_censored": 93,
+      "false_certificates": 0,
+      "rmst_assays": 241.22
+     },
+     "500": {
+      "episodes": 100,
+      "certified": 7,
+      "cert_rate": 0.07,
+      "unresolved_censored": 93,
+      "false_certificates": 0,
+      "rmst_assays": 473.72
+     },
+     "1000": {
+      "episodes": 100,
+      "certified": 8,
+      "cert_rate": 0.08,
+      "unresolved_censored": 92,
+      "false_certificates": 0,
+      "rmst_assays": 933.74
+     }
+    },
+    "A": {
+     "100": {
+      "episodes": 20,
+      "certified": 3,
+      "cert_rate": 0.15,
+      "unresolved_censored": 17,
+      "false_certificates": 0,
+      "rmst_assays": 92.9
+     },
+     "250": {
+      "episodes": 20,
+      "certified": 7,
+      "cert_rate": 0.35,
+      "unresolved_censored": 13,
+      "false_certificates": 0,
+      "rmst_assays": 206.1
+     },
+     "500": {
+      "episodes": 20,
+      "certified": 7,
+      "cert_rate": 0.35,
+      "unresolved_censored": 13,
+      "false_certificates": 0,
+      "rmst_assays": 368.6
+     },
+     "1000": {
+      "episodes": 20,
+      "certified": 8,
+      "cert_rate": 0.4,
+      "unresolved_censored": 12,
+      "false_certificates": 0,
+      "rmst_assays": 668.7
+     }
+    },
+    "B": {
+     "100": {
+      "episodes": 80,
+      "certified": 0,
+      "cert_rate": 0.0,
+      "unresolved_censored": 80,
+      "false_certificates": 0,
+      "rmst_assays": 100.0
+     },
+     "250": {
+      "episodes": 80,
+      "certified": 0,
+      "cert_rate": 0.0,
+      "unresolved_censored": 80,
+      "false_certificates": 0,
+      "rmst_assays": 250.0
+     },
+     "500": {
+      "episodes": 80,
+      "certified": 0,
+      "cert_rate": 0.0,
+      "unresolved_censored": 80,
+      "false_certificates": 0,
+      "rmst_assays": 500.0
+     },
+     "1000": {
+      "episodes": 80,
+      "certified": 0,
+      "cert_rate": 0.0,
+      "unresolved_censored": 80,
+      "false_certificates": 0,
+      "rmst_assays": 1000.0
+     }
+    }
+   }
+  },
+  {
+   "id": "uncertainty",
+   "label": "GP uncertainty",
+   "frozen_in_protocol": true,
+   "by_family": {
+    "all": {
+     "100": {
+      "episodes": 100,
+      "certified": 2,
+      "cert_rate": 0.02,
+      "unresolved_censored": 98,
+      "false_certificates": 0,
+      "rmst_assays": 99.52
+     },
+     "250": {
+      "episodes": 100,
+      "certified": 5,
+      "cert_rate": 0.05,
+      "unresolved_censored": 95,
+      "false_certificates": 0,
+      "rmst_assays": 244.14
+     },
+     "500": {
+      "episodes": 100,
+      "certified": 8,
+      "cert_rate": 0.08,
+      "unresolved_censored": 92,
+      "false_certificates": 0,
+      "rmst_assays": 479.64
+     },
+     "1000": {
+      "episodes": 100,
+      "certified": 13,
+      "cert_rate": 0.13,
+      "unresolved_censored": 87,
+      "false_certificates": 0,
+      "rmst_assays": 930.87
+     }
+    },
+    "A": {
+     "100": {
+      "episodes": 20,
+      "certified": 2,
+      "cert_rate": 0.1,
+      "unresolved_censored": 18,
+      "false_certificates": 0,
+      "rmst_assays": 97.6
+     },
+     "250": {
+      "episodes": 20,
+      "certified": 5,
+      "cert_rate": 0.25,
+      "unresolved_censored": 15,
+      "false_certificates": 0,
+      "rmst_assays": 220.7
+     },
+     "500": {
+      "episodes": 20,
+      "certified": 5,
+      "cert_rate": 0.25,
+      "unresolved_censored": 15,
+      "false_certificates": 0,
+      "rmst_assays": 408.2
+     },
+     "1000": {
+      "episodes": 20,
+      "certified": 5,
+      "cert_rate": 0.25,
+      "unresolved_censored": 15,
+      "false_certificates": 0,
+      "rmst_assays": 783.2
+     }
+    },
+    "B": {
+     "100": {
+      "episodes": 80,
+      "certified": 0,
+      "cert_rate": 0.0,
+      "unresolved_censored": 80,
+      "false_certificates": 0,
+      "rmst_assays": 100.0
+     },
+     "250": {
+      "episodes": 80,
+      "certified": 0,
+      "cert_rate": 0.0,
+      "unresolved_censored": 80,
+      "false_certificates": 0,
+      "rmst_assays": 250.0
+     },
+     "500": {
+      "episodes": 80,
+      "certified": 3,
+      "cert_rate": 0.0375,
+      "unresolved_censored": 77,
+      "false_certificates": 0,
+      "rmst_assays": 497.5
+     },
+     "1000": {
+      "episodes": 80,
+      "certified": 8,
+      "cert_rate": 0.1,
+      "unresolved_censored": 72,
+      "false_certificates": 0,
+      "rmst_assays": 967.7875
+     }
+    }
+   }
+  },
+  {
+   "id": "directed",
+   "label": "directed best-first (single deterministic policy)",
+   "frozen_in_protocol": true,
+   "by_family": {
+    "all": {
+     "100": {
+      "episodes": 100,
+      "certified": 27,
+      "cert_rate": 0.27,
+      "unresolved_censored": 73,
+      "false_certificates": 0,
+      "rmst_assays": 82.65
+     },
+     "250": {
+      "episodes": 100,
+      "certified": 30,
+      "cert_rate": 0.3,
+      "unresolved_censored": 70,
+      "false_certificates": 0,
+      "rmst_assays": 189.77
+     },
+     "500": {
+      "episodes": 100,
+      "certified": 30,
+      "cert_rate": 0.3,
+      "unresolved_censored": 70,
+      "false_certificates": 0,
+      "rmst_assays": 364.77
+     },
+     "1000": {
+      "episodes": 100,
+      "certified": 32,
+      "cert_rate": 0.32,
+      "unresolved_censored": 68,
+      "false_certificates": 0,
+      "rmst_assays": 709.17
+     }
+    },
+    "A": {
+     "100": {
+      "episodes": 20,
+      "certified": 7,
+      "cert_rate": 0.35,
+      "unresolved_censored": 13,
+      "false_certificates": 0,
+      "rmst_assays": 79.25
+     },
+     "250": {
+      "episodes": 20,
+      "certified": 10,
+      "cert_rate": 0.5,
+      "unresolved_censored": 10,
+      "false_certificates": 0,
+      "rmst_assays": 164.85
+     },
+     "500": {
+      "episodes": 20,
+      "certified": 10,
+      "cert_rate": 0.5,
+      "unresolved_censored": 10,
+      "false_certificates": 0,
+      "rmst_assays": 289.85
+     },
+     "1000": {
+      "episodes": 20,
+      "certified": 12,
+      "cert_rate": 0.6,
+      "unresolved_censored": 8,
+      "false_certificates": 0,
+      "rmst_assays": 511.85
+     }
+    },
+    "B": {
+     "100": {
+      "episodes": 80,
+      "certified": 20,
+      "cert_rate": 0.25,
+      "unresolved_censored": 60,
+      "false_certificates": 0,
+      "rmst_assays": 83.5
+     },
+     "250": {
+      "episodes": 80,
+      "certified": 20,
+      "cert_rate": 0.25,
+      "unresolved_censored": 60,
+      "false_certificates": 0,
+      "rmst_assays": 196.0
+     },
+     "500": {
+      "episodes": 80,
+      "certified": 20,
+      "cert_rate": 0.25,
+      "unresolved_censored": 60,
+      "false_certificates": 0,
+      "rmst_assays": 383.5
+     },
+     "1000": {
+      "episodes": 80,
+      "certified": 20,
+      "cert_rate": 0.25,
+      "unresolved_censored": 60,
+      "false_certificates": 0,
+      "rmst_assays": 758.5
+     }
+    }
+   }
+  },
+  {
+   "id": "q2c",
+   "label": "query-to-certify (GP-priced)",
+   "frozen_in_protocol": true,
+   "by_family": {
+    "all": {
+     "100": {
+      "episodes": 100,
+      "certified": 24,
+      "cert_rate": 0.24,
+      "unresolved_censored": 76,
+      "false_certificates": 0,
+      "rmst_assays": 84.05
+     },
+     "250": {
+      "episodes": 100,
+      "certified": 43,
+      "cert_rate": 0.43,
+      "unresolved_censored": 57,
+      "false_certificates": 0,
+      "rmst_assays": 182.63
+     },
+     "500": {
+      "episodes": 100,
+      "certified": 48,
+      "cert_rate": 0.48,
+      "unresolved_censored": 52,
+      "false_certificates": 0,
+      "rmst_assays": 319.45
+     },
+     "1000": {
+      "episodes": 100,
+      "certified": 78,
+      "cert_rate": 0.78,
+      "unresolved_censored": 22,
+      "false_certificates": 0,
+      "rmst_assays": 483.1
+     }
+    },
+    "A": {
+     "100": {
+      "episodes": 20,
+      "certified": 10,
+      "cert_rate": 0.5,
+      "unresolved_censored": 10,
+      "false_certificates": 0,
+      "rmst_assays": 68.8
+     },
+     "250": {
+      "episodes": 20,
+      "certified": 13,
+      "cert_rate": 0.65,
+      "unresolved_censored": 7,
+      "false_certificates": 0,
+      "rmst_assays": 131.9
+     },
+     "500": {
+      "episodes": 20,
+      "certified": 14,
+      "cert_rate": 0.7,
+      "unresolved_censored": 6,
+      "false_certificates": 0,
+      "rmst_assays": 215.05
+     },
+     "1000": {
+      "episodes": 20,
+      "certified": 16,
+      "cert_rate": 0.8,
+      "unresolved_censored": 4,
+      "false_certificates": 0,
+      "rmst_assays": 348.35
+     }
+    },
+    "B": {
+     "100": {
+      "episodes": 80,
+      "certified": 14,
+      "cert_rate": 0.175,
+      "unresolved_censored": 66,
+      "false_certificates": 0,
+      "rmst_assays": 87.8625
+     },
+     "250": {
+      "episodes": 80,
+      "certified": 30,
+      "cert_rate": 0.375,
+      "unresolved_censored": 50,
+      "false_certificates": 0,
+      "rmst_assays": 195.3125
+     },
+     "500": {
+      "episodes": 80,
+      "certified": 34,
+      "cert_rate": 0.425,
+      "unresolved_censored": 46,
+      "false_certificates": 0,
+      "rmst_assays": 345.55
+     },
+     "1000": {
+      "episodes": 80,
+      "certified": 62,
+      "cert_rate": 0.775,
+      "unresolved_censored": 18,
+      "false_certificates": 0,
+      "rmst_assays": 516.7875
+     }
+    }
+   }
+  },
+  {
+   "id": "collective_shared",
+   "label": "collective, shared evidence",
+   "frozen_in_protocol": true,
+   "by_family": {
+    "all": {
+     "100": {
+      "episodes": 100,
+      "certified": 24,
+      "cert_rate": 0.24,
+      "unresolved_censored": 76,
+      "false_certificates": 0,
+      "rmst_assays": 84.5
+     },
+     "250": {
+      "episodes": 100,
+      "certified": 47,
+      "cert_rate": 0.47,
+      "unresolved_censored": 53,
+      "false_certificates": 0,
+      "rmst_assays": 177.02
+     },
+     "500": {
+      "episodes": 100,
+      "certified": 49,
+      "cert_rate": 0.49,
+      "unresolved_censored": 51,
+      "false_certificates": 0,
+      "rmst_assays": 306.32
+     },
+     "1000": {
+      "episodes": 100,
+      "certified": 78,
+      "cert_rate": 0.78,
+      "unresolved_censored": 22,
+      "false_certificates": 0,
+      "rmst_assays": 466.94
+     }
+    },
+    "A": {
+     "100": {
+      "episodes": 20,
+      "certified": 10,
+      "cert_rate": 0.5,
+      "unresolved_censored": 10,
+      "false_certificates": 0,
+      "rmst_assays": 64.3
+     },
+     "250": {
+      "episodes": 20,
+      "certified": 15,
+      "cert_rate": 0.75,
+      "unresolved_censored": 5,
+      "false_certificates": 0,
+      "rmst_assays": 116.65
+     },
+     "500": {
+      "episodes": 20,
+      "certified": 15,
+      "cert_rate": 0.75,
+      "unresolved_censored": 5,
+      "false_certificates": 0,
+      "rmst_assays": 179.15
+     },
+     "1000": {
+      "episodes": 20,
+      "certified": 16,
+      "cert_rate": 0.8,
+      "unresolved_censored": 4,
+      "false_certificates": 0,
+      "rmst_assays": 297.25
+     }
+    },
+    "B": {
+     "100": {
+      "episodes": 80,
+      "certified": 14,
+      "cert_rate": 0.175,
+      "unresolved_censored": 66,
+      "false_certificates": 0,
+      "rmst_assays": 89.55
+     },
+     "250": {
+      "episodes": 80,
+      "certified": 32,
+      "cert_rate": 0.4,
+      "unresolved_censored": 48,
+      "false_certificates": 0,
+      "rmst_assays": 192.1125
+     },
+     "500": {
+      "episodes": 80,
+      "certified": 34,
+      "cert_rate": 0.425,
+      "unresolved_censored": 46,
+      "false_certificates": 0,
+      "rmst_assays": 338.1125
+     },
+     "1000": {
+      "episodes": 80,
+      "certified": 62,
+      "cert_rate": 0.775,
+      "unresolved_censored": 18,
+      "false_certificates": 0,
+      "rmst_assays": 509.3625
+     }
+    }
+   }
+  },
+  {
+   "id": "collective_isolated",
+   "label": "collective, isolated evidence",
+   "frozen_in_protocol": true,
+   "by_family": {
+    "all": {
+     "100": {
+      "episodes": 100,
+      "certified": 19,
+      "cert_rate": 0.19,
+      "unresolved_censored": 81,
+      "false_certificates": 0,
+      "rmst_assays": 88.17
+     },
+     "250": {
+      "episodes": 100,
+      "certified": 39,
+      "cert_rate": 0.39,
+      "unresolved_censored": 61,
+      "false_certificates": 0,
+      "rmst_assays": 195.51
+     },
+     "500": {
+      "episodes": 100,
+      "certified": 58,
+      "cert_rate": 0.58,
+      "unresolved_censored": 42,
+      "false_certificates": 0,
+      "rmst_assays": 322.62
+     },
+     "1000": {
+      "episodes": 100,
+      "certified": 77,
+      "cert_rate": 0.77,
+      "unresolved_censored": 23,
+      "false_certificates": 0,
+      "rmst_assays": 484.79
+     }
+    },
+    "A": {
+     "100": {
+      "episodes": 20,
+      "certified": 9,
+      "cert_rate": 0.45,
+      "unresolved_censored": 11,
+      "false_certificates": 0,
+      "rmst_assays": 73.95
+     },
+     "250": {
+      "episodes": 20,
+      "certified": 13,
+      "cert_rate": 0.65,
+      "unresolved_censored": 7,
+      "false_certificates": 0,
+      "rmst_assays": 139.3
+     },
+     "500": {
+      "episodes": 20,
+      "certified": 14,
+      "cert_rate": 0.7,
+      "unresolved_censored": 6,
+      "false_certificates": 0,
+      "rmst_assays": 223.3
+     },
+     "1000": {
+      "episodes": 20,
+      "certified": 15,
+      "cert_rate": 0.75,
+      "unresolved_censored": 5,
+      "false_certificates": 0,
+      "rmst_assays": 354.15
+     }
+    },
+    "B": {
+     "100": {
+      "episodes": 80,
+      "certified": 10,
+      "cert_rate": 0.125,
+      "unresolved_censored": 70,
+      "false_certificates": 0,
+      "rmst_assays": 91.725
+     },
+     "250": {
+      "episodes": 80,
+      "certified": 26,
+      "cert_rate": 0.325,
+      "unresolved_censored": 54,
+      "false_certificates": 0,
+      "rmst_assays": 209.5625
+     },
+     "500": {
+      "episodes": 80,
+      "certified": 44,
+      "cert_rate": 0.55,
+      "unresolved_censored": 36,
+      "false_certificates": 0,
+      "rmst_assays": 347.45
+     },
+     "1000": {
+      "episodes": 80,
+      "certified": 62,
+      "cert_rate": 0.775,
+      "unresolved_censored": 18,
+      "false_certificates": 0,
+      "rmst_assays": 517.45
+     }
+    }
+   }
+  },
+  {
+   "id": "q2c_nomodel",
+   "label": "query-to-certify, no learned model",
+   "frozen_in_protocol": false,
+   "by_family": {
+    "all": {
+     "100": {
+      "episodes": 100,
+      "certified": 7,
+      "cert_rate": 0.07,
+      "unresolved_censored": 93,
+      "false_certificates": 0,
+      "rmst_assays": 94.94
+     },
+     "250": {
+      "episodes": 100,
+      "certified": 16,
+      "cert_rate": 0.16,
+      "unresolved_censored": 84,
+      "false_certificates": 0,
+      "rmst_assays": 226.82
+     },
+     "500": {
+      "episodes": 100,
+      "certified": 96,
+      "cert_rate": 0.96,
+      "unresolved_censored": 4,
+      "false_certificates": 0,
+      "rmst_assays": 357.89
+     },
+     "1000": {
+      "episodes": 100,
+      "certified": 96,
+      "cert_rate": 0.96,
+      "unresolved_censored": 4,
+      "false_certificates": 0,
+      "rmst_assays": 377.89
+     }
+    },
+    "A": {
+     "100": {
+      "episodes": 20,
+      "certified": 7,
+      "cert_rate": 0.35,
+      "unresolved_censored": 13,
+      "false_certificates": 0,
+      "rmst_assays": 74.7
+     },
+     "250": {
+      "episodes": 20,
+      "certified": 16,
+      "cert_rate": 0.8,
+      "unresolved_censored": 4,
+      "false_certificates": 0,
+      "rmst_assays": 134.1
+     },
+     "500": {
+      "episodes": 20,
+      "certified": 16,
+      "cert_rate": 0.8,
+      "unresolved_censored": 4,
+      "false_certificates": 0,
+      "rmst_assays": 184.1
+     },
+     "1000": {
+      "episodes": 20,
+      "certified": 16,
+      "cert_rate": 0.8,
+      "unresolved_censored": 4,
+      "false_certificates": 0,
+      "rmst_assays": 284.1
+     }
+    },
+    "B": {
+     "100": {
+      "episodes": 80,
+      "certified": 0,
+      "cert_rate": 0.0,
+      "unresolved_censored": 80,
+      "false_certificates": 0,
+      "rmst_assays": 100.0
+     },
+     "250": {
+      "episodes": 80,
+      "certified": 0,
+      "cert_rate": 0.0,
+      "unresolved_censored": 80,
+      "false_certificates": 0,
+      "rmst_assays": 250.0
+     },
+     "500": {
+      "episodes": 80,
+      "certified": 80,
+      "cert_rate": 1.0,
+      "unresolved_censored": 0,
+      "false_certificates": 0,
+      "rmst_assays": 401.3375
+     },
+     "1000": {
+      "episodes": 80,
+      "certified": 80,
+      "cert_rate": 1.0,
+      "unresolved_censored": 0,
+      "false_certificates": 0,
+      "rmst_assays": 401.3375
+     }
+    }
+   }
+  },
+  {
+   "id": "collective_shared_rr",
+   "label": "collective, shared, round-robin control",
+   "frozen_in_protocol": false,
+   "by_family": {
+    "all": {
+     "100": {
+      "episodes": 100,
+      "certified": 23,
+      "cert_rate": 0.23,
+      "unresolved_censored": 77,
+      "false_certificates": 0,
+      "rmst_assays": 84.77
+     },
+     "250": {
+      "episodes": 100,
+      "certified": 48,
+      "cert_rate": 0.48,
+      "unresolved_censored": 52,
+      "false_certificates": 0,
+      "rmst_assays": 178.47
+     },
+     "500": {
+      "episodes": 100,
+      "certified": 50,
+      "cert_rate": 0.5,
+      "unresolved_censored": 50,
+      "false_certificates": 0,
+      "rmst_assays": 303.99
+     },
+     "1000": {
+      "episodes": 100,
+      "certified": 78,
+      "cert_rate": 0.78,
+      "unresolved_censored": 22,
+      "false_certificates": 0,
+      "rmst_assays": 464.79
+     }
+    },
+    "A": {
+     "100": {
+      "episodes": 20,
+      "certified": 10,
+      "cert_rate": 0.5,
+      "unresolved_censored": 10,
+      "false_certificates": 0,
+      "rmst_assays": 67.15
+     },
+     "250": {
+      "episodes": 20,
+      "certified": 15,
+      "cert_rate": 0.75,
+      "unresolved_censored": 5,
+      "false_certificates": 0,
+      "rmst_assays": 121.05
+     },
+     "500": {
+      "episodes": 20,
+      "certified": 15,
+      "cert_rate": 0.75,
+      "unresolved_censored": 5,
+      "false_certificates": 0,
+      "rmst_assays": 183.55
+     },
+     "1000": {
+      "episodes": 20,
+      "certified": 16,
+      "cert_rate": 0.8,
+      "unresolved_censored": 4,
+      "false_certificates": 0,
+      "rmst_assays": 301.15
+     }
+    },
+    "B": {
+     "100": {
+      "episodes": 80,
+      "certified": 13,
+      "cert_rate": 0.1625,
+      "unresolved_censored": 67,
+      "false_certificates": 0,
+      "rmst_assays": 89.175
+     },
+     "250": {
+      "episodes": 80,
+      "certified": 33,
+      "cert_rate": 0.4125,
+      "unresolved_censored": 47,
+      "false_certificates": 0,
+      "rmst_assays": 192.825
+     },
+     "500": {
+      "episodes": 80,
+      "certified": 35,
+      "cert_rate": 0.4375,
+      "unresolved_censored": 45,
+      "false_certificates": 0,
+      "rmst_assays": 334.1
+     },
+     "1000": {
+      "episodes": 80,
+      "certified": 62,
+      "cert_rate": 0.775,
+      "unresolved_censored": 18,
+      "false_certificates": 0,
+      "rmst_assays": 505.7
+     }
+    }
+   }
+  },
+  {
+   "id": "collective_shared_c",
+   "label": "collective, shared, no GP",
+   "frozen_in_protocol": false,
+   "by_family": {
+    "all": {
+     "100": {
+      "episodes": 100,
+      "certified": 7,
+      "cert_rate": 0.07,
+      "unresolved_censored": 93,
+      "false_certificates": 0,
+      "rmst_assays": 94.93
+     },
+     "250": {
+      "episodes": 100,
+      "certified": 11,
+      "cert_rate": 0.11,
+      "unresolved_censored": 89,
+      "false_certificates": 0,
+      "rmst_assays": 230.93
+     },
+     "500": {
+      "episodes": 100,
+      "certified": 59,
+      "cert_rate": 0.59,
+      "unresolved_censored": 41,
+      "false_certificates": 0,
+      "rmst_assays": 399.89
+     },
+     "1000": {
+      "episodes": 100,
+      "certified": 96,
+      "cert_rate": 0.96,
+      "unresolved_censored": 4,
+      "false_certificates": 0,
+      "rmst_assays": 518.34
+     }
+    },
+    "A": {
+     "100": {
+      "episodes": 20,
+      "certified": 7,
+      "cert_rate": 0.35,
+      "unresolved_censored": 13,
+      "false_certificates": 0,
+      "rmst_assays": 74.65
+     },
+     "250": {
+      "episodes": 20,
+      "certified": 11,
+      "cert_rate": 0.55,
+      "unresolved_censored": 9,
+      "false_certificates": 0,
+      "rmst_assays": 154.65
+     },
+     "500": {
+      "episodes": 20,
+      "certified": 16,
+      "cert_rate": 0.8,
+      "unresolved_censored": 4,
+      "false_certificates": 0,
+      "rmst_assays": 236.55
+     },
+     "1000": {
+      "episodes": 20,
+      "certified": 16,
+      "cert_rate": 0.8,
+      "unresolved_censored": 4,
+      "false_certificates": 0,
+      "rmst_assays": 336.55
+     }
+    },
+    "B": {
+     "100": {
+      "episodes": 80,
+      "certified": 0,
+      "cert_rate": 0.0,
+      "unresolved_censored": 80,
+      "false_certificates": 0,
+      "rmst_assays": 100.0
+     },
+     "250": {
+      "episodes": 80,
+      "certified": 0,
+      "cert_rate": 0.0,
+      "unresolved_censored": 80,
+      "false_certificates": 0,
+      "rmst_assays": 250.0
+     },
+     "500": {
+      "episodes": 80,
+      "certified": 43,
+      "cert_rate": 0.5375,
+      "unresolved_censored": 37,
+      "false_certificates": 0,
+      "rmst_assays": 440.725
+     },
+     "1000": {
+      "episodes": 80,
+      "certified": 80,
+      "cert_rate": 1.0,
+      "unresolved_censored": 0,
+      "false_certificates": 0,
+      "rmst_assays": 563.7875
+     }
+    }
+   }
+  },
+  {
+   "id": "collective_isolated_c",
+   "label": "collective, isolated, no GP",
+   "frozen_in_protocol": false,
+   "by_family": {
+    "all": {
+     "100": {
+      "episodes": 100,
+      "certified": 11,
+      "cert_rate": 0.11,
+      "unresolved_censored": 89,
+      "false_certificates": 0,
+      "rmst_assays": 94.99
+     },
+     "250": {
+      "episodes": 100,
+      "certified": 40,
+      "cert_rate": 0.4,
+      "unresolved_censored": 60,
+      "false_certificates": 0,
+      "rmst_assays": 195.72
+     },
+     "500": {
+      "episodes": 100,
+      "certified": 54,
+      "cert_rate": 0.54,
+      "unresolved_censored": 46,
+      "false_certificates": 0,
+      "rmst_assays": 327.16
+     },
+     "1000": {
+      "episodes": 100,
+      "certified": 65,
+      "cert_rate": 0.65,
+      "unresolved_censored": 35,
+      "false_certificates": 0,
+      "rmst_assays": 525.36
+     }
+    },
+    "A": {
+     "100": {
+      "episodes": 20,
+      "certified": 7,
+      "cert_rate": 0.35,
+      "unresolved_censored": 13,
+      "false_certificates": 0,
+      "rmst_assays": 75.5
+     },
+     "250": {
+      "episodes": 20,
+      "certified": 13,
+      "cert_rate": 0.65,
+      "unresolved_censored": 7,
+      "false_certificates": 0,
+      "rmst_assays": 154.5
+     },
+     "500": {
+      "episodes": 20,
+      "certified": 14,
+      "cert_rate": 0.7,
+      "unresolved_censored": 6,
+      "false_certificates": 0,
+      "rmst_assays": 240.0
+     },
+     "1000": {
+      "episodes": 20,
+      "certified": 15,
+      "cert_rate": 0.75,
+      "unresolved_censored": 5,
+      "false_certificates": 0,
+      "rmst_assays": 365.8
+     }
+    },
+    "B": {
+     "100": {
+      "episodes": 80,
+      "certified": 4,
+      "cert_rate": 0.05,
+      "unresolved_censored": 76,
+      "false_certificates": 0,
+      "rmst_assays": 99.8625
+     },
+     "250": {
+      "episodes": 80,
+      "certified": 27,
+      "cert_rate": 0.3375,
+      "unresolved_censored": 53,
+      "false_certificates": 0,
+      "rmst_assays": 206.025
+     },
+     "500": {
+      "episodes": 80,
+      "certified": 40,
+      "cert_rate": 0.5,
+      "unresolved_censored": 40,
+      "false_certificates": 0,
+      "rmst_assays": 348.95
+     },
+     "1000": {
+      "episodes": 80,
+      "certified": 50,
+      "cert_rate": 0.625,
+      "unresolved_censored": 30,
+      "false_certificates": 0,
+      "rmst_assays": 565.25
+     }
+    }
+   }
+  }
+ ],
+ "paired_contrasts": [
+  {
+   "a": "q2c",
+   "b": "directed",
+   "a_label": "query-to-certify (GP-priced)",
+   "b_label": "directed best-first (single deterministic policy)",
+   "budget": 250,
+   "mean_diff": 0.13,
+   "ci_low": 0.06,
+   "ci_high": 0.21,
+   "a_better": 13,
+   "b_better": 0,
+   "tied": 87,
+   "a_posthoc": false,
+   "b_posthoc": false
+  },
+  {
+   "a": "q2c",
+   "b": "directed",
+   "a_label": "query-to-certify (GP-priced)",
+   "b_label": "directed best-first (single deterministic policy)",
+   "budget": 500,
+   "mean_diff": 0.18,
+   "ci_low": 0.1,
+   "ci_high": 0.2699999999999999,
+   "a_better": 18,
+   "b_better": 0,
+   "tied": 82,
+   "a_posthoc": false,
+   "b_posthoc": false
+  },
+  {
+   "a": "q2c",
+   "b": "directed",
+   "a_label": "query-to-certify (GP-priced)",
+   "b_label": "directed best-first (single deterministic policy)",
+   "budget": 1000,
+   "mean_diff": 0.46,
+   "ci_low": 0.4000000000000001,
+   "ci_high": 0.53,
+   "a_better": 46,
+   "b_better": 0,
+   "tied": 54,
+   "a_posthoc": false,
+   "b_posthoc": false
+  },
+  {
+   "a": "q2c",
+   "b": "random",
+   "a_label": "query-to-certify (GP-priced)",
+   "b_label": "random frontier",
+   "budget": 250,
+   "mean_diff": 0.36,
+   "ci_low": 0.2800000000000001,
+   "ci_high": 0.44,
+   "a_better": 36,
+   "b_better": 0,
+   "tied": 64,
+   "a_posthoc": false,
+   "b_posthoc": false
+  },
+  {
+   "a": "q2c",
+   "b": "random",
+   "a_label": "query-to-certify (GP-priced)",
+   "b_label": "random frontier",
+   "budget": 500,
+   "mean_diff": 0.34,
+   "ci_low": 0.24,
+   "ci_high": 0.4499999999999999,
+   "a_better": 36,
+   "b_better": 2,
+   "tied": 62,
+   "a_posthoc": false,
+   "b_posthoc": false
+  },
+  {
+   "a": "q2c",
+   "b": "random",
+   "a_label": "query-to-certify (GP-priced)",
+   "b_label": "random frontier",
+   "budget": 1000,
+   "mean_diff": 0.57,
+   "ci_low": 0.49,
+   "ci_high": 0.64,
+   "a_better": 57,
+   "b_better": 0,
+   "tied": 43,
+   "a_posthoc": false,
+   "b_posthoc": false
+  },
+  {
+   "a": "q2c_nomodel",
+   "b": "q2c",
+   "a_label": "query-to-certify, no learned model",
+   "b_label": "query-to-certify (GP-priced)",
+   "budget": 250,
+   "mean_diff": -0.27,
+   "ci_low": -0.3400000000000001,
+   "ci_high": -0.21,
+   "a_better": 3,
+   "b_better": 30,
+   "tied": 67,
+   "a_posthoc": true,
+   "b_posthoc": false
+  },
+  {
+   "a": "q2c_nomodel",
+   "b": "q2c",
+   "a_label": "query-to-certify, no learned model",
+   "b_label": "query-to-certify (GP-priced)",
+   "budget": 500,
+   "mean_diff": 0.48,
+   "ci_low": 0.4,
+   "ci_high": 0.55,
+   "a_better": 48,
+   "b_better": 0,
+   "tied": 52,
+   "a_posthoc": true,
+   "b_posthoc": false
+  },
+  {
+   "a": "q2c_nomodel",
+   "b": "q2c",
+   "a_label": "query-to-certify, no learned model",
+   "b_label": "query-to-certify (GP-priced)",
+   "budget": 1000,
+   "mean_diff": 0.18,
+   "ci_low": 0.14,
+   "ci_high": 0.22,
+   "a_better": 18,
+   "b_better": 0,
+   "tied": 82,
+   "a_posthoc": true,
+   "b_posthoc": false
+  },
+  {
+   "a": "collective_shared",
+   "b": "q2c",
+   "a_label": "collective, shared evidence",
+   "b_label": "query-to-certify (GP-priced)",
+   "budget": 250,
+   "mean_diff": 0.04,
+   "ci_low": -0.02,
+   "ci_high": 0.1,
+   "a_better": 8,
+   "b_better": 4,
+   "tied": 88,
+   "a_posthoc": false,
+   "b_posthoc": false
+  },
+  {
+   "a": "collective_shared",
+   "b": "q2c",
+   "a_label": "collective, shared evidence",
+   "b_label": "query-to-certify (GP-priced)",
+   "budget": 500,
+   "mean_diff": 0.01,
+   "ci_low": -0.06,
+   "ci_high": 0.08,
+   "a_better": 7,
+   "b_better": 6,
+   "tied": 87,
+   "a_posthoc": false,
+   "b_posthoc": false
+  },
+  {
+   "a": "collective_shared",
+   "b": "q2c",
+   "a_label": "collective, shared evidence",
+   "b_label": "query-to-certify (GP-priced)",
+   "budget": 1000,
+   "mean_diff": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "a_better": 0,
+   "b_better": 0,
+   "tied": 100,
+   "a_posthoc": false,
+   "b_posthoc": false
+  },
+  {
+   "a": "collective_shared",
+   "b": "collective_isolated",
+   "a_label": "collective, shared evidence",
+   "b_label": "collective, isolated evidence",
+   "budget": 250,
+   "mean_diff": 0.08,
+   "ci_low": -0.01,
+   "ci_high": 0.17,
+   "a_better": 13,
+   "b_better": 5,
+   "tied": 82,
+   "a_posthoc": false,
+   "b_posthoc": false
+  },
+  {
+   "a": "collective_shared",
+   "b": "collective_isolated",
+   "a_label": "collective, shared evidence",
+   "b_label": "collective, isolated evidence",
+   "budget": 500,
+   "mean_diff": -0.09,
+   "ci_low": -0.1699999999999999,
+   "ci_high": -0.02,
+   "a_better": 6,
+   "b_better": 15,
+   "tied": 79,
+   "a_posthoc": false,
+   "b_posthoc": false
+  },
+  {
+   "a": "collective_shared",
+   "b": "collective_isolated",
+   "a_label": "collective, shared evidence",
+   "b_label": "collective, isolated evidence",
+   "budget": 1000,
+   "mean_diff": 0.01,
+   "ci_low": -0.07,
+   "ci_high": 0.1,
+   "a_better": 11,
+   "b_better": 10,
+   "tied": 79,
+   "a_posthoc": false,
+   "b_posthoc": false
+  },
+  {
+   "a": "collective_shared_rr",
+   "b": "collective_shared",
+   "a_label": "collective, shared, round-robin control",
+   "b_label": "collective, shared evidence",
+   "budget": 250,
+   "mean_diff": 0.01,
+   "ci_low": -0.0699999999999999,
+   "ci_high": 0.09,
+   "a_better": 7,
+   "b_better": 6,
+   "tied": 87,
+   "a_posthoc": true,
+   "b_posthoc": false
+  },
+  {
+   "a": "collective_shared_rr",
+   "b": "collective_shared",
+   "a_label": "collective, shared, round-robin control",
+   "b_label": "collective, shared evidence",
+   "budget": 500,
+   "mean_diff": 0.01,
+   "ci_low": -0.06,
+   "ci_high": 0.08,
+   "a_better": 8,
+   "b_better": 7,
+   "tied": 85,
+   "a_posthoc": true,
+   "b_posthoc": false
+  },
+  {
+   "a": "collective_shared_rr",
+   "b": "collective_shared",
+   "a_label": "collective, shared, round-robin control",
+   "b_label": "collective, shared evidence",
+   "budget": 1000,
+   "mean_diff": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "a_better": 0,
+   "b_better": 0,
+   "tied": 100,
+   "a_posthoc": true,
+   "b_posthoc": false
+  },
+  {
+   "a": "collective_shared_c",
+   "b": "collective_isolated_c",
+   "a_label": "collective, shared, no GP",
+   "b_label": "collective, isolated, no GP",
+   "budget": 250,
+   "mean_diff": -0.29,
+   "ci_low": -0.37,
+   "ci_high": -0.22,
+   "a_better": 1,
+   "b_better": 30,
+   "tied": 69,
+   "a_posthoc": true,
+   "b_posthoc": true
+  },
+  {
+   "a": "collective_shared_c",
+   "b": "collective_isolated_c",
+   "a_label": "collective, shared, no GP",
+   "b_label": "collective, isolated, no GP",
+   "budget": 500,
+   "mean_diff": 0.05,
+   "ci_low": -0.04,
+   "ci_high": 0.13,
+   "a_better": 22,
+   "b_better": 17,
+   "tied": 61,
+   "a_posthoc": true,
+   "b_posthoc": true
+  },
+  {
+   "a": "collective_shared_c",
+   "b": "collective_isolated_c",
+   "a_label": "collective, shared, no GP",
+   "b_label": "collective, isolated, no GP",
+   "budget": 1000,
+   "mean_diff": 0.31,
+   "ci_low": 0.24,
+   "ci_high": 0.37,
+   "a_better": 31,
+   "b_better": 0,
+   "tied": 69,
+   "a_posthoc": true,
+   "b_posthoc": true
+  }
+ ],
+ "uncertainty_procedure": "paired differences on identical episodes; percentile bootstrap over the 20 seeds as clusters; descriptive, not a coverage claim",
+ "caveats": [
+  "20 seeds; family B repeats one start and four targets, so its 80 episodes are not independent pairs",
+  "family A has 8 blocked pairs; blocked certification is the same for all policies because a cut needs every neighbour assayed",
+  "false certificates are 0 by construction (certificates use only revealed labels), so that column is a check, not a finding",
+  "policies marked post-hoc were added after the first results and are exploratory; best-of-several selection is optimistic",
+  "no ALDE implementation and no foundation-model prior was run; comparisons are against this repository's own policies",
+  "'blocked' means no route can be certified in the measured subgraph, not that no true route exists"
+ ]
+}
