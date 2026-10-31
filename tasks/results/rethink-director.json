@@ -1,21 +1,75 @@
 {
-  "role": "director",
-  "status": "in_progress",
-  "model": "Claude Sonnet 5.5 (subscription); no metered charge known",
-  "selection": "Scope Desk (planning/rethink/DECISION.md); Tracks L and S accepted with conditions",
-  "commands_actually_run": [
-    {"cmd": "python experiments/rethink_director/thompson_tallo_probe.py Tallo.csv artifacts/rethink_director/thompson_tallo_probe.json (systemd-run caps)", "exit": 0, "note": "descriptive reproduction; Tallo 2022 already tests the slope"},
-    {"cmd": "cd /data/artifacts/mathlib-probe && systemd-run --user --scope -p MemoryMax=12G -p MemorySwapMax=0 -p TasksMax=128 -p RuntimeMaxSec=600 lake env lean MathlibProbe.lean (copy of host file, Lean v4.35.0 + Mathlib git#v4.35.0)", "exit": 0, "wall_seconds": 41.8, "note": "director recompile of the host's self-reported probe"},
-    {"cmd": "same file + #print axioms for mm_lt_vmax, turing_det, no_unstable_mode_on_pi", "exit": 0, "result": "propext, Classical.choice, Quot.sound only (no sorryAx)"}
-  ],
-  "artifacts": [
-    "artifacts/rethink_director/thompson_tallo_probe.json",
-    "artifacts/rethink_director/MathlibProbe_host.lean (sha256 39b9199d77298b4991099129c0d6bd16b9c00ffafbd7930e7708e04da32cb8a0)",
-    "planning/rethink/DECISION.md", "planning/rethink/e-spec.md", "scopedesk/SPEC.md"
-  ],
-  "limitations": [
-    "The compiled Lean file is small: a ring identity for the 2x2 dispersion determinant, a Michaelis-Menten inequality, and the pi-domain no-mode statement for ONE specific band (1/5,1/2). It is not a general Turing theorem and has no eigenvalue or PDE correspondence.",
-    "Tallo probe is a descriptive OLS reproduction, not a test of Thompson's buckling argument."
-  ],
-  "next_steps": ["integrate worker branches", "acceptance runner", "site/pitch/blog/storyboard from measured outputs"]
+ "role": "director",
+ "status": "in_progress",
+ "model": "Claude Sonnet 5.5 (subscription); no metered charge known",
+ "selection": "Scope Desk (planning/rethink/DECISION.md); Tracks L and S accepted with conditions",
+ "commands_actually_run": [
+  {
+   "cmd": "python experiments/rethink_director/thompson_tallo_probe.py Tallo.csv artifacts/rethink_director/thompson_tallo_probe.json (systemd-run caps)",
+   "exit": 0,
+   "note": "descriptive reproduction; Tallo 2022 already tests the slope"
+  },
+  {
+   "cmd": "cd /data/artifacts/mathlib-probe && systemd-run --user --scope -p MemoryMax=12G -p MemorySwapMax=0 -p TasksMax=128 -p RuntimeMaxSec=600 lake env lean MathlibProbe.lean (copy of host file, Lean v4.35.0 + Mathlib git#v4.35.0)",
+   "exit": 0,
+   "wall_seconds": 41.8,
+   "note": "director recompile of the host's self-reported probe"
+  },
+  {
+   "cmd": "same file + #print axioms for mm_lt_vmax, turing_det, no_unstable_mode_on_pi",
+   "exit": 0,
+   "result": "propext, Classical.choice, Quot.sound only (no sorryAx)"
+  },
+  {
+   "cmd": "Agent subagent (Sonnet) independent recompute of bench v1 key from structured params (scopedesk/audit/)",
+   "result": "132/136 agree; 4 disputed ids",
+   "exit": "n/a (agent)"
+  },
+  {
+   "cmd": "Agent subagent blinded text-only audit of bench v1.1 (scopedesk/audit_v11/)",
+   "result": "135/136 agree; 28 ambiguity flags",
+   "exit": "n/a"
+  },
+  {
+   "cmd": "Agent subagent blinded payload-only audit of bench v1.2 candidate (scopedesk/audit_v12/)",
+   "result": "132/135 agree; 3 false-premise items later excluded",
+   "exit": "n/a"
+  },
+  {
+   "cmd": "python3 scopedesk/accept.py (integrated tree, caps)",
+   "exit": 0,
+   "result": "OVERALL PASS: bench hashes, oracle AT5, v1.1 audit, tests, Lean receipt hashes"
+  },
+  {
+   "cmd": "pytest merged subset (lean_commons, bench v1.2, oracles, NCA, presentation/tests) under caps",
+   "exit": 0,
+   "result": "62 passed"
+  }
+ ],
+ "artifacts": [
+  "artifacts/rethink_director/thompson_tallo_probe.json",
+  "artifacts/rethink_director/MathlibProbe_host.lean (sha256 39b9199d77298b4991099129c0d6bd16b9c00ffafbd7930e7708e04da32cb8a0)",
+  "planning/rethink/DECISION.md",
+  "planning/rethink/e-spec.md",
+  "scopedesk/SPEC.md"
+ ],
+ "limitations": [
+  "The compiled Lean file is small: a ring identity for the 2x2 dispersion determinant, a Michaelis-Menten inequality, and the pi-domain no-mode statement for ONE specific band (1/5,1/2). It is not a general Turing theorem and has no eigenvalue or PDE correspondence.",
+  "Tallo probe is a descriptive OLS reproduction, not a test of Thompson's buckling argument."
+ ],
+ "next_steps": [
+  "integration cut 18:00 PDT",
+  "NCA nonlinear sweep results by 15:00",
+  "scorecard revision/Codex review",
+  "final fresh-clone acceptance receipt at the cut SHA",
+  "canonical site-publish-request.json",
+  "pitch/deck/blog/storyboard final from number_trace"
+ ],
+ "commit": "3ad709eb8c4a6646f5788943cce2bc54f84e78f3",
+ "decisions": [
+  "Scope Desk selected 2026-10-31; spine kept; market, diffusion, commons-gain, pattern-forms claims dropped",
+  "Bench v1.2 frozen 127 items key 28645a12\u2026; v1 and v1.1 superseded",
+  "Collective measurement outcomes recorded as nulls/ceilings: released 78 vs 96, Lean-19 ceiling, unguarded headroom 95.3%/86.6%",
+  "Frontier 24h build allowed as separate package, pitch mentions it only as proposal/pilot"
+ ]
 }
