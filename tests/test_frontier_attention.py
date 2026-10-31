@@ -405,3 +405,16 @@ def test_real_seed_map_is_honestly_not_yet_rankable():
     by = {c["id"]: c for c in cards}
     assert by["F001"]["blocked_on"] == ["F004"] and by["F006"]["blocked_on"] == ["F005"]
     assert len(seeds.seed_version(d["problems"][0])) == 64
+
+
+# ------------------------------------------------------------------ drift guard for the recorded store-conflict finding
+def test_recorded_store_conflicts_still_describe_this_schema():
+    """If these constants change, store_conflicts.json / STORE-SCHEMA-CONFLICTS.md must be updated in the same commit."""
+    import json
+    from pathlib import Path
+    d = json.loads((Path(schema.__file__).parent / "store_conflicts.json").read_text())
+    assert list(schema.EVIDENCE_KINDS) == d["agree"]["evidence_kinds"]
+    assert list(schema.SIGNAL_KINDS) == d["agree"]["signal_kinds"]
+    assert len(schema.OPEN_KINDS) == 10 and "10 values" in d["conflict"][0]["schema"]
+    assert schema.RESOURCE_VERIFICATION == ("unverified", "availability_checked") and "availability_checked" in d["conflict"][1]["schema"]
+    assert d["store_source"]["commit"] == "1d014d1" and all(c["unchanged_by_me"] for c in d["conflict"])

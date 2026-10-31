@@ -1,0 +1,40 @@
+{
+  "recorded": "2026-10-31 Seattle PDT, by the market worker, by reading the store models myself (read-only)",
+  "store_source": {"repo": "kganjam/delphi-frontier", "branch": "work/frontier-foundation", "commit": "1d014d1", "path": "frontier/models.py",
+                   "sha256_of_file_as_read": "54c95cccd195cae84ebee78b589113d0a35f01967492bb894f2c21370bc8fd63",
+                   "write_behaviour": "pydantic models with extra='forbid' and Literal fields: a non-matching record is REJECTED on write, not coerced",
+                   "verification_by_host": "scripts/test_postgres.sh 12 passed exit 0 (host report, not re-run by me)"},
+  "schema_source": {"repo": "kganjam/delphi-evolve", "branch": "work/market", "path": "frontier_attention/schema.py"},
+  "decision": "Host ruling: validators are NOT changed to match the store. The conflicts stand as findings until the store owner and this schema are reconciled by a person.",
+  "agree": {
+    "evidence_kinds": ["observed", "predicted", "simulated", "formal", "source_assessment"],
+    "signal_kinds": ["following", "can_contribute", "resource_offer", "blocked_by_this"],
+    "blocked_by_this_requires_downstream_link": true
+  },
+  "conflict": [
+    {"id": "C1", "field": "problem kind",
+     "store": "Problem.problem_kind = Literal[project_gap, computational_open_question, sourced_field_open_problem, resolved_scope_correction]",
+     "schema": "open.open_kind accepts the 7 seed kinds verbatim + field_open_problem, missing_measurement, replication_need (10 values)",
+     "effect": "a seed with kind project_formalization_gap / empirical_bridge_gap / project_source_review_gap / project_coordination_question / project_methods_question has no exact store value; mapping them is a judgement the store owner must make",
+     "unchanged_by_me": true},
+    {"id": "C2", "field": "resource offer verification",
+     "store": "ResourceOffer.verification_status = Literal[unverified, declared, checked]; 'checked' requires verification_reference",
+     "schema": "payload.verification_status in (unverified, availability_checked)",
+     "effect": "'declared' has no counterpart here; 'checked' vs 'availability_checked' differ by name, and the store additionally demands a reference",
+     "unchanged_by_me": true},
+    {"id": "C3", "field": "next action and unlocks",
+     "store": "Problem.next_action is free Text; Problem.downstream_uses is a list of free strings; Problem.dependencies is list[Ref]. Action (separate record) has target, title, acceptance_criteria, required_capabilities, cost_stop_bounds (free Text) and an eight-dimension cache_key.",
+     "schema": "next_action needs type, sha256 input_hashes, resource_estimate{unit,amount,basis:'estimate'}, stop_rule, acceptance_criterion, reviewer; unlocks are typed edges {kind, decision_ref{id,version}, independent_group, provenance}",
+     "effect": "The store has NO typed unlock edge, no decision reference, no independent_group, no machine-checkable stop rule, resource estimate or named reviewer. A Problem cannot carry a bounded action at all, and an Action carries only free-text bounds. So 0/7 bounded is a property of the STORE SCHEMA as well as of the seed prose.",
+     "correction_to_host_summary": "The store does have a place for unlocks, but only as untyped prose (Problem.downstream_uses); it is not that no such field exists. It has a partly structured Action record; it is not that no action structure exists.",
+     "unchanged_by_me": true}
+  ],
+  "also_different_not_yet_a_decision": [
+    {"field": "Interest.downstream_reference", "store": "Short | None (a string)", "schema": "versioned reference {id, version}"},
+    {"field": "ResourceOffer.restrictions", "store": "Strings with min_length=1", "schema": "list, may be empty"},
+    {"field": "ResourceOffer resource type", "store": "capability (Short); no resource_type", "schema": "resource_type"},
+    {"field": "leases / who is working", "store": "no lease record; only events action_leased/running/submitted/reviewed/expired", "schema": "working[] lease objects with operator, expiry, last progress"},
+    {"field": "prediction specs, forecasts, resolutions, calibration", "store": "no record kind; Evidence.evidence_kind 'predicted' exists but carries no event, resolver or horizon", "schema": "validate_prediction_spec + forecasting.score_events"},
+    {"field": "attention credits and contribution credit", "store": "no record kind", "schema": "credit.allocate_attention, credit.contribution_credit"}
+  ]
+}

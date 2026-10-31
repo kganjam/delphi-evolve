@@ -136,15 +136,17 @@
       "Scope Desk integration untouched",
       "coordination with codex-api through its durable queue only"
     ],
-    "tests": "tests/test_frontier_attention.py: 32 passed (hand-worked EVPI=6, EVSI=4.0, dedupe 8 vs naive 10/16, Brier .29/3, family-first mean .45, exact McNemar p=.03125). 26 deliberate-breakage mutants over voi/card/credit/forecasting/policies/evaluate/schema, 0 survivors.",
+    "tests": "tests/test_frontier_attention.py: 33 passed (hand-worked EVPI=6, EVSI=4.0, dedupe 8 vs naive 10/16, Brier .29/3, family-first mean .45, exact McNemar p=.03125). 26 deliberate-breakage mutants over voi/card/credit/forecasting/policies/evaluate/schema, 0 survivors.",
     "pilot_result_on_real_seed_map": "7 seed records (frontier-problems-0.1, commit 5165177 on work/frontier-curation): 0 bounded, 0 ready, 0 with a consequence estimate. Seeds hold prose where the schema needs typed unlock edges, decision models, pinned input hashes, a resource estimate, a stop rule and a reviewer. The adapter does not convert prose to structure.",
     "premise": "Unguarded Claude Sonnet 5.5 121/127 and Gemini 3.8 flash 110/127 on the frozen benchmark: value is the witness, the refusal, the repair and allocation, not an accuracy gap. The schema values a decision change, including a negative answer.",
     "limitations": [
-      "field names are a proposal; unconfirmed against the Foundation worker's Problem/Action/Evidence/Assessment/Interest/ResourceOffer/Event records",
       "utilities and priors in tests are illustrative fixtures, not estimates about any real problem",
       "atomic leases, idempotency and identity belong to the transactional layer; only the invariants are fixed here",
       "allocation evaluation is a harness: no arm has run, the seed map has 7 problems (<6 per-verdict floor is marginal)",
-      "forecast scoring has no real predictions; calibration cannot be claimed from a handful of events"
-    ]
+      "forecast scoring has no real predictions; calibration cannot be claimed from a handful of events",
+      "field names conflict with the store models on three points (recorded, not reconciled); the store has no record kind for predictions, credits or leases"
+    ],
+    "store_schema_conflicts": "Read kganjam/delphi-frontier work/frontier-foundation 1d014d1 frontier/models.py myself (sha256 54c95ccc\u2026bd63). Agree: evidence kinds (5), signal kinds (4). Conflict, recorded and NOT fixed per host ruling: C1 problem_kind 4 values vs 10 open kinds; C2 verification_status (unverified/declared/checked) vs (unverified/availability_checked); C3 store has no typed unlock edge, decision reference, stop rule, estimate or reviewer (only free-text next_action/downstream_uses/cost_stop_bounds), so 0/7 bounded is a store-schema property as well as seed prose. See frontier_attention/STORE-SCHEMA-CONFLICTS.md. Host's Postgres test (12 passed) not re-run by me.",
+    "codex_queue": "Message 01a1929e\u2026 was queued to codex-api but codex-api and codex-02 are out of credits; no live reader. Host (integration+acceptance owner) answered instead: no write to delphi-frontier from this worker; keep pushing work/market; host carries anything that crosses; 18:00 pitch wording = proposal + local read-only pilot, nothing deployed, nothing scored on real data."
   }
 }

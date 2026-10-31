@@ -87,12 +87,17 @@ python -m frontier_attention selftest
 python -m frontier_attention cards --problems P.json [--now T] [--out DIR]
 python -m frontier_attention score-events --specs S.json --forecasts F.jsonl --resolutions R.jsonl --now T
 python -m frontier_attention evaluate --rows ROWS.jsonl --frozen FROZEN.json --arms a,b,c
-python -m pytest tests/test_frontier_attention.py          # 32 tests, hand-worked expectations
+python -m pytest tests/test_frontier_attention.py          # 33 tests, hand-worked expectations
 ```
+
+## Conflicts with the store models
+
+Three real conflicts with `kganjam/delphi-frontier` `frontier/models.py` @ `1d014d1` (problem kinds, resource verification states, and the store's
+inability to hold a typed unlock or a bounded action) are recorded as findings, not fixed: `STORE-SCHEMA-CONFLICTS.md`,
+`store_conflicts.json`. Host ruling: the validators are not changed to match the store.
 
 ## Not claimed
 
 Not a database, search index, MCP server or API. No identity or federation. No probability that a hypothesis is true. No
 claim that coordinated allocation beats any baseline (no run exists). Utilities and priors in tests are *illustrative fixtures*
-invented to exercise the code, not estimates about any real problem. Field names are a proposal for the Foundation worker's
-Problem / Action / Evidence / Assessment / Interest / ResourceOffer / Event records and are unconfirmed against its schema.
+invented to exercise the code, not estimates about any real problem. Field names are a proposal; they agree with the store on evidence kinds and signal kinds and conflict on three points (see above).
