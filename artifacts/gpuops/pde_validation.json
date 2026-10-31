@@ -1,0 +1,46 @@
+{
+ "reference": "rethink-nca@e7838b3 rd.spectral_strang (DCT-II Neumann, Strang, RK4)",
+ "cases": [
+  {
+   "gamma": 1.0,
+   "d": 1.0,
+   "r": 10,
+   "N": 40,
+   "T_tau": 20.0,
+   "dt": 0.02,
+   "max_abs_diff": 2.7755575615628914e-14,
+   "state_scale": 1.0007604749744217
+  },
+  {
+   "gamma": 1.0,
+   "d": 10.0,
+   "r": 10,
+   "N": 40,
+   "T_tau": 20.0,
+   "dt": 0.02,
+   "max_abs_diff": 6.783462680459706e-14,
+   "state_scale": 1.0162271271828416
+  },
+  {
+   "gamma": 1.5,
+   "d": 20.0,
+   "r": 20,
+   "N": 80,
+   "T_tau": 20.0,
+   "dt": 0.02,
+   "max_abs_diff": 1.4990231278488864e-12,
+   "state_scale": 1.8190351437747523
+  },
+  {
+   "gamma": 0.7,
+   "d": 10.0,
+   "r": 30,
+   "N": 120,
+   "T_tau": 20.0,
+   "dt": 0.02,
+   "max_abs_diff": 1.0613732115416497e-13,
+   "state_scale": 1.0176945015736065
+  }
+ ],
+ "max_abs_diff_all": 1.4990231278488864e-12
+}

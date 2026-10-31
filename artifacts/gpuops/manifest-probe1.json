@@ -1,0 +1,59 @@
+{
+ "run_tag": "probe1",
+ "owned": [
+  {
+   "id": "aijob-e00dqa0cs28rgws0rc",
+   "name": "delphi-evolve-ops-probe1-h100-probe-a1",
+   "item": "h100-probe",
+   "status": "done",
+   "attempts": 1,
+   "result": {
+    "rc": 0,
+    "timed_out": false,
+    "wall_s": 2.7,
+    "bytes": 150889,
+    "sha256": "8190676e4aff6c8ef42c57b5425cfb55ce7bd21afacc7777853d9b3fd474b1f8",
+    "truncated": false,
+    "job_state": "COMPLETED"
+   }
+  }
+ ],
+ "events": [
+  {
+   "t": "2026-10-31T13:12:33Z",
+   "msg": "batch_start",
+   "items": 1,
+   "max_parallel": 1,
+   "gpu_cap": 10
+  },
+  {
+   "t": "2026-10-31T13:12:40Z",
+   "msg": "created",
+   "job": "aijob-e00dqa0cs28rgws0rc",
+   "name": "delphi-evolve-ops-probe1-h100-probe-a1",
+   "item": "h100-probe",
+   "kind": "gpu"
+  },
+  {
+   "t": "2026-10-31T13:28:43Z",
+   "msg": "finished",
+   "job": "aijob-e00dqa0cs28rgws0rc",
+   "item": "h100-probe",
+   "status": "done",
+   "rc": 0,
+   "timed_out": false,
+   "wall_s": 2.7,
+   "bytes": 150889,
+   "sha256": "8190676e4aff6c8ef42c57b5425cfb55ce7bd21afacc7777853d9b3fd474b1f8",
+   "truncated": false,
+   "job_state": "COMPLETED"
+  },
+  {
+   "t": "2026-10-31T13:28:43Z",
+   "msg": "batch_end",
+   "summary": {
+    "h100-probe": "done"
+   }
+  }
+ ]
+}

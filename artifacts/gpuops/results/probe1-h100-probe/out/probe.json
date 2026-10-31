@@ -1,0 +1,11 @@
+{
+ "torch": "2.10.0a0+b4e4ee81d3.nv25.12",
+ "cuda": "13.1",
+ "cuda_available": true,
+ "device": "NVIDIA H100 80GB HBM3",
+ "mem_gb": 79.2,
+ "bf16_matmul_tflops": 169.0,
+ "checksum_of_deterministic_check": 332833500.0,
+ "nvidia_smi": "NVIDIA H100 80GB HBM3, 580.173.02, 81559 MiB",
+ "payload_sha256": "5020780891fe71a51d39233062a69abca969a802771039fbc8060926f9c08dde"
+}
