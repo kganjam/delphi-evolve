@@ -81,6 +81,7 @@ def record_from_response(res: dict, code_commit: str, include_lean: bool = False
     rec = {"classical": CLASSICAL_RESULT["turing-ddi"], "outcome": out, "verdict": res["verdict"], "regime": res["inputs"],
            "kinetics": res["kinetics"]["source"], "regime_sha256": regime_sha256(res), "engine_version": res["service_version"],
            "code_commit": code_commit, "receipt_id": res.get("receipt_id"),
+           "diffusion_requirement": (res.get("diffusion_requirement") or {}).get("required_inhibitor_over_activator_ratio_greater_than_bracket", "not_applicable"),
            "unstable_witness": res["modes"]["unstable"][:5], "unstable_count": res["modes"]["unstable_count"],
            "source_check_sha256": res["delphi_claim_basis"]["source_check"].get("content_sha256"),
            "critical_length": (res.get("critical_length") or {}).get("length_over_pi_between") if (res.get("critical_length") or {}).get("status") == "verified" else None,
@@ -107,6 +108,7 @@ def build_trig(rec: dict, created: str | None = None, supersedes: str | None = N
              ("outcome", rec["outcome"]), ("unstable_mode_count", rec["unstable_count"]),
              ("unstable_mode_witness_exact", json.dumps(rec["unstable_witness"])),
              ("critical_length_over_pi_verified_bracket", json.dumps(rec["critical_length"]) if rec["critical_length"] else "not_established"),
+             ("required_inhibitor_over_activator_diffusion_ratio_greater_than_bracket", json.dumps(rec["diffusion_requirement"])),
              ("independent_checks_agree", json.dumps(rec["independent"], sort_keys=True)),
              ("engine_version", rec["engine_version"]), ("evidence_type", "model-derived; observed: none"),
              ("scope_limit", "linear stability of the declared two-species linearization only; no nonlinear pattern, biological, wet-lab or clinical implication")]

@@ -31,6 +31,9 @@ Length `pi` -> `domain_blocks_pattern` (textbook condition holds, no admissible 
 Physical lengths: `"length": 12.5` (pi is bracketed rigorously). 2-D: `"dimension":2,"lengths_over_pi":[3,2]`.
 Preset: `{"model":{"name":"brusselator","params":{"A":1,"B":"3/2"}},"diffusivities":[1,30],"domain":{"dimension":1,"boundary":"dirichlet","length":12.5}}`.
 
+## Diffusion-ratio requirement (new)
+`diffusion_requirement` gives, for your kinetics, the exact bracket of D_inhibitor/D_activator the textbook band needs (9 for the example), or "no ratio suffices". For compact globular proteins D ~ M^(-1/3) (Stokes-Einstein), so a *bare* ratio R needs a mass ratio R^3. Send `"proteins":{"activator_mass_da":40000,"inhibitor_mass_da":41000}` to compare your supplied ratio with the bare ratio those masses allow; the remainder must come from binding/hindrance/dimerization, which is not modelled. Masses are caller-declared; nothing is measured.
+
 ## MCP
 Remote: `$FALSIFY_URL/mcp` (streamable HTTP), tool `falsify_turing_pattern`. Stdio proxy:
 `claude mcp add falsify -- python3 -m falsify mcp-stdio --endpoint $FALSIFY_URL --caller your-team-name` (run from a checkout of this repo).

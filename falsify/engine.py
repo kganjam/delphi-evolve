@@ -167,6 +167,7 @@ def normalize(req: dict) -> dict:
     out["domain"] = {"dimension": dim, "boundary": bc, "exact": exact, "r": R,
                      "length_spec": [fs(x) for x in (vals)], "unit": "multiples of pi" if exact else "physical units (pi bracketed)"}
     out["claim"] = str(req.get("claim", ""))[:500]
+    out["proteins"] = req.get("proteins") if isinstance(req.get("proteins"), dict) else None
     out["wants"] = {"lean": bool(req.get("lean", False)), "crosscheck": req.get("crosscheck", True) is not False}
     return out
 
@@ -297,6 +298,71 @@ def length_analysis(J, D, boundary, n_show=4):
             "statement": "No verified critical-length bracket was obtained; NO length is advised. The exact per-domain verdict above is unaffected."}
 
 
+def diffusion_requirement(J, D, proteins=None, notes=None):
+    """Exact answer to: how much faster must the INHIBITOR diffuse than the ACTIVATOR for the textbook Turing band to exist at all,
+    for THESE kinetics?  With alpha = activator self-feedback > 0, delta = inhibitor self-feedback, det J > 0, b*c < 0:
+
+        band exists  <=>  D_inh / D_act  >  rho_c = (2 det J - alpha*delta + 2 sqrt(det J * (-b c))) / alpha^2
+
+    (derived from S > 0 and S^2 > 4 Du Dv det J; rho_c is irrational in general -> rational bracket).  If neither species has
+    positive self-feedback, or b*c >= 0, NO ratio suffices.  The Stokes-Einstein remark: for compact globular proteins
+    D ~ 1/R_h ~ M^(-1/3), so the BARE ratio of two proteins of mass ratio m is m^(1/3); needing rho_c means a mass ratio > rho_c^3.
+    Real effective diffusion is also set by binding, hindrance and dimerization, which this function does NOT model."""
+    (a, b), (c, d) = J
+    Du, Dv = D
+    dJ = a * d - b * c
+    out = {"model_derived_only": True}
+    if a <= 0 and d <= 0:
+        out.update(status="no_ratio_suffices", reason="neither species has positive self-feedback, so S = a Dv + d Du < 0 at every diffusivity ratio")
+        return out
+    if b * c >= 0:
+        out.update(status="no_ratio_suffices", reason="b*c >= 0 (no activator-inhibitor cross-coupling of opposite sign): the discriminant condition fails at every ratio")
+        return out
+    if a > 0 and d > 0:                       # both positive self-feedback but tr J < 0 is impossible; guard anyway
+        out.update(status="not_applicable", reason="tr J >= 0")
+        return out
+    # activator = the species with positive self-feedback
+    if a > 0:
+        alpha, delta, act_name, inh_name, ratio_supplied = a, d, "u", "v", Dv / Du
+    else:
+        alpha, delta, act_name, inh_name, ratio_supplied = d, a, "v", "u", Du / Dv
+    disc = dJ * (-b * c)
+    sl, sh = sqrt_bracket(disc, 10 ** 12)
+    base = 2 * dJ - alpha * delta
+    rho_lo, rho_hi = (base + 2 * sl) / (alpha * alpha), (base + 2 * sh) / (alpha * alpha)
+    # exact test of the same condition for the supplied diffusivities, without using the bracket
+    S = a * Dv + d * Du
+    exceeds = bool(S > 0 and S * S > 4 * Du * Dv * dJ)
+    out.update(status="computed", activator=act_name, inhibitor=inh_name,
+               required_inhibitor_over_activator_ratio_greater_than_bracket=[fs(rho_lo), fs(rho_hi)],
+               required_ratio_decimal=float(rho_lo),
+               exact_form="(2 detJ - alpha*delta + 2*sqrt(detJ*(-b*c))) / alpha^2",
+               supplied_inhibitor_over_activator_ratio=fs(ratio_supplied), supplied_ratio_meets_textbook_condition=exceeds,
+               bare_globular_mass_ratio_greater_than_bracket=[fs(rho_lo ** 3), fs(rho_hi ** 3)],
+               stokes_einstein_note="compact globular proteins: D ~ M^(-1/3), so a BARE diffusion ratio R needs a mass ratio of R^3 "
+                                    "(ratio 10 needs 1000:1, e.g. 1 kDa vs 1 MDa). Effective ratios in tissue also come from binding, hindrance and "
+                                    "dimerization, which are not modelled here.")
+    if proteins:
+        try:
+            ma = rat("proteins.activator_mass_da", proteins.get("activator_mass_da"), notes)
+            mi = rat("proteins.inhibitor_mass_da", proteins.get("inhibitor_mass_da"), notes)
+            if ma <= 0 or mi <= 0:
+                raise Refuse("invalid_input", "protein masses must be > 0")
+        except Refuse as e:
+            out["proteins"] = {"status": "refused", "detail": e.detail}
+            return out
+        m = ma / mi                                   # bare D_inh/D_act = (M_act/M_inh)^(1/3)
+        meets = bool(m > rho_hi ** 3)
+        unclear = bool(rho_lo ** 3 < m <= rho_hi ** 3)
+        out["proteins"] = {"status": "computed", "declared_masses_da": {"activator": fs(ma), "inhibitor": fs(mi)},
+                           "bare_stokes_einstein_ratio_decimal": float(m) ** (1 / 3),
+                           "bare_ratio_meets_requirement": None if unclear else meets,
+                           "supplied_ratio_over_bare_ratio_decimal": float(ratio_supplied) / (float(m) ** (1 / 3)),
+                           "reading": "if the supplied diffusivity ratio exceeds the bare ratio, the excess must come from binding, hindrance or "
+                                      "dimerization (not modelled here); masses are caller-declared, shapes assumed compact, nothing was measured"}
+    return out
+
+
 # ------------------------------------------------------------------ independent numeric solver (not a proof)
 def fd_crosscheck(J, D, dom, ncell=150):
     """Independent route: assemble the full finite-difference operator of the PDE linearization on ncell cells and ask
@@ -398,6 +464,7 @@ def falsify_turing(req: dict) -> dict:
                               "length_unit": dom["unit"]}},
         "derived": {"trace_J": fs(trJ), "det_J": fs(dJ), "S": fs(res["S"]), "DuDv": fs(res["P"])},
         "continuum_band": band,
+        "diffusion_requirement": diffusion_requirement(J, D, n["proteins"], n["notes"]),
         "modes": {"unstable": res["unstable"][:50], "unstable_count": nu, "unresolved_count": na, "marginal_count": nm,
                   "candidate_modes_examined": res["examined"],
                   "completeness": ("every admissible mode with q < S/(Du Dv) was classified; every mode with q >= S/(Du Dv) has "

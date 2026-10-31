@@ -215,6 +215,63 @@ def test_refusals_are_explicit():
     assert run(base("1", jacobian=[[1, 0], [0, 1]]))["refusal"]["code"] == "claim_precondition_failed"
 
 
+# ---------- diffusion-ratio requirement (Stokes-Einstein bridge, exact)
+def _req(J, ratio_act_inh_den, ratio):
+    return run({"jacobian": J, "diffusivities": ratio_act_inh_den(ratio), "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "50"}, "crosscheck": False})
+
+
+def test_required_ratio_is_the_exact_band_threshold():
+    # textbook example: rho_c = 9 exactly (S = 6, S^2 = 36 = 4 Du Dv det J at ratio 9)
+    o = run(base("2", proteins={"activator_mass_da": 40000, "inhibitor_mass_da": 41000}))
+    dr = o["diffusion_requirement"]
+    assert dr["activator"] == "u" and F(dr["required_inhibitor_over_activator_ratio_greater_than_bracket"][0]) == 9
+    assert F(dr["bare_globular_mass_ratio_greater_than_bracket"][0]) == 729
+    assert dr["proteins"]["bare_ratio_meets_requirement"] is False and dr["proteins"]["supplied_ratio_over_bare_ratio_decimal"] > 10
+    rng = random.Random(11)
+    n = 0
+    for _ in range(80):
+        a, d, b, c = (rng.randint(-6, 6) for _ in range(4))
+        if not (a + d < 0 and a * d - b * c > 0):
+            continue
+        for act_u in (True, False):
+            Jm = [[a, b], [c, d]]
+            probe = run({"jacobian": Jm, "diffusivities": [1, 2], "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "50"}, "crosscheck": False})
+            dr = probe["diffusion_requirement"]
+            if dr["status"] != "computed":
+                # no ratio suffices: the textbook band must be empty at a spread of ratios
+                for t in (F(1, 50), 1, 7, 100, 10 ** 4):
+                    for dd in ([1, t], [t, 1]):
+                        assert run({"jacobian": Jm, "diffusivities": [str(x) for x in dd], "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "50"}, "crosscheck": False})["continuum_band"]["textbook_turing_condition_holds"] is False
+                n += 1
+                break
+            lo, hi = (F(x) for x in dr["required_inhibitor_over_activator_ratio_greater_than_bracket"])
+            for rr, expect in ((hi * F(1001, 1000) + F(1, 1000), True), (lo * F(999, 1000), False)):
+                Dd = [1, str(rr)] if dr["activator"] == "u" else [str(rr), 1]            # inhibitor/activator = rr
+                got = run({"jacobian": Jm, "diffusivities": Dd, "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "50"}, "crosscheck": False})
+                assert got["continuum_band"]["textbook_turing_condition_holds"] is expect, (Jm, rr, dr)
+            n += 1
+            break
+    assert n > 10
+
+
+def test_required_ratio_matches_numpy_dense_q_scan():
+    import numpy as np
+    Jm = [[F(1, 2), F(-1)], [F(3, 2), F(-2)]]               # activator u, detJ = 1/2, alpha=1/2, delta=-2
+    dr = run({"jacobian": [[str(x) for x in r] for r in Jm], "diffusivities": [1, 10], "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "50"}, "crosscheck": False})["diffusion_requirement"]
+    rho = float(F(dr["required_inhibitor_over_activator_ratio_greater_than_bracket"][0]))
+    qs = np.linspace(1e-4, 3, 6000)
+    Jf = np.array([[float(x) for x in r] for r in Jm])
+    def grows(ratio):
+        return any(np.linalg.eigvals(Jf - q * np.diag([1.0, ratio])).real.max() > 1e-9 for q in qs)
+    assert grows(rho * 1.02) and not grows(rho * 0.98)
+
+
+def test_no_ratio_suffices_cases():
+    assert run(base("2", jacobian=[[-1, -2], [2, -3]]))["diffusion_requirement"]["status"] == "no_ratio_suffices"        # no positive self-feedback
+    swapped = run(base("2", jacobian=[[-3, 2], [-2, 1]], diffusivities=[10, 1]))["diffusion_requirement"]
+    assert swapped["activator"] == "v" and swapped["supplied_ratio_meets_textbook_condition"] is True
+
+
 # ---------- server, MCP, usage ledger
 @pytest.fixture()
 def live(tmp_path):
