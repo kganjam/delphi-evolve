@@ -1,9 +1,9 @@
 {
- "measured_at": "2026-10-31 07:38 PDT",
+ "measured_at": "2026-10-31 07:44 PDT",
  "method": "Piper neural TTS read-through of presentation/speaker-notes.md, duration from ffprobe on the rendered audio",
  "voice": "en_US-lessac-medium.onnx",
  "voice_sha256": "5efe09e69902187827af646e1a6e9d269dee769f9877d17b16b1b46eeaaf019f",
- "spoken_text_sha256": "6d59104fbb66bb985af660d1732df097c159a03ba3bcd88c386d7f2e2b805c44",
+ "spoken_text_sha256": "a791bd0c76968432ee43d377e22a141573fb28659497727b55ed15fa1ddd7837",
  "spoken_text_note": "hash of the six spoken paragraphs only (the build stamp line is excluded so a rebuild alone does not invalidate the timing)",
  "synthetic_voice": true,
  "human_rehearsal": null,
@@ -14,51 +14,51 @@
   {
    "slide": 1,
    "words": 59,
-   "seconds": 20.64,
-   "words_per_minute": 171.5,
+   "seconds": 20.75,
+   "words_per_minute": 170.6,
    "starts_at_s": 0.0
   },
   {
    "slide": 2,
    "words": 75,
-   "seconds": 23.87,
-   "words_per_minute": 188.5,
-   "starts_at_s": 22.1
+   "seconds": 24.33,
+   "words_per_minute": 184.9,
+   "starts_at_s": 22.2
   },
   {
    "slide": 3,
-   "words": 57,
-   "seconds": 21.59,
-   "words_per_minute": 158.4,
-   "starts_at_s": 47.5
+   "words": 69,
+   "seconds": 23.38,
+   "words_per_minute": 177.1,
+   "starts_at_s": 48.1
   },
   {
    "slide": 4,
    "words": 71,
-   "seconds": 25.21,
-   "words_per_minute": 169.0,
-   "starts_at_s": 70.6
+   "seconds": 25.45,
+   "words_per_minute": 167.4,
+   "starts_at_s": 73.0
   },
   {
    "slide": 5,
    "words": 65,
-   "seconds": 23.67,
-   "words_per_minute": 164.7,
-   "starts_at_s": 97.3
+   "seconds": 22.94,
+   "words_per_minute": 170.0,
+   "starts_at_s": 99.9
   },
   {
    "slide": 6,
    "words": 70,
-   "seconds": 31.5,
-   "words_per_minute": 133.3,
-   "starts_at_s": 122.5
+   "seconds": 31.56,
+   "words_per_minute": 133.1,
+   "starts_at_s": 124.3
   }
  ],
- "speech_seconds": 146.5,
- "total_with_transitions_s": 154.0,
- "total_mm_ss": "2:33",
- "margin_to_limit_s": 26.0,
- "total_words": 397,
+ "speech_seconds": 148.4,
+ "total_with_transitions_s": 155.9,
+ "total_mm_ss": "2:35",
+ "margin_to_limit_s": 24.1,
+ "total_words": 409,
  "cuts": {
   "all six slides": {
    "slides": [
@@ -69,8 +69,8 @@
     5,
     6
    ],
-   "seconds": 154.0,
-   "mm_ss": "2:33"
+   "seconds": 155.9,
+   "mm_ss": "2:35"
   },
   "drop slide 5 (scorecard, all pending)": {
    "slides": [
@@ -80,8 +80,8 @@
     4,
     6
    ],
-   "seconds": 128.8,
-   "mm_ss": "2:08"
+   "seconds": 131.5,
+   "mm_ss": "2:11"
   },
   "drop slides 3 and 5": {
    "slides": [
@@ -90,8 +90,8 @@
     4,
     6
    ],
-   "seconds": 105.7,
-   "mm_ss": "1:45"
+   "seconds": 106.6,
+   "mm_ss": "1:46"
   }
  },
  "caveat": "A synthetic voice at its default pace is not the presenter. Demo clicks, applause and questions are not included."
