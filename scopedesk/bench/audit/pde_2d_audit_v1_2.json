@@ -1,0 +1,75 @@
+{
+ "cases": 6,
+ "categories": {
+  "no_pattern": 3,
+  "nonconverged": 1,
+  "pattern": 2
+ },
+ "settled_n": 5,
+ "settled_agree": 5,
+ "disagreements": [],
+ "seconds": 167.9,
+ "rows": [
+  {
+   "gamma": "8",
+   "Dv": "20",
+   "a": "3",
+   "b": "2",
+   "exact_unstable": true,
+   "category": "pattern",
+   "converged": true,
+   "settled": true
+  },
+  {
+   "gamma": "2",
+   "Dv": "5",
+   "a": "3",
+   "b": "4",
+   "exact_unstable": false,
+   "category": "no_pattern",
+   "converged": true,
+   "settled": true
+  },
+  {
+   "gamma": "8",
+   "Dv": "5",
+   "a": "3",
+   "b": "4",
+   "exact_unstable": false,
+   "category": "no_pattern",
+   "converged": true,
+   "settled": true
+  },
+  {
+   "gamma": "1",
+   "Dv": "40",
+   "a": "2",
+   "b": "4",
+   "exact_unstable": true,
+   "category": "nonconverged",
+   "converged": false,
+   "settled": true
+  },
+  {
+   "gamma": "8",
+   "Dv": "40",
+   "a": "2",
+   "b": "2",
+   "exact_unstable": true,
+   "category": "pattern",
+   "converged": true,
+   "settled": true
+  },
+  {
+   "gamma": "2",
+   "Dv": "5",
+   "a": "2",
+   "b": "2",
+   "exact_unstable": false,
+   "category": "no_pattern",
+   "converged": true,
+   "settled": true
+  }
+ ],
+ "caveat": "tiny sample; declared kinetics; exact key is LINEAR; subcritical behaviour not probed"
+}
