@@ -1,0 +1,163 @@
+{
+  "recorded_at": "2026-10-31T06:55:15.238226-07:00",
+  "description": "Evidence blob hashes plus independent CSV recount. No experiment/Lean rerun.",
+  "claims": {
+    "F01": {
+      "source_commit": "51a38057aebe7e7e0801d8f67af7fd4a81a8935f",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50",
+        "artifacts/turing_scope/lean_receipt.json": "d9961d8662748c3eb347accf9c103ffe5db1f988e7d74cf8183564f0b743d021"
+      }
+    },
+    "F02": {
+      "source_commit": "51a38057aebe7e7e0801d8f67af7fd4a81a8935f",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50"
+      }
+    },
+    "F03": {
+      "source_commit": "51a38057aebe7e7e0801d8f67af7fd4a81a8935f",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "turing_scope/source.py": "3a69a45b32afb361d7fd7c4b5232adfd539afa2833d770fd468a22ac5bca524b",
+        "turing_scope/adapter.py": "c2bff3c013c642a696f3f4a9be112b79aa05dea1ea4c785fbca4911f217a8d4a",
+        "tests/test_turing_scope.py": "b90b2b7445b7ada40c6a4902932cd268f4c2e6ed052e967c38d22be5d670fc1b"
+      }
+    },
+    "F04": {
+      "source_commit": "596ae9eda8a687b22faaf893ca1498aa71207ba9",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "artifacts/integration/codex-api/service-fixed-review.json": "12a67d4903d4057985781b46d7dec653913b45eacde61ef8f4719b0a76d53a1d",
+        "artifacts/integration/codex-api/service-fixed-review.lean": "0eede9e0427ee4313211444e6cd894b17ba061c9300cd1a4bfdb5d0b99635b05",
+        "artifacts/integration/codex-api/provenance.json": "2bfea0d75dd252343c3661ef0902d1fac8f31d43f6f585d19696cc1e9344ccd3"
+      }
+    },
+    "F05": {
+      "source_commit": "19fae04003dead3d357d0eb0d34dace022091b9f",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "planning/rethink/CODEX-BENCHMARK-SEMANTICS.md": "4d6a6855024e46c2e09bb52eff865d9cbb1d3ce326e91b9671a1959e83d4f27d",
+        "artifacts/integration/codex-api/benchmark-semantic-audit.json": "d88daf0b11284476e3fcef447566c08d642289246660db5c1c552d76e4ee7fd0"
+      }
+    },
+    "F06": {
+      "source_commit": "19fae04003dead3d357d0eb0d34dace022091b9f",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md": "85f1a26a466b3b31ce766d92250deb90b80032e038111c3bccd0aa63baa90efb",
+        "planning/rethink/CODEX-BENCHMARK-SEMANTICS.md": "4d6a6855024e46c2e09bb52eff865d9cbb1d3ce326e91b9671a1959e83d4f27d"
+      }
+    },
+    "B01": {
+      "source_commit": "51a38057aebe7e7e0801d8f67af7fd4a81a8935f",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "data/manifest.json": "a4107686df5c4fe148b269305b90df3f38983b4cc6a187c8b1d5d5971c300453",
+        "artifacts/evidence/route_summary.json": "d4fc21d06dc4c4e7571b7e1b71465013de11905f636971a499bf29994e15fe34",
+        "scripts/audit_data.py": "f74d03c1acef73df02c870c7a1ad52b1419e46a9d0b881bb061b94fb1dda71da"
+      }
+    },
+    "B02": {
+      "source_commit": "51a38057aebe7e7e0801d8f67af7fd4a81a8935f",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "artifacts/core/replay/episodes.csv": "cea6294ec2c14425f693c72d7cfe2d8f0019023504e6a5438149b6ddf1db899b",
+        "artifacts/lazysp/results/episodes.csv": "a8d78cca2469e5f8ad8159ca297a5257dec6a2350f8ea2f6f5bde93e969a8b7f",
+        "artifacts/lazysp/results/table_primary.csv": "2e1cd0ac54af789755c23aa2b75aa6ed145d9e6eb6bf638f826c6c3138ebd94f"
+      }
+    },
+    "B03": {
+      "source_commit": "51a38057aebe7e7e0801d8f67af7fd4a81a8935f",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "artifacts/scale/library_receipts.json": "da3f98517fc25c041d516fff70e4933938ff51d29460c87178ea48072fabf3f6",
+        "artifacts/scale/replay_summary.csv": "c6306a5796bf3a0d674720a17746e1309793ea390256fd2744c1f0126697a369",
+        "artifacts/scale/ablation_descriptive.json": "03eb6ed06052dcc9cda3f276c6d927e389a3348f0c8e023ce8491f2080ba0b34"
+      }
+    },
+    "B04": {
+      "source_commit": "51a38057aebe7e7e0801d8f67af7fd4a81a8935f",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "artifacts/integration/publication.json": "474729b0255aa4266495ab9723feb4bf22750b1cce759c7a266eff5da7338da1"
+      }
+    },
+    "B05": {
+      "source_commit": "51a38057aebe7e7e0801d8f67af7fd4a81a8935f",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "artifacts/integration/fresh-checkout-317203a0.json": "9bea8345d8cfc34ab30fd82b47f051eccb422e44e6072b68b40506e8c930cb02"
+      }
+    },
+    "A01": {
+      "source_commit": "51a38057aebe7e7e0801d8f67af7fd4a81a8935f",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "planning/rethink/PRIOR-ART-VERDICT.md": "a7dc351be0fdfecc5ce2067e7dcbee7b62860a235588015aec80cddd9d0ce327"
+      }
+    },
+    "A02": {
+      "source_commit": "596ae9eda8a687b22faaf893ca1498aa71207ba9",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md": "85f1a26a466b3b31ce766d92250deb90b80032e038111c3bccd0aa63baa90efb"
+      }
+    },
+    "R01": {
+      "source_commit": "29bb42f9359e39885c42d19d3c9ecd22eb312ba7",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "artifacts/gpuops/pde_pilot/rate_summary.json": "22a6d6a9fc89b214ca80249e44e407523338e8910f0574764463cf684cbbffce",
+        "artifacts/gpuops/pde_pilot/estimate_384k.json": "8a4c4196b9c0dcbd57af16b0207126f97f20de206123a4402b71c938855431e8",
+        "tasks/results/gpuops.json": "34cb1836f69c8c055c58cc49a3c1f8a74d5f9a9721ff69b0991a75b8754710ee"
+      }
+    },
+    "R02": {
+      "source_commit": "51a38057aebe7e7e0801d8f67af7fd4a81a8935f",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "artifacts/gpu/orx/receipt.json": "4c26361cf7855a836c4393a339fb616fda7c6cd7d34e4d6bff784e5c3f361279"
+      }
+    }
+  },
+  "independent_baseline_recount": {
+    "q2c": {
+      "episodes": 100,
+      "correctly_resolved_within_1000_extra_assays": 78,
+      "unique_endpoint_pairs": 24,
+      "limitation": "Repeated targets/initializations; retrospective transductive sensitivity, not prospective biology."
+    },
+    "collective_shared": {
+      "episodes": 100,
+      "correctly_resolved_within_1000_extra_assays": 78,
+      "unique_endpoint_pairs": 24,
+      "limitation": "Repeated targets/initializations; retrospective transductive sensitivity, not prospective biology."
+    },
+    "lazysp_alternate": {
+      "episodes": 100,
+      "correctly_resolved_within_1000_extra_assays": 96,
+      "unique_endpoint_pairs": 24,
+      "limitation": "Repeated targets/initializations; retrospective transductive sensitivity, not prospective biology."
+    }
+  },
+  "pending_claims": [
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06",
+    "P07",
+    "P08",
+    "P09",
+    "P10"
+  ],
+  "limitations": [
+    "Git SHA identifies artifact snapshot, not necessarily experiment source; each receipt records its own source revision.",
+    "Hash integrity does not establish scientific validity.",
+    "No API billing, external use, revised deployment, or organizer-submission claim."
+  ]
+}

@@ -1,9 +1,9 @@
 {
   "role": "codex-api",
   "status": "active",
-  "updated_at": "2026-10-31T06:53:55.544710-07:00",
+  "updated_at": "2026-10-31T06:55:30.772892-07:00",
   "branch": "work/codex-api",
-  "commit": "596ae9e (first pushed increment); next audit commit recorded in git history",
+  "commit": "19fae04 (last pushed increment); ledger commit recorded in git history",
   "goal": "Native persistent goal active: scientific review, evaluation, integration, honest demo/pitch/site/blog/video with existing workers.",
   "checklist": [
     {
@@ -48,6 +48,11 @@
       "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 artifacts/integration/codex-api/audit_benchmark_semantics.py --output artifacts/integration/codex-api/benchmark-semantic-audit.json",
       "exit": 0,
       "result": "136 inputs reviewed; Rayleigh physical-model defect and enumerated input-semantic gaps; no model score"
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 artifacts/integration/codex-api/index_claim_evidence.py",
+      "exit": 0,
+      "result": "15 claims indexed at exact revisions; independently recounted 78/100,78/100,96/100 baseline outcomes, 24 distinct endpoint pairs each"
     }
   ],
   "artifacts": [
@@ -57,7 +62,10 @@
     "planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md",
     "planning/rethink/CODEX-BENCHMARK-SEMANTICS.md",
     "artifacts/integration/codex-api/audit_benchmark_semantics.py",
-    "artifacts/integration/codex-api/benchmark-semantic-audit.json"
+    "artifacts/integration/codex-api/benchmark-semantic-audit.json",
+    "planning/rethink/CLAIM-LEDGER.md",
+    "artifacts/integration/codex-api/index_claim_evidence.py",
+    "artifacts/integration/codex-api/claim-evidence-index.json"
   ],
   "limitations": [
     "No new service tests run by this reporter yet.",
@@ -65,7 +73,9 @@
     "No deployment/submission/external reuse receipt."
   ],
   "next_steps": [
-    "Complete claim/pitch ledger assigned by director.",
-    "Audit v1.1 before evaluation and review 21-claim statement freeze when published."
+    "Review updated v1.1 frozen benchmark before agent evaluation.",
+    "Review fleet scorecard bucket definitions and statement freeze; source-only Turing-scorecard corrections sent.",
+    "Independently review service 2D/pi interval and diffusion requirement.",
+    "Coordinate review and final pitch/site/blog/video with director."
   ]
 }
