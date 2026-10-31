@@ -62,3 +62,25 @@ Conditional success over accepted requests must include a minimum nonzero covera
 ## Authorization correction
 
 The Sonnet-only launch configuration selects the requested worker harness. The user also authorized other available model resources and specified budgets. The working contract now states this explicitly. Standalone Claude tmux sessions remain the execution mechanism; no Orchestra task queue or supervisor is authorized for this phase.
+
+## Follow-up source checks
+
+The official AllenSDK reader explains the inconsistent NWB conversion attributes: early pipeline versions already store SI values despite incorrect attributes; versions 1.1 and later apply the conversion. The version is read from `general/generated_by`. This supplies a documented rule instead of choosing units from physiological plausibility. The electric worker received the source and was asked to record the version-dependent decision. [Reader implementation](https://raw.githubusercontent.com/AllenInstitute/AllenSDK/master/allensdk/core/nwb_data_set.py).
+
+The proposed semantic-checking benchmark has close prior art. Relevant full-text sections were read:
+
+- *Benchmarking Agentic Review Systems*, Appendix C, already injects dropped scope restrictions, incorrect implications and experimental misinterpretations; it compares review harnesses and model families. Its perturbation validation includes an LLM checklist. An executed distinguishing witness could provide a more concrete grading mechanism for our narrower task. [Paper](https://arxiv.org/html/2606.19749v1).
+- *ShadowBench*, sections 3.1–3.3, uses forward and backward Lean implications with complete shadow sets, referencing intended formal statements. A failed search for counterexamples does not establish this kind of equivalence. [Paper](https://arxiv.org/html/2608.29270v3).
+- *The Faithfulness Gap*, sections 1–5, proposes counterfactual probes and bidirectional provability fingerprints for natural-language/formal-statement drift. Generic mutation-based fidelity checking is not a new contribution. The possible applied contribution is a source-scoped scientific-test repair pipeline with useful design consequences. [Paper](https://arxiv.org/html/2606.16541).
+
+These checks narrow the novelty claim; they are not an exhaustive literature review or a reproduction of published performance.
+
+## Executed service edge cases, before publication
+
+At 06:18:50 PDT on October 31, an independent bounded probe of the collaboration worker's in-progress `falsify` service reproduced three issues. This was an uncommitted implementation, not the released baseline. The receipt records file hashes sampled after execution, input requests and returned results; it does not establish the state of later edits. [Raw receipt](../../artifacts/integration/rethink-service-initial-review.json).
+
+1. Arbitrary caller claim text was attached to a `survived` verdict even though the calculation only adjudicated linear instability. The requested text must remain separate from the proposition actually checked.
+2. A very narrow instability band produced `bracket_verified=false` with no unstable mode at either proposed endpoint, while the prose still claimed an unstable mode at the upper endpoint. A proposed intervention must be withheld or refined until its check succeeds.
+3. A software fault injection returning `source_pin_ok=false` left the claim verdict unchanged. A generic calculation can remain available, but source-authorized claim reuse must be distinguished or refused.
+
+Command executed: `systemd-run --user --scope -q -p TasksMax=128 -p MemoryMax=1G -p MemorySwapMax=0 -p RuntimeMaxSec=60 env PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 python3 /data/artifacts/delphi-evolve-rethink/primary-audit/service_probe.py`; exit 0 means the probe recorded the above behaviors, not that they passed acceptance. The service owner received the inputs and was asked to add regression tests. Independent retesting of the committed fixes remains pending.

@@ -1,0 +1,177 @@
+{
+  "kind": "software fault/edge probes, not empirical biological results",
+  "time_seattle": "2026-10-31T06:18:50.726603-07:00",
+  "source_worktree": "/data/worktrees/delphi-evolve/collab",
+  "source_file_hashes": {
+    "falsify/__init__.py": "51af492e3e9bd3c84749a98df9fd5b2098066d27c063c3f51ee9335366c99700",
+    "falsify/__main__.py": "6ce05b79ee1666025af142adc913f1d468781e77af67ae431fe163472a52fb3a",
+    "falsify/cli.py": "9704a7a1953c0cde694b1e1b27724f6d12865e0258b84073fb53ba264fc52c9f",
+    "falsify/engine.py": "884183a0f508004b9af26ee9e6f1d128096b290435ef4d2d734e2cbd0aed28dc",
+    "falsify/lean_receipt.py": "6d9dad571f2561f99d49e59f4e462f1411a9d61cf806cbd2421a0228c78015aa",
+    "falsify/mcp_stdio.py": "b03fa9166f529fe7eccd4f1af8ca1ecc1fdeddb7c2da20b6eefadf0c7efcf571",
+    "falsify/presets.py": "02636e1c336b983eca03068ab3160975d2521d2b47570a4b15bf15f1e1208c3f",
+    "falsify/server.py": "0e0e9f03b1e21bf9afce2407bd1613c1973c0bd3b258448902af227d0c5baa0d",
+    "falsify/usage.py": "7bc7993bd604c86ce896a426e2242c52692e9a8e4f18574078e07b5524eb1fda"
+  },
+  "cases": [
+    {
+      "case": "uninterpreted_claim",
+      "request": {
+        "jacobian": [
+          [
+            "4/5",
+            "1"
+          ],
+          [
+            "-9/5",
+            "-1"
+          ]
+        ],
+        "diffusivities": [
+          "1",
+          "20"
+        ],
+        "domain": {
+          "dimension": 1,
+          "boundary": "neumann",
+          "length_over_pi": "2"
+        },
+        "crosscheck": false,
+        "claim": "all real ecosystems are stable"
+      },
+      "verdict": "pattern_possible",
+      "adjudication": {
+        "claim": "all real ecosystems are stable",
+        "outcome": "survived",
+        "verdict": "pattern_possible",
+        "reasons": [
+          "1 admissible neumann mode(s) have det(J - qD) < 0: linearly unstable"
+        ],
+        "outcome_key": "survived = an unstable admissible mode exists; refuted = none does (stable, certified); out_of_scope = the request is outside what is adjudicated; unresolvable = bracket/marginal case"
+      },
+      "critical_length": {
+        "length_over_pi_between": [
+          "152028097249/125000000000",
+          "1216224777993/1000000000000"
+        ],
+        "length_over_pi_between_decimal": [
+          1.216224777992,
+          1.216224777993
+        ],
+        "statement": "No admissible mode is linearly unstable for any domain length <= the lower value; an unstable mode exists at the upper value. Both facts are re-verified below by the exact mode test.",
+        "exact_recheck": {
+          "below": {
+            "length_over_pi": "152028097249/125000000000",
+            "unstable_modes": []
+          },
+          "above": {
+            "length_over_pi": "1216224777993/1000000000000",
+            "unstable_modes": [
+              1
+            ]
+          }
+        },
+        "bracket_verified": true,
+        "why_valid_below": "for r <= r_c every admissible q >= q_1 = c^2/r^2 >= q_upper, outside the open band (monotone in r)",
+        "applies_to": "1-D neumann domain, length in multiples of pi"
+      },
+      "source_pin_ok": true
+    },
+    {
+      "case": "extremely_narrow_band",
+      "request": {
+        "jacobian": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "-359999999999999999999999999999999999999999999999999/100000000000000000000000000000000000000000000000000",
+            "-2"
+          ]
+        ],
+        "diffusivities": [
+          "1",
+          "10"
+        ],
+        "domain": {
+          "dimension": 1,
+          "boundary": "neumann",
+          "length_over_pi": "2"
+        },
+        "crosscheck": false
+      },
+      "verdict": "domain_blocks_pattern",
+      "adjudication": {
+        "claim": "a linear (Turing-type) pattern-forming instability exists on the stated domain",
+        "outcome": "refuted",
+        "verdict": "domain_blocks_pattern",
+        "reasons": [
+          "the textbook Turing condition HOLDS (non-empty continuum band) but no admissible mode lies in the band on this domain: linearly stable at every mode, so this domain does not support the claimed instability"
+        ],
+        "outcome_key": "survived = an unstable admissible mode exists; refuted = none does (stable, certified); out_of_scope = the request is outside what is adjudicated; unresolvable = bracket/marginal case"
+      },
+      "critical_length": {
+        "length_over_pi_between": [
+          "395284707521/250000000000",
+          "316227766017/200000000000"
+        ],
+        "length_over_pi_between_decimal": [
+          1.581138830084,
+          1.581138830085
+        ],
+        "statement": "No admissible mode is linearly unstable for any domain length <= the lower value; an unstable mode exists at the upper value. Both facts are re-verified below by the exact mode test.",
+        "exact_recheck": {
+          "below": {
+            "length_over_pi": "395284707521/250000000000",
+            "unstable_modes": []
+          },
+          "above": {
+            "length_over_pi": "316227766017/200000000000",
+            "unstable_modes": []
+          }
+        },
+        "bracket_verified": false,
+        "why_valid_below": "for r <= r_c every admissible q >= q_1 = c^2/r^2 >= q_upper, outside the open band (monotone in r)",
+        "applies_to": "1-D neumann domain, length in multiples of pi"
+      },
+      "source_pin_ok": true
+    },
+    {
+      "case": "source_pin_fault_injection",
+      "request": {
+        "jacobian": [
+          [
+            "4/5",
+            "1"
+          ],
+          [
+            "-9/5",
+            "-1"
+          ]
+        ],
+        "diffusivities": [
+          "1",
+          "20"
+        ],
+        "domain": {
+          "dimension": 1,
+          "boundary": "neumann",
+          "length_over_pi": "2"
+        },
+        "crosscheck": false
+      },
+      "verdict": "pattern_possible",
+      "adjudication": {
+        "claim": "a linear (Turing-type) pattern-forming instability exists on the stated domain",
+        "outcome": "survived",
+        "verdict": "pattern_possible",
+        "reasons": [
+          "1 admissible neumann mode(s) have det(J - qD) < 0: linearly unstable"
+        ],
+        "outcome_key": "survived = an unstable admissible mode exists; refuted = none does (stable, certified); out_of_scope = the request is outside what is adjudicated; unresolvable = bracket/marginal case"
+      },
+      "source_pin_ok": false
+    }
+  ]
+}
