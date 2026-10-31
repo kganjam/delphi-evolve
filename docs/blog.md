@@ -30,8 +30,8 @@ We apply one rule to every single-substitution step: **a step is admitted only i
 
 * Parent VFVS → highest measured variant AIKG differ at four positions, so there are 24 direct orderings of the four substitutions. At κ = 0 — trusting every replicate mean exactly — **0** are admitted: every direct ordering passes through a genotype measurably worse than where it came from.
 * The shortest admitted route is not direct. It has **5** steps at κ = 0, **6** at κ = 2 (core's default) and **7** at κ = 3.
-* Some route exists only up to κ ≈ **4.074** (bisection, measured genotypes only). Beyond that the answer is *blocked in this declared graph*. Two simpler error models give the same qualitative break: replicate range ± ε breaks beyond ε ≈ 0.006013, replicate mean ± ε beyond ε ≈ 0.0075 (growth-rate units).
-* Blocked means blocked **in the measured four-residue graph under these assumptions**. It says nothing about full sequence space, other assays, or biology. Unmeasured genotypes stay *possible* in any negative statement; the site reports "blocked" only if the route is blocked even when every unmeasured genotype is allowed to be perfect.
+* Some route exists only up to κ ≈ **4.074** (bisection, measured genotypes only). Beyond that the answer is *no route certifiable in this declared graph at this bound* — an actual ascending route may still exist. Two simpler error models give the same qualitative break: replicate range ± ε breaks beyond ε ≈ 0.006013, replicate mean ± ε beyond ε ≈ 0.0075 (growth-rate units).
+* “No route certifiable” (the benchmark's and the browser's negative verdict) means no chain of steps with `lower(next) ≥ upper(current)` exists **in the measured four-residue graph under these assumptions**; overlapping intervals are not admitted, so an actual ascending route may still exist. The stronger statement — every ascending route ruled out — needs every exit certified lower and is checked only by the separate Lean strong-cut certificates. It says nothing about full sequence space, other assays, or biology. Unmeasured genotypes stay *possible* in any negative statement; the site reports "blocked" only if the route is blocked even when every unmeasured genotype is allowed to be perfect.
 
 The same story in the browser: move the κ slider and the "tempting" route turns red at its failing step; the planner either reroutes through a different genotype or names the assay it would need.
 
@@ -68,4 +68,4 @@ python -m venv .venv && .venv/bin/pip install pandas numpy rdflib pytest
 
 
 ---
-*Rendered 2026-10-31 01:18:32 PDT by `python -m evolve.evidence docs` from: delphi, demo, evsite, experience, integrator, landscape, nano, proof, results, route. Edit `docs/blog.template.md`, not this file.*
+*Rendered 2026-10-31 01:22:28 PDT by `python -m evolve.evidence docs` from: delphi, demo, evsite, experience, integrator, landscape, nano, proof, results, route. Edit `docs/blog.template.md`, not this file.*

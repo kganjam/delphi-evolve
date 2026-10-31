@@ -80,7 +80,12 @@ checks = {c["check"]: c["ok"] for c in rc.get("checks", [])}
 if not adm_ok:
     print("note: core cut is not the one Lean-checked by proof (regenerated?); blocked route stays lean_checked=false")
 for r in demo.get("routes", []):
-    if str(r.get("status", "")).startswith("blocked"):
+    if str(r.get("status", "")).startswith("blocked") or r.get("verdict") == "no_route_certifiable":
+        if r.get("verdict") == "no_route_certifiable":
+            r["status"] = r["core_status"]  # idempotent re-run: restore original, rewrite below
+        r["core_status"] = r["status"]
+        r["verdict"] = "no_route_certifiable"
+        r["status"] = "no route certifiable at this bound (" + r["core_status"].split("(", 1)[-1].rstrip(")") + "); an actual ascending route may still exist"
         r["semantics"] = ("'blocked' here means NO ROUTE CAN BE CERTIFIED in the measured subgraph under the assumed kappa "
                           "(intervals that overlap count as not admitted). It does NOT exclude a true non-decreasing path: the strong no-path theorem "
                           "(blocked_cut_sound) needs every exit certified lower. Lean separates the two (artifacts/proof/CORRESPONDENCE.md, "

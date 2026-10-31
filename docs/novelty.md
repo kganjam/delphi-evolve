@@ -10,6 +10,7 @@ Written 31 Oct 2026, Seattle PDT, by the experience worker. Sources were read fr
 | Active-learning-assisted directed evolution | ALDE, *Nature Communications* 2025 (PMC11739421) | Wet-lab campaign on a protoglobin (five residues). Computational simulations on **both GB1 and TrpB** four-residue combinatorial datasets: 96 random starting variants, four rounds of 96, averaged over 70 random initialisations; compares encodings (one-hot, ESM2) and model classes with calibration analysis. It reports no path/reachability decision and no formal certificate. |
 | Sequence-to-fitness benchmarks | FLIP and FLIP2 (flip.protein.properties) | FLIP2 adds TrpB sub-landscapes (about 228k variants over 10 sub-landscapes; a different table from the four-site set) and 16 splits. Evaluates predictors (Spearman, NDCG), not assay decisions. |
 | Indirect adaptive paths and sign epistasis | Wu et al., eLife 2016 (e16965, GB1); Ribeca et al., arXiv:2604.22611 (April 2026): proof that simple sign epistasis is associated with evolutionary detours, plus analysis of experimental landscapes | Our 5/6/7-step detours are instances of this phenomenon, not a finding about it. Only the abstract-level statement of Ribeca et al. was read. |
+| Selecting expensive evaluations to settle path feasibility on a graph | Dellin & Srinivasa, *LazySP* (2016, https://www.ri.cmu.edu/pub_files/2016/3/paper-lazysp.pdf); Choudhury et al., *Bayesian Active Edge Evaluation on Expensive Graphs*, IJCAI 2018 (https://ijcai.org/proceedings/2018/679) | Primary sources read by the coordinator, not by us. **Query-efficient path finding and decision-region determination are established.** Our `q2c` policies are an instance of the idea on an enzyme-assay graph, not an invention of it. |
 | Embedding-space Bayesian optimisation for proteins | PELLM (github.com/soldatmat/PELLM) | Listed in planning/PLAN.md as adjacent; **not inspected by the experience worker**, so no comparison is made. |
 | Nanopublications, PROV, interval arithmetic, graph reachability | standard | Used, not contributed. |
 
@@ -18,7 +19,7 @@ Written 31 Oct 2026, Seattle PDT, by the experience worker. Sources were read fr
 **Query-to-certify:** treat the engineering decision "is there a route / is it cut?" as the object to be certified, and select the next assay to settle *that* decision. Concretely in this repository:
 
 1. a single decision rule (`L(next) ≥ U(current)`) whose assumption parameter is exposed and swept, with the point at which the decision flips reported (for the parent→highest-measured pair in the measured four-site graph, `site/lib.js maxEps`);
-2. a three-valued edge status so a negative answer is *blocked* only if it holds even when every unmeasured genotype is allowed to be perfect, and otherwise *undetermined* with the unmeasured genotypes named as assay requests;
+2. a three-valued edge status so a negative answer is *no route certifiable* only if it holds even when every unmeasured genotype is allowed to be perfect (overlapping intervals are not admitted, so this is weaker than "every ascending route is ruled out"), and otherwise *undetermined* with the unmeasured genotypes named as assay requests;
 3. a conditional machine-checked certificate (proof worker, Lean) whose input is the same table;
 4. nanopublication drafts and a Delphi claim record, so the decision links to its evidence and scope.
 
@@ -47,3 +48,10 @@ Enzyme-engineering teams and CROs that spend assays on variant libraries could u
 * `site/lib.js` ↔ `evolve/evidence.py` (Python mirror) ↔ core's `evolve/graph.py` ↔ the proof worker's Lean checker implement the same edge rule; `tests/test_evidence.py::test_js_matches_python_mirror` checks the first pair.
 * Score definition is core's (raw μ minus per-replicate stop-codon mean), not the source's row-specific `mu_k-bg` or `/max` columns.
 * Route and cut statements are about the declared finite graph; absence of measurement is not evidence of absence of a path.
+
+## Added by the integrator (2026-10-31, after the 20-seed replay)
+
+* **Measured behaviour, exploratory arms flagged.** Of the seven pre-specified policies, query-to-certify (GP-priced) certified 0.78 of 100 episodes at 1000 assays against 0.32 for our best-first baseline and 0.21 for random; the shared-evidence collective was indistinguishable from it (difference 0.00). A no-model variant added after the first results reached 0.96 and is exploratory. See `site/data/results.json`.
+* **No claim of novelty for the policy class.** Given LazySP and Bayesian active edge evaluation, the defensible contribution is the enzyme-assay setting, the leakage-controlled retrospective replay, the evidence/claim trail and the Lean-checked certificates, together with their measured behaviour — not a new way to choose which edge to evaluate.
+* **Calibration is transductive.** The noise bins (replicate-difference SD by read-count bin) are estimated over all 159,129 measured rows before the replay. That is a retrospective sensitivity calibration, not an independently held-out replicate validation, and kappa is an assumed sensitivity multiplier, not a confidence level.
+* **Claim reuse is proposed, not established here.** Historical Darwin links are motivation and Fisher is context; deleting Delphi does not change the route planner in the artifacts merged so far. See `docs/claim-reuse.md` only if that worker's tests pass in the integrated tree.
