@@ -7,7 +7,7 @@ Subcommands (python -m evolve.evidence <cmd> --help):
   delphi     Query the hosted Delphi MCP live and store raw responses.
   nanopubs   Emit unsigned nanopublication TriG drafts and validate them.
   validate   Re-parse every draft TriG with rdflib and check structure.
-  blog       Render docs/blog.md from docs/blog.template.md and saved artifacts.
+  docs       Render docs/{blog,pitch,video-storyboard}.md from *.template.md and saved artifacts.
 
 Nothing here invents measurements. Every number the site, blog or nanopub
 drafts show is read from an artifact written by one of these commands or by
@@ -671,33 +671,47 @@ def render_template(text: str, sources: dict[str, dict]) -> str:
         v = dig(sources.get(src, {}), path)
         if v is None:
             return fb
+        if isinstance(v, bool):
+            return "yes" if v else "no"
         if isinstance(v, float):
             return f"{v:.4g}"
+        if isinstance(v, int) and abs(v) >= 10000:
+            return f"{v:,}"
         return str(v)
     return re.sub(r"\{\{(\w+):([^|}]+)(?:\|([^}]*))?\}\}", sub, text)
 
 
-def render_blog() -> str:
-    tmpl = (ROOT / "docs" / "blog.template.md").read_text()
+DOC_TEMPLATES = ("blog", "pitch", "video-storyboard")
+
+
+def render_docs() -> list[str]:
+    """Render docs/<name>.template.md -> docs/<name>.md from saved artifacts only."""
     sources: dict[str, dict] = {}
     for key, rel in (("landscape", "site/data/landscape.meta.json"),
                      ("demo", "site/data/demo.json"),
                      ("delphi", "artifacts/evidence/delphi_queries.json"),
                      ("nano", "artifacts/evidence/nanopubs/validation.json"),
-                     ("route", "artifacts/evidence/route_summary.json")):
+                     ("route", "artifacts/evidence/route_summary.json"),
+                     ("evsite", "site/data/evidence.json")):
         p = ROOT / rel
         if p.exists():
             sources[key] = json.loads(p.read_text())
-    for role in ("core", "proof", "gpu", "experience"):
+    for role in ("core", "proof", "gpu", "experience", "integrator"):
         p = ROOT / "tasks" / "results" / f"{role}.json"
         if p.exists():
             sources[role] = json.loads(p.read_text())
-    body = render_template(tmpl, sources)
-    footer = (f"\n\n---\n*Rendered {now_seattle()} by `python -m evolve.evidence blog` from: "
-              f"{', '.join(sorted(sources)) or 'no artifacts'}.*\n")
-    out = ROOT / "docs" / "blog.md"
-    out.write_text(body + footer)
-    return str(out)
+    outs = []
+    for name in DOC_TEMPLATES:
+        tp = ROOT / "docs" / f"{name}.template.md"
+        if not tp.exists():
+            continue
+        body = render_template(tp.read_text(), sources)
+        footer = (f"\n\n---\n*Rendered {now_seattle()} by `python -m evolve.evidence docs` from: "
+                  f"{', '.join(sorted(sources)) or 'no artifacts'}. Edit `docs/{name}.template.md`, not this file.*\n")
+        out = ROOT / "docs" / f"{name}.md"
+        out.write_text(body + footer)
+        outs.append(str(out))
+    return outs
 
 
 # --------------------------------------------------------------------------
@@ -761,7 +775,7 @@ def main(argv=None):
     sub.add_parser("nanopubs")
     p = sub.add_parser("validate"); p.add_argument("paths", nargs="*", type=Path)
     sub.add_parser("site-data")
-    sub.add_parser("blog")
+    sub.add_parser("docs")
     p = sub.add_parser("route-summary"); p.add_argument("--raw", type=Path, default=DEFAULT_RAW)
     a = ap.parse_args(argv)
     if a.cmd == "landscape":
@@ -783,8 +797,8 @@ def main(argv=None):
     elif a.cmd == "site-data":
         ev = site_evidence(SITE_DATA)
         print(json.dumps({"claims": len(ev["claims"]), "drafts": len(ev["nanopub_drafts"])}))
-    elif a.cmd == "blog":
-        print(render_blog())
+    elif a.cmd == "docs":
+        print("\n".join(render_docs()))
     elif a.cmd == "route-summary":
         print(json.dumps(route_summary(a.raw, EVIDENCE_DIR / "route_summary.json"), indent=2))
     return 0
