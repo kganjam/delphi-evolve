@@ -1,0 +1,48 @@
+{
+ "per_family": {
+  "turing_finite_domain": {
+   "n": 24,
+   "agree": 24
+  },
+  "fisher_kpp_speed": {
+   "n": 16,
+   "agree": 16
+  },
+  "kimura_regime": {
+   "n": 16,
+   "agree": 16
+  },
+  "hamilton_rule_form": {
+   "n": 16,
+   "agree": 16
+  },
+  "greenhill_buckling": {
+   "n": 16,
+   "agree": 16
+  },
+  "rayleigh_plateau": {
+   "n": 16,
+   "agree": 16
+  },
+  "hawk_dove_ess": {
+   "n": 16,
+   "agree": 16
+  },
+  "wavelength_formula_licence": {
+   "n": 16,
+   "agree": 16
+  }
+ },
+ "disagreements": [],
+ "kpp_speeds_measured_D1": {
+  "('kpp', 'allee', 0.4)": 0.14170209218971414,
+  "('kpp', 'cubic_pos', 3.3333333333333335)": 2.0621822122197218,
+  "('kpp', 'cubic_pos', 4.0)": 2.1171959656580817,
+  "('kpp', 'logistic', None)": 1.9804951237809452,
+  "('kpp', 'cubic_pos', 2.0)": 1.9904976244061012,
+  "('kpp', 'allee', 0.3)": 0.28173710094190213,
+  "('kpp', 'cubic_pos', 1.6666666666666667)": 1.9854963740935234,
+  "('kpp', 'cubic_pos', 1.3333333333333333)": 1.9838292906559976
+ },
+ "greenhill_Lambda_uniform_hermite_fe": 7.8373474741364415
+}
