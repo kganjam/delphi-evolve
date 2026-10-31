@@ -1,0 +1,5 @@
+{"family": "A", "seed": 0, "start": "PAIL", "target": "ATSG", "status": "open", "assays": 84, "correct": true, "abstain_reason": null, "wall_s": 0.086}
+{"family": "B", "seed": 0, "start": "VFVS", "target": "AIKG", "status": "open", "assays": 905, "correct": true, "abstain_reason": null, "wall_s": 1.085}
+{"family": "B", "seed": 0, "start": "VFVS", "target": "CLKG", "status": "open", "assays": 219, "correct": true, "abstain_reason": null, "wall_s": 0.126}
+{"family": "B", "seed": 0, "start": "VFVS", "target": "VLKG", "status": "open", "assays": 94, "correct": true, "abstain_reason": null, "wall_s": 0.017}
+{"family": "B", "seed": 0, "start": "VFVS", "target": "ALKG", "status": "open", "assays": 820, "correct": true, "abstain_reason": null, "wall_s": 1.106}

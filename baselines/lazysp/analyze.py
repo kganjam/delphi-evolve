@@ -151,7 +151,7 @@ def write_outputs(res, out):
     for var, d in res["variants"].items():
         rows += d["rows"]
     if rows:
-        cols = [c for c in rows[0] if c not in ("lazysp", "route")] + ["lazysp_replans", "lazysp_expansions", "lazysp_search_wall_s", "lazysp_native_infeasible_at", "lazysp_fallback_queries"]
+        cols = [c for c in rows[0] if c not in ("lazysp",)] + ["lazysp_replans", "lazysp_expansions", "lazysp_search_wall_s", "lazysp_native_infeasible_at", "lazysp_fallback_queries"]
         with open(out / "episodes.csv", "w", newline="") as f:
             w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore"); w.writeheader()
             for r in rows:
@@ -159,7 +159,18 @@ def write_outputs(res, out):
                 r.update({"lazysp_replans": L["replans"], "lazysp_expansions": L["expansions"], "lazysp_search_wall_s": L["search_wall_s"],
                           "lazysp_native_infeasible_at": L["native_infeasible_at"], "lazysp_fallback_queries": L["fallback_queries"]})
                 r["policy"] = "lazysp_" + r["variant"]
+                if "route" in r:
+                    r["route"] = str(r["route"])
                 w.writerow(r)
+    # combined view: saved original 700 episodes + these rows (same columns where available), for core-summary-style tooling
+    try:
+        import pandas as pd
+        orig = pd.read_csv(res["comparator_artifact"])
+        mine = pd.read_csv(out / "episodes.csv")
+        orig["source"] = "saved_original_recovery"; mine["source"] = "lazysp_baseline"
+        pd.concat([orig, mine], ignore_index=True).to_csv(out / "episodes_with_original.csv", index=False)
+    except Exception as e:  # pragma: no cover
+        (out / "combine_error.txt").write_text(repr(e))
     summ = {k: ({kk: vv for kk, vv in v.items() if kk != "rows"} if k == "variants" else v) for k, v in res.items()}
     summ["variants"] = {var: d["summary"] for var, d in res["variants"].items()}
     (out / "summary.json").write_text(json.dumps(summ, indent=1, default=str))
@@ -201,9 +212,54 @@ def plot(res, recovery_csv, out):
     fig.tight_layout(); fig.savefig(Path(out) / "cert_vs_assays.png", dpi=140); plt.close(fig)
 
 
+def exploratory(res, recovery_csv, comparator="q2c"):
+    """POST HOC (written after seeing the preregistered results; not preregistered).
+
+    Family B reuses 4 fixed published targets across the 20 seeds, so its 80 episodes are replicates of
+    only 4 problems that differ in their random initial observations.  Seed clusters therefore overstate the
+    effective number of independent problems.  This block (i) lists per-problem outcomes, (ii) repeats the
+    paired bootstrap with PROBLEM clusters (20 family-A seeds + 4 family-B targets = 24 clusters), and
+    (iii) gives paired resolved@B curves."""
+    rec = load_recovery(recovery_csv)
+    out = {"label": "POST HOC / exploratory; not preregistered", "problem_clusters": 24, "variants": {}}
+    for var, d in res["variants"].items():
+        rows = {(r["family"], r["seed"], r["start"], r["target"]): r for r in d["rows"]}
+        keys = sorted(k for k in rows if k in rec[comparator])
+        a = [cert_assays(rows[k]) for k in keys]; b = [cert_assays(rec[comparator][k]) for k in keys]
+        cl = [("A", k[1]) if k[0] == "A" else ("B", k[3]) for k in keys]
+        cid = {c: i for i, c in enumerate(sorted(set(cl)))}
+        ci = np.array([cid[c] for c in cl])
+        idx = {c: np.flatnonzero(ci == c) for c in range(len(cid))}
+        rng = np.random.default_rng(BOOT_SEED)
+        def bs(fn):
+            pt = fn(a) - fn(b); dd = np.empty(BOOT)
+            for i in range(BOOT):
+                pick = rng.choice(len(cid), len(cid), replace=True)
+                ii = np.concatenate([idx[c] for c in pick])
+                dd[i] = fn([a[j] for j in ii]) - fn([b[j] for j in ii])
+            return {"diff": float(pt), "lo95": float(np.percentile(dd, 2.5)), "hi95": float(np.percentile(dd, 97.5))}
+        per = {}
+        for fam, tg in sorted({(k[0], k[3]) if k[0] == "B" else (k[0], None) for k in keys}, key=str):
+            kk = [k for k in keys if k[0] == fam and (tg is None or k[3] == tg)]
+            xs = [cert_assays(rows[k]) for k in kk]; ys = [cert_assays(rec[comparator][k]) for k in kk]
+            name = f"B:{tg}" if tg else "A:all20"
+            f = lambda v: [x for x in v if x is not None]
+            per[name] = {"n": len(kk), "lazysp_resolved": len(f(xs)), "comparator_resolved": len(f(ys)),
+                         "lazysp_assays_median_resolved": float(np.median(f(xs))) if f(xs) else None, "lazysp_assays_min_max": [min(f(xs)), max(f(xs))] if f(xs) else None,
+                         "comparator_assays_median_resolved": float(np.median(f(ys))) if f(ys) else None, "comparator_assays_min_max": [min(f(ys)), max(f(ys))] if f(ys) else None}
+        out["variants"][var] = {
+            "problem_cluster_bootstrap_resolved_at_1000_diff": bs(lambda x: stat_resolved(x, 1000)),
+            "problem_cluster_bootstrap_rmst_diff": bs(stat_rmst),
+            "paired_resolved_at_B": {str(B): [stat_resolved(a, B), stat_resolved(b, B)] for B in (100, 250, 500, 750, 800, 850, 900, 950, 1000)},
+            "per_problem": per}
+    return out
+
+
 def cmd_analyze(a):
     res = analyze(a.dir, a.variants.split(","), a.recovery, a.comparator)
     write_outputs(res, a.out)
+    ex = exploratory(res, a.recovery, a.comparator)
+    (Path(a.out) / "exploratory_post_hoc.json").write_text(json.dumps(ex, indent=1))
     plot(res, a.recovery, a.out)
     for var, d in res["variants"].items():
         print(var, d["summary"]["status"], d["summary"]["status_counts"], "false_cert", d["summary"]["false_certificates"])

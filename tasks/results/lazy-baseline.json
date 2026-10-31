@@ -1,0 +1,109 @@
+{
+ "role": "lazy-baseline",
+ "status": "completed",
+ "branch": "work/lazy-baseline",
+ "commit": "<filled-after-commit>",
+ "model": "Claude Sonnet 5.5 (claude-sonnet-5-5), existing subscription; no metered API charge known; CLI cost estimates are not subscription spend. No GPU, paid API, subagent or message used.",
+ "wall_time_seattle": "2026-10-31 ~01:05-~02:00 PDT (before the Nov 1 2026 DST change); full panel 01:28:45-01:39:38 PDT",
+ "summary": "Exact preregistered LazySP-style (A* optimistic shortest path, lazy node-query evaluation, Forward/Reverse/Alternate selectors) baseline run on the frozen 100-episode panel with the identical oracle, initial observations, budget and ledger certificate. Primary lazysp_alternate resolves 96/100 at 1000 assays vs saved q2c 78/100 (+0.18, seed-cluster bootstrap [0.14,0.22]) but RMST difference -6.5 [-53.5,+48.9] includes 0; the gap is concentrated in one problem (VFVS->ALKG) and a post hoc 24-problem-cluster bootstrap gives [0.00,0.51]. Secondary forward: 96/100, RMST 369.6; reverse: 49/100. Zero false certificates, 300/300 shards independently audited. Original Q2C is not demonstrated to beat a lazy path-search baseline; not a claim LazySP is better in general.",
+ "commands_run": [
+  {
+   "cmd": "python -m pytest tests/test_lazysp_search.py tests/test_lazysp_policy.py tests/test_lazysp_panel.py (systemd-run scope TasksMax=128 MemoryMax=4G MemorySwapMax=0 RuntimeMaxSec=600)",
+   "exit": 0,
+   "note": "19 passed, 66 s"
+  },
+  {
+   "cmd": "python -m pytest tests/test_core_data_graph.py tests/test_core_replay.py (same scope)",
+   "exit": 0,
+   "note": "24 passed; core files untouched; artifacts/core/certificates/ written by that test run was deleted, not committed"
+  },
+  {
+   "cmd": "bash baselines/run_panel.sh artifacts/lazysp/smoke_seed0 alternate 450 0 0",
+   "exit": 0,
+   "note": "seed-0 runtime smoke, 5 tasks, ~1 s policy time each; no parameter changed afterwards"
+  },
+  {
+   "cmd": "bash baselines/run_panel.sh artifacts/lazysp/panel alternate,forward,reverse 450 0 19 (one systemd scope per task, 2 parallel)",
+   "exit": 0,
+   "note": "300/300 shards, failed.txt absent, runtime_bound hits 0; 01:28:45-01:39:38 PDT"
+  },
+  {
+   "cmd": "python -m baselines.lazysp analyze --dir artifacts/lazysp/panel --out artifacts/lazysp/results --variants alternate,forward,reverse",
+   "exit": 0,
+   "note": "COMPLETE_100 for all variants"
+  },
+  {
+   "cmd": "python -m baselines.lazysp audit --dir artifacts/lazysp/panel --out artifacts/lazysp/results/audit.json (scope)",
+   "exit": 0,
+   "note": "300 shards, 0 errors"
+  },
+  {
+   "cmd": "python baselines/replan_check.py",
+   "exit": 0,
+   "note": "9/9 identical query sequences with forced re-search each iteration"
+  },
+  {
+   "cmd": "comparison of origin/work/core artifacts/core/replay/episodes.csv q2c rows with artifacts/recovery/episodes.csv",
+   "exit": 0,
+   "note": "100/100 status and assays equal"
+  }
+ ],
+ "artifacts": [
+  "baselines/lazysp/{search,policy,run,analyze,audit}.py",
+  "baselines/run_panel.sh",
+  "baselines/replan_check.py",
+  "tests/test_lazysp_{search,policy,panel}.py",
+  "docs/lazysp.md",
+  "artifacts/lazysp/preregistration.json",
+  "artifacts/lazysp/panel/ (300 shards, started/finished/code_commit files, log.txt)",
+  "artifacts/lazysp/smoke_seed0/",
+  "artifacts/lazysp/results/{summary.json,table_primary.csv,table_paired.csv,episodes.csv,episodes_with_original.csv,exploratory_post_hoc.json,audit.json,crosschecks.json,cert_vs_assays.png}"
+ ],
+ "key_results": {
+  "panel": "complete, 100 episodes/variant, panel_sha256 bb6c144e...",
+  "alternate": {
+   "open": 91,
+   "blocked": 5,
+   "unresolved": 4,
+   "resolved_at_1000": 0.96,
+   "rmst": 476.6
+  },
+  "forward": {
+   "open": 91,
+   "blocked": 5,
+   "unresolved": 4,
+   "resolved_at_1000": 0.96,
+   "rmst": 369.6
+  },
+  "reverse": {
+   "open": 49,
+   "blocked": 0,
+   "unresolved": 51,
+   "resolved_at_1000": 0.49,
+   "rmst": 593.9
+  },
+  "q2c_saved": {
+   "resolved_at_1000": 0.78,
+   "rmst": 483.1
+  },
+  "false_certificates": 0,
+  "only_lazysp_vs_q2c": 18,
+  "only_q2c_vs_lazysp_alt_fwd": 0
+ },
+ "files_outside_allowed_paths": "none edited. Needs data/raw symlink/cache (git-ignored) to run data-dependent tests. Coordinator may wish to link docs/lazysp.md from docs/novelty.md, README, site and presentation (not done: outside scope) and update any claim that Q2C beats a path-search baseline.",
+ "limitations": [
+  "Conservative-interval route/no-route objective in the measured graph; not biological impossibility",
+  "Node-query adaptation of edge-evaluation prior art; papers' theorems not claimed to transfer",
+  "Family B = 4 fixed targets x 20 seeds: ~24 effective problems; seed-cluster bootstrap too narrow; post hoc problem-cluster interval is wide",
+  "Completion gap from a single problem (VFVS->ALKG, 17 of 18) and budget-sensitive",
+  "Native-infeasibility fallback never triggered in the panel; exercised by fixtures only",
+  "Seed-0 outcomes seen at smoke time (identical to panel)",
+  "Wall times are on a shared 2-core host, not benchmarked",
+  "Why q2c fails on ALKG not investigated",
+  "No GB1/other landscape; GB1 availability not inspected"
+ ],
+ "next_steps": [
+  "Coordinator: integrate docs/lazysp.md and results into docs/novelty.md, site, presentation; remove or qualify any claim that Q2C outperforms path-search",
+  "Optional: investigate q2c failure on VFVS->ALKG; run LazySP on more targets with independent initial sets; inspect GB1 availability only after this"
+ ]
+}

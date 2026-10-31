@@ -1,0 +1,14 @@
+{
+ "alternate": {
+  "shards_audited": 100,
+  "errors": []
+ },
+ "forward": {
+  "shards_audited": 100,
+  "errors": []
+ },
+ "reverse": {
+  "shards_audited": 100,
+  "errors": []
+ }
+}

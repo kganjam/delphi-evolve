@@ -143,6 +143,8 @@ def main(argv=None):
     l.set_defaults(fn=cmd_list)
     from . import analyze
     analyze.add_parser(sub)
+    from . import audit
+    audit.add_parser(sub)
     a = ap.parse_args(argv)
     return a.fn(a)
 
