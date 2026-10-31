@@ -1,8 +1,10 @@
 {
   "aa_order": "ACDEFGHIKLMNPQRSTVWY",
+  "act_array": "uint8, source 'active' flag (above stop-codon mean + 1.96 SD)",
   "builder": "python -m evolve.evidence landscape",
-  "built_seattle": "2026-10-31 00:04:15 PDT",
-  "built_utc": "2026-10-31T07:04:15Z",
+  "built_seattle": "2026-10-31 00:13:42 PDT",
+  "built_utc": "2026-10-31T07:13:42Z",
+  "cnt_array": "uint16 little-endian min(InputCount_1, InputCount_2), capped at 65535",
   "counts": {
     "active_flag_true_among_measured": 9783,
     "knn_imputed_rows_in_source_file": 871,
@@ -13,7 +15,6 @@
     "stop_containing_rows_excluded": 34041,
     "unmeasured_cells": 871
   },
-  "flags_byte": "bits0-6 = min(InputCount_1, InputCount_2) capped at 127; bit7 = source 'active' flag",
   "layout": {
     "kind": "projected sequence space, NOT molecular geometry",
     "note": "index = ((a1*20+a2)*20+a3)*20+a4 with amino-acid order ACDEFGHIKLMNPQRSTVWY",
@@ -21,8 +22,27 @@
     "tile_rows": "residue 1 (V183 in the TrpB numbering used by the source study) x residue 2"
   },
   "score": {
-    "definition": "mean of replicate columns mu_1-bg and mu_2-bg (growth rate minus stop-codon background; not max-normalised)",
-    "stored_as": "int16 little-endian x1e4, -32768 = not measured"
+    "definition": "replicate growth rates mu_1, mu_2 minus the per-replicate mean over stop-codon rows (same as core loader); not max-normalised; not the source's row-specific mu_k-bg columns",
+    "noise_model_constants": {
+      "core_default_kappa": 2.0,
+      "min_input_count_bin_edges": [
+        20,
+        50,
+        200
+      ],
+      "origin": "copied from evolve/data.py at origin/work/core a8c0090 (core worker's declared, frozen noise model); half-width eps_i = ceil(kappa * sd_bin / 2 * 1e6) / 1e6; kappa is an ASSUMED sensitivity multiplier, not a confidence level",
+      "replicate_diff_sd_by_bin": [
+        0.014953,
+        0.009995,
+        0.005851,
+        0.002992
+      ]
+    },
+    "stop_codon_mean_mu": [
+      0.1319901613492896,
+      0.13577443104285403
+    ],
+    "stored_as": "int16 little-endian, value x 50000 (resolution 2e-5), -32768 = not measured"
   },
   "source": {
     "dataset_doi": "10.22002/h5rah-5z170",
