@@ -160,13 +160,13 @@
    "no submission receipt"
   ],
   "artifacts": {
-   "presentation/delphi/deck.pdf": "171d5c70d8e29448adad134b5ad65b14ed4558456eb35b700fab36a2d301df9c",
-   "presentation/delphi/deck.html": "c6edae3c43e4eedd72e604c5001f44a0f5367cf9580eb06c30570b0f6f915c00",
-   "presentation/delphi/speaker-notes.md": "d206ca808142ae18bf35060819342bdbd1b483b0ef0cf9c97db2d220dec217cd",
-   "presentation/delphi/timing.json": "16018b97b55b21641bdadf46b5dd8058a3b6ee9615ae34bfcd97631926c8e2c8",
-   "presentation/delphi/number_trace.json": "7694797c13052f1ef4bbaabd9497c2ee0f935d3487c116655f1762876547a379",
-   "site/delphi/index.html": "397f5f7d511f79896a6c97e20402916303b2617fa65bf61001b2605398886692",
-   "site/delphi/blog.html": "65bf1578d804455bb97476879e8fabc51a66834fbc7cfa452387741d7156f80f"
+   "presentation/delphi/deck.pdf": "1c51a9e2db27a71d7a59a0c7fddd49b9e1f4854bbbaf1d08d5dc055b5d963b9d",
+   "presentation/delphi/deck.html": "37213957547b0827c88dc2ce66e19a39127ad426eacd3d1192686544aa33579b",
+   "presentation/delphi/speaker-notes.md": "56fe08da443e61bc0092f94351fedf96599c1737007c597b8177aa6c9800e1b2",
+   "presentation/delphi/timing.json": "c1a2471df29d8abe53bac3567dcca04f7eb4a776490417033989fd6fbc54bfce",
+   "presentation/delphi/number_trace.json": "84d5cff8de4eef41a6d357c49f434520ed0478d184153f9167d59165c1866aab",
+   "site/delphi/index.html": "62b110398acc7178fe453ebc37d88e7cdbba7f1140b37b4b47fd249cfea2418f",
+   "site/delphi/blog.html": "368b5639f50c650bb1298e71760f47b8d774bb252904f3d55050349d74f2bd29"
   },
   "corrections_atlas": {
    "trigger": "messages/2026-10-31-ATLAS-and-the-surviving-claim.md (pasted by user)",
@@ -227,11 +227,26 @@
   },
   "scorecard_v0": {
    "source": "scopedesk/scorecard/scorecard.json (critic; single reader; Codex has not approved)",
-   "shown": "7 of 21 attempted (5 scope found, 1 holds as declared, 1 formal node only), 2 self-declared non-formal, 12 not attempted",
+   "shown": "superseded by scorecard_v01",
    "frontier_map": "site/review/frontier.html linked, not rewritten (Codex)",
    "tests": "12 passed",
    "claims_traced": 40,
    "script": "400 words, 2:33-2:34 synthetic voice"
+  },
+  "scorecard_v01": {
+   "source": "scopedesk/scorecard (critic v0.1; Codex-approved sentence only)",
+   "shown": "21 records: 6 linked to scope-check benchmark families, 1 related formal lemma (target unestablished), 2 empirical/framework, 12 without a corresponding check",
+   "slide5_added": [
+    "headroom check: Claude Sonnet 5.5 121/127 (95.3%), Gemini 3.8 flash 110/127 (86.6%), checker-tool arm not run, effective n 8 families (tasks/results/guilds.json, artifacts/bench_headroom/)",
+    "Lean-19 pilot ceiling null: 19/19 every arm, median calls 21/22/20/21, median tokens 72k/80k/78k/80k, deterministic 4/19, 228/228 re-certified after post-outcome checker repair (lean_commons/PREREG.md Addendum D)"
+   ],
+   "removed": [
+    "R09 and any 24/24 mention",
+    "'7 attempted' wording"
+   ],
+   "claims_traced": 41,
+   "tests": "13 passed",
+   "script": "399 words, 2:35-2:36 synthetic voice"
   }
  }
 }

@@ -1,4 +1,77 @@
 {
+ "headroom": {
+  "ledger": "unledgered (dx-guilds result, preregistered first; checker-tool arm not run)",
+  "artifact": "tasks/results/guilds.json",
+  "prereg": "bench_headroom/PREREG.md (committed before the run)",
+  "claude": {
+   "right": 121,
+   "n": 127,
+   "pct": 95.3,
+   "artifact": "artifacts/bench_headroom/U_claude/SCORES.json"
+  },
+  "gemini": {
+   "right": 110,
+   "n": 127,
+   "pct": 86.6,
+   "artifact": "artifacts/bench_headroom/U_gemini/SCORES.json"
+  },
+  "families": 8,
+  "gemini_wavelength": {
+   "errors": 7,
+   "N": 14
+  },
+  "gemini_greenhill": {
+   "errors": 6,
+   "N": 13
+  },
+  "scope": "models had no code tool: judgement, not derivation; coarse consistency check of the key scored by its author; not a model ranking"
+ },
+ "leanpilot": {
+  "ledger": "unledgered (dx-guilds result; Codex fidelity review of the 19 statements is advisory only)",
+  "artifact": "tasks/results/guilds.json",
+  "prereg": "lean_commons/PREREG.md",
+  "lemmas": 19,
+  "replicates": 3,
+  "calls_per_run": 30,
+  "all_arms_19": true,
+  "median_calls": {
+   "N": 21,
+   "P": 22,
+   "Q": 20,
+   "S": 21
+  },
+  "median_tokens_k": {
+   "N": 72,
+   "P": 80,
+   "Q": 78,
+   "S": 80
+  },
+  "reuse_deps": {
+   "N": [
+    0,
+    0,
+    0
+   ],
+   "P": [
+    9,
+    7,
+    9
+   ],
+   "Q": [
+    14,
+    14,
+    14
+   ],
+   "S": [
+    13,
+    13,
+    14
+   ]
+  },
+  "recertified": 228,
+  "deterministic_solved": 4,
+  "scope": "integer-arithmetic surrogates written by the experimenter; call-matched, not compute-matched; checker repaired after the outcomes (Addendum D); ceiling, so the primary outcome is uninformative"
+ },
  "bench": {
   "ledger": "P03 (the ledger row still describes the earlier 128-item candidate; Codex receipts cover the frozen 127)",
   "items": 127,
@@ -15,7 +88,7 @@
   },
   "key_sha256": "28645a12f2f4c77fc1acedb10b23b4070832eefa381b88ca65a12b9e4ecdaa2f",
   "key_file": "scopedesk/bench/v1_2/key.jsonl",
-  "status": "frozen (FROZEN.md); Codex metadata/text check 14 of 14 pass; no agent has run on it",
+  "status": "frozen (FROZEN.md); Codex metadata/text check 14 of 14 pass",
   "codex_metadata": {
    "artifact": "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json",
    "checks": 14,
@@ -728,19 +801,17 @@
   "f04_artifact_kind": "independent software/model review; no biological measurements"
  },
  "scorecard": {
-  "ledger": "unledgered: critic's scorecard v0 (single reader; Codex has not approved)",
+  "ledger": "unledgered: critic's scorecard v0.1 (single reader; Codex reviewed the corrected descriptions, re-review pending)",
   "records": 21,
   "scorecard_artifact": "scopedesk/scorecard/scorecard.json",
-  "attempted": 7,
-  "scope_found": 5,
-  "holds_as_declared": 1,
-  "formal_node_only": 1,
-  "self_declared_non_formal": 2,
-  "not_attempted": 12,
+  "linked": 6,
+  "related_lemma": 1,
+  "empirical": 2,
+  "no_check": 12,
   "scorecard_limits": [
    "Source-correspondence of each record to the original paper is NOT reviewed.",
    "Statuses and 'does not establish' text are the critic's single-reader judgement (not computed).",
-   "Codex has not approved this scorecard; 'Codex-reviewed' refers to the cited artifacts only.",
+   "Codex reviewed v0 (planning/rethink/CODEX-SCORECARD-V0-REVIEW.md @ 4fe9fb7, non-blinded): 21 hashes and 84 copied fields pass; it approves the CORRECTED descriptions in this version, not the original category labels or an aggregate biological success rate.",
    "All checks are of DECLARED models (bench conventions, Lean statements); nothing here validates any biological claim; the host's B0-B3 buckets are not used.",
    "Delphi LLM assessments are not used as evidence (0 assessments present in these records)."
   ],

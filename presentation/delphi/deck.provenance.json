@@ -1,15 +1,15 @@
 {
- "built": "2026-10-31 08:24 PDT",
+ "built": "2026-10-31 08:32 PDT",
  "root": "/data/worktrees/delphi-evolve/submit",
  "git": {
-  "head": "24756e2597d7d0e5c01e3b3e6ff395b0c04795eb",
+  "head": "75bb7a458b0812a61ae1fdc7581a00459e82b42f",
   "branch": "work/submit",
   "inputs_untracked_or_modified": []
  },
  "sha256": {
   "planning/rethink/CLAIM-LEDGER.md": "dad82afcf05e350d1d131b5edf92c9fbdada5635be7da2187653560db2e774dc",
   "planning/rethink/CODEX-BENCH-V1-2-REV3-REVIEW.md": "d02c8bcd9e9690e2ac7656994f93d221617b01bcbd05b6be7d86e9f5c3062278",
-  "presentation/delphi/sources.md": "3f5a32166a1ddfed0ca55e86af33dc3e3539e3e38b26371e77d43015b1e09dca",
+  "presentation/delphi/sources.md": "04dd24c014e7e841baa9f7c0e32176ae7a1bbed90b89c849cda6ab96a774a1bf",
   "lean_price/README.md": "a9795524f156c8b711a39cac5b4f03d8f383d6ffc98bece27f9f413c1e6a7f36",
   "scopedesk/bench/v1_2/KEY.sha256": "be295adfb382da0f3b0f733002450a902e524391bdb458b79c8cb632ae1d8e1d",
   "scopedesk/bench/v1_2/key.jsonl": "28645a12f2f4c77fc1acedb10b23b4070832eefa381b88ca65a12b9e4ecdaa2f",
@@ -26,7 +26,12 @@
   "artifacts/rethink_nca/repair.json": "bfc0e56f534c704e6b1ef35216218511f586a3004cd68cba0e0e6addbab9ba03",
   "planning/rethink/nca.md": "c1baffc831fd071e9d514e33354eb23a05f10cdd2705fdf43e793971624d056e",
   "planning/rethink/PITCH-OUTLINE.md": "a55c4ddfcbf4a2043b3b9be585eb11af3a4905ad1e49b3849c814d29c934e77d",
-  "scopedesk/scorecard/scorecard.json": "484cc6377e820ec4690417cbbea02d5ec3430862f5ec26fb3cd22e35ae4fe980",
+  "scopedesk/scorecard/scorecard.json": "e0f7c9b1847d44eb3b4e2ebfe678505c9434198046b9d3f6d6bfed1b8b042df9",
+  "scopedesk/scorecard/SCORECARD.md": "5ea1535476dee1229a6d098a7fd3c88072a55799c1ae698305a42670b7e1457b",
+  "tasks/results/guilds.json": "e1b0dde57ce912c034d7d4b626eac86642a1322de1192334c3205e2dc125717f",
+  "artifacts/bench_headroom/U_claude/SCORES.json": "be8c88e3ddc611c5e059d34db871fea30e5866be9024656ce036e2167931846b",
+  "artifacts/bench_headroom/U_gemini/SCORES.json": "6a787ddd1492164ed98e15f72a5473e5360f75c981ab404ba01c61be1ec23ae2",
+  "lean_commons/PREREG.md": "445fa39cf604d6fa10522b8a78ae6e78c8f24b1c91ffa02d4c75592cadd14076",
   "planning/rethink/ACTIVE-FRONTIER-PITCH-PROPOSAL.md": "5f926fc1399f1368422a8b50130798717aafd3ce4e7d10fc35c6da91b5b63e97",
   "artifacts/integration/codex-api/price-probe.json": "513bc9173014f4effdbd76e9b30f52c7dcdc8924d69e1d9692974b2d826eb5da",
   "experiments/price_probe/Price.lean": "a5d38f136fb214367203dfe5974155ab894dbf3a861412c084d39c389cf8fd0a",
@@ -85,14 +90,14 @@
   "R02"
  ],
  "spoken_words": {
-  "total": 400,
+  "total": 399,
   "per_slide": [
    56,
    68,
-   68,
+   62,
+   74,
    75,
-   58,
-   75
+   64
   ]
  }
 }

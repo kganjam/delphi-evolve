@@ -52,7 +52,7 @@ def _mut(root, old, new):
 
 def test_changed_number_fails(tmp_path):
     root = _copy(tmp_path)
-    _mut(root, "Scorecard of 21 records", "Scorecard of 22 records")
+    _mut(root, "21 records: 6 linked", "22 records: 6 linked")
     code, out = trace(root, out=tmp_path / "t.json")
     assert code == 1 and "21 records" in out
 
@@ -114,7 +114,7 @@ def test_no_forbidden_claims_outside_negations():
 
 def test_site_pages_have_pending_and_review_link_resolves():
     idx = (REPO / "site/delphi/index.html").read_text(encoding="utf-8")
-    assert idx.count('class="pend"') >= 6
+    assert idx.count('class="pend"') >= 5
     for f in ("index.html", "appendix.html", "blog.html"):
         t = (REPO / "site/delphi" / f).read_text(encoding="utf-8")
         assert not re.search(r'(?:href|src)="https?://', t), "external resource"
@@ -161,12 +161,22 @@ def test_hard_banned_claims_and_citations_absent_everywhere():
     assert not bad, bad
 
 
-def test_scorecard_counts_are_shown_with_their_limits():
+def test_scorecard_uses_only_the_approved_wording():
     t = _texts()
     for k in ("deck slide 6", "site/index.html"):
-        assert re.search(r"\b7\b.{0,12}attempted", t[k]) and re.search(r"\b12\b.{0,4}not attempted", t[k], re.S), k
-        assert re.search(r"not approved by Codex|Codex has not approved", t[k]), k
-        assert re.search(r"single-reader", t[k], re.I), k
+        assert "6 linked to scope-check benchmark families" in t[k] and "1 related formal lemma (target unestablished)" in t[k], k
+        assert "2 empirical/framework" in t[k] and "12 without a corresponding check" in t[k], k
+        assert re.search(r"Single-reader statuses", t[k]), k
+    bad = [(n, p_) for n, x in t.items() for p_ in (r"\b7 attempted", r"5 (?:with a )?scope", r"scope[- ]found", r"not attempted") if re.search(p_, x, re.I)]
+    assert not bad, bad
+
+
+def test_headroom_and_pilot_are_scoped():
+    t = _texts()
+    s5 = t["deck slide 5"]
+    assert "121/127" in s5 and "110/127" in s5 and "Checker-tool arm not run" in s5 and "judgement, not derivation" in s5
+    assert "ceiling" in s5 and "Call-matched, not compute-matched" in s5 and "after the outcomes" in s5
+    assert not re.search(r"24/24|24 of 24", " ".join(t.values())), "the host's mismatched 24/24 run stays out"
 
 
 def test_atlas_is_credited_and_misprediction_map_is_pending():

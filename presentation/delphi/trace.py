@@ -162,7 +162,7 @@ def register():
         n_targets = len(re.findall(r"^\| ([TQHD]\d\d) \|", guide, flags=re.M))
         assert n_targets == 19
         return cap.replace("19", str(n_targets))
-    claim(5, "A proof-search pilot on 19 frozen integer-arithmetic lemmas, with shared, private and sequential library controls; checker repair and result replay are under review.", [GD], pilot)
+    pass
     ks = {ln.split()[1]: ln.split()[0] for ln in (R / BD / "KEY.sha256").read_text().splitlines() if len(ln.split()) == 2}
     pub = [json.loads(x) for x in (R / BD / "instances_public.jsonl").read_text().splitlines() if x.strip()]
     assert T.sha(f"{BD}/key.jsonl") == ks["key.jsonl"]
@@ -176,10 +176,10 @@ def register():
     def gate():
         fz = (R / BD / "FROZEN.md").read_text()
         cod = T.J(CM)
-        assert ks["key.jsonl"] in fz and "No agent has run on any version of this bench" in fz
+        assert ks["key.jsonl"] in fz
         assert cod["all_ok"] is True and cod["n_items"] == len(pub) and len(cod["checks"]) == sum(1 for c in cod["checks"].values() if c["ok"])
-        return f"Frozen. Codex's metadata and text check passes ({len(cod['checks'])} of {len(cod['checks'])}). No agent has run on it yet."
-    claim(3, "Frozen. Codex's metadata and text check passes (14 of 14). No agent has run on it yet.", [f"{BD}/FROZEN.md", CM], gate)
+        return f"Frozen. Codex's metadata and text check passes ({len(cod['checks'])} of {len(cod['checks'])})."
+    claim(3, "Frozen. Codex's metadata and text check passes (14 of 14).", [f"{BD}/FROZEN.md", CM], gate)
     bl = T.J("scopedesk/audit_v12/blind_vs_key_v12.json")
     claim(3, "Audit trail: a blinded payload-only audit agreed on 132 of 135 items of an earlier candidate.", ["scopedesk/audit_v12/blind_vs_key_v12.json"],
           lambda: f"Audit trail: a blinded payload-only audit agreed on {bl['agree']} of {bl['n']} items of an earlier candidate.")
@@ -233,7 +233,41 @@ def register():
                    f"Plain lazy search {round(float(lt['alternate']['resolved@1000']) * int(lt['alternate']['episodes']))}/{lt['alternate']['episodes']}")
           if tp[("q2c", 1000)]["certified"] == tp[("collective_shared", 1000)]["certified"] else "MISMATCH")
     claim(5, "about 24 distinct problems", ["artifacts/lazysp/results/exploratory_post_hoc.json"], lambda: f"about {PH['problem_clusters']} distinct problems")
-    claim(5, "(R09)", [KL], lambda: "(R09)" if "mismatched run" in rows["R09"]["kind"] else "MISMATCH")
+    GJ = "tasks/results/guilds.json"
+    gj = T.J(GJ)
+
+    def headroom():
+        hr = gj["bench_v12_headroom_check"]
+        ks2 = {ln.split()[1]: ln.split()[0] for ln in (R / BD / "KEY.sha256").read_text().splitlines() if len(ln.split()) == 2}
+        assert hr["key_sha256"] == ks2["key.jsonl"] and "checker tool" in hr["arm_not_run"] and "effective n is 8 families" in hr["interpretation"]
+        res = {}
+        for tag, art in (("c", "artifacts/bench_headroom/U_claude/SCORES.json"), ("g", "artifacts/bench_headroom/U_gemini/SCORES.json")):
+            a_ = T.J(art)["all"]
+            res[tag] = (a_["N"] - a_["errors_among_answered"], a_["N"], round(100 * (a_["N"] - a_["errors_among_answered"]) / a_["N"], 1))
+        ge = hr["gemini_errors_by_family"]
+        return (f"Unguarded models, no code tool: Claude Sonnet 5.5 {res['c'][0]}/{res['c'][1]} ({res['c'][2]}%), Gemini 3.8 flash {res['g'][0]}/{res['g'][1]} ({res['g'][2]}%). Checker-tool arm not run. "
+                f"Effective n is {len(ge)} families. This measures judgement, not derivation, and is a coarse consistency check scored by the key's author; not a model ranking. "
+                f"Gemini's misses sit in wavelength ({ge['wavelength_formula_licence']['errors']} of {ge['wavelength_formula_licence']['N']}) and Greenhill ({ge['greenhill_buckling']['errors']} of {ge['greenhill_buckling']['N']}).")
+    claim(5, "Unguarded models, no code tool: Claude Sonnet 5.5 121/127 (95.3%), Gemini 3.8 flash 110/127 (86.6%). Checker-tool arm not run. Effective n is 8 families. This measures judgement, not derivation, and is a coarse consistency check scored by the key's author; not a model ranking. Gemini's misses sit in wavelength (7 of 14) and Greenhill (6 of 13).",
+          [GJ, "artifacts/bench_headroom/U_claude/SCORES.json", "artifacts/bench_headroom/U_gemini/SCORES.json", f"{BD}/KEY.sha256"], headroom)
+
+    def pilot():
+        import statistics
+        lp = gj["lean_verified_library_experiment"]
+        cert = lp["primary_result"]["certified_per_run"]
+        assert all(v == [19, 19, 19] for v in cert.values())
+        mc = {k: statistics.median(v) for k, v in lp["calls_to_complete"].items()}
+        mt = {k: round(statistics.median(v) / 1000) for k, v in lp["tokens"].items()}
+        rs = lp["rescore_after_codex_finding"]
+        m = re.search(r"deterministic tactics (\d+)/19", lp["primary_result"]["note"])
+        assert "30 model calls per run" in lp["design"] and "3 replicates" in lp["design"] and "call-matched" in lp["design"]
+        assert min(lp["reuse_proof_term_library_deps"]["Q"]) > 0 and max(lp["reuse_proof_term_library_deps"]["N"]) == 0
+        assert "post-outcome" in (R / "lean_commons/PREREG.md").read_text()
+        return (f"Same model, 3 replicates, 30 calls per run: every arm certified 19/19 in every run, a ceiling. Library reuse is real but saved nothing: median calls none {mc['N']:g}, private {mc['P']:g}, sequential {mc['Q']:g}, shared {mc['S']:g}; "
+                f"median tokens {mt['N']}k, {mt['P']}k, {mt['Q']}k, {mt['S']}k. Deterministic tactics certified {m.group(1)}/19. All {rs['proofs']} recorded proofs re-certified after the checker was repaired, a repair made after the outcomes. Call-matched, not compute-matched; arithmetic surrogates, not biology.")
+    claim(5, "Same model, 3 replicates, 30 calls per run: every arm certified 19/19 in every run, a ceiling. Library reuse is real but saved nothing: median calls none 21, private 22, sequential 20, shared 21; median tokens 72k, 80k, 78k, 80k. Deterministic tactics certified 4/19. All 228 recorded proofs re-certified after the checker was repaired, a repair made after the outcomes. Call-matched, not compute-matched; arithmetic surrogates, not biology.",
+          [GJ, "lean_commons/PREREG.md"], pilot)
+    claim(5, "proof-search pilot, 19 frozen integer-arithmetic lemmas", [GD], lambda: "proof-search pilot, %d frozen integer-arithmetic lemmas" % len(re.findall(r"^\| ([TQHD]\d\d) \|", guide, flags=re.M)))
 
     # ================= slide 6: close
     AC = "scopedesk/oracles/results/accept_receipt_fresh_clone.json"
@@ -245,16 +279,18 @@ def register():
     sc = T.J(SCJ)
 
     def scorecard():
-        st = {}
+        lab = {}
         for r in sc["rows"]:
-            st[r["status"][:3]] = st.get(r["status"][:3], 0) + 1
-        a_, b_, c_, d_, e_ = (st.get(k, 0) for k in ("(a)", "(b)", "(c)", "(d)", "(e)"))
-        assert len(sc["rows"]) == 21 == len(fr["claims"]) and a_ + b_ + c_ + d_ + e_ == 21
+            lab[r["status"]] = lab.get(r["status"], 0) + 1
+        linked, lemma, emp, none = (lab.get(k, 0) for k in ("BENCHMARK-LINKED", "RELATED FORMAL LEMMA, TARGET NOT ESTABLISHED", "EMPIRICAL / FRAMEWORK", "NO CHECK IN THIS SCORECARD"))
+        assert len(sc["rows"]) == 21 == len(fr["claims"]) and linked + lemma + emp + none == 21
         lim = " ".join(sc["global_limits"])
-        assert "single-reader" in lim and "Codex has not approved this scorecard" in lim and "DECLARED models" in lim
-        return (f"Scorecard of {len(sc['rows'])} records, version 0 {a_ + b_ + c_} attempted: {a_} with a scope condition found, {b_} holding as declared, {c_} formal node only. "
-                f"{d_} self-declared non-formal. {e_} not attempted. Single-reader statuses, not approved by Codex; declared-model checks only; several scope findings are textbook, not discoveries.")
-    claim(6, "Scorecard of 21 records, version 0 7 attempted: 5 with a scope condition found, 1 holding as declared, 1 formal node only. 2 self-declared non-formal. 12 not attempted. Single-reader statuses, not approved by Codex; declared-model checks only; several scope findings are textbook, not discoveries.", [SCJ, FR], scorecard)
+        md = (R / "scopedesk/scorecard/SCORECARD.md").read_text()
+        assert "single-reader" in lim and "approves the CORRECTED descriptions" in lim and "not 12 open scientific problems" in md.replace("NOT 12", "not 12") or "backlog, not 12 open scientific problems" in md
+        assert "NOT 6 false laws" in md
+        return (f"Scorecard {len(sc['rows'])} records: {linked} linked to scope-check benchmark families, {lemma} related formal lemma (target unestablished), {emp} empirical/framework, {none} without a corresponding check. "
+                f"Single-reader statuses; Codex reviewed the corrected descriptions. The {none} are a backlog, not open problems, and the {linked} are not {linked} false laws.")
+    claim(6, "Scorecard 21 records: 6 linked to scope-check benchmark families, 1 related formal lemma (target unestablished), 2 empirical/framework, 12 without a corresponding check. Single-reader statuses; Codex reviewed the corrected descriptions. The 12 are a backlog, not open problems, and the 6 are not 6 false laws.", [SCJ, "scopedesk/scorecard/SCORECARD.md", FR], scorecard)
     AD = (R / "planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md").read_text()
     PA = (R / "planning/rethink/PRIOR-ART-VERDICT.md").read_text()
     SRC = "presentation/delphi/sources.md"
@@ -377,7 +413,7 @@ def main():
             if tk.replace(",", "") not in pool:
                 errors.append(f"slide {i} notes: number {tk!r} is not on the slide itself")
     # every unmeasured item must read 'pending', never a number
-    for i, label in ((3, "Second-reader review:"), (5, "Results:"), (5, "Scored comparison:"), (6, "receipt for the final commit is"),
+    for i, label in ((3, "Second-reader review:"), (6, "receipt for the final commit is"),
                      (6, "Misprediction map over a large ensemble:")):
         m = re.search(re.escape(label) + r" (\S+)", slides[i - 1]["html"])
         if not m or m.group(1).lower() != "pending":
