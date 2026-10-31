@@ -10,10 +10,11 @@ sys.path.insert(0, str(HERE)); sys.path.insert(0, str(HERE.parent))
 import fixture  # noqa: E402
 import validate as V  # noqa: E402
 
-CAND = [Path(os.environ.get("DELPHI_INTEGRATED_ROOT", "/nonexistent")), HERE.parents[1], Path("/data/worktrees/delphi-evolve/integration")]
-SRC = next((c for c in CAND if (c / "site/data/landscape.js").exists() and (c / "artifacts/proof/receipt.json").exists()
-            and ((c / "artifacts/demo.json").exists() or (c / "site/data/demo.json").exists())), None)
-pytestmark = pytest.mark.skipif(SRC is None, reason="no integrated checkout with demo/proof/landscape artifacts")
+REPO = HERE.parents[1]
+SRC = REPO if ((REPO / "site/data/landscape.js").exists() and (REPO / "artifacts/proof/receipt.json").exists() and (REPO / "artifacts/core/protocol.json").exists()) else None
+DEMO = next((p for p in [REPO / "artifacts/demo.json", REPO / "site/data/demo.json", Path(os.environ.get("DELPHI_DEMO_JSON", "/nonexistent")),
+                         Path("/data/worktrees/delphi-evolve/integration/artifacts/demo.json"), Path("/data/worktrees/delphi-evolve/core/artifacts/demo.json")] if p.exists()), None)
+pytestmark = pytest.mark.skipif(SRC is None or DEMO is None, reason="needs an integrated checkout (landscape, proof receipt, protocol) and a core demo.json")
 BUILD = HERE.parent / "build_deck.py"
 
 
@@ -22,7 +23,7 @@ def run(root, out, *flags):
 
 
 def mk(tmp_path, **kw):
-    return fixture.make_root(SRC, tmp_path, **kw)
+    return fixture.make_root(SRC, tmp_path, demo_src=DEMO, **kw)
 
 
 def test_complete_synthetic_replay_validates(tmp_path):
@@ -45,7 +46,7 @@ def test_five_seed_run_rejected_against_twenty_seed_protocol(tmp_path):
     import json
     p = root / "artifacts/core/protocol.json"
     d = json.loads(p.read_text()); d["seeds"] = 20; p.write_text(json.dumps(d))
-    root2 = fixture.make_root(SRC, tmp_path / "five", seeds=5) if (tmp_path / "five").mkdir() is None else None
+    root2 = fixture.make_root(SRC, tmp_path / "five", seeds=5, demo_src=DEMO) if (tmp_path / "five").mkdir() is None else None
     p2 = root2 / "artifacts/core/protocol.json"
     d = json.loads(p2.read_text()); d["seeds"] = 20; p2.write_text(json.dumps(d))
     e, _ = V.validate_replay(root2)

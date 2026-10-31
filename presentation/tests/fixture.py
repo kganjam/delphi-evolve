@@ -1,5 +1,7 @@
 """TEST-ONLY synthetic replay builder.  Used to exercise validation and the final-render path.
 Nothing built from this module may be committed as a deck or quoted as a result."""
+from __future__ import annotations
+
 import csv
 import json
 import random
@@ -11,7 +13,10 @@ BUDGETS = (100, 250, 500, 1000)
 PROB = {"random": .1, "greedy": .1, "uncertainty": .12, "directed": .3, "q2c": .7, "collective_shared": .7, "collective_isolated": .75, "collective_shared_rr": .72}
 
 
-def make_root(src_root: Path, dst: Path, seeds=20, empty_shards=0, drop_episode=False, followup_partial=False, with_followup=False):
+def make_root(src_root: Path, dst: Path, seeds=20, demo_src: Path | None = None, empty_shards=0, drop_episode=False, followup_partial=False, with_followup=False):
+    if demo_src is not None:
+        (dst / "artifacts").mkdir(parents=True, exist_ok=True)
+        shutil.copy(demo_src, dst / "artifacts/demo.json")
     for rel in ["artifacts/demo.json", "artifacts/proof/receipt.json", "artifacts/integration/core_kappa2_route_lean.json",
                 "artifacts/core/protocol.json", "site/data/landscape.js", "artifacts/evidence/route_summary.json"]:
         s = src_root / rel
