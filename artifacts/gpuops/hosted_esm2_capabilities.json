@@ -1,0 +1,90 @@
+{
+ "esm2-3b": {
+  "enabled": true,
+  "availability": "available",
+  "regions": [
+   "north",
+   "south"
+  ],
+  "execution_bounds": {
+   "stage_timeouts_s": {
+    "score": 86400
+   },
+   "graph_deadline_s": 86400,
+   "source": "operator configuration, not measured capacity"
+  },
+  "capabilities": {
+   "native_dag": true,
+   "stages_per_operation": 1,
+   "gpus_per_compute_stage": 1,
+   "gpu_classes": [
+    "l40s",
+    "rtx-pro-6000",
+    "h100",
+    "h200"
+   ],
+   "mid_fold_checkpoint_resume": false,
+   "restart_current_stage": true,
+   "cancelled_graph_resume": false,
+   "portable_completed_result": true,
+   "cpu_delivery_retry": true,
+   "gpu_snapshot": false,
+   "exact_retained_retry_policy": false,
+   "result_schema": "fs2-serve.nebius.ai/scientific-run-result/v2"
+  },
+  "mcp_input_required": [
+   "schema",
+   "operation",
+   "service_class",
+   "input_manifest",
+   "parameters"
+  ],
+  "parameters_schema": "{\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"fasta_file\": {\"type\": \"string\", \"minLength\": 1, \"default\": \"sequences.fasta\"}, \"variants_file\": {\"type\": \"string\", \"minLength\": 1, \"default\": \"variants.csv\"}, \"strategy\": {\"enum\": [null, \"masked-marginals\", \"wt-marginals\", \"pseudo-log-likelihood\"], \"default\": null, \"description\": \"Null selects masked-marginals for variants, pseudo-log-likelihood for sequences. Variant marginal scores sum mutant-versus-wild-type log odds in the reference context; multi-mutant sums do not model epistasis. PLL variants instead compare complete mutant/reference PLL.\"}, \"batch_size\": {\"type\": \"integer\", \"minimum\": 1, \"default\": 8, \"description\": \"Maximum masked contexts per forward pass; batch_tokens also bounds padding.\"}, \"batch_tokens\": {\"type\": \"integer\", \"minimum\": 1, \"default\": 4096, \"description\": \"Padding-aware tokens per batch; a singl",
+  "input_manifest_schema": "{\"$ref\": \"#/$defs/artifact_ref\"}",
+  "service_class_schema": "{\"enum\": [\"customer-batch\", \"bulk-backfill\"]}"
+ },
+ "esm2-650m": {
+  "enabled": true,
+  "availability": "available",
+  "regions": [
+   "north",
+   "south"
+  ],
+  "execution_bounds": {
+   "stage_timeouts_s": {
+    "score": 86400
+   },
+   "graph_deadline_s": 86400,
+   "source": "operator configuration, not measured capacity"
+  },
+  "capabilities": {
+   "native_dag": true,
+   "stages_per_operation": 1,
+   "gpus_per_compute_stage": 1,
+   "gpu_classes": [
+    "l40s",
+    "rtx-pro-6000",
+    "h100",
+    "h200"
+   ],
+   "mid_fold_checkpoint_resume": false,
+   "restart_current_stage": true,
+   "cancelled_graph_resume": false,
+   "portable_completed_result": true,
+   "cpu_delivery_retry": true,
+   "gpu_snapshot": false,
+   "exact_retained_retry_policy": false,
+   "result_schema": "fs2-serve.nebius.ai/scientific-run-result/v2"
+  },
+  "mcp_input_required": [
+   "schema",
+   "operation",
+   "service_class",
+   "input_manifest",
+   "parameters"
+  ],
+  "parameters_schema": "{\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"fasta_file\": {\"type\": \"string\", \"minLength\": 1, \"default\": \"sequences.fasta\"}, \"variants_file\": {\"type\": \"string\", \"minLength\": 1, \"default\": \"variants.csv\"}, \"strategy\": {\"enum\": [null, \"masked-marginals\", \"wt-marginals\", \"pseudo-log-likelihood\"], \"default\": null, \"description\": \"Null selects masked-marginals for variants, pseudo-log-likelihood for sequences. Variant marginal scores sum mutant-versus-wild-type log odds in the reference context; multi-mutant sums do not model epistasis. PLL variants instead compare complete mutant/reference PLL.\"}, \"batch_size\": {\"type\": \"integer\", \"minimum\": 1, \"default\": 8, \"description\": \"Maximum masked contexts per forward pass; batch_tokens also bounds padding.\"}, \"batch_tokens\": {\"type\": \"integer\", \"minimum\": 1, \"default\": 4096, \"description\": \"Padding-aware tokens per batch; a singl",
+  "input_manifest_schema": "{\"$ref\": \"#/$defs/artifact_ref\"}",
+  "service_class_schema": "{\"enum\": [\"customer-batch\", \"bulk-backfill\"]}"
+ }
+}

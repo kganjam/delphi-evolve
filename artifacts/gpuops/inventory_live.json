@@ -1,0 +1,60 @@
+{
+ "taken_seattle": "2026-10-31 08:31:02 PDT",
+ "nebius": {
+  "auth_and_listing_ok": false,
+  "error": "list job rc=7: Error: rpc error: code = Unauthenticated desc = unauthenticated request = 263ba755-f6cb-4512-b7a9-2cf8252608e2\n\nThis issue may be linked to API request calls. The following information "
+ },
+ "nebius_scientific_ai_mcp": {
+  "https://forge.nebius.cloud/mcp": {
+   "ok": true,
+   "server": {
+    "name": "Nebius Scientific AI",
+    "version": "0.1.0"
+   },
+   "tool_count": 69,
+   "catalog_revision": "c3da2fad237eba580b7f59606aae6f471eba68a6df48157b43f0f4efe2a05de8",
+   "n_models": 26,
+   "qualification_counts": {
+    "configured-native-dag-awaiting-exact-release-qualification": 19,
+    "isolated-pilot": 1,
+    "source-adapter-awaiting-live-qualification": 6
+   }
+  },
+  "https://89.169.99.188/mcp": {
+   "ok": true,
+   "server": {
+    "name": "Nebius Scientific AI",
+    "version": "0.1.0"
+   },
+   "tool_count": 69,
+   "catalog_revision": "c3da2fad237eba580b7f59606aae6f471eba68a6df48157b43f0f4efe2a05de8",
+   "n_models": 26,
+   "qualification_counts": {
+    "configured-native-dag-awaiting-exact-release-qualification": 19,
+    "isolated-pilot": 1,
+    "source-adapter-awaiting-live-qualification": 6
+   }
+  }
+ },
+ "google": {
+  "gemini_api": {
+   "ok": true,
+   "n_models": 60,
+   "n_generateContent": 46,
+   "has_gemini-3.8-flash": true
+  },
+  "gcloud_oauth": {
+   "ok": true,
+   "enabled_services_n": 26,
+   "aiplatform": true,
+   "compute_enabled": false,
+   "run_enabled": false
+  }
+ },
+ "brev": {
+  "cli_installed": false,
+  "config_dir_exists": false,
+  "env_vars_named_brev": [],
+  "status": "no access found; nothing spent"
+ }
+}
