@@ -24,8 +24,41 @@
    "id": "aijob-e00d27jgpd2n9kwva1",
    "name": "kganjam-delphi-trpb-esm2-main",
    "owner": "gpu worker",
-   "note": "650M TE full-library job; never cancel"
+   "note": "FAILED 07:29Z: np.savez to bucket mount EINVAL"
+  },
+  {
+   "id": "aijob-e00whrj05xvrnbfxtx",
+   "name": "kganjam-delphi-trpb-esm2-main2",
+   "owner": "gpu worker",
+   "note": "relaunch, stage main, 650M TE full library; never cancel"
   }
  ],
- "owned": []
+ "owned": [
+  {
+   "name": "delphi-evolve-scale-te3b-u0-5-074404",
+   "id": "aijob-e00kejm199cp3hq1nt",
+   "model_key": "te3b",
+   "units": "0-5",
+   "priority": 1,
+   "checkpointed": true,
+   "timeout": "2h",
+   "intent_at": "2026-10-31T07:44:04Z",
+   "runner_args": [
+    "--model-key",
+    "te3b",
+    "--units",
+    "0-5",
+    "--batch",
+    "64",
+    "--rp-dim",
+    "32",
+    "--max-minutes",
+    "95",
+    "--out",
+    "/tmp/scale_out"
+   ],
+   "purpose": "pilot+first shard of 3B model-size ablation; validates runner on H100",
+   "created_at": "2026-10-31T07:44:10Z"
+  }
+ ]
 }

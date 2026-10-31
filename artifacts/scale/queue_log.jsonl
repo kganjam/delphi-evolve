@@ -1,0 +1,1 @@
+{"t": "2026-10-31T07:44:10Z", "snapshot_ok": true, "error": "", "counts": {"ours": 1, "ours_ids": ["aijob-e00whrj05xvrnbfxtx"], "others_active": 1, "pool_free_estimate": 14, "waiting_other_ids": [], "demand": 0}, "reason": "no external waiting workloads", "launch_slots": 1, "released": [], "launched": "delphi-evolve-scale-te3b-u0-5-074404", "blind_polls": 0}

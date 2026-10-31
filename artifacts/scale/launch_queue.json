@@ -1,1 +1,59 @@
-[]
+[
+ {
+  "seq": 1,
+  "priority": 1,
+  "model_key": "te3b",
+  "units": "0-5",
+  "status": "launched",
+  "purpose": "pilot+first shard of 3B model-size ablation; validates runner on H100",
+  "job_id": "aijob-e00kejm199cp3hq1nt"
+ },
+ {
+  "seq": 2,
+  "priority": 1,
+  "model_key": "te150m",
+  "units": "0-31",
+  "status": "queued",
+  "purpose": "150M TE full-library (model-size ablation, small end); second runner validation"
+ },
+ {
+  "seq": 3,
+  "priority": 2,
+  "model_key": "te3b",
+  "units": "6-11",
+  "status": "held",
+  "purpose": "3B remaining shards (released after pilot unit_done is recovered and checked)"
+ },
+ {
+  "seq": 4,
+  "priority": 2,
+  "model_key": "te3b",
+  "units": "12-16",
+  "status": "held",
+  "purpose": "3B remaining shards (released after pilot unit_done is recovered and checked)"
+ },
+ {
+  "seq": 5,
+  "priority": 2,
+  "model_key": "te3b",
+  "units": "17-21",
+  "status": "held",
+  "purpose": "3B remaining shards (released after pilot unit_done is recovered and checked)"
+ },
+ {
+  "seq": 6,
+  "priority": 2,
+  "model_key": "te3b",
+  "units": "22-26",
+  "status": "held",
+  "purpose": "3B remaining shards (released after pilot unit_done is recovered and checked)"
+ },
+ {
+  "seq": 7,
+  "priority": 2,
+  "model_key": "te3b",
+  "units": "27-31",
+  "status": "held",
+  "purpose": "3B remaining shards (released after pilot unit_done is recovered and checked)"
+ }
+]
