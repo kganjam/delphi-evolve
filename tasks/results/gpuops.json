@@ -174,6 +174,8 @@
    "nonlinear/subcritical outcomes (GPU/CPU PDE work not run)",
    "an uncontrolled first version of the robustness number was confounded by near-marginal stability; the reported numbers use the control P(Turing|still stable)"
   ],
-  "slide_constraint": "claims no universal diffusion threshold; d_c is kinetics-specific"
- }
+  "slide_constraint": "claims no universal diffusion threshold; d_c is kinetics-specific",
+  "status_update": "CLOSED AS A CLAIM per primary's 2026-10-31 DELPHI-FRAMING-AND-DIFFUSION-VERDICT: known literature (Muller 2012; Kuhn 2022) and an exact Lean counterexample. Retained only as background arithmetic; not a finding; no slide use."
+ },
+ "framing_note": "Work is a module of Delphi, not a separate entry or brand. PDE sweep remains held with no GPU launched; if it is not preregistered, GPU use ends at zero."
 }
