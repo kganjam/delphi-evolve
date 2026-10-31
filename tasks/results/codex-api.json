@@ -1,10 +1,10 @@
 {
   "role": "codex-api",
-  "status": "active",
-  "updated_at": "2026-10-31T06:57:53.805712-07:00",
+  "status": "requested Price feasibility and21-record freeze review completed; broader native goal remains paused",
+  "updated_at": "2026-10-31T07:05:18.368320-07:00",
   "branch": "work/codex-api",
-  "commit": "9eb5a24 (last pushed increment); service/scorecard audit commit recorded in git history",
-  "goal": "Native persistent goal active: scientific review, evaluation, integration, honest demo/pitch/site/blog/video with existing workers.",
+  "commit": "f41a8ac (last pushed broad-goal increment); requested follow-up commit recorded in git history",
+  "goal": "Native persistent goal paused by user; requested targeted Price feasibility and21-record freeze review completed.",
   "checklist": [
     {
       "item": "Read complete handoff and governing files; establish persistent goal; notify coordinators",
@@ -69,6 +69,26 @@
       "command": "Internal tmux notification of ledger to host%47",
       "exit": 143,
       "result": "send client hung with not in a mode; stopped only own Python/send client, saved durable codex-claim-ledger-ready.md notice; later notification succeeded"
+    },
+    {
+      "command": "sha256sum external bench-v1-freeze.json and Admissible.lean; git fetch --no-tags https://github.com/kganjam/admissible.git d75e245f660f9dfc1e7971d6b71c332b0c31987c; compare pinned git blobs",
+      "exit": 0,
+      "result": "Local and committed bytes match; actual freeze SHA dbf233d1ebe7156576e8e24bb4f7b7f3f6c3c75d4552efde198798eeb482ba0e differs from supplied6d61...; Lean SHA c51b98a8c4218c5e272223c5d710de0d765804d78beace544850f9749cf07236"
+    },
+    {
+      "command": "Bounded web searches for Price-equation proof-assistant formalization; read Frank1997 author abstract, Frank2012 fulltext and2024 axiomatic reconstruction; local Mathlib rg",
+      "exit": 0,
+      "result": "Unification is known mathematics; no direct machine-checked Price hit located in bounded search; no priority established"
+    },
+    {
+      "command": "Price feasibility compiler iterations via capped systemd scopes",
+      "exit": "initial failures then original0 and2mutants1 each",
+      "result": "Initial wrong cwd, missing noncomputable marker and unmatched section end corrected. One redundant own scope stopped after cwd edit failure. Final receipt records exact clean run and mutants."
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 experiments/price_probe/run_probe.py",
+      "exit": 0,
+      "result": "Lean -j2 original0; two scientific-sign mutants1 each; four concrete witness/control theorems0; original/witness axiom audits clean. Exact outputs inprice-probe.json."
     }
   ],
   "artifacts": [
@@ -84,17 +104,24 @@
     "artifacts/integration/codex-api/claim-evidence-index.json",
     "planning/rethink/CODEX-SCORECARD-REVIEW.md",
     "artifacts/integration/codex-api/review_service_math.py",
-    "artifacts/integration/codex-api/service-math-review.json"
+    "artifacts/integration/codex-api/service-math-review.json",
+    "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md",
+    "planning/rethink/PRICE-PRIOR-ART-AND-PROBE.md",
+    "experiments/price_probe/Price.lean",
+    "experiments/price_probe/run_probe.py",
+    "experiments/price_probe/Witnesses.lean.inc",
+    "artifacts/integration/codex-api/price-probe.json",
+    "artifacts/integration/codex-api/admissible-review/committed-freeze.json",
+    "artifacts/integration/codex-api/admissible-review/Admissible.lean"
   ],
   "limitations": [
-    "No fresh Lean compile in this reporter yet; inherited Lean receipts explicitly attributed.",
+    "Fresh Price/Hamilton Lean compile and witness controls exit0 with standard axioms; no additive-genetic Fisher FTNS or independent biological correspondence review.",
     "API provider usage is not actual billing; remaining dollars unknown.",
     "No deployment/submission/external reuse receipt."
   ],
   "next_steps": [
-    "Review updated v1.1 frozen benchmark before agent evaluation.",
-    "Review fleet scorecard bucket definitions and statement freeze; source-only Turing-scorecard corrections sent.",
-    "Independently review service 2D/pi interval and diffusion requirement.",
-    "Coordinate review and final pitch/site/blog/video with director."
+    "Keep broader native goal paused.",
+    "Await revised full target freeze; original21-file not approved.",
+    "Independent reader to review Price/Hamilton statements and biological correspondence before integration/headline."
   ]
 }
