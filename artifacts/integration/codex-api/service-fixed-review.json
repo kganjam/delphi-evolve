@@ -1,0 +1,224 @@
+{
+  "kind": "independent software/model review; no biological measurements",
+  "review_time_seattle": "2026-10-31T06:42:13.659973-07:00",
+  "commit": "91e3243e5e7b375145c0426f73aadc41d598a02f",
+  "source_status": "",
+  "source_hashes": {
+    "falsify/__init__.py": "51af492e3e9bd3c84749a98df9fd5b2098066d27c063c3f51ee9335366c99700",
+    "falsify/__main__.py": "6ce05b79ee1666025af142adc913f1d468781e77af67ae431fe163472a52fb3a",
+    "falsify/cli.py": "9704a7a1953c0cde694b1e1b27724f6d12865e0258b84073fb53ba264fc52c9f",
+    "falsify/engine.py": "ecf70e0a173666925fa5d6cdb91a6b19539fe7fb9c81403163e602de49695328",
+    "falsify/lean_receipt.py": "6d9dad571f2561f99d49e59f4e462f1411a9d61cf806cbd2421a0228c78015aa",
+    "falsify/mcp_stdio.py": "b03fa9166f529fe7eccd4f1af8ca1ecc1fdeddb7c2da20b6eefadf0c7efcf571",
+    "falsify/presets.py": "02636e1c336b983eca03068ab3160975d2521d2b47570a4b15bf15f1e1208c3f",
+    "falsify/server.py": "0e0e9f03b1e21bf9afce2407bd1613c1973c0bd3b258448902af227d0c5baa0d",
+    "falsify/usage.py": "7bc7993bd604c86ce896a426e2242c52692e9a8e4f18574078e07b5524eb1fda"
+  },
+  "recorded_checks": [
+    {
+      "command": "python3 -m pytest tests/test_falsify.py -q",
+      "environment": "FALSIFY_TEST_LEAN=1; lake absent from PATH",
+      "exit": 0,
+      "passed": 20,
+      "skipped": 1,
+      "seconds": 4.21
+    },
+    {
+      "command": "/home/ubuntu/.elan/bin/lake build",
+      "cwd": "turing_scope/lean",
+      "exit": 0,
+      "result": "Build completed successfully (5 jobs)"
+    },
+    {
+      "command": "python3 -m pytest tests/test_falsify.py::test_lean_receipt_accepts_truth_rejects_falsehood -q",
+      "environment": "FALSIFY_TEST_LEAN=1; /home/ubuntu/.elan/bin prepended to PATH",
+      "exit": 0,
+      "passed": 1,
+      "skipped": 0,
+      "seconds": 3.65
+    }
+  ],
+  "cases": {
+    "arbitrary_text": {
+      "adjudication": {
+        "proposition": "Under the declared two-species linearization J, diffusivities D and domain/boundary, at least one admissible Laplacian mode has a strictly growing linear eigenvalue (det(J - qD) < 0).",
+        "outcome": "survived",
+        "verdict": "pattern_possible",
+        "reasons": [
+          "1 admissible neumann mode(s) have det(J - qD) < 0: linearly unstable"
+        ],
+        "outcome_key": "survived = an unstable admissible mode exists; refuted = none does (stable, certified); out_of_scope = the request is outside what is adjudicated; unresolvable = bracket/marginal case"
+      },
+      "requested_claim_text": {
+        "text": "all real ecosystems are stable",
+        "status": "uninterpreted caller text; NOT adjudicated, NOT evaluated, not endorsed. The verdict below applies only to the formal proposition named in adjudication.proposition."
+      }
+    },
+    "narrow_band": {
+      "status": "verified",
+      "precision_scale": 1000000000000000000000000000000000000000000000000,
+      "length_over_pi_between": [
+        "790569415042094832999723354858179633429888784831/500000000000000000000000000000000000000000000000",
+        "1581138830084189665999446709716359266859777569663/1000000000000000000000000000000000000000000000000"
+      ],
+      "length_over_pi_between_decimal": [
+        1.5811388300841898,
+        1.5811388300841898
+      ],
+      "statement": "No admissible mode is linearly unstable for any domain length <= the lower value; an unstable mode exists at the upper value. Both facts are re-verified by the exact mode test.",
+      "exact_recheck": {
+        "below": {
+          "length_over_pi": "790569415042094832999723354858179633429888784831/500000000000000000000000000000000000000000000000",
+          "unstable_modes": [],
+          "marginal_or_unresolved": 0
+        },
+        "above": {
+          "length_over_pi": "1581138830084189665999446709716359266859777569663/1000000000000000000000000000000000000000000000000",
+          "unstable_modes": [
+            1
+          ],
+          "marginal_or_unresolved": 0
+        }
+      },
+      "why_valid_below": "for r <= r_c every admissible q >= q_1 = c^2/r^2 >= q_upper, outside the open band (monotone in r)",
+      "length_windows": [
+        {
+          "mode": 1,
+          "unstable_for_length_over_pi_between": [
+            1.5811388300841898,
+            1.5811388300841898
+          ],
+          "note": "reading aid only (floats of rational brackets); not separately re-verified"
+        },
+        {
+          "mode": 2,
+          "unstable_for_length_over_pi_between": [
+            3.1622776601683795,
+            3.1622776601683795
+          ],
+          "note": "reading aid only (floats of rational brackets); not separately re-verified"
+        },
+        {
+          "mode": 3,
+          "unstable_for_length_over_pi_between": [
+            4.743416490252569,
+            4.743416490252569
+          ],
+          "note": "reading aid only (floats of rational brackets); not separately re-verified"
+        },
+        {
+          "mode": 4,
+          "unstable_for_length_over_pi_between": [
+            6.324555320336759,
+            6.324555320336759
+          ],
+          "note": "reading aid only (floats of rational brackets); not separately re-verified"
+        }
+      ],
+      "applies_to": "1-D neumann domain, length in multiples of pi"
+    },
+    "narrow_band_coarse_precision": {
+      "status": "unresolved",
+      "detail": "exact recheck did not confirm the bracket at precision 1000000000000",
+      "statement": "No verified critical-length bracket was obtained; NO length is advised. The exact per-domain verdict above is unaffected.",
+      "applies_to": "1-D neumann domain, length in multiples of pi"
+    },
+    "source_pin_failure": {
+      "basis": "generic_calculation_only",
+      "reuse_status": "NOT_authorized_source_pin_failed",
+      "required_pin_refusal": {
+        "code": "source_pin_failed",
+        "detail": "require_delphi_pin was set and the turing-ddi source pin failed"
+      }
+    },
+    "ratio_1_1_counterexample": {
+      "request": {
+        "jacobian": [
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "1011/1000",
+            "-101/100"
+          ]
+        ],
+        "diffusivities": [
+          "1",
+          "11/10"
+        ],
+        "domain": {
+          "dimension": 1,
+          "boundary": "neumann",
+          "length_over_pi": "5"
+        },
+        "crosscheck": true
+      },
+      "manual_exact": {
+        "trace_J": "-1/100",
+        "det_J": "1/1000",
+        "mode1_q": "1/25",
+        "mode1_det": "-21/25000"
+      },
+      "modes": {
+        "unstable": [
+          {
+            "index": 1,
+            "q": "1/25",
+            "trace": "-47/500",
+            "determinant": "-21/25000"
+          }
+        ],
+        "unstable_count": 1,
+        "unresolved_count": 0,
+        "marginal_count": 0,
+        "candidate_modes_examined": 2,
+        "completeness": "every admissible mode with q < S/(Du Dv) was classified; every mode with q >= S/(Du Dv) has det >= det J > 0 and tr < 0, hence is stable (tail rule, Lean: TuringScope.neumann_tail_hurwitz). So the unstable-mode COUNT and the enumeration are complete; the returned list may be truncated to 50 entries (see returned_detail_truncated).",
+        "enumeration_complete": true,
+        "returned_detail_truncated": false
+      },
+      "checks": {
+        "turing_scope_adapter": {
+          "implementation": "turing_scope.adapter (separately written, pinned to Delphi record turing-ddi)",
+          "its_verdict": "linearly_unstable",
+          "its_unstable_modes": [
+            1
+          ],
+          "agrees": true
+        },
+        "finite_difference_eigenvalues": {
+          "available": true,
+          "method": "numpy.linalg.eigvals of the full 300x300 finite-difference operator (neumann, 150 cells)",
+          "max_real_eigenvalue": 0.008217952756366265,
+          "numerically_unstable": true,
+          "ambiguous": false,
+          "limitation": "float, O(h^2) discretization error; independent of the dispersion-relation test but not a proof",
+          "agrees_with_exact_verdict": true
+        }
+      },
+      "lean": {
+        "status": "checked",
+        "exit": 0,
+        "seconds": 0.94,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "output_tail": [
+          "'classification' depends on axioms: [propext, Classical.choice, Quot.sound]"
+        ],
+        "source_sha256": "0eede9e0427ee4313211444e6cd894b17ba061c9300cd1a4bfdb5d0b99635b05"
+      },
+      "lean_meta": {
+        "scaling_factor": 1000,
+        "neumann_equivalent_length_over_pi": "5/1",
+        "tail_cutoff_n0": 2,
+        "claimed_unstable_modes": [
+          1
+        ]
+      },
+      "scope": "two-species linear model; refutes a universal >=10 diffusivity requirement; no empirical biological claim"
+    }
+  }
+}

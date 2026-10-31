@@ -1,0 +1,193 @@
+{
+  "role": "codex-api",
+  "status": "targeted v1.1 audit completed; numerical agreement; freeze withheld for ID leakage and scoring contract; hosting bridge recorded",
+  "updated_at": "2026-10-31T07:14:49.955692-07:00",
+  "branch": "work/codex-api",
+  "commit": "d23663a814ff184d1681ca5601dedb0bd34af9f1",
+  "goal": "Broader native goal remains paused. Explicitly assigned v1.1 review and operational publication handoff completed; final benchmark freeze and site publication remain with their owners.",
+  "checklist": [
+    {
+      "item": "Read complete handoff and governing files; establish persistent goal; notify coordinators",
+      "done": true
+    },
+    {
+      "item": "Preserve inherited independent service checks and exact counterexample receipts with attribution",
+      "done": true
+    },
+    {
+      "item": "Commit scientific corrections and answer Prove2Me evaluation request",
+      "done": true
+    },
+    {
+      "item": "Audit current benchmark/oracle/evaluation and coordinate fixes",
+      "done": false
+    },
+    {
+      "item": "Review/integrate final scientific claims and produce checked pitch/demo artifacts with owners",
+      "done": false
+    },
+    {
+      "item": "Commit and push validated increments; deliver exact receipts and resumable handoff",
+      "done": false
+    },
+    {
+      "item": "Audit critic e776030 v1.1 without editing its tree; record all verdicts, exclusions, ID leakage and freeze conditions",
+      "done": true
+    },
+    {
+      "item": "Read HOSTING-HANDOFF and MESSAGING; record exact queue route and primary-only publication bridge",
+      "done": true
+    },
+    {
+      "item": "Update presentation claim ledger with compiled Price/Hamilton scope and v1.1 review at exact commits",
+      "done": true
+    },
+    {
+      "item": "Receive revised benchmark/payload and inspect changes before final freeze approval",
+      "done": false
+    },
+    {
+      "item": "Receive validated revised static site and prepare exact-SHA site-publish-request.json for primary",
+      "done": false
+    }
+  ],
+  "commands_run": [
+    {
+      "command": "git status --short --branch; read HANDOFF and governing files",
+      "exit": 0
+    },
+    {
+      "command": "tmux list-panes -a; send literal internal notices to %47 %51 %52",
+      "exit": 0
+    },
+    {
+      "command": "Copy two inherited service receipts byte-for-byte and compute SHA256",
+      "exit": 0
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 artifacts/integration/codex-api/audit_benchmark_semantics.py --output artifacts/integration/codex-api/benchmark-semantic-audit.json",
+      "exit": 0,
+      "result": "136 inputs reviewed; Rayleigh physical-model defect and enumerated input-semantic gaps; no model score"
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 artifacts/integration/codex-api/index_claim_evidence.py",
+      "exit": 0,
+      "result": "15 claims indexed at exact revisions; independently recounted 78/100,78/100,96/100 baseline outcomes, 24 distinct endpoint pairs each"
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 artifacts/integration/codex-api/review_service_math.py /data/artifacts/delphi-evolve-rethink/codex-api/review-snapshots/05be25f0d8b478bb1fd40f52cdecb888c85a8bab --output artifacts/integration/codex-api/service-math-review.json",
+      "exit": 0,
+      "result": "24 two-dimensional cases,80 determinant interval samples,15 diffusion cases; no mismatches"
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /home/ubuntu/miniconda3/bin/python3 -m pytest tests/test_falsify.py::test_hostile_numbers_refused_not_raised tests/test_falsify.py::test_malformed_model_refused_not_raised -q",
+      "cwd": "immutable collab05be25f review snapshot",
+      "exit": 0,
+      "result": "23 passed in0.37s"
+    },
+    {
+      "command": "Internal tmux notification of ledger to host%47",
+      "exit": 143,
+      "result": "send client hung with not in a mode; stopped only own Python/send client, saved durable codex-claim-ledger-ready.md notice; later notification succeeded"
+    },
+    {
+      "command": "sha256sum external bench-v1-freeze.json and Admissible.lean; git fetch --no-tags https://github.com/kganjam/admissible.git d75e245f660f9dfc1e7971d6b71c332b0c31987c; compare pinned git blobs",
+      "exit": 0,
+      "result": "Local and committed bytes match; actual freeze SHA dbf233d1ebe7156576e8e24bb4f7b7f3f6c3c75d4552efde198798eeb482ba0e differs from supplied6d61...; Lean SHA c51b98a8c4218c5e272223c5d710de0d765804d78beace544850f9749cf07236"
+    },
+    {
+      "command": "Bounded web searches for Price-equation proof-assistant formalization; read Frank1997 author abstract, Frank2012 fulltext and2024 axiomatic reconstruction; local Mathlib rg",
+      "exit": 0,
+      "result": "Unification is known mathematics; no direct machine-checked Price hit located in bounded search; no priority established"
+    },
+    {
+      "command": "Price feasibility compiler iterations via capped systemd scopes",
+      "exit": "initial failures then original0 and2mutants1 each",
+      "result": "Initial wrong cwd, missing noncomputable marker and unmatched section end corrected. One redundant own scope stopped after cwd edit failure. Final receipt records exact clean run and mutants."
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 experiments/price_probe/run_probe.py",
+      "exit": 0,
+      "result": "Lean -j2 original0; two scientific-sign mutants1 each; four concrete witness/control theorems0; original/witness axiom audits clean. Exact outputs inprice-probe.json."
+    },
+    {
+      "command": "Read HOSTING-HANDOFF.md, MESSAGING.md, current director priorities and critic notices; git fetch origin work/rethink-critic work/rethink-director",
+      "exit": 0
+    },
+    {
+      "command": "Capped ID-only baseline pilot: DecisionTreeClassifier(max_depth=3, random_state=0) trained on declared dev families, numeric ID suffix only",
+      "exit": 0,
+      "result": "58/96 held-out versus majority 43/96; unrestricted tree57/96. No science/text features."
+    },
+    {
+      "command": "Capped audit_benchmark_v1_1.py initial implementation runs",
+      "exit": [
+        1,
+        1
+      ],
+      "result": "Audit endpoint rounding at absorbing probability and NumPy JSON scalar serialization corrected; no benchmark changes."
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /home/ubuntu/miniconda3/bin/python3 artifacts/integration/codex-api/audit_benchmark_v1_1.py",
+      "exit": 0,
+      "result": "136/136 conditional numerical verdicts agree;25/25 exclusion reasons;17 manifest hashes;all public contracts visible;freeze withheld for metadata leak and scoring contract."
+    },
+    {
+      "command": "Read 30 public stems selected with random.Random(20261031); inspect 10 nearest retained numerical thresholds; read Crooks-Grinfeld2020 p4 from primary author-hosted PDF",
+      "exit": 0,
+      "result": "No additional numerical label discrepancy; cubic front minimal-speed switch source checked; not reproved."
+    },
+    {
+      "command": "Inspect explicit staged diff; verify staged audit-script hash matches receipt; git commit and push work/codex-api d23663a",
+      "exit": 0
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 artifacts/integration/codex-api/index_claim_evidence.py",
+      "exit": 0,
+      "result": "17 claim entries pinned; original baseline counts remain78/78/96 and24uniqueendpointpairs."
+    }
+  ],
+  "artifacts": [
+    "artifacts/integration/codex-api/service-fixed-review.json",
+    "artifacts/integration/codex-api/service-fixed-review.lean",
+    "artifacts/integration/codex-api/provenance.json",
+    "planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md",
+    "planning/rethink/CODEX-BENCHMARK-SEMANTICS.md",
+    "artifacts/integration/codex-api/audit_benchmark_semantics.py",
+    "artifacts/integration/codex-api/benchmark-semantic-audit.json",
+    "planning/rethink/CLAIM-LEDGER.md",
+    "artifacts/integration/codex-api/index_claim_evidence.py",
+    "artifacts/integration/codex-api/claim-evidence-index.json",
+    "planning/rethink/CODEX-SCORECARD-REVIEW.md",
+    "artifacts/integration/codex-api/review_service_math.py",
+    "artifacts/integration/codex-api/service-math-review.json",
+    "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md",
+    "planning/rethink/PRICE-PRIOR-ART-AND-PROBE.md",
+    "experiments/price_probe/Price.lean",
+    "experiments/price_probe/run_probe.py",
+    "experiments/price_probe/Witnesses.lean.inc",
+    "artifacts/integration/codex-api/price-probe.json",
+    "artifacts/integration/codex-api/admissible-review/committed-freeze.json",
+    "artifacts/integration/codex-api/admissible-review/Admissible.lean",
+    "planning/rethink/CODEX-BENCH-V1-1-REVIEW.md",
+    "planning/rethink/CODEX-DELIVERY-AND-PUBLICATION.md",
+    "artifacts/integration/codex-api/audit_benchmark_v1_1.py",
+    "artifacts/integration/codex-api/benchmark-v1-1-review.json",
+    "planning/rethink/COMMUNITY-PLATFORM-PITCH-DRAFT.md"
+  ],
+  "limitations": [
+    "Fresh Price/Hamilton Lean compile and witness controls exit0 with standard axioms; no additive-genetic Fisher FTNS or independent biological correspondence review.",
+    "API provider usage is not actual billing; remaining dollars unknown.",
+    "No deployment/submission/external reuse receipt.",
+    "v1.1 review is nonblinded and does not substitute for a blinded audit. Numerical agreement does not approve its public-ID leakage or complete diagnosis contract.",
+    "No reviewed revised site output exists in this branch; no publish request or deployment was fabricated. Primary owns existing Site and hosting checkout."
+  ],
+  "next_steps": [
+    "Keep broader native goal paused.",
+    "Critic removes public-ID leakage, completes diagnosis semantics and current docs; director/electric declare grouping and actual prompt payload. Review only changed artifacts at new pinned revision.",
+    "Separate blinded-reader gate remains required before agent evaluation.",
+    "Await corrected full21-target freeze; original remains not approved.",
+    "Independent reader reviews Price/Hamilton correspondence before headline integration.",
+    "When reviewed revised static content and receipts are ready, leave exact pushed SHA/output/ledger/validation in site-publish-request.json for primary; preserve owner-private audience."
+  ]
+}

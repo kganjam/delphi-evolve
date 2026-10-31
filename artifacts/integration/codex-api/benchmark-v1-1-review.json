@@ -1,0 +1,5263 @@
+{
+  "recorded_at": "2026-10-31T07:12:46.918457-07:00",
+  "source_commit": "e7760307f4cad2040715279949a94ead8437735d",
+  "key_sha256": "d3862d0b3397c8abc4eb3d1f9149ecd261f322055f8c60c1dddd851003b70b4e",
+  "audit_script_sha256": "9ac49f397ef17c9d1abda18c038aa76040481788a781f3495ddc808b15a643a7",
+  "review_type": "Nonblinded scientific/input review; not an agent benchmark run",
+  "hash_checks": [
+    {
+      "file": "key.jsonl",
+      "expected": "d3862d0b3397c8abc4eb3d1f9149ecd261f322055f8c60c1dddd851003b70b4e",
+      "actual": "d3862d0b3397c8abc4eb3d1f9149ecd261f322055f8c60c1dddd851003b70b4e",
+      "match": true
+    },
+    {
+      "file": "instances_public.jsonl",
+      "expected": "045df0a0a984d55a10c82f589804e4543ac21c830cd898e47ebd14014efc38ad",
+      "actual": "045df0a0a984d55a10c82f589804e4543ac21c830cd898e47ebd14014efc38ad",
+      "match": true
+    },
+    {
+      "file": "instances_full.jsonl",
+      "expected": "bc9b24236d7a7b03296d53080f01679f41ce8ef24daa98714b8a4b6ff226a0c4",
+      "actual": "bc9b24236d7a7b03296d53080f01679f41ce8ef24daa98714b8a4b6ff226a0c4",
+      "match": true
+    },
+    {
+      "file": "excluded.json",
+      "expected": "e76b9704fbe0a5756bfb4f5b1d8328ac4c6f3737227e77a77bf6a60461df53da",
+      "actual": "e76b9704fbe0a5756bfb4f5b1d8328ac4c6f3737227e77a77bf6a60461df53da",
+      "match": true
+    },
+    {
+      "file": "split.json",
+      "expected": "4a0face56a2a1046d9f75738b0369989e65a3b35f66ba395b26245effe887d13",
+      "actual": "4a0face56a2a1046d9f75738b0369989e65a3b35f66ba395b26245effe887d13",
+      "match": true
+    },
+    {
+      "file": "conventions.json",
+      "expected": "6919629e6c61f27e2a716ad1703bbd66f913688cb090d5646ee2dae06458db8d",
+      "actual": "6919629e6c61f27e2a716ad1703bbd66f913688cb090d5646ee2dae06458db8d",
+      "match": true
+    },
+    {
+      "file": "build.py",
+      "expected": "ad20ce91ed29e588ccc8570f95474fdbfd8418290e799c719d5e61de1d2a3add",
+      "actual": "ad20ce91ed29e588ccc8570f95474fdbfd8418290e799c719d5e61de1d2a3add",
+      "match": true
+    },
+    {
+      "file": "common.py",
+      "expected": "d64f7d77dd65ac36347e7c779121a087b62aa5520830d1f819df7c9adef4ac55",
+      "actual": "d64f7d77dd65ac36347e7c779121a087b62aa5520830d1f819df7c9adef4ac55",
+      "match": true
+    },
+    {
+      "file": "conventions.py",
+      "expected": "cc3a0dc0d8d93b20311f98a211d87458bf5575376b887c1c1702b5ac00fa948f",
+      "actual": "cc3a0dc0d8d93b20311f98a211d87458bf5575376b887c1c1702b5ac00fa948f",
+      "match": true
+    },
+    {
+      "file": "fam_turing.py",
+      "expected": "c1ecc364cf363deea6cb40a957432134cc5b0e8bc1a02794257b6026702c3a5c",
+      "actual": "c1ecc364cf363deea6cb40a957432134cc5b0e8bc1a02794257b6026702c3a5c",
+      "match": true
+    },
+    {
+      "file": "fam_wavelength.py",
+      "expected": "ee5f5ee385b81fed84174b0718dec3a364f1a4051ae9d1eb908517e1db15a264",
+      "actual": "ee5f5ee385b81fed84174b0718dec3a364f1a4051ae9d1eb908517e1db15a264",
+      "match": true
+    },
+    {
+      "file": "fam_turing2d.py",
+      "expected": "e46230734367ff7ebaf4b4ce35b6aac0fdb41fc1574576726af73d7b7685fe8e",
+      "actual": "e46230734367ff7ebaf4b4ce35b6aac0fdb41fc1574576726af73d7b7685fe8e",
+      "match": true
+    },
+    {
+      "file": "fam_kimura.py",
+      "expected": "d3db527f8a95a419b5bc92bdd25e422e4ae2fb154ce6585e8848b838fa65303e",
+      "actual": "d3db527f8a95a419b5bc92bdd25e422e4ae2fb154ce6585e8848b838fa65303e",
+      "match": true
+    },
+    {
+      "file": "fam_hawkdove.py",
+      "expected": "8fe39e437efb5159616a241b0315599abc3ade1e81652b8b7391d902dbf6004b",
+      "actual": "8fe39e437efb5159616a241b0315599abc3ade1e81652b8b7391d902dbf6004b",
+      "match": true
+    },
+    {
+      "file": "fam_greenhill.py",
+      "expected": "4b9347a606fde8f409c575f87e1e913fe90b0c527e4b331ca0c706d10fddc25c",
+      "actual": "4b9347a606fde8f409c575f87e1e913fe90b0c527e4b331ca0c706d10fddc25c",
+      "match": true
+    },
+    {
+      "file": "fam_hamilton.py",
+      "expected": "a3bacfa01342f411609cceea739854b08c9e8a24b3cd443b61a9da90c309ec1e",
+      "actual": "a3bacfa01342f411609cceea739854b08c9e8a24b3cd443b61a9da90c309ec1e",
+      "match": true
+    },
+    {
+      "file": "fam_kpp.py",
+      "expected": "005e00ba4c6322246409ceaf0a6507d71bfc3ba2c5b4e81ef8347e67d4a4c66a",
+      "actual": "005e00ba4c6322246409ceaf0a6507d71bfc3ba2c5b4e81ef8347e67d4a4c66a",
+      "match": true
+    }
+  ],
+  "contract_checks": [
+    {
+      "id": "ts-0020",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0002",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0015",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0002",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0012",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0016",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0007",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0013",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0011",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0004",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0015",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0003",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0018",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0002",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0002",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0023",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0006",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0007",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0014",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0015",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0004",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0004",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0005",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0001",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0008",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0009",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0005",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0003",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0012",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0008",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0004",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0001",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0007",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0006",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0009",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0016",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0016",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0006",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0003",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0004",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0014",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0013",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0010",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0009",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0001",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0002",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0006",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0007",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0016",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0013",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0013",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0011",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0005",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0012",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0008",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0003",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0012",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0010",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0014",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0014",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0001",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0004",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0016",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0003",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0012",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0008",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0010",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0022",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0009",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0002",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0016",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0017",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0001",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0014",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0013",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0003",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0013",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0010",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0016",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0008",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0005",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0009",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0011",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0015",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0015",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0001",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0011",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0012",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0008",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0010",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0001",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0003",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0003",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0013",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0007",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0010",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0006",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0005",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0015",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0006",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0004",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0007",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0016",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0015",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0007",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0014",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0009",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0011",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0024",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0005",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0001",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0010",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0011",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0006",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0011",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0005",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0004",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0015",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0010",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0008",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0002",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0012",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hm-0013",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0014",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0021",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0009",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "wl-0005",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0002",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0008",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "t2-0014",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0011",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "kp-0012",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "ts-0019",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "gh-0009",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "km-0006",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    },
+    {
+      "id": "hd-0007",
+      "public_full_identical": true,
+      "declared_conventions_visible": true,
+      "common_verdict_definition_visible": true
+    }
+  ],
+  "label_checks": [
+    {
+      "id": "ts-0020",
+      "family": "turing_finite_domain",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "neumann": {
+          "complete_search_q_upper": "43/20",
+          "unstable": [
+            {
+              "indices": [
+                1
+              ],
+              "q": "1",
+              "det": "-39/4"
+            }
+          ]
+        },
+        "periodic": {
+          "complete_search_q_upper": "43/20",
+          "unstable": []
+        }
+      }
+    },
+    {
+      "id": "ts-0002",
+      "family": "turing_finite_domain",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "5/4",
+        "unstable": [
+          {
+            "indices": [
+              2
+            ],
+            "q": "16/25",
+            "det": "-2183/2500"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kp-0015",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "speed_squared_over_sD": "1/50",
+        "front_ODE_coefficient_residuals": [
+          "0",
+          "0"
+        ],
+        "selection_theorem_not_reproved": true
+      }
+    },
+    {
+      "id": "km-0002",
+      "family": "kimura_regime",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.09275827427230306,
+        "iteration_gap": 3.1050162441204066e-13,
+        "iterations": 321,
+        "row_sum_error": 4.440892098500626e-16,
+        "approximation": 0.09280183810418181,
+        "relative_error": 0.00046964901212877166,
+        "threshold_margin": 0.09953035098787123
+      }
+    },
+    {
+      "id": "hm-0012",
+      "family": "hamilton_rule_form",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "1/10",
+          "9/10"
+        ],
+        "covariances": [
+          "-9/400",
+          "9/80"
+        ],
+        "predicted_sign_term": "-25/16",
+        "sign_agreement": [
+          true,
+          false
+        ]
+      }
+    },
+    {
+      "id": "gh-0016",
+      "family": "greenhill_buckling",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "declared_missing_input_policy": true,
+        "missing": [
+          "rho"
+        ]
+      }
+    },
+    {
+      "id": "gh-0007",
+      "family": "greenhill_buckling",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "lambda_shooting": 13.584238229553845,
+        "refinement_delta": 6.689866438591707e-10,
+        "critical_height": 55.73039205987388,
+        "uniform_height_exact_constant": 46.3948778039806,
+        "uniform_height_printed_formula": 46.378127864128125,
+        "both_uniform_constants_same_verdict": true,
+        "threshold_margin": 0.08487993507728764
+      }
+    },
+    {
+      "id": "kp-0013",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "speed_squared_over_sD": "64/15",
+        "front_ODE_coefficient_residuals": [
+          "0",
+          "0"
+        ],
+        "selection_theorem_not_reproved": true
+      }
+    },
+    {
+      "id": "km-0011",
+      "family": "kimura_regime",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.14301394112809773,
+        "iteration_gap": 4.304612222227888e-13,
+        "iterations": 209,
+        "row_sum_error": 3.3306690738754696e-16,
+        "approximation": 0.125,
+        "relative_error": 0.1259593364535184,
+        "threshold_margin": 0.02595933645351839
+      }
+    },
+    {
+      "id": "t2-0004",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "101/60",
+        "unstable": [
+          {
+            "indices": [
+              0,
+              1
+            ],
+            "q": "4/9",
+            "det": "-865/54"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hd-0015",
+      "family": "hawk_dove_ess",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "candidate_frequency": "11/30",
+        "payoff_difference_slope": "-15/2"
+      }
+    },
+    {
+      "id": "kp-0003",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "speed_squared_over_sD": "9/2",
+        "front_ODE_coefficient_residuals": [
+          "0",
+          "0"
+        ],
+        "selection_theorem_not_reproved": true
+      }
+    },
+    {
+      "id": "ts-0018",
+      "family": "turing_finite_domain",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "wellmixed_trace": "-3/4",
+        "wellmixed_det": "0"
+      }
+    },
+    {
+      "id": "hm-0002",
+      "family": "hamilton_rule_form",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "1/2"
+        ],
+        "covariances": [
+          "-5/16"
+        ],
+        "predicted_sign_term": "-5/4",
+        "sign_agreement": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "gh-0002",
+      "family": "greenhill_buckling",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "lambda_shooting": 12.05355901958516,
+        "refinement_delta": 6.809610653135678e-10,
+        "critical_height": 107.10640201088587,
+        "uniform_height_exact_constant": 92.7897556079612,
+        "uniform_height_printed_formula": 92.75625572825625,
+        "both_uniform_constants_same_verdict": true,
+        "threshold_margin": 0.04674232274534862
+      }
+    },
+    {
+      "id": "ts-0023",
+      "family": "turing_finite_domain",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "7/20",
+        "unstable": [
+          {
+            "indices": [
+              1
+            ],
+            "q": "1/9",
+            "det": "-607/1296"
+          }
+        ]
+      }
+    },
+    {
+      "id": "gh-0006",
+      "family": "greenhill_buckling",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "lambda_shooting": 7.837347438925246,
+        "refinement_delta": 3.0675106899025195e-10,
+        "critical_height": 21.534594675178575,
+        "uniform_height_exact_constant": 21.534594675178575,
+        "uniform_height_printed_formula": 21.526820041800278,
+        "both_uniform_constants_same_verdict": true,
+        "threshold_margin": 0.1980722362858245
+      }
+    },
+    {
+      "id": "hm-0007",
+      "family": "hamilton_rule_form",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "1/2"
+        ],
+        "covariances": [
+          "15/64"
+        ],
+        "predicted_sign_term": "-3/8",
+        "sign_agreement": [
+          false
+        ]
+      }
+    },
+    {
+      "id": "hm-0014",
+      "family": "hamilton_rule_form",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "1/10",
+          "9/10"
+        ],
+        "covariances": [
+          "153/2000",
+          "-63/2000"
+        ],
+        "predicted_sign_term": "5/2",
+        "sign_agreement": [
+          true,
+          false
+        ]
+      }
+    },
+    {
+      "id": "wl-0015",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "no_growing_mode": true
+      }
+    },
+    {
+      "id": "wl-0004",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "mode": 1,
+        "growth": 0.47740160280234534,
+        "lambda_reference": 13.275849746044056,
+        "lambda_admissible": 12.566370614359172,
+        "relative_error": 0.053441334849115354,
+        "threshold_margin": 0.04655866515088465
+      }
+    },
+    {
+      "id": "gh-0004",
+      "family": "greenhill_buckling",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "declared_missing_input_policy": true,
+        "missing": [
+          "rho"
+        ]
+      }
+    },
+    {
+      "id": "t2-0005",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "13/15",
+        "unstable": []
+      }
+    },
+    {
+      "id": "kp-0001",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "speed_squared_over_sD": "4",
+        "selection_theorem_not_reproved": true
+      }
+    },
+    {
+      "id": "ts-0008",
+      "family": "turing_finite_domain",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "wellmixed_trace": "-3/4",
+        "wellmixed_det": "0"
+      }
+    },
+    {
+      "id": "km-0009",
+      "family": "kimura_regime",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.3112644406333711,
+        "iteration_gap": 5.750400156045998e-13,
+        "iterations": 249,
+        "row_sum_error": 8.881784197001252e-16,
+        "approximation": 0.05,
+        "relative_error": 0.8393648824830156,
+        "threshold_margin": 0.7393648824830156
+      }
+    },
+    {
+      "id": "gh-0005",
+      "family": "greenhill_buckling",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "lambda_shooting": 12.05355901958516,
+        "refinement_delta": 6.809610653135678e-10,
+        "critical_height": 162.86069301232422,
+        "uniform_height_exact_constant": 141.09150918187743,
+        "uniform_height_printed_formula": 141.04057092307917,
+        "both_uniform_constants_same_verdict": true,
+        "threshold_margin": 0.19952110757142705
+      }
+    },
+    {
+      "id": "gh-0003",
+      "family": "greenhill_buckling",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "lambda_shooting": 12.05355901958516,
+        "refinement_delta": 6.809610653135678e-10,
+        "critical_height": 137.36202838027458,
+        "uniform_height_exact_constant": 119.00118764071709,
+        "uniform_height_printed_formula": 118.95822464933306,
+        "both_uniform_constants_same_verdict": true,
+        "threshold_margin": 0.047043775171876634
+      }
+    },
+    {
+      "id": "t2-0012",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "neumann": {
+          "complete_search_q_upper": "41/60",
+          "unstable": [
+            {
+              "indices": [
+                0,
+                1
+              ],
+              "q": "4/9",
+              "det": "-145/108"
+            },
+            {
+              "indices": [
+                1,
+                0
+              ],
+              "q": "1/4",
+              "det": "-11/8"
+            }
+          ]
+        },
+        "periodic": {
+          "complete_search_q_upper": "41/60",
+          "unstable": []
+        }
+      }
+    },
+    {
+      "id": "gh-0008",
+      "family": "greenhill_buckling",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "declared_missing_input_policy": true,
+        "missing": [
+          "rho"
+        ]
+      }
+    },
+    {
+      "id": "km-0004",
+      "family": "kimura_regime",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.025986890747295995,
+        "iteration_gap": 9.847678228425139e-14,
+        "iterations": 1106,
+        "row_sum_error": 1.3322676295501878e-15,
+        "approximation": 0.025,
+        "relative_error": 0.03797648425480381,
+        "threshold_margin": 0.0620235157451962
+      }
+    },
+    {
+      "id": "ts-0001",
+      "family": "turing_finite_domain",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "2/5",
+        "unstable": [
+          {
+            "indices": [
+              3
+            ],
+            "q": "1/16",
+            "det": "-11/64"
+          },
+          {
+            "indices": [
+              4
+            ],
+            "q": "1/9",
+            "det": "-127/324"
+          },
+          {
+            "indices": [
+              5
+            ],
+            "q": "25/144",
+            "det": "-2779/5184"
+          },
+          {
+            "indices": [
+              6
+            ],
+            "q": "1/4",
+            "det": "-1/2"
+          },
+          {
+            "indices": [
+              7
+            ],
+            "q": "49/144",
+            "det": "-811/5184"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ts-0007",
+      "family": "turing_finite_domain",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "0",
+        "unstable": []
+      }
+    },
+    {
+      "id": "t2-0006",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "19/24",
+        "unstable": []
+      }
+    },
+    {
+      "id": "kp-0009",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "speed_squared_over_sD": "9/2",
+        "front_ODE_coefficient_residuals": [
+          "0",
+          "0"
+        ],
+        "selection_theorem_not_reproved": true
+      }
+    },
+    {
+      "id": "km-0016",
+      "family": "kimura_regime",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.04888939102391334,
+        "iteration_gap": 1.3609946503123638e-13,
+        "iterations": 1044,
+        "row_sum_error": 1.3322676295501878e-15,
+        "approximation": 0.025,
+        "relative_error": 0.48864161576952936,
+        "threshold_margin": 0.3886416157695294
+      }
+    },
+    {
+      "id": "wl-0016",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "no_growing_mode": true
+      }
+    },
+    {
+      "id": "hd-0006",
+      "family": "hawk_dove_ess",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "candidate_frequency": "11/18",
+        "payoff_difference_slope": "-9"
+      }
+    },
+    {
+      "id": "wl-0003",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "mode": 1,
+        "growth": 0.001541623929480096,
+        "lambda_reference": 18.04750438337561,
+        "lambda_admissible": 18.84955592153876,
+        "relative_error": 0.04444113275306668,
+        "threshold_margin": 0.055558867246933326
+      }
+    },
+    {
+      "id": "ts-0004",
+      "family": "turing_finite_domain",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "7/20",
+        "unstable": [
+          {
+            "indices": [
+              2
+            ],
+            "q": "4/25",
+            "det": "-179/500"
+          }
+        ]
+      }
+    },
+    {
+      "id": "wl-0014",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "no_growing_mode": true
+      }
+    },
+    {
+      "id": "t2-0013",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "neumann": {
+          "complete_search_q_upper": "17/20",
+          "unstable": [
+            {
+              "indices": [
+                1,
+                0
+              ],
+              "q": "1/4",
+              "det": "-5/4"
+            }
+          ]
+        },
+        "periodic": {
+          "complete_search_q_upper": "17/20",
+          "unstable": []
+        }
+      }
+    },
+    {
+      "id": "hd-0010",
+      "family": "hawk_dove_ess",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "candidate_frequency": "11/9",
+        "payoff_difference_slope": "-9/2"
+      }
+    },
+    {
+      "id": "ts-0009",
+      "family": "turing_finite_domain",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "neumann": {
+          "complete_search_q_upper": "1/2",
+          "unstable": [
+            {
+              "indices": [
+                1
+              ],
+              "q": "1/4",
+              "det": "-1/8"
+            }
+          ]
+        },
+        "periodic": {
+          "complete_search_q_upper": "1/2",
+          "unstable": []
+        }
+      }
+    },
+    {
+      "id": "km-0001",
+      "family": "kimura_regime",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.14301394112809773,
+        "iteration_gap": 4.304612222227888e-13,
+        "iterations": 209,
+        "row_sum_error": 3.3306690738754696e-16,
+        "approximation": 0.143182117852286,
+        "relative_error": 0.0011759463648206223,
+        "threshold_margin": 0.09882405363517938
+      }
+    },
+    {
+      "id": "t2-0002",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "1",
+        "unstable": [
+          {
+            "indices": [
+              0,
+              1
+            ],
+            "q": "1/4",
+            "det": "-5/8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hm-0006",
+      "family": "hamilton_rule_form",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "1/5"
+        ],
+        "covariances": [
+          "6/25"
+        ],
+        "predicted_sign_term": "3/2",
+        "sign_agreement": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "kp-0007",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "speed_squared_over_sD": "4",
+        "selection_theorem_not_reproved": true
+      }
+    },
+    {
+      "id": "hm-0016",
+      "family": "hamilton_rule_form",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "1/2"
+        ],
+        "covariances": [
+          "7/16"
+        ],
+        "predicted_sign_term": "7/4",
+        "sign_agreement": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "gh-0013",
+      "family": "greenhill_buckling",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "lambda_shooting": 13.584238229553845,
+        "refinement_delta": 6.689866438591707e-10,
+        "critical_height": 43.63542170097089,
+        "uniform_height_exact_constant": 36.32596116615744,
+        "uniform_height_printed_formula": 36.31284640665344,
+        "both_uniform_constants_same_verdict": true,
+        "threshold_margin": 0.3314870748391845
+      }
+    },
+    {
+      "id": "ts-0013",
+      "family": "turing_finite_domain",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "17/16",
+        "unstable": [
+          {
+            "indices": [
+              1
+            ],
+            "q": "1/64",
+            "det": "-3/512"
+          },
+          {
+            "indices": [
+              2
+            ],
+            "q": "1/16",
+            "det": "-3/8"
+          },
+          {
+            "indices": [
+              3
+            ],
+            "q": "9/64",
+            "det": "-467/512"
+          },
+          {
+            "indices": [
+              4
+            ],
+            "q": "1/4",
+            "det": "-3/2"
+          },
+          {
+            "indices": [
+              5
+            ],
+            "q": "25/64",
+            "det": "-1011/512"
+          },
+          {
+            "indices": [
+              6
+            ],
+            "q": "9/16",
+            "det": "-17/8"
+          },
+          {
+            "indices": [
+              7
+            ],
+            "q": "49/64",
+            "det": "-867/512"
+          },
+          {
+            "indices": [
+              8
+            ],
+            "q": "1",
+            "det": "-3/8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hm-0011",
+      "family": "hamilton_rule_form",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "1/5"
+        ],
+        "covariances": [
+          "-33/250"
+        ],
+        "predicted_sign_term": "3/8",
+        "sign_agreement": [
+          false
+        ]
+      }
+    },
+    {
+      "id": "hd-0005",
+      "family": "hawk_dove_ess",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "candidate_frequency": "1/9",
+        "payoff_difference_slope": "-9"
+      }
+    },
+    {
+      "id": "km-0012",
+      "family": "kimura_regime",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.030169191840380565,
+        "iteration_gap": 1.0600548216999073e-13,
+        "iterations": 1102,
+        "row_sum_error": 1.3322676295501878e-15,
+        "approximation": 0.025,
+        "relative_error": 0.1713400832123635,
+        "threshold_margin": 0.07134008321236349
+      }
+    },
+    {
+      "id": "hd-0008",
+      "family": "hawk_dove_ess",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "candidate_frequency": "7/3",
+        "payoff_difference_slope": "-3/4"
+      }
+    },
+    {
+      "id": "hd-0003",
+      "family": "hawk_dove_ess",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "candidate_frequency": "1/3",
+        "payoff_difference_slope": "-3/2"
+      }
+    },
+    {
+      "id": "wl-0012",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "mode": 4,
+        "growth": 0.011340551852249803,
+        "lambda_reference": 10.77499139300801,
+        "lambda_admissible": 9.42477796076938,
+        "relative_error": 0.12530993139491475,
+        "threshold_margin": 0.025309931394914748
+      }
+    },
+    {
+      "id": "wl-0010",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "mode": 9,
+        "growth": 0.23061979412434574,
+        "lambda_reference": 13.287319173367337,
+        "lambda_admissible": 11.170107212763709,
+        "relative_error": 0.1593407919971771,
+        "threshold_margin": 0.059340791997177095
+      }
+    },
+    {
+      "id": "km-0014",
+      "family": "kimura_regime",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.3112644406333711,
+        "iteration_gap": 5.750400156045998e-13,
+        "iterations": 249,
+        "row_sum_error": 8.881784197001252e-16,
+        "approximation": 0.3297905863811256,
+        "relative_error": 0.05951899198654658,
+        "threshold_margin": 0.040481008013453425
+      }
+    },
+    {
+      "id": "kp-0014",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "speed_squared_over_sD": "2/25",
+        "front_ODE_coefficient_residuals": [
+          "0",
+          "0"
+        ],
+        "selection_theorem_not_reproved": true
+      }
+    },
+    {
+      "id": "t2-0001",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "9/16",
+        "unstable": [
+          {
+            "indices": [
+              0,
+              1
+            ],
+            "q": "1/9",
+            "det": "-49/324"
+          },
+          {
+            "indices": [
+              0,
+              2
+            ],
+            "q": "4/9",
+            "det": "-55/324"
+          },
+          {
+            "indices": [
+              1,
+              0
+            ],
+            "q": "1/9",
+            "det": "-49/324"
+          },
+          {
+            "indices": [
+              1,
+              1
+            ],
+            "q": "2/9",
+            "det": "-115/324"
+          },
+          {
+            "indices": [
+              2,
+              0
+            ],
+            "q": "4/9",
+            "det": "-55/324"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hm-0004",
+      "family": "hamilton_rule_form",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "1/10"
+        ],
+        "covariances": [
+          "-9/100"
+        ],
+        "predicted_sign_term": "-1",
+        "sign_agreement": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "hd-0016",
+      "family": "hawk_dove_ess",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "candidate_frequency": "9/10",
+        "payoff_difference_slope": "-5/2"
+      }
+    },
+    {
+      "id": "ts-0003",
+      "family": "turing_finite_domain",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "53/120",
+        "unstable": [
+          {
+            "indices": [
+              1
+            ],
+            "q": "1/25",
+            "det": "-357/1000"
+          },
+          {
+            "indices": [
+              2
+            ],
+            "q": "4/25",
+            "det": "-1227/1000"
+          },
+          {
+            "indices": [
+              3
+            ],
+            "q": "9/25",
+            "det": "-757/1000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ts-0012",
+      "family": "turing_finite_domain",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "7/20",
+        "unstable": [
+          {
+            "indices": [
+              1
+            ],
+            "q": "1/4",
+            "det": "-7/16"
+          }
+        ]
+      }
+    },
+    {
+      "id": "wl-0008",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "mode": 32,
+        "growth": 0.8998037887967367,
+        "lambda_reference": 10.882796185405308,
+        "lambda_admissible": 9.42477796076938,
+        "relative_error": 0.13397459621556146,
+        "threshold_margin": 0.03397459621556145
+      }
+    },
+    {
+      "id": "km-0010",
+      "family": "kimura_regime",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.31236339920789014,
+        "iteration_gap": 5.600520047721602e-13,
+        "iterations": 223,
+        "row_sum_error": 1.1102230246251565e-15,
+        "approximation": 0.025,
+        "relative_error": 0.9199650149044462,
+        "threshold_margin": 0.8199650149044462
+      }
+    },
+    {
+      "id": "ts-0022",
+      "family": "turing_finite_domain",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "27/20",
+        "unstable": [
+          {
+            "indices": [
+              2
+            ],
+            "q": "1/4",
+            "det": "-3"
+          },
+          {
+            "indices": [
+              3
+            ],
+            "q": "9/16",
+            "det": "-407/64"
+          },
+          {
+            "indices": [
+              4
+            ],
+            "q": "1",
+            "det": "-9/2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hm-0009",
+      "family": "hamilton_rule_form",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "4/5"
+        ],
+        "covariances": [
+          "26/125"
+        ],
+        "predicted_sign_term": "-1/2",
+        "sign_agreement": [
+          false
+        ]
+      }
+    },
+    {
+      "id": "wl-0002",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "mode": 12,
+        "growth": 0.1845985178879337,
+        "lambda_reference": 8.516248248929118,
+        "lambda_admissible": 8.377580409572781,
+        "relative_error": 0.0162827380441586,
+        "threshold_margin": 0.08371726195584141
+      }
+    },
+    {
+      "id": "ts-0016",
+      "family": "turing_finite_domain",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "11/30",
+        "unstable": []
+      }
+    },
+    {
+      "id": "ts-0017",
+      "family": "turing_finite_domain",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "0",
+        "unstable": []
+      }
+    },
+    {
+      "id": "wl-0001",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "mode": 32,
+        "growth": 0.40661638441106884,
+        "lambda_reference": 9.722583158350718,
+        "lambda_admissible": 9.42477796076938,
+        "relative_error": 0.030630254607342047,
+        "threshold_margin": 0.06936974539265796
+      }
+    },
+    {
+      "id": "gh-0014",
+      "family": "greenhill_buckling",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "lambda_shooting": 7.837347438925246,
+        "refinement_delta": 3.0675106899025195e-10,
+        "critical_height": 128.1901434040772,
+        "uniform_height_exact_constant": 128.1901434040772,
+        "uniform_height_printed_formula": 128.14386292456453,
+        "both_uniform_constants_same_verdict": true,
+        "threshold_margin": 0.09944965473739897
+      }
+    },
+    {
+      "id": "hd-0013",
+      "family": "hawk_dove_ess",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "missing": "C"
+      }
+    },
+    {
+      "id": "hm-0003",
+      "family": "hamilton_rule_form",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "4/5"
+        ],
+        "covariances": [
+          "-4/25"
+        ],
+        "predicted_sign_term": "-1",
+        "sign_agreement": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "wl-0013",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "mode": 1,
+        "growth": 0.0659454114834439,
+        "lambda_reference": 21.63134345757472,
+        "lambda_admissible": 18.84955592153876,
+        "relative_error": 0.12859985055906697,
+        "threshold_margin": 0.02859985055906697
+      }
+    },
+    {
+      "id": "ts-0010",
+      "family": "turing_finite_domain",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "neumann": {
+          "complete_search_q_upper": "53/40",
+          "unstable": [
+            {
+              "indices": [
+                1
+              ],
+              "q": "1",
+              "det": "-11/4"
+            }
+          ]
+        },
+        "periodic": {
+          "complete_search_q_upper": "53/40",
+          "unstable": []
+        }
+      }
+    },
+    {
+      "id": "t2-0016",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "33/80",
+        "unstable": [
+          {
+            "indices": [
+              2,
+              0
+            ],
+            "q": "1/4",
+            "det": "-3/16"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kp-0008",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "missing": "reaction"
+      }
+    },
+    {
+      "id": "hm-0005",
+      "family": "hamilton_rule_form",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "1/10"
+        ],
+        "covariances": [
+          "-351/4000"
+        ],
+        "predicted_sign_term": "-13/8",
+        "sign_agreement": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "wl-0009",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "mode": 26,
+        "growth": 0.507433407578521,
+        "lambda_reference": 15.196966990133932,
+        "lambda_admissible": 11.59972672094693,
+        "relative_error": 0.23670777672428833,
+        "threshold_margin": 0.13670777672428833
+      }
+    },
+    {
+      "id": "hd-0011",
+      "family": "hawk_dove_ess",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "candidate_frequency": "2",
+        "payoff_difference_slope": "-3/4"
+      }
+    },
+    {
+      "id": "km-0015",
+      "family": "kimura_regime",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.035905680343626636,
+        "iteration_gap": 1.149982886694545e-13,
+        "iterations": 1090,
+        "row_sum_error": 1.3322676295501878e-15,
+        "approximation": 0.025,
+        "relative_error": 0.30373133830793503,
+        "threshold_margin": 0.20373133830793502
+      }
+    },
+    {
+      "id": "ts-0015",
+      "family": "turing_finite_domain",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "7/8",
+        "unstable": []
+      }
+    },
+    {
+      "id": "gh-0001",
+      "family": "greenhill_buckling",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "lambda_shooting": 7.837347438925246,
+        "refinement_delta": 3.0675106899025195e-10,
+        "critical_height": 24.650957232290054,
+        "uniform_height_exact_constant": 24.650957232290054,
+        "uniform_height_printed_formula": 24.642057498731287,
+        "both_uniform_constants_same_verdict": true,
+        "threshold_margin": 0.20055376865287056
+      }
+    },
+    {
+      "id": "t2-0011",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "wellmixed_trace": "-5/2",
+        "wellmixed_det": "-17/8"
+      }
+    },
+    {
+      "id": "hd-0012",
+      "family": "hawk_dove_ess",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "missing": "C"
+      }
+    },
+    {
+      "id": "t2-0008",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "3/4",
+        "unstable": [
+          {
+            "indices": [
+              1,
+              1
+            ],
+            "q": "5/16",
+            "det": "-3/32"
+          }
+        ]
+      }
+    },
+    {
+      "id": "t2-0010",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "0",
+        "unstable": []
+      }
+    },
+    {
+      "id": "hm-0001",
+      "family": "hamilton_rule_form",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "1/5"
+        ],
+        "covariances": [
+          "8/25"
+        ],
+        "predicted_sign_term": "2",
+        "sign_agreement": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "km-0003",
+      "family": "kimura_regime",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.17873389153576622,
+        "iteration_gap": 3.8452574457892297e-13,
+        "iterations": 407,
+        "row_sum_error": 8.881784197001252e-16,
+        "approximation": 0.18465125258471218,
+        "relative_error": 0.03310710127833731,
+        "threshold_margin": 0.0668928987216627
+      }
+    },
+    {
+      "id": "t2-0003",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "2/3",
+        "unstable": [
+          {
+            "indices": [
+              2,
+              0
+            ],
+            "q": "1/4",
+            "det": "-1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "km-0013",
+      "family": "kimura_regime",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.4182139871094158,
+        "iteration_gap": 7.399081347614356e-13,
+        "iterations": 163,
+        "row_sum_error": 1.3322676295501878e-15,
+        "approximation": 0.1,
+        "relative_error": 0.7608879590776639,
+        "threshold_margin": 0.660887959077664
+      }
+    },
+    {
+      "id": "km-0007",
+      "family": "kimura_regime",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.4209669750971339,
+        "iteration_gap": 7.699396675775461e-13,
+        "iterations": 149,
+        "row_sum_error": 4.440892098500626e-16,
+        "approximation": 0.125,
+        "relative_error": 0.7030645931996031,
+        "threshold_margin": 0.6030645931996031
+      }
+    },
+    {
+      "id": "kp-0010",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "speed_squared_over_sD": "2/25",
+        "front_ODE_coefficient_residuals": [
+          "0",
+          "0"
+        ],
+        "selection_theorem_not_reproved": true
+      }
+    },
+    {
+      "id": "kp-0006",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "speed_squared_over_sD": "4",
+        "selection_theorem_not_reproved": true
+      }
+    },
+    {
+      "id": "kp-0005",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "speed_squared_over_sD": "2/25",
+        "front_ODE_coefficient_residuals": [
+          "0",
+          "0"
+        ],
+        "selection_theorem_not_reproved": true
+      }
+    },
+    {
+      "id": "t2-0015",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "9/10",
+        "unstable": [
+          {
+            "indices": [
+              0,
+              2
+            ],
+            "q": "1/4",
+            "det": "-21/16"
+          },
+          {
+            "indices": [
+              0,
+              3
+            ],
+            "q": "9/16",
+            "det": "-441/256"
+          },
+          {
+            "indices": [
+              1,
+              0
+            ],
+            "q": "1/9",
+            "det": "-41/216"
+          },
+          {
+            "indices": [
+              1,
+              1
+            ],
+            "q": "25/144",
+            "det": "-5299/6912"
+          },
+          {
+            "indices": [
+              1,
+              2
+            ],
+            "q": "13/36",
+            "det": "-775/432"
+          },
+          {
+            "indices": [
+              1,
+              3
+            ],
+            "q": "97/144",
+            "det": "-8035/6912"
+          },
+          {
+            "indices": [
+              2,
+              0
+            ],
+            "q": "4/9",
+            "det": "-413/216"
+          },
+          {
+            "indices": [
+              2,
+              1
+            ],
+            "q": "73/144",
+            "det": "-12883/6912"
+          },
+          {
+            "indices": [
+              2,
+              2
+            ],
+            "q": "25/36",
+            "det": "-439/432"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ts-0006",
+      "family": "turing_finite_domain",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "7/20",
+        "unstable": []
+      }
+    },
+    {
+      "id": "kp-0004",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "speed_squared_over_sD": "1/50",
+        "front_ODE_coefficient_residuals": [
+          "0",
+          "0"
+        ],
+        "selection_theorem_not_reproved": true
+      }
+    },
+    {
+      "id": "wl-0007",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "mode": 58,
+        "growth": 0.6672814460030025,
+        "lambda_reference": 11.92666674523714,
+        "lambda_admissible": 10.399754991193799,
+        "relative_error": 0.12802502045704486,
+        "threshold_margin": 0.028025020457044858
+      }
+    },
+    {
+      "id": "kp-0016",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "speed_squared_over_sD": "4",
+        "selection_theorem_not_reproved": true
+      }
+    },
+    {
+      "id": "gh-0015",
+      "family": "greenhill_buckling",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "lambda_shooting": 13.584238229553845,
+        "refinement_delta": 6.689866438591707e-10,
+        "critical_height": 124.87522175230525,
+        "uniform_height_exact_constant": 103.95711280334915,
+        "uniform_height_printed_formula": 103.91958117336941,
+        "both_uniform_constants_same_verdict": true,
+        "threshold_margin": 0.08388551071471362
+      }
+    },
+    {
+      "id": "t2-0007",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "9/10",
+        "unstable": []
+      }
+    },
+    {
+      "id": "hd-0014",
+      "family": "hawk_dove_ess",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "missing": "C"
+      }
+    },
+    {
+      "id": "t2-0009",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "19/20",
+        "unstable": [
+          {
+            "indices": [
+              1,
+              1
+            ],
+            "q": "1/2",
+            "det": "-5/4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "gh-0011",
+      "family": "greenhill_buckling",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "lambda_shooting": 13.584238229553845,
+        "refinement_delta": 6.689866438591707e-10,
+        "critical_height": 24.01349798857395,
+        "uniform_height_exact_constant": 19.990946836137216,
+        "uniform_height_printed_formula": 19.98372950584239,
+        "both_uniform_constants_same_verdict": true,
+        "threshold_margin": 0.08384859171837467
+      }
+    },
+    {
+      "id": "ts-0024",
+      "family": "turing_finite_domain",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "13/30",
+        "unstable": [
+          {
+            "indices": [
+              1
+            ],
+            "q": "1/9",
+            "det": "-2/27"
+          }
+        ]
+      }
+    },
+    {
+      "id": "km-0005",
+      "family": "kimura_regime",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.054880441357716137,
+        "iteration_gap": 1.960306916792831e-13,
+        "iterations": 545,
+        "row_sum_error": 1.3322676295501878e-15,
+        "approximation": 0.05489164003154103,
+        "relative_error": 0.00020405582659041647,
+        "threshold_margin": 0.09979594417340959
+      }
+    },
+    {
+      "id": "hd-0001",
+      "family": "hawk_dove_ess",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "candidate_frequency": "3/22",
+        "payoff_difference_slope": "-11"
+      }
+    },
+    {
+      "id": "hm-0010",
+      "family": "hamilton_rule_form",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "4/5"
+        ],
+        "covariances": [
+          "39/125"
+        ],
+        "predicted_sign_term": "-3/4",
+        "sign_agreement": [
+          false
+        ]
+      }
+    },
+    {
+      "id": "kp-0011",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "speed_squared_over_sD": "4",
+        "selection_theorem_not_reproved": true
+      }
+    },
+    {
+      "id": "wl-0006",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "mode": 51,
+        "growth": 0.08077651156155419,
+        "lambda_reference": 12.019477490699014,
+        "lambda_admissible": 11.82717234292628,
+        "relative_error": 0.01599945987016029,
+        "threshold_margin": 0.08400054012983971
+      }
+    },
+    {
+      "id": "wl-0011",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "mode": 1,
+        "growth": 0.1060101932429589,
+        "lambda_reference": 16.262263126587058,
+        "lambda_admissible": 12.566370614359172,
+        "relative_error": 0.22726803049850405,
+        "threshold_margin": 0.12726803049850405
+      }
+    },
+    {
+      "id": "ts-0005",
+      "family": "turing_finite_domain",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "9/10",
+        "unstable": []
+      }
+    },
+    {
+      "id": "hd-0004",
+      "family": "hawk_dove_ess",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "candidate_frequency": "1/5",
+        "payoff_difference_slope": "-5/2"
+      }
+    },
+    {
+      "id": "hm-0015",
+      "family": "hamilton_rule_form",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "1/10"
+        ],
+        "covariances": [
+          "3447/8000"
+        ],
+        "predicted_sign_term": "29/8",
+        "sign_agreement": [
+          true
+        ]
+      }
+    },
+    {
+      "id": "gh-0010",
+      "family": "greenhill_buckling",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "lambda_shooting": 12.05355901958516,
+        "refinement_delta": 6.809610653135678e-10,
+        "critical_height": 39.45833587141436,
+        "uniform_height_exact_constant": 34.18403824108725,
+        "uniform_height_printed_formula": 34.17169677988388,
+        "both_uniform_constants_same_verdict": true,
+        "threshold_margin": 0.047096154218724595
+      }
+    },
+    {
+      "id": "hm-0008",
+      "family": "hamilton_rule_form",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "1/2"
+        ],
+        "covariances": [
+          "5/32"
+        ],
+        "predicted_sign_term": "-9/8",
+        "sign_agreement": [
+          false
+        ]
+      }
+    },
+    {
+      "id": "hd-0002",
+      "family": "hawk_dove_ess",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "candidate_frequency": "11/12",
+        "payoff_difference_slope": "-6"
+      }
+    },
+    {
+      "id": "gh-0012",
+      "family": "greenhill_buckling",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "declared_missing_input_policy": true,
+        "missing": [
+          "rho"
+        ]
+      }
+    },
+    {
+      "id": "hm-0013",
+      "family": "hamilton_rule_form",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "frequencies": [
+          "1/10",
+          "9/10"
+        ],
+        "covariances": [
+          "-27/500",
+          "27/500"
+        ],
+        "predicted_sign_term": "-9/4",
+        "sign_agreement": [
+          true,
+          false
+        ]
+      }
+    },
+    {
+      "id": "ts-0014",
+      "family": "turing_finite_domain",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "23/20",
+        "unstable": [
+          {
+            "indices": [
+              6
+            ],
+            "q": "9/16",
+            "det": "-7/64"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ts-0021",
+      "family": "turing_finite_domain",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "9/10",
+        "unstable": [
+          {
+            "indices": [
+              7
+            ],
+            "q": "49/144",
+            "det": "-2899/10368"
+          },
+          {
+            "indices": [
+              8
+            ],
+            "q": "4/9",
+            "det": "-259/648"
+          },
+          {
+            "indices": [
+              9
+            ],
+            "q": "9/16",
+            "det": "-35/128"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hd-0009",
+      "family": "hawk_dove_ess",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "candidate_frequency": "9/2",
+        "payoff_difference_slope": "-1"
+      }
+    },
+    {
+      "id": "wl-0005",
+      "family": "wavelength_formula_licence",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "mode": 1,
+        "growth": 0.2838821814150112,
+        "lambda_reference": 13.503444014341298,
+        "lambda_admissible": 12.566370614359172,
+        "relative_error": 0.0693951408979005,
+        "threshold_margin": 0.030604859102099508
+      }
+    },
+    {
+      "id": "kp-0002",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "speed_squared_over_sD": "4",
+        "selection_theorem_not_reproved": true
+      }
+    },
+    {
+      "id": "km-0008",
+      "family": "kimura_regime",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.31135014469003364,
+        "iteration_gap": 5.794809077031005e-13,
+        "iterations": 244,
+        "row_sum_error": 8.881784197001252e-16,
+        "approximation": 0.0625,
+        "relative_error": 0.7992613748028856,
+        "threshold_margin": 0.6992613748028856
+      }
+    },
+    {
+      "id": "t2-0014",
+      "family": "turing_2d_rectangle",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "3/4",
+        "unstable": [
+          {
+            "indices": [
+              0,
+              4
+            ],
+            "q": "4/9",
+            "det": "-7/81"
+          },
+          {
+            "indices": [
+              1,
+              0
+            ],
+            "q": "4/9",
+            "det": "-7/81"
+          },
+          {
+            "indices": [
+              1,
+              1
+            ],
+            "q": "17/36",
+            "det": "-4/81"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ts-0011",
+      "family": "turing_finite_domain",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "complete_search_q_upper": "13/20",
+        "unstable": [
+          {
+            "indices": [
+              2
+            ],
+            "q": "1/9",
+            "det": "-59/216"
+          },
+          {
+            "indices": [
+              3
+            ],
+            "q": "1/4",
+            "det": "-7/8"
+          },
+          {
+            "indices": [
+              4
+            ],
+            "q": "4/9",
+            "det": "-161/216"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kp-0012",
+      "family": "fisher_kpp_speed",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "speed_squared_over_sD": "4",
+        "selection_theorem_not_reproved": true
+      }
+    },
+    {
+      "id": "ts-0019",
+      "family": "turing_finite_domain",
+      "key_verdict": "underdetermined",
+      "recomputed_verdict": "underdetermined",
+      "match": true,
+      "witness": {
+        "neumann": {
+          "complete_search_q_upper": "37/80",
+          "unstable": [
+            {
+              "indices": [
+                1
+              ],
+              "q": "1/4",
+              "det": "-15/16"
+            }
+          ]
+        },
+        "periodic": {
+          "complete_search_q_upper": "37/80",
+          "unstable": []
+        }
+      }
+    },
+    {
+      "id": "gh-0009",
+      "family": "greenhill_buckling",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "lambda_shooting": 7.837347438925246,
+        "refinement_delta": 3.0675106899025195e-10,
+        "critical_height": 31.058259917020504,
+        "uniform_height_exact_constant": 31.058259917020504,
+        "uniform_height_printed_formula": 31.047046955371357,
+        "both_uniform_constants_same_verdict": true,
+        "threshold_margin": 0.20121227517551632
+      }
+    },
+    {
+      "id": "km-0006",
+      "family": "kimura_regime",
+      "key_verdict": "applies",
+      "recomputed_verdict": "applies",
+      "match": true,
+      "witness": {
+        "fixation_probability": 0.31135014469003364,
+        "iteration_gap": 5.794809077031005e-13,
+        "iterations": 244,
+        "row_sum_error": 8.881784197001252e-16,
+        "approximation": 0.3302286477758832,
+        "relative_error": 0.0606343160837267,
+        "threshold_margin": 0.039365683916273306
+      }
+    },
+    {
+      "id": "hd-0007",
+      "family": "hawk_dove_ess",
+      "key_verdict": "out_of_scope",
+      "recomputed_verdict": "out_of_scope",
+      "match": true,
+      "witness": {
+        "candidate_frequency": "6/5",
+        "payoff_difference_slope": "-5/2"
+      }
+    }
+  ],
+  "exclusion_checks": [
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(1, 1), Fraction(11, 4), Fraction(-4, 1), Fraction(-15, 4))",
+        "d": "289/4",
+        "r": "8"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 5,
+        "growth": 0.2681929193976984,
+        "lambda_reference": 11.163614460895385,
+        "lambda_admissible": 10.053096491487338,
+        "relative_error": 0.09947656050807197,
+        "threshold_margin": 0.0005234394919280405
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(1, 4), Fraction(-13, 4), Fraction(15, 4), Fraction(-9, 4))",
+        "d": "6095/4",
+        "r": "6"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 2,
+        "growth": 0.06787585821115272,
+        "lambda_reference": 21.259843225640054,
+        "lambda_admissible": 18.84955592153876,
+        "relative_error": 0.11337276942825296,
+        "threshold_margin": 0.013372769428252954
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(1, 2), Fraction(-7, 2), Fraction(7, 4), Fraction(-11, 4))",
+        "d": "451/4",
+        "r": "12"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 5,
+        "growth": 0.05267433988154124,
+        "lambda_reference": 13.868695201828894,
+        "lambda_admissible": 15.079644737231007,
+        "relative_error": 0.08731531826025153,
+        "threshold_margin": 0.012684681739748474
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(1, 4), Fraction(-11, 4), Fraction(3, 1), Fraction(-5, 2))",
+        "d": "2031/2",
+        "r": "3"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 1,
+        "growth": 0.06739887455225357,
+        "lambda_reference": 21.344691798166227,
+        "lambda_admissible": 18.84955592153876,
+        "relative_error": 0.11689725484074835,
+        "threshold_margin": 0.016897254840748346
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(1, 2), Fraction(-4, 1), Fraction(1, 4), Fraction(-1, 1))",
+        "d": "49/4",
+        "r": "4"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 2,
+        "growth": 0.004093964447240417,
+        "lambda_reference": 13.978848221147857,
+        "lambda_admissible": 12.566370614359172,
+        "relative_error": 0.10104391895834607,
+        "threshold_margin": 0.00104391895834606
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(1, 1), Fraction(-3, 1), Fraction(9, 4), Fraction(-15, 4))",
+        "d": "75",
+        "r": "64"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 32,
+        "growth": 0.4559586973035934,
+        "lambda_reference": 14.049629462081452,
+        "lambda_admissible": 12.566370614359172,
+        "relative_error": 0.10557280900008409,
+        "threshold_margin": 0.0055728090000840835
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(5, 4), Fraction(3, 2), Fraction(-3, 1), Fraction(-9, 4))",
+        "d": "30",
+        "r": "48"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 26,
+        "growth": 0.5693827371737221,
+        "lambda_reference": 12.901768253437591,
+        "lambda_admissible": 11.59972672094693,
+        "relative_error": 0.10091961868434134,
+        "threshold_margin": 0.0009196186843413306
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(1, 4), Fraction(7, 4), Fraction(-1, 2), Fraction(-11, 4))",
+        "d": "63/2",
+        "r": "12"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 3,
+        "growth": 0.002154148335437256,
+        "lambda_reference": 22.62075983150436,
+        "lambda_admissible": 25.132741228718345,
+        "relative_error": 0.11104761360471645,
+        "threshold_margin": 0.011047613604716441
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(7, 4), Fraction(3, 1), Fraction(-13, 4), Fraction(-9, 4))",
+        "d": "20",
+        "r": "3"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 2,
+        "growth": 0.46534498165926763,
+        "lambda_reference": 8.557494443165828,
+        "lambda_admissible": 9.42477796076938,
+        "relative_error": 0.10134783298587827,
+        "threshold_margin": 0.0013478329858782612
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(3, 2), Fraction(13, 4), Fraction(-5, 2), Fraction(-9, 2))",
+        "d": "29/2",
+        "r": "24"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 15,
+        "growth": 0.33553587699073617,
+        "lambda_reference": 11.322600765468657,
+        "lambda_admissible": 10.053096491487338,
+        "relative_error": 0.11212126085492802,
+        "threshold_margin": 0.012121260854928012
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(1, 2), Fraction(-13, 4), Fraction(13, 4), Fraction(-3, 1))",
+        "d": "815/4",
+        "r": "12"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 6,
+        "growth": 0.05436869002179634,
+        "lambda_reference": 13.68176944732102,
+        "lambda_admissible": 12.566370614359172,
+        "relative_error": 0.08152445758251321,
+        "threshold_margin": 0.018475542417486793
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(5, 4), Fraction(15, 4), Fraction(-3, 2), Fraction(-3, 1))",
+        "d": "143/4",
+        "r": "48"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 26,
+        "growth": 0.5561061072752214,
+        "lambda_reference": 13.129511317375105,
+        "lambda_admissible": 11.59972672094693,
+        "relative_error": 0.11651496841346377,
+        "threshold_margin": 0.016514968413463768
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(1, 1), Fraction(-13, 4), Fraction(3, 1), Fraction(-13, 4))",
+        "d": "257/4",
+        "r": "8"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 5,
+        "growth": 0.2686602896885759,
+        "lambda_reference": 11.140888100921693,
+        "lambda_admissible": 10.053096491487338,
+        "relative_error": 0.0976395777051527,
+        "threshold_margin": 0.0023604222948473003
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(1, 1), Fraction(11, 4), Fraction(-3, 2), Fraction(-2, 1))",
+        "d": "97/4",
+        "r": "6"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 3,
+        "growth": 0.253997954094471,
+        "lambda_reference": 11.54830034845207,
+        "lambda_admissible": 12.566370614359172,
+        "relative_error": 0.08815758468245624,
+        "threshold_margin": 0.011842415317543764
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(1, 4), Fraction(-7, 2), Fraction(5, 2), Fraction(-11, 4))",
+        "d": "1183/2",
+        "r": "8"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 3,
+        "growth": 0.007556514891447819,
+        "lambda_reference": 18.388704067740218,
+        "lambda_admissible": 16.755160819145562,
+        "relative_error": 0.08883406044150892,
+        "threshold_margin": 0.011165939558491086
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(1, 4), Fraction(-3, 2), Fraction(3, 4), Fraction(-3, 1))",
+        "d": "47",
+        "r": "6"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 2,
+        "growth": 0.002099492878965492,
+        "lambda_reference": 21.02308837261156,
+        "lambda_admissible": 18.84955592153876,
+        "relative_error": 0.10338787587005697,
+        "threshold_margin": 0.0033878758700569694
+      }
+    },
+    {
+      "family": "wavelength_formula_licence",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "J": "(Fraction(5, 4), Fraction(-9, 4), Fraction(7, 4), Fraction(-11, 4))",
+        "d": "19/4",
+        "r": "8"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "mode": 5,
+        "growth": 0.005417738182403653,
+        "lambda_reference": 11.030895482583402,
+        "lambda_admissible": 10.053096491487338,
+        "relative_error": 0.08864185075816404,
+        "threshold_margin": 0.011358149241835966
+      }
+    },
+    {
+      "family": "kimura_regime",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "N": "10",
+        "s": "1/100",
+        "kind": "neutral"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "fixation_probability": 0.10919468323517642,
+        "iteration_gap": 3.6472214137717174e-13,
+        "iterations": 265,
+        "row_sum_error": 7.771561172376096e-16,
+        "approximation": 0.1,
+        "relative_error": 0.08420449570217171,
+        "threshold_margin": 0.01579550429782829
+      }
+    },
+    {
+      "family": "kimura_regime",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "N": "12",
+        "s": "1/100",
+        "kind": "neutral"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "fixation_probability": 0.09275827427230306,
+        "iteration_gap": 3.1050162441204066e-13,
+        "iterations": 321,
+        "row_sum_error": 4.440892098500626e-16,
+        "approximation": 0.08333333333333333,
+        "relative_error": 0.10160754943868061,
+        "threshold_margin": 0.0016075494386806055
+      }
+    },
+    {
+      "family": "kimura_regime",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "N": "8",
+        "s": "3/10",
+        "kind": "diffusion"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "fixation_probability": 0.4209669750971339,
+        "iteration_gap": 7.699396675775461e-13,
+        "iterations": 149,
+        "row_sum_error": 4.440892098500626e-16,
+        "approximation": 0.45493234200509375,
+        "relative_error": 0.08068416031951843,
+        "threshold_margin": 0.019315839680481575
+      }
+    },
+    {
+      "family": "kimura_regime",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "N": "12",
+        "s": "1/100",
+        "kind": "neutral"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "fixation_probability": 0.09275827427230306,
+        "iteration_gap": 3.1050162441204066e-13,
+        "iterations": 321,
+        "row_sum_error": 4.440892098500626e-16,
+        "approximation": 0.08333333333333333,
+        "relative_error": 0.10160754943868061,
+        "threshold_margin": 0.0016075494386806055
+      }
+    },
+    {
+      "family": "kimura_regime",
+      "reason": "within 2% of the 10% licence threshold",
+      "params": {
+        "N": "8",
+        "s": "3/10",
+        "kind": "diffusion"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "fixation_probability": 0.4209669750971339,
+        "iteration_gap": 7.699396675775461e-13,
+        "iterations": 149,
+        "row_sum_error": 4.440892098500626e-16,
+        "approximation": 0.45493234200509375,
+        "relative_error": 0.08068416031951843,
+        "threshold_margin": 0.019315839680481575
+      }
+    },
+    {
+      "family": "greenhill_buckling",
+      "reason": "within 3% of a critical height",
+      "params": {
+        "E": "10000000000.0",
+        "rho": "600.0",
+        "D": "0.2",
+        "H": "35.4",
+        "t": "0.7"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "lambda_shooting": 9.888691107721925,
+        "refinement_delta": 4.4720493974637066e-10,
+        "critical_height": 34.760513811062516,
+        "uniform_height_exact_constant": 32.168411597509966,
+        "uniform_height_printed_formula": 32.15679783786856,
+        "both_uniform_constants_same_verdict": true,
+        "threshold_margin": 0.018396914165692335
+      }
+    },
+    {
+      "family": "hamilton_rule_form",
+      "reason": "tie at zero",
+      "params": {
+        "b": "2",
+        "c": "2",
+        "r": "1",
+        "d": "3",
+        "p": "None"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "terms": [
+          "0",
+          "3"
+        ]
+      }
+    },
+    {
+      "family": "fisher_kpp_speed",
+      "reason": "pushed speed within 3% of the KPP speed (not measurable apart)",
+      "params": {
+        "kind": "cubic_pos",
+        "par": "7/3"
+      },
+      "reason_reproduced": true,
+      "check": {
+        "speed_squared": "169/42"
+      }
+    }
+  ],
+  "public_id_leakage": [
+    {
+      "classifier": "DummyClassifier",
+      "depth": null,
+      "features": [
+        "numeric item-ID suffix only"
+      ],
+      "train_n": 40,
+      "test_n": 96,
+      "correct": 43,
+      "predictions": [
+        {
+          "id": "kp-0015",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0002",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0012",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "gh-0016",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "gh-0007",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0013",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0011",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0004",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0003",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0002",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0002",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "gh-0006",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0007",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0014",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "wl-0015",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0004",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0004",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "t2-0005",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "km-0009",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "gh-0005",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0003",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0012",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "gh-0008",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "km-0004",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "t2-0006",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0009",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0016",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0016",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0003",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0014",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0013",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "km-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "t2-0002",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0006",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0007",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0016",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0013",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0011",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0012",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0012",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0010",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0014",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0014",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0004",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0008",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0010",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0009",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0002",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0014",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0003",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0013",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0016",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0008",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "hm-0005",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0009",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0015",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "gh-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "t2-0011",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0008",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "t2-0010",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "km-0003",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "t2-0003",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "km-0013",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0007",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0010",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0006",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0005",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0015",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0004",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0007",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0016",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0015",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0007",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0009",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0011",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0005",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0010",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0011",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0006",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0011",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0015",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0010",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0008",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "gh-0012",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "hm-0013",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "wl-0005",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0002",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "km-0008",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0014",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0012",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0009",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "km-0006",
+          "prediction": "applies",
+          "key": "applies"
+        }
+      ]
+    },
+    {
+      "classifier": "DecisionTreeClassifier",
+      "depth": 3,
+      "features": [
+        "numeric item-ID suffix only"
+      ],
+      "train_n": 40,
+      "test_n": 96,
+      "correct": 58,
+      "predictions": [
+        {
+          "id": "kp-0015",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0002",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0012",
+          "prediction": "out_of_scope",
+          "key": "underdetermined"
+        },
+        {
+          "id": "gh-0016",
+          "prediction": "out_of_scope",
+          "key": "underdetermined"
+        },
+        {
+          "id": "gh-0007",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0013",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0011",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0004",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0003",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0002",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0002",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "gh-0006",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0007",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0014",
+          "prediction": "out_of_scope",
+          "key": "underdetermined"
+        },
+        {
+          "id": "wl-0015",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0004",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0004",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "t2-0005",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "km-0009",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "gh-0005",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0003",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0012",
+          "prediction": "out_of_scope",
+          "key": "underdetermined"
+        },
+        {
+          "id": "gh-0008",
+          "prediction": "out_of_scope",
+          "key": "underdetermined"
+        },
+        {
+          "id": "km-0004",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "t2-0006",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0009",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0016",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0016",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0003",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0014",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0013",
+          "prediction": "out_of_scope",
+          "key": "underdetermined"
+        },
+        {
+          "id": "km-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "t2-0002",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0006",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0007",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0016",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0013",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0011",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0012",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0012",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0010",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0014",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0014",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0004",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0008",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0010",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0009",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0002",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0014",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0003",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0013",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0016",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0008",
+          "prediction": "out_of_scope",
+          "key": "underdetermined"
+        },
+        {
+          "id": "hm-0005",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0009",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0015",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "gh-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "t2-0011",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0008",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "t2-0010",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "km-0003",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "t2-0003",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "km-0013",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0007",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0010",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0006",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0005",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0015",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0004",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0007",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0016",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0015",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0007",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0009",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0011",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0005",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0010",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0011",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0006",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0011",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0015",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0010",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0008",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "gh-0012",
+          "prediction": "out_of_scope",
+          "key": "underdetermined"
+        },
+        {
+          "id": "hm-0013",
+          "prediction": "out_of_scope",
+          "key": "underdetermined"
+        },
+        {
+          "id": "wl-0005",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0002",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "km-0008",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0014",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0012",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0009",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "km-0006",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        }
+      ]
+    },
+    {
+      "classifier": "DecisionTreeClassifier",
+      "depth": null,
+      "features": [
+        "numeric item-ID suffix only"
+      ],
+      "train_n": 40,
+      "test_n": 96,
+      "correct": 57,
+      "predictions": [
+        {
+          "id": "kp-0015",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0002",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0012",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "gh-0016",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "gh-0007",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0013",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0011",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0004",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0003",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0002",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0002",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "gh-0006",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0007",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0014",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "wl-0015",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0004",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0004",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "t2-0005",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "km-0009",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "gh-0005",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0003",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0012",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "gh-0008",
+          "prediction": "out_of_scope",
+          "key": "underdetermined"
+        },
+        {
+          "id": "km-0004",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "t2-0006",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0009",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0016",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0016",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0003",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0014",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0013",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "km-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "t2-0002",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0006",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0007",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0016",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0013",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0011",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0012",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0012",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0010",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0014",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0014",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0004",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0008",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0010",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0009",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0002",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0014",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0003",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0013",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0016",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0008",
+          "prediction": "out_of_scope",
+          "key": "underdetermined"
+        },
+        {
+          "id": "hm-0005",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0009",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0015",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "gh-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "t2-0011",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0008",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "t2-0010",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0001",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "km-0003",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "t2-0003",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "km-0013",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0007",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0010",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0006",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0005",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0015",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0004",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "wl-0007",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0016",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0015",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0007",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0009",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0011",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "km-0005",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "hm-0010",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "kp-0011",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0006",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "wl-0011",
+          "prediction": "applies",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0015",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0010",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "hm-0008",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "gh-0012",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "hm-0013",
+          "prediction": "applies",
+          "key": "underdetermined"
+        },
+        {
+          "id": "wl-0005",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0002",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "km-0008",
+          "prediction": "out_of_scope",
+          "key": "out_of_scope"
+        },
+        {
+          "id": "t2-0014",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "kp-0012",
+          "prediction": "applies",
+          "key": "applies"
+        },
+        {
+          "id": "gh-0009",
+          "prediction": "out_of_scope",
+          "key": "applies"
+        },
+        {
+          "id": "km-0006",
+          "prediction": "applies",
+          "key": "applies"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n": 136,
+    "families": {
+      "turing_finite_domain": 24,
+      "fisher_kpp_speed": 16,
+      "kimura_regime": 16,
+      "hamilton_rule_form": 16,
+      "greenhill_buckling": 16,
+      "turing_2d_rectangle": 16,
+      "hawk_dove_ess": 16,
+      "wavelength_formula_licence": 16
+    },
+    "recomputed_labels_matching": 136,
+    "exclusion_reasons_matching": 25,
+    "exclusion_entries": 25
+  },
+  "freeze_approved": false,
+  "limitations": [
+    "Generators and key read before coding; not blinded and no independent NLP score.",
+    "Conditional numerical calculations are not machine-checked proofs or observed biology.",
+    "KPP front profiles checked algebraically; minimal-speed selection uses known theory and is not proved here.",
+    "Greenhill missing-input policy followed as declared; gravity assumed 9.81 as generator does.",
+    "Text contract checks verify visible definitions and byte agreement, not full semantic parsing.",
+    "ID leakage models are diagnostic checks, not preregistered performance claims.",
+    "No external Delphi source identity/version binding verified by this script."
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "source_sha256": "a5d38f136fb214367203dfe5974155ab894dbf3a861412c084d39c389cf8fd0a",
+  "recorded_at": "2026-10-31T07:04:46.587546-07:00",
+  "original": {
+    "command": [
+      "/home/ubuntu/.elan/bin/lake",
+      "env",
+      "lean",
+      "-j2",
+      "/data/worktrees/delphi-evolve/codex-api/experiments/price_probe/Price.lean"
+    ],
+    "exit": 0,
+    "wall_seconds": 13.155,
+    "output": "'DelphiPrice.hamilton_regression' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DelphiPrice.population_price' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DelphiPrice.price' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DelphiPrice.selection_only' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DelphiPrice.fitness_selection' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+  },
+  "mutants": [
+    {
+      "command": [
+        "/home/ubuntu/.elan/bin/lake",
+        "env",
+        "lean",
+        "-j2",
+        "/tmp/delphi-price-jv528j95/transmission_sign_reversed.lean"
+      ],
+      "exit": 1,
+      "wall_seconds": 11.018,
+      "output": "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n/tmp/delphi-price-jv528j95/transmission_sign_reversed.lean:22:61: error: unsolved goals\n\u03b9 : Type u_1\ninst\u271d : Fintype \u03b9\np w z zDesc : \u03b9 \u2192 \u211d\nhw : mean p w \u2260 0\nhsplit : (mean p fun i => w i * (zDesc i - z i)) = (mean p fun i => w i * zDesc i) - mean p fun i => w i * z i\n\u22a2 (mean p fun i => w i * zDesc i) - mean p w * mean p z =\n    (-mean p fun i => w i * zDesc i) - mean p w * mean p z + (mean p fun i => w i * z i) * 2\n/tmp/delphi-price-jv528j95/transmission_sign_reversed.lean:36:2: error: Type mismatch: After simplification, term\n  h\n has type\n  (\u2211 i, p i * w i) * (descendantMean p w z - \u2211 i, p i * z i) = cov p w z - 0\nbut is expected to have type\n  (\u2211 i, p i * w i) * (descendantMean p w z - \u2211 i, p i * z i) = cov p w z\n/tmp/delphi-price-jv528j95/transmission_sign_reversed.lean:58:2: error: Type mismatch\n  price P.p P.w z zDesc (ne_of_gt P.mean_w_pos)\nhas type\n  mean P.p P.w * (descendantMean P.p P.w zDesc - mean P.p z) = cov P.p P.w z - mean P.p fun i => P.w i * (zDesc i - z i)\nbut is expected to have type\n  mean P.p P.w * (descendantMean P.p P.w zDesc - mean P.p z) = cov P.p P.w z + mean P.p fun i => P.w i * (zDesc i - z i)\n'DelphiPrice.hamilton_regression' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n'DelphiPrice.population_price' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n'DelphiPrice.price' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n'DelphiPrice.selection_only' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n'DelphiPrice.fitness_selection' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+      "name": "transmission_sign_reversed",
+      "sha256": "e0e3b33de5d4d7f173deff7950eed6c15f7e991e4697edf92ba8bb7917cf7468",
+      "rejected": true
+    },
+    {
+      "command": [
+        "/home/ubuntu/.elan/bin/lake",
+        "env",
+        "lean",
+        "-j2",
+        "/tmp/delphi-price-jv528j95/hamilton_cost_sign_reversed.lean"
+      ],
+      "exit": 1,
+      "wall_seconds": 9.248,
+      "output": "/tmp/delphi-price-jv528j95/hamilton_cost_sign_reversed.lean:112:2: error: 'change' tactic failed, pattern\n  0 < descendantMean p w z - mean p z \u2194 0 < r * b - c\nis not definitionally equal to target\n  0 < descendantMean p (fun i => alpha + -c * z i + b * partner i + residual i) z - mean p z \u2194 0 < r * b + c\n'DelphiPrice.hamilton_regression' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n'DelphiPrice.population_price' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DelphiPrice.price' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DelphiPrice.selection_only' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DelphiPrice.fitness_selection' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "name": "hamilton_cost_sign_reversed",
+      "sha256": "b5441f30597011f7aa5e0ea7b459d8dd97f6e4e5dc8e89f259a4ac1367e61d48",
+      "rejected": true
+    }
+  ],
+  "scope": "Finite weighted identity and conditional statistical regression corollary; feasibility, not blinded benchmark or biological validation.",
+  "witness_controls": {
+    "command": [
+      "/home/ubuntu/.elan/bin/lake",
+      "env",
+      "lean",
+      "-j2",
+      "/tmp/delphi-price-witness-e_qt3hk_/WitnessControls.lean"
+    ],
+    "exit": 0,
+    "wall_seconds": 13.088,
+    "output": "'DelphiPrice.hamilton_regression' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DelphiPrice.population_price' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DelphiPrice.price' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DelphiPrice.selection_only' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DelphiPrice.fitness_selection' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DelphiPriceWitnesses.transmission_is_needed' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DelphiPriceWitnesses.regression_premises_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DelphiPriceWitnesses.reversed_cost_is_false' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DelphiPriceWitnesses.residual_assumption_is_needed' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+  },
+  "witness_source_sha256": "7e29341d65ea9968d192c7c0ead754984126ad288926eb547ca228c3d43d1715",
+  "forbidden_declarations": [],
+  "limitations": [
+    "No additive-genetic Fisher FTNS projection proved.",
+    "Regression corollary assumes orthogonal residual and positive focal variance and mean fitness; it does not establish causal benefit/cost.",
+    "Population interpretation requires normalized nonnegative weights; general algebra theorems allow broader inputs.",
+    "Author implemented and tested feasibility; not an independent statement-fidelity review.",
+    "Price/Hamilton relation is established mathematics; machine-checking priority not established."
+  ]
+}
