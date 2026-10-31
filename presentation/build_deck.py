@@ -180,7 +180,7 @@ def heatmap_png_b64(score: np.ndarray, unknown: np.ndarray) -> str:
     s = score.reshape(400, 400)
     known = ~unknown.reshape(400, 400)
     lo, hi = np.percentile(s[known], [1, 99.7])
-    u = np.clip((s - lo) / (hi - lo), 0, 1)
+    u = np.clip((s - lo) / (hi - lo), 0, 1) ** 0.8  # gamma only to make the low-growth gradation visible; monotone
     stops = np.array([[240, 234, 214], [236, 168, 112], [217, 72, 15], [74, 26, 5]], float)
     pos = np.array([0, .35, .7, 1.0])
     img = np.zeros((400, 400, 3))
@@ -333,11 +333,11 @@ def build_slides(D: dict, R: dict | None, draft_reasons: list[str], prov: dict) 
    <p class="small" style="margin:4px 8px 8px"><span class="sw" style="border-color:#15202b;border-top-style:dashed"></span>the most tempting direct ordering {" → ".join(tempt["nodes"])}<br><span class="sw" style="border-color:#d9480f"></span>the {len(cert["nodes"]) - 1}-step detour whose every step is certified (band = assumed κ=2 interval)</p></div>
  </div>
 </div>
-{fn(f'<b>Source</b> Johnston et al., PNAS 2024, doi 10.1073/pnas.2400439121; data CaltechDATA {E(src["doi"])} (CC0), {sha}', f'orderings recounted from site/data/landscape.js, cross-checked with artifacts/evidence/route_summary.json', commit)}"""
+{fn(f'<b>Source</b> Johnston et al., PNAS 2024, doi 10.1073/pnas.2400439121; data CaltechDATA {E(src["doi"])} (CC0), {sha}', f'descriptive full-label figure: orderings recounted from site/data/landscape.js, cross-checked with artifacts/evidence/route_summary.json', commit)}"""
     n1 = (f"A protein design is not a plan. Which mutation do you make first, and what evidence says the next step still works? "
-          f"This is the TrpB enzyme. The parent is VFVS, the best measured variant is AIKG, four changes apart. There are {n_ord} orders to make them in. "
-          f"Taking the measurements at face value, {'every one of them steps down at least once' if n_ok == 0 else str(n_ok) + ' of them never step down'}. The dashed ordering is the most tempting one; it still falls. "
-          f"The orange detour is {len(cert['nodes']) - 1} steps, and every step is certified under an assumption we state.")
+          f"TrpB enzyme: parent VFVS, best measured variant AIKG, four changes apart, {n_ord} possible orders. "
+          f"Taking the measurements at face value, {'every one of them steps down at least once' if n_ok == 0 else str(n_ok) + ' of them never step down'}. "
+          f"The orange detour is {len(cert['nodes']) - 1} steps and every step is certified under an assumption we state.")
 
     # ---- S2
     png = heatmap_png_b64(D["score"], D["unknown"])
@@ -365,7 +365,7 @@ def build_slides(D: dict, R: dict | None, draft_reasons: list[str], prov: dict) 
    <tr><td>measured, no stop</td><td>{cnt['measured_nonstop_genotypes']:,}</td></tr>
    <tr><td>imputed in the authors’ separate file</td><td>{cnt['knn_imputed_rows_separate_file']}</td></tr>
    <tr><td>imputed rows used as observations here</td><td><b>{cnt['imputed_rows_used_as_observations']}</b></td></tr></table>
-  <p class="small" style="margin:12px 0 10px">Colour = measured growth score (cream low → deep orange high). The 871 unmeasured cells are violet and too small to see: each is a place a route could pass that we have no data for.</p>
+  <p class="small" style="margin:12px 0 10px">Colour = measured growth score, monotone gamma-stretched so low values are visible (cream low → deep orange high). The 871 unmeasured cells are violet and too small to see: each is a place a route could pass that we have no data for.</p>
   <div class="scope"><b>Reads as:</b> cellular growth of E. coli selecting for tryptophan synthase activity — a proxy, not a purified-enzyme constant. Layout: rows = residues 1×2, columns = residues 3×4. A projection of sequence space, not molecular geometry.</div>
  </div>
 </div>
@@ -383,15 +383,15 @@ def build_slides(D: dict, R: dict | None, draft_reasons: list[str], prov: dict) 
  <div class="col" style="flex:.9">
   <div class="card"><h3 style="text-transform:none;letter-spacing:0;font-size:15px">The weakest step of the κ={k2['kappa']:g} route</h3>
    <p class="small" style="margin:0 0 6px"><span class="mono">{E(wk['from'])} → {E(wk['to'])}</span> clears the bar by only <b>{wk['margin']:.4f}</b> growth units; the route is certifiable up to κ≈<b>{cert['breaks_at_kappa']}</b> and must be re-planned beyond.</p>
-   <p class="small" style="margin:0">Click a step in the live tool and the raw replicate rows and read counts for that variant appear.</p></div>
+   <p class="small" style="margin:0">Variants reachable from VFVS by certified steps: <b>{k0['reachable_from_start']}</b> at κ=0 → <b>{k2['reachable_from_start']}</b> at κ=2 → <b>{kmap[first_closed]['reachable_from_start']}</b> at κ={first_closed:g}. In the live tool, clicking a step shows its raw replicate rows.</p></div>
   <div class="scope" style="margin-top:14px"><b>Precisely:</b> at κ={first_closed:g} the tool says “no route certifiable at this bound” ({kmap[first_closed]['reachable_from_start']} variants reachable by certified steps). That does <i>not</i> mean no ascending route exists: overlapping intervals are simply not certified. κ={last_open:g} is the last bound in the sweep with a certified route.</div>
   <p class="small" style="margin:12px 0 0">When the evidence cannot settle a step, the system’s output is the next assay to run — not a confidence number it cannot support.</p>
  </div>
 </div>
-{fn('<b>Source</b> artifacts/demo.json kappa_sweep (core worker; frozen noise model artifacts/core/protocol.json), independently recomputed at all 8 κ by scripts/independent_truth.py', 'graph scope: measured 4-site subgraph, 871 unmeasured genotypes outside', commit)}"""
-    n3 = (f"Now challenge the assumption. The slider is how distrustful we are of each measurement. At zero, the shortest route has {k0['shortest_route_edges']} steps; at the default, {k2['shortest_route_edges']}; at three, {k3['shortest_route_edges']}. "
-          f"By kappa {first_closed:g} no route can be certified. That is not a claim that none exists, only that this evidence cannot certify one at this bound. "
-          f"The weakest step, {wk['from']} to {wk['to']}, clears by {wk['margin']:.4f}. Click it and you see the raw rows. That is where the system asks for a measurement.")
+{fn('<b>Source</b> artifacts/demo.json kappa_sweep (core worker; frozen noise model artifacts/core/protocol.json), independently recomputed at all 8 κ by scripts/independent_truth.py', 'descriptive, uses all measured labels (not a replay result); graph scope: measured 4-site subgraph, 871 unmeasured genotypes outside', commit)}"""
+    n3 = (f"Now challenge the assumption. kappa is how much we distrust each measurement. At zero the shortest route has {k0['shortest_route_edges']} steps; at the default, {k2['shortest_route_edges']}; at three, {k3['shortest_route_edges']}. "
+          f"By kappa {first_closed:g} no route can be certified. That does not mean none exists, only that this evidence cannot certify one at this bound. "
+          f"The weakest step, {wk['from']} to {wk['to']}, clears by {wk['margin']:.4f}; that is where the tool would ask for a measurement.")
 
     # ---- S4
     if R is None:
@@ -407,10 +407,10 @@ def build_slides(D: dict, R: dict | None, draft_reasons: list[str], prov: dict) 
         B = 1000
         rate = lambda p: float(T[("all", p, B)]["cert_rate"])
         best_single = max(("directed", "q2c", "uncertainty", "greedy", "random"), key=rate)
-        wq, mq, lq, hq = verdict(P[("q2c", "random", "all", B, "cert_rate_diff")]) if ("q2c", "random", "all", B, "cert_rate_diff") in P else ("?", 0, 0, 0)
-        wc, mc, lc, hc = verdict(P[("collective_shared", "q2c", "all", B, "cert_rate_diff")])
-        wi, mi, li, hi_ = verdict(P[("collective_shared", "collective_isolated", "all", B, "cert_rate_diff")])
-        wd, md, ld, hd = verdict(P[("directed", "random", "all", B, "cert_rate_diff")])
+        need = ("collective_shared", "q2c", "all", B, "cert_rate_diff")
+        if need not in P:
+            raise SystemExit(f"table_paired.csv lacks {need}; cannot state specialists vs single policy")
+        wc, mc, lc, hc = verdict(P[need])
         nep = R["n_ep"]
         false_tot = sum(int(T[("all", p, B)]["false_certificates"]) for p in pols)
         cert_tot = sum(int(T[("all", p, B)]["certified"]) for p in pols)
