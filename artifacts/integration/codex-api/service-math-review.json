@@ -1,0 +1,527 @@
+{
+  "review": "Codex independent bounded service-math execution",
+  "source_commit": "05be25f0d8b478bb1fd40f52cdecb888c85a8bab",
+  "recorded_at": "2026-10-31T06:57:09.275722-07:00",
+  "source_hashes": {
+    "falsify/engine.py": "6704bdfe4f2665a4fae13c64b77063414977a436696d8dea3b519a1c428446ab",
+    "falsify/presets.py": "02636e1c336b983eca03068ab3160975d2521d2b47570a4b15bf15f1e1208c3f"
+  },
+  "two_dimensional_cases": [
+    {
+      "boundary": "neumann",
+      "lengths": [
+        "1",
+        "1"
+      ],
+      "physical": false,
+      "unstable_canonical_indices": 0,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "neumann",
+      "lengths": [
+        "6283185307179586476925286766559/2000000000000000000000000000000",
+        "6283185307179586476925286766559/2000000000000000000000000000000"
+      ],
+      "physical": true,
+      "unstable_canonical_indices": 0,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "neumann",
+      "lengths": [
+        "2",
+        "2"
+      ],
+      "physical": false,
+      "unstable_canonical_indices": 2,
+      "ambiguous": 0,
+      "marginal": 1,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "neumann",
+      "lengths": [
+        "6283185307179586476925286766559/1000000000000000000000000000000",
+        "6283185307179586476925286766559/1000000000000000000000000000000"
+      ],
+      "physical": true,
+      "unstable_canonical_indices": 2,
+      "ambiguous": 1,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "neumann",
+      "lengths": [
+        "5/2",
+        "3"
+      ],
+      "physical": false,
+      "unstable_canonical_indices": 2,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "neumann",
+      "lengths": [
+        "6283185307179586476925286766559/800000000000000000000000000000",
+        "18849555921538759430775860299677/2000000000000000000000000000000"
+      ],
+      "physical": true,
+      "unstable_canonical_indices": 2,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "neumann",
+      "lengths": [
+        "4",
+        "7/2"
+      ],
+      "physical": false,
+      "unstable_canonical_indices": 4,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "neumann",
+      "lengths": [
+        "6283185307179586476925286766559/500000000000000000000000000000",
+        "43982297150257105338477007365913/4000000000000000000000000000000"
+      ],
+      "physical": true,
+      "unstable_canonical_indices": 4,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "dirichlet",
+      "lengths": [
+        "1",
+        "1"
+      ],
+      "physical": false,
+      "unstable_canonical_indices": 0,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "dirichlet",
+      "lengths": [
+        "6283185307179586476925286766559/2000000000000000000000000000000",
+        "6283185307179586476925286766559/2000000000000000000000000000000"
+      ],
+      "physical": true,
+      "unstable_canonical_indices": 0,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "dirichlet",
+      "lengths": [
+        "2",
+        "2"
+      ],
+      "physical": false,
+      "unstable_canonical_indices": 0,
+      "ambiguous": 0,
+      "marginal": 1,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "dirichlet",
+      "lengths": [
+        "6283185307179586476925286766559/1000000000000000000000000000000",
+        "6283185307179586476925286766559/1000000000000000000000000000000"
+      ],
+      "physical": true,
+      "unstable_canonical_indices": 0,
+      "ambiguous": 1,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "dirichlet",
+      "lengths": [
+        "5/2",
+        "3"
+      ],
+      "physical": false,
+      "unstable_canonical_indices": 1,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "dirichlet",
+      "lengths": [
+        "6283185307179586476925286766559/800000000000000000000000000000",
+        "18849555921538759430775860299677/2000000000000000000000000000000"
+      ],
+      "physical": true,
+      "unstable_canonical_indices": 1,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "dirichlet",
+      "lengths": [
+        "4",
+        "7/2"
+      ],
+      "physical": false,
+      "unstable_canonical_indices": 2,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "dirichlet",
+      "lengths": [
+        "6283185307179586476925286766559/500000000000000000000000000000",
+        "43982297150257105338477007365913/4000000000000000000000000000000"
+      ],
+      "physical": true,
+      "unstable_canonical_indices": 2,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "periodic",
+      "lengths": [
+        "1",
+        "1"
+      ],
+      "physical": false,
+      "unstable_canonical_indices": 0,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "periodic",
+      "lengths": [
+        "6283185307179586476925286766559/2000000000000000000000000000000",
+        "6283185307179586476925286766559/2000000000000000000000000000000"
+      ],
+      "physical": true,
+      "unstable_canonical_indices": 0,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "periodic",
+      "lengths": [
+        "2",
+        "2"
+      ],
+      "physical": false,
+      "unstable_canonical_indices": 0,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "periodic",
+      "lengths": [
+        "6283185307179586476925286766559/1000000000000000000000000000000",
+        "6283185307179586476925286766559/1000000000000000000000000000000"
+      ],
+      "physical": true,
+      "unstable_canonical_indices": 0,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "periodic",
+      "lengths": [
+        "5/2",
+        "3"
+      ],
+      "physical": false,
+      "unstable_canonical_indices": 1,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "periodic",
+      "lengths": [
+        "6283185307179586476925286766559/800000000000000000000000000000",
+        "18849555921538759430775860299677/2000000000000000000000000000000"
+      ],
+      "physical": true,
+      "unstable_canonical_indices": 1,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "periodic",
+      "lengths": [
+        "4",
+        "7/2"
+      ],
+      "physical": false,
+      "unstable_canonical_indices": 2,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    },
+    {
+      "boundary": "periodic",
+      "lengths": [
+        "6283185307179586476925286766559/500000000000000000000000000000",
+        "43982297150257105338477007365913/4000000000000000000000000000000"
+      ],
+      "physical": true,
+      "unstable_canonical_indices": 2,
+      "ambiguous": 0,
+      "marginal": 0,
+      "independent_exact_reference_agrees": true
+    }
+  ],
+  "determinant_interval_sample_checks": 80,
+  "diffusion_ratio_checks": [
+    {
+      "J": [
+        [
+          "1",
+          "-2"
+        ],
+        [
+          "2",
+          "-3"
+        ]
+      ],
+      "ratio": "1",
+      "continuum_band": false
+    },
+    {
+      "J": [
+        [
+          "1",
+          "-2"
+        ],
+        [
+          "2",
+          "-3"
+        ]
+      ],
+      "ratio": "11/10",
+      "continuum_band": false
+    },
+    {
+      "J": [
+        [
+          "1",
+          "-2"
+        ],
+        [
+          "2",
+          "-3"
+        ]
+      ],
+      "ratio": "2",
+      "continuum_band": false
+    },
+    {
+      "J": [
+        [
+          "1",
+          "-2"
+        ],
+        [
+          "2",
+          "-3"
+        ]
+      ],
+      "ratio": "10",
+      "continuum_band": true
+    },
+    {
+      "J": [
+        [
+          "1",
+          "-2"
+        ],
+        [
+          "2",
+          "-3"
+        ]
+      ],
+      "ratio": "20",
+      "continuum_band": true
+    },
+    {
+      "J": [
+        [
+          "1",
+          "-1"
+        ],
+        [
+          "1011/1000",
+          "-101/100"
+        ]
+      ],
+      "ratio": "1",
+      "continuum_band": false
+    },
+    {
+      "J": [
+        [
+          "1",
+          "-1"
+        ],
+        [
+          "1011/1000",
+          "-101/100"
+        ]
+      ],
+      "ratio": "11/10",
+      "continuum_band": true
+    },
+    {
+      "J": [
+        [
+          "1",
+          "-1"
+        ],
+        [
+          "1011/1000",
+          "-101/100"
+        ]
+      ],
+      "ratio": "2",
+      "continuum_band": true
+    },
+    {
+      "J": [
+        [
+          "1",
+          "-1"
+        ],
+        [
+          "1011/1000",
+          "-101/100"
+        ]
+      ],
+      "ratio": "10",
+      "continuum_band": true
+    },
+    {
+      "J": [
+        [
+          "1",
+          "-1"
+        ],
+        [
+          "1011/1000",
+          "-101/100"
+        ]
+      ],
+      "ratio": "20",
+      "continuum_band": true
+    },
+    {
+      "J": [
+        [
+          "-3",
+          "2"
+        ],
+        [
+          "-2",
+          "1"
+        ]
+      ],
+      "ratio": "1",
+      "continuum_band": false
+    },
+    {
+      "J": [
+        [
+          "-3",
+          "2"
+        ],
+        [
+          "-2",
+          "1"
+        ]
+      ],
+      "ratio": "11/10",
+      "continuum_band": false
+    },
+    {
+      "J": [
+        [
+          "-3",
+          "2"
+        ],
+        [
+          "-2",
+          "1"
+        ]
+      ],
+      "ratio": "2",
+      "continuum_band": false
+    },
+    {
+      "J": [
+        [
+          "-3",
+          "2"
+        ],
+        [
+          "-2",
+          "1"
+        ]
+      ],
+      "ratio": "10",
+      "continuum_band": true
+    },
+    {
+      "J": [
+        [
+          "-3",
+          "2"
+        ],
+        [
+          "-2",
+          "1"
+        ]
+      ],
+      "ratio": "20",
+      "continuum_band": true
+    }
+  ],
+  "findings": [
+    "No decided 2D enumeration mismatch in 24 fixed cases (3 boundaries, 4 rectangles, exact/physical lengths).",
+    "No sampled interval-sign contradiction in 80 cases; convex-quadratic endpoint/vertex argument separately read in source.",
+    "Diffusion ratio formula and supplied-condition test agreed in 15 fixed checks, including ratio1.1 and swapped activator.",
+    "Periodic unstable_count counts canonical nonnegative index tuples, not Fourier eigenspace multiplicity; document this.",
+    "MCP schema still promises complete returned list despite detail cap50; source-only wording issue.",
+    "Protein reading says excess MUST come from binding/hindrance/dimerization; those are examples, not an exhaustive established cause."
+  ],
+  "limitations": [
+    "Finite mathematical checks, no nonlinear or biological validation.",
+    "No service HTTP/privacy/rate-limit penetration test.",
+    "No fresh Lean compile in this script.",
+    "Physical pi reference is a longer declared rational approximation; tests are not a proof of the pi bracket.",
+    "Counted canonical wave-number indices, not eigenvalue multiplicities."
+  ]
+}

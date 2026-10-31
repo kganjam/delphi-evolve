@@ -1,9 +1,9 @@
 {
   "role": "codex-api",
   "status": "active",
-  "updated_at": "2026-10-31T06:55:30.772892-07:00",
+  "updated_at": "2026-10-31T06:57:53.805712-07:00",
   "branch": "work/codex-api",
-  "commit": "19fae04 (last pushed increment); ledger commit recorded in git history",
+  "commit": "9eb5a24 (last pushed increment); service/scorecard audit commit recorded in git history",
   "goal": "Native persistent goal active: scientific review, evaluation, integration, honest demo/pitch/site/blog/video with existing workers.",
   "checklist": [
     {
@@ -53,6 +53,22 @@
       "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 artifacts/integration/codex-api/index_claim_evidence.py",
       "exit": 0,
       "result": "15 claims indexed at exact revisions; independently recounted 78/100,78/100,96/100 baseline outcomes, 24 distinct endpoint pairs each"
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 artifacts/integration/codex-api/review_service_math.py /data/artifacts/delphi-evolve-rethink/codex-api/review-snapshots/05be25f0d8b478bb1fd40f52cdecb888c85a8bab --output artifacts/integration/codex-api/service-math-review.json",
+      "exit": 0,
+      "result": "24 two-dimensional cases,80 determinant interval samples,15 diffusion cases; no mismatches"
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /home/ubuntu/miniconda3/bin/python3 -m pytest tests/test_falsify.py::test_hostile_numbers_refused_not_raised tests/test_falsify.py::test_malformed_model_refused_not_raised -q",
+      "cwd": "immutable collab05be25f review snapshot",
+      "exit": 0,
+      "result": "23 passed in0.37s"
+    },
+    {
+      "command": "Internal tmux notification of ledger to host%47",
+      "exit": 143,
+      "result": "send client hung with not in a mode; stopped only own Python/send client, saved durable codex-claim-ledger-ready.md notice; later notification succeeded"
     }
   ],
   "artifacts": [
@@ -65,10 +81,13 @@
     "artifacts/integration/codex-api/benchmark-semantic-audit.json",
     "planning/rethink/CLAIM-LEDGER.md",
     "artifacts/integration/codex-api/index_claim_evidence.py",
-    "artifacts/integration/codex-api/claim-evidence-index.json"
+    "artifacts/integration/codex-api/claim-evidence-index.json",
+    "planning/rethink/CODEX-SCORECARD-REVIEW.md",
+    "artifacts/integration/codex-api/review_service_math.py",
+    "artifacts/integration/codex-api/service-math-review.json"
   ],
   "limitations": [
-    "No new service tests run by this reporter yet.",
+    "No fresh Lean compile in this reporter yet; inherited Lean receipts explicitly attributed.",
     "API provider usage is not actual billing; remaining dollars unknown.",
     "No deployment/submission/external reuse receipt."
   ],
