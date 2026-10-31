@@ -96,7 +96,7 @@ def _ic(rng_seed, Ks, dim, bc, Ls, Ns, eps):
     return out
 
 
-def _run(model, p, gamma, Dv, dim, bc, Ls, Ns, Ks, T, dt, seed, checkpoint_frac=0.9):
+def _run(model, p, gamma, Dv, dim, bc, Ls, Ns, Ks, T, dt, seed, checkpoint_frac=0.9, ic=None):
     ust, vst = (float(z) for z in kinetics.steady(model, p))
     du, dv = [float(x) for x in (F(1) / gamma, Dv / gamma)]
     lam = None
@@ -105,7 +105,7 @@ def _run(model, p, gamma, Dv, dim, bc, Ls, Ns, Ks, T, dt, seed, checkpoint_frac=
     else:
         q = _eigs(Ns[0], Ls[0], bc)[:, None] + _eigs(Ns[1], Ls[1], bc)[None, :]
     mu, mv = np.exp(-du * q * dt / 2), np.exp(-dv * q * dt / 2)
-    pu, pv = _ic(seed, Ks, dim, bc, Ls, Ns, EPS)
+    pu, pv = ic if ic is not None else _ic(seed, Ks, dim, bc, Ls, Ns, EPS)   # ic: optional explicit perturbation arrays (sweep)
     u, v = ust + pu, vst + pv
     axes = tuple(range(dim))
 
