@@ -1,10 +1,10 @@
 {
   "role": "codex-api",
-  "status": "Director follow-up complete: all19 frozen integer targets and current PREREG reviewed for slide wording; numerical results await committed repaired replay; latest127-item freeze metadata passes14/14 and retained rows are unchanged",
-  "updated_at": "2026-10-31T07:54:50.077508-07:00",
+  "status": "Targeted Frontier extension complete: sourced landscape and architecture; independent scorecard-v0 review; validated 21-record map and eight-tool local MCP pilot; six real seed issues. Production service and autonomous action layer remain proposed.",
+  "updated_at": "2026-10-31T08:21:25.199421-07:00",
   "branch": "work/codex-api",
-  "commit": "4f2fc45c67c39c122380d69a3868398f266680c9",
-  "goal": "Broader native goal remains paused. Completed the specifically assigned Lean pre-run review and user-requested open-problem/active-knowledge pitch proposal; director retains run/integration authority.",
+  "commit": "51651775808a86e384da10a259f8eb7168e5abc9",
+  "goal": "Broader native goal remains paused. Completed the user-directed Frontier research, map, MCP pilot, seed questions and critic scorecard review. Director retains integration and primary retains native Sites publication.",
   "checklist": [
     {
       "item": "Read complete handoff and governing files; establish persistent goal; notify coordinators",
@@ -108,6 +108,34 @@
     },
     {
       "item": "Verify latest127-item critic freeze metadata and retained-row identity against the reviewed128-item candidate",
+      "done": true
+    },
+    {
+      "item": "Verify original Delphi repo read/comment access and post authorized coordination request on issue35",
+      "done": true
+    },
+    {
+      "item": "Map Mycelium, Google agent economies, SciDEX, ASK, MorphoSwarm, OpenResearch, BioNeMo and community precedents with primary-source limits",
+      "done": true
+    },
+    {
+      "item": "Independently audit all21 scorecard record hashes/copies/counts and review category fidelity",
+      "done": true
+    },
+    {
+      "item": "Build and inspect desktop/mobile Frontier map with Prove to me and real seeded questions",
+      "done": true
+    },
+    {
+      "item": "Exercise eight-tool local read-only MCP pilot through actual SDK client, including stale-version and invalid-input controls",
+      "done": true
+    },
+    {
+      "item": "Create and read back six scoped problem issues in private Delphi Frontier with explicit participation signals",
+      "done": true
+    },
+    {
+      "item": "Specify scalable data/search, verification, agent-resource offers, caching and attention mechanisms with implemented/proposed boundaries",
       "done": true
     }
   ],
@@ -344,6 +372,36 @@
       "command": "tmux literal follow-up to existing guilds %59 and director %51",
       "exit": 0,
       "result": "Flagged current uncommitted publication patch: helpers added before replay then duplicated in candidate closure; requested validate-before-publish. No acknowledgement claimed."
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 scripts/build_frontier_review_map.py; later --check (separate invocations)",
+      "exit": 0,
+      "result": "21 record hashes and84 copied fields pass; 6 benchmark-linked,1 related lemma,2 empirical/framework,12 unchecked."
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 scripts/check_frontier_interfaces.py (initial version; rerun once after user-requested seed/interest additions)",
+      "exit": 0,
+      "result": "Final8 protocol checks pass with8 tools; desktop/mobile all21 claims,7 seed cards,6 coordination links and keyboard selection; no errors or horizontal overflow. Screenshots inspected."
+    },
+    {
+      "command": "gh api repos/fractastical/delphi; gh issue comment35 --body-file; readback of comment6545154966",
+      "exit": 0,
+      "result": "Original repo read/comment access confirmed; no push permission. Authorized coordination request posted; no response observed yet."
+    },
+    {
+      "command": "gh issue create --repo kganjam/delphi-frontier --body-file (six separate issues); gh issue list readback",
+      "exit": 0,
+      "result": "Private repo issues1-6 created forF001-F006; no adoption/votes/funding inferred."
+    },
+    {
+      "command": "gh api repos/facebookresearch/atlas-lean/contents/MathlibExt/Biology/PopulationGenetics/Selection.lean and path commits",
+      "exit": 0,
+      "result": "Source inspection confirms price and meanFitness_select_sub at885e9b9; no upstream compilation reproduced."
+    },
+    {
+      "command": "git diff --cached --check; inspect staged implementation; git commit",
+      "exit": 0,
+      "result": "Implementation commit51651775808a86e384da10a259f8eb7168e5abc9."
     }
   ],
   "artifacts": [
@@ -401,7 +459,18 @@
     "planning/rethink/CODEX-LEAN19-SLIDE-AND-FREEZE-DECISION.md",
     "artifacts/integration/codex-api/lean19-slide-review-state.json",
     "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json",
-    "artifacts/integration/codex-api/bench-v1-2-frozen127-delta.json"
+    "artifacts/integration/codex-api/bench-v1-2-frozen127-delta.json",
+    "planning/rethink/CODEX-SCORECARD-V0-REVIEW.md",
+    "planning/rethink/FRONTIER-LANDSCAPE-AND-BUILD-PLAN.md",
+    "planning/rethink/FRONTIER-MCP-AND-DATA-CONTRACT.md",
+    "planning/rethink/FRONTIER-SEED-AND-ATTENTION-POLICY.md",
+    "site/review/frontier.html",
+    "site/review/frontier-data.json",
+    "site/review/frontier-problems.json",
+    "experiments/frontier_mcp/README.md",
+    "experiments/frontier_mcp/server.py",
+    "artifacts/integration/codex-api/scorecard-v0-record-audit.json",
+    "artifacts/integration/codex-api/frontier-interfaces/receipt.json"
   ],
   "limitations": [
     "Fresh Price/Hamilton Lean compile and witness controls exit0 with standard axioms; no additive-genetic Fisher FTNS or independent biological correspondence review.",
@@ -419,7 +488,11 @@
     "Active-frontier design is a product proposal, not a deployed federation or proof of collective advantage; SciDEX/ASK already describe adjacent architecture.",
     "v1.2 rev3 approval covers requested metadata/text gate plus22 exact Turing-1D labels, not a new blinded128-item audit or permission to run Lean arms. Source README still needs bookkeeping corrections.",
     "Delphi Frontier is private; five collaborators are invited, not yet confirmed accepted. No code migration, deployment or external adoption claimed.",
-    "Current19-target statements are unchanged but checker repairs are still uncommitted at inspection; no numerical slide result is approved. The127-item gate is metadata/text only; prior retained-row checks apply by identity."
+    "Current19-target statements are unchanged but checker repairs are still uncommitted at inspection; no numerical slide result is approved. The127-item gate is metadata/text only; prior retained-row checks apply by identity.",
+    "Frontier production Postgres/object-store/hybrid search, hosted MCP, authenticated writes, reservations, voting markets and federation are designs, not deployed services.",
+    "MCP pilot is local/read-only; drafts are unsigned/unsubmitted, resource and identity assertions unverified; no external reuse claim.",
+    "Seed issues are project gaps; map colors show review coverage, not truth or field-wide unknowns. Source-to-paper faithfulness remains unreviewed.",
+    "No new GPU/prover/model-evaluation job or metered model call was launched. Primary-source reading and source inspection do not replicate other systems' results."
   ],
   "next_steps": [
     "Keep broader native goal paused; preserve completed targeted work.",
@@ -432,6 +505,10 @@
     "Director and dx-submit review ACTIVE-FRONTIER-PITCH-PROPOSAL.md as a narrative extension around the existing demonstration; show proposed actions and actual receipts with distinct statuses, preserving current file ownership.",
     "Runner owner/director freeze the independent answer-status schema, coverage/risk/utility, always-abstain/exact-checker/same-information controls and actual prompt/tool boundary for the separate Scope Desk headroom check.",
     "Critic/director append the current127-item Codex metadata/text approval and exact hashes to freeze history; do not revert to superseded131 or128 candidates.",
-    "Guilds commits repaired checker, atomic publication/accounting and clean historical replay receipts; director/Codex review exact quantitative results before slides."
+    "Guilds commits repaired checker, atomic publication/accounting and clean historical replay receipts; director/Codex review exact quantitative results before slides.",
+    "Director integrates Frontier review map from the exact pushed source SHA; dx-submit reuses/links it rather than editing site/review; primary alone publishes the existing Site after the director handoff.",
+    "Critic revises scorecard labels/counting and neutral-limit/Hamilton iff wording per CODEX-SCORECARD-V0-REVIEW.md; do not advertise5 erroneous laws or7 faithful target attempts.",
+    "Existing Delphi MCP owner reviews interoperability contract; director assigns production data/search/service owner before scaling beyond the local pilot.",
+    "Use private Frontier seed issues for explicit interest/help/resource/blocking signals; demonstrate one independently reviewed reuse before claiming a collective advantage."
   ]
 }

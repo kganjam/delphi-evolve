@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-10-31T08:19:26.155859-07:00",
+  "mcp": {
+    "sdk_version": "1.27.0",
+    "checks": [
+      "MCP initializes and lists eight read-only tools",
+      "Review-state filter and pagination preserve twelve unchecked records without overlap",
+      "No-hit search stays empty; Fisher remains target-unestablished",
+      "Unknown IDs and stale expected versions reject",
+      "Draft is deterministic and explicitly unverified/unsubmitted; stale contribution rejects",
+      "Resource offer remains unreserved and unverified; invalid capacity rejects",
+      "MCP resource exactly matches browser map data",
+      "Six open seeds and one resolved correction; interest remains unregistered, blocking signal requires a dependency"
+    ],
+    "limits": "Local SDK client only; synthetic envelopes are test fixtures, not submitted evidence or actual resource offers. No observed external reuse."
+  },
+  "browser": {
+    "desktop": {
+      "viewport": [
+        1440,
+        1080
+      ],
+      "claims_inspected": 21,
+      "seed_cards": 7,
+      "coordination_links": 6,
+      "keyboard_selection": "passed",
+      "horizontal_overflow_px": 0,
+      "errors": [],
+      "screenshot": "desktop.png"
+    },
+    "mobile": {
+      "viewport": [
+        390,
+        844
+      ],
+      "claims_inspected": 21,
+      "seed_cards": 7,
+      "coordination_links": 6,
+      "keyboard_selection": "passed",
+      "horizontal_overflow_px": 0,
+      "errors": [],
+      "screenshot": "mobile.png"
+    }
+  },
+  "source_hashes": {
+    "site/review/frontier-data.json": "045181167069bd9ab9decb4ca8be9ddb2cb6864e12f4ceb864e1527fb3fe4df2",
+    "site/review/frontier.html": "bdf899332832cbbaf17380203349adaf6a75f1e1c223cef481421ce609192d2b",
+    "site/review/frontier.css": "a9d0f01e2a5a477fe7f0453fb883e1dff9e5112eef64cbe465b58e4a28bf9d77",
+    "site/review/frontier.js": "cdb908c709aed844b47e3b28b6fbaf3403ffbb3c7bb5d3784979bd9d66d48ec1",
+    "site/review/frontier-problems.json": "3bf14a9cfafcf44b348508914f00ff932254d3825be8c2f6a809cc26cc4e12ee",
+    "experiments/frontier_mcp/server.py": "46fb1a3e3cfa21ec966942ef3b19623b20c75d2734e99d2ae9cfe6864c783892"
+  }
+}

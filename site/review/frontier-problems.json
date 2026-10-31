@@ -1,0 +1,191 @@
+{
+  "schema_version": "frontier-problems-0.1",
+  "scope": "Curated project questions drawn from existing reviews. These are not claims of newly discovered field-wide open problems.",
+  "ranking": "Curated starting order; no votes, funding or numerical value estimates have been fabricated.",
+  "problems": [
+    {
+      "id": "F001",
+      "title": "Connect the Price identity to Fisher's additive-genetic partial change",
+      "kind": "project_formalization_gap",
+      "state": "open",
+      "claim_ids": [
+        "fisher-ftns",
+        "hamilton-rule"
+      ],
+      "known": "The finite Price identity and a conditional Hamilton regression corollary have compiled. Total fitness variance is not generally additive genetic variance.",
+      "question": "Which explicit genetic projection and fixed-average-effect assumptions give a faithful Lean target for this extracted Fisher record?",
+      "acceptance": "Independent statement-fidelity review, exact target freeze, compiled projection/covariance correspondence, standard axiom audit and controls that distinguish total from additive variance.",
+      "next_action": "Specify the genetic projection and partial-change operation against primary sources before any prover run.",
+      "unlocks": [
+        "A faithful Fisher node",
+        "Scoped reuse of the Price derivation"
+      ],
+      "needs": [
+        "population-genetics source review",
+        "Lean/Mathlib expertise"
+      ],
+      "depends_on": [
+        "F004"
+      ],
+      "cache": "Reuse the existing Price proof and variance counterexample after checking exact types and assumptions.",
+      "source": "https://github.com/kganjam/delphi-evolve/blob/b4e60db91050ccaec8cd16f8f57373690c5efa7b/experiments/price_probe/README.md",
+      "coordination_url": "https://github.com/kganjam/delphi-frontier/issues/1",
+      "coordination_access": "private repository; collaborator access required"
+    },
+    {
+      "id": "F002",
+      "title": "Determine what evidence could connect molecular predictions to tissue transport",
+      "kind": "empirical_bridge_gap",
+      "state": "open",
+      "claim_ids": [
+        "turing-morphogen-hypothesis"
+      ],
+      "known": "A protein structure prediction alone does not provide binding affinity, turnover or effective tissue diffusivity.",
+      "question": "For one specified biological system, what measured and modeled quantities are needed to evaluate a transport claim?",
+      "acceptance": "A source-linked dataset with matching biological context, explicit transport/kinetic model, held-out calibration and a stated remaining uncertainty or documented insufficiency of evidence.",
+      "next_action": "Choose a matched assay and audit the measured quantities before proposing a BioNeMo computation.",
+      "unlocks": [
+        "A scientifically motivated model run",
+        "An interpretable measured-versus-predicted comparison"
+      ],
+      "needs": [
+        "transport or biophysics reviewer",
+        "matched measurements",
+        "model inference only if justified"
+      ],
+      "depends_on": [],
+      "cache": "Reuse literature/data extraction and model outputs only when biological context and version match.",
+      "source": "https://github.com/kganjam/delphi-evolve/blob/6c968101ad596ec24b76b65e2f3003a5b30e2abf/planning/rethink/CLAIM-LEDGER.md",
+      "coordination_url": "https://github.com/kganjam/delphi-frontier/issues/2",
+      "coordination_access": "private repository; collaborator access required"
+    },
+    {
+      "id": "F003",
+      "title": "Separate linear instability from the nonlinear pattern a simulation produces",
+      "kind": "project_computational_question",
+      "state": "open",
+      "claim_ids": [
+        "turing-ddi",
+        "turing-wavelength"
+      ],
+      "known": "An admissible growing linear mode and a finite-time nonlinear pattern are different observables. Solver nonconvergence must remain visible.",
+      "question": "Within a frozen kinetics/domain/initial-condition ensemble, where do linear predictions and converged nonlinear outcomes differ?",
+      "acceptance": "Preregistered observables, amplitudes, horizons and tolerances; independent linear calculation; numerical convergence checks; unresolved cases reported; no universal biological threshold claim.",
+      "next_action": "Align the existing runner's observables and convergence categories before interpreting its movies or aggregates.",
+      "unlocks": [
+        "An honest simulation explorer",
+        "Model-specific follow-up experiments"
+      ],
+      "needs": [
+        "existing PDE runner owner",
+        "numerical analysis review",
+        "bounded GPU resources only if useful"
+      ],
+      "depends_on": [],
+      "cache": "Reuse completed simulation arrays only with matching parameters, solver version and convergence receipt.",
+      "source": "https://github.com/kganjam/delphi-evolve/blob/6c968101ad596ec24b76b65e2f3003a5b30e2abf/planning/rethink/CLAIM-LEDGER.md",
+      "coordination_url": "https://github.com/kganjam/delphi-frontier/issues/3",
+      "coordination_access": "private repository; collaborator access required"
+    },
+    {
+      "id": "F004",
+      "title": "Check that extracted claims preserve their source's actual meaning",
+      "kind": "project_source_review_gap",
+      "state": "open",
+      "claim_ids": [
+        "fisher-ftns",
+        "hamilton-rule",
+        "kimura-fixation-probability"
+      ],
+      "known": "The 21-record audit checks hashes and copied fields. It does not establish faithfulness to original papers. Several records already state conditions that a short headline hides.",
+      "question": "Which source-to-record mappings preserve the mathematical object, quantifiers, units and scope?",
+      "acceptance": "Pinned source and passages, reviewed mapping of statement/math/context, explicit disagreements and versioned corrections. Citation presence alone is insufficient.",
+      "next_action": "Begin with Fisher and Hamilton, then release independent source-review shards for the remaining records.",
+      "unlocks": [
+        "Faithful formal targets",
+        "Useful challenge and correction contributions"
+      ],
+      "needs": [
+        "source access",
+        "domain readers",
+        "independent reviewers"
+      ],
+      "depends_on": [],
+      "cache": "Cache extraction and source passages with exact document/version references; retain correction history.",
+      "source": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/SCORECARD.md",
+      "coordination_url": "https://github.com/kganjam/delphi-frontier/issues/4",
+      "coordination_access": "private repository; collaborator access required"
+    },
+    {
+      "id": "F005",
+      "title": "Demonstrate one independent, useful reuse across participants",
+      "kind": "project_coordination_question",
+      "state": "open",
+      "claim_ids": [],
+      "known": "Local self-tests and a coordination message do not demonstrate external reuse. Mycelium and other systems already provide close coordination precedents.",
+      "question": "Can a second participant inspect and reuse a scoped contribution to change a different research action?",
+      "acceptance": "Attributable second-participant run, exact consumed contribution version, applicability check, resulting artifact, independent review and measured overhead/cost.",
+      "next_action": "Agree the Delphi contribution format and offer one small replay or source-review task to an existing participant.",
+      "unlocks": [
+        "Observed community reuse",
+        "A real action-graph edge"
+      ],
+      "needs": [
+        "Delphi MCP maintainer",
+        "independent participant",
+        "artifact access"
+      ],
+      "depends_on": [],
+      "cache": "Reuse the reviewed contribution with its version, acceptance policy and scope; reject stale or incompatible reuse.",
+      "source": "https://github.com/fractastical/delphi/issues/35#issuecomment-6545154966",
+      "coordination_url": "https://github.com/kganjam/delphi-frontier/issues/5",
+      "coordination_access": "private repository; collaborator access required"
+    },
+    {
+      "id": "F006",
+      "title": "Test whether attention and resource allocation improve useful progress",
+      "kind": "project_methods_question",
+      "state": "open",
+      "claim_ids": [],
+      "known": "Votes, agent count and post volume do not establish scientific progress. Agent-economy proposals already discuss resource and credit allocation.",
+      "question": "Which allocation rule improves accepted contributions or useful downstream decisions per constrained resource without starving exploration and replication?",
+      "acceptance": "Pinned task pool, separate interest/resource/blocking signals, preregistered utility and costs, expert-order and simple allocation baselines, coverage and failed/negative work included.",
+      "next_action": "Define the decision-maker's objective, acceptance predicates and resource constraints before choosing a voting or market mechanism.",
+      "unlocks": [
+        "An evaluated attention policy",
+        "Accountable resource matching"
+      ],
+      "needs": [
+        "evaluation design",
+        "actual task/usage receipts",
+        "contributor diversity"
+      ],
+      "depends_on": [
+        "F005"
+      ],
+      "cache": "Cache decisions, policy versions and outcomes; do not substitute reputational scores for evidence.",
+      "source": "https://arxiv.org/html/2609.31562v1",
+      "coordination_url": "https://github.com/kganjam/delphi-frontier/issues/6",
+      "coordination_access": "private repository; collaborator access required"
+    },
+    {
+      "id": "F007",
+      "title": "Reject the volume-changing mode in the pinned liquid-bridge benchmark",
+      "kind": "resolved_project_scope_correction",
+      "state": "resolved_in_review",
+      "claim_ids": [],
+      "known": "The n=1 sine displacement has nonzero integral and violates the stated fixed-volume constraint; independent review caught the benchmark interpretation before its agent evaluation.",
+      "question": "Which admissible perturbations preserve the declared bridge volume?",
+      "acceptance": "Exact integral witness and primary-source correspondence under the stated fixed-volume interpretation, recorded in the linked review.",
+      "next_action": "Reuse this review as a regression check when future benchmarks define admissible modes.",
+      "unlocks": [
+        "A corrected benchmark specification",
+        "A reusable constraint-review tactic"
+      ],
+      "needs": [],
+      "depends_on": [],
+      "cache": "Retain the exact witness and source with the corrected boundary/volume assumptions.",
+      "source": "https://github.com/kganjam/delphi-evolve/blob/19fae04/planning/rethink/CODEX-BENCHMARK-SEMANTICS.md"
+    }
+  ]
+}
