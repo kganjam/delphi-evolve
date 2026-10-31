@@ -1,0 +1,744 @@
+{
+ "frozen_before_main_run": true,
+ "graph_scope": "measured subgraph G_meas of 20^4 amino-acid library, single-substitution adjacency; 871 unmeasured genotypes are outside scope; stop-containing genotypes excluded",
+ "edge_rule": "u->v admissible iff Lo[v] >= Hi[u]; Lo/Hi = round(mean of 2 replicates, micro-units) -/+ ceil(kappa*sd_bin/2*1e6)",
+ "kappa_main": 2.0,
+ "kappa_meaning": "assumed sensitivity multiplier, not a confidence level",
+ "noise_bins_min_input_count_edges": [
+  20,
+  50,
+  200
+ ],
+ "replicate_diff_sd": [
+  0.014953,
+  0.009995,
+  0.005851,
+  0.002992
+ ],
+ "truth": "forward admissible closure of start under full measured labels (benchmark truth under declared model, not biological truth)",
+ "budget_assays_beyond_initial": 1000,
+ "n_initial_random_observations": 96,
+ "policies": [
+  "random",
+  "greedy",
+  "uncertainty",
+  "directed",
+  "q2c",
+  "collective_shared",
+  "collective_isolated"
+ ],
+ "seeds": 20,
+ "pair_rules": {
+  "A": "target = best-scoring of the seed's 96 initial observations; start = random other initial observation with lower score, Hamming>=2",
+  "B": "start VFVS; targets ['AIKG', 'CLKG', 'VLKG', 'ALKG'] (published top variants); initial set seeded by seed"
+ },
+ "censoring": "unresolved or stuck at budget is right-censored and retained",
+ "dataset_sha256": {
+  "simplified_AA.csv": "d7e3ab4bcb721819ddf79ac0c9d322046dcdc4ce7d0df7d5ccd423fee771cb76",
+  "summary_AA.csv": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+  "KNN_imputed_TrpB.csv": "83b4db9f82fe8d09c4bf7006f3cc730d511eee12147e8fe2e9198281960f34c4"
+ },
+ "panel": [
+  {
+   "family": "A",
+   "seed": 0,
+   "start": "PAIL",
+   "target": "ATSG",
+   "initial_observations_sha256": "81ccea182cf5dd762a1654bde2be21fdb2befd4390491e7d747443abdda9e342"
+  },
+  {
+   "family": "B",
+   "seed": 0,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "32592d5ffd18a6ff1f7b16ea303dc6a89ec8297c421a6a3c0cf647c7f3e6e862"
+  },
+  {
+   "family": "B",
+   "seed": 0,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "32592d5ffd18a6ff1f7b16ea303dc6a89ec8297c421a6a3c0cf647c7f3e6e862"
+  },
+  {
+   "family": "B",
+   "seed": 0,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "32592d5ffd18a6ff1f7b16ea303dc6a89ec8297c421a6a3c0cf647c7f3e6e862"
+  },
+  {
+   "family": "B",
+   "seed": 0,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "32592d5ffd18a6ff1f7b16ea303dc6a89ec8297c421a6a3c0cf647c7f3e6e862"
+  },
+  {
+   "family": "A",
+   "seed": 1,
+   "start": "WDTY",
+   "target": "CACN",
+   "initial_observations_sha256": "c29373c8b927dd6f07366c2fd97e22712e573ab1b102c64e14e412cd91209d45"
+  },
+  {
+   "family": "B",
+   "seed": 1,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "8e8020e72b2f957d2e0bc124eacd6e835af01723a1207bf5fdc3a4f559ced989"
+  },
+  {
+   "family": "B",
+   "seed": 1,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "8e8020e72b2f957d2e0bc124eacd6e835af01723a1207bf5fdc3a4f559ced989"
+  },
+  {
+   "family": "B",
+   "seed": 1,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "8e8020e72b2f957d2e0bc124eacd6e835af01723a1207bf5fdc3a4f559ced989"
+  },
+  {
+   "family": "B",
+   "seed": 1,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "8e8020e72b2f957d2e0bc124eacd6e835af01723a1207bf5fdc3a4f559ced989"
+  },
+  {
+   "family": "A",
+   "seed": 2,
+   "start": "KLDN",
+   "target": "NTLS",
+   "initial_observations_sha256": "3c887701fa8ec8d231c37799722e5af2cd22c683c9f11d01489512eb38142eec"
+  },
+  {
+   "family": "B",
+   "seed": 2,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "b1793ba43039141284b6c0a239de20309e9ad2e77a8b26aceb243a21181f7da2"
+  },
+  {
+   "family": "B",
+   "seed": 2,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "b1793ba43039141284b6c0a239de20309e9ad2e77a8b26aceb243a21181f7da2"
+  },
+  {
+   "family": "B",
+   "seed": 2,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "b1793ba43039141284b6c0a239de20309e9ad2e77a8b26aceb243a21181f7da2"
+  },
+  {
+   "family": "B",
+   "seed": 2,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "b1793ba43039141284b6c0a239de20309e9ad2e77a8b26aceb243a21181f7da2"
+  },
+  {
+   "family": "A",
+   "seed": 3,
+   "start": "FCSN",
+   "target": "ALLG",
+   "initial_observations_sha256": "7787b74d6e1bd4f1a956ceb9bba4ec6ca7552b2c2099d3cb2d7ee011c5446eee"
+  },
+  {
+   "family": "B",
+   "seed": 3,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "ff6a0ad4bf621af525b8e37167dc803a62034a968cd9ad95bb53db075cf4a2a2"
+  },
+  {
+   "family": "B",
+   "seed": 3,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "ff6a0ad4bf621af525b8e37167dc803a62034a968cd9ad95bb53db075cf4a2a2"
+  },
+  {
+   "family": "B",
+   "seed": 3,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "ff6a0ad4bf621af525b8e37167dc803a62034a968cd9ad95bb53db075cf4a2a2"
+  },
+  {
+   "family": "B",
+   "seed": 3,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "ff6a0ad4bf621af525b8e37167dc803a62034a968cd9ad95bb53db075cf4a2a2"
+  },
+  {
+   "family": "A",
+   "seed": 4,
+   "start": "GWEC",
+   "target": "SGLS",
+   "initial_observations_sha256": "7004d8d3b5a63cc82ca0181fe04f84943909c132e29766a92151bb7b13dea750"
+  },
+  {
+   "family": "B",
+   "seed": 4,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "8661987bba286faa72406549ba7622ee0e665b8af052e9ba74d2196ffa245090"
+  },
+  {
+   "family": "B",
+   "seed": 4,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "8661987bba286faa72406549ba7622ee0e665b8af052e9ba74d2196ffa245090"
+  },
+  {
+   "family": "B",
+   "seed": 4,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "8661987bba286faa72406549ba7622ee0e665b8af052e9ba74d2196ffa245090"
+  },
+  {
+   "family": "B",
+   "seed": 4,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "8661987bba286faa72406549ba7622ee0e665b8af052e9ba74d2196ffa245090"
+  },
+  {
+   "family": "A",
+   "seed": 5,
+   "start": "SPVK",
+   "target": "CTCN",
+   "initial_observations_sha256": "6ace474fd259a672cb5d701a114148b877728b5f7753d70a3cc1c09d3993fe28"
+  },
+  {
+   "family": "B",
+   "seed": 5,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "1b574e60d2912846c82075e9922911c7b9c1ad1d459f28d5d9a9e9ad068a73e8"
+  },
+  {
+   "family": "B",
+   "seed": 5,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "1b574e60d2912846c82075e9922911c7b9c1ad1d459f28d5d9a9e9ad068a73e8"
+  },
+  {
+   "family": "B",
+   "seed": 5,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "1b574e60d2912846c82075e9922911c7b9c1ad1d459f28d5d9a9e9ad068a73e8"
+  },
+  {
+   "family": "B",
+   "seed": 5,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "1b574e60d2912846c82075e9922911c7b9c1ad1d459f28d5d9a9e9ad068a73e8"
+  },
+  {
+   "family": "A",
+   "seed": 6,
+   "start": "HTGR",
+   "target": "GTVN",
+   "initial_observations_sha256": "eda26f8f36869709c1bf8421dc908937e5fc5ffbd0ba8cae388eb4b4f3cac86e"
+  },
+  {
+   "family": "B",
+   "seed": 6,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "05bf010586db99125bbb938d6a4cb2df33785e7f957a5e35ee0de9e1019ce1d6"
+  },
+  {
+   "family": "B",
+   "seed": 6,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "05bf010586db99125bbb938d6a4cb2df33785e7f957a5e35ee0de9e1019ce1d6"
+  },
+  {
+   "family": "B",
+   "seed": 6,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "05bf010586db99125bbb938d6a4cb2df33785e7f957a5e35ee0de9e1019ce1d6"
+  },
+  {
+   "family": "B",
+   "seed": 6,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "05bf010586db99125bbb938d6a4cb2df33785e7f957a5e35ee0de9e1019ce1d6"
+  },
+  {
+   "family": "A",
+   "seed": 7,
+   "start": "FFVE",
+   "target": "CQLG",
+   "initial_observations_sha256": "9896cb9e5748c8d47ad9b20988f1dea5c0c456e771eee54ef38d2ad361858eeb"
+  },
+  {
+   "family": "B",
+   "seed": 7,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "948984948bb9c42020f82c4b46e520658e9e10df219c1ee2b05c939c98f7ca89"
+  },
+  {
+   "family": "B",
+   "seed": 7,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "948984948bb9c42020f82c4b46e520658e9e10df219c1ee2b05c939c98f7ca89"
+  },
+  {
+   "family": "B",
+   "seed": 7,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "948984948bb9c42020f82c4b46e520658e9e10df219c1ee2b05c939c98f7ca89"
+  },
+  {
+   "family": "B",
+   "seed": 7,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "948984948bb9c42020f82c4b46e520658e9e10df219c1ee2b05c939c98f7ca89"
+  },
+  {
+   "family": "A",
+   "seed": 8,
+   "start": "VLVM",
+   "target": "LCIG",
+   "initial_observations_sha256": "93f6de26fdc5ed2b895c1717c480ff4fba2d498a50fc8383896e38e6a5508b9a"
+  },
+  {
+   "family": "B",
+   "seed": 8,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "6ce7ad76fd589a64a5b22a5c1306e4ef8bd7c7491b786e16721fc1e1226ab29b"
+  },
+  {
+   "family": "B",
+   "seed": 8,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "6ce7ad76fd589a64a5b22a5c1306e4ef8bd7c7491b786e16721fc1e1226ab29b"
+  },
+  {
+   "family": "B",
+   "seed": 8,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "6ce7ad76fd589a64a5b22a5c1306e4ef8bd7c7491b786e16721fc1e1226ab29b"
+  },
+  {
+   "family": "B",
+   "seed": 8,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "6ce7ad76fd589a64a5b22a5c1306e4ef8bd7c7491b786e16721fc1e1226ab29b"
+  },
+  {
+   "family": "A",
+   "seed": 9,
+   "start": "CPPM",
+   "target": "TMCS",
+   "initial_observations_sha256": "6f56bf86911112ae6254956c7bc720550127b07d86b7d9c70fe1530ebdbc590c"
+  },
+  {
+   "family": "B",
+   "seed": 9,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "dcd86efe82cfde6d28c86defc05849ddd90c114eb67c28681f639231b8335763"
+  },
+  {
+   "family": "B",
+   "seed": 9,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "dcd86efe82cfde6d28c86defc05849ddd90c114eb67c28681f639231b8335763"
+  },
+  {
+   "family": "B",
+   "seed": 9,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "dcd86efe82cfde6d28c86defc05849ddd90c114eb67c28681f639231b8335763"
+  },
+  {
+   "family": "B",
+   "seed": 9,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "dcd86efe82cfde6d28c86defc05849ddd90c114eb67c28681f639231b8335763"
+  },
+  {
+   "family": "A",
+   "seed": 10,
+   "start": "WMSG",
+   "target": "GMKG",
+   "initial_observations_sha256": "f3ba3ae12984e13dbdeebb22524762a78f15e0e25536beb7263137f99404302f"
+  },
+  {
+   "family": "B",
+   "seed": 10,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "4c7302d862fb4a64f8db2ebfd75caa942fab142d85cdf711a62904c494869ffc"
+  },
+  {
+   "family": "B",
+   "seed": 10,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "4c7302d862fb4a64f8db2ebfd75caa942fab142d85cdf711a62904c494869ffc"
+  },
+  {
+   "family": "B",
+   "seed": 10,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "4c7302d862fb4a64f8db2ebfd75caa942fab142d85cdf711a62904c494869ffc"
+  },
+  {
+   "family": "B",
+   "seed": 10,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "4c7302d862fb4a64f8db2ebfd75caa942fab142d85cdf711a62904c494869ffc"
+  },
+  {
+   "family": "A",
+   "seed": 11,
+   "start": "PFGC",
+   "target": "SISG",
+   "initial_observations_sha256": "ed59bd09401b59bb1fd734ef84cd0714e168e4678e0f34a2a46973a008e04502"
+  },
+  {
+   "family": "B",
+   "seed": 11,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "8950cd2d493a75770f880903a4ee24419720341cc281dd5a1c3000962124fefa"
+  },
+  {
+   "family": "B",
+   "seed": 11,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "8950cd2d493a75770f880903a4ee24419720341cc281dd5a1c3000962124fefa"
+  },
+  {
+   "family": "B",
+   "seed": 11,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "8950cd2d493a75770f880903a4ee24419720341cc281dd5a1c3000962124fefa"
+  },
+  {
+   "family": "B",
+   "seed": 11,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "8950cd2d493a75770f880903a4ee24419720341cc281dd5a1c3000962124fefa"
+  },
+  {
+   "family": "A",
+   "seed": 12,
+   "start": "CCNW",
+   "target": "AAVN",
+   "initial_observations_sha256": "20740d9c561643b29e12f86b3c6e5d77ce0aa50f3f9702786af620f2ee2977df"
+  },
+  {
+   "family": "B",
+   "seed": 12,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "b7eb881f5d7c51164fc5fb89b13e2b15c135ea9c911274fabc337b558140dee0"
+  },
+  {
+   "family": "B",
+   "seed": 12,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "b7eb881f5d7c51164fc5fb89b13e2b15c135ea9c911274fabc337b558140dee0"
+  },
+  {
+   "family": "B",
+   "seed": 12,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "b7eb881f5d7c51164fc5fb89b13e2b15c135ea9c911274fabc337b558140dee0"
+  },
+  {
+   "family": "B",
+   "seed": 12,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "b7eb881f5d7c51164fc5fb89b13e2b15c135ea9c911274fabc337b558140dee0"
+  },
+  {
+   "family": "A",
+   "seed": 13,
+   "start": "ENWV",
+   "target": "GMAS",
+   "initial_observations_sha256": "8d028b5226cabc46d0a1d68aaec21e075775fa3b6b8ded051f83cc110c7ebb7a"
+  },
+  {
+   "family": "B",
+   "seed": 13,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "1ff4d1a0b10a465830cb1b4fad06171b6aca55eefddc55ff670ae79eed6852ec"
+  },
+  {
+   "family": "B",
+   "seed": 13,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "1ff4d1a0b10a465830cb1b4fad06171b6aca55eefddc55ff670ae79eed6852ec"
+  },
+  {
+   "family": "B",
+   "seed": 13,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "1ff4d1a0b10a465830cb1b4fad06171b6aca55eefddc55ff670ae79eed6852ec"
+  },
+  {
+   "family": "B",
+   "seed": 13,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "1ff4d1a0b10a465830cb1b4fad06171b6aca55eefddc55ff670ae79eed6852ec"
+  },
+  {
+   "family": "A",
+   "seed": 14,
+   "start": "AFHN",
+   "target": "PIVG",
+   "initial_observations_sha256": "c10bb3467b4b4769f23309995644d3c75e3ae5bee628f6a1bf0d43ca549b24f0"
+  },
+  {
+   "family": "B",
+   "seed": 14,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "9485ebd295e01511f2e08e10af017e3021e36f2e7f555cded6429d810e0003d3"
+  },
+  {
+   "family": "B",
+   "seed": 14,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "9485ebd295e01511f2e08e10af017e3021e36f2e7f555cded6429d810e0003d3"
+  },
+  {
+   "family": "B",
+   "seed": 14,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "9485ebd295e01511f2e08e10af017e3021e36f2e7f555cded6429d810e0003d3"
+  },
+  {
+   "family": "B",
+   "seed": 14,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "9485ebd295e01511f2e08e10af017e3021e36f2e7f555cded6429d810e0003d3"
+  },
+  {
+   "family": "A",
+   "seed": 15,
+   "start": "EIGT",
+   "target": "MQVN",
+   "initial_observations_sha256": "5225108cc497729d30733cf313e97a7839fb5f030b2015ece54d618fa30d07a3"
+  },
+  {
+   "family": "B",
+   "seed": 15,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "70c075d0dcd9fa473a68aae389cfab152cf7abf5005bfedc0ce2bf4ba74d197f"
+  },
+  {
+   "family": "B",
+   "seed": 15,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "70c075d0dcd9fa473a68aae389cfab152cf7abf5005bfedc0ce2bf4ba74d197f"
+  },
+  {
+   "family": "B",
+   "seed": 15,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "70c075d0dcd9fa473a68aae389cfab152cf7abf5005bfedc0ce2bf4ba74d197f"
+  },
+  {
+   "family": "B",
+   "seed": 15,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "70c075d0dcd9fa473a68aae389cfab152cf7abf5005bfedc0ce2bf4ba74d197f"
+  },
+  {
+   "family": "A",
+   "seed": 16,
+   "start": "RPRF",
+   "target": "GLVS",
+   "initial_observations_sha256": "f0d11b6e1ea5dd0df4a09cdcf94a35935146df675e9151410930d884b4e65f1c"
+  },
+  {
+   "family": "B",
+   "seed": 16,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "40deaf549e88f7fe20264d69d79feb9e34b26c9acfc907a0adb9050ed9f78a4a"
+  },
+  {
+   "family": "B",
+   "seed": 16,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "40deaf549e88f7fe20264d69d79feb9e34b26c9acfc907a0adb9050ed9f78a4a"
+  },
+  {
+   "family": "B",
+   "seed": 16,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "40deaf549e88f7fe20264d69d79feb9e34b26c9acfc907a0adb9050ed9f78a4a"
+  },
+  {
+   "family": "B",
+   "seed": 16,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "40deaf549e88f7fe20264d69d79feb9e34b26c9acfc907a0adb9050ed9f78a4a"
+  },
+  {
+   "family": "A",
+   "seed": 17,
+   "start": "QWGG",
+   "target": "CGVN",
+   "initial_observations_sha256": "c87940da8136baaeac41e44761be6aa86d4623e89872e36702f8e9f1918f77ea"
+  },
+  {
+   "family": "B",
+   "seed": 17,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "40ceb44c0f11c1fe3bbb84341140f4c7d4fe01d7db26238e43269d513f75cb06"
+  },
+  {
+   "family": "B",
+   "seed": 17,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "40ceb44c0f11c1fe3bbb84341140f4c7d4fe01d7db26238e43269d513f75cb06"
+  },
+  {
+   "family": "B",
+   "seed": 17,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "40ceb44c0f11c1fe3bbb84341140f4c7d4fe01d7db26238e43269d513f75cb06"
+  },
+  {
+   "family": "B",
+   "seed": 17,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "40ceb44c0f11c1fe3bbb84341140f4c7d4fe01d7db26238e43269d513f75cb06"
+  },
+  {
+   "family": "A",
+   "seed": 18,
+   "start": "FMQR",
+   "target": "IVRG",
+   "initial_observations_sha256": "43806a11dd3668463c891b320626cdb203f573997cab5f930a8b59f53ebfedf6"
+  },
+  {
+   "family": "B",
+   "seed": 18,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "16fb5b5c7a0d725221511eafd7f0e6b9ce9d747c04ed1b78354ca9ae430178f6"
+  },
+  {
+   "family": "B",
+   "seed": 18,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "16fb5b5c7a0d725221511eafd7f0e6b9ce9d747c04ed1b78354ca9ae430178f6"
+  },
+  {
+   "family": "B",
+   "seed": 18,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "16fb5b5c7a0d725221511eafd7f0e6b9ce9d747c04ed1b78354ca9ae430178f6"
+  },
+  {
+   "family": "B",
+   "seed": 18,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "16fb5b5c7a0d725221511eafd7f0e6b9ce9d747c04ed1b78354ca9ae430178f6"
+  },
+  {
+   "family": "A",
+   "seed": 19,
+   "start": "VIHM",
+   "target": "KARG",
+   "initial_observations_sha256": "31fc6a4ff5a67b4707d1fad82603d3c40601372576f21f1b96d7a176bce98678"
+  },
+  {
+   "family": "B",
+   "seed": 19,
+   "start": "VFVS",
+   "target": "AIKG",
+   "initial_observations_sha256": "e6baff7e44490b693d9c57efee8c00ffcbd0d54436a9cf0861a40113b88c3fff"
+  },
+  {
+   "family": "B",
+   "seed": 19,
+   "start": "VFVS",
+   "target": "CLKG",
+   "initial_observations_sha256": "e6baff7e44490b693d9c57efee8c00ffcbd0d54436a9cf0861a40113b88c3fff"
+  },
+  {
+   "family": "B",
+   "seed": 19,
+   "start": "VFVS",
+   "target": "VLKG",
+   "initial_observations_sha256": "e6baff7e44490b693d9c57efee8c00ffcbd0d54436a9cf0861a40113b88c3fff"
+  },
+  {
+   "family": "B",
+   "seed": 19,
+   "start": "VFVS",
+   "target": "ALKG",
+   "initial_observations_sha256": "e6baff7e44490b693d9c57efee8c00ffcbd0d54436a9cf0861a40113b88c3fff"
+  }
+ ],
+ "panel_sha256": "bb6c144e8f0eba1079d6353d9c7f612a02df30afa7770ce94a064a47ad9b9bcf"
+}

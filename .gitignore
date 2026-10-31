@@ -11,3 +11,4 @@ logs/
 .lake/
 node_modules/
 .openai/
+artifacts/core/replay/shards/

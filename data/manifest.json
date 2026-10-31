@@ -1,0 +1,34 @@
+{
+ "dataset": "Johnston et al. TrpB four-site combinatorial landscape",
+ "paper_doi": "10.1073/pnas.2400439121",
+ "record_url": "https://data.caltech.edu/records/h5rah-5z170",
+ "doi_url": "https://doi.org/10.22002/h5rah-5z170",
+ "license": "CC0 1.0 (CaltechDATA record rights, spdx cc0-1.0)",
+ "archive": {
+  "file": "data.zip",
+  "url": "https://data.caltech.edu/records/h5rah-5z170/files/data.zip?download=1",
+  "size": 3321330601,
+  "md5_from_record_api": "210f5d23474cf9661bd61504735db475"
+ },
+ "retrieved_at": "2026-10-31T07:03:00+00:00",
+ "files": {
+  "simplified_AA.csv": {
+   "sha256": "d7e3ab4bcb721819ddf79ac0c9d322046dcdc4ce7d0df7d5ccd423fee771cb76",
+   "bytes": 8494938,
+   "zip_member": "data/figure_data/4-site_merged_replicates/20230827/four-site_simplified_AA_data.csv",
+   "zip_member_compressed_size": 2957698
+  },
+  "summary_AA.csv": {
+   "sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+   "bytes": 55931835,
+   "zip_member": "data/figure_data/4-site_merged_replicates/20230827/four-site_summary_AA_data.csv",
+   "zip_member_compressed_size": 23709973
+  },
+  "KNN_imputed_TrpB.csv": {
+   "sha256": "83b4db9f82fe8d09c4bf7006f3cc730d511eee12147e8fe2e9198281960f34c4",
+   "bytes": 38055,
+   "zip_member": "data/figure_data/4-site_imputed/20230828_KNN_imputed_TrpB.csv",
+   "zip_member_compressed_size": 15174
+  }
+ }
+}

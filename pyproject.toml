@@ -1,0 +1,16 @@
+[project]
+name = "delphi-evolve"
+version = "0.1.0"
+description = "Query-to-certify route planning on the measured TrpB four-site landscape"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "pandas>=2.0", "matplotlib>=3.7"]
+license = { text = "Apache-2.0" }
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["evolve*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
