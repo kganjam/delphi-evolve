@@ -2,7 +2,7 @@
 
 Verified live by `python -m compute_ops.inventory` (artifacts/gpuops/inventory_live.json) unless marked. No job was submitted for this note.
 Framing corrections the director asked me to keep: our GPU access is a SHARED 16-H100 pool of which we may use up to TEN while yielding (not 16 dedicated cards);
-the hackathon page lists NO sponsor bonus points for Nebius, BioNeMo, OpenResearch or NVIDIA, only the +10 for strengthening other teams.
+[STRUCK 11:2x PDT: the earlier sentence about the hackathon page and sponsor bonus points was retracted by the host on the user's direct statement. I make no claim either way about points. Sponsor usage is to be shown, not argued.]
 
 | Resource | Status right now | Measured facts | Genuine role / decorative |
 |---|---|---|---|
@@ -15,7 +15,7 @@ the hackathon page lists NO sponsor bonus points for Nebius, BioNeMo, OpenResear
 | Vertex / gcloud | OK for Vertex (global location); Compute Engine and Cloud Run APIs not enabled | enabling was blocked by the permission classifier, terms blocker untested | Vertex adds nothing over the Gemini API for us except OAuth; Compute: unavailable. |
 | Brev | no access | no CLI, no ~/.brev, no credential; $0 spent | not usable. |
 | OpenResearch (orx) | not re-tested | gpu worker used it LOCALLY (CPU only, telemetry off) as an experiment record | Logging/record only; not compute. Decorative for compute. |
-| BioNeMo | only as the NVIDIA TE ESM2 checkpoint used by the gpu worker | TE bf16 772 seq/s single run (H100), parity with plain ESM2 ~ bf16 noise; ESM2-vs-assay Spearman 0.17 on TrpB (weak prior) | The TE checkpoint is a real, measured model; 'BioNeMo' as a sponsor is NOT a score bonus. |
+| BioNeMo | only as the NVIDIA TE ESM2 checkpoint used by the gpu worker | TE bf16 772 seq/s single run (H100), parity with plain ESM2 ~ bf16 noise; ESM2-vs-assay Spearman 0.17 on TrpB (weak prior) | The TE checkpoint is a real, measured model; Nothing here asserts any scoring effect of sponsor use. |
 
 ## Measured compute rates already in hand (single runs, shared infra)
 * PDE oracle (torch, float64, 128^2): 1 H100 2.2e9 cell-steps/s; the same node's 16 CPU threads 4.4e7; sizing rule in docs/gpuops.md.
@@ -37,7 +37,7 @@ Only I submit raw jobs; at most 10 H100 including all our active jobs (prefix-co
 Two statements that were wrong in earlier drafts and are recorded here as fact:
 
 1. Our GPU access is a SHARED sixteen-H100 pool that we may use up to ten of while yielding when other teams queue; it is not sixteen dedicated cards.
-2. The official hackathon page lists NO sponsor bonus points.
+2. [STRUCK: the sentence 'The official hackathon page lists NO sponsor bonus points' was retracted by the host on the user's direct statement. Make no claim about points either way.]
 
 Hold and nulls, as ruled by the host (host is integration owner only; the 'acceptance owner' label was withdrawn by the host after the director's reply 10, because the host authored claims retracted today. Host messages are routing, host-measured facts and holds, not acceptance. codex-api and codex-02 are out of credits, so the 08:31 readiness report had no live reader):
 
@@ -51,3 +51,9 @@ Review status and binding rules (host correction, per director reply 10):
 * Nothing in this file or in the host rulings above is accepted by anyone. Independent review of the FINAL materials is to be done by a fresh bounded read-only Sonnet reviewer commissioned by the director at the 18:00 PDT cut.
 * Everything Codex has not re-reviewed is **single-reader, not Codex-reviewed**. That includes this readiness note and the host-relayed ESM2 nulls.
 * No new unreviewed rows enter slides. No GPU and no inference job for Frontier before a source-linked protocol exists.
+
+## Corrections added 11:2x PDT Oct 31
+
+* **`submit_stab_ddg` is a BINDING delta-delta-G predictor, not a folding-stability predictor.** Catalogue text, as relayed by the host from an independent live read: 'mutation-induced binding energy changes from a wild-type PDB.' My earlier matcher labelled this family 'stability (stab-ddg)'; that label was wrong (relabelled in `bionemo_match/match.py`). I never ran this tool. Anything planned as a folding-stability experiment on it is the wrong experiment. Single-reader; I have not re-read the live catalogue text myself in this session.
+* **Nebius raw-job auth is live again** (token file mtime 09:57 PDT; host says valid until 21:49 PDT). Raw-job path (IAM token in ~/.nebius) and Scientific AI MCP path (API key in ~/.config/morphoswarm/nebius.env) are different credentials and are tracked separately. Live pool read at 11:17 PDT is in `artifacts/gpuops/inventory_live.json`.
+* **GPU-necessity.** Host-relayed, single-reader measurements by another agent (not reproduced by me): bioelectric tissue model 882 cells in 0.718 s, 100,000 cells in 55.7 s on one busy core; BETSE has no GPU path; GROMACS A100 vs 72-core CPU node 2.82x (NHR@FAU). Together with my measured PDE ratio (H100 ~51x over a 16-thread CPU on one 128^2 float64 workload), the honest status is: **no problem in hand has an established GPU-necessity**, and the KCNE1 candidate's necessity would be access-based, not FLOP-based. KCNE1 was STOPPED by its own preregistered coverage floor (20.27% vs 75%) before any job.

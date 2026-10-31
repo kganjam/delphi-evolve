@@ -57,7 +57,7 @@
     "sequence LM (esm2-650m/3b)": [
      "stability"
     ],
-    "stability (stab-ddg)": [
+    "binding-ddG/stability words (stab-ddg is BINDING ddG per catalogue, not folding stability)": [
      "stability"
     ],
     "dynamics/MD (gromacs/openmm/amber/namd/lammps/bioemu2)": [
@@ -943,7 +943,7 @@
     "sequence LM (esm2-650m/3b)": [
      "stability"
     ],
-    "stability (stab-ddg)": [
+    "binding-ddG/stability words (stab-ddg is BINDING ddG per catalogue, not folding stability)": [
      "stability"
     ]
    },
@@ -1564,7 +1564,7 @@
     "structure (alphafold3/openfold3/protenix/esmfold2)": [
      "domain"
     ],
-    "stability (stab-ddg)": [
+    "binding-ddG/stability words (stab-ddg is BINDING ddG per catalogue, not folding stability)": [
      "unfolding"
     ]
    },
@@ -3822,7 +3822,7 @@
     "sequence LM (esm2-650m/3b)": [
      "stability"
     ],
-    "stability (stab-ddg)": [
+    "binding-ddG/stability words (stab-ddg is BINDING ddG per catalogue, not folding stability)": [
      "stability"
     ]
    },
@@ -3884,7 +3884,7 @@
     "sequence LM (esm2-650m/3b)": [
      "stability"
     ],
-    "stability (stab-ddg)": [
+    "binding-ddG/stability words (stab-ddg is BINDING ddG per catalogue, not folding stability)": [
      "stability"
     ]
    },
@@ -3902,7 +3902,7 @@
     "sequence LM (esm2-650m/3b)": [
      "stability"
     ],
-    "stability (stab-ddg)": [
+    "binding-ddG/stability words (stab-ddg is BINDING ddG per catalogue, not folding stability)": [
      "stability"
     ]
    },
@@ -3942,7 +3942,7 @@
     "sequence LM (esm2-650m/3b)": [
      "stability"
     ],
-    "stability (stab-ddg)": [
+    "binding-ddG/stability words (stab-ddg is BINDING ddG per catalogue, not folding stability)": [
      "stability"
     ]
    },
@@ -3960,7 +3960,7 @@
     "sequence LM (esm2-650m/3b)": [
      "stability"
     ],
-    "stability (stab-ddg)": [
+    "binding-ddG/stability words (stab-ddg is BINDING ddG per catalogue, not folding stability)": [
      "stability"
     ]
    },
@@ -4022,7 +4022,7 @@
     "sequence LM (esm2-650m/3b)": [
      "stability"
     ],
-    "stability (stab-ddg)": [
+    "binding-ddG/stability words (stab-ddg is BINDING ddG per catalogue, not folding stability)": [
      "stability"
     ]
    },
@@ -4107,7 +4107,7 @@
     "sequence LM (esm2-650m/3b)": [
      "stability"
     ],
-    "stability (stab-ddg)": [
+    "binding-ddG/stability words (stab-ddg is BINDING ddG per catalogue, not folding stability)": [
      "stability"
     ]
    },
@@ -4224,7 +4224,7 @@
     "sequence LM (esm2-650m/3b)": [
      "stability"
     ],
-    "stability (stab-ddg)": [
+    "binding-ddG/stability words (stab-ddg is BINDING ddG per catalogue, not folding stability)": [
      "stability"
     ]
    },

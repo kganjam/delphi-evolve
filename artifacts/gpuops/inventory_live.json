@@ -1,8 +1,24 @@
 {
- "taken_seattle": "2026-10-31 08:31:02 PDT",
+ "taken_seattle": "2026-10-31 11:17:09 PDT",
  "nebius": {
-  "auth_and_listing_ok": false,
-  "error": "list job rc=7: Error: rpc error: code = Unauthenticated desc = unauthenticated request = 263ba755-f6cb-4512-b7a9-2cf8252608e2\n\nThis issue may be linked to API request calls. The following information "
+  "auth_and_listing_ok": true,
+  "total_workloads": 34,
+  "active": [],
+  "our_active_h100": 0,
+  "foreign_waiting_h100": 0,
+  "foreign_active_h100": 0,
+  "h100_pool_size_per_event_doc": 16,
+  "token_file_age_h": 1.33,
+  "token_expected_life_h_per_event_doc": 12,
+  "token_est_remaining_h": 10.67,
+  "nongpu_vcpu_quota": {
+   "limit": 24,
+   "in_use": 20,
+   "free": 4,
+   "method": "oversize create (rejected, creates nothing) reports used+requested"
+  },
+  "h100_quota": "unreadable (PermissionDenied for participants per event doc); only inferable from live pool",
+  "price": "no metered price available to participants via CLI; event-provided capacity. Stop bound = server-side --timeout (+ client watchdog)"
  },
  "nebius_scientific_ai_mcp": {
   "https://forge.nebius.cloud/mcp": {

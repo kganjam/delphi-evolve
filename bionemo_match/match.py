@@ -6,7 +6,7 @@ import json, re, sys, hashlib, yaml
 FAM = {
  "structure (alphafold3/openfold3/protenix/esmfold2)": r"\b(protein structure|crystal structure|cryo-?em|fold(ing|ed)?|conformation|structure prediction|binding site|complex(es)?|interface|ligand|docking|binding|receptor|allost|domain)\b",
  "sequence LM (esm2-650m/3b)": r"\b(variant|mutation|fitness landscape|deep mutational|missense|substitution|evolution(ary)? of (a )?protein|epistasis|ancestral|stability|paralog)\b",
- "stability (stab-ddg)": r"\b(thermostab|stability|ddg|destabili[sz]|melting|unfold)\w*",
+ "binding-ddG/stability words (stab-ddg is BINDING ddG per catalogue, not folding stability)": r"\b(thermostab|stability|ddg|destabili[sz]|melting|unfold)\w*",
  "dynamics/MD (gromacs/openmm/amber/namd/lammps/bioemu2)": r"\b(molecular dynamics|membrane|lipid|channel|pore|conformational (change|dynamics|ensemble)|intrinsically disordered|disordered|phase separation|condensate|transporter|gating)\b",
  "design (rfdiffusion/boltzgen/proteina/mosaic)": r"\b(de novo|design(ed|ing)? (a )?(protein|binder|enzyme)|binder|enzyme design)\b",
  "single-cell (scvi-scanvi)": r"\b(single-cell|scrna|transcriptom\w*|cell type|cell-type|atlas|expression)\b",

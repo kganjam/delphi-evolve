@@ -1,3 +1,5 @@
+> Correction 11:2x PDT: `stab-ddg` predicts BINDING ΔΔG from a PDB, not folding stability; the matcher's 'stability' family label was wrong and has been renamed.
+
 # BioNeMo / Nebius-model matching against the Frontier register (gpuops, Oct 31, ~10:10 PDT)
 
 Status: **single-reader, not Codex-reviewed, not accepted by anyone.** Deterministic matching plus my hand reading of the register text. No job, no inference, no token use, no network call to any model. Register read only.
