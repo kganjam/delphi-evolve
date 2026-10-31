@@ -3,7 +3,7 @@
   "status": "completed",
   "task": "Deep research on NCA / morphogenetic / amorphous computing; deliver ranked candidates and a falsifiable top candidate",
   "branch": "work/research-nca",
-  "commit": "PENDING",
+  "commit": "ba35151f5f6dab254a2a04b704170b0b619c30d2",
   "model": "Claude Sonnet 5.5 (claude-sonnet-5-5), subscription; metered spend unknown, not inferred from CLI",
   "wall_time_seattle": {
     "start": "2026-10-31 00:56 PDT",
