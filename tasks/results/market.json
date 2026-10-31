@@ -159,6 +159,7 @@
       "inputs": "delphi-frontier 42cd967a97be\u2026 scripts/import_register.py on morphoswarm register sha256 a0155552\u2026f94d7d7 -> drafts sha256 5808c2bd\u2026f6f7; read-only",
       "result": "all five lenses empty (0/250); 0 bounded, 0 ready, 0 consequence estimates; only carried ordering = curator importance/tractability labels (36% of pairs ordered, Pareto layers 4/96/97/15/1, 37 unrated); 247/250 records carry a full attestation the importer does not read (145 of the importer's 148 'no source'); 37 records have a settled-stance attestation; 89 untyped slug-mention candidate edges",
       "tests": "36 pass in tests/test_frontier_attention.py; probe functions: 7 deliberate-breakage mutants, 0 survivors (after strengthening the fixture; one mutant caused a non-terminating loop, so a cycle guard was added)"
-    }
+    },
+    "moved_to_frontier": "Attention layer ported to kganjam/delphi-frontier work/market-attention @ 84f257d5101e7063cd3f7ce6cdbdfa52047d72e0 (attention/**, tests/test_attention_*.py). Handoff: /data/artifacts/delphi-evolve-rethink/messages/market-to-codex03.md. This Evolve-side package is unchanged by it."
   }
 }
