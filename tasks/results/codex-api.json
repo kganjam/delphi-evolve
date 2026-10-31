@@ -1,9 +1,9 @@
 {
   "role": "codex-api",
-  "status": "Primary pre-run corrections applied; nonblinded v1.2 delta review completed; three Greenhill label conventions and answer/abstention scoring still block run approval",
-  "updated_at": "2026-10-31T07:31:15.605645-07:00",
+  "status": "Site ownership and component hashes coordinated; submit contains walkthrough unchanged; director final integration SHA pending; scientific evaluation gates retained",
+  "updated_at": "2026-10-31T07:33:58.971638-07:00",
   "branch": "work/codex-api",
-  "commit": "9daeb117371a4adbe31e6b519c4d62004ab0ddf2",
+  "commit": "74120e3f24c323e7a0cb387953138a453678272e",
   "goal": "Broader native goal stays paused. Targeted pre-run review completed without reopening selection; director retains integration/run authorization and primary retains native Sites.",
   "checklist": [
     {
@@ -68,6 +68,10 @@
     },
     {
       "item": "Read primary-agent-gate-evaluation-corrections completely; apply linear/nonlinear, abstention/control and conditional-robustness rules to current pitch/scorecard",
+      "done": true
+    },
+    {
+      "item": "Confirm Codex walkthrough/science and dx-submit presentation ownership; pin pushed component SHAs and director-only canonical publication handoff",
       "done": true
     }
   ],
@@ -234,6 +238,16 @@
       "command": "Capped Python receipt/schema/source-hash checks and staged diff inspection; git diff --cached --check",
       "exit": 0,
       "result": "Receipt consistent with script; changed labels exactly gh-0004/0012/0016. No new agent, prover, PDE or GPU run."
+    },
+    {
+      "command": "Read HOSTING-HANDOFF, director-to-dx-submit and both publication handoffs; git ls-remote origin for work/submit, work/rethink-director, work/codex-api; read-only submit git status",
+      "exit": 0,
+      "result": "Submit 47590e9 clean/pushed; director ecad28a canonical request is provisional; submit request is explicitly only a candidate."
+    },
+    {
+      "command": "Capped Python component hash/identity/link check against original browser receipt; git diff of protected walkthrough paths and root entry",
+      "exit": 0,
+      "result": "All four walkthrough files match original browser hashes across implementation, Codex, director and submit snapshots; script/receipt byte-identical; landing links to walkthrough; site/index.html remains baseline. No build/browser/deployment repeated."
     }
   ],
   "artifacts": [
@@ -277,7 +291,8 @@
     "artifacts/integration/codex-api/price-prior-art-followup.json",
     "planning/rethink/CODEX-AGENT-GATE-PRE-RUN-REVIEW.md",
     "artifacts/integration/codex-api/audit_benchmark_v1_2_changes.py",
-    "artifacts/integration/codex-api/benchmark-v1-2-changes-review.json"
+    "artifacts/integration/codex-api/benchmark-v1-2-changes-review.json",
+    "artifacts/integration/codex-api/site-component-integrity.json"
   ],
   "limitations": [
     "Fresh Price/Hamilton Lean compile and witness controls exit0 with standard axioms; no additive-genetic Fisher FTNS or independent biological correspondence review.",
@@ -288,7 +303,8 @@
     "Revised Admissible compilation passes but its source names/docstrings still exceed some proved statements;21freeze lacks full formal targets and source hashes.",
     "Price prior-art search is bounded; AFP check covers catalogue text, Rocq landing page is not all package source. Fisher projection remains a proposed statement, not compiled FTNS.",
     "v1.2 review is nonblinded and limited to changes; it is not a fresh full numerical/blinded audit. Greenhill density witnesses reuse a numerical root whose refinement delta is not a certified error bound.",
-    "Inspected scoring conflates parser failure with underdetermined; no committed arms/preregistration at inspected electric revision. Old host 24/24 agreements have mismatched prompt/target and do not establish valid accuracy or a ceiling."
+    "Inspected scoring conflates parser failure with underdetermined; no committed arms/preregistration at inspected electric revision. Old host 24/24 agreements have mismatched prompt/target and do not establish valid accuracy or a ceiling.",
+    "Ownership/component identity check does not approve new presentation science or visuals. Final integrated source SHA is not yet selected; the existing director publication request is provisional."
   ],
   "next_steps": [
     "Keep broader native goal paused; preserve completed targeted work.",
@@ -297,6 +313,7 @@
     "Director reviews/integrates site/review at7f9035a and prepares exactSHA site-publish-request.json for primary; existingownerprivateSite only.",
     "Independent reader reviews Price/Hamilton correspondence before headline integration; Price staysappendixperFINALSHAPE.",
     "Host changes B0a to no single theorem target specified here and freezes full Fisher genetic-projection/partial-change semantics before a Fisher prover attempt; existing Price/Hamilton probe is not a blinded benchmark score.",
-    "Electric/director freeze independent answer-status schema, coverage/risk/utility and always-abstain/exact-checker/same-information controls plus actual prompt/tool boundary; preserve selected pitch and conditional robustness wording."
+    "Electric/director freeze independent answer-status schema, coverage/risk/utility and always-abstain/exact-checker/same-information controls plus actual prompt/tool boundary; preserve selected pitch and conditional robustness wording.",
+    "Director integrates dx-submit candidate 47590e9 with latest Codex reviews/ledger, obtains science/presentation and integrated-navigation checks, then supersedes the one canonical publication request with that exact pushed SHA. Package site/ and name the intended landing route; primary publishes existing Site."
   ]
 }
