@@ -45,9 +45,10 @@ demo["proof"] = {
     "lean_version": rc.get("lean_version"),
     "wall_seconds": rc.get("wall_seconds"),
     "axioms_used": sorted(used),
-    "scope": "Lean-checked: proof-worker route and blocked certificates (artifacts/proof/*.json) and the bridged core kappa=2 VFVS->AIKG ROUTE. "
-             "NOT Lean-checked: replay decisions and core 'blocked' results, which mean 'no route can be certified in the measured subgraph' "
-             "(see planning/INTEGRATION-FINDINGS.md F1).",
+    "scope": "Lean-checked: proof-worker route certificates, strong blocked certificates (all exits certified lower) and the admissible-cut certificate for core's HTGR>GTVN example "
+             "('no certifiable route', weaker); plus the bridged core kappa=2 VFVS>AIKG ROUTE. "
+             "NOT Lean-checked: the replay's individual episode decisions (they are sound by construction from revealed labels and re-verified against full data in Python). "
+             "'Blocked' in core never means 'no true route' (planning/INTEGRATION-FINDINGS.md F1).",
     "bridged_core_route": {"receipt": "artifacts/integration/core_kappa2_route_lean.json",
                            "certificate": "artifacts/integration/core_kappa2_route_lean.certificate.json",
                            "lean_original_build_exit": br.get("lean_original_build_exit"),
@@ -60,12 +61,25 @@ for r in demo.get("routes", []):
         r["lean_receipt"] = "artifacts/integration/core_kappa2_route_lean.json"
         r["lean_certificate_path"] = "artifacts/integration/core_kappa2_route_lean.certificate.json"
 
+adm = J("artifacts/proof/core_kappa2_adm_cut_htgr_gtvn.json")
+cut_files = sorted((R / "artifacts/core/certificates").glob("cut_*_kappa2.json"))
+core_cut = json.load(open(cut_files[0])) if cut_files else None
+adm_ok = bool(core_cut) and adm.get("theorem") == "DarwinBridge.admCert_sound" and \
+    core_cut.get("body_sha256") in json.dumps(adm.get("bridged_from")) and \
+    (core_cut["start"], core_cut["target"]) == (adm["start"], adm["target"]) and adm.get("unlisted_neighbours") == []
+checks = {c["check"]: c["ok"] for c in rc.get("checks", [])}
+if not adm_ok:
+    print("note: core cut is not the one Lean-checked by proof (regenerated?); blocked route stays lean_checked=false")
 for r in demo.get("routes", []):
     if str(r.get("status", "")).startswith("blocked"):
-        r["lean_checked"] = False
         r["semantics"] = ("'blocked' here means NO ROUTE CAN BE CERTIFIED in the measured subgraph under the assumed kappa "
-                          "(intervals that overlap count as not admitted). It is not the Lean no-path theorem, which needs every exit "
-                          "certified lower; see planning/INTEGRATION-FINDINGS.md F1. 'nodes' lists the start/target endpoints, not a path.")
+                          "(intervals that overlap count as not admitted). It does NOT exclude a true non-decreasing path: the strong no-path theorem "
+                          "(blocked_cut_sound) needs every exit certified lower. Lean separates the two (artifacts/proof/CORRESPONDENCE.md, "
+                          "DarwinBridge/Distinction.lean). 'nodes' lists the start/target endpoints, not a path.")
+        r["lean_checked"] = bool(adm_ok and checks.get("python_mirror_accepts_certificates") and rc.get("compile_exit_code") == 0)
+        if r["lean_checked"]:
+            r["lean_theorem"] = "DarwinBridge.admCert_sound (no certifiable route; weaker than blocked_cut_sound)"
+            r["lean_certificate_path"] = "artifacts/proof/core_kappa2_adm_cut_htgr_gtvn.json"
 
 # --- claims -----------------------------------------------------------------------------------
 cl = J("artifacts/evidence/demo_claims.json")["claims"]
