@@ -1,0 +1,8 @@
+{
+ "t_utc": "2026-10-31T07:29:32Z",
+ "payload": {
+  "tool_catalog_revision": "c3da2fad237eba580b7f59606aae6f471eba68a6df48157b43f0f4efe2a05de8",
+  "tool_count": 69,
+  "refresh": "Refetch tools/list whenever this revision changes."
+ }
+}

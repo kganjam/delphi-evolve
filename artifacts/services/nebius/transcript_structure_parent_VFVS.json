@@ -1,0 +1,672 @@
+[
+ {
+  "t_utc": "2026-10-31T07:30:00Z",
+  "elapsed_s": 0.61,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "initialize",
+   "params": {
+    "protocolVersion": "2025-03-26",
+    "capabilities": {},
+    "clientInfo": {
+     "name": "delphi-evolve-resources",
+     "version": "0.1"
+    }
+   },
+   "id": 1
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 1,
+   "result": {
+    "capabilities": {
+     "experimental": {},
+     "prompts": {
+      "listChanged": false
+     },
+     "resources": {
+      "listChanged": false,
+      "subscribe": false
+     },
+     "tools": {
+      "listChanged": false
+     }
+    },
+    "instructions": "Nebius Scientific AI. GROMACS: upload immutable inputs, submit once with an idempotency key, poll the returned operation ID, then retrieve validated artifacts. Never put large file contents into tool arguments. Status is not a scientific result. Each native App advertises its execution mode. Durable tools return an operation ID; poll it, and reuse the identical idempotency key after a lost admission response. Synchronous tools have no durable retry guarantee. Never retry inference with a new key after a timeout. Tools are filtered by current S2 availability.",
+    "protocolVersion": "2025-03-26",
+    "serverInfo": {
+     "name": "Nebius Scientific AI",
+     "version": "0.1.0"
+    }
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:30:00Z",
+  "elapsed_s": 0.63,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "notifications/initialized"
+  },
+  "http_status": 202,
+  "response": null
+ },
+ {
+  "t_utc": "2026-10-31T07:30:43Z",
+  "elapsed_s": 42.72,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "infer_openfold2_native",
+    "arguments": {
+     "input_id": "trpb-VFVS-c0964e6d",
+     "sequence": "MKGYFGPYGGQYVPEILMGALEELEAAYEGIMKDESFWKEFNDLLRDYAGRPTPLYFARRLSEKYGARVYLKREDLLHTGAHKINNAIGQVLLAKLMGKTRIIAETGAGQHGVATATAAALFGMECVIYMGEEDTIRQKLNVERMKLLGAKVVPVKSGSRTLKDAIDEALRDWITNLQTTYYVFGSVVGPHPYPIIVRNFQKVIGEETKKQIPEKEGRLPDYIVACVSGGSNAAGIFYPFIDSGVKLIGVEAGGEGLETGKHAASLLKGKIGYLHGSKTFVLQDDWGQVQVSHSVSAGLDYSGVGPEHAYWRETGKVLYDAVTDEEALDAFIELSRLEGIIPALESSHALAYLKKINIKGKVVVVNLSGRGDKDLESVLNHPYVRERIRLEHHHHHH",
+     "selected_models": [
+      1
+     ],
+     "relax_prediction": false,
+     "idempotency_key": "delphi-evolve-structure-c0964e6dbcd43854",
+     "wait_seconds": 30,
+     "output_prefix": "runs/delphi-evolve/structure/c0964e6dbcd43854"
+    }
+   },
+   "id": 2
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 2,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"error\": {\n    \"status_code\": 503,\n    \"code\": \"SERVERLESS_REQUEST_FAILED\",\n    \"retryable\": true,\n    \"admission\": \"accepted\",\n    \"model_id\": \"openfold2\",\n    \"operation_id\": \"op-5e3d2111a651d8dd\",\n    \"phase\": \"observation\",\n    \"message\": \"The accepted operation's current state is temporarily unavailable. Its execution outcome has not been observed.\",\n    \"next_action\": \"Poll this same operation ID; do not submit the inference again.\",\n    \"request_id\": \"5ec16813-0f8f-41e1-be3c-289489f2b482\"\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:30:45Z",
+  "elapsed_s": 1.79,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 3
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 3,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"QUEUED\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:31:01Z",
+  "elapsed_s": 1.17,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 4
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 4,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"QUEUED\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:31:17Z",
+  "elapsed_s": 0.97,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 5
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 5,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"QUEUED\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:31:33Z",
+  "elapsed_s": 1.02,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 6
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 6,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"QUEUED\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:31:49Z",
+  "elapsed_s": 1.11,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 7
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 7,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"QUEUED\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:32:05Z",
+  "elapsed_s": 1.09,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 8
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 8,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"QUEUED\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:32:21Z",
+  "elapsed_s": 0.99,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 9
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 9,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"QUEUED\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:32:37Z",
+  "elapsed_s": 1.01,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 10
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 10,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"QUEUED\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:32:53Z",
+  "elapsed_s": 0.97,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 11
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 11,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"QUEUED\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:33:09Z",
+  "elapsed_s": 0.95,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 12
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 12,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"RUNNING\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:33:26Z",
+  "elapsed_s": 1.65,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 13
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 13,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"RUNNING\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:33:42Z",
+  "elapsed_s": 0.91,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 14
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 14,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"RUNNING\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:33:58Z",
+  "elapsed_s": 1.65,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 15
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 15,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"RUNNING\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:34:14Z",
+  "elapsed_s": 1.06,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 16
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 16,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"RUNNING\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:34:30Z",
+  "elapsed_s": 0.97,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 17
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 17,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"RUNNING\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:34:46Z",
+  "elapsed_s": 1.06,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 18
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 18,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"RUNNING\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:35:02Z",
+  "elapsed_s": 0.91,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 19
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 19,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"RUNNING\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:35:18Z",
+  "elapsed_s": 1.02,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 20
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 20,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"RUNNING\"\n  },\n  \"delivery\": {\n    \"export_state\": \"succeeded\"\n  },\n  \"customer_storage\": {\n    \"available\": true,\n    \"bucket\": \"[team-bucket-name-omitted]\",\n    \"prefix\": \"runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/\",\n    \"manifest_key\": \"runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/manifest.json\",\n    \"files\": [\n      {\n        \"path\": \"artifacts/f59b074a-1e62-5769-b106-5aa6120cdb86.json\",\n        \"sha256\": \"d13b57bb41880b69a2ea12f6eca27801e6ddcfcbe0869b158fcc32a41f09764c\",\n        \"size_bytes\": 3346366,\n        \"key\": \"runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/artifacts/f59b074a-1e62-5769-b106-5aa6120cdb86.json\"\n      },\n      {\n        \"path\": \"artifacts/47f574da-6863-5c02-966c-27cde397f28a.json\",\n        \"sha256\": \"4bf0c6eaad9c00d088357190b09060b527fd5396e04c762f46579fca56599403\",\n        \"size_bytes\": 3188340,\n        \"key\": \"runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/artifacts/47f574da-6863-5c02-966c-27cde397f28a.json\"\n      },\n      {\n        \"path\": \"result.json\",\n        \"sha256\": \"bdcb7d78e4bf3062095f85dfd5d3e673961644de5c0ee56c73a4992a88bb42da\",\n        \"size_bytes\": 1057,\n        \"key\": \"runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/result.json\"\n      }\n    ]\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:35:36Z",
+  "elapsed_s": 2.52,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 21
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 21,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": true,\n  \"progress\": {\n    \"schema\": \"scientific-ai/progress/v1\",\n    \"updated_at\": null,\n    \"current_step_id\": null,\n    \"steps\": [\n      {\n        \"step_id\": \"delivered_calls\",\n        \"command\": null,\n        \"state\": \"completed\",\n        \"unit\": \"call\",\n        \"initial_step\": null,\n        \"target_step\": null,\n        \"observed_step\": null,\n        \"durable_step\": null,\n        \"timestep_ps\": null,\n        \"completed_ns\": null,\n        \"durable_completed_ns\": null,\n        \"target_ns\": null,\n        \"ns_per_day\": null,\n        \"ns_per_day_source\": null,\n        \"completed_units\": 1.0,\n        \"durable_completed_units\": 1.0,\n        \"target_units\": null,\n        \"rate\": null,\n        \"rate_unit\": null,\n        \"rate_source\": null,\n        \"rate_window_seconds\": null,\n        \"observed_at\": null,\n        \"durable_at\": null,\n        \"rate_updated_at\": null\n      },\n      {\n        \"step_id\": \"structures\",\n        \"command\": null,\n        \"state\": \"completed\",\n        \"unit\": \"structure\",\n        \"initial_step\": null,\n        \"target_step\": null,\n        \"observed_step\": null,\n        \"durable_step\": null,\n        \"timestep_ps\": null,\n        \"completed_ns\": null,\n        \"durable_completed_ns\": null,\n        \"target_ns\": null,\n        \"ns_per_day\": null,\n        \"ns_per_day_source\": null,\n        \"completed_units\": null,\n        \"durable_completed_units\": null,\n        \"target_units\": null,\n        \"rate\": null,\n        \"rate_unit\": null,\n        \"rate_source\": null,\n        \"rate_window_seconds\": null,\n        \"observed_at\": null,\n        \"durable_at\": null,\n        \"rate_updated_at\": null\n      }\n    ],\n    \"available\": true,\n    \"stale\": false,\n    \"stale_after_seconds\": null,\n    \"source\": \"verified-delivery\"\n  },\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"SUCCEEDED\"\n  },\n  \"delivery\": {\n    \"export_state\": \"succeeded\"\n  },\n  \"customer_storage\": {\n    \"available\": true,\n    \"bucket\": \"[team-bucket-name-omitted]\",\n    \"prefix\": \"runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/\",\n    \"manifest_key\": \"runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/manifest.json\",\n    \"files\": [\n      {\n        \"path\": \"artifacts/f59b074a-1e62-5769-b106-5aa6120cdb86.json\",\n        \"sha256\": \"d13b57bb41880b69a2ea12f6eca27801e6ddcfcbe0869b158fcc32a41f09764c\",\n        \"size_bytes\": 3346366,\n        \"key\": \"runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/artifacts/f59b074a-1e62-5769-b106-5aa6120cdb86.json\"\n      },\n      {\n        \"path\": \"artifacts/47f574da-6863-5c02-966c-27cde397f28a.json\",\n        \"sha256\": \"4bf0c6eaad9c00d088357190b09060b527fd5396e04c762f46579fca56599403\",\n        \"size_bytes\": 3188340,\n        \"key\": \"runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/artifacts/47f574da-6863-5c02-966c-27cde397f28a.json\"\n      },\n      {\n        \"path\": \"result.json\",\n        \"sha256\": \"bdcb7d78e4bf3062095f85dfd5d3e673961644de5c0ee56c73a4992a88bb42da\",\n        \"size_bytes\": 1057,\n        \"key\": \"runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/result.json\"\n      }\n    ]\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:35:38Z",
+  "elapsed_s": 1.82,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation_result",
+    "arguments": {
+     "operation_id": "op-5e3d2111a651d8dd"
+    }
+   },
+   "id": 22
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 22,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"operation\": {\n    \"id\": \"op-5e3d2111a651d8dd\",\n    \"status\": \"SUCCEEDED\"\n  },\n  \"result\": {\n    \"schema\": \"fs2-serve.nebius.ai/operation-artifact-result/v1\",\n    \"artifact\": {\n      \"artifact_id\": \"47f574da-6863-5c02-966c-27cde397f28a\",\n      \"sha256\": \"4bf0c6eaad9c00d088357190b09060b527fd5396e04c762f46579fca56599403\",\n      \"size_bytes\": 3188340,\n      \"media_type\": \"application/json\",\n      \"compression\": \"none\"\n    },\n    \"content_type\": \"application/json\"\n  },\n  \"response\": {\n    \"operation_id\": \"op-5e3d2111a651d8dd\",\n    \"attempt_id\": \"op-5e3d2111a651d8dd-rpm4r\",\n    \"http_status\": 200,\n    \"content_type\": \"application/json\",\n    \"size_bytes\": 3346366,\n    \"sha256\": \"d13b57bb41880b69a2ea12f6eca27801e6ddcfcbe0869b158fcc32a41f09764c\",\n    \"timings\": {\n      \"posted_at\": \"2026-10-31T07:34:38Z\",\n      \"first_byte_at\": \"2026-10-31T07:34:59Z\",\n      \"completed_at\": \"2026-10-31T07:35:01Z\",\n      \"duration_s\": 22.340461\n    },\n    \"capture_complete\": true,\n    \"artifact\": {\n      \"artifact_id\": \"f59b074a-1e62-5769-b106-5aa6120cdb86\",\n      \"sha256\": \"d13b57bb41880b69a2ea12f6eca27801e6ddcfcbe0869b158fcc32a41f09764c\",\n      \"size_bytes\": 3346366,\n      \"media_type\": \"application/json\",\n      \"compression\": \"none\"\n    }\n  },\n  \"upstream_success\": true,\n  \"customer_storage\": {\n    \"available\": true,\n    \"bucket\": \"[team-bucket-name-omitted]\",\n    \"prefix\": \"runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/\",\n    \"manifest_key\": \"runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/manifest.json\",\n    \"files\": [\n      {\n        \"path\": \"artifacts/f59b074a-1e62-5769-b106-5aa6120cdb86.json\",\n        \"sha256\": \"d13b57bb41880b69a2ea12f6eca27801e6ddcfcbe0869b158fcc32a41f09764c\",\n        \"size_bytes\": 3346366,\n        \"key\": \"runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/artifacts/f59b074a-1e62-5769-b106-5aa6120cdb86.json\"\n      },\n      {\n        \"path\": \"artifacts/47f574da-6863-5c02-966c-27cde397f28a.json\",\n        \"sha256\": \"4bf0c6eaad9c00d088357190b09060b527fd5396e04c762f46579fca56599403\",\n        \"size_bytes\": 3188340,\n        \"key\": \"runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/artifacts/47f574da-6863-5c02-966c-27cde397f28a.json\"\n      },\n      {\n        \"path\": \"result.json\",\n        \"sha256\": \"bdcb7d78e4bf3062095f85dfd5d3e673961644de5c0ee56c73a4992a88bb42da\",\n        \"size_bytes\": 1057,\n        \"key\": \"runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/result.json\"\n      }\n    ]\n  },\n  \"progress\": {\n    \"schema\": \"scientific-ai/progress/v1\",\n    \"updated_at\": null,\n    \"current_step_id\": null,\n    \"steps\": [\n      {\n        \"step_id\": \"delivered_calls\",\n        \"command\": null,\n        \"state\": \"completed\",\n        \"unit\": \"call\",\n        \"initial_step\": null,\n        \"target_step\": null,\n        \"observed_step\": null,\n        \"durable_step\": null,\n        \"timestep_ps\": null,\n        \"completed_ns\": null,\n        \"durable_completed_ns\": null,\n        \"target_ns\": null,\n        \"ns_per_day\": null,\n        \"ns_per_day_source\": null,\n        \"completed_units\": 1.0,\n        \"durable_completed_units\": 1.0,\n        \"target_units\": null,\n        \"rate\": null,\n        \"rate_unit\": null,\n        \"rate_source\": null,\n        \"rate_window_seconds\": null,\n        \"observed_at\": null,\n        \"durable_at\": null,\n        \"rate_updated_at\": null\n      },\n      {\n        \"step_id\": \"structures\",\n        \"command\": null,\n        \"state\": \"completed\",\n        \"unit\": \"structure\",\n        \"initial_step\": null,\n        \"target_step\": null,\n        \"observed_step\": null,\n        \"durable_step\": null,\n        \"timestep_ps\": null,\n        \"completed_ns\": null,\n        \"durable_completed_ns\": null,\n        \"target_ns\": null,\n        \"ns_per_day\": null,\n        \"ns_per_day_source\": null,\n        \"completed_units\": null,\n        \"durable_completed_units\": null,\n        \"target_units\": null,\n        \"rate\": null,\n        \"rate_unit\": null,\n        \"rate_source\": null,\n        \"rate_window_seconds\": null,\n        \"observed_at\": null,\n        \"durable_at\": null,\n        \"rate_updated_at\": null\n      }\n    ],\n    \"available\": true,\n    \"stale\": false,\n    \"stale_after_seconds\": null,\n    \"source\": \"verified-delivery\"\n  },\n  \"execution\": \"async\"\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ }
+]

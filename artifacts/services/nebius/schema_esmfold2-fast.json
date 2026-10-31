@@ -1,0 +1,440 @@
+{
+ "t_utc": "2026-10-31T07:29:33Z",
+ "model_id": "esmfold2-fast",
+ "payload": {
+  "model_id": "esmfold2-fast",
+  "display_name": "ESMFold2-Fast v3.4.0 (Biohub esm)",
+  "execution_mode": "scientific-batch",
+  "tool_name": "submit_esmfold2_fast",
+  "operations": [
+   "predict-protein-structure"
+  ],
+  "request_schema": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://fs2-serve.nebius.ai/schema/scientific-run-request/v1",
+   "title": "Scientific batch run request",
+   "description": "User-authored request for POST /v1/models/{model_id}:submit. Idempotency is supplied in the Idempotency-Key HTTP header; queue, image, command, environment, and accelerator placement remain operator-owned.",
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "schema",
+    "operation",
+    "service_class",
+    "input_manifest",
+    "parameters"
+   ],
+   "properties": {
+    "schema": {
+     "const": "fs2-serve.nebius.ai/scientific-run-request/v1"
+    },
+    "operation": {
+     "enum": [
+      "predict-protein-structure"
+     ]
+    },
+    "service_class": {
+     "enum": [
+      "presentation",
+      "interactive",
+      "customer-batch"
+     ]
+    },
+    "input_manifest": {
+     "$ref": "#/$defs/artifact_ref"
+    },
+    "parameters": {
+     "$schema": "https://json-schema.org/draft/2020-12/schema",
+     "$id": "https://fs2-serve.nebius.ai/schema/esmfold2-fast-biohub-v3-4-0-parameters/v1",
+     "title": "ESMFold2-Fast (Biohub esm v3.4.0) scientific run parameters",
+     "description": "Mirrors fs2_serve.scientific_batch.adapters.esmfold2_fast: the fast trunk accepts single-sequence input only, so every MSA mode is rejected before any GPU is allocated.",
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "sequence",
+      "mode"
+     ],
+     "properties": {
+      "sequence": {
+       "type": "string",
+       "minLength": 1,
+       "maxLength": 4096,
+       "pattern": "^[ACDEFGHIKLMNPQRSTVWYX]+$"
+      },
+      "mode": {
+       "const": "single-sequence"
+      },
+      "seed": {
+       "type": "integer",
+       "minimum": 0,
+       "maximum": 2147483647
+      }
+     }
+    },
+    "client_context": {
+     "type": "object",
+     "additionalProperties": false,
+     "properties": {
+      "batch_id": {
+       "$ref": "#/$defs/opaque_id"
+      },
+      "correlation_id": {
+       "$ref": "#/$defs/opaque_id"
+      },
+      "display_name": {
+       "type": "string",
+       "minLength": 1,
+       "maxLength": 128
+      }
+     }
+    },
+    "output_prefix": {
+     "type": "string",
+     "minLength": 1,
+     "maxLength": 512,
+     "description": "Directory in your assigned bucket for automatic result.json, artifacts and manifest.json delivery. Defaults to runs/<model-id>; the operation ID is appended. Never sent to the model."
+    }
+   },
+   "$defs": {
+    "opaque_id": {
+     "type": "string",
+     "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "artifact_ref": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "artifact_id",
+      "sha256",
+      "size_bytes",
+      "media_type"
+     ],
+     "properties": {
+      "artifact_id": {
+       "$ref": "#/$defs/opaque_id"
+      },
+      "sha256": {
+       "type": "string",
+       "pattern": "^[0-9a-f]{64}$"
+      },
+      "size_bytes": {
+       "type": "integer",
+       "minimum": 1,
+       "maximum": 268435456
+      },
+      "media_type": {
+       "const": "application/vnd.fs2.scientific-manifest+json"
+      },
+      "compression": {
+       "enum": [
+        "none"
+       ]
+      }
+     }
+    }
+   }
+  },
+  "mcp_input_schema": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://fs2-serve.nebius.ai/schema/scientific-run-request/v1",
+   "title": "Scientific batch run request",
+   "description": "User-authored request for POST /v1/models/{model_id}:submit. Idempotency is supplied in the Idempotency-Key HTTP header; queue, image, command, environment, and accelerator placement remain operator-owned.",
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "schema",
+    "operation",
+    "service_class",
+    "input_manifest",
+    "parameters"
+   ],
+   "properties": {
+    "schema": {
+     "const": "fs2-serve.nebius.ai/scientific-run-request/v1"
+    },
+    "operation": {
+     "enum": [
+      "predict-protein-structure"
+     ]
+    },
+    "service_class": {
+     "enum": [
+      "presentation",
+      "interactive",
+      "customer-batch"
+     ]
+    },
+    "input_manifest": {
+     "$ref": "#/$defs/artifact_ref"
+    },
+    "parameters": {
+     "$schema": "https://json-schema.org/draft/2020-12/schema",
+     "$id": "https://fs2-serve.nebius.ai/schema/esmfold2-fast-biohub-v3-4-0-parameters/v1",
+     "title": "ESMFold2-Fast (Biohub esm v3.4.0) scientific run parameters",
+     "description": "Mirrors fs2_serve.scientific_batch.adapters.esmfold2_fast: the fast trunk accepts single-sequence input only, so every MSA mode is rejected before any GPU is allocated.",
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "sequence",
+      "mode"
+     ],
+     "properties": {
+      "sequence": {
+       "type": "string",
+       "minLength": 1,
+       "maxLength": 4096,
+       "pattern": "^[ACDEFGHIKLMNPQRSTVWYX]+$"
+      },
+      "mode": {
+       "const": "single-sequence"
+      },
+      "seed": {
+       "type": "integer",
+       "minimum": 0,
+       "maximum": 2147483647
+      }
+     }
+    },
+    "client_context": {
+     "type": "object",
+     "additionalProperties": false,
+     "properties": {
+      "batch_id": {
+       "$ref": "#/$defs/opaque_id"
+      },
+      "correlation_id": {
+       "$ref": "#/$defs/opaque_id"
+      },
+      "display_name": {
+       "type": "string",
+       "minLength": 1,
+       "maxLength": 128
+      }
+     }
+    },
+    "output_prefix": {
+     "type": "string",
+     "minLength": 1,
+     "maxLength": 512,
+     "description": "Directory in your assigned bucket for automatic result.json, artifacts and manifest.json delivery. Defaults to runs/<model-id>; the operation ID is appended. Never sent to the model."
+    },
+    "idempotency_key": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "minLength": 8,
+     "maxLength": 200
+    }
+   },
+   "$defs": {
+    "opaque_id": {
+     "type": "string",
+     "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "artifact_ref": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "artifact_id",
+      "sha256",
+      "size_bytes",
+      "media_type"
+     ],
+     "properties": {
+      "artifact_id": {
+       "$ref": "#/$defs/opaque_id"
+      },
+      "sha256": {
+       "type": "string",
+       "pattern": "^[0-9a-f]{64}$"
+      },
+      "size_bytes": {
+       "type": "integer",
+       "minimum": 1,
+       "maximum": 268435456
+      },
+      "media_type": {
+       "const": "application/vnd.fs2.scientific-manifest+json"
+      },
+      "compression": {
+       "enum": [
+        "none"
+       ]
+      }
+     }
+    }
+   }
+  },
+  "runtime_revision": "esmfold2-fast-gpu-portability-20261022-4b28fe3",
+  "regions": [
+   "north",
+   "south"
+  ],
+  "execution_bounds": {
+   "stage_timeouts_s": {
+    "fold": 3600,
+    "prepare-input": 1200
+   },
+   "graph_deadline_s": 7200,
+   "source": "operator configuration, not measured capacity"
+  },
+  "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+  "capabilities": {
+   "native_dag": true,
+   "stages_per_operation": 2,
+   "gpus_per_compute_stage": 1,
+   "gpu_classes": [
+    "rtx-pro-6000",
+    "h100",
+    "h200"
+   ],
+   "mid_fold_checkpoint_resume": false,
+   "restart_current_stage": true,
+   "cancelled_graph_resume": false,
+   "portable_completed_result": true,
+   "cpu_delivery_retry": true,
+   "gpu_snapshot": false,
+   "exact_retained_retry_policy": false,
+   "result_schema": "fs2-serve.nebius.ai/scientific-run-result/v2"
+  },
+  "contracts": [
+   {
+    "tool_name": "submit_esmfold2_fast",
+    "protocol": "scientific-batch-v1",
+    "input_schema": {
+     "$schema": "https://json-schema.org/draft/2020-12/schema",
+     "$id": "https://fs2-serve.nebius.ai/schema/scientific-run-request/v1",
+     "title": "Scientific batch run request",
+     "description": "User-authored request for POST /v1/models/{model_id}:submit. Idempotency is supplied in the Idempotency-Key HTTP header; queue, image, command, environment, and accelerator placement remain operator-owned.",
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "schema",
+      "operation",
+      "service_class",
+      "input_manifest",
+      "parameters"
+     ],
+     "properties": {
+      "schema": {
+       "const": "fs2-serve.nebius.ai/scientific-run-request/v1"
+      },
+      "operation": {
+       "enum": [
+        "predict-protein-structure"
+       ]
+      },
+      "service_class": {
+       "enum": [
+        "presentation",
+        "interactive",
+        "customer-batch"
+       ]
+      },
+      "input_manifest": {
+       "$ref": "#/$defs/artifact_ref"
+      },
+      "parameters": {
+       "$schema": "https://json-schema.org/draft/2020-12/schema",
+       "$id": "https://fs2-serve.nebius.ai/schema/esmfold2-fast-biohub-v3-4-0-parameters/v1",
+       "title": "ESMFold2-Fast (Biohub esm v3.4.0) scientific run parameters",
+       "description": "Mirrors fs2_serve.scientific_batch.adapters.esmfold2_fast: the fast trunk accepts single-sequence input only, so every MSA mode is rejected before any GPU is allocated.",
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "sequence",
+        "mode"
+       ],
+       "properties": {
+        "sequence": {
+         "type": "string",
+         "minLength": 1,
+         "maxLength": 4096,
+         "pattern": "^[ACDEFGHIKLMNPQRSTVWYX]+$"
+        },
+        "mode": {
+         "const": "single-sequence"
+        },
+        "seed": {
+         "type": "integer",
+         "minimum": 0,
+         "maximum": 2147483647
+        }
+       }
+      },
+      "client_context": {
+       "type": "object",
+       "additionalProperties": false,
+       "properties": {
+        "batch_id": {
+         "$ref": "#/$defs/opaque_id"
+        },
+        "correlation_id": {
+         "$ref": "#/$defs/opaque_id"
+        },
+        "display_name": {
+         "type": "string",
+         "minLength": 1,
+         "maxLength": 128
+        }
+       }
+      },
+      "output_prefix": {
+       "type": "string",
+       "minLength": 1,
+       "maxLength": 512,
+       "description": "Directory in your assigned bucket for automatic result.json, artifacts and manifest.json delivery. Defaults to runs/<model-id>; the operation ID is appended. Never sent to the model."
+      },
+      "idempotency_key": {
+       "type": [
+        "string",
+        "null"
+       ],
+       "minLength": 8,
+       "maxLength": 200
+      }
+     },
+     "$defs": {
+      "opaque_id": {
+       "type": "string",
+       "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+      },
+      "artifact_ref": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "artifact_id",
+        "sha256",
+        "size_bytes",
+        "media_type"
+       ],
+       "properties": {
+        "artifact_id": {
+         "$ref": "#/$defs/opaque_id"
+        },
+        "sha256": {
+         "type": "string",
+         "pattern": "^[0-9a-f]{64}$"
+        },
+        "size_bytes": {
+         "type": "integer",
+         "minimum": 1,
+         "maximum": 268435456
+        },
+        "media_type": {
+         "const": "application/vnd.fs2.scientific-manifest+json"
+        },
+        "compression": {
+         "enum": [
+          "none"
+         ]
+        }
+       }
+      }
+     }
+    },
+    "model_ref": "esmfold2-fast"
+   }
+  ]
+ }
+}
