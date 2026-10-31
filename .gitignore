@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .ruff_cache/
-data/raw/
+data/raw
 runs/private/
 logs/
 .env
@@ -12,3 +12,5 @@ logs/
 node_modules/
 .openai/
 artifacts/core/replay/shards/
+build/
+*.egg-info/
