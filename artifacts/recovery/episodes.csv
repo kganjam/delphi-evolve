@@ -1,0 +1,701 @@
+family,seed,start,target,policy,truth_open,truth_closure_size,truth_shortest_route_len,status,assays,censored,stuck,wall_s,bmax,observed_max_score,n_observed,certificate,correct,verified_by_full_data,route,route_len,min_edge_margin,replicate_sign_agree_frac,event_chain_valid,cut_size,cut_boundary_edges,recovery
+A,0,PAIL,ATSG,collective_isolated,True,2554,5.0,open,90,False,False,0.196,1000,189076,186,open,True,True,"['PAIL', 'PAIG', 'GAIG', 'GASG', 'GTSG', 'ATSG']",5.0,13349.0,1.0,True,,,
+B,0,VFVS,AIKG,collective_isolated,True,137,6.0,open,841,False,False,4.516,1000,357764,939,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'ILMG', 'ILKG', 'ALKG', 'AIKG']",8.0,5201.0,1.0,True,,,
+B,0,VFVS,CLKG,collective_isolated,True,137,5.0,open,204,False,False,0.606,1000,333210,302,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,True,,,
+B,0,VFVS,VLKG,collective_isolated,True,137,4.0,open,220,False,False,0.458,1000,329786,318,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,True,,,
+B,0,VFVS,ALKG,collective_isolated,True,137,6.0,open,561,False,False,2.682,1000,333210,659,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'ILMG', 'ILKG', 'ALKG']",7.0,5201.0,1.0,True,,,
+A,1,WDTY,CACN,collective_isolated,False,3,,blocked,189,False,False,0.24,1000,125315,284,blocked,True,True,,,,,,3.0,224.0,
+B,1,VFVS,AIKG,collective_isolated,True,137,6.0,open,302,False,False,1.072,1000,357764,400,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,
+B,1,VFVS,CLKG,collective_isolated,True,137,5.0,open,282,False,False,0.931,1000,333210,380,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,
+B,1,VFVS,VLKG,collective_isolated,True,137,4.0,open,413,False,False,2.337,1000,333210,511,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,1,VFVS,ALKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,5.613,1000,357764,1098,,,,,,,,,,,
+A,2,KLDN,NTLS,collective_isolated,False,2644,,unresolved,1000,True,False,5.92,1000,263884,1096,,,,,,,,,,,
+B,2,VFVS,AIKG,collective_isolated,True,137,6.0,open,428,False,False,1.997,1000,357764,526,open,True,True,"['VFVS', 'VFMS', 'SFMS', 'SIMS', 'SIMG', 'SIKG', 'AIKG']",6.0,1339.0,1.0,,,,
+B,2,VFVS,CLKG,collective_isolated,True,137,5.0,open,797,False,False,3.718,1000,333210,895,open,True,True,"['VFVS', 'VFMS', 'SFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",6.0,247.0,1.0,,,,
+B,2,VFVS,VLKG,collective_isolated,True,137,4.0,open,155,False,False,0.261,1000,329786,253,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,2,VFVS,ALKG,collective_isolated,True,137,6.0,open,693,False,False,3.274,1000,333210,791,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'ILMG', 'ILKG', 'ALKG']",7.0,5201.0,1.0,,,,
+A,3,FCSN,ALLG,collective_isolated,True,925,6.0,open,430,False,False,2.269,1000,333210,525,open,True,True,"['FCSN', 'FCVN', 'PCVN', 'PCVG', 'DCVG', 'DCLG', 'ACLG', 'ALLG']",7.0,1646.0,1.0,,,,
+B,3,VFVS,AIKG,collective_isolated,True,137,6.0,open,341,False,False,2.565,1000,357764,439,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,
+B,3,VFVS,CLKG,collective_isolated,True,137,5.0,open,618,False,False,3.286,1000,333210,716,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,
+B,3,VFVS,VLKG,collective_isolated,True,137,4.0,open,264,False,False,1.129,1000,329786,362,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,3,VFVS,ALKG,collective_isolated,True,137,6.0,open,546,False,False,3.698,1000,329786,644,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'GLMS', 'ALMS', 'ALMG', 'ALKG']",6.0,1222.0,1.0,,,,
+A,4,GWEC,SGLS,collective_isolated,True,2059,5.0,open,91,False,False,0.326,1000,216825,187,open,True,True,"['GWEC', 'GWLC', 'GGLC', 'GGLG', 'SGLG', 'SGLS']",5.0,9533.0,1.0,,,,
+B,4,VFVS,AIKG,collective_isolated,True,137,6.0,open,475,False,False,7.04,1000,357764,573,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,
+B,4,VFVS,CLKG,collective_isolated,True,137,5.0,open,511,False,False,4.471,1000,333210,609,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,
+B,4,VFVS,VLKG,collective_isolated,True,137,4.0,open,228,False,False,1.614,1000,329786,326,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,4,VFVS,ALKG,collective_isolated,True,137,6.0,open,741,False,False,7.02,1000,329786,839,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'GLMS', 'ALMS', 'ALMG', 'ALKG']",6.0,1222.0,1.0,,,,
+A,5,SPVK,CTCN,collective_isolated,False,2373,,unresolved,1000,True,False,,1000,300542,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,AIKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,CLKG,collective_isolated,True,137,5.0,open,283,False,False,,1000,333210,381,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,VLKG,collective_isolated,True,137,4.0,open,229,False,False,,1000,329786,327,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,ALKG,collective_isolated,True,137,6.0,open,992,False,False,,1000,357764,1090,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'ILMG', 'ILKG', 'ALKG']",7.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+A,6,HTGR,GTVN,collective_isolated,False,1,,blocked,76,False,False,,1000,165760,172,blocked,True,True,,,,,,1.0,76.0,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,AIKG,collective_isolated,True,137,6.0,open,148,False,False,,1000,357764,246,open,True,True,"['VFVS', 'VFMS', 'SFMS', 'SIMS', 'SIMG', 'SIKG', 'AIKG']",6.0,1339.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,CLKG,collective_isolated,True,137,5.0,open,39,False,False,,1000,333210,137,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,VLKG,collective_isolated,True,137,4.0,open,296,False,False,,1000,333210,394,open,True,True,"['VFVS', 'VFMS', 'SFMS', 'CFMS', 'CLMS', 'CLMG', 'VLMG', 'VLKG']",7.0,247.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,ALKG,collective_isolated,True,137,6.0,open,77,False,False,,1000,327664,175,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'GLMS', 'ALMS', 'ALMG', 'ALKG']",6.0,1222.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+A,7,FFVE,CQLG,collective_isolated,True,2978,4.0,open,14,False,False,,1000,162865,110,open,True,True,"['FFVE', 'FFVG', 'CFVG', 'CFLG', 'CQLG']",4.0,1178.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,AIKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,CLKG,collective_isolated,True,137,5.0,open,207,False,False,,1000,333210,305,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,VLKG,collective_isolated,True,137,4.0,open,67,False,False,,1000,329786,165,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,ALKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,8,VLVM,LCIG,collective_isolated,True,1020,6.0,open,145,False,False,,1000,232711,241,open,True,True,"['VLVM', 'VLVC', 'VLIC', 'ALIC', 'ALIG', 'ACIG', 'LCIG']",6.0,4930.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,AIKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,CLKG,collective_isolated,True,137,5.0,open,31,False,False,,1000,333210,129,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,VLKG,collective_isolated,True,137,4.0,open,29,False,False,,1000,329786,127,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,ALKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,9,CPPM,TMCS,collective_isolated,False,1,,blocked,76,False,False,,1000,201904,172,blocked,True,True,,,,,,1.0,76.0,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,AIKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,CLKG,collective_isolated,True,137,5.0,open,464,False,False,,1000,357764,562,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,VLKG,collective_isolated,True,137,4.0,open,16,False,False,,1000,329786,114,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,ALKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,10,WMSG,GMKG,collective_isolated,True,989,2.0,open,1,False,False,,1000,249695,97,open,True,True,"['WMSG', 'GMSG', 'GMKG']",2.0,53874.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,AIKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,CLKG,collective_isolated,True,137,5.0,open,466,False,False,,1000,333210,564,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,VLKG,collective_isolated,True,137,4.0,open,31,False,False,,1000,329786,129,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,ALKG,collective_isolated,True,137,6.0,open,674,False,False,,1000,329786,772,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'ILMG', 'ILKG', 'ALKG']",7.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+A,11,PFGC,SISG,collective_isolated,True,2296,4.0,open,5,False,False,,1000,241750,101,open,True,True,"['PFGC', 'PFGG', 'PIGG', 'SIGG', 'SISG']",4.0,17109.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,AIKG,collective_isolated,True,137,6.0,open,245,False,False,,1000,357764,343,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'GLMS', 'ALMS', 'ALMG', 'ALKG', 'AIKG']",7.0,1222.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,CLKG,collective_isolated,True,137,5.0,open,957,False,False,,1000,333210,1055,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'GLMS', 'CLMS', 'CLMG', 'CLKG']",6.0,1222.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,VLKG,collective_isolated,True,137,4.0,open,166,False,False,,1000,329786,264,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,ALKG,collective_isolated,True,137,6.0,open,639,False,False,,1000,333210,737,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'GLMS', 'ALMS', 'ALMG', 'ALKG']",6.0,1222.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+A,12,CCNW,AAVN,collective_isolated,True,1919,7.0,open,617,False,False,,1000,279309,711,open,True,True,"['CCNW', 'CCNG', 'CGNG', 'CGRG', 'AGRG', 'AGVG', 'ASVG', 'ASVN', 'AAVN']",8.0,1072.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,AIKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,CLKG,collective_isolated,True,137,5.0,open,288,False,False,,1000,333210,386,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,VLKG,collective_isolated,True,137,4.0,open,413,False,False,,1000,333210,511,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,ALKG,collective_isolated,True,137,6.0,open,875,False,False,,1000,333210,973,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'ILMG', 'ILKG', 'ALKG']",7.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+A,13,ENWV,GMAS,collective_isolated,False,2,,blocked,133,False,False,,1000,191920,228,blocked,True,True,,,,,,2.0,150.0,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,AIKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,CLKG,collective_isolated,True,137,5.0,open,206,False,False,,1000,333210,304,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,VLKG,collective_isolated,True,137,4.0,open,183,False,False,,1000,329786,281,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,ALKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,14,AFHN,PIVG,collective_isolated,True,2770,4.0,open,11,False,False,,1000,193196,107,open,True,True,"['AFHN', 'AIHN', 'AIHG', 'AIVG', 'PIVG']",4.0,1827.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,AIKG,collective_isolated,True,137,6.0,open,615,False,False,,1000,357764,713,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,CLKG,collective_isolated,True,137,5.0,open,469,False,False,,1000,333210,567,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,VLKG,collective_isolated,True,137,4.0,open,301,False,False,,1000,329786,399,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,ALKG,collective_isolated,True,137,6.0,open,981,False,False,,1000,357764,1079,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'ILMG', 'ILKG', 'ALKG']",7.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+A,15,EIGT,MQVN,collective_isolated,True,3392,8.0,unresolved,1000,True,False,,1000,239876,1095,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,AIKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,CLKG,collective_isolated,True,137,5.0,open,715,False,False,,1000,333210,813,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,VLKG,collective_isolated,True,137,4.0,open,223,False,False,,1000,329786,321,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,ALKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,16,RPRF,GLVS,collective_isolated,False,3,,blocked,190,False,False,,1000,198536,286,blocked,True,True,,,,,,3.0,222.0,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,AIKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,CLKG,collective_isolated,True,137,5.0,open,379,False,False,,1000,333210,477,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,VLKG,collective_isolated,True,137,4.0,open,23,False,False,,1000,329786,121,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,ALKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,17,QWGG,CGVN,collective_isolated,True,2880,4.0,open,15,False,False,,1000,248960,111,open,True,True,"['QWGG', 'QWVG', 'QGVG', 'CGVG', 'CGVN']",4.0,10374.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,AIKG,collective_isolated,True,137,6.0,open,130,False,False,,1000,357764,228,open,True,True,"['VFVS', 'VFMS', 'SFMS', 'SIMS', 'SIMG', 'SIKG', 'AIKG']",6.0,1339.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,CLKG,collective_isolated,True,137,5.0,open,137,False,False,,1000,333210,235,open,True,True,"['VFVS', 'VFMS', 'SFMS', 'SIMS', 'SIMG', 'SLMG', 'SLKG', 'CLKG']",7.0,1339.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,VLKG,collective_isolated,True,137,4.0,open,14,False,False,,1000,329786,112,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,ALKG,collective_isolated,True,137,6.0,open,133,False,False,,1000,329786,231,open,True,True,"['VFVS', 'VFMS', 'SFMS', 'SIMS', 'SIMG', 'SLMG', 'SLKG', 'ALKG']",7.0,1339.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+A,18,FMQR,IVRG,collective_isolated,True,3588,5.0,unresolved,1000,True,False,,1000,319916,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,AIKG,collective_isolated,True,137,6.0,open,963,False,False,,1000,357764,1061,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,CLKG,collective_isolated,True,137,5.0,open,267,False,False,,1000,333210,365,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,VLKG,collective_isolated,True,137,4.0,open,113,False,False,,1000,329786,211,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,ALKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,19,VIHM,KARG,collective_isolated,False,1826,,unresolved,1000,True,False,,1000,357764,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,AIKG,collective_isolated,True,137,6.0,open,881,False,False,,1000,357764,979,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,CLKG,collective_isolated,True,137,5.0,open,400,False,False,,1000,333210,498,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,VLKG,collective_isolated,True,137,4.0,open,11,False,False,,1000,329786,109,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,ALKG,collective_isolated,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,0,PAIL,ATSG,collective_shared,True,2554,5.0,open,29,False,False,0.161,1000,178490,125,open,True,True,"['PAIL', 'PAIG', 'GAIG', 'GASG', 'GTSG', 'ATSG']",5.0,13349.0,1.0,True,,,
+B,0,VFVS,AIKG,collective_shared,True,137,6.0,open,612,False,False,6.839,1000,357764,710,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,True,,,
+B,0,VFVS,CLKG,collective_shared,True,137,5.0,open,99,False,False,0.659,1000,333210,197,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,True,,,
+B,0,VFVS,VLKG,collective_shared,True,137,4.0,open,138,False,False,0.837,1000,329786,236,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,True,,,
+B,0,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,15.054,1000,357764,1098,,,,,,,,True,,,
+A,1,WDTY,CACN,collective_shared,False,3,,blocked,189,False,False,0.424,1000,125315,284,blocked,True,True,,,,,,3.0,224.0,
+B,1,VFVS,AIKG,collective_shared,True,137,6.0,open,584,False,False,8.291,1000,357764,682,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,
+B,1,VFVS,CLKG,collective_shared,True,137,5.0,open,805,False,False,10.15,1000,357764,903,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,
+B,1,VFVS,VLKG,collective_shared,True,137,4.0,open,116,False,False,0.678,1000,329786,214,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,1,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,14.703,1000,357764,1098,,,,,,,,,,,
+A,2,KLDN,NTLS,collective_shared,False,2644,,unresolved,1000,True,False,12.306,1000,267227,1096,,,,,,,,,,,
+B,2,VFVS,AIKG,collective_shared,True,137,6.0,open,569,False,False,8.61,1000,357764,667,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,
+B,2,VFVS,CLKG,collective_shared,True,137,5.0,open,714,False,False,8.043,1000,357764,812,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,
+B,2,VFVS,VLKG,collective_shared,True,137,4.0,open,202,False,False,1.292,1000,329786,300,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,2,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,14.512,1000,357764,1098,,,,,,,,,,,
+A,3,FCSN,ALLG,collective_shared,True,925,6.0,open,151,False,False,0.816,1000,264901,247,open,True,True,"['FCSN', 'FCVN', 'PCVN', 'PCVG', 'CCVG', 'CCLG', 'ACLG', 'ALLG']",7.0,387.0,1.0,,,,
+B,3,VFVS,AIKG,collective_shared,True,137,6.0,open,590,False,False,8.872,1000,357764,688,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,
+B,3,VFVS,CLKG,collective_shared,True,137,5.0,open,798,False,False,14.896,1000,357764,896,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,
+B,3,VFVS,VLKG,collective_shared,True,137,4.0,open,133,False,False,0.962,1000,329786,231,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,3,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,19.074,1000,357764,1098,,,,,,,,,,,
+A,4,GWEC,SGLS,collective_shared,True,2059,5.0,open,37,False,False,0.227,1000,197514,133,open,True,True,"['GWEC', 'GWLC', 'GGLC', 'GGLG', 'SGLG', 'SGLS']",5.0,9533.0,1.0,,,,
+B,4,VFVS,AIKG,collective_shared,True,137,6.0,open,286,False,False,3.266,1000,357764,384,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,
+B,4,VFVS,CLKG,collective_shared,True,137,5.0,open,793,False,False,20.083,1000,357764,891,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,
+B,4,VFVS,VLKG,collective_shared,True,137,4.0,open,135,False,False,1.251,1000,329786,233,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,4,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,17.602,1000,357764,1098,,,,,,,,,,,
+A,5,SPVK,CTCN,collective_shared,False,2373,,unresolved,1000,True,False,,1000,325079,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,AIKG,collective_shared,True,137,6.0,open,613,False,False,,1000,357764,711,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,CLKG,collective_shared,True,137,5.0,open,683,False,False,,1000,357764,781,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,VLKG,collective_shared,True,137,4.0,open,133,False,False,,1000,329786,231,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,6,HTGR,GTVN,collective_shared,False,1,,blocked,76,False,False,,1000,165760,172,blocked,True,True,,,,,,1.0,76.0,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,AIKG,collective_shared,True,137,6.0,open,53,False,False,,1000,357764,151,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'SFMS', 'SIMS', 'SIMG', 'SIKG', 'AIKG']",7.0,1222.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,CLKG,collective_shared,True,137,5.0,open,48,False,False,,1000,333210,146,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,VLKG,collective_shared,True,137,4.0,open,162,False,False,,1000,329786,260,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,ALKG,collective_shared,True,137,6.0,open,45,False,False,,1000,327664,143,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'GLMS', 'ALMS', 'ALMG', 'ALKG']",6.0,1222.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+A,7,FFVE,CQLG,collective_shared,True,2978,4.0,open,8,False,False,,1000,162865,104,open,True,True,"['FFVE', 'FFVG', 'CFVG', 'CFLG', 'CQLG']",4.0,1178.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,AIKG,collective_shared,True,137,6.0,open,574,False,False,,1000,357764,672,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,CLKG,collective_shared,True,137,5.0,open,798,False,False,,1000,357764,896,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,VLKG,collective_shared,True,137,4.0,open,127,False,False,,1000,329786,225,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,8,VLVM,LCIG,collective_shared,True,1020,6.0,open,32,False,False,,1000,229106,128,open,True,True,"['VLVM', 'VLVC', 'CLVC', 'CLVG', 'CCVG', 'LCVG', 'LCIG']",6.0,8227.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,AIKG,collective_shared,True,137,6.0,open,195,False,False,,1000,357764,293,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,CLKG,collective_shared,True,137,5.0,open,37,False,False,,1000,333210,135,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,VLKG,collective_shared,True,137,4.0,open,39,False,False,,1000,329786,137,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,ALKG,collective_shared,True,137,6.0,open,688,False,False,,1000,357764,786,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'ILMG', 'ILKG', 'ALKG']",7.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+A,9,CPPM,TMCS,collective_shared,False,1,,blocked,76,False,False,,1000,201904,172,blocked,True,True,,,,,,1.0,76.0,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,AIKG,collective_shared,True,137,6.0,open,147,False,False,,1000,357764,245,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,CLKG,collective_shared,True,137,5.0,open,661,False,False,,1000,357764,759,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,VLKG,collective_shared,True,137,4.0,open,10,False,False,,1000,329786,108,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,10,WMSG,GMKG,collective_shared,True,989,2.0,open,1,False,False,,1000,249695,97,open,True,True,"['WMSG', 'GMSG', 'GMKG']",2.0,53874.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,AIKG,collective_shared,True,137,6.0,open,225,False,False,,1000,357764,323,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,CLKG,collective_shared,True,137,5.0,open,104,False,False,,1000,333210,202,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,VLKG,collective_shared,True,137,4.0,open,39,False,False,,1000,329786,137,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,11,PFGC,SISG,collective_shared,True,2296,4.0,open,4,False,False,,1000,241750,100,open,True,True,"['PFGC', 'PFGG', 'PIGG', 'SIGG', 'SISG']",4.0,17109.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,AIKG,collective_shared,True,137,6.0,open,517,False,False,,1000,357764,615,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,CLKG,collective_shared,True,137,5.0,open,684,False,False,,1000,357764,782,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,VLKG,collective_shared,True,137,4.0,open,175,False,False,,1000,329786,273,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,12,CCNW,AAVN,collective_shared,True,1919,7.0,open,134,False,False,,1000,257252,230,open,True,True,"['CCNW', 'CCNG', 'CCTG', 'ACTG', 'AWTG', 'AWVG', 'AWVN', 'AAVN']",7.0,173.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,AIKG,collective_shared,True,137,6.0,open,568,False,False,,1000,357764,666,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,CLKG,collective_shared,True,137,5.0,open,798,False,False,,1000,357764,896,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,VLKG,collective_shared,True,137,4.0,open,179,False,False,,1000,329786,277,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,13,ENWV,GMAS,collective_shared,False,2,,blocked,133,False,False,,1000,191920,228,blocked,True,True,,,,,,2.0,150.0,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,AIKG,collective_shared,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,CLKG,collective_shared,True,137,5.0,open,678,False,False,,1000,357764,776,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,VLKG,collective_shared,True,137,4.0,open,19,False,False,,1000,329786,117,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,14,AFHN,PIVG,collective_shared,True,2770,4.0,open,6,False,False,,1000,193196,102,open,True,True,"['AFHN', 'AIHN', 'AIHG', 'AIVG', 'PIVG']",4.0,1827.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,AIKG,collective_shared,True,137,6.0,open,521,False,False,,1000,357764,619,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,CLKG,collective_shared,True,137,5.0,open,669,False,False,,1000,357764,767,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,VLKG,collective_shared,True,137,4.0,open,136,False,False,,1000,329786,234,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,15,EIGT,MQVN,collective_shared,True,3392,8.0,unresolved,1000,True,False,,1000,239876,1095,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,AIKG,collective_shared,True,137,6.0,open,592,False,False,,1000,357764,690,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,CLKG,collective_shared,True,137,5.0,open,790,False,False,,1000,357764,888,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,VLKG,collective_shared,True,137,4.0,open,143,False,False,,1000,329786,241,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,16,RPRF,GLVS,collective_shared,False,3,,blocked,190,False,False,,1000,198536,286,blocked,True,True,,,,,,3.0,222.0,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,AIKG,collective_shared,True,137,6.0,open,220,False,False,,1000,357764,318,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,CLKG,collective_shared,True,137,5.0,open,658,False,False,,1000,357764,756,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,VLKG,collective_shared,True,137,4.0,open,18,False,False,,1000,329786,116,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,17,QWGG,CGVN,collective_shared,True,2880,4.0,open,17,False,False,,1000,300542,113,open,True,True,"['QWGG', 'QWVG', 'QGVG', 'CGVG', 'CGVN']",4.0,10374.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,AIKG,collective_shared,True,137,6.0,open,135,False,False,,1000,357764,233,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,CLKG,collective_shared,True,137,5.0,open,664,False,False,,1000,357764,762,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,VLKG,collective_shared,True,137,4.0,open,20,False,False,,1000,329786,118,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,18,FMQR,IVRG,collective_shared,True,3588,5.0,open,862,False,False,,1000,319916,958,open,True,True,"['FMQR', 'FMQG', 'FPQG', 'IPQG', 'IPRG', 'IVRG']",5.0,1539.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,AIKG,collective_shared,True,137,6.0,open,394,False,False,,1000,357764,492,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,CLKG,collective_shared,True,137,5.0,open,100,False,False,,1000,333210,198,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,VLKG,collective_shared,True,137,4.0,open,19,False,False,,1000,329786,117,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,ALKG,collective_shared,True,137,6.0,open,851,False,False,,1000,357764,949,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'ILMG', 'ILKG', 'ALKG']",7.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+A,19,VIHM,KARG,collective_shared,False,1826,,unresolved,1000,True,False,,1000,357764,1094,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,AIKG,collective_shared,True,137,6.0,open,567,False,False,,1000,357764,665,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,CLKG,collective_shared,True,137,5.0,open,661,False,False,,1000,357764,759,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,VLKG,collective_shared,True,137,4.0,open,18,False,False,,1000,329786,116,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,ALKG,collective_shared,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,0,PAIL,ATSG,directed,True,2554,5.0,open,841,False,False,0.238,1000,357764,937,open,True,True,"['PAIL', 'PAIG', 'GAIG', 'GASG', 'GTSG', 'ATSG']",5.0,13349.0,1.0,,,,
+B,0,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,0.078,1000,357764,1098,,,,,,,,,,,
+B,0,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,0.077,1000,333210,1098,,,,,,,,,,,
+B,0,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,0.004,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,0,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,0.079,1000,327664,1098,,,,,,,,,,,
+A,1,WDTY,CACN,directed,False,3,,blocked,189,False,False,0.007,1000,125315,284,blocked,True,True,,,,,,3.0,224.0,
+B,1,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,0.094,1000,357764,1098,,,,,,,,,,,
+B,1,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,0.081,1000,333210,1098,,,,,,,,,,,
+B,1,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,0.005,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,1,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,0.077,1000,327664,1098,,,,,,,,,,,
+A,2,KLDN,NTLS,directed,False,2644,,unresolved,1000,True,False,0.274,1000,263884,1096,,,,,,,,,,,
+B,2,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,0.061,1000,357764,1098,,,,,,,,,,,
+B,2,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,0.082,1000,333210,1098,,,,,,,,,,,
+B,2,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,0.003,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,2,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,0.077,1000,327664,1098,,,,,,,,,,,
+A,3,FCSN,ALLG,directed,True,925,6.0,unresolved,1000,True,False,0.126,1000,357764,1096,,,,,,,,,,,
+B,3,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,0.06,1000,357764,1098,,,,,,,,,,,
+B,3,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,0.078,1000,333210,1098,,,,,,,,,,,
+B,3,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,0.004,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,3,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,0.066,1000,327664,1098,,,,,,,,,,,
+A,4,GWEC,SGLS,directed,True,2059,5.0,open,599,False,False,0.11,1000,263884,695,open,True,True,"['GWEC', 'GWLC', 'GGLC', 'GGLG', 'SGLG', 'SGLS']",5.0,9533.0,1.0,,,,
+B,4,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,0.064,1000,357764,1098,,,,,,,,,,,
+B,4,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,0.065,1000,333210,1098,,,,,,,,,,,
+B,4,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,0.005,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,4,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,0.069,1000,327664,1098,,,,,,,,,,,
+A,5,SPVK,CTCN,directed,False,2373,,unresolved,1000,True,False,,1000,268575,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,6,HTGR,GTVN,directed,False,1,,blocked,76,False,False,,1000,165760,172,blocked,True,True,,,,,,1.0,76.0,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,7,FFVE,CQLG,directed,True,2978,4.0,open,33,False,False,,1000,162865,129,open,True,True,"['FFVE', 'FFVG', 'CFVG', 'CFLG', 'CQLG']",4.0,1178.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,8,VLVM,LCIG,directed,True,1020,6.0,unresolved,1000,True,False,,1000,357764,1095,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,9,CPPM,TMCS,directed,False,1,,blocked,76,False,False,,1000,201904,172,blocked,True,True,,,,,,1.0,76.0,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,10,WMSG,GMKG,directed,True,989,2.0,open,1,False,False,,1000,249695,97,open,True,True,"['WMSG', 'GMSG', 'GMKG']",2.0,53874.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,11,PFGC,SISG,directed,True,2296,4.0,open,33,False,False,,1000,241750,129,open,True,True,"['PFGC', 'PFGG', 'PFSG', 'SFSG', 'SISG']",4.0,17886.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,12,CCNW,AAVN,directed,True,1919,7.0,unresolved,1000,True,False,,1000,357764,1093,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,13,ENWV,GMAS,directed,False,2,,blocked,133,False,False,,1000,191920,228,blocked,True,True,,,,,,2.0,150.0,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,14,AFHN,PIVG,directed,True,2770,4.0,open,33,False,False,,1000,193196,129,open,True,True,"['AFHN', 'AIHN', 'AIHG', 'AIVG', 'PIVG']",4.0,1827.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,15,EIGT,MQVN,directed,True,3392,8.0,unresolved,1000,True,False,,1000,250938,1095,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,16,RPRF,GLVS,directed,False,3,,blocked,190,False,False,,1000,198536,286,blocked,True,True,,,,,,3.0,222.0,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,17,QWGG,CGVN,directed,True,2880,4.0,open,33,False,False,,1000,174614,129,open,True,True,"['QWGG', 'QWVG', 'QGVG', 'CGVG', 'CGVN']",4.0,10374.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,18,FMQR,IVRG,directed,True,3588,5.0,unresolved,1000,True,False,,1000,319916,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,19,VIHM,KARG,directed,False,1826,,unresolved,1000,True,False,,1000,357764,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,AIKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,CLKG,directed,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,VLKG,directed,True,137,4.0,open,34,False,False,,1000,329786,132,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,ALKG,directed,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,0,PAIL,ATSG,greedy,True,2554,5.0,unresolved,1000,True,False,0.287,1000,357764,1094,,,,,,,,,,,
+B,0,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,0.096,1000,357764,1098,,,,,,,,,,,
+B,0,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,0.091,1000,333210,1098,,,,,,,,,,,
+B,0,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,0.089,1000,329786,1098,,,,,,,,,,,
+B,0,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,0.088,1000,327664,1098,,,,,,,,,,,
+A,1,WDTY,CACN,greedy,False,3,,blocked,189,False,False,0.004,1000,125315,284,blocked,True,True,,,,,,3.0,224.0,
+B,1,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,0.064,1000,357764,1098,,,,,,,,,,,
+B,1,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,0.061,1000,333210,1098,,,,,,,,,,,
+B,1,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,0.06,1000,329786,1098,,,,,,,,,,,
+B,1,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,0.068,1000,327664,1098,,,,,,,,,,,
+A,2,KLDN,NTLS,greedy,False,2644,,unresolved,1000,True,False,0.085,1000,268575,1096,,,,,,,,,,,
+B,2,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,0.064,1000,357764,1098,,,,,,,,,,,
+B,2,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,0.084,1000,333210,1098,,,,,,,,,,,
+B,2,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,0.103,1000,329786,1098,,,,,,,,,,,
+B,2,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,0.08,1000,327664,1098,,,,,,,,,,,
+A,3,FCSN,ALLG,greedy,True,925,6.0,unresolved,1000,True,False,0.084,1000,268575,1096,,,,,,,,,,,
+B,3,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,0.064,1000,357764,1098,,,,,,,,,,,
+B,3,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,0.069,1000,333210,1098,,,,,,,,,,,
+B,3,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,0.06,1000,329786,1098,,,,,,,,,,,
+B,3,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,0.063,1000,327664,1098,,,,,,,,,,,
+A,4,GWEC,SGLS,greedy,True,2059,5.0,open,502,False,False,0.109,1000,268575,598,open,True,True,"['GWEC', 'GWCC', 'GACC', 'GFCC', 'GFCS', 'SFCS', 'SGCS', 'SGLS']",7.0,7123.0,1.0,,,,
+B,4,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,0.105,1000,357764,1098,,,,,,,,,,,
+B,4,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,0.061,1000,333210,1098,,,,,,,,,,,
+B,4,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,0.058,1000,329786,1098,,,,,,,,,,,
+B,4,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,0.077,1000,327664,1098,,,,,,,,,,,
+A,5,SPVK,CTCN,greedy,False,2373,,unresolved,1000,True,False,,1000,268575,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,6,HTGR,GTVN,greedy,False,1,,blocked,76,False,False,,1000,165760,172,blocked,True,True,,,,,,1.0,76.0,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,7,FFVE,CQLG,greedy,True,2978,4.0,open,202,False,False,,1000,229666,294,open,True,True,"['FFVE', 'FAVE', 'FAVG', 'CAVG', 'CAAG', 'CALG', 'CQLG']",6.0,5119.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,8,VLVM,LCIG,greedy,True,1020,6.0,unresolved,1000,True,False,,1000,268575,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,9,CPPM,TMCS,greedy,False,1,,blocked,76,False,False,,1000,201904,172,blocked,True,True,,,,,,1.0,76.0,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,10,WMSG,GMKG,greedy,True,989,2.0,open,6,False,False,,1000,249695,102,open,True,True,"['WMSG', 'DMSG', 'GMSG', 'GMKG']",3.0,53874.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,11,PFGC,SISG,greedy,True,2296,4.0,unresolved,1000,True,False,,1000,357764,1093,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,12,CCNW,AAVN,greedy,True,1919,7.0,unresolved,1000,True,False,,1000,357764,1091,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,13,ENWV,GMAS,greedy,False,2,,blocked,133,False,False,,1000,191920,228,blocked,True,True,,,,,,2.0,150.0,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,14,AFHN,PIVG,greedy,True,2770,4.0,unresolved,1000,True,False,,1000,268575,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,15,EIGT,MQVN,greedy,True,3392,8.0,unresolved,1000,True,False,,1000,268575,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,16,RPRF,GLVS,greedy,False,3,,blocked,190,False,False,,1000,198536,286,blocked,True,True,,,,,,3.0,222.0,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,17,QWGG,CGVN,greedy,True,2880,4.0,unresolved,1000,True,False,,1000,357764,1093,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,18,FMQR,IVRG,greedy,True,3588,5.0,unresolved,1000,True,False,,1000,268575,1095,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,19,VIHM,KARG,greedy,False,1826,,unresolved,1000,True,False,,1000,357764,1094,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,AIKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,CLKG,greedy,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,VLKG,greedy,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,ALKG,greedy,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,0,PAIL,ATSG,q2c,True,2554,5.0,open,45,False,False,0.186,1000,189076,141,open,True,True,"['PAIL', 'PAIG', 'GAIG', 'GASG', 'GTSG', 'ATSG']",5.0,13349.0,1.0,,,,
+B,0,VFVS,AIKG,q2c,True,137,6.0,open,611,False,False,5.064,1000,357764,709,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,
+B,0,VFVS,CLKG,q2c,True,137,5.0,open,674,False,False,5.235,1000,357764,772,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,
+B,0,VFVS,VLKG,q2c,True,137,4.0,open,158,False,False,0.519,1000,329786,256,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,0,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,11.975,1000,357764,1098,,,,,,,,,,,
+A,1,WDTY,CACN,q2c,False,3,,blocked,189,False,False,0.291,1000,125315,284,blocked,True,True,,,,,,3.0,224.0,
+B,1,VFVS,AIKG,q2c,True,137,6.0,open,172,False,False,1.032,1000,357764,270,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,
+B,1,VFVS,CLKG,q2c,True,137,5.0,open,810,False,False,9.056,1000,357764,908,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,
+B,1,VFVS,VLKG,q2c,True,137,4.0,open,249,False,False,1.615,1000,329786,347,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,1,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,12.108,1000,357764,1098,,,,,,,,,,,
+A,2,KLDN,NTLS,q2c,False,2644,,unresolved,1000,True,False,10.492,1000,268575,1096,,,,,,,,,,,
+B,2,VFVS,AIKG,q2c,True,137,6.0,open,577,False,False,8.81,1000,357764,675,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,
+B,2,VFVS,CLKG,q2c,True,137,5.0,open,787,False,False,8.256,1000,357764,885,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,
+B,2,VFVS,VLKG,q2c,True,137,4.0,open,194,False,False,1.359,1000,329786,292,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,2,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,12.921,1000,357764,1098,,,,,,,,,,,
+A,3,FCSN,ALLG,q2c,True,925,6.0,open,822,False,False,6.409,1000,357764,918,open,True,True,"['FCSN', 'FCVN', 'PCVN', 'PCVG', 'CCVG', 'CCLG', 'ACLG', 'ANLG', 'ALLG']",8.0,387.0,1.0,,,,
+B,3,VFVS,AIKG,q2c,True,137,6.0,open,184,False,False,1.109,1000,357764,282,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,
+B,3,VFVS,CLKG,q2c,True,137,5.0,open,713,False,False,6.976,1000,357764,811,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,
+B,3,VFVS,VLKG,q2c,True,137,4.0,open,154,False,False,0.753,1000,329786,252,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,3,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,14.844,1000,357764,1098,,,,,,,,,,,
+A,4,GWEC,SGLS,q2c,True,2059,5.0,open,66,False,False,0.308,1000,241502,162,open,True,True,"['GWEC', 'GWLC', 'GGLC', 'GGLG', 'SGLG', 'SGLS']",5.0,9533.0,1.0,,,,
+B,4,VFVS,AIKG,q2c,True,137,6.0,open,436,False,False,5.367,1000,357764,534,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,
+B,4,VFVS,CLKG,q2c,True,137,5.0,open,155,False,False,1.393,1000,333210,253,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,
+B,4,VFVS,VLKG,q2c,True,137,4.0,open,212,False,False,1.765,1000,329786,310,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,
+B,4,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,10.941,1000,357764,1098,,,,,,,,,,,
+A,5,SPVK,CTCN,q2c,False,2373,,unresolved,1000,True,False,,1000,286262,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,AIKG,q2c,True,137,6.0,open,619,False,False,,1000,357764,717,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,CLKG,q2c,True,137,5.0,open,693,False,False,,1000,357764,791,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,VLKG,q2c,True,137,4.0,open,132,False,False,,1000,329786,230,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,6,HTGR,GTVN,q2c,False,1,,blocked,76,False,False,,1000,165760,172,blocked,True,True,,,,,,1.0,76.0,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,AIKG,q2c,True,137,6.0,open,50,False,False,,1000,357764,148,open,True,True,"['VFVS', 'VFMS', 'SFMS', 'SIMS', 'SIMG', 'SIKG', 'AIKG']",6.0,1339.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,CLKG,q2c,True,137,5.0,open,22,False,False,,1000,333210,120,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,VLKG,q2c,True,137,4.0,open,173,False,False,,1000,329786,271,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,ALKG,q2c,True,137,6.0,open,50,False,False,,1000,327664,148,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'GLMS', 'ALMS', 'ALMG', 'ALKG']",6.0,1222.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+A,7,FFVE,CQLG,q2c,True,2978,4.0,open,8,False,False,,1000,162865,104,open,True,True,"['FFVE', 'FFVG', 'CFVG', 'CFLG', 'CQLG']",4.0,1178.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,AIKG,q2c,True,137,6.0,open,348,False,False,,1000,357764,446,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,CLKG,q2c,True,137,5.0,open,117,False,False,,1000,333210,215,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,VLKG,q2c,True,137,4.0,open,153,False,False,,1000,329786,251,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,8,VLVM,LCIG,q2c,True,1020,6.0,open,87,False,False,,1000,231020,183,open,True,True,"['VLVM', 'VLVC', 'VLIC', 'ALIC', 'ALIG', 'ACIG', 'LCIG']",6.0,4930.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,AIKG,q2c,True,137,6.0,open,698,False,False,,1000,357764,796,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'SFMS', 'SIMS', 'SIMG', 'SIKG', 'AIKG']",7.0,1222.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,CLKG,q2c,True,137,5.0,open,14,False,False,,1000,333210,112,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,VLKG,q2c,True,137,4.0,open,17,False,False,,1000,329786,115,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,ALKG,q2c,True,137,6.0,open,675,False,False,,1000,357764,773,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'ILMG', 'ILKG', 'ALKG']",7.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+A,9,CPPM,TMCS,q2c,False,1,,blocked,76,False,False,,1000,201904,172,blocked,True,True,,,,,,1.0,76.0,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,AIKG,q2c,True,137,6.0,open,697,False,False,,1000,357764,795,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,CLKG,q2c,True,137,5.0,open,657,False,False,,1000,357764,755,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,VLKG,q2c,True,137,4.0,open,12,False,False,,1000,329786,110,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,10,WMSG,GMKG,q2c,True,989,2.0,open,1,False,False,,1000,249695,97,open,True,True,"['WMSG', 'GMSG', 'GMKG']",2.0,53874.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,AIKG,q2c,True,137,6.0,open,551,False,False,,1000,357764,649,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,CLKG,q2c,True,137,5.0,open,25,False,False,,1000,333210,123,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,VLKG,q2c,True,137,4.0,open,20,False,False,,1000,329786,118,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,11,PFGC,SISG,q2c,True,2296,4.0,open,3,False,False,,1000,241750,99,open,True,True,"['PFGC', 'PFGG', 'PIGG', 'SIGG', 'SISG']",4.0,17109.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,AIKG,q2c,True,137,6.0,open,464,False,False,,1000,357764,562,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,CLKG,q2c,True,137,5.0,open,792,False,False,,1000,357764,890,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,VLKG,q2c,True,137,4.0,open,142,False,False,,1000,329786,240,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,12,CCNW,AAVN,q2c,True,1919,7.0,open,413,False,False,,1000,357764,509,open,True,True,"['CCNW', 'CCNG', 'CCTG', 'ACTG', 'AWTG', 'AWVG', 'AWVN', 'AAVN']",7.0,173.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,AIKG,q2c,True,137,6.0,open,585,False,False,,1000,357764,683,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,CLKG,q2c,True,137,5.0,open,807,False,False,,1000,357764,905,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,VLKG,q2c,True,137,4.0,open,162,False,False,,1000,329786,260,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'VLMG', 'VLKG']",6.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,13,ENWV,GMAS,q2c,False,2,,blocked,133,False,False,,1000,191920,228,blocked,True,True,,,,,,2.0,150.0,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,AIKG,q2c,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,CLKG,q2c,True,137,5.0,open,664,False,False,,1000,357764,762,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,VLKG,q2c,True,137,4.0,open,75,False,False,,1000,329786,173,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,14,AFHN,PIVG,q2c,True,2770,4.0,open,6,False,False,,1000,193196,102,open,True,True,"['AFHN', 'AIHN', 'AIHG', 'AIVG', 'PIVG']",4.0,1827.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,AIKG,q2c,True,137,6.0,open,511,False,False,,1000,357764,609,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,CLKG,q2c,True,137,5.0,open,663,False,False,,1000,357764,761,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,VLKG,q2c,True,137,4.0,open,176,False,False,,1000,329786,274,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,15,EIGT,MQVN,q2c,True,3392,8.0,unresolved,1000,True,False,,1000,239876,1095,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,AIKG,q2c,True,137,6.0,open,568,False,False,,1000,357764,666,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,CLKG,q2c,True,137,5.0,open,779,False,False,,1000,357764,877,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,VLKG,q2c,True,137,4.0,open,163,False,False,,1000,329786,261,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,16,RPRF,GLVS,q2c,False,3,,blocked,190,False,False,,1000,198536,286,blocked,True,True,,,,,,3.0,222.0,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,AIKG,q2c,True,137,6.0,open,596,False,False,,1000,357764,694,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,CLKG,q2c,True,137,5.0,open,655,False,False,,1000,357764,753,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,VLKG,q2c,True,137,4.0,open,18,False,False,,1000,329786,116,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,17,QWGG,CGVN,q2c,True,2880,4.0,open,8,False,False,,1000,148782,104,open,True,True,"['QWGG', 'QWVG', 'QGVG', 'CGVG', 'CGVN']",4.0,10374.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,AIKG,q2c,True,137,6.0,open,271,False,False,,1000,357764,369,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,CLKG,q2c,True,137,5.0,open,653,False,False,,1000,357764,751,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,VLKG,q2c,True,137,4.0,open,10,False,False,,1000,329786,108,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,18,FMQR,IVRG,q2c,True,3588,5.0,open,844,False,False,,1000,319916,940,open,True,True,"['FMQR', 'FMQG', 'FPQG', 'IPQG', 'IPRG', 'IVRG']",5.0,1539.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,AIKG,q2c,True,137,6.0,open,557,False,False,,1000,357764,655,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,CLKG,q2c,True,137,5.0,open,31,False,False,,1000,333210,129,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,VLKG,q2c,True,137,4.0,open,67,False,False,,1000,329786,165,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,ALKG,q2c,True,137,6.0,open,851,False,False,,1000,357764,949,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'ILMG', 'ILKG', 'ALKG']",7.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+A,19,VIHM,KARG,q2c,False,1826,,unresolved,1000,True,False,,1000,357764,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,AIKG,q2c,True,137,6.0,open,598,False,False,,1000,357764,696,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,CLKG,q2c,True,137,5.0,open,658,False,False,,1000,357764,756,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,VLKG,q2c,True,137,4.0,open,18,False,False,,1000,329786,116,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,ALKG,q2c,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,0,PAIL,ATSG,random,True,2554,5.0,unresolved,1000,True,False,0.095,1000,329786,1096,,,,,,,,,,,
+B,0,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,0.025,1000,357764,1098,,,,,,,,,,,
+B,0,VFVS,CLKG,random,True,137,5.0,open,464,False,False,0.017,1000,333210,562,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,
+B,0,VFVS,VLKG,random,True,137,4.0,unresolved,1000,True,False,0.029,1000,329786,1098,,,,,,,,,,,
+B,0,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,0.032,1000,327664,1098,,,,,,,,,,,
+A,1,WDTY,CACN,random,False,3,,blocked,189,False,False,0.004,1000,125315,284,blocked,True,True,,,,,,3.0,224.0,
+B,1,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,0.028,1000,357764,1098,,,,,,,,,,,
+B,1,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,0.032,1000,333210,1098,,,,,,,,,,,
+B,1,VFVS,VLKG,random,True,137,4.0,unresolved,1000,True,False,0.034,1000,329786,1098,,,,,,,,,,,
+B,1,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,0.03,1000,327664,1098,,,,,,,,,,,
+A,2,KLDN,NTLS,random,False,2644,,unresolved,1000,True,False,0.077,1000,300512,1095,,,,,,,,,,,
+B,2,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,0.04,1000,357764,1098,,,,,,,,,,,
+B,2,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,0.026,1000,333210,1098,,,,,,,,,,,
+B,2,VFVS,VLKG,random,True,137,4.0,unresolved,1000,True,False,0.026,1000,329786,1098,,,,,,,,,,,
+B,2,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,0.04,1000,327664,1098,,,,,,,,,,,
+A,3,FCSN,ALLG,random,True,925,6.0,unresolved,1000,True,False,0.061,1000,268575,1095,,,,,,,,,,,
+B,3,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,0.047,1000,357764,1098,,,,,,,,,,,
+B,3,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,0.045,1000,333210,1098,,,,,,,,,,,
+B,3,VFVS,VLKG,random,True,137,4.0,unresolved,1000,True,False,0.047,1000,329786,1098,,,,,,,,,,,
+B,3,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,0.042,1000,327664,1098,,,,,,,,,,,
+A,4,GWEC,SGLS,random,True,2059,5.0,unresolved,1000,True,False,0.08,1000,300512,1095,,,,,,,,,,,
+B,4,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,0.047,1000,357764,1098,,,,,,,,,,,
+B,4,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,0.046,1000,333210,1098,,,,,,,,,,,
+B,4,VFVS,VLKG,random,True,137,4.0,unresolved,1000,True,False,0.047,1000,329786,1098,,,,,,,,,,,
+B,4,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,0.04,1000,327664,1098,,,,,,,,,,,
+A,5,SPVK,CTCN,random,False,2373,,unresolved,1000,True,False,,1000,329786,1094,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,VLKG,random,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,6,HTGR,GTVN,random,False,1,,blocked,76,False,False,,1000,165760,172,blocked,True,True,,,,,,1.0,76.0,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,CLKG,random,True,137,5.0,open,557,False,False,,1000,333210,655,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,VLKG,random,True,137,4.0,open,999,False,False,,1000,329786,1097,open,True,True,"['VFVS', 'VFMS', 'SFMS', 'CFMS', 'CLMS', 'CLMG', 'VLMG', 'VLKG']",7.0,247.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,7,FFVE,CQLG,random,True,2978,4.0,unresolved,1000,True,False,,1000,271899,1092,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,VLKG,random,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,8,VLVM,LCIG,random,True,1020,6.0,open,567,False,False,,1000,268575,663,open,True,True,"['VLVM', 'VLVC', 'CLVC', 'CLVG', 'CGVG', 'CCVG', 'LCVG', 'LCIG']",7.0,1539.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,VLKG,random,True,137,4.0,open,340,False,False,,1000,329786,438,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,9,CPPM,TMCS,random,False,1,,blocked,76,False,False,,1000,201904,172,blocked,True,True,,,,,,1.0,76.0,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,CLKG,random,True,137,5.0,open,791,False,False,,1000,333210,889,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'SFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",7.0,247.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,VLKG,random,True,137,4.0,open,376,False,False,,1000,329786,474,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,10,WMSG,GMKG,random,True,989,2.0,open,1,False,False,,1000,249695,97,open,True,True,"['WMSG', 'GMSG', 'GMKG']",2.0,53874.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,VLKG,random,True,137,4.0,open,304,False,False,,1000,329786,402,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,11,PFGC,SISG,random,True,2296,4.0,open,98,False,False,,1000,241750,194,open,True,True,"['PFGC', 'PFGG', 'PFSG', 'SFSG', 'SISG']",4.0,17886.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,VLKG,random,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,12,CCNW,AAVN,random,True,1919,7.0,unresolved,1000,True,False,,1000,333210,1094,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,VLKG,random,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,13,ENWV,GMAS,random,False,2,,blocked,133,False,False,,1000,191920,228,blocked,True,True,,,,,,2.0,150.0,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,CLKG,random,True,137,5.0,open,584,False,False,,1000,333210,682,open,True,True,"['VFVS', 'VFMS', 'CFMS', 'CLMS', 'CLMG', 'CLKG']",5.0,5201.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,VLKG,random,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,14,AFHN,PIVG,random,True,2770,4.0,unresolved,1000,True,False,,1000,357764,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,VLKG,random,True,137,4.0,open,313,False,False,,1000,329786,411,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,15,EIGT,MQVN,random,True,3392,8.0,unresolved,1000,True,False,,1000,319916,1093,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,VLKG,random,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,16,RPRF,GLVS,random,False,3,,blocked,190,False,False,,1000,198536,286,blocked,True,True,,,,,,3.0,222.0,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,VLKG,random,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,17,QWGG,CGVN,random,True,2880,4.0,unresolved,1000,True,False,,1000,292449,1094,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,VLKG,random,True,137,4.0,open,861,False,False,,1000,329786,959,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,18,FMQR,IVRG,random,True,3588,5.0,unresolved,1000,True,False,,1000,329786,1095,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,AIKG,random,True,137,6.0,open,458,False,False,,1000,357764,556,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLSG', 'VISG', 'VIKG', 'AIKG']",7.0,9030.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,VLKG,random,True,137,4.0,open,404,False,False,,1000,329786,502,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,19,VIHM,KARG,random,False,1826,,unresolved,1000,True,False,,1000,357764,1094,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,AIKG,random,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,CLKG,random,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,VLKG,random,True,137,4.0,open,959,False,False,,1000,329786,1057,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,ALKG,random,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,0,PAIL,ATSG,uncertainty,True,2554,5.0,unresolved,1000,True,False,7.343,1000,302836,1093,,,,,,,,,,,
+B,0,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,3.954,1000,357764,1098,,,,,,,,,,,
+B,0,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,4.644,1000,333210,1098,,,,,,,,,,,
+B,0,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,5.518,1000,329786,1098,,,,,,,,,,,
+B,0,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,4.879,1000,327664,1098,,,,,,,,,,,
+A,1,WDTY,CACN,uncertainty,False,3,,blocked,189,False,False,0.068,1000,125315,284,blocked,True,True,,,,,,3.0,224.0,
+B,1,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,4.913,1000,357764,1098,,,,,,,,,,,
+B,1,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,5.491,1000,333210,1098,,,,,,,,,,,
+B,1,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,5.113,1000,329786,1098,,,,,,,,,,,
+B,1,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,5.236,1000,327664,1098,,,,,,,,,,,
+A,2,KLDN,NTLS,uncertainty,False,2644,,unresolved,1000,True,False,8.189,1000,286262,1094,,,,,,,,,,,
+B,2,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,5.138,1000,357764,1098,,,,,,,,,,,
+B,2,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,6.31,1000,333210,1098,,,,,,,,,,,
+B,2,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,5.739,1000,329786,1098,,,,,,,,,,,
+B,2,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,5.152,1000,327664,1098,,,,,,,,,,,
+A,3,FCSN,ALLG,uncertainty,True,925,6.0,unresolved,1000,True,False,7.545,1000,268575,1096,,,,,,,,,,,
+B,3,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,4.183,1000,357764,1098,,,,,,,,,,,
+B,3,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,4.641,1000,333210,1098,,,,,,,,,,,
+B,3,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,3.787,1000,329786,1098,,,,,,,,,,,
+B,3,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,4.635,1000,327664,1098,,,,,,,,,,,
+A,4,GWEC,SGLS,uncertainty,True,2059,5.0,unresolved,1000,True,False,9.064,1000,333210,1095,,,,,,,,,,,
+B,4,VFVS,AIKG,uncertainty,True,137,6.0,open,458,False,False,1.015,1000,357764,556,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'SFMS', 'SIMS', 'SIMG', 'SISG', 'AISG', 'AIKG']",8.0,1222.0,1.0,,,,
+B,4,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,5.646,1000,333210,1098,,,,,,,,,,,
+B,4,VFVS,VLKG,uncertainty,True,137,4.0,open,936,False,False,6.429,1000,329786,1034,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'GLMS', 'ALMS', 'ALMG', 'ILMG', 'ILKG', 'VLKG']",8.0,1222.0,1.0,,,,
+B,4,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,5.698,1000,327664,1098,,,,,,,,,,,
+A,5,SPVK,CTCN,uncertainty,False,2373,,unresolved,1000,True,False,,1000,286262,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,5,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,6,HTGR,GTVN,uncertainty,False,1,,blocked,76,False,False,,1000,165760,172,blocked,True,True,,,,,,1.0,76.0,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,6,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,7,FFVE,CQLG,uncertainty,True,2978,4.0,unresolved,1000,True,False,,1000,302002,1093,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,7,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,8,VLVM,LCIG,uncertainty,True,1020,6.0,unresolved,1000,True,False,,1000,297197,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,8,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,9,CPPM,TMCS,uncertainty,False,1,,blocked,76,False,False,,1000,201904,172,blocked,True,True,,,,,,1.0,76.0,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,AIKG,uncertainty,True,137,6.0,open,478,False,False,,1000,357764,576,open,True,True,"['VFVS', 'VFMS', 'SFMS', 'SIMS', 'SIMG', 'SISG', 'VISG', 'VIKG', 'AIKG']",8.0,1339.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,9,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,10,WMSG,GMKG,uncertainty,True,989,2.0,unresolved,1000,True,False,,1000,333210,1094,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,AIKG,uncertainty,True,137,6.0,open,610,False,False,,1000,357764,708,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'SFMS', 'SIMS', 'SIMG', 'SISG', 'VISG', 'VIKG', 'AIKG']",9.0,1222.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,10,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,11,PFGC,SISG,uncertainty,True,2296,4.0,unresolved,1000,True,False,,1000,300512,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,11,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,12,CCNW,AAVN,uncertainty,True,1919,7.0,unresolved,1000,True,False,,1000,319916,1092,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,VLKG,uncertainty,True,137,4.0,open,364,False,False,,1000,329786,462,open,True,True,"['VFVS', 'VFLS', 'VLLS', 'VLLG', 'VLKG']",4.0,9767.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,12,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,13,ENWV,GMAS,uncertainty,False,2,,blocked,133,False,False,,1000,191920,228,blocked,True,True,,,,,,2.0,150.0,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,13,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,14,AFHN,PIVG,uncertainty,True,2770,4.0,unresolved,1000,True,False,,1000,333210,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,VLKG,uncertainty,True,137,4.0,open,886,False,False,,1000,329786,984,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'GLMS', 'CLMS', 'CLMG', 'TLMG', 'VLMG', 'VLKG']",8.0,1222.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,14,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,15,EIGT,MQVN,uncertainty,True,3392,8.0,unresolved,1000,True,False,,1000,287926,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,AIKG,uncertainty,True,137,6.0,open,757,False,False,,1000,357764,855,open,True,True,"['VFVS', 'VFMS', 'SFMS', 'SIMS', 'SIMG', 'CIMG', 'CIKG', 'AIKG']",7.0,1339.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,15,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,16,RPRF,GLVS,uncertainty,False,3,,blocked,190,False,False,,1000,198536,286,blocked,True,True,,,,,,3.0,222.0,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,16,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,17,QWGG,CGVN,uncertainty,True,2880,4.0,unresolved,1000,True,False,,1000,327664,1095,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,17,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,18,FMQR,IVRG,uncertainty,True,3588,5.0,unresolved,1000,True,False,,1000,319916,1096,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,CLKG,uncertainty,True,137,5.0,open,934,False,False,,1000,333210,1032,open,True,True,"['VFVS', 'VFMS', 'GFMS', 'GLMS', 'CLMS', 'CLMG', 'CLKG']",6.0,1222.0,1.0,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,18,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+A,19,VIHM,KARG,uncertainty,False,1826,,unresolved,1000,True,False,,1000,357764,1093,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,AIKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,357764,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,CLKG,uncertainty,True,137,5.0,unresolved,1000,True,False,,1000,333210,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,VLKG,uncertainty,True,137,4.0,unresolved,1000,True,False,,1000,329786,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
+B,19,VFVS,ALKG,uncertainty,True,137,6.0,unresolved,1000,True,False,,1000,327664,1098,,,,,,,,,,,saved query history; no policy rerun; wall_s unavailable
