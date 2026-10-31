@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-10-31T07:14:34.120574-07:00",
+  "recorded_at": "2026-10-31T07:20:32.483480-07:00",
   "description": "Evidence blob hashes plus independent CSV recount. No experiment/Lean rerun.",
   "claims": {
     "F01": {
@@ -62,12 +62,32 @@
       }
     },
     "F08": {
-      "source_commit": "d23663a814ff184d1681ca5601dedb0bd34af9f1",
+      "source_commit": "7f9035ac3a92aa33d829f6e528d1481bfdd3c289",
       "inspection": "read artifact/receipt; no fresh experiment rerun",
       "artifacts": {
-        "planning/rethink/CODEX-BENCH-V1-1-REVIEW.md": "08d06ef29c0f6531e47674ce76d6132e294863e4cf66b5cdb539e300311e5417",
+        "planning/rethink/CODEX-BENCH-V1-1-REVIEW.md": "88d9c03690cdf7911225950cf286de1bb1d5b718162e06b2b59e1895dfd60ff2",
         "artifacts/integration/codex-api/audit_benchmark_v1_1.py": "9ac49f397ef17c9d1abda18c038aa76040481788a781f3495ddc808b15a643a7",
         "artifacts/integration/codex-api/benchmark-v1-1-review.json": "840755b0c36a50164321ab2a2d9a229f758d73d8b05188b71d5f0f190d0134ae"
+      }
+    },
+    "F09": {
+      "source_commit": "7f9035ac3a92aa33d829f6e528d1481bfdd3c289",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "site/review/index.html": "033d0c840d6453dcfcbea774d336d9fc4dfcd0b3bcafb7564727e49c7a02ef9b",
+        "site/review/app.js": "2886664e6662d00632c9c7f78e4cc827f8dce4a884313185de3f57368b77e4b5",
+        "site/review/style.css": "2d78ab1561d3f252b5828c538adbb91a16e78db04ddc40a601ed60fda0dbfccd",
+        "scripts/check_review_walkthrough.py": "1ec3f97c1724c0ec0c8a6fefc4ae2dcc1a3e7ea969ab86831d9c0197be4dbe12",
+        "artifacts/integration/codex-api/review-walkthrough/browser-receipt.json": "c70e81f9079aa39107fe43c1715ae6789ef9f494c010d721d8f57521ba9dc534"
+      }
+    },
+    "F10": {
+      "source_commit": "7f9035ac3a92aa33d829f6e528d1481bfdd3c289",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "artifacts/integration/codex-api/admissible-review/469874b/Admissible.lean": "d63c4d60e63e81d45bec7bd68d70caee6e0a83f4f4a51566eb6983d29c42fbce",
+        "artifacts/integration/codex-api/admissible-review/469874b/compile-review.json": "5cb952befeba82b45b0d46f463cbc8e6712c6080704b0f5b104d8fdb7ae0a8fb",
+        "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md": "1f74952718505d1e5dcae1ac898ab2c0f1cbfc5684ee6469853b479fc413e2f7"
       }
     },
     "B01": {

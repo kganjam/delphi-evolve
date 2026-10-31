@@ -15,7 +15,7 @@ AUDIT = '19fae04'
 SERVICE = '596ae9e'
 GPU = '29bb42f9359e39885c42d19d3c9ecd22eb312ba7'
 PRICE = 'b4e60db'
-BENCH_V1_1 = 'd23663a814ff184d1681ca5601dedb0bd34af9f1'
+BENCH_V1_1 = '7f9035ac3a92aa33d829f6e528d1481bfdd3c289'
 
 def git(*args):
     return subprocess.check_output(['git', *args])
@@ -30,6 +30,8 @@ def main():
         'F06': (AUDIT, ['planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md','planning/rethink/CODEX-BENCHMARK-SEMANTICS.md']),
         'F07': (PRICE, ['experiments/price_probe/Price.lean','experiments/price_probe/Witnesses.lean.inc','artifacts/integration/codex-api/price-probe.json','planning/rethink/PRICE-PRIOR-ART-AND-PROBE.md']),
         'F08': (BENCH_V1_1, ['planning/rethink/CODEX-BENCH-V1-1-REVIEW.md','artifacts/integration/codex-api/audit_benchmark_v1_1.py','artifacts/integration/codex-api/benchmark-v1-1-review.json']),
+        'F09': (BENCH_V1_1, ['site/review/index.html','site/review/app.js','site/review/style.css','scripts/check_review_walkthrough.py','artifacts/integration/codex-api/review-walkthrough/browser-receipt.json']),
+        'F10': (BENCH_V1_1, ['artifacts/integration/codex-api/admissible-review/469874b/Admissible.lean','artifacts/integration/codex-api/admissible-review/469874b/compile-review.json','planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md']),
         'B01': (BASE, ['data/manifest.json','artifacts/evidence/route_summary.json','scripts/audit_data.py']),
         'B02': (BASE, ['artifacts/core/replay/episodes.csv','artifacts/lazysp/results/episodes.csv','artifacts/lazysp/results/table_primary.csv']),
         'B03': (BASE, ['artifacts/scale/library_receipts.json','artifacts/scale/replay_summary.csv','artifacts/scale/ablation_descriptive.json']),

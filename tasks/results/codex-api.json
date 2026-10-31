@@ -1,10 +1,10 @@
 {
   "role": "codex-api",
-  "status": "targeted v1.1 audit completed; numerical agreement; freeze withheld for ID leakage and scoring contract; hosting bridge recorded",
-  "updated_at": "2026-10-31T07:14:49.955692-07:00",
+  "status": "review walkthrough built and browser-validated; revised Admissible compiled/reviewed; both evaluation freezes remain unapproved",
+  "updated_at": "2026-10-31T07:20:56.911417-07:00",
   "branch": "work/codex-api",
-  "commit": "d23663a814ff184d1681ca5601dedb0bd34af9f1",
-  "goal": "Broader native goal remains paused. Explicitly assigned v1.1 review and operational publication handoff completed; final benchmark freeze and site publication remain with their owners.",
+  "commit": "7f9035ac3a92aa33d829f6e528d1481bfdd3c289",
+  "goal": "Broader native goal stays paused; targeted director requests completed through a checked static review walkthrough, current freeze reviews and integration handoff. Director owns final site-publish-request.",
   "checklist": [
     {
       "item": "Read complete handoff and governing files; establish persistent goal; notify coordinators",
@@ -47,8 +47,20 @@
       "done": false
     },
     {
-      "item": "Receive validated revised static site and prepare exact-SHA site-publish-request.json for primary",
+      "item": "Director integrates/reviews checked walkthrough and leaves exact-SHA site-publish-request; primary publishes existing Site",
       "done": false
+    },
+    {
+      "item": "Review updated Admissible469874b freeze and source; independently compile changed Lean module",
+      "done": true
+    },
+    {
+      "item": "Adjudicate director blinded marginal-state finding against exact ts-0008 witness",
+      "done": true
+    },
+    {
+      "item": "Build and validate site/review walkthrough with exact-browser vs recorded-compile labels; inspect desktop/mobile screenshots",
+      "done": true
     }
   ],
   "commands_run": [
@@ -145,6 +157,45 @@
       "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 artifacts/integration/codex-api/index_claim_evidence.py",
       "exit": 0,
       "result": "17 claim entries pinned; original baseline counts remain78/78/96 and24uniqueendpointpairs."
+    },
+    {
+      "command": "git fetch origin work/rethink-director work/rethink-critic work/submit",
+      "exit": 128,
+      "result": "Nonexistent work/submit ref; corrected read-only fetch to actual director/critic refs."
+    },
+    {
+      "command": "git fetch origin work/rethink-director work/rethink-critic; read FINAL SHAPE and blind_notes at e0a376f; compare Admissible hashes; git fetch --no-tags https://github.com/kganjam/admissible.git 469874b2e5da8a5d503416be8bd071a6919e08a3",
+      "exit": 0,
+      "result": "New21 freeze found at bench/bench-v1.1-freeze.json,8028c4...c53a. ScopeDesk136 key unchanged; no numerical rerun."
+    },
+    {
+      "command": "Capped systemd Python wrapper: /home/ubuntu/.elan/bin/lake env lean -j2 artifacts/integration/codex-api/admissible-review/469874b/Admissible.lean using price_probe pinned Mathlib cache",
+      "exit": 0,
+      "result": "Independent compile11.051s,7printed axiom audits standard only. Exact command/cwd context in compile-review receipt and memo; no new mutants."
+    },
+    {
+      "command": "Exact Fraction recalculation of ts-0008 n1,n2 determinant/trace after director blind review",
+      "exit": 0,
+      "result": "Wellmixed det0,trace-3/4; n1q1/25 det-53/250; n2q4/25 det-34/125. Strict diffusion-driven precondition must be explicit."
+    },
+    {
+      "command": "First capped scripts/check_review_walkthrough.py run",
+      "exit": 1,
+      "result": "Test text expected mixed case but CSS renders uppercase; corrected comparison to lower-case. No scientific computation failure."
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /home/ubuntu/miniconda3/bin/python3 scripts/check_review_walkthrough.py",
+      "exit": 0,
+      "result": "Desktop/mobile controls and scoped outcomes pass; no console/request errors, no horizontal overflow; local links exist; screenshots inspected."
+    },
+    {
+      "command": "Inspect staged diff and source hashes against Lean/browser receipts; git commit and push work/codex-api7f9035a",
+      "exit": 0
+    },
+    {
+      "command": "Capped index_claim_evidence.py with new walkthrough/Admissible receipt entries",
+      "exit": 0,
+      "result": "19claim entries pinned; baseline replaycounts unchanged."
     }
   ],
   "artifacts": [
@@ -173,21 +224,30 @@
     "planning/rethink/CODEX-DELIVERY-AND-PUBLICATION.md",
     "artifacts/integration/codex-api/audit_benchmark_v1_1.py",
     "artifacts/integration/codex-api/benchmark-v1-1-review.json",
-    "planning/rethink/COMMUNITY-PLATFORM-PITCH-DRAFT.md"
+    "planning/rethink/COMMUNITY-PLATFORM-PITCH-DRAFT.md",
+    "site/review/index.html",
+    "site/review/app.js",
+    "site/review/style.css",
+    "site/review/README.md",
+    "scripts/check_review_walkthrough.py",
+    "artifacts/integration/codex-api/review-walkthrough/browser-receipt.json",
+    "artifacts/integration/codex-api/review-walkthrough/desktop-full.png",
+    "artifacts/integration/codex-api/review-walkthrough/mobile-full.png",
+    "artifacts/integration/codex-api/admissible-review/469874b/compile-review.json"
   ],
   "limitations": [
     "Fresh Price/Hamilton Lean compile and witness controls exit0 with standard axioms; no additive-genetic Fisher FTNS or independent biological correspondence review.",
     "API provider usage is not actual billing; remaining dollars unknown.",
     "No deployment/submission/external reuse receipt.",
     "v1.1 review is nonblinded and does not substitute for a blinded audit. Numerical agreement does not approve its public-ID leakage or complete diagnosis contract.",
-    "No reviewed revised site output exists in this branch; no publish request or deployment was fabricated. Primary owns existing Site and hosting checkout."
+    "Review walkthrough is a checked draft, not an integrated or published revised entry. Drawings are mode diagrams, not GPU/PDE runs. Director owns integration/publication handoff.",
+    "Revised Admissible compilation passes but its source names/docstrings still exceed some proved statements;21freeze lacks full formal targets and source hashes."
   ],
   "next_steps": [
-    "Keep broader native goal paused.",
-    "Critic removes public-ID leakage, completes diagnosis semantics and current docs; director/electric declare grouping and actual prompt payload. Review only changed artifacts at new pinned revision.",
-    "Separate blinded-reader gate remains required before agent evaluation.",
-    "Await corrected full21-target freeze; original remains not approved.",
-    "Independent reader reviews Price/Hamilton correspondence before headline integration.",
-    "When reviewed revised static content and receipts are ready, leave exact pushed SHA/output/ledger/validation in site-publish-request.json for primary; preserve owner-private audience."
+    "Keep broader native goal paused; preserve completed targeted work.",
+    "Critic repairs ID leakage, diagnosis and explicit marginal-state/growth/Greenhill conventions; director declares grouping and actual model-visible payload before final freeze.",
+    "Host revises21recordfulltargets and consistentbuckets/README; new8028freeze not approved.",
+    "Director reviews/integrates site/review at7f9035a and prepares exactSHA site-publish-request.json for primary; existingownerprivateSite only.",
+    "Independent reader reviews Price/Hamilton correspondence before headline integration; Price staysappendixperFINALSHAPE."
   ]
 }
