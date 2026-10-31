@@ -25,4 +25,4 @@ Target length 3:00 at about 140 words per minute (about 420 spoken words). Numbe
 * *Is this new?* Route accessibility on this table is in Johnston et al.; ALDE simulates active learning on it. The proposal is the decision-and-evidence framing; the replay is what could support it. See `docs/novelty.md`.
 * *Is ε/κ a confidence level?* No. It is an assumed sensitivity; the slider exists so the audience sees the decision depend on it.
 * *Did you design or test an enzyme?* No. Retrospective, already-assayed variants; no wet-lab work.
-* *Did a GPU model help?* GPU status in saved artifacts: {{gpu:status|none integrated}}.
+* *Did a GPU model help?* Not measurably. A full-library zero-shot ESM2-650M prior (NVIDIA BioNeMo Transformer Engine checkpoint) ran on one Nebius H100, job {{demo:compute.job_id|none}}, status {{demo:compute.status|none}}. {{demo:compute.headline|no headline in saved artifacts}} Whether it helps the assay-budget replay has not been run, so no claim is made.

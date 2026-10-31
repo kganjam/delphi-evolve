@@ -112,15 +112,22 @@ demo["claims"] = cl
 demo["claims_status"] = "Delphi records queried live 2026-10-31 (local and network kept separate); relation is motivation/context only; nanopub drafts are unsigned and unpublished"
 
 # --- compute (GPU) ----------------------------------------------------------------------------
-gp = R / "tasks/results/gpu.json"
-if gp.exists():
-    g = json.load(open(gp))
-    demo["compute"] = {"status": g.get("status", "unknown"), "provider": g.get("provider"), "model": g.get("model"),
-                       "job_id": g.get("job_id") or g.get("job_ids"), "artifacts": g.get("artifacts", []),
-                       "receipt": "tasks/results/gpu.json",
-                       "note": "predictions guide measurement only; never discharge an empirical premise"}
-    if g.get("status") in ("completed", "passed") and not demo["compute"]["job_id"]:
-        errs.append("gpu receipt completed without job id")
+cb = R / "artifacts/gpu/compute_block.json"
+if cb.exists():
+    c = json.load(open(cb))
+    for art in c.get("artifacts", []):
+        path = R / (art.get("path") or art.get("file") or "")
+        if not path.is_file():
+            errs.append(f"compute artifact missing: {art}")
+        elif art.get("sha256") and hashlib.sha256(path.read_bytes()).hexdigest() != art["sha256"]:
+            errs.append(f"compute artifact sha mismatch: {path}")
+    if c.get("status") in ("completed", "passed") and not c.get("job_id"):
+        errs.append("gpu compute block completed without job id")
+    if c.get("evidence_kind") != "predicted":
+        errs.append("gpu compute block must be evidence_kind predicted")
+    c["receipt"] = "tasks/results/gpu.json"
+    c["note"] = "predictions guide measurement only; never discharge an empirical premise. A prior-vs-no-prior replay has NOT been run."
+    demo["compute"] = c
 else:
     demo["compute"].setdefault("note", "no GPU receipt integrated")
 
