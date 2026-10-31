@@ -61,3 +61,12 @@ Keep the market spine, but run it where an oracle is real and the asymmetry is a
 3. Binder-triage pilot (investible follow-up only).
 
 No probability of winning is asserted; the rubric fit is a judgment about *what could be measured*, not about how judges will score.
+
+## 7. Critic's pitch v2 for market-mini (3 minutes; every bracket is filled only from a committed result)
+
+- **0:00–0:20 reveal.** "Slide the domain from 2π to π. The textbook Turing test stays green. The pattern vanishes — we solved it both ways." (Linear admissible-mode verdict next to the converged nonlinear solve; `pde_cost_probe.json` shows the form, final numbers must come from the refined run.)
+- **0:20–0:50 failure first.** "Our last entry scored 78/100 and a sixty-agent swarm scored the same. Copies of one policy are an echo chamber."
+- **0:50–1:40 the market.** "Agents that hold different tools bet on whether a pattern forms; two sound oracles settle every bet. [N] claims from [K] independent families." Show who-called-what log and the matched-budget arms.
+- **1:40–2:20 the measured answer, whatever it is.** "[Collective vs best individual: Brier x [interval]]. [Collective vs agent holding every tool: Brier y [interval]]." If the pooled agent wins: "Distributed information costs [z]; here is when you still want it."
+- **2:20–2:45 the useful artifact.** A public endpoint: give it a reaction–diffusion model and a domain; it returns applies / refuses / underdetermined, with the oracle receipts. Say "[observed users]" only if someone used it.
+- **2:45–3:00.** "Next: a pilot with a modelling team measuring how many of their last [K] model reuses violated a stated assumption." No claims of firsts, wet-lab results, or wins.
