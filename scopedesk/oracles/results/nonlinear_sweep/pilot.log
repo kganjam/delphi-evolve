@@ -1,0 +1,17 @@
+{
+ "n": 24,
+ "seconds_total": 146.7,
+ "seconds_per_cell_mean": 6.1125,
+ "seconds_A_mean": 6.026666666666667,
+ "seconds_B_mean": 0.08708333333333333,
+ "max_cell_seconds": 12.12,
+ "categories": {
+  "pattern": 15,
+  "no_pattern": 8,
+  "unresolved": 1
+ },
+ "why": {
+  "not_settled": 1
+ },
+ "UNSCORED": true
+}
