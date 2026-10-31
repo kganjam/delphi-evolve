@@ -252,5 +252,16 @@
   "result": "TF-IDF nearest Delphi math claim (92 claims) per prompt stem: top-1 correct 119/127; policy 'retrieved cited claim => applies, else abstain': coverage 0.937, selective risk 0.513 (61 errors/119), false acceptance 61/65 on non-applies items; behaves like always-applies on retrievable items; Hamilton retrieval 8/16",
   "inputs": "prompt text + claim corpus only",
   "limit": "expected-claim mapping by the critic; not a model-based RAG"
+ },
+ "scorecard_v0": {
+  "path": "scopedesk/scorecard/ (SCORECARD.md, scorecard.json, build_scorecard.py, fetch_records.py, records/)",
+  "counts": {
+   "a CHECKED-SCOPE-FOUND": 5,
+   "b CHECKED-HOLDS-AS-DECLARED": 1,
+   "c FORMAL-NODE-ONLY": 1,
+   "d SELF-DECLARED NON-FORMAL/EMPIRICAL": 2,
+   "e NOT ATTEMPTED": 12
+  },
+  "limits": "single-reader statuses; record-to-paper correspondence not reviewed; Codex has not approved the scorecard"
  }
 }

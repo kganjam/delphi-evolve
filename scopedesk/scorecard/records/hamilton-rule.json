@@ -1,0 +1,39 @@
+{
+ "claim_id": "hamilton-rule",
+ "retrieved_utc": "2026-10-31T15:03:21.959559+00:00",
+ "source": "local",
+ "raw_text_sha256": "34bab973740367d382d722b8a37b65ac7e8657425c71e31c2ba393b434a3a3c1",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/hamilton-rule",
+  "title": "Hamilton's rule",
+  "statement": "A gene for social behaviour increases in frequency when the benefit to the recipient, weighted by genetic relatedness, exceeds the cost to the actor.",
+  "math": "\\Delta \\bar{p} > 0 \\iff r b - c > 0, with r, b, c defined as regression coefficients (Queller form via the Price equation)",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/hamilton-rule.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/hamilton-rule",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/hamilton-rule.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": [
+    "https://doi.org/10.1038/nature09205",
+    "https://doi.org/10.1111/j.1420-9101.2011.02236.x"
+   ],
+   "dct:source": "W. D. Hamilton (1964) The genetical evolution of social behaviour. I",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "In a cooperative system (social insects, cooperatively breeding birds, microbes), estimate r from genotypes and b and c from fitness measurements, and test whether rb > c predicts which individuals help.",
+   "delphi:context": "Assumptions: in Hamilton's original derivation, additive fitness effects and weak selection; in the general form, b and c are partial regressions of fitness on the actor's and the partner's genotype. Formal status: proved; exact in the regression form (Gardner, West and Wild 2011). Critics argue that the general form is close to an identity with little predictive content (Nowak, Tarnita and Wilson 2010).",
+   "skos:notation": "\\Delta \\bar{p} > 0 \\iff r b - c > 0, with r, b, c defined as regression coefficients (Queller form via the Price equation)",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "A gene for social behaviour increases in frequency when the benefit to the recipient, weighted by genetic relatedness, exceeds the cost to the actor.",
+   "rdfs:label": "Hamilton's rule"
+  },
+  "assessments": []
+ }
+}

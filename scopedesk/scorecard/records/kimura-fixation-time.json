@@ -1,0 +1,35 @@
+{
+ "claim_id": "kimura-fixation-time",
+ "retrieved_utc": "2026-10-31T15:03:22.625704+00:00",
+ "source": "local",
+ "raw_text_sha256": "f771fc536ffb41da58a4dad16705b9f55cf0fc3080d0efae8483c8154c54f27a",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/kimura-fixation-time",
+  "title": "Mean time to fixation of a neutral mutant",
+  "statement": "A neutral mutant that does go to fixation takes on average about four times the effective population size, in generations, to do so.",
+  "math": "\\bar{t}_1(p) = -\\frac{4N_e(1-p)\\ln(1-p)}{p}; as p = 1/(2N) \\to 0, \\bar{t}_1 \\to 4N_e generations",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/kimura-fixation-time.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/kimura-fixation-time",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/kimura-fixation-time.trig"
+  ],
+  "fields": {
+   "dct:source": "Motoo Kimura (1969) The average number of generations until fixation of a mutant gene in a finite population",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "In replicate small populations of known N_e, record the conditional time to fixation of neutral marker alleles and compare it with 4N_e generations.",
+   "delphi:context": "Assumptions: diffusion approximation to the Wright-Fisher model, neutrality, constant N_e. Formal status: proved within the diffusion limit (Kimura and Ohta 1969).",
+   "skos:notation": "\\bar{t}_1(p) = -\\frac{4N_e(1-p)\\ln(1-p)}{p}; as p = 1/(2N) \\to 0, \\bar{t}_1 \\to 4N_e generations",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "A neutral mutant that does go to fixation takes on average about four times the effective population size, in generations, to do so.",
+   "rdfs:label": "Mean time to fixation of a neutral mutant"
+  },
+  "assessments": []
+ }
+}

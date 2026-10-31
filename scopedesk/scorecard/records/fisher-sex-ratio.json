@@ -1,0 +1,36 @@
+{
+ "claim_id": "fisher-sex-ratio",
+ "retrieved_utc": "2026-10-31T15:03:21.217568+00:00",
+ "source": "local",
+ "raw_text_sha256": "9d8e1b588bc8ac7f269e3e8207b644e2aab5248c946aae07f9e0766c0de0ef5f",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/fisher-sex-ratio",
+  "title": "Fisher's principle of equal investment in the sexes",
+  "statement": "Under random mating and autosomal inheritance, selection drives parents to invest equally in sons and daughters, which gives a 1:1 sex ratio when the two cost the same.",
+  "math": "ESS allocation: N_m c_m = N_f c_f; with c_m = c_f the unbeatable primary sex ratio is 1:1",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/fisher-sex-ratio.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/fisher-sex-ratio",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/fisher-sex-ratio.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": "https://doi.org/10.1086/281794",
+   "dct:source": "Ronald A. Fisher (1930) The Genetical Theory of Natural Selection",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "Compare population sex-investment ratios (numbers times per-offspring cost) across species that meet the panmixia assumption, and test that experimentally perturbed sex ratios return toward equal investment.",
+   "delphi:context": "Assumptions: panmixia, autosomal control of the sex ratio, each offspring has one father and one mother, no local mate competition or sex-specific resource competition. Formal status: proved as an invasion (ESS) result (Shaw and Mohler 1953). Its own named exceptions (local mate competition, Hamilton 1967) are predicted deviations, not refutations.",
+   "skos:notation": "ESS allocation: N_m c_m = N_f c_f; with c_m = c_f the unbeatable primary sex ratio is 1:1",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "Under random mating and autosomal inheritance, selection drives parents to invest equally in sons and daughters, which gives a 1:1 sex ratio when the two cost the same.",
+   "rdfs:label": "Fisher's principle of equal investment in the sexes"
+  },
+  "assessments": []
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "claim_id": "kimura-heterozygosity",
+ "retrieved_utc": "2026-10-31T15:03:22.822329+00:00",
+ "source": "local",
+ "raw_text_sha256": "4296a47ef08145abf11e6cd514491aa5d7d9a29058affb9fce9b5c2c3ba748ee",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/kimura-heterozygosity",
+  "title": "Neutral equilibrium heterozygosity (Kimura-Crow)",
+  "statement": "Under neutral mutation to new alleles and drift, expected heterozygosity reaches an equilibrium that rises with the product of effective population size and mutation rate.",
+  "math": "H = \\frac{\\theta}{1+\\theta}, \\theta = 4N_e\\mu (infinite-alleles model)",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/kimura-heterozygosity.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/kimura-heterozygosity",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/kimura-heterozygosity.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": "https://doi.org/10.1371/journal.pbio.1001388",
+   "dct:source": "Motoo Kimura (1964) The number of alleles that can be maintained in a finite population",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "Regress genome-wide neutral diversity on independent estimates of N_e times mu across species, and test whether the residual pattern is explained by linked selection.",
+   "delphi:context": "Assumptions: infinite-alleles mutation, neutrality, constant N_e, equilibrium. Formal status: proved within the model. Observed diversity varies far less across species than census sizes predict (Lewontin's paradox; Leffler et al. 2012), which points to linked selection and demography.",
+   "skos:notation": "H = \\frac{\\theta}{1+\\theta}, \\theta = 4N_e\\mu (infinite-alleles model)",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "Under neutral mutation to new alleles and drift, expected heterozygosity reaches an equilibrium that rises with the product of effective population size and mutation rate.",
+   "rdfs:label": "Neutral equilibrium heterozygosity (Kimura-Crow)"
+  },
+  "assessments": []
+ }
+}

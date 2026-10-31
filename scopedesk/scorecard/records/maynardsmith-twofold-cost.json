@@ -1,0 +1,35 @@
+{
+ "claim_id": "maynardsmith-twofold-cost",
+ "retrieved_utc": "2026-10-31T15:03:24.019286+00:00",
+ "source": "local",
+ "raw_text_sha256": "c3e5896bfce988dd2eba4cbab625e8b1a5e46be57cdfac92ef1ae62423859499",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/maynardsmith-twofold-cost",
+  "title": "Twofold cost of sex",
+  "statement": "An asexual mutant female in a sexual population with equal sex ratio produces twice as many grandchildren as a sexual female, so sex needs a compensating advantage of up to twofold to persist.",
+  "math": "with equal fecundity and a 1:1 sex ratio, the odds of asexual to sexual females double each generation: \\frac{q_{t+1}}{1-q_{t+1}} = 2\\frac{q_t}{1-q_t}",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/maynardsmith-twofold-cost.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/maynardsmith-twofold-cost",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/maynardsmith-twofold-cost.trig"
+  ],
+  "fields": {
+   "dct:source": "John Maynard Smith (1978) The Evolution of Sex",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "In a species with coexisting sexual and asexual lineages, measure relative per-capita growth of asexual versus sexual females in a common environment and compare it with the predicted factor of 2.",
+   "delphi:context": "Assumptions: anisogamy with males contributing no resources, equal fecundity and viability of sexual and asexual females, a 1:1 sex ratio. Formal status: proved as a population-dynamic identity under these assumptions. Its biological force depends on how often those assumptions hold.",
+   "skos:notation": "with equal fecundity and a 1:1 sex ratio, the odds of asexual to sexual females double each generation: \\frac{q_{t+1}}{1-q_{t+1}} = 2\\frac{q_t}{1-q_t}",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "An asexual mutant female in a sexual population with equal sex ratio produces twice as many grandchildren as a sexual female, so sex needs a compensating advantage of up to twofold to persist.",
+   "rdfs:label": "Twofold cost of sex"
+  },
+  "assessments": []
+ }
+}

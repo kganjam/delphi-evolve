@@ -1,0 +1,36 @@
+{
+ "claim_id": "hamilton-lmc",
+ "retrieved_utc": "2026-10-31T15:03:21.676625+00:00",
+ "source": "local",
+ "raw_text_sha256": "1a04949dfcc3e978aa6960574ebeb5c472abf44bded244e3115b301802e3b792",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/hamilton-lmc",
+  "title": "Local mate competition sex ratio",
+  "statement": "When a few mothers lay eggs on a patch and their offspring mate there before the daughters disperse, the evolutionarily stable sex ratio is female-biased, and the bias weakens as the number of mothers grows.",
+  "math": "unbeatable proportion of males x^* = \\frac{n-1}{2n} for n foundresses per patch (diploid case)",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/hamilton-lmc.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/hamilton-lmc",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/hamilton-lmc.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": "https://doi.org/10.1126/science.208.4448.1157",
+   "dct:source": "W. D. Hamilton (1967) Extraordinary Sex Ratios",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "Vary the number of foundresses per host in a parasitoid wasp (e.g. Nasonia) and compare the offspring sex ratio with (n-1)/(2n).",
+   "delphi:context": "Assumptions: n foundresses per patch, mating confined to the natal patch, only females disperse, mothers control the sex ratio. Formal status: proved as an ESS within the model. Haplodiploidy and inbreeding shift x* slightly.",
+   "skos:notation": "unbeatable proportion of males x^* = \\frac{n-1}{2n} for n foundresses per patch (diploid case)",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "When a few mothers lay eggs on a patch and their offspring mate there before the daughters disperse, the evolutionarily stable sex ratio is female-biased, and the bias weakens as the number of mothers grows.",
+   "rdfs:label": "Local mate competition sex ratio"
+  },
+  "assessments": []
+ }
+}
