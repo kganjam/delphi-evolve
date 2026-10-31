@@ -1,0 +1,90 @@
+{
+  "recorded_at": "2026-10-31T07:33:07.359197-07:00",
+  "kind": "component_ownership_and_integrity_check_not_publication_approval",
+  "snapshots": {
+    "walkthrough_implementation": "7f9035ac3a92aa33d829f6e528d1481bfdd3c289",
+    "latest_science_review": "8db96d6e0b94d26f2d32e9da460c47d7d0fc6b73",
+    "presentation_candidate": "47590e9530d42a8e79033f4c618853cb0625eec3",
+    "director_provisional": "ecad28a2a09c69eb3e201912f71f86e5d7833398"
+  },
+  "walkthrough_hash_checks": [
+    {
+      "path": "site/review/README.md",
+      "expected_browser_receipt_hash": "5762d12e516881345d6192b8de6b2bde3e51e8f146e0ca0005778d931804857f",
+      "snapshot_hashes": {
+        "walkthrough": "5762d12e516881345d6192b8de6b2bde3e51e8f146e0ca0005778d931804857f",
+        "codex": "5762d12e516881345d6192b8de6b2bde3e51e8f146e0ca0005778d931804857f",
+        "submit": "5762d12e516881345d6192b8de6b2bde3e51e8f146e0ca0005778d931804857f",
+        "director": "5762d12e516881345d6192b8de6b2bde3e51e8f146e0ca0005778d931804857f"
+      },
+      "all_match": true
+    },
+    {
+      "path": "site/review/app.js",
+      "expected_browser_receipt_hash": "2886664e6662d00632c9c7f78e4cc827f8dce4a884313185de3f57368b77e4b5",
+      "snapshot_hashes": {
+        "walkthrough": "2886664e6662d00632c9c7f78e4cc827f8dce4a884313185de3f57368b77e4b5",
+        "codex": "2886664e6662d00632c9c7f78e4cc827f8dce4a884313185de3f57368b77e4b5",
+        "submit": "2886664e6662d00632c9c7f78e4cc827f8dce4a884313185de3f57368b77e4b5",
+        "director": "2886664e6662d00632c9c7f78e4cc827f8dce4a884313185de3f57368b77e4b5"
+      },
+      "all_match": true
+    },
+    {
+      "path": "site/review/index.html",
+      "expected_browser_receipt_hash": "033d0c840d6453dcfcbea774d336d9fc4dfcd0b3bcafb7564727e49c7a02ef9b",
+      "snapshot_hashes": {
+        "walkthrough": "033d0c840d6453dcfcbea774d336d9fc4dfcd0b3bcafb7564727e49c7a02ef9b",
+        "codex": "033d0c840d6453dcfcbea774d336d9fc4dfcd0b3bcafb7564727e49c7a02ef9b",
+        "submit": "033d0c840d6453dcfcbea774d336d9fc4dfcd0b3bcafb7564727e49c7a02ef9b",
+        "director": "033d0c840d6453dcfcbea774d336d9fc4dfcd0b3bcafb7564727e49c7a02ef9b"
+      },
+      "all_match": true
+    },
+    {
+      "path": "site/review/style.css",
+      "expected_browser_receipt_hash": "2d78ab1561d3f252b5828c538adbb91a16e78db04ddc40a601ed60fda0dbfccd",
+      "snapshot_hashes": {
+        "walkthrough": "2d78ab1561d3f252b5828c538adbb91a16e78db04ddc40a601ed60fda0dbfccd",
+        "codex": "2d78ab1561d3f252b5828c538adbb91a16e78db04ddc40a601ed60fda0dbfccd",
+        "submit": "2d78ab1561d3f252b5828c538adbb91a16e78db04ddc40a601ed60fda0dbfccd",
+        "director": "2d78ab1561d3f252b5828c538adbb91a16e78db04ddc40a601ed60fda0dbfccd"
+      },
+      "all_match": true
+    }
+  ],
+  "validation_source_checks": [
+    {
+      "path": "scripts/check_review_walkthrough.py",
+      "all_snapshots_byte_identical": true
+    },
+    {
+      "path": "artifacts/integration/codex-api/review-walkthrough/browser-receipt.json",
+      "all_snapshots_byte_identical": true
+    }
+  ],
+  "submit_checkout_clean": true,
+  "landing_links_to_existing_walkthrough": true,
+  "root_index_unchanged_between_director_and_submit": true,
+  "paths": {
+    "static_root": "site",
+    "presentation_entry": "site/delphi/index.html",
+    "walkthrough_entry": "site/review/index.html",
+    "presentation_sources": "presentation/delphi"
+  },
+  "ownership": {
+    "walkthrough": "codex-api",
+    "science_review": "codex-api and director",
+    "landing_deck_blog_storyboard": "dx-submit",
+    "integration_and_canonical_request": "director",
+    "native_site_and_hosting_checkout": "primary"
+  },
+  "final_publication_sha": null,
+  "final_publication_state": "Await director integration, review and exact pushed SHA; current canonical request is explicitly provisional",
+  "limits": [
+    "No presentation science/visual approval in this file; only ownership, component identity and link checks.",
+    "Historical browser receipt remains valid for identical walkthrough source, but final integrated navigation still needs checking.",
+    "No site build, browser run or deployment repeated; no other checkout edited.",
+    "site/delphi alone is not a valid package root for the linked walkthrough and baseline routes."
+  ]
+}
