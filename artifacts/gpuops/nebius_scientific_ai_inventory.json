@@ -1,0 +1,326 @@
+{
+ "verified_utc": "2026-10-31T13:2xZ (06:2x PDT)",
+ "endpoints": {
+  "https://forge.nebius.cloud/mcp": {
+   "ok": true,
+   "serverInfo": {
+    "name": "Nebius Scientific AI",
+    "version": "0.1.0"
+   },
+   "protocol": "2025-03-26",
+   "n_tools": 69,
+   "tools": [
+    "get_operation",
+    "get_operation_result",
+    "cancel_operation",
+    "start_isaac_interactive_session",
+    "get_isaac_interactive_session",
+    "attach_isaac_interactive_session",
+    "stop_isaac_interactive_session",
+    "get_isaac_interactive_result",
+    "list_models",
+    "list_scientific_models",
+    "get_tool_catalog_revision",
+    "get_model_schema",
+    "submit_gromacs_workflow",
+    "submit_gromacs_mpi_workflow",
+    "submit_scientific_run",
+    "submit_amber_workflow",
+    "submit_namd_workflow",
+    "submit_lammps_workflow",
+    "submit_openmm_workflow",
+    "submit_esmfold2",
+    "submit_esmfold2_fast",
+    "submit_protenix_v2",
+    "submit_rfdiffusion",
+    "submit_mosaic",
+    "submit_proteina_complexa",
+    "submit_alphafold3",
+    "submit_boltzgen",
+    "submit_openfold3_openbind",
+    "submit_cosmos3_lerobot_augmentation",
+    "submit_isaac_healthcare",
+    "submit_rfd4_proteina",
+    "submit_bioemu2",
+    "submit_esm2_650m",
+    "submit_esm2_3b",
+    "submit_stab_ddg",
+    "submit_holoscan_endoscopy",
+    "submit_monai_spleen_ct",
+    "app_95943840d2b14a65b5cdaa4717b2cdc3",
+    "submit_scvi_scanvi",
+    "acknowledge_operation",
+    "get_scientific_checkpoints",
+    "resume_scientific_run",
+    "retry_scientific_delivery",
+    "begin_scientific_artifact_upload",
+    "finalize_scientific_artifact_upload",
+    "multipart_scientific_artifact_upload",
+    "get_scientific_artifact",
+    "download_scientific_artifact",
+    "lookup_mdprecheck",
+    "genmol_generate",
+    "infer_admet_ai_native",
+    "infer_altumage_native",
+    "boltz2_predict_native",
+    "segment_cells_native",
+    "infer_ctoxpred2_native",
+    "infer_diffdock_native",
+    "molmim_run_native",
+    "msa_search_native",
+    "infer_openfold2_native",
+    "infer_openfold3_native",
+    "infer_phenoage_native",
+    "infer_proteinmpnn_native",
+    "segment_track_media_native",
+    "run_mdprecheck",
+    "infer_diar_streaming_sortformer_4spk_v2_1_native",
+    "infer_magpie_tts_multilingual_357m_native",
+    "infer_nemotron_speech_en_0_6b_native",
+    "infer_nemotron_speech_multilingual_0_6b_native",
+    "infer_parakeet_realtime_eou_120m_v1_native"
+   ]
+  },
+  "https://89.169.99.188/mcp": {
+   "ok": true,
+   "serverInfo": {
+    "name": "Nebius Scientific AI",
+    "version": "0.1.0"
+   },
+   "protocol": "2025-03-26",
+   "n_tools": 69,
+   "tools": [
+    "get_operation",
+    "get_operation_result",
+    "cancel_operation",
+    "start_isaac_interactive_session",
+    "get_isaac_interactive_session",
+    "attach_isaac_interactive_session",
+    "stop_isaac_interactive_session",
+    "get_isaac_interactive_result",
+    "list_models",
+    "list_scientific_models",
+    "get_tool_catalog_revision",
+    "get_model_schema",
+    "submit_gromacs_workflow",
+    "submit_gromacs_mpi_workflow",
+    "submit_scientific_run",
+    "submit_amber_workflow",
+    "submit_namd_workflow",
+    "submit_lammps_workflow",
+    "submit_openmm_workflow",
+    "submit_esmfold2",
+    "submit_esmfold2_fast",
+    "submit_protenix_v2",
+    "submit_rfdiffusion",
+    "submit_mosaic",
+    "submit_proteina_complexa",
+    "submit_alphafold3",
+    "submit_boltzgen",
+    "submit_openfold3_openbind",
+    "submit_cosmos3_lerobot_augmentation",
+    "submit_isaac_healthcare",
+    "submit_rfd4_proteina",
+    "submit_bioemu2",
+    "submit_esm2_650m",
+    "submit_esm2_3b",
+    "submit_stab_ddg",
+    "submit_holoscan_endoscopy",
+    "submit_monai_spleen_ct",
+    "app_95943840d2b14a65b5cdaa4717b2cdc3",
+    "submit_scvi_scanvi",
+    "acknowledge_operation",
+    "get_scientific_checkpoints",
+    "resume_scientific_run",
+    "retry_scientific_delivery",
+    "begin_scientific_artifact_upload",
+    "finalize_scientific_artifact_upload",
+    "multipart_scientific_artifact_upload",
+    "get_scientific_artifact",
+    "download_scientific_artifact",
+    "lookup_mdprecheck",
+    "genmol_generate",
+    "infer_admet_ai_native",
+    "infer_altumage_native",
+    "boltz2_predict_native",
+    "segment_cells_native",
+    "infer_ctoxpred2_native",
+    "infer_diffdock_native",
+    "molmim_run_native",
+    "msa_search_native",
+    "infer_openfold2_native",
+    "infer_openfold3_native",
+    "infer_phenoage_native",
+    "infer_proteinmpnn_native",
+    "segment_track_media_native",
+    "run_mdprecheck",
+    "infer_diar_streaming_sortformer_4spk_v2_1_native",
+    "infer_magpie_tts_multilingual_357m_native",
+    "infer_nemotron_speech_en_0_6b_native",
+    "infer_nemotron_speech_multilingual_0_6b_native",
+    "infer_parakeet_realtime_eou_120m_v1_native"
+   ]
+  }
+ },
+ "tool_catalog_revision": "c3da2fad237eba580b7f59606aae6f471eba68a6df48157b43f0f4efe2a05de8",
+ "tool_count": 69,
+ "models": [
+  {
+   "model_id": "gromacs",
+   "tool_name": "submit_gromacs_workflow",
+   "qualification": "isolated-pilot",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "amber",
+   "tool_name": "submit_amber_workflow",
+   "qualification": "source-adapter-awaiting-live-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "lammps",
+   "tool_name": "submit_lammps_workflow",
+   "qualification": "source-adapter-awaiting-live-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "namd",
+   "tool_name": "submit_namd_workflow",
+   "qualification": "source-adapter-awaiting-live-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "openmm",
+   "tool_name": "submit_openmm_workflow",
+   "qualification": "source-adapter-awaiting-live-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "scvi-scanvi",
+   "tool_name": "submit_scvi_scanvi",
+   "qualification": "source-adapter-awaiting-live-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "alphafold3",
+   "tool_name": "submit_alphafold3",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "app-95943840d2b14a65b5cdaa4717b2cdc3",
+   "tool_name": "app_95943840d2b14a65b5cdaa4717b2cdc3",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "bioemu2",
+   "tool_name": "submit_bioemu2",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "boltzgen",
+   "tool_name": "submit_boltzgen",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "cosmos3-lerobot-augmentation",
+   "tool_name": "submit_cosmos3_lerobot_augmentation",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "esm2-3b",
+   "tool_name": "submit_esm2_3b",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "esm2-650m",
+   "tool_name": "submit_esm2_650m",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "esmfold2",
+   "tool_name": "submit_esmfold2",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "esmfold2-fast",
+   "tool_name": "submit_esmfold2_fast",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "holoscan-endoscopy",
+   "tool_name": "submit_holoscan_endoscopy",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "isaac-healthcare",
+   "tool_name": "submit_isaac_healthcare",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "monai-spleen-ct",
+   "tool_name": "submit_monai_spleen_ct",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "mosaic",
+   "tool_name": "submit_mosaic",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "openfold3-openbind",
+   "tool_name": "submit_openfold3_openbind",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "proteina-complexa",
+   "tool_name": "submit_proteina_complexa",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "protenix-v2",
+   "tool_name": "submit_protenix_v2",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "rfd4-proteina",
+   "tool_name": "submit_rfd4_proteina",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "rfdiffusion",
+   "tool_name": "submit_rfdiffusion",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "stab-ddg",
+   "tool_name": "submit_stab_ddg",
+   "qualification": "configured-native-dag-awaiting-exact-release-qualification",
+   "execution_mode": "scientific-batch"
+  },
+  {
+   "model_id": "gromacs-mpi",
+   "tool_name": "submit_gromacs_mpi_workflow",
+   "qualification": "source-adapter-awaiting-live-qualification",
+   "execution_mode": "scientific-batch"
+  }
+ ],
+ "note": "qualification strings are the server's own; only 'isolated-pilot' (gromacs) is not 'awaiting' live/release qualification. Native tools (*_native) were not reclassified by me."
+}

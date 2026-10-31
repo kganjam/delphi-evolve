@@ -1,0 +1,30 @@
+{
+ "run_tag": "pde1",
+ "owned": [
+  {
+   "id": "aijob-e00w2dwp3nxkvmj8ee",
+   "name": "delphi-evolve-ops-pde1-pde-bench-h100-a1",
+   "item": "pde-bench-h100",
+   "status": "running",
+   "attempts": 1,
+   "result": {}
+  }
+ ],
+ "events": [
+  {
+   "t": "2026-10-31T13:26:48Z",
+   "msg": "batch_start",
+   "items": 1,
+   "max_parallel": 1,
+   "gpu_cap": 10
+  },
+  {
+   "t": "2026-10-31T13:26:55Z",
+   "msg": "created",
+   "job": "aijob-e00w2dwp3nxkvmj8ee",
+   "name": "delphi-evolve-ops-pde1-pde-bench-h100-a1",
+   "item": "pde-bench-h100",
+   "kind": "gpu"
+  }
+ ]
+}

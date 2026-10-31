@@ -1,0 +1,44 @@
+{
+ "run_tag": "pdecpu-32",
+ "owned": [],
+ "events": [
+  {
+   "t": "2026-10-31T13:32:10Z",
+   "msg": "batch_start",
+   "items": 1,
+   "max_parallel": 1,
+   "gpu_cap": 10
+  },
+  {
+   "t": "2026-10-31T13:32:15Z",
+   "msg": "create_failed",
+   "item": "pde-cpu-scaling",
+   "quota": true,
+   "final": false,
+   "error": "create rc=24: Error: rpc error: code = ResourceExhausted desc = Quota limit exceeded. Exceeded limit for container tenant-e00spm0smz8kvpxn83, quota compute.instance.non-gpu.vcpu.\nrequest = 86b89fa1-c8bd-4fb9-921c-cafb0a7ed575\ncaused by service error:\n  Quota failure QuotaFailure: service compute, violations:\n    compute.instance.non-gpu.vcpu (limit 24, requested 52): Exceeded limit for container tenant-e00spm0smz8kvpxn83\n\nHints:\n  - Check the active profile with `nebius profile list` and select the project with --parent-id.\n  - Configure authentication with `nebius profile create` or `nebius p"
+  },
+  {
+   "t": "2026-10-31T13:32:24Z",
+   "msg": "create_failed",
+   "item": "pde-cpu-scaling",
+   "quota": true,
+   "final": false,
+   "error": "create rc=24: Error: rpc error: code = ResourceExhausted desc = Quota limit exceeded. Exceeded limit for container tenant-e00spm0smz8kvpxn83, quota compute.instance.non-gpu.vcpu.\nrequest = fa623839-a9b9-4e49-9b93-d71d78b72f99\ncaused by service error:\n  Quota failure QuotaFailure: service compute, violations:\n    compute.instance.non-gpu.vcpu (limit 24, requested 52): Exceeded limit for container tenant-e00spm0smz8kvpxn83\n\nHints:\n  - Check the active profile with `nebius profile list` and select the project with --parent-id.\n  - Configure authentication with `nebius profile create` or `nebius p"
+  },
+  {
+   "t": "2026-10-31T13:32:34Z",
+   "msg": "create_failed",
+   "item": "pde-cpu-scaling",
+   "quota": true,
+   "final": true,
+   "error": "create rc=24: Error: rpc error: code = ResourceExhausted desc = Quota limit exceeded. Exceeded limit for container tenant-e00spm0smz8kvpxn83, quota compute.instance.non-gpu.vcpu.\nrequest = 4bf041b9-de11-4174-a5d4-5c9e2f1aa1b0\ncaused by service error:\n  Quota failure QuotaFailure: service compute, violations:\n    compute.instance.non-gpu.vcpu (limit 24, requested 52): Exceeded limit for container tenant-e00spm0smz8kvpxn83\n\nHints:\n  - Check the active profile with `nebius profile list` and select the project with --parent-id.\n  - Configure authentication with `nebius profile create` or `nebius p"
+  },
+  {
+   "t": "2026-10-31T13:32:34Z",
+   "msg": "batch_end",
+   "summary": {
+    "pde-cpu-scaling": "failed"
+   }
+  }
+ ]
+}

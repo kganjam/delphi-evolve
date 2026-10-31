@@ -1,0 +1,22 @@
+Provisioning resources for the workload
+Workload initialization started
+Downloading container image
+Starting workload container
+COPS start 2026-10-31T13:35:38Z host=ce4db1986f47 item=pde-cpu-scaling
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+/usr/local/lib/python3.12/site-packages/torch/_subclasses/functional_tensor.py:377: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:82.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+scaling 1 {"wall_s": 5.2, "rc": [0], "schnakenberg": {"sum_cell_steps_per_s": 10620000.0, "per_proc_mean": 10620000.0}, "gray_scott": {"sum_cell_steps_per_s": 10070000.0, "per_proc_mean": 10070000.0}}
+/usr/local/lib/python3.12/site-packages/torch/_subclasses/functional_tensor.py:377: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:82.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/lib/python3.12/site-packages/torch/_subclasses/functional_tensor.py:377: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:82.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/lib/python3.12/site-packages/torch/_subclasses/functional_tensor.py:377: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:82.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/lib/python3.12/site-packages/torch/_subclasses/functional_tensor.py:377: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:82.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+scaling 4 {"wall_s": 6.2, "rc": [0, 0, 0, 0], "schnakenberg": {"sum_cell_steps_per_s": 29517000.0, "per_proc_mean": 7379250.0}, "gray_scott": {"sum_cell_steps_per_s": 26329000.0, "per_proc_mean": 6582250.0}}
+COPS_RESULT_BEGIN {"item": "pde-cpu-scaling", "rc": 0, "timed_out": false, "wall_s": 38.0, "bytes": 881, "sha256": "c1256dee15ad62feed01503740ba7425b44ec30703fdc0e0565325fb623b25d3", "truncated": false}
+COPS_B64 H4sIANDu5WoC/+2bS2+bQBSFvfavQGxrkXkPVKpUddVV1UV3VYQIIYlbGxDgNlWV/94Zg5XYGPJQcRxzPikBhmHG12auz7kk3pl39vFrdPs5iS6TYjIIpKZrSwjn9/u2nRJG6cS5nRyAVVlFhZl+Mk6YdpbVfJl8oDrgQnKtlccDpn02nYDTxzsbfg67qLWU3evf7FPJNOVKc2bbtZZ64shDrv8iy6q+fo+df7OfP/I/8j/y/3jzf5yvwjKOFvP02vtRZukw618J0bX+KRF6O/9TTgWfOOSQ63+k+f/v1HHTvMhi970jZuaguRXMoTnluLTZcdzf0WIRluZQemy2binsRd/trkPs7/O6uYxv0uhnkl4kxWYY27pahnFih6iSvAzzpFgPRoli9ibwyKzuZ0/Y1xMukyjd6mDP39VTXBfRH3PTZlX1hAmIfmSCTYf1BNNmEle0I1f7Ip/t27z07WCBpLrv1WquAyZf/G4wxVnQN76SPrsff7r+uZveIVGebP4/Bv0n2vqPQf8dRP/5O/pPBV4gfaV8DQE4ivWf06FLAM/y/2bhm/XPTRP8P/I/8j/yPxg6/1+QgZz/U/2/2Mn/VGj4/4P5/yor4hvj/VzmUemRd3G+cme7dYFilZaN6a1d8TK7TBb2qi2DWzvSL9ZXM78++GQPVL2fF4kd0b1Soum69qfW2NaO9N5sU09vRni8buBezdN5lZgTVbFK6qZLa4dNB/lgovAqK8JvxvITa4btAE3f5Nc8tpe7TfCmrbopzJfierJNUWAn8gfG+8VxS78Vt6Q9YW9VMzrDppsO7ajpc4KeOucw//D/0H+j0X9aecSXZqOg/8ah/8RR+f/18x/j/xn8P/I/8v+r5H9KtZYc+X8s+f/V/T/fyf/G/wv4
+COPS_B64 /1H5f7nH/4tuI6zlw+fYb9f+C9YOm7POsBWXCvYfQP9B/8H/g/+k/+jx6T8J/Tcq/SfUnuc/ulsIBT49Cf0nW2H7vFv2mmXEoP8A9B/030D6T3qB1X/Ch/4bjf5jx6f/FPTf6Ot/uqf+Jwg90fqf8nvqf1Kg/geg/6D/htN/vvke1gz/AD4e/cePT/9p6L9x6T/a1n+y+++/tSLqJPRfO2zJg76yp4T+AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgpPwDTj/chQB4AAA=
+COPS_RESULT_END

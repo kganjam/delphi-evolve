@@ -1,0 +1,59 @@
+{
+ "run_tag": "pdecpu4",
+ "owned": [
+  {
+   "id": "aijob-e00kbvrx064nh6s1bd",
+   "name": "delphi-evolve-ops-pdecpu4-pde-cpu-scaling-a1",
+   "item": "pde-cpu-scaling",
+   "status": "done",
+   "attempts": 1,
+   "result": {
+    "rc": 0,
+    "timed_out": false,
+    "wall_s": 38.0,
+    "bytes": 881,
+    "sha256": "c1256dee15ad62feed01503740ba7425b44ec30703fdc0e0565325fb623b25d3",
+    "truncated": false,
+    "job_state": "COMPLETED"
+   }
+  }
+ ],
+ "events": [
+  {
+   "t": "2026-10-31T13:33:26Z",
+   "msg": "batch_start",
+   "items": 1,
+   "max_parallel": 1,
+   "gpu_cap": 10
+  },
+  {
+   "t": "2026-10-31T13:33:34Z",
+   "msg": "created",
+   "job": "aijob-e00kbvrx064nh6s1bd",
+   "name": "delphi-evolve-ops-pdecpu4-pde-cpu-scaling-a1",
+   "item": "pde-cpu-scaling",
+   "kind": "cpu"
+  },
+  {
+   "t": "2026-10-31T13:37:07Z",
+   "msg": "finished",
+   "job": "aijob-e00kbvrx064nh6s1bd",
+   "item": "pde-cpu-scaling",
+   "status": "done",
+   "rc": 0,
+   "timed_out": false,
+   "wall_s": 38.0,
+   "bytes": 881,
+   "sha256": "c1256dee15ad62feed01503740ba7425b44ec30703fdc0e0565325fb623b25d3",
+   "truncated": false,
+   "job_state": "COMPLETED"
+  },
+  {
+   "t": "2026-10-31T13:37:07Z",
+   "msg": "batch_end",
+   "summary": {
+    "pde-cpu-scaling": "done"
+   }
+  }
+ ]
+}

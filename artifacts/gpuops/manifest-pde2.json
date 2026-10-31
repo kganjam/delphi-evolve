@@ -1,0 +1,59 @@
+{
+ "run_tag": "pde2",
+ "owned": [
+  {
+   "id": "aijob-e00kc83405x8khtpqp",
+   "name": "delphi-evolve-ops-pde2-pde-bench-h100-a1",
+   "item": "pde-bench-h100",
+   "status": "done",
+   "attempts": 1,
+   "result": {
+    "rc": 0,
+    "timed_out": false,
+    "wall_s": 94.1,
+    "bytes": 1177,
+    "sha256": "a4437a80ba3e3be21d3fbcb79240d84553a6eeb2f8f2ecd1b3242a6ab668813d",
+    "truncated": false,
+    "job_state": "COMPLETED"
+   }
+  }
+ ],
+ "events": [
+  {
+   "t": "2026-10-31T13:31:11Z",
+   "msg": "batch_start",
+   "items": 1,
+   "max_parallel": 1,
+   "gpu_cap": 10
+  },
+  {
+   "t": "2026-10-31T13:31:27Z",
+   "msg": "created",
+   "job": "aijob-e00kc83405x8khtpqp",
+   "name": "delphi-evolve-ops-pde2-pde-bench-h100-a1",
+   "item": "pde-bench-h100",
+   "kind": "gpu"
+  },
+  {
+   "t": "2026-10-31T13:47:11Z",
+   "msg": "finished",
+   "job": "aijob-e00kc83405x8khtpqp",
+   "item": "pde-bench-h100",
+   "status": "done",
+   "rc": 0,
+   "timed_out": false,
+   "wall_s": 94.1,
+   "bytes": 1177,
+   "sha256": "a4437a80ba3e3be21d3fbcb79240d84553a6eeb2f8f2ecd1b3242a6ab668813d",
+   "truncated": false,
+   "job_state": "COMPLETED"
+  },
+  {
+   "t": "2026-10-31T13:47:11Z",
+   "msg": "batch_end",
+   "summary": {
+    "pde-bench-h100": "done"
+   }
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "tool": "infer_admet_ai_native",
+ "operation_id": "op-38403fc5dfe10fac",
+ "status": "SUCCEEDED",
+ "model_version": "2.0.1",
+ "input_smiles": "CC(=O)Oc1ccccc1C(=O)O",
+ "execution_seconds": 0.06949744408484548,
+ "sanity_check": "molecular_weight 180.159 == known aspirin MW 180.16 (descriptor, not a model prediction)",
+ "evidence_kind": "predicted/inference (ADMET-AI learned endpoints); NOT biological validation. Descriptors (MW, logP, TPSA) are computed.",
+ "predictions_subset": {
+  "molecular_weight": 180.15899999999996,
+  "logP": 1.3101,
+  "tpsa": 63.60000000000001,
+  "QED": 0.5501217966938848,
+  "AMES": 0.08012305200099945,
+  "BBB_Martins": 0.658191978931427,
+  "HIA_Hou": 0.9597975611686707
+ }
+}

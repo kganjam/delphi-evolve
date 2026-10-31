@@ -1,0 +1,21 @@
+{
+ "workload": "384000 integrations x 128^2 cells x 20000 steps (dt=0.05,T=1000) = 1.26e+14 cell-steps; ASSUMED grid, not preregistered",
+ "hours": {
+  "cpu_24vcpu_tenant_quota_NOT_available_f64_8e6_per_thread": 194.18074074074073,
+  "cpu_4vcpu_nebius_measured_aggregate_2.95e7": 1184.8316384180791,
+  "cpu_16thread_h100_node_f64_4.3e7": 803.7836801962363,
+  "h100_f64_x1": 15.663245948166404,
+  "h100_f64_x10": 1.5663245948166404,
+  "h100_f64_x16": 0.9789528717604002,
+  "h100_f32_x1": 8.314113542657786,
+  "h100_f32_x10": 0.8314113542657786,
+  "h100_f32_x16": 0.5196320964161116
+ },
+ "assumptions": [
+  "perfect scaling across GPUs/threads (optimistic)",
+  "one solver cost used for all 384k (the second, finite-difference solver was NOT measured; explicit FD needs dt<~0.015 for Dv=10 at dx=0.785 => more steps)",
+  "dt=0.05 convergence NOT verified",
+  "single measurement per cell on a shared cluster",
+  "GPU hours exclude ~14-16 min cold image pull per fresh node"
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "run_tag": "nca1",
+ "owned": [
+  {
+   "id": "aijob-e00r5gajq3rgrpvn3r",
+   "name": "delphi-evolve-ops-nca1-nca-proxy-h100-a1",
+   "item": "nca-proxy-h100",
+   "status": "running",
+   "attempts": 1,
+   "result": {}
+  }
+ ],
+ "events": [
+  {
+   "t": "2026-10-31T13:21:34Z",
+   "msg": "batch_start",
+   "items": 2,
+   "max_parallel": 2,
+   "gpu_cap": 10
+  },
+  {
+   "t": "2026-10-31T13:21:41Z",
+   "msg": "created",
+   "job": "aijob-e00r5gajq3rgrpvn3r",
+   "name": "delphi-evolve-ops-nca1-nca-proxy-h100-a1",
+   "item": "nca-proxy-h100",
+   "kind": "gpu"
+  }
+ ]
+}

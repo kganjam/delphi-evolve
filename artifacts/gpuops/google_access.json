@@ -1,0 +1,155 @@
+{
+ "gemini_api_key": {
+  "list_status": 200,
+  "n_models": 60,
+  "n_generateContent": 46,
+  "generateContent_models": [
+   "models/gemini-2.5-flash",
+   "models/gemini-2.5-pro",
+   "models/gemini-2.5-flash-preview-tts",
+   "models/gemini-2.5-pro-preview-tts",
+   "models/gemma-4-26b-a4b-it",
+   "models/gemma-4-31b-it",
+   "models/gemini-flash-latest",
+   "models/gemini-flash-lite-latest",
+   "models/gemini-pro-latest",
+   "models/gemini-2.5-flash-lite",
+   "models/gemini-2.5-flash-image",
+   "models/gemini-3-flash-preview",
+   "models/gemini-3.1-pro-preview",
+   "models/gemini-3.1-pro-preview-customtools",
+   "models/gemini-3.1-flash-lite-preview",
+   "models/gemini-3.1-flash-lite",
+   "models/gemini-3-pro-image-preview",
+   "models/gemini-3-pro-image",
+   "models/nano-banana-pro-preview",
+   "models/gemini-3.1-flash-image-preview",
+   "models/gemini-3.1-flash-image",
+   "models/gemini-3.1-flash-lite-image",
+   "models/gemini-nano-banana-2.1",
+   "models/gemini-3.5-flash",
+   "models/gemini-3.5-flash-lite",
+   "models/gemini-omni-flash-preview",
+   "models/gemini-omni-1.1-flash",
+   "models/gemini-3.5-transcribe",
+   "models/gemini-3.6-flash",
+   "models/gemini-3.7-flash",
+   "models/gemini-3.8-flash",
+   "models/gemini-4-argon",
+   "models/lyria-3-clip-preview",
+   "models/lyria-3-pro-preview",
+   "models/lyria-3.5",
+   "models/gemini-3.1-flash-tts-preview",
+   "models/gemini-3.8-flash-tts",
+   "models/gemini-3.8-flash-lite-tts",
+   "models/gemini-robotics-er-2-preview",
+   "models/gemini-2.5-computer-use-preview-10-2025",
+   "models/antigravity-preview-05-2026",
+   "models/antigravity-preview-09-2026",
+   "models/antigravity-preview-latest",
+   "models/deep-research-max-preview-04-2026",
+   "models/deep-research-preview-04-2026",
+   "models/deep-research-pro-preview-12-2025"
+  ],
+  "inference": {
+   "model": "models/gemini-3.8-flash",
+   "status": 200,
+   "text": "391",
+   "modelVersion": "gemini-3.8-flash",
+   "usage": {
+    "promptTokenCount": 15,
+    "candidatesTokenCount": 3,
+    "totalTokenCount": 182,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 15
+     }
+    ],
+    "thoughtsTokenCount": 164,
+    "serviceTier": "standard"
+   }
+  },
+  "first_pick_error": "gemini-omni-1.1-flash rejected generateContent (Interactions API only); my selector bug, not an outage"
+ },
+ "vertex_with_api_key": {
+  "vertex_express_generateContent": {
+   "status": 401,
+   "text": null,
+   "err": "{'error': {'code': 401, 'message': 'API keys are not supported by this API. Expected OAuth2 access token or other authentication credentials that assert a principal. See https://cloud.google.com/docs/authentication', 'status': 'UNAUTHENTICATED', 'details': [{'@type': 'type.googleapis.com/google.rpc."
+  },
+  "vertex_list_publisher_models": {
+   "status": 401,
+   "err": "{'error': {'code': 401, 'message': 'API keys are not supported by this API. Expected OAuth2 access token or other authentication credentials that assert a principal. See https://cloud.google.com/docs/authentication', 'status': 'UNAUTHENTICATED', 'details': [{'@type': 'type.googleapis.com/google.rpc.",
+   "n": null
+  },
+  "compute_with_apikey": {
+   "status": 401,
+   "err": "{'error': {'code': 401, 'message': 'API keys are not supported by this API. Expected OAuth2 access token or other authentication credentials that assert a principal. See https://cloud.google.com/docs/"
+  }
+ },
+ "gcloud_oauth_principal": {
+  "token_rc": 0,
+  "project_get": {
+   "status": 200,
+   "state": "ACTIVE",
+   "name": "ScienceClaw-3016"
+  },
+  "enabled_services": {
+   "status": 200,
+   "n": 26,
+   "names": [
+    "aiplatform",
+    "analyticshub",
+    "apptopology",
+    "bigquery",
+    "bigqueryconnection",
+    "bigquerydatapolicy",
+    "bigquerydatatransfer",
+    "bigquerymigration",
+    "bigqueryreservation",
+    "bigquerystorage",
+    "cloudapis",
+    "cloudresourcemanager",
+    "cloudtrace",
+    "dataform",
+    "dataplex",
+    "datastore",
+    "generativelanguage",
+    "logging",
+    "monitoring",
+    "servicemanagement",
+    "serviceusage",
+    "sql-component",
+    "storage",
+    "storage-api",
+    "storage-component",
+    "telemetry"
+   ]
+  },
+  "compute_instances": {
+   "status": 403,
+   "err": "PERMISSION_DENIED: Compute Engine API has not been used in project scienceclaw26bos-3016 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=scienceclaw26bos-3016 then retry. If you enabled this A"
+  },
+  "compute_zones": {
+   "status": 403,
+   "err": "PERMISSION_DENIED: Compute Engine API has not been used in project scienceclaw26bos-3016 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=scienceclaw26bos-3016 then retry. If you enabled this A"
+  },
+  "cloud_run_list": {
+   "status": 403,
+   "err": "PERMISSION_DENIED: Cloud Run Admin API has not been used in project scienceclaw26bos-3016 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/run.googleapis.com/overview?project=scienceclaw26bos-3016 then retry. If you enabled this API "
+  },
+  "vertex_generate_us-central1": {
+   "status": 404,
+   "text": null,
+   "modelVersion": null,
+   "err": "NOT_FOUND: Publisher model `projects/scienceclaw26bos-3016/locations/us-central1/publishers/google/models/gemini-3.8-flash` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified "
+  },
+  "vertex_generate_global": {
+   "status": 200,
+   "text": "399",
+   "modelVersion": "gemini-3.8-flash",
+   "err": null
+  }
+ }
+}
