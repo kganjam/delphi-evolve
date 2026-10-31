@@ -1,0 +1,1067 @@
+{
+ "summary": {
+  "N": 127,
+  "retrieval_top1_correct": 119,
+  "answered": 119,
+  "coverage": 0.937,
+  "errors_among_answered": 61,
+  "selective_risk": 0.5126,
+  "false_acceptance": {
+   "count": 61,
+   "denominator": 65
+  },
+  "by_family_retrieval_correct": {
+   "fisher_kpp_speed": [
+    16,
+    16
+   ],
+   "greenhill_buckling": [
+    13,
+    13
+   ],
+   "hamilton_rule_form": [
+    8,
+    16
+   ],
+   "hawk_dove_ess": [
+    16,
+    16
+   ],
+   "kimura_regime": [
+    16,
+    16
+   ],
+   "turing_2d_rectangle": [
+    15,
+    15
+   ],
+   "turing_finite_domain": [
+    21,
+    21
+   ],
+   "wavelength_formula_licence": [
+    14,
+    14
+   ]
+  },
+  "note": "retrieval locates the cited claim and asserts it applies; it cannot compute scope, so on this bench it behaves like always-applies restricted to retrieval successes. Expected-claim mapping is by the critic."
+ },
+ "rows": [
+  {
+   "id": "qc7bdd4c0",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "underdetermined"
+  },
+  {
+   "id": "q8343e9c9",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qfae4c381",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q5da1b0eb",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q98a337bc",
+   "family": "hamilton_rule_form",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": false,
+   "pred": null,
+   "truth": "underdetermined"
+  },
+  {
+   "id": "qc600c322",
+   "family": "greenhill_buckling",
+   "top1": "thompson1917-ch02-02",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q504b32f4",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q30849d92",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qa20f8997",
+   "family": "turing_2d_rectangle",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q5d26da56",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-hawk-dove",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qb21dc7dc",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q77350570",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qc94fbad2",
+   "family": "hamilton_rule_form",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": false,
+   "pred": null,
+   "truth": "applies"
+  },
+  {
+   "id": "qb90da847",
+   "family": "greenhill_buckling",
+   "top1": "thompson1917-ch02-02",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q5a6512d2",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qa0021105",
+   "family": "greenhill_buckling",
+   "top1": "thompson1917-ch02-02",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q6266e99b",
+   "family": "hamilton_rule_form",
+   "top1": "hamilton-rule",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q057cbe20",
+   "family": "hamilton_rule_form",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": false,
+   "pred": null,
+   "truth": "underdetermined"
+  },
+  {
+   "id": "q973b2d4f",
+   "family": "wavelength_formula_licence",
+   "top1": "turing-wavelength",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q67e0c178",
+   "family": "wavelength_formula_licence",
+   "top1": "turing-wavelength",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q34171653",
+   "family": "turing_2d_rectangle",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qd7974226",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q17503050",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q6d2d5d20",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q00b4e7db",
+   "family": "greenhill_buckling",
+   "top1": "thompson1917-ch02-02",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q4c6ee5d9",
+   "family": "greenhill_buckling",
+   "top1": "thompson1917-ch02-02",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q38b9d8a3",
+   "family": "turing_2d_rectangle",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "underdetermined"
+  },
+  {
+   "id": "q9f4c0434",
+   "family": "greenhill_buckling",
+   "top1": "thompson1917-ch02-02",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "underdetermined"
+  },
+  {
+   "id": "q271c7bf7",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q92f2ccd2",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q5b57638f",
+   "family": "turing_2d_rectangle",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qe8b087f7",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q45345f14",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q76e41417",
+   "family": "wavelength_formula_licence",
+   "top1": "turing-wavelength",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qfa7587ad",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-ess",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qb02ba59a",
+   "family": "wavelength_formula_licence",
+   "top1": "turing-wavelength",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qd5e4b6b4",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q9920d68c",
+   "family": "wavelength_formula_licence",
+   "top1": "turing-wavelength",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q482d1195",
+   "family": "turing_2d_rectangle",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "underdetermined"
+  },
+  {
+   "id": "qf9d28316",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-ess",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qda9a8ada",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "underdetermined"
+  },
+  {
+   "id": "q64834d2d",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qa047e33a",
+   "family": "turing_2d_rectangle",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q4ce5f5d7",
+   "family": "hamilton_rule_form",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": false,
+   "pred": null,
+   "truth": "applies"
+  },
+  {
+   "id": "q173c3ae6",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q552dc7a0",
+   "family": "hamilton_rule_form",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": false,
+   "pred": null,
+   "truth": "applies"
+  },
+  {
+   "id": "qb3da2c52",
+   "family": "greenhill_buckling",
+   "top1": "thompson1917-ch02-02",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q17fe64c4",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qf7fd0917",
+   "family": "hamilton_rule_form",
+   "top1": "hamilton-rule",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q674cd3d3",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-hawk-dove",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qc1d68534",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q1c636e4f",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-ess",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q8014d18b",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-hawk-dove",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qf88e65a0",
+   "family": "wavelength_formula_licence",
+   "top1": "turing-wavelength",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q152932ba",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q6f954506",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q0322ba85",
+   "family": "turing_2d_rectangle",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qf3e46986",
+   "family": "hamilton_rule_form",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": false,
+   "pred": null,
+   "truth": "applies"
+  },
+  {
+   "id": "q294b4ea1",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-ess",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q6b8f0acf",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q5ca988d8",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q84df581b",
+   "family": "wavelength_formula_licence",
+   "top1": "turing-wavelength",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q488925ac",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q5e8142dd",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qb4c8565b",
+   "family": "hamilton_rule_form",
+   "top1": "hamilton-rule",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q40aff276",
+   "family": "wavelength_formula_licence",
+   "top1": "turing-wavelength",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q4883736e",
+   "family": "greenhill_buckling",
+   "top1": "thompson1917-ch02-02",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qd1785ff6",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-hawk-dove",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "underdetermined"
+  },
+  {
+   "id": "q52c436bf",
+   "family": "hamilton_rule_form",
+   "top1": "hamilton-rule",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q175189fd",
+   "family": "wavelength_formula_licence",
+   "top1": "turing-wavelength",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q7f4d606c",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "underdetermined"
+  },
+  {
+   "id": "q2a7d8a44",
+   "family": "turing_2d_rectangle",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q58b2a4da",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "underdetermined"
+  },
+  {
+   "id": "qf7a1c393",
+   "family": "hamilton_rule_form",
+   "top1": "hamilton-rule",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q82fbdb86",
+   "family": "wavelength_formula_licence",
+   "top1": "turing-wavelength",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qb4715bf0",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-hawk-dove",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q826d4455",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q7cf8687e",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qda5686b7",
+   "family": "greenhill_buckling",
+   "top1": "thompson1917-ch02-02",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qc8c2157c",
+   "family": "turing_2d_rectangle",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qe5dc45b1",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-hawk-dove",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "underdetermined"
+  },
+  {
+   "id": "qa80033f9",
+   "family": "turing_2d_rectangle",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q582b13a9",
+   "family": "hamilton_rule_form",
+   "top1": "hamilton-rule",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q3bdeb1eb",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q8567b50f",
+   "family": "turing_2d_rectangle",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q5aa35099",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q6da3eabf",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qc2593427",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q954ef1f8",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q105938e6",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q723697b1",
+   "family": "turing_2d_rectangle",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qcca31b33",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q4c6795a4",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q1ccdea35",
+   "family": "wavelength_formula_licence",
+   "top1": "turing-wavelength",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qdc6423e2",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qe7778057",
+   "family": "greenhill_buckling",
+   "top1": "thompson1917-ch02-02",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q4d903fb8",
+   "family": "turing_2d_rectangle",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qb8ec2271",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-hawk-dove",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "underdetermined"
+  },
+  {
+   "id": "q3831c7fa",
+   "family": "turing_2d_rectangle",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qcbacae53",
+   "family": "greenhill_buckling",
+   "top1": "thompson1917-ch02-02",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qf261c3f7",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qadcc64fc",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qee05f2a9",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-hawk-dove",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q71805d44",
+   "family": "hamilton_rule_form",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": false,
+   "pred": null,
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q24044710",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q78684eca",
+   "family": "wavelength_formula_licence",
+   "top1": "turing-wavelength",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q9e9da3d5",
+   "family": "wavelength_formula_licence",
+   "top1": "turing-wavelength",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qa5ed7dfd",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qaa536469",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-ess",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qe618ae1d",
+   "family": "hamilton_rule_form",
+   "top1": "hamilton-rule",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q07aed060",
+   "family": "greenhill_buckling",
+   "top1": "thompson1917-ch02-02",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q42875b35",
+   "family": "hamilton_rule_form",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": false,
+   "pred": null,
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "qf5012817",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-ess",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qadf8fa49",
+   "family": "hamilton_rule_form",
+   "top1": "hamilton-rule",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "underdetermined"
+  },
+  {
+   "id": "q26c103da",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qa9957691",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qbad64044",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-hawk-dove",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q38507081",
+   "family": "wavelength_formula_licence",
+   "top1": "turing-wavelength",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q5ccb664b",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q1767d51b",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  },
+  {
+   "id": "q9a01b7b8",
+   "family": "turing_2d_rectangle",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q90cbf6c9",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qac38a27f",
+   "family": "fisher_kpp_speed",
+   "top1": "fisher-kpp-speed",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q98f3297f",
+   "family": "turing_finite_domain",
+   "top1": "turing-ddi",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "underdetermined"
+  },
+  {
+   "id": "q7e935be4",
+   "family": "greenhill_buckling",
+   "top1": "thompson1917-ch02-02",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "qcf647eb1",
+   "family": "kimura_regime",
+   "top1": "kimura-fixation-probability",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "applies"
+  },
+  {
+   "id": "q212fc121",
+   "family": "hawk_dove_ess",
+   "top1": "maynardsmith-hawk-dove",
+   "retrieval_correct": true,
+   "pred": "applies",
+   "truth": "out_of_scope"
+  }
+ ]
+}

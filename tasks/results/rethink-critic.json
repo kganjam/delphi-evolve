@@ -245,5 +245,12 @@
  "codex_frozen_check": {
   "commit": "6c96810 (work/codex-api)",
   "result": "metadata exit 0, 14/14 on frozen 70c1254 (127 items); sole removal vs reviewed 128 is qd643fbe2; retained rows unchanged; no further changes requested"
+ },
+ "retrieval_baseline": {
+  "script": "scopedesk/bench/v1_2/retrieval_baseline.py",
+  "output": "scopedesk/bench/v1_2/retrieval_baseline_scores.json",
+  "result": "TF-IDF nearest Delphi math claim (92 claims) per prompt stem: top-1 correct 119/127; policy 'retrieved cited claim => applies, else abstain': coverage 0.937, selective risk 0.513 (61 errors/119), false acceptance 61/65 on non-applies items; behaves like always-applies on retrievable items; Hamilton retrieval 8/16",
+  "inputs": "prompt text + claim corpus only",
+  "limit": "expected-claim mapping by the critic; not a model-based RAG"
  }
 }
