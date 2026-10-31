@@ -1,6 +1,6 @@
 # Speaker notes
 
-Built 2026-10-31 02:04 PDT from fcbc98f9f6206a49fe36d89b0c080867437ef859.
+Built 2026-10-31 02:19 PDT from 6cbbd9da0eacfdb0c07c4e8736b95723e2f44a86.
 
 **Slide 1** (0:00-0:20)
 
@@ -24,4 +24,4 @@ Delphi claims become executable. Kimura and Fisher run through hand-authored, ha
 
 **Slide 6** (2:30-3:00)
 
-Lean checks the generic route and cut theorems, plus one seven-node route recomputed exactly from raw data, conditional on assumed intervals. The ESM2 prior is predicted, weakly correlated, not measured, and its use in policy replay is not part of this release. The contribution is compact: assay decisions with machine-checkable conditional certificates and typed reusable evidence. Not the first query-efficient pathfinding. Next: one lab, one prior campaign, one prospective round.
+Lean checks the generic route and cut theorems, plus one seven-node route recomputed exactly from raw data, conditional on assumed intervals. The ESM2 prior is predicted, weakly correlated, not measured, and its use in policy replay is tested without a clear benefit. The contribution is compact: assay decisions with machine-checkable conditional certificates and typed reusable evidence. Not the first query-efficient pathfinding. Next: one lab, one prior campaign, one prospective round.

@@ -1,8 +1,8 @@
 {
- "built": "2026-10-31 02:04 PDT",
+ "built": "2026-10-31 02:19 PDT",
  "root": "/data/worktrees/delphi-evolve/release",
  "git": {
-  "head": "fcbc98f9f6206a49fe36d89b0c080867437ef859",
+  "head": "6cbbd9da0eacfdb0c07c4e8736b95723e2f44a86",
   "branch": "work/release",
   "inputs_untracked_or_modified": []
  },
@@ -24,7 +24,11 @@
   "artifacts/turing_scope/lean_receipt.json": "d9961d8662748c3eb347accf9c103ffe5db1f988e7d74cf8183564f0b743d021",
   "site/data/lazysp.json": "cda3ba059530a297bd9b5e4d83f539818c25b16a0aef3a4cde06a71d950738aa",
   "docs/lazysp.md": "1135ba2198cd8f4f8af5ce5c144b4ed457aa909659645947409b615a1bb8ce1a",
-  "docs/pitch.md": "0031d013a6902eae2540e0865ba3da6315b15ed7375304ad7073857af8b5948f",
+  "docs/pitch.md": "d643ada98d8d572a94ab3d5c0c6579b9fadf56c8e70d6ba2195129155dc701f3",
+  "artifacts/scale/replay_summary.csv": "c6306a5796bf3a0d674720a17746e1309793ea390256fd2744c1f0126697a369",
+  "artifacts/scale/replay_rows.jsonl.gz": "806ed78723efe5d5c74e4cd7a44118fea225de509acb9686bf483a4a5b44e2b4",
+  "artifacts/scale/library_receipts.json": "da3f98517fc25c041d516fff70e4933938ff51d29460c87178ea48072fabf3f6",
+  "artifacts/scale/priors_z.npz": "c327c7b45d4e2143d85fa331deaee8c7001166ad3d0612e027adf0513df1f2ad",
   "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c",
   "artifacts/lazysp/results/table_primary.csv": "2e1cd0ac54af789755c23aa2b75aa6ed145d9e6eb6bf638f826c6c3138ebd94f",
   "artifacts/lazysp/results/episodes.csv": "a8d78cca2469e5f8ad8159ca297a5257dec6a2350f8ea2f6f5bde93e969a8b7f",
@@ -53,8 +57,8 @@
  "validation_errors": [],
  "replay_info": {
   "protocol_seeds": 20,
-  "shards_dir": "/data/worktrees/delphi-evolve/core/artifacts/core/replay/shards",
-  "shards": 220,
+  "shards_dir": null,
+  "shards": 0,
   "empty_shards": 0,
   "episodes_csv_rows": 1100,
   "policies_present": [
@@ -149,6 +153,6 @@
   "collective_shared_rr"
  ],
  "lazysp": "complete and audited: {\"stats\": {\"alternate\": {\"n\": 100, \"resolved\": 96, \"open\": 91, \"blocked\": 5, \"resolved_at\": {\"100\": 0.27, \"250\": 0.5, \"500\": 0.55, \"750\": 0.56, \"1000\": 0.96}, \"rmst\": 476.59}, \"forward\": {\"n\": 100, \"resolved\": 96, \"open\": 91, \"blocked\": 5, \"resolved_at\": {\"100\": 0.29, \"250\": 0.54, \"500\": 0.55, \"750\": 0.96, \"1000\": 0.96}, \"rmst\": 369.62}, \"reverse\": {\"n\": 100, \"resolved\": 49, \"open\": 49, \"blocked\": 0, \"resolved_at\": {\"100\": 0.26, \"250\": 0.27, \"500\": 0.49, \"750\": 0.49, \"1000\": 0.49}, \"rmst\": 593.88}}, \"only_lazysp_by_pair\": {\"VFVS\\u2192ALKG\": 17, \"VFVS\\u2192AIKG\": 1}, \"audit_shards\": 300}",
- "gpu_prior_replay": "not available in this release",
+ "gpu_prior_replay": "1,100 follow-up episodes: no clear assay-saving benefit; all descriptive RMST intervals include zero",
  "spoken_words": 385
 }

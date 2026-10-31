@@ -1,6 +1,6 @@
 # Appendix — limitations, all arms and the LazySP follow-up (not slide material)
 
-Built 2026-10-31 02:04 PDT from artifacts commit `fcbc98f9f6206a49fe36d89b0c080867437ef859`. Every number below is read from the files named in `deck.provenance.json`.
+Built 2026-10-31 02:19 PDT from artifacts commit `6cbbd9da0eacfdb0c07c4e8736b95723e2f44a86`. Every number below is read from the files named in `deck.provenance.json`.
 
 ## Strong LazySP-style follow-up (complete, independently audited)
 
@@ -17,9 +17,9 @@ Built 2026-10-31 02:04 PDT from artifacts commit `fcbc98f9f6206a49fe36d89b0c0808
 | lazysp_forward | preregistered secondary | 29% | 54% | 55% | 96% | 96% | 369.6 | 91 / 5 / 4 |
 | lazysp_reverse | preregistered secondary | 26% | 27% | 49% | 49% | 49% | 593.9 | 49 / 0 / 51 |
 
-## Not part of this release (no benefit claimed)
+## Separate follow-ups and unrun comparisons
 
-* **GPU-prior policy ablation** (replay with the ESM2 prior as input): not available in this release. The prior's agreement with the measured data was computed (weak Spearman) but its effect on assay decisions is untested; a model-size ablation is in progress on another branch and nothing from it is claimed here.
+* **GPU-prior policy ablation** (replay with the ESM2 prior as input): 1,100 follow-up episodes: no clear assay-saving benefit; all descriptive RMST intervals include zero. See docs/scale.md for all configurations and shuffled controls. Episode summaries were recounted; the scale runs did not retain per-query traces. This is not a general claim that protein models cannot help.
 * **ALDE** (active-learning-assisted directed evolution) was not run; it is the closest prior art on this landscape.
 
 ## All arms, certified fraction of 100 episodes (family: all)
