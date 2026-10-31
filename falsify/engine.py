@@ -25,6 +25,8 @@ from . import presets
 PI_LO = Fraction("3.14159265358979323846264338327950")
 PI_HI = Fraction("3.14159265358979323846264338327951")   # PI_LO <= pi <= PI_HI (true pi = 3.14159265358979323846264338327950288...)
 
+MC_MAX_N = 5000
+MC_TIME_BUDGET_S = 15.0
 PRECISIONS = (10 ** 12, 10 ** 24, 10 ** 48, 10 ** 96)
 MAX_CANDIDATE_MODES = 250_000
 MAX_DIGITS = 60
@@ -134,6 +136,7 @@ def normalize(req: dict) -> dict:
             fp, J = presets.build(m["name"], params)
         except ValueError as e:
             raise Refuse("invalid_input", str(e))
+        out["model_raw"] = (m["name"], params)
         out["kinetics"] = {"source": f"preset:{m['name']}", "params": {k: fs(v) for k, v in params.items()},
                            "fixed_point": [fs(fp[0]), fs(fp[1])], "fixed_point_exactly_verified": True}
     else:
@@ -183,6 +186,20 @@ def normalize(req: dict) -> dict:
     out["domain"] = {"dimension": dim, "boundary": bc, "exact": exact, "r": R,
                      "length_spec": [fs(x) for x in (vals)], "unit": "multiples of pi" if exact else "physical units (pi bracketed)"}
     out["claim"] = str(req.get("claim", ""))[:500]
+    unc = req.get("uncertainty")
+    if unc is not None:
+        if not isinstance(unc, dict):
+            raise Refuse("invalid_input", "uncertainty must be {'relative': 0.1, 'n': 1000, 'seed': 0}")
+        rel = rat("uncertainty.relative", unc.get("relative", "1/10"), notes)
+        if not (0 < rel <= 1):
+            raise Refuse("invalid_input", "uncertainty.relative must be in (0, 1]")
+        n_ = unc.get("n", 1000)
+        sd = unc.get("seed", 0)
+        if not (isinstance(n_, int) and not isinstance(n_, bool) and 1 <= n_ <= MC_MAX_N) or not (isinstance(sd, int) and not isinstance(sd, bool) and 0 <= sd < 2 ** 32):
+            raise Refuse("invalid_input", f"uncertainty.n must be an integer in [1,{MC_MAX_N}] and seed an integer in [0,2^32)")
+        out["uncertainty"] = {"relative": rel, "n": n_, "seed": sd}
+    else:
+        out["uncertainty"] = None
     out["wants"] = {"lean": bool(req.get("lean", False)), "crosscheck": req.get("crosscheck", True) is not False}
     return out
 
@@ -375,6 +392,91 @@ def diffusion_requirement(J, D):
     return out
 
 
+def margins(J):
+    """Normalized, dimensionless proximity of the well-mixed state to the Hopf (tr J = 0) and fold (det J = 0) boundaries, and of
+    (tr J, det J) to the Bogdanov-Takens point (tr = det = 0, J != 0).  PROXY, not a rigorous codimension-2 distance:
+        hopf_margin = -tr J / ||J||_F,  fold_margin = det J / ||J||_F^2,  bt_proximity = hypot(hopf_margin, fold_margin).
+    bt_proximity -> 0 exactly as the state approaches the BT point; large values mean robustly far from it."""
+    (a, b), (c, d) = J
+    fro2 = a * a + b * b + c * c + d * d
+    tr, dt = a + d, a * d - b * c
+    fro = math.sqrt(float(fro2))
+    hm, fm = -float(tr) / fro, float(dt) / float(fro2)
+    return {"trace_J": fs(tr), "det_J": fs(dt), "frobenius_norm_squared": fs(fro2), "hopf_margin": hm, "fold_margin": fm,
+            "bt_proximity": math.hypot(hm, fm),
+            "definition": "hopf_margin = -trJ/||J||_F ; fold_margin = detJ/||J||_F^2 ; bt_proximity = hypot of the two. A normalized proxy for distance to "
+                          "the Bogdanov-Takens point (tr=det=0); NOT a rigorous codimension-2 distance."}
+
+
+def wilson(k, n, z=1.959963984540054):
+    p = k / n
+    den = 1 + z * z / n
+    centre = (p + z * z / (2 * n)) / den
+    half = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / den
+    return [max(0.0, centre - half), min(1.0, centre + half)]
+
+
+def survival_estimate(n_norm):
+    """Monte Carlo over DECLARED parameter uncertainty. Each Jacobian entry and diffusivity (or each preset parameter) is multiplied by
+    (1 + u*r), r ~ Uniform(-1,1) independently, quantized to 1e-6 (so every sample is an exact rational classified by the exact mode
+    test).  Zero entries stay zero.  Domain is held fixed.  'Survival' = fraction of samples with >= 1 strictly unstable admissible mode.
+    Seeded and reproducible; stops at a wall-clock budget and says how many samples completed.  A statement about the declared
+    uncertainty model only, NOT about any real system."""
+    import random
+    import time
+    unc = n_norm["uncertainty"]
+    rel, N, seed = unc["relative"], unc["n"], unc["seed"]
+    rng = random.Random(seed)
+    dom = n_norm["domain"]
+
+    def jig(x):
+        v = float(x) * (1 + float(rel) * rng.uniform(-1, 1))
+        return Fraction(round(v * 10 ** 6), 10 ** 6)
+    counts = {"pattern_possible": 0, "domain_blocks_pattern": 0, "no_turing_band": 0, "well_mixed_state_unstable": 0, "unresolved": 0, "invalid_sample": 0}
+    t0 = time.time()
+    done = 0
+    for _ in range(N):
+        if time.time() - t0 > MC_TIME_BUDGET_S:
+            break
+        done += 1
+        try:
+            if "model_raw" in n_norm:
+                name, params = n_norm["model_raw"]
+                _, Jm = presets.build(name, {k: jig(v) for k, v in params.items()})
+            else:
+                Jm = [[jig(x) for x in row] for row in n_norm["J"]]
+            Dm = [jig(x) for x in n_norm["D"]]
+            if min(Dm) <= 0:
+                counts["invalid_sample"] += 1
+                continue
+        except (ValueError, ZeroDivisionError):
+            counts["invalid_sample"] += 1
+            continue
+        (a, b), (c, d) = Jm
+        if not (a + d < 0 and a * d - b * c > 0):
+            counts["well_mixed_state_unstable"] += 1
+            continue
+        try:
+            res = classify_modes(Jm, Dm, dom)
+        except Refuse:
+            counts["unresolved"] += 1
+            continue
+        if res["unstable"]:
+            counts["pattern_possible"] += 1
+        elif res["ambiguous"] or res["marginal"]:
+            counts["unresolved"] += 1
+        else:
+            S, P, dJ = res["S"], res["P"], res["detJ"]
+            counts["domain_blocks_pattern" if (S > 0 and S * S > 4 * P * dJ) else "no_turing_band"] += 1
+    k = counts["pattern_possible"]
+    return {"model": f"independent uniform multiplicative +/-{float(rel):g} on each {'preset parameter' if 'model_raw' in n_norm else 'Jacobian entry'} and each diffusivity; domain fixed; zero entries stay zero; quantized to 1e-6",
+            "limitation": "independent entry-wise perturbation ignores correlations between Jacobian entries when they come from fewer kinetic parameters (use a preset model for correlated parameters); says nothing about any real system",
+            "samples_requested": N, "samples_completed": done, "seed": seed, "counts": counts,
+            "survival_fraction": k / done if done else None, "survival_95ci_wilson": wilson(k, done) if done else None,
+            "survival_means": "fraction of sampled parameter sets with at least one strictly unstable ADMISSIBLE mode on this domain (linear onset only)",
+            "wall_clock_budget_s": MC_TIME_BUDGET_S}
+
+
 # ------------------------------------------------------------------ independent numeric solver (not a proof)
 def fd_crosscheck(J, D, dom, ncell=150):
     """Independent route: assemble the full finite-difference operator of the PDE linearization on ncell cells and ask
@@ -421,6 +523,8 @@ def _refusal(rid, e: Refuse, norm_notes=None):
                 "outcome": e.outcome, "verdict": "refused", "reason_code": e.code, "detail": e.detail},
             "verdict": "refused", "refusal": {"code": e.code, "detail": e.detail},
             "evidence_type": "model-derived", "observed": None, "not_established": NOT_ESTABLISHED,
+            "gate": {"linear_onset_on_this_domain": None, "may_assert": None,
+                     "for_agents": "Refused: the request is outside what is adjudicated. Do not answer yes or no; report the refusal reason."},
             "notes": norm_notes or []}
 
 
@@ -477,6 +581,7 @@ def falsify_turing(req: dict) -> dict:
         "derived": {"trace_J": fs(trJ), "det_J": fs(dJ), "S": fs(res["S"]), "DuDv": fs(res["P"])},
         "continuum_band": band,
         "diffusion_requirement": diffusion_requirement(J, D),
+        "stability_margins": margins(J),
         "modes": {"unstable": res["unstable"][:50], "unstable_count": nu, "unstable_eigenfunction_count": res["unstable_eigenfunctions"],
                   "count_meaning": "unstable_count = distinct admissible wavenumber index tuples (canonical non-negative indices); unstable_eigenfunction_count = the same with periodic cos/sin multiplicity (2 per nonzero index)", "unresolved_count": na, "marginal_count": nm,
                   "candidate_modes_examined": res["examined"],
@@ -517,6 +622,15 @@ def falsify_turing(req: dict) -> dict:
             expect = verdict == "pattern_possible"
             fd["agrees_with_exact_verdict"] = None if fd["ambiguous"] else (fd["numerically_unstable"] == expect)
         out["independent_checks"]["finite_difference_eigenvalues"] = fd
+    if n["uncertainty"]:
+        out["parameter_uncertainty"] = survival_estimate(n)
+    out["gate"] = {
+        "linear_onset_on_this_domain": {"pattern_possible": True, "domain_blocks_pattern": False, "no_turing_instability": False}.get(verdict),
+        "may_assert": ("a growing linear mode exists on this domain for the declared numbers" if verdict == "pattern_possible" else
+                       "no admissible linear mode grows on this domain for the declared numbers" if verdict in ("domain_blocks_pattern", "no_turing_instability") else None),
+        "must_not_assert": ["that a nonlinear or biological pattern forms", "anything about parameters or domains other than those declared",
+                            "that the textbook (continuum) inequality alone settles pattern formation on a finite domain"],
+        "for_agents": "Treat linear_onset_on_this_domain as the only licensed conclusion; null means do not answer yes or no."}
     out["lean_wanted"] = n["wants"]["lean"]
     out["_lean_inputs"] = {"J": J, "D": D, "dom": dom, "unstable": res["unstable"], "threshold": res["threshold"]} if (
         dom["dimension"] == 1 and dom["exact"] and verdict in ("pattern_possible", "domain_blocks_pattern", "no_turing_instability")) else None

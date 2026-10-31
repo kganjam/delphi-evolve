@@ -1,0 +1,1733 @@
+{
+ "seed": 20261031,
+ "note": "ANSWER KEY - do not show to agents under test. Ground truth: exact-rational engine; Lean-checked sample in lean_sample.json",
+ "key": [
+  {
+   "id": "q000",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q001",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38
+   ]
+  },
+  {
+   "id": "q002",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "q003",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+   ]
+  },
+  {
+   "id": "q004",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q005",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1
+   ]
+  },
+  {
+   "id": "q006",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q007",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2,
+    3
+   ]
+  },
+  {
+   "id": "q008",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q009",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q010",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ]
+  },
+  {
+   "id": "q011",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "q012",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "q013",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q014",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1
+   ]
+  },
+  {
+   "id": "q015",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "q016",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "id": "q017",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q018",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q019",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    5,
+    6,
+    7,
+    8
+   ]
+  },
+  {
+   "id": "q020",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q021",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q022",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q023",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q024",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q025",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q026",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q027",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q028",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q029",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q030",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2
+   ]
+  },
+  {
+   "id": "q031",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q032",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q033",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "q034",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q035",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q036",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q037",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "id": "q038",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q039",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q040",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41
+   ]
+  },
+  {
+   "id": "q041",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q042",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ]
+  },
+  {
+   "id": "q043",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q044",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36
+   ]
+  },
+  {
+   "id": "q045",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q046",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "q047",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q048",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1
+   ]
+  },
+  {
+   "id": "q049",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q050",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q051",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q052",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q053",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+   ]
+  },
+  {
+   "id": "q054",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1
+   ]
+  },
+  {
+   "id": "q055",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    3,
+    4
+   ]
+  },
+  {
+   "id": "q056",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q057",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "q058",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q059",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q060",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q061",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q062",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q063",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q064",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q065",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q066",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q067",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+   ]
+  },
+  {
+   "id": "q068",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q069",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1
+   ]
+  },
+  {
+   "id": "q070",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q071",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q072",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q073",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q074",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q075",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q076",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q077",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1
+   ]
+  },
+  {
+   "id": "q078",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q079",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "id": "q080",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q081",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q082",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q083",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q084",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q085",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q086",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "q087",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q088",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q089",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q090",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q091",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "q092",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q093",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q094",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q095",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "id": "q096",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q097",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q098",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q099",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q100",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q101",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q102",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
+  },
+  {
+   "id": "q103",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q104",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q105",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "id": "q106",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q107",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ]
+  },
+  {
+   "id": "q108",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q109",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q110",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2
+   ]
+  },
+  {
+   "id": "q111",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q112",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q113",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q114",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q115",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+   ]
+  },
+  {
+   "id": "q116",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2,
+    3
+   ]
+  },
+  {
+   "id": "q117",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    3
+   ]
+  },
+  {
+   "id": "q118",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
+  },
+  {
+   "id": "q119",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q120",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q121",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q122",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q123",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q124",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    6,
+    7,
+    8
+   ]
+  },
+  {
+   "id": "q125",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q126",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q127",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q128",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q129",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q130",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q131",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "id": "q132",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1
+   ]
+  },
+  {
+   "id": "q133",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    3,
+    4
+   ]
+  },
+  {
+   "id": "q134",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q135",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ]
+  },
+  {
+   "id": "q136",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q137",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q138",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    10
+   ]
+  },
+  {
+   "id": "q139",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+   ]
+  },
+  {
+   "id": "q140",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "id": "q141",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q142",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q143",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q144",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q145",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q146",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q147",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+   ]
+  },
+  {
+   "id": "q148",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q149",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q150",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ]
+  },
+  {
+   "id": "q151",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q152",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "q153",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2
+   ]
+  },
+  {
+   "id": "q154",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ]
+  },
+  {
+   "id": "q155",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    5,
+    6,
+    7,
+    8
+   ]
+  },
+  {
+   "id": "q156",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q157",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q158",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q159",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q160",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1
+   ]
+  },
+  {
+   "id": "q161",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q162",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q163",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q164",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q165",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q166",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    3
+   ]
+  },
+  {
+   "id": "q167",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q168",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q169",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "id": "q170",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q171",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "id": "q172",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "id": "q173",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q174",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q175",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "id": "q176",
+   "class": "trap",
+   "answer": "NO",
+   "engine_verdict": "domain_blocks_pattern",
+   "unstable_modes": []
+  },
+  {
+   "id": "q177",
+   "class": "positive",
+   "answer": "YES",
+   "engine_verdict": "pattern_possible",
+   "unstable_modes": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "id": "q178",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  },
+  {
+   "id": "q179",
+   "class": "no_band",
+   "answer": "NO",
+   "engine_verdict": "no_turing_instability",
+   "unstable_modes": []
+  }
+ ]
+}

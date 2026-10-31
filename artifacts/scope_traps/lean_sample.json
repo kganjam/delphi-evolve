@@ -1,0 +1,78 @@
+{
+ "note": "Lean receipts for a stratified sample of 6 of the 180 questions (the full set is checked by exact arithmetic + numpy)",
+ "results": [
+  {
+   "id": "q004",
+   "class": "trap",
+   "lean_status": "checked",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "seconds": 0.52,
+   "source_sha256": "35b54836dd53e431cf6f092e83b5bb6ac8dfba221b0067e7bfd730368fed195e"
+  },
+  {
+   "id": "q008",
+   "class": "trap",
+   "lean_status": "checked",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "seconds": 0.41,
+   "source_sha256": "55269dfe586cfcd9c333edfc22b04cef1c61ce58b106078db47711816194f3db"
+  },
+  {
+   "id": "q001",
+   "class": "positive",
+   "lean_status": "checked",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "seconds": 0.7,
+   "source_sha256": "dd05807467f88166ea3e13c02ceb1a4bd24337bc11bbaebc5e73cf59eafb3683"
+  },
+  {
+   "id": "q002",
+   "class": "positive",
+   "lean_status": "checked",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "seconds": 0.51,
+   "source_sha256": "5fc94fd53bb22b236c5451b30791ea69c0e76226e942e3a0f9ac313fc7b9d563"
+  },
+  {
+   "id": "q000",
+   "class": "no_band",
+   "lean_status": "checked",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "seconds": 0.72,
+   "source_sha256": "eaa9782660c746d0998f5b9d8061882b80a98221ad9fab3f061cd2c08dd0e378"
+  },
+  {
+   "id": "q006",
+   "class": "no_band",
+   "lean_status": "checked",
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "seconds": 0.53,
+   "source_sha256": "61899647193ffccba9b9e681581d5e8fb0e0cfe496a0b04129192df7fa292b24"
+  }
+ ],
+ "numpy_mismatches": 0
+}

@@ -1,0 +1,4691 @@
+{
+ "seed": 20261031,
+ "tries": 57700,
+ "counts": {
+  "trap": 60,
+  "positive": 60,
+  "no_band": 60
+ },
+ "questions": [
+  {
+   "id": "q000",
+   "request": {
+    "jacobian": [
+     [
+      -3,
+      1
+     ],
+     [
+      -2,
+      0
+     ]
+    ],
+    "diffusivities": [
+     2,
+     5
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "9/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 5 v_xx has a homogeneous steady state at which the Jacobian is [[-3, 1], [-2, 0]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (9/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q001",
+   "request": {
+    "jacobian": [
+     [
+      4,
+      5
+     ],
+     [
+      -6,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     33
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "20"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 33 v_xx has a homogeneous steady state at which the Jacobian is [[4, 5], [-6, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (20) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q002",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      5
+     ],
+     [
+      -3,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     3,
+     43
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "20/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 43 v_xx has a homogeneous steady state at which the Jacobian is [[2, 5], [-3, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (20/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q003",
+   "request": {
+    "jacobian": [
+     [
+      4,
+      5
+     ],
+     [
+      -5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     2,
+     59
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "22"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 59 v_xx has a homogeneous steady state at which the Jacobian is [[4, 5], [-5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (22) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q004",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      5
+     ],
+     [
+      -2,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     35
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 35 v_xx has a homogeneous steady state at which the Jacobian is [[1, 5], [-2, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q005",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      4
+     ],
+     [
+      -3,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     36
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 36 v_xx has a homogeneous steady state at which the Jacobian is [[2, 4], [-3, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q006",
+   "request": {
+    "jacobian": [
+     [
+      -1,
+      -2
+     ],
+     [
+      0,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     1,
+     47
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 47 v_xx has a homogeneous steady state at which the Jacobian is [[-1, -2], [0, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q007",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      5
+     ],
+     [
+      -6,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     3,
+     55
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "13/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 55 v_xx has a homogeneous steady state at which the Jacobian is [[3, 5], [-6, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (13/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q008",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      4
+     ],
+     [
+      -6,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     1,
+     35
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 35 v_xx has a homogeneous steady state at which the Jacobian is [[3, 4], [-6, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q009",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -5
+     ],
+     [
+      1,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     1,
+     51
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 51 v_xx has a homogeneous steady state at which the Jacobian is [[1, -5], [1, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q010",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      5
+     ],
+     [
+      -6,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     31
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "8"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 31 v_xx has a homogeneous steady state at which the Jacobian is [[3, 5], [-6, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (8) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q011",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -2
+     ],
+     [
+      2,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     1,
+     56
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "5/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 56 v_xx has a homogeneous steady state at which the Jacobian is [[1, -2], [2, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (5/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q012",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -3
+     ],
+     [
+      6,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     50
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 50 v_xx has a homogeneous steady state at which the Jacobian is [[2, -3], [6, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q013",
+   "request": {
+    "jacobian": [
+     [
+      -2,
+      4
+     ],
+     [
+      -5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     2,
+     10
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "7"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 10 v_xx has a homogeneous steady state at which the Jacobian is [[-2, 4], [-5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (7) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q014",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      2
+     ],
+     [
+      -2,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     2,
+     52
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 52 v_xx has a homogeneous steady state at which the Jacobian is [[1, 2], [-2, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q015",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      1
+     ],
+     [
+      -4,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     2,
+     44
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "14/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 44 v_xx has a homogeneous steady state at which the Jacobian is [[1, 1], [-4, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (14/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q016",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      2
+     ],
+     [
+      -2,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     1,
+     20
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "23/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 20 v_xx has a homogeneous steady state at which the Jacobian is [[1, 2], [-2, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (23/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q017",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      6
+     ],
+     [
+      -1,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     36
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 36 v_xx has a homogeneous steady state at which the Jacobian is [[1, 6], [-1, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q018",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      6
+     ],
+     [
+      -4,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     37
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 37 v_xx has a homogeneous steady state at which the Jacobian is [[3, 6], [-4, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q019",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -2
+     ],
+     [
+      6,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     49
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "10"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 49 v_xx has a homogeneous steady state at which the Jacobian is [[1, -2], [6, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (10) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q020",
+   "request": {
+    "jacobian": [
+     [
+      -3,
+      1
+     ],
+     [
+      6,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     2,
+     41
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "23/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 41 v_xx has a homogeneous steady state at which the Jacobian is [[-3, 1], [6, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (23/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q021",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      4
+     ],
+     [
+      -6,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     3,
+     26
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "3/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 26 v_xx has a homogeneous steady state at which the Jacobian is [[3, 4], [-6, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (3/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q022",
+   "request": {
+    "jacobian": [
+     [
+      4,
+      6
+     ],
+     [
+      -6,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     2,
+     30
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 30 v_xx has a homogeneous steady state at which the Jacobian is [[4, 6], [-6, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q023",
+   "request": {
+    "jacobian": [
+     [
+      -4,
+      3
+     ],
+     [
+      -3,
+      2
+     ]
+    ],
+    "diffusivities": [
+     3,
+     52
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "10"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 52 v_xx has a homogeneous steady state at which the Jacobian is [[-4, 3], [-3, 2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (10) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q024",
+   "request": {
+    "jacobian": [
+     [
+      -6,
+      5
+     ],
+     [
+      -5,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     1,
+     25
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "12"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 25 v_xx has a homogeneous steady state at which the Jacobian is [[-6, 5], [-5, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (12) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q025",
+   "request": {
+    "jacobian": [
+     [
+      -1,
+      6
+     ],
+     [
+      -1,
+      -1
+     ]
+    ],
+    "diffusivities": [
+     1,
+     26
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "23/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 26 v_xx has a homogeneous steady state at which the Jacobian is [[-1, 6], [-1, -1]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (23/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q026",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      5
+     ],
+     [
+      -5,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     2,
+     42
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 42 v_xx has a homogeneous steady state at which the Jacobian is [[2, 5], [-5, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q027",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -6
+     ],
+     [
+      1,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     3,
+     36
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "8"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 36 v_xx has a homogeneous steady state at which the Jacobian is [[1, -6], [1, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (8) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q028",
+   "request": {
+    "jacobian": [
+     [
+      -3,
+      4
+     ],
+     [
+      1,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     2,
+     44
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "11"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 44 v_xx has a homogeneous steady state at which the Jacobian is [[-3, 4], [1, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (11) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q029",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      4
+     ],
+     [
+      -1,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     2,
+     29
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 29 v_xx has a homogeneous steady state at which the Jacobian is [[1, 4], [-1, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q030",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      2
+     ],
+     [
+      -2,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     2,
+     22
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 22 v_xx has a homogeneous steady state at which the Jacobian is [[1, 2], [-2, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q031",
+   "request": {
+    "jacobian": [
+     [
+      -2,
+      4
+     ],
+     [
+      -5,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     1,
+     26
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "7"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 26 v_xx has a homogeneous steady state at which the Jacobian is [[-2, 4], [-5, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (7) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q032",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -6
+     ],
+     [
+      3,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     3,
+     39
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "20/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 39 v_xx has a homogeneous steady state at which the Jacobian is [[2, -6], [3, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (20/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q033",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -4
+     ],
+     [
+      2,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     2,
+     26
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 26 v_xx has a homogeneous steady state at which the Jacobian is [[2, -4], [2, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q034",
+   "request": {
+    "jacobian": [
+     [
+      -4,
+      1
+     ],
+     [
+      -1,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     1,
+     29
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "10"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 29 v_xx has a homogeneous steady state at which the Jacobian is [[-4, 1], [-1, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (10) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q035",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      6
+     ],
+     [
+      -4,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     2,
+     47
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 47 v_xx has a homogeneous steady state at which the Jacobian is [[3, 6], [-4, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q036",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      4
+     ],
+     [
+      -6,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     1,
+     55
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "3/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 55 v_xx has a homogeneous steady state at which the Jacobian is [[2, 4], [-6, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (3/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q037",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      5
+     ],
+     [
+      -5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     34
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "11/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 34 v_xx has a homogeneous steady state at which the Jacobian is [[2, 5], [-5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (11/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q038",
+   "request": {
+    "jacobian": [
+     [
+      -4,
+      -6
+     ],
+     [
+      0,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     2,
+     26
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 26 v_xx has a homogeneous steady state at which the Jacobian is [[-4, -6], [0, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q039",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      -3
+     ],
+     [
+      6,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     2,
+     17
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 17 v_xx has a homogeneous steady state at which the Jacobian is [[3, -3], [6, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q040",
+   "request": {
+    "jacobian": [
+     [
+      4,
+      6
+     ],
+     [
+      -5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     18
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "22"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 18 v_xx has a homogeneous steady state at which the Jacobian is [[4, 6], [-5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (22) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q041",
+   "request": {
+    "jacobian": [
+     [
+      4,
+      6
+     ],
+     [
+      -5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     3,
+     12
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "7/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 12 v_xx has a homogeneous steady state at which the Jacobian is [[4, 6], [-5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (7/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q042",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -4
+     ],
+     [
+      4,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     42
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "10"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 42 v_xx has a homogeneous steady state at which the Jacobian is [[2, -4], [4, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (10) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q043",
+   "request": {
+    "jacobian": [
+     [
+      -4,
+      0
+     ],
+     [
+      5,
+      -1
+     ]
+    ],
+    "diffusivities": [
+     3,
+     60
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 60 v_xx has a homogeneous steady state at which the Jacobian is [[-4, 0], [5, -1]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q044",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      -6
+     ],
+     [
+      4,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     38
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "22"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 38 v_xx has a homogeneous steady state at which the Jacobian is [[3, -6], [4, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (22) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q045",
+   "request": {
+    "jacobian": [
+     [
+      -3,
+      1
+     ],
+     [
+      -6,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     2,
+     11
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "2/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 11 v_xx has a homogeneous steady state at which the Jacobian is [[-3, 1], [-6, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (2/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q046",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      5
+     ],
+     [
+      -3,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     44
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "10/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 44 v_xx has a homogeneous steady state at which the Jacobian is [[2, 5], [-3, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (10/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q047",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      3
+     ],
+     [
+      -1,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     3,
+     26
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "17/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 26 v_xx has a homogeneous steady state at which the Jacobian is [[1, 3], [-1, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (17/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q048",
+   "request": {
+    "jacobian": [
+     [
+      4,
+      -5
+     ],
+     [
+      5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     10
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "2/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 10 v_xx has a homogeneous steady state at which the Jacobian is [[4, -5], [5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (2/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q049",
+   "request": {
+    "jacobian": [
+     [
+      -3,
+      -3
+     ],
+     [
+      1,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     3,
+     12
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 12 v_xx has a homogeneous steady state at which the Jacobian is [[-3, -3], [1, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q050",
+   "request": {
+    "jacobian": [
+     [
+      -4,
+      -2
+     ],
+     [
+      -5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     2,
+     9
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 9 v_xx has a homogeneous steady state at which the Jacobian is [[-4, -2], [-5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q051",
+   "request": {
+    "jacobian": [
+     [
+      -6,
+      2
+     ],
+     [
+      -2,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     2,
+     15
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "5/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 15 v_xx has a homogeneous steady state at which the Jacobian is [[-6, 2], [-2, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (5/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q052",
+   "request": {
+    "jacobian": [
+     [
+      -3,
+      1
+     ],
+     [
+      -1,
+      0
+     ]
+    ],
+    "diffusivities": [
+     1,
+     22
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "16/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 22 v_xx has a homogeneous steady state at which the Jacobian is [[-3, 1], [-1, 0]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (16/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q053",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      -6
+     ],
+     [
+      5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     2,
+     52
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "20"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 52 v_xx has a homogeneous steady state at which the Jacobian is [[3, -6], [5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (20) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q054",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -4
+     ],
+     [
+      2,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     2,
+     19
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "3/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 19 v_xx has a homogeneous steady state at which the Jacobian is [[2, -4], [2, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (3/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q055",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -5
+     ],
+     [
+      3,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     2,
+     25
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "11/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 25 v_xx has a homogeneous steady state at which the Jacobian is [[2, -5], [3, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (11/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q056",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      -5
+     ],
+     [
+      4,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     1,
+     6
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "5/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 6 v_xx has a homogeneous steady state at which the Jacobian is [[3, -5], [4, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (5/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q057",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      6
+     ],
+     [
+      -4,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     19
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "6"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 19 v_xx has a homogeneous steady state at which the Jacobian is [[3, 6], [-4, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (6) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q058",
+   "request": {
+    "jacobian": [
+     [
+      -3,
+      2
+     ],
+     [
+      -6,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     2,
+     27
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "8"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 27 v_xx has a homogeneous steady state at which the Jacobian is [[-3, 2], [-6, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (8) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q059",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      5
+     ],
+     [
+      -4,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     2,
+     28
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 28 v_xx has a homogeneous steady state at which the Jacobian is [[2, 5], [-4, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q060",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -2
+     ],
+     [
+      5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     2,
+     57
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "15/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 57 v_xx has a homogeneous steady state at which the Jacobian is [[1, -2], [5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (15/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q061",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -3
+     ],
+     [
+      4,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     1,
+     41
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "13/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 41 v_xx has a homogeneous steady state at which the Jacobian is [[1, -3], [4, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (13/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q062",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -4
+     ],
+     [
+      2,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     2,
+     56
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 56 v_xx has a homogeneous steady state at which the Jacobian is [[1, -4], [2, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q063",
+   "request": {
+    "jacobian": [
+     [
+      -2,
+      -5
+     ],
+     [
+      6,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     43
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "21/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 43 v_xx has a homogeneous steady state at which the Jacobian is [[-2, -5], [6, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (21/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q064",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      -6
+     ],
+     [
+      5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     3,
+     60
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 60 v_xx has a homogeneous steady state at which the Jacobian is [[3, -6], [5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q065",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -5
+     ],
+     [
+      4,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     3,
+     43
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "5"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 43 v_xx has a homogeneous steady state at which the Jacobian is [[2, -5], [4, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (5) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q066",
+   "request": {
+    "jacobian": [
+     [
+      -1,
+      4
+     ],
+     [
+      -4,
+      -1
+     ]
+    ],
+    "diffusivities": [
+     3,
+     27
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "7/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 27 v_xx has a homogeneous steady state at which the Jacobian is [[-1, 4], [-4, -1]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (7/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q067",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      5
+     ],
+     [
+      -3,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     18
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "13"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 18 v_xx has a homogeneous steady state at which the Jacobian is [[2, 5], [-3, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (13) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q068",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -5
+     ],
+     [
+      3,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     3,
+     36
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 36 v_xx has a homogeneous steady state at which the Jacobian is [[2, -5], [3, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q069",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -4
+     ],
+     [
+      1,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     3,
+     46
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "15/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 46 v_xx has a homogeneous steady state at which the Jacobian is [[1, -4], [1, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (15/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q070",
+   "request": {
+    "jacobian": [
+     [
+      -2,
+      1
+     ],
+     [
+      3,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     1,
+     23
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "23/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 23 v_xx has a homogeneous steady state at which the Jacobian is [[-2, 1], [3, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (23/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q071",
+   "request": {
+    "jacobian": [
+     [
+      -4,
+      5
+     ],
+     [
+      -4,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     6
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "11/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 6 v_xx has a homogeneous steady state at which the Jacobian is [[-4, 5], [-4, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (11/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q072",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -2
+     ],
+     [
+      3,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     1,
+     39
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 39 v_xx has a homogeneous steady state at which the Jacobian is [[1, -2], [3, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q073",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -4
+     ],
+     [
+      3,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     1,
+     45
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 45 v_xx has a homogeneous steady state at which the Jacobian is [[1, -4], [3, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q074",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -2
+     ],
+     [
+      4,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     3,
+     52
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 52 v_xx has a homogeneous steady state at which the Jacobian is [[1, -2], [4, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q075",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      5
+     ],
+     [
+      -5,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     3,
+     60
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 60 v_xx has a homogeneous steady state at which the Jacobian is [[2, 5], [-5, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q076",
+   "request": {
+    "jacobian": [
+     [
+      -1,
+      0
+     ],
+     [
+      -6,
+      -1
+     ]
+    ],
+    "diffusivities": [
+     2,
+     2
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 2 v_xx has a homogeneous steady state at which the Jacobian is [[-1, 0], [-6, -1]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q077",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      3
+     ],
+     [
+      -6,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     3,
+     53
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "7/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 53 v_xx has a homogeneous steady state at which the Jacobian is [[2, 3], [-6, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (7/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q078",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      1
+     ],
+     [
+      -3,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     3,
+     26
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 26 v_xx has a homogeneous steady state at which the Jacobian is [[1, 1], [-3, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q079",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      3
+     ],
+     [
+      -6,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     2,
+     59
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "7"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 59 v_xx has a homogeneous steady state at which the Jacobian is [[2, 3], [-6, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (7) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q080",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -6
+     ],
+     [
+      6,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     1,
+     31
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "5/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 31 v_xx has a homogeneous steady state at which the Jacobian is [[2, -6], [6, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (5/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q081",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -5
+     ],
+     [
+      1,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     1,
+     49
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 49 v_xx has a homogeneous steady state at which the Jacobian is [[1, -5], [1, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q082",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      4
+     ],
+     [
+      -2,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     1,
+     55
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 55 v_xx has a homogeneous steady state at which the Jacobian is [[1, 4], [-2, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q083",
+   "request": {
+    "jacobian": [
+     [
+      0,
+      5
+     ],
+     [
+      -6,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     2,
+     46
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "19/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 46 v_xx has a homogeneous steady state at which the Jacobian is [[0, 5], [-6, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (19/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q084",
+   "request": {
+    "jacobian": [
+     [
+      4,
+      -6
+     ],
+     [
+      4,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     30
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 30 v_xx has a homogeneous steady state at which the Jacobian is [[4, -6], [4, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q085",
+   "request": {
+    "jacobian": [
+     [
+      -6,
+      4
+     ],
+     [
+      4,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     3,
+     26
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 26 v_xx has a homogeneous steady state at which the Jacobian is [[-6, 4], [4, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q086",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      4
+     ],
+     [
+      -3,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     2,
+     41
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "21/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 41 v_xx has a homogeneous steady state at which the Jacobian is [[2, 4], [-3, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (21/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q087",
+   "request": {
+    "jacobian": [
+     [
+      -5,
+      6
+     ],
+     [
+      -5,
+      4
+     ]
+    ],
+    "diffusivities": [
+     1,
+     5
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "23/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 5 v_xx has a homogeneous steady state at which the Jacobian is [[-5, 6], [-5, 4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (23/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q088",
+   "request": {
+    "jacobian": [
+     [
+      -2,
+      5
+     ],
+     [
+      -4,
+      0
+     ]
+    ],
+    "diffusivities": [
+     1,
+     58
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 58 v_xx has a homogeneous steady state at which the Jacobian is [[-2, 5], [-4, 0]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q089",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -1
+     ],
+     [
+      5,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     2,
+     49
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "4/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 49 v_xx has a homogeneous steady state at which the Jacobian is [[1, -1], [5, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (4/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q090",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      3
+     ],
+     [
+      -6,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     2,
+     59
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "2/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 59 v_xx has a homogeneous steady state at which the Jacobian is [[3, 3], [-6, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (2/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q091",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -4
+     ],
+     [
+      6,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     45
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "13/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 45 v_xx has a homogeneous steady state at which the Jacobian is [[2, -4], [6, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (13/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q092",
+   "request": {
+    "jacobian": [
+     [
+      -6,
+      6
+     ],
+     [
+      -3,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     14
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "19/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 14 v_xx has a homogeneous steady state at which the Jacobian is [[-6, 6], [-3, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (19/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q093",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      2
+     ],
+     [
+      -5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     52
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 52 v_xx has a homogeneous steady state at which the Jacobian is [[1, 2], [-5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q094",
+   "request": {
+    "jacobian": [
+     [
+      -6,
+      3
+     ],
+     [
+      1,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     2,
+     60
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 60 v_xx has a homogeneous steady state at which the Jacobian is [[-6, 3], [1, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q095",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      -6
+     ],
+     [
+      4,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     3,
+     51
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "7"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 51 v_xx has a homogeneous steady state at which the Jacobian is [[3, -6], [4, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (7) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q096",
+   "request": {
+    "jacobian": [
+     [
+      -3,
+      -3
+     ],
+     [
+      2,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     2,
+     55
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "21"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 55 v_xx has a homogeneous steady state at which the Jacobian is [[-3, -3], [2, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (21) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q097",
+   "request": {
+    "jacobian": [
+     [
+      5,
+      6
+     ],
+     [
+      -6,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     3,
+     21
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "3/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 21 v_xx has a homogeneous steady state at which the Jacobian is [[5, 6], [-6, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (3/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q098",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      2
+     ],
+     [
+      -3,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     2,
+     52
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 52 v_xx has a homogeneous steady state at which the Jacobian is [[1, 2], [-3, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q099",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -3
+     ],
+     [
+      3,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     1,
+     52
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 52 v_xx has a homogeneous steady state at which the Jacobian is [[1, -3], [3, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q100",
+   "request": {
+    "jacobian": [
+     [
+      0,
+      1
+     ],
+     [
+      -2,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     3,
+     21
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "16/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 21 v_xx has a homogeneous steady state at which the Jacobian is [[0, 1], [-2, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (16/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q101",
+   "request": {
+    "jacobian": [
+     [
+      0,
+      5
+     ],
+     [
+      -4,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     2,
+     4
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 4 v_xx has a homogeneous steady state at which the Jacobian is [[0, 5], [-4, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q102",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      -6
+     ],
+     [
+      3,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     1,
+     27
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "9/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 27 v_xx has a homogeneous steady state at which the Jacobian is [[3, -6], [3, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (9/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q103",
+   "request": {
+    "jacobian": [
+     [
+      -1,
+      0
+     ],
+     [
+      -5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     3,
+     11
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "14/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 11 v_xx has a homogeneous steady state at which the Jacobian is [[-1, 0], [-5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (14/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q104",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      -6
+     ],
+     [
+      3,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     3,
+     40
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "3/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 40 v_xx has a homogeneous steady state at which the Jacobian is [[3, -6], [3, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (3/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q105",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      5
+     ],
+     [
+      -3,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     1,
+     34
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "13/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 34 v_xx has a homogeneous steady state at which the Jacobian is [[2, 5], [-3, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (13/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q106",
+   "request": {
+    "jacobian": [
+     [
+      -1,
+      4
+     ],
+     [
+      -3,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     2,
+     38
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "12"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 38 v_xx has a homogeneous steady state at which the Jacobian is [[-1, 4], [-3, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (12) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q107",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -5
+     ],
+     [
+      2,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     1,
+     42
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "6"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 42 v_xx has a homogeneous steady state at which the Jacobian is [[2, -5], [2, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (6) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q108",
+   "request": {
+    "jacobian": [
+     [
+      -1,
+      -2
+     ],
+     [
+      1,
+      0
+     ]
+    ],
+    "diffusivities": [
+     3,
+     16
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "9/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 16 v_xx has a homogeneous steady state at which the Jacobian is [[-1, -2], [1, 0]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (9/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q109",
+   "request": {
+    "jacobian": [
+     [
+      -6,
+      5
+     ],
+     [
+      4,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     2,
+     56
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "7/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 56 v_xx has a homogeneous steady state at which the Jacobian is [[-6, 5], [4, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (7/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q110",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      4
+     ],
+     [
+      -6,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     2,
+     51
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "7/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 51 v_xx has a homogeneous steady state at which the Jacobian is [[2, 4], [-6, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (7/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q111",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      4
+     ],
+     [
+      -2,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     2,
+     39
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "5"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 39 v_xx has a homogeneous steady state at which the Jacobian is [[1, 4], [-2, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (5) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q112",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -4
+     ],
+     [
+      4,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     2,
+     51
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "19/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 51 v_xx has a homogeneous steady state at which the Jacobian is [[1, -4], [4, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (19/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q113",
+   "request": {
+    "jacobian": [
+     [
+      -3,
+      -2
+     ],
+     [
+      4,
+      0
+     ]
+    ],
+    "diffusivities": [
+     2,
+     13
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "20/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 13 v_xx has a homogeneous steady state at which the Jacobian is [[-3, -2], [4, 0]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (20/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q114",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -6
+     ],
+     [
+      3,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     2,
+     34
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 34 v_xx has a homogeneous steady state at which the Jacobian is [[2, -6], [3, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q115",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      3
+     ],
+     [
+      -5,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     2,
+     45
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "17"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 45 v_xx has a homogeneous steady state at which the Jacobian is [[3, 3], [-5, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (17) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q116",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      -6
+     ],
+     [
+      4,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     3,
+     20
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "13/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 20 v_xx has a homogeneous steady state at which the Jacobian is [[3, -6], [4, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (13/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q117",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      5
+     ],
+     [
+      -2,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     33
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "5"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 33 v_xx has a homogeneous steady state at which the Jacobian is [[1, 5], [-2, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (5) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q118",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -3
+     ],
+     [
+      5,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     1,
+     54
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "17/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 54 v_xx has a homogeneous steady state at which the Jacobian is [[2, -3], [5, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (17/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q119",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      5
+     ],
+     [
+      -5,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     1,
+     43
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "3/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 43 v_xx has a homogeneous steady state at which the Jacobian is [[2, 5], [-5, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (3/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q120",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      5
+     ],
+     [
+      -6,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     30
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 30 v_xx has a homogeneous steady state at which the Jacobian is [[2, 5], [-6, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q121",
+   "request": {
+    "jacobian": [
+     [
+      -3,
+      1
+     ],
+     [
+      2,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     1,
+     14
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "4/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 14 v_xx has a homogeneous steady state at which the Jacobian is [[-3, 1], [2, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (4/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q122",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -5
+     ],
+     [
+      1,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     3,
+     42
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "7/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 42 v_xx has a homogeneous steady state at which the Jacobian is [[1, -5], [1, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (7/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q123",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -1
+     ],
+     [
+      6,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     22
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "2/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 22 v_xx has a homogeneous steady state at which the Jacobian is [[1, -1], [6, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (2/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q124",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      6
+     ],
+     [
+      -5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     3,
+     29
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "23/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 29 v_xx has a homogeneous steady state at which the Jacobian is [[3, 6], [-5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (23/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q125",
+   "request": {
+    "jacobian": [
+     [
+      5,
+      -6
+     ],
+     [
+      6,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     2,
+     58
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 58 v_xx has a homogeneous steady state at which the Jacobian is [[5, -6], [6, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q126",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -2
+     ],
+     [
+      2,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     1,
+     50
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 50 v_xx has a homogeneous steady state at which the Jacobian is [[1, -2], [2, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q127",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -6
+     ],
+     [
+      5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     2,
+     51
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 51 v_xx has a homogeneous steady state at which the Jacobian is [[2, -6], [5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q128",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      6
+     ],
+     [
+      -6,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     1,
+     33
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 33 v_xx has a homogeneous steady state at which the Jacobian is [[2, 6], [-6, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q129",
+   "request": {
+    "jacobian": [
+     [
+      -2,
+      1
+     ],
+     [
+      -3,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     2,
+     31
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 31 v_xx has a homogeneous steady state at which the Jacobian is [[-2, 1], [-3, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q130",
+   "request": {
+    "jacobian": [
+     [
+      -5,
+      -5
+     ],
+     [
+      5,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     3,
+     29
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 29 v_xx has a homogeneous steady state at which the Jacobian is [[-5, -5], [5, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q131",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      2
+     ],
+     [
+      -6,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     49
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "5/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 49 v_xx has a homogeneous steady state at which the Jacobian is [[2, 2], [-6, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (5/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q132",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -6
+     ],
+     [
+      2,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     21
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "5/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 21 v_xx has a homogeneous steady state at which the Jacobian is [[2, -6], [2, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (5/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q133",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      5
+     ],
+     [
+      -6,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     1,
+     39
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 39 v_xx has a homogeneous steady state at which the Jacobian is [[2, 5], [-6, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q134",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -5
+     ],
+     [
+      3,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     2,
+     60
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 60 v_xx has a homogeneous steady state at which the Jacobian is [[2, -5], [3, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q135",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      3
+     ],
+     [
+      -5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     2,
+     19
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "18"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 19 v_xx has a homogeneous steady state at which the Jacobian is [[2, 3], [-5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (18) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q136",
+   "request": {
+    "jacobian": [
+     [
+      -4,
+      -4
+     ],
+     [
+      6,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     30
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 30 v_xx has a homogeneous steady state at which the Jacobian is [[-4, -4], [6, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q137",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -2
+     ],
+     [
+      3,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     2,
+     41
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 41 v_xx has a homogeneous steady state at which the Jacobian is [[1, -2], [3, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q138",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -6
+     ],
+     [
+      5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     24
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "11"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 24 v_xx has a homogeneous steady state at which the Jacobian is [[2, -6], [5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (11) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q139",
+   "request": {
+    "jacobian": [
+     [
+      4,
+      -6
+     ],
+     [
+      5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     20
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "12"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 20 v_xx has a homogeneous steady state at which the Jacobian is [[4, -6], [5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (12) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q140",
+   "request": {
+    "jacobian": [
+     [
+      4,
+      6
+     ],
+     [
+      -4,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     2,
+     49
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "11/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 49 v_xx has a homogeneous steady state at which the Jacobian is [[4, 6], [-4, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (11/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q141",
+   "request": {
+    "jacobian": [
+     [
+      -2,
+      2
+     ],
+     [
+      4,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     3,
+     50
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "10/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 50 v_xx has a homogeneous steady state at which the Jacobian is [[-2, 2], [4, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (10/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q142",
+   "request": {
+    "jacobian": [
+     [
+      -4,
+      0
+     ],
+     [
+      -2,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     25
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "13"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 25 v_xx has a homogeneous steady state at which the Jacobian is [[-4, 0], [-2, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (13) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q143",
+   "request": {
+    "jacobian": [
+     [
+      -4,
+      -4
+     ],
+     [
+      -1,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     3,
+     50
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "20"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 50 v_xx has a homogeneous steady state at which the Jacobian is [[-4, -4], [-1, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (20) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q144",
+   "request": {
+    "jacobian": [
+     [
+      -4,
+      4
+     ],
+     [
+      -3,
+      2
+     ]
+    ],
+    "diffusivities": [
+     3,
+     12
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "3/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 12 v_xx has a homogeneous steady state at which the Jacobian is [[-4, 4], [-3, 2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (3/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q145",
+   "request": {
+    "jacobian": [
+     [
+      -2,
+      3
+     ],
+     [
+      -5,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     2,
+     23
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "15/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 23 v_xx has a homogeneous steady state at which the Jacobian is [[-2, 3], [-5, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (15/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q146",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -2
+     ],
+     [
+      4,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     2,
+     58
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 58 v_xx has a homogeneous steady state at which the Jacobian is [[1, -2], [4, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q147",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      3
+     ],
+     [
+      -5,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     1,
+     47
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "15"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 47 v_xx has a homogeneous steady state at which the Jacobian is [[3, 3], [-5, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (15) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q148",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      5
+     ],
+     [
+      -4,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     22
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "3/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 22 v_xx has a homogeneous steady state at which the Jacobian is [[2, 5], [-4, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (3/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q149",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -1
+     ],
+     [
+      5,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     1,
+     27
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 27 v_xx has a homogeneous steady state at which the Jacobian is [[1, -1], [5, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q150",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      3
+     ],
+     [
+      -4,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     58
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "10"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 58 v_xx has a homogeneous steady state at which the Jacobian is [[2, 3], [-4, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (10) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q151",
+   "request": {
+    "jacobian": [
+     [
+      -5,
+      1
+     ],
+     [
+      -3,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     3,
+     20
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "5"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 20 v_xx has a homogeneous steady state at which the Jacobian is [[-5, 1], [-3, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (5) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q152",
+   "request": {
+    "jacobian": [
+     [
+      4,
+      -6
+     ],
+     [
+      6,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     54
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "19/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 54 v_xx has a homogeneous steady state at which the Jacobian is [[4, -6], [6, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (19/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q153",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -5
+     ],
+     [
+      3,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     3,
+     45
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "11/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 45 v_xx has a homogeneous steady state at which the Jacobian is [[2, -5], [3, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (11/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q154",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      -6
+     ],
+     [
+      5,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     2,
+     39
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "12"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 39 v_xx has a homogeneous steady state at which the Jacobian is [[3, -6], [5, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (12) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q155",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      6
+     ],
+     [
+      -6,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     41
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "22/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 41 v_xx has a homogeneous steady state at which the Jacobian is [[2, 6], [-6, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (22/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q156",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -5
+     ],
+     [
+      3,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     2,
+     34
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 34 v_xx has a homogeneous steady state at which the Jacobian is [[2, -5], [3, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q157",
+   "request": {
+    "jacobian": [
+     [
+      -3,
+      6
+     ],
+     [
+      2,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     23
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "8"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 23 v_xx has a homogeneous steady state at which the Jacobian is [[-3, 6], [2, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (8) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q158",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -5
+     ],
+     [
+      5,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     1,
+     53
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "19/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 53 v_xx has a homogeneous steady state at which the Jacobian is [[1, -5], [5, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (19/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q159",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      1
+     ],
+     [
+      -4,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     1,
+     45
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 45 v_xx has a homogeneous steady state at which the Jacobian is [[1, 1], [-4, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q160",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      3
+     ],
+     [
+      -2,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     3,
+     45
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "13/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 45 v_xx has a homogeneous steady state at which the Jacobian is [[1, 3], [-2, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (13/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q161",
+   "request": {
+    "jacobian": [
+     [
+      -2,
+      5
+     ],
+     [
+      -3,
+      1
+     ]
+    ],
+    "diffusivities": [
+     2,
+     42
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "8"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 42 v_xx has a homogeneous steady state at which the Jacobian is [[-2, 5], [-3, 1]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (8) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q162",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      4
+     ],
+     [
+      -4,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     1,
+     59
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "13/4"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 59 v_xx has a homogeneous steady state at which the Jacobian is [[1, 4], [-4, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (13/4) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q163",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -4
+     ],
+     [
+      2,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     1,
+     31
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 31 v_xx has a homogeneous steady state at which the Jacobian is [[1, -4], [2, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q164",
+   "request": {
+    "jacobian": [
+     [
+      3,
+      -6
+     ],
+     [
+      6,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     2,
+     37
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "2/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 37 v_xx has a homogeneous steady state at which the Jacobian is [[3, -6], [6, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (2/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q165",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -6
+     ],
+     [
+      2,
+      -4
+     ]
+    ],
+    "diffusivities": [
+     3,
+     50
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 50 v_xx has a homogeneous steady state at which the Jacobian is [[2, -6], [2, -4]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q166",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -6
+     ],
+     [
+      4,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     2,
+     40
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "5"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 40 v_xx has a homogeneous steady state at which the Jacobian is [[2, -6], [4, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (5) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q167",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      5
+     ],
+     [
+      -2,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     2,
+     55
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 55 v_xx has a homogeneous steady state at which the Jacobian is [[2, 5], [-2, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q168",
+   "request": {
+    "jacobian": [
+     [
+      -4,
+      2
+     ],
+     [
+      -3,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     3,
+     3
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "8/3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 3 v_xx has a homogeneous steady state at which the Jacobian is [[-4, 2], [-3, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (8/3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q169",
+   "request": {
+    "jacobian": [
+     [
+      4,
+      -6
+     ],
+     [
+      5,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     3,
+     35
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "3"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 35 v_xx has a homogeneous steady state at which the Jacobian is [[4, -6], [5, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (3) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q170",
+   "request": {
+    "jacobian": [
+     [
+      -4,
+      -1
+     ],
+     [
+      -3,
+      -1
+     ]
+    ],
+    "diffusivities": [
+     3,
+     5
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "7"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 5 v_xx has a homogeneous steady state at which the Jacobian is [[-4, -1], [-3, -1]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (7) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q171",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      2
+     ],
+     [
+      -6,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     1,
+     24
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "5/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 24 v_xx has a homogeneous steady state at which the Jacobian is [[2, 2], [-6, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (5/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q172",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      4
+     ],
+     [
+      -6,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     27
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "11/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 27 v_xx has a homogeneous steady state at which the Jacobian is [[2, 4], [-6, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (11/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q173",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      3
+     ],
+     [
+      -6,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     3,
+     40
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 40 v_xx has a homogeneous steady state at which the Jacobian is [[2, 3], [-6, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q174",
+   "request": {
+    "jacobian": [
+     [
+      -5,
+      -3
+     ],
+     [
+      4,
+      -5
+     ]
+    ],
+    "diffusivities": [
+     3,
+     33
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 3 u_xx, v_t = g(u,v) + 33 v_xx has a homogeneous steady state at which the Jacobian is [[-5, -3], [4, -5]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q175",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      2
+     ],
+     [
+      -6,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     1,
+     44
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "5"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 44 v_xx has a homogeneous steady state at which the Jacobian is [[2, 2], [-6, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (5) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q176",
+   "request": {
+    "jacobian": [
+     [
+      1,
+      -6
+     ],
+     [
+      1,
+      -3
+     ]
+    ],
+    "diffusivities": [
+     2,
+     50
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 2 u_xx, v_t = g(u,v) + 50 v_xx has a homogeneous steady state at which the Jacobian is [[1, -6], [1, -3]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q177",
+   "request": {
+    "jacobian": [
+     [
+      2,
+      -4
+     ],
+     [
+      5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     47
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "8"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 47 v_xx has a homogeneous steady state at which the Jacobian is [[2, -4], [5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (8) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q178",
+   "request": {
+    "jacobian": [
+     [
+      -3,
+      5
+     ],
+     [
+      -2,
+      -2
+     ]
+    ],
+    "diffusivities": [
+     1,
+     35
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "5/2"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 35 v_xx has a homogeneous steady state at which the Jacobian is [[-3, 5], [-2, -2]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (5/2) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  },
+  {
+   "id": "q179",
+   "request": {
+    "jacobian": [
+     [
+      0,
+      5
+     ],
+     [
+      -5,
+      -6
+     ]
+    ],
+    "diffusivities": [
+     1,
+     34
+    ],
+    "domain": {
+     "dimension": 1,
+     "boundary": "neumann",
+     "length_over_pi": "1"
+    },
+    "crosscheck": false
+   },
+   "text": "A two-species reaction-diffusion system u_t = f(u,v) + 1 u_xx, v_t = g(u,v) + 34 v_xx has a homogeneous steady state at which the Jacobian is [[0, 5], [-5, -6]] (the well-mixed state without diffusion is stable: trace < 0, determinant > 0). The domain is the interval [0, L] with L = (1) * pi and zero-flux (Neumann) boundary conditions. Question: does a spatial perturbation of this linearization grow (a strictly growing admissible Neumann mode exists)? Answer one of: YES, NO."
+  }
+ ]
+}

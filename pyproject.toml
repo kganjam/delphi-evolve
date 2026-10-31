@@ -11,7 +11,14 @@ test = ["pytest", "rdflib>=7"]
 evidence = ["rdflib>=7"]
 
 [tool.setuptools.packages.find]
-include = ["evolve*"]
+include = ["evolve*", "falsify*", "turing_scope*"]
+
+[tool.setuptools.package-data]
+falsify = ["static/*.html"]
+turing_scope = ["sources/*", "examples/*"]
+
+[project.scripts]
+turing-scope-check = "falsify.cli:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

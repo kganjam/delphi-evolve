@@ -28,6 +28,7 @@ ROOT = Path(__file__).resolve().parent
 MAX_BODY = 64 * 1024
 COMPUTE = threading.Semaphore(4)
 LEAN_SLOT = threading.Semaphore(1)
+MC_SLOT = threading.Semaphore(1)            # Monte Carlo requests (up to ~15 s CPU each) run one at a time
 _RATE: dict = {}
 _RATE_LOCK = threading.Lock()
 RATE_PER_MIN = int(os.environ.get("FALSIFY_RATE_PER_MIN", "30"))
@@ -45,7 +46,7 @@ TOOL_SCHEMA = {
                     "reaction-diffusion system on a finite 1-D or 2-D domain (neumann / dirichlet / periodic)? Returns an exact-rational "
                     "verdict (survived / refuted / out_of_scope / unresolvable), the unstable-mode count and enumeration (returned detail capped at 50), the smallest domain "
                     "length that admits any, independent cross-checks, and a stored receipt id. lean=true adds a Lean 4 machine-checked "
-                    "proof of the 1-D classification (about 15 s). A growing linear mode is a LINEAR-instability prediction under the "
+                    "proof of the 1-D classification (about 15 s). Also returns stability margins / proximity to the Bogdanov-Takens point and an agent-facing 'gate' (what may and may not be asserted). A growing linear mode is a LINEAR-instability prediction under the "
                     "declared assumptions, not proof of nonlinear or biological pattern formation."),
     "inputSchema": {"type": "object", "properties": {
         "caller": {"type": "string", "description": "your team / tool name (self-declared; shown on the public usage page)"},
@@ -54,7 +55,8 @@ TOOL_SCHEMA = {
         "model": {"type": "object", "description": "instead of jacobian: {name: brusselator|schnakenberg|gierer_meinhardt, params: {...}}"},
         "diffusivities": {"type": "array", "items": {}, "description": "[Du, Dv], both > 0"},
         "domain": {"type": "object", "description": "{dimension:1|2, boundary:neumann|dirichlet|periodic, length_over_pi | length (1-D) or lengths_over_pi | lengths (2-D)}"},
-        "lean": {"type": "boolean", "description": "also produce a Lean receipt (1-D, exact length_over_pi only)"}},
+        "lean": {"type": "boolean", "description": "also produce a Lean receipt (1-D, exact length_over_pi only)"},
+        "uncertainty": {"type": "object", "description": "{relative: 0.1, n: 1000 (max 5000), seed: 0}: Monte Carlo over independent uniform multiplicative perturbations of each parameter; returns survival fraction with Wilson 95% CI"}},
         "required": ["diffusivities", "domain"]}}
 LEAN_UNCHECKED = ["Routh-Hurwitz (trace<0 and det>0) taken as the meaning of 'linearly stable' (definition in Basic.lean)",
                   "rational J, D scaled by a common positive integer (signs unchanged)",
@@ -94,8 +96,16 @@ class App:
             caller = re.sub(r"[^\w .@:/+-]", "", caller)[:60] or None
         if ctx["origin"] != "self-test":
             ctx = dict(ctx, origin=self.ledger.classify(ctx["ip"], caller, False))
-        with COMPUTE:
-            res = engine.falsify_turing(req if isinstance(req, dict) else {})
+        wants_mc = isinstance(req, dict) and req.get("uncertainty") is not None
+        if wants_mc and not MC_SLOT.acquire(timeout=30):
+            res = engine._refusal(None, engine.Refuse("busy", "Monte Carlo slot busy; retry shortly", "unresolvable"))
+        else:
+            try:
+                with COMPUTE:
+                    res = engine.falsify_turing(req if isinstance(req, dict) else {})
+            finally:
+                if wants_mc:
+                    MC_SLOT.release()
         lean_in = res.pop("_lean_inputs", None)
         want_lean = res.pop("lean_wanted", False)
         lean = {"requested": bool(want_lean)}

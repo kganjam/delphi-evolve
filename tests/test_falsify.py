@@ -254,6 +254,72 @@ def test_decimal_and_fraction_strings_still_work():
     assert run(base("2", diffusivities=[1, 1e-07]))["verdict"] in ("no_turing_instability", "domain_blocks_pattern", "refused")
 
 
+# ---------- parameter uncertainty (Monte Carlo), BT proximity, agent gate
+def test_wilson_known_values():
+    lo, hi = engine.wilson(5, 10)
+    assert abs(lo - 0.2366) < 1e-3 and abs(hi - 0.7634) < 1e-3
+    lo, hi = engine.wilson(0, 10)
+    assert lo == 0.0 and abs(hi - 0.2775) < 1e-3
+
+
+def mc(r="2", rel="1/10", n=300, seed=1, **kw):
+    return run(base(r, uncertainty={"relative": rel, "n": n, "seed": seed}, crosscheck=False, **kw))
+
+
+def test_mc_deterministic_and_degenerate_cases():
+    a, b = mc()["parameter_uncertainty"], mc()["parameter_uncertainty"]
+    assert a == b and a["samples_completed"] == 300
+    assert mc(seed=2)["parameter_uncertainty"]["counts"] != a["counts"]
+    tiny = mc(rel="1/1000000")["parameter_uncertainty"]            # essentially no uncertainty: survival equals the exact verdict
+    assert tiny["survival_fraction"] == 1.0
+    assert mc("1", rel="1/1000000")["parameter_uncertainty"]["survival_fraction"] == 0.0
+
+
+def test_mc_matches_independent_numpy_resampling():
+    import numpy as np
+    rel, n, seed = F(1, 10), 150, 7
+    out = mc(rel=str(rel), n=n, seed=seed)["parameter_uncertainty"]
+    rng = random.Random(seed)
+    jig = lambda x: F(round(float(x) * (1 + float(rel) * rng.uniform(-1, 1)) * 10 ** 6), 10 ** 6)
+    k = 0
+    for _ in range(n):
+        Jm = [[jig(x) for x in row] for row in ([1, -2], [2, -3])]
+        Dm = [jig(x) for x in (1, 10)]
+        (a, b), (c, d) = Jm
+        if not (a + d < 0 and a * d - b * c > 0):
+            continue
+        Jf = np.array([[float(x) for x in r_] for r_ in Jm])
+        grow = any(np.linalg.eigvals(Jf - (m * m / 4.0) * np.diag([float(Dm[0]), float(Dm[1])])).real.max() > 1e-9 for m in range(0, 400))
+        k += grow
+    assert k == out["counts"]["pattern_possible"]
+
+
+def test_mc_preset_perturbs_parameters_and_budget_is_honest(monkeypatch):
+    o = run({"model": {"name": "brusselator", "params": {"A": 1, "B": "3/2"}}, "diffusivities": [1, 30],
+             "domain": {"dimension": 1, "boundary": "dirichlet", "length_over_pi": "5"}, "uncertainty": {"relative": "1/20", "n": 100, "seed": 3}, "crosscheck": False})
+    assert "preset parameter" in o["parameter_uncertainty"]["model"] and o["parameter_uncertainty"]["samples_completed"] == 100
+    monkeypatch.setattr(engine, "MC_TIME_BUDGET_S", 0.0)
+    z = mc(n=1000)["parameter_uncertainty"]
+    assert z["samples_completed"] < 1000 and z["samples_requested"] == 1000
+
+
+@pytest.mark.parametrize("bad", [{"relative": 0}, {"relative": 2}, {"n": 0}, {"n": 5001}, {"n": True}, {"seed": -1}, "x", {"relative": "1e5"}])
+def test_bad_uncertainty_refused(bad):
+    assert run(base("2", uncertainty=bad))["verdict"] == "refused"
+
+
+def test_bt_proximity_and_gate():
+    m = run(base("2"))["stability_margins"]
+    assert m["trace_J"] == "-2" and m["det_J"] == "1" and m["frobenius_norm_squared"] == "18"
+    assert abs(m["bt_proximity"] - ((2 / 18 ** 0.5) ** 2 + (1 / 18) ** 2) ** 0.5) < 1e-12
+    near = run({"jacobian": [["-1/1000", 1], ["-1/2000000", 0]], "diffusivities": [1, 10], "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "2"}})
+    assert near["stability_margins"]["bt_proximity"] < 2e-3
+    assert run(base("2"))["gate"]["linear_onset_on_this_domain"] is True and run(base("1"))["gate"]["linear_onset_on_this_domain"] is False
+    marg = run({"jacobian": [[1, 3], [-3, -8]], "diffusivities": [1, 16], "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "2"}})
+    assert marg["gate"]["linear_onset_on_this_domain"] is None and "do not answer" in marg["gate"]["for_agents"]
+    assert any("nonlinear" in x for x in run(base("2"))["gate"]["must_not_assert"])
+
+
 # ---------- diffusion-ratio requirement (Stokes-Einstein bridge, exact)
 def _req(J, ratio_act_inh_den, ratio):
     return run({"jacobian": J, "diffusivities": ratio_act_inh_den(ratio), "domain": {"dimension": 1, "boundary": "neumann", "length_over_pi": "50"}, "crosscheck": False})
