@@ -202,6 +202,16 @@
     if (a2 >= 0 && a2 < 20 && a4 >= 0 && a4 < 20) selectNode(g.a1 * 8000 + a2 * 400 + g.a3 * 20 + a4);
   });
 
+  tcv.setAttribute("tabindex", "0");
+  tcv.setAttribute("aria-description", "Arrow keys move the selected genotype within this tile; Enter sets it as the evidence subject.");
+  tcv.addEventListener("keydown", (e) => {
+    const k = { ArrowUp: [-1, 0], ArrowDown: [1, 0], ArrowLeft: [0, -1], ArrowRight: [0, 1] }[e.key];
+    if (!k) return;
+    e.preventDefault();
+    const n = state.sel.node, a2 = Math.floor(n / 400) % 20, a4 = n % 20;
+    const b2 = Math.max(0, Math.min(19, a2 + k[0])), b4 = Math.max(0, Math.min(19, a4 + k[1]));
+    selectNode(n - a2 * 400 - a4 + b2 * 400 + b4); tcv.focus();
+  });
   /* ---------------- interaction on map ---------------- */
   function cellAt(e) {
     const r = cv.getBoundingClientRect(), x = Math.floor((e.clientX - r.left - M) / geo.scale), y = Math.floor((e.clientY - r.top - M) / geo.scale);
@@ -218,7 +228,7 @@
   cv.addEventListener("mouseleave", () => { tip.hidden = true; });
   cv.addEventListener("click", (e) => { const i = cellAt(e); if (i >= 0) selectNode(i); });
 
-  function selectNode(i) { state.sel = { node: i, step: null }; renderEvidence(); redraw(false); setTab("evidence"); }
+  function selectNode(i) { state.sel = { node: i, step: null }; renderEvidence(); redraw(false); if (state.tab === "decision") setTab("evidence"); }
   function selectStep(k) {
     const r = state.decision && state.decision.route; if (!r) return;
     state.sel = { node: r[k], step: k };
@@ -302,7 +312,7 @@
         <table class="mini"><tr><th>Order of substitutions</th><th>worst margin</th><th></th></tr>
         ${direct.map((x) => `<tr><td>${x.nodes.slice(1).map((n, k) => mutLabel(x.nodes[k], n)).join(" ")}</td><td class="${x.accepted ? "" : "bad"}">${x.worst === null ? "unknown" : fmt(x.worst, 4)}</td><td>${x.accepted ? "admitted" : x.unknown ? "unknown" : "✕ rejected"}</td></tr>`).join("")}</table>
         <p class="hint">Margin = lower bound of the next genotype − upper bound of the current one. Negative means the route passes through a genotype measurably worse than where it came from.</p></details>`;
-    if (!$("#dec-ctl") || force) { el.innerHTML = `<div id="dec-ctl">${ctl}</div><div id="dec-dyn"></div>`; bindDecision(); }
+    if (!$("#dec-ctl") || force) { el.innerHTML = `<div id="dec-ctl">${ctl}</div><div id="dec-dyn" aria-live="polite"></div>`; bindDecision(); }
     $("#dec-dyn").innerHTML = dyn;
     $("#eps-out").textContent = pfmt(eps);
     if (document.activeElement !== $("#eps")) $("#eps").value = eps;
