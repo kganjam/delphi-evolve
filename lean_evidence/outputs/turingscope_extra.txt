@@ -1,0 +1,54 @@
+ExtraChecks.lean:11:18: error: `grind` failed
+case grind.1
+m : Model
+htr : m.trJ < 0
+p s : Int
+hp : 0 < p
+hM : 0 < modeM p
+hN : modeN s 0 = 0
+h1 : m.trJ * modeM p < 0
+h : m.detJ * modeM p ^ 2 ≤ 0
+h_1 : m.detJ = modeM p ^ 2
+⊢ False
+[grind] Goal diagnostics
+  [facts] Asserted facts
+    [prop] m.trJ + 1 ≤ 0
+    [prop] -1 * p + 1 ≤ 0
+    [prop] -1 * modeM p + 1 ≤ 0
+    [prop] modeN s 0 = 0
+    [prop] m.trJ * modeM p + 1 ≤ 0
+    [prop] m.detJ * modeM p ^ 2 ≤ 0
+    [prop] m.detJ = modeM p ^ 2
+  [eqc] True propositions
+    [prop] m.detJ = modeM p ^ 2
+    [prop] m.trJ + 1 ≤ 0
+    [prop] m.trJ * modeM p + 1 ≤ 0
+    [prop] -1 * p + 1 ≤ 0
+    [prop] -1 * modeM p + 1 ≤ 0
+    [prop] m.detJ * modeM p ^ 2 ≤ 0
+  [eqc] Equivalence classes
+    [eqc] {m.detJ, modeM p ^ 2}
+    [eqc] {modeN s 0, 0}
+      [eqc] {↑0}
+    [eqc] {m.detJ * modeM p ^ 2, modeM p ^ 2 * m.detJ}
+  [cases] Case analyses
+    [cases] [1/2]: m.detJ = modeM p ^ 2
+      [cases] source: Model-based theory combination at argument #5 of
+            modeM p ^ 2 * m.detJ
+          and
+            m.detJ * modeM p ^ 2
+  [ematch] E-matching patterns
+    [thm] Nat.pow_pos: [@HPow.hPow `[Nat] `[Nat] `[Nat] `[instHPow] #2 #1]
+    [thm] Nat.div_pow_of_pos: [@HPow.hPow `[Nat] `[Nat] `[Nat] `[instHPow] #2 #1]
+  [cutsat] Assignment satisfying linear constraints
+    [assign] p := 1
+    [assign] s := 4
+    [assign] m.detJ := 0
+    [assign] m.trJ := -1
+    [assign] modeM p := 1
+    [assign] modeN s 0 := 0
+    [assign] 「modeM p ^ 2」 := 0
+  [ring] Ring `Int`
+    [basis] Basis
+      [_] modeM p ^ 2 + -1 * m.detJ = 0
+exit=1 (1 expected: X1 is a mutant)

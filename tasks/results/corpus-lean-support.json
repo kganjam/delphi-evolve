@@ -1,0 +1,58 @@
+{
+  "role": "corpus-lean-support (read-only support for the critic's scorecard v0)",
+  "status": "completed",
+  "completed_seattle": "2026-10-31 PDT (afternoon; exact minute not recorded)",
+  "model": "Claude Sonnet 5.5, Claude Code managed subscription allocation; no metered API spend known",
+  "branch": "work/corpus",
+  "summary": "Independent recompilation of every Lean node the scorecard rests on, with axiom audits, mutants, falsity proofs of mutated statements and non-vacuity checks. Report: lean_evidence/REPORT.md.",
+  "commands_run": [
+    {
+      "cmd": "lake env lean <Admissible.lean @ delphi-frontier 636919a> in /data/artifacts/mathlib-probe (scoped, MemoryMax=4G)",
+      "exit": 0
+    },
+    {
+      "cmd": "python3 -I run_adm.py (scratchpad): builds lean_evidence/AdmissibleEvidence.lean and compiles it",
+      "exit": 1,
+      "note": "exit 1 by design: 12 mutant theorems (M1..M11, M5 has 2 errors) error, all 35 audited theorems print only propext/Classical.choice/Quot.sound, 0 sorryAx"
+    },
+    {
+      "cmd": "lake build (after rm -rf .lake) + Audit/FullAudit + 4 shipped mutants in a copy of rethink-critic turing_scope/lean @0c2d4f2",
+      "exit": "build 0; control 0; M1-M3 1"
+    },
+    {
+      "cmd": "lake env lean ExtraChecks.lean (TuringScope)",
+      "exit": 1,
+      "note": "expected: X1 mutant fails; X1_neg, X2_neg and examples compile"
+    },
+    {
+      "cmd": "lake env lean on critic lean_price Price/PriceAxioms/PriceMutant/PriceMutant2",
+      "exit": "0,0,1,1"
+    },
+    {
+      "cmd": "lake env lean on codex-api experiments/price_probe Price.lean + 2 driver mutants + Witnesses.lean.inc (hash equals receipt)",
+      "exit": "0,1,1,0"
+    }
+  ],
+  "artifacts": [
+    "lean_evidence/REPORT.md",
+    "lean_evidence/AdmissibleEvidence.lean",
+    "lean_evidence/TuringScopeExtra.lean",
+    "lean_evidence/outputs/"
+  ],
+  "key_findings": [
+    "Admissible.lean compiles; repo ships no mutant files, so the README's three mutation tests are not reproducible from the repo (I recreated them).",
+    "ledger row 3 ratio-1.1 'Lean counterexample' exists in no Lean file of delphi-frontier or admissible-seed; compiled by me in scratch only.",
+    "finite_domain_linearly_stable's det conclusion is its hypothesis passed through; unstable_iff_pos_eigenvalue is one direction only; docstring claims complex eigenvalues, Lean covers real ones (closed only in my scratch).",
+    "worked_stable_on_pi proves not-Unstable (D>=0), not stability; TuringScope short_all_modes_stable is the strict statement.",
+    "scorecard hamilton-rule cites lean_price (identity); Codex hamilton_regression is the node with the sign iff.",
+    "no Lean node for turing-wavelength, KPP, Kimura, hawk-dove, or any additive-genetic Fisher statement in the artifacts examined."
+  ],
+  "limitations": [
+    "No statement-to-record fidelity review; scratch proofs and *_neg theorems are single-reader; atlas-lean read but not compiled; other branches not searched for Lean files."
+  ],
+  "next_steps": [
+    "Critic: correct the turing-ddi evidence list to include Admissible.lean and the L=pi strict-vs-not-Unstable distinction; point hamilton-rule at codex hamilton_regression.",
+    "A second reader should check the *_neg theorems before they are cited as anything but scratch."
+  ],
+  "uncommitted_other_work": "corpus/ (untracked, pre-role-change Python corpus builders) left untouched and unreviewed."
+}

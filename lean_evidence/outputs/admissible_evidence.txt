@@ -1,0 +1,172 @@
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:95:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:181:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:212:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:227:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:288:2: error: linarith failed to find a contradiction
+S : System
+q lam : ℝ
+hroot : lam ^ 2 - T S q * lam + D S q = 0
+hpos : 0 < lam
+a✝ : 0 ≤ D S q
+⊢ False
+failed
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:303:64: error: Application type mismatch: The argument
+  hdet n
+has type
+  ¬D S (neumannMode L n) < 0
+but is expected to have type
+  0 < D S (neumannMode L n)
+in the application
+  ⟨trace_neg_of_wellmixed S hwm (neumannMode_nonneg L n), hdet n⟩
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:323:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:337:2: error: linarith failed to find a contradiction
+S : System
+hwm : WellMixedStable S
+q : ℝ
+hD : 0 < S.Du + S.Dv
+h1 : S.a + S.d < 0
+a✝ : 0 ≤ S.a + S.d - (S.Du + S.Dv) * q
+⊢ False
+failed
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:349:21: error: linarith failed to find a contradiction
+case mpr
+q : ℝ
+h1 : 1 / 5 ≤ q
+h2 : q ≤ 1 / 2
+a✝ : 0 ≤ (5 * q - 1) * (2 * q - 1)
+⊢ False
+failed
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:364:21: error: linarith failed to find a contradiction
+case mpr
+q : ℝ
+h1 : 1 / 6 < q
+h2 : q < 1 / 2
+a✝ : 0 ≤ (5 * q - 1) * (2 * q - 1)
+⊢ False
+failed
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:378:55: error: unsolved goals
+n : ℕ
+h1 : 1 / 5 < neumannMode (2 * Real.pi) n
+h2 : neumannMode (2 * Real.pi) n < 1 / 2
+hpi : 0 < Real.pi
+⊢ ↑n ^ 2 = ↑n ^ 2 * 2 ^ 2
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:382:2: error: linarith failed to find a contradiction
+n : ℕ
+h1 : 1 / 5 < ↑n ^ 2
+h2 : ↑n ^ 2 < 1 / 2
+hpi : 0 < Real.pi
+hq : neumannMode (2 * Real.pi) n = ↑n ^ 2
+⊢ False
+failed
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:392:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:393:2: error: linarith failed to find a contradiction
+S : System
+q lam : ℝ
+hT : T S q < 0
+hD : 0 ≤ D S q
+hroot : lam ^ 2 - T S q * lam + D S q = 0
+hge : 0 ≤ lam
+⊢ False
+failed
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:408:42: error: unsolved goals
+⊢ False
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:416:80: error: unsolved goals
+S : System
+q : ℝ
+⊢ S.Du * S.Dv * q ^ 2 - S.Du * q * S.d - S.Dv * q * S.a + S.a * S.d - S.b * S.c =
+    S.Du * S.Dv * q ^ 2 - S.Du * q * S.d - S.Dv * q * S.a + S.a * S.d + S.b * S.c
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:425:88: error: unsolved goals
+⊢ False
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:433:64: error: unsolved goals
+q : ℝ
+⊢ 1 - q * 7 + q ^ 2 * 10 = 1 - q * 8 + q ^ 2 * 12
+/tmp/claude-1000/-data-worktrees-delphi-evolve-corpus/5b299ef1-bfe1-4f40-a35d-3dd4b461ad0d/scratchpad/AdmissibleEvidence.lean:447:2: error: linarith failed to find a contradiction
+S : System
+h : ContinuumTuring S
+heq : S.Du = S.Dv
+h1 : 0 < S.Du * S.a + S.Du * S.d
+⊢ False
+failed
+'Admissible.D_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.unstable_iff_pos_eigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.neumannMode_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.trace_neg_of_wellmixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.finite_domain_linearly_stable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.real_eigenvalue_neg_of_modeStable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.worked_D' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.worked_wellmixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.worked_continuum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.worked_unstable_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.worked_stable_on_pi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.worked_hdet_pi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.worked_modeStable_pi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.N2_hyps_satisfiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.pos_eigenvalue_of_unstable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.continuum_imp_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.exists_imp_continuum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.complex_root_re_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.ratio11_wellmixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.ratio11_continuum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.ratio11_unstable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.worked_unstable_on_2pi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.M1_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.M2_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.M3_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.M4_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.M4b_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.M5_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.M6_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.M7_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.M8_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.M9_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.M10_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.continuum_needs_unequal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Admissible.M11_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
