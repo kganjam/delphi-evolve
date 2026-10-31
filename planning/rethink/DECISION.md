@@ -1,8 +1,8 @@
 # Selection decision (DRAFT — criteria frozen before scout reports were read)
 
-Director, Claude Sonnet 5.5, Seattle PDT. Frozen 2026-10-31 06:30 PDT, commit recorded in git history. Scores and selection are filled in only after reading the reports in `planning/rethink/{nca,electric,critic}.md` and the pushed experiments. A candidate's score may not be edited after the selection commit without a dated note.
+Director, Claude Sonnet 5.5, Seattle PDT. Frozen 2026-10-31 06:04 PDT, commit recorded in git history. Scores and selection are filled in only after reading the reports in `planning/rethink/{nca,electric,critic}.md` and the pushed experiments. A candidate's score may not be edited after the selection commit without a dated note.
 
-## Judging frame (live page, re-fetched 06:05 PDT)
+## Judging frame (live page, re-fetched about 06:00 PDT)
 
 Significance 20 · Scientific/technical impact 25 · Decentralized agency 20 · Collective capability 25 · Execution 10 · +10 for capabilities that materially help other teams. Slides due Sun Nov 1 1:00 PM Boston = 10:00 AM PST. 45% of the score concerns multi-agent organization; the released baseline measured a null there (shared specialists 78/100 = single planner 78/100).
 
