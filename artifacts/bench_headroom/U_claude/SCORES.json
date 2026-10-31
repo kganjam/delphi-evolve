@@ -1,0 +1,387 @@
+{
+ "all": {
+  "N": 127,
+  "answered": 127,
+  "coverage": 1.0,
+  "coverage_cp95": [
+   0.9714,
+   1.0
+  ],
+  "errors_among_answered": 6,
+  "selective_risk": 0.0472,
+  "selective_risk_cp95": [
+   0.0175,
+   0.1
+  ],
+  "accuracy_abstain_as_wrong": 0.9528,
+  "accuracy_cp95": [
+   0.9,
+   0.9825
+  ],
+  "false_acceptance": {
+   "count": 0,
+   "denominator": 65
+  },
+  "false_refusal": {
+   "count": 5,
+   "denominator": 62
+  },
+  "confusion_truth_x_pred": {
+   "applies|underdetermined": 1,
+   "applies|applies": 57,
+   "underdetermined|underdetermined": 14,
+   "out_of_scope|out_of_scope": 50,
+   "applies|out_of_scope": 4,
+   "out_of_scope|underdetermined": 1
+  },
+  "tokens": 206230
+ },
+ "dev_families": {
+  "N": 37,
+  "answered": 37,
+  "coverage": 1.0,
+  "coverage_cp95": [
+   0.9051,
+   1.0
+  ],
+  "errors_among_answered": 0,
+  "selective_risk": 0.0,
+  "selective_risk_cp95": [
+   0.0,
+   0.0949
+  ],
+  "accuracy_abstain_as_wrong": 1.0,
+  "accuracy_cp95": [
+   0.9051,
+   1.0
+  ],
+  "false_acceptance": {
+   "count": 0,
+   "denominator": 17
+  },
+  "false_refusal": {
+   "count": 0,
+   "denominator": 20
+  },
+  "confusion_truth_x_pred": {
+   "underdetermined|underdetermined": 7,
+   "out_of_scope|out_of_scope": 10,
+   "applies|applies": 20
+  },
+  "tokens": 46968
+ },
+ "held_out_families": {
+  "N": 90,
+  "answered": 90,
+  "coverage": 1.0,
+  "coverage_cp95": [
+   0.9598,
+   1.0
+  ],
+  "errors_among_answered": 6,
+  "selective_risk": 0.0667,
+  "selective_risk_cp95": [
+   0.0249,
+   0.1395
+  ],
+  "accuracy_abstain_as_wrong": 0.9333,
+  "accuracy_cp95": [
+   0.8605,
+   0.9751
+  ],
+  "false_acceptance": {
+   "count": 0,
+   "denominator": 48
+  },
+  "false_refusal": {
+   "count": 5,
+   "denominator": 42
+  },
+  "confusion_truth_x_pred": {
+   "applies|underdetermined": 1,
+   "applies|applies": 37,
+   "underdetermined|underdetermined": 7,
+   "out_of_scope|out_of_scope": 40,
+   "applies|out_of_scope": 4,
+   "out_of_scope|underdetermined": 1
+  },
+  "tokens": 159262
+ },
+ "by_family": {
+  "fisher_kpp_speed": {
+   "N": 16,
+   "answered": 16,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.7941,
+    1.0
+   ],
+   "errors_among_answered": 1,
+   "selective_risk": 0.0625,
+   "selective_risk_cp95": [
+    0.0016,
+    0.3023
+   ],
+   "accuracy_abstain_as_wrong": 0.9375,
+   "accuracy_cp95": [
+    0.6977,
+    0.9984
+   ],
+   "false_acceptance": {
+    "count": 0,
+    "denominator": 9
+   },
+   "false_refusal": {
+    "count": 1,
+    "denominator": 7
+   },
+   "confusion_truth_x_pred": {
+    "out_of_scope|out_of_scope": 8,
+    "applies|applies": 6,
+    "applies|out_of_scope": 1,
+    "underdetermined|underdetermined": 1
+   },
+   "tokens": 18566
+  },
+  "greenhill_buckling": {
+   "N": 13,
+   "answered": 13,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.7529,
+    1.0
+   ],
+   "errors_among_answered": 1,
+   "selective_risk": 0.0769,
+   "selective_risk_cp95": [
+    0.0019,
+    0.3603
+   ],
+   "accuracy_abstain_as_wrong": 0.9231,
+   "accuracy_cp95": [
+    0.6397,
+    0.9981
+   ],
+   "false_acceptance": {
+    "count": 0,
+    "denominator": 7
+   },
+   "false_refusal": {
+    "count": 1,
+    "denominator": 6
+   },
+   "confusion_truth_x_pred": {
+    "applies|underdetermined": 1,
+    "underdetermined|underdetermined": 1,
+    "out_of_scope|out_of_scope": 6,
+    "applies|applies": 5
+   },
+   "tokens": 40770
+  },
+  "hamilton_rule_form": {
+   "N": 16,
+   "answered": 16,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.7941,
+    1.0
+   ],
+   "errors_among_answered": 0,
+   "selective_risk": 0.0,
+   "selective_risk_cp95": [
+    0.0,
+    0.2059
+   ],
+   "accuracy_abstain_as_wrong": 1.0,
+   "accuracy_cp95": [
+    0.7941,
+    1.0
+   ],
+   "false_acceptance": {
+    "count": 0,
+    "denominator": 8
+   },
+   "false_refusal": {
+    "count": 0,
+    "denominator": 8
+   },
+   "confusion_truth_x_pred": {
+    "underdetermined|underdetermined": 3,
+    "applies|applies": 8,
+    "out_of_scope|out_of_scope": 5
+   },
+   "tokens": 20319
+  },
+  "hawk_dove_ess": {
+   "N": 16,
+   "answered": 16,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.7941,
+    1.0
+   ],
+   "errors_among_answered": 0,
+   "selective_risk": 0.0,
+   "selective_risk_cp95": [
+    0.0,
+    0.2059
+   ],
+   "accuracy_abstain_as_wrong": 1.0,
+   "accuracy_cp95": [
+    0.7941,
+    1.0
+   ],
+   "false_acceptance": {
+    "count": 0,
+    "denominator": 8
+   },
+   "false_refusal": {
+    "count": 0,
+    "denominator": 8
+   },
+   "confusion_truth_x_pred": {
+    "underdetermined|underdetermined": 3,
+    "out_of_scope|out_of_scope": 5,
+    "applies|applies": 8
+   },
+   "tokens": 15160
+  },
+  "kimura_regime": {
+   "N": 16,
+   "answered": 16,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.7941,
+    1.0
+   ],
+   "errors_among_answered": 2,
+   "selective_risk": 0.125,
+   "selective_risk_cp95": [
+    0.0155,
+    0.3835
+   ],
+   "accuracy_abstain_as_wrong": 0.875,
+   "accuracy_cp95": [
+    0.6165,
+    0.9845
+   ],
+   "false_acceptance": {
+    "count": 0,
+    "denominator": 9
+   },
+   "false_refusal": {
+    "count": 2,
+    "denominator": 7
+   },
+   "confusion_truth_x_pred": {
+    "applies|applies": 5,
+    "out_of_scope|out_of_scope": 9,
+    "applies|out_of_scope": 2
+   },
+   "tokens": 27206
+  },
+  "turing_2d_rectangle": {
+   "N": 15,
+   "answered": 15,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.782,
+    1.0
+   ],
+   "errors_among_answered": 1,
+   "selective_risk": 0.0667,
+   "selective_risk_cp95": [
+    0.0017,
+    0.3195
+   ],
+   "accuracy_abstain_as_wrong": 0.9333,
+   "accuracy_cp95": [
+    0.6805,
+    0.9983
+   ],
+   "false_acceptance": {
+    "count": 0,
+    "denominator": 6
+   },
+   "false_refusal": {
+    "count": 1,
+    "denominator": 9
+   },
+   "confusion_truth_x_pred": {
+    "underdetermined|underdetermined": 2,
+    "applies|applies": 8,
+    "out_of_scope|out_of_scope": 4,
+    "applies|out_of_scope": 1
+   },
+   "tokens": 23113
+  },
+  "turing_finite_domain": {
+   "N": 21,
+   "answered": 21,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.8389,
+    1.0
+   ],
+   "errors_among_answered": 0,
+   "selective_risk": 0.0,
+   "selective_risk_cp95": [
+    0.0,
+    0.1611
+   ],
+   "accuracy_abstain_as_wrong": 1.0,
+   "accuracy_cp95": [
+    0.8389,
+    1.0
+   ],
+   "false_acceptance": {
+    "count": 0,
+    "denominator": 9
+   },
+   "false_refusal": {
+    "count": 0,
+    "denominator": 12
+   },
+   "confusion_truth_x_pred": {
+    "applies|applies": 12,
+    "out_of_scope|out_of_scope": 5,
+    "underdetermined|underdetermined": 4
+   },
+   "tokens": 31808
+  },
+  "wavelength_formula_licence": {
+   "N": 14,
+   "answered": 14,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.7684,
+    1.0
+   ],
+   "errors_among_answered": 1,
+   "selective_risk": 0.0714,
+   "selective_risk_cp95": [
+    0.0018,
+    0.3387
+   ],
+   "accuracy_abstain_as_wrong": 0.9286,
+   "accuracy_cp95": [
+    0.6613,
+    0.9982
+   ],
+   "false_acceptance": {
+    "count": 0,
+    "denominator": 9
+   },
+   "false_refusal": {
+    "count": 0,
+    "denominator": 5
+   },
+   "confusion_truth_x_pred": {
+    "applies|applies": 5,
+    "out_of_scope|out_of_scope": 8,
+    "out_of_scope|underdetermined": 1
+   },
+   "tokens": 29288
+  }
+ }
+}
