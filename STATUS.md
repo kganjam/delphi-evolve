@@ -28,3 +28,6 @@ User additionally authorized up to $69 of OpenAI API credits. Credential is excl
 Four implementation workers launched in tmux: delphi-v2-core, delphi-v2-proof, delphi-v2-gpu, delphi-v2-experience. Managed Orchestra allocation confirmed Max subscriptions. Each has a six-hour process-tree runtime bound and a three-round task limit; coordinator must check receipts and continue unfinished work.
 
 ChatGPT Site registered (not deployed yet): delphi-evolve. Hosting checkout /data/worktrees/delphi-evolve/site-hosting. Native registration is owner-private; expected URL is not proof of publication.
+
+## Integration log
+- 2026-10-31 00:20 PDT: independent recount reproduces 193,170 / 159,129 / 871 / overlap 0 (scripts/audit_data.py, exit 0). ALDE read: it already benchmarks on TrpB and GB1 in simulation; our claim is limited to query-to-certify. Workers have not committed yet.

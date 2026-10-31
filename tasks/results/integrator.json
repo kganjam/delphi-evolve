@@ -1,0 +1,17 @@
+{
+  "role": "integrator",
+  "status": "in_progress",
+  "model": "claude-sonnet-5-5 (subscription; no metered charge established)",
+  "started_pdt": "2026-10-31 00:06",
+  "commit": null,
+  "commands_run": [
+    {"cmd": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 python3 -I scripts/audit_data.py /data/artifacts/v2-scout/data/caltech", "exit": 0,
+     "result": "193170 source rows; 159129 measured no-stop; 871 imputed; overlap 0; 34041 stop-containing; sha256 simplified=d7e3ab4b..., summary=a631d8cf..., KNN=83b4db9f..."}
+  ],
+  "findings": [
+    "ALDE (PMC11739421) already uses TrpB and GB1 four-residue landscapes in simulation with greedy/UCB/Thompson acquisition; ALDE does not address certificates, path reachability or assay selection for a decision. Novelty claim must be limited to query-to-certify, never 'ML-guided TrpB optimisation'."
+  ],
+  "artifacts": ["scripts/audit_data.py"],
+  "limitations": ["Workers have no commits yet at 00:20 PDT; no worker output has been checked."],
+  "next_steps": ["Fetch worker branches, merge, run checklist items, fresh-checkout reproduction."]
+}
