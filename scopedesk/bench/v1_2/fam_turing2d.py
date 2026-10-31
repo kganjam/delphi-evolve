@@ -35,10 +35,10 @@ def render(rng, J, d, a, b, bc, tset):
     bct = {"neumann": rng.choice(["with no-flux (Neumann) edges", "with reflecting boundaries all round"]), "periodic": "with periodic boundaries (a torus)", None: ""}[bc]
     if tset == "A":
         s = (f"Linearising about the uniform steady state gives the Jacobian J = [[{ftxt(x)}, {ftxt(y)}], [{ftxt(z)}, {ftxt(w)}]]. Species u diffuses with D_u = 1 and species v with D_v = {ftxt(d)}. "
-             f"The domain is a rectangle with sides {ftxt(a)}*pi and {ftxt(b)}*pi {bct}. The requester notes that D_v f_u + D_u g_v > 2 sqrt(D_u D_v det J) is satisfied. Can this system form a Turing pattern from small perturbations?")
+             f"The domain is a rectangle with sides {ftxt(a)}*pi and {ftxt(b)}*pi {bct}. The requester notes that D_v f_u + D_u g_v > 2 sqrt(D_u D_v det J) is satisfied. Does the uniform state have an admissible, linearly growing diffusion-driven mode on this rectangle?")
     else:
         s = (f"Writing the reaction part as f_u = {ftxt(x)}u {signed(y)}v and g = {ftxt(z)}u {signed(w)}v around the base state, with the second species {ftxt(d)} times as diffusive as the first, "
-             f"on a flat rectangular tissue of size pi x {ftxt(a)} by pi x {ftxt(b)} {bct}. The requester states the textbook diffusion-driven-instability inequality holds. Does that give the right answer for this domain?")
+             f"on a flat rectangular tissue of size pi x {ftxt(a)} by pi x {ftxt(b)} {bct}. The requester states the textbook diffusion-driven-instability inequality holds. Does the uniform state have an admissible, linearly growing diffusion-driven mode on this rectangle?")
     return s.replace("  ", " ")
 
 def make(rng, n, start_id):

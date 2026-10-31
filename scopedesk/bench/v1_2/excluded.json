@@ -228,6 +228,20 @@
   }
  },
  {
+  "family": "greenhill_buckling",
+  "reason": "uniform column with density unlisted: relabelled applies on the argument that the printed 0.788 coefficient and the exact value 0.78828 agree to 0.04%, but the literal printed coefficient and the exact constant give opposite buckling predictions at specific densities (Codex witness rho=822.256954 kg/m3 for gh-0016); neither the exact-constant convention nor a constrained completion was declared, so the item is excluded",
+  "params": {
+   "id": "gh-0016"
+  }
+ },
+ {
+  "family": "greenhill_buckling",
+  "reason": "uniform column with density unlisted: relabelled applies on the argument that the printed 0.788 coefficient and the exact value 0.78828 agree to 0.04%, but the literal printed coefficient and the exact constant give opposite buckling predictions at specific densities (Codex witness rho=822.256954 kg/m3 for gh-0016); neither the exact-constant convention nor a constrained completion was declared, so the item is excluded",
+  "params": {
+   "id": "gh-0004"
+  }
+ },
+ {
   "family": "turing_finite_domain",
   "reason": "false-premise Turing item: the requester's claim that the inequality holds is false, no mode grows; the verdict depends on whether the question 'does the condition give the right answer' is read as existence of a mode (out_of_scope) or as correctness of the condition (applies). Blinded payload-only audit read applies, key says out_of_scope: genuine convention ambiguity.",
   "params": {
@@ -260,6 +274,13 @@
   "reason": "false-premise Turing 2-D item (same pattern as qd03269c6).",
   "params": {
    "id": "t2-0010"
+  }
+ },
+ {
+  "family": "greenhill_buckling",
+  "reason": "uniform column with density unlisted: relabelled applies on the argument that the printed 0.788 coefficient and the exact value 0.78828 agree to 0.04%, but the literal printed coefficient and the exact constant give opposite buckling predictions at specific densities (Codex witness rho=822.256954 kg/m3 for gh-0016); neither the exact-constant convention nor a constrained completion was declared, so the item is excluded",
+  "params": {
+   "id": "gh-0012"
   }
  }
 ]

@@ -1,14 +1,14 @@
 {
- "n": 131,
+ "n": 128,
  "full_text|word_1-2gram": {
-  "leave_one_family_out_correct": 65,
-  "n": 131,
-  "acc": 0.4962,
+  "leave_one_family_out_correct": 62,
+  "n": 128,
+  "acc": 0.4844,
   "cp95": [
-   0.408,
-   0.585
+   0.395,
+   0.574
   ],
-  "majority_within_family_acc": 0.5496,
+  "majority_within_family_acc": 0.5391,
   "per_family": {
    "fisher_kpp_speed": {
     "acc": 0.438,
@@ -16,9 +16,9 @@
     "majority": 0.5
    },
    "greenhill_buckling": {
-    "acc": 0.562,
-    "n": 16,
-    "majority": 0.562
+    "acc": 0.462,
+    "n": 13,
+    "majority": 0.462
    },
    "hamilton_rule_form": {
     "acc": 0.5,
@@ -53,14 +53,14 @@
   }
  },
  "full_text|char_3-5gram": {
-  "leave_one_family_out_correct": 65,
-  "n": 131,
-  "acc": 0.4962,
+  "leave_one_family_out_correct": 62,
+  "n": 128,
+  "acc": 0.4844,
   "cp95": [
-   0.408,
-   0.585
+   0.395,
+   0.574
   ],
-  "majority_within_family_acc": 0.5496,
+  "majority_within_family_acc": 0.5391,
   "per_family": {
    "fisher_kpp_speed": {
     "acc": 0.438,
@@ -68,9 +68,9 @@
     "majority": 0.5
    },
    "greenhill_buckling": {
-    "acc": 0.562,
-    "n": 16,
-    "majority": 0.562
+    "acc": 0.462,
+    "n": 13,
+    "majority": 0.462
    },
    "hamilton_rule_form": {
     "acc": 0.5,
@@ -105,14 +105,14 @@
   }
  },
  "stem_only_no_conventions|word_1-2gram": {
-  "leave_one_family_out_correct": 66,
-  "n": 131,
-  "acc": 0.5038,
+  "leave_one_family_out_correct": 60,
+  "n": 128,
+  "acc": 0.4688,
   "cp95": [
-   0.415,
-   0.592
+   0.38,
+   0.559
   ],
-  "majority_within_family_acc": 0.5496,
+  "majority_within_family_acc": 0.5391,
   "per_family": {
    "fisher_kpp_speed": {
     "acc": 0.438,
@@ -120,17 +120,69 @@
     "majority": 0.5
    },
    "greenhill_buckling": {
-    "acc": 0.562,
-    "n": 16,
-    "majority": 0.562
+    "acc": 0.462,
+    "n": 13,
+    "majority": 0.462
    },
    "hamilton_rule_form": {
-    "acc": 0.562,
+    "acc": 0.375,
     "n": 16,
     "majority": 0.5
    },
    "hawk_dove_ess": {
+    "acc": 0.438,
+    "n": 16,
+    "majority": 0.5
+   },
+   "kimura_regime": {
     "acc": 0.5,
+    "n": 16,
+    "majority": 0.562
+   },
+   "turing_2d_rectangle": {
+    "acc": 0.6,
+    "n": 15,
+    "majority": 0.6
+   },
+   "turing_finite_domain": {
+    "acc": 0.545,
+    "n": 22,
+    "majority": 0.545
+   },
+   "wavelength_formula_licence": {
+    "acc": 0.357,
+    "n": 14,
+    "majority": 0.643
+   }
+  }
+ },
+ "stem_only_no_conventions|char_3-5gram": {
+  "leave_one_family_out_correct": 55,
+  "n": 128,
+  "acc": 0.4297,
+  "cp95": [
+   0.343,
+   0.52
+  ],
+  "majority_within_family_acc": 0.5391,
+  "per_family": {
+   "fisher_kpp_speed": {
+    "acc": 0.438,
+    "n": 16,
+    "majority": 0.5
+   },
+   "greenhill_buckling": {
+    "acc": 0.462,
+    "n": 13,
+    "majority": 0.462
+   },
+   "hamilton_rule_form": {
+    "acc": 0.312,
+    "n": 16,
+    "majority": 0.5
+   },
+   "hawk_dove_ess": {
+    "acc": 0.25,
     "n": 16,
     "majority": 0.5
    },
@@ -156,100 +208,48 @@
    }
   }
  },
- "stem_only_no_conventions|char_3-5gram": {
-  "leave_one_family_out_correct": 60,
-  "n": 131,
-  "acc": 0.458,
-  "cp95": [
-   0.371,
-   0.547
-  ],
-  "majority_within_family_acc": 0.5496,
-  "per_family": {
-   "fisher_kpp_speed": {
-    "acc": 0.438,
-    "n": 16,
-    "majority": 0.5
-   },
-   "greenhill_buckling": {
-    "acc": 0.562,
-    "n": 16,
-    "majority": 0.562
-   },
-   "hamilton_rule_form": {
-    "acc": 0.375,
-    "n": 16,
-    "majority": 0.5
-   },
-   "hawk_dove_ess": {
-    "acc": 0.375,
-    "n": 16,
-    "majority": 0.5
-   },
-   "kimura_regime": {
-    "acc": 0.438,
-    "n": 16,
-    "majority": 0.562
-   },
-   "turing_2d_rectangle": {
-    "acc": 0.6,
-    "n": 15,
-    "majority": 0.6
-   },
-   "turing_finite_domain": {
-    "acc": 0.5,
-    "n": 22,
-    "majority": 0.545
-   },
-   "wavelength_formula_licence": {
-    "acc": 0.357,
-    "n": 14,
-    "majority": 0.643
-   }
-  }
- },
  "top_tokens_full_fit_stem_only": {
   "applies": [
-   "logistic",
    "logistic growth",
+   "logistic",
    "and logistic",
    "2ns",
+   "is its",
+   "exp 2ns",
+   "exp",
+   "reaction",
    "uniform solid",
    "column base",
-   "is its",
-   "exp",
-   "exp 2ns",
-   "consider uniform",
-   "ends the",
-   "reaction"
+   "20",
+   "30"
   ],
   "out_of_scope": [
    "and bistable",
    "bistable",
    "bistable kinetics",
-   "of",
    "of its",
    "kinetics",
-   "its",
    "10",
-   "value",
-   "use",
-   "neutral value",
-   "use kimura"
+   "appears in",
+   "beneficial mutant",
+   "value for",
+   "can",
+   "can use",
+   "value"
   ],
   "underdetermined": [
-   "what",
    "pi the",
+   "what",
    "hawk",
    "using",
    "for the",
+   "expect",
+   "should",
+   "should expect",
    "for",
-   "evolutionarily",
-   "two animals",
-   "evolutionarily stable",
-   "worth",
-   "animals",
-   "resource worth"
+   "15 times",
+   "2u 2v",
+   "two animals"
   ]
  },
  "reading": "Accuracy near or below the within-family majority rate means wording does not transfer across families as a label cue; high within-family cues are possible and are listed for human review (top tokens)."

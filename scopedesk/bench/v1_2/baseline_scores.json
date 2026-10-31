@@ -1,290 +1,1875 @@
 {
- "B0_scope_gate": {
+ "B0_scope_gate(inputs: request text + family metadata; parse failure => abstain)": {
   "all": {
-   "correct": 76,
-   "n": 131,
-   "acc": 0.5802,
-   "cp95": [
-    0.4908,
-    0.6658
-   ]
+   "N": 128,
+   "answered": 68,
+   "abstained": 60,
+   "coverage": 0.5312,
+   "coverage_cp95": [
+    0.4411,
+    0.62
+   ],
+   "errors_among_answered": 0,
+   "selective_risk": 0.0,
+   "selective_risk_cp95": [
+    0.0,
+    0.0528
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.5312,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 66
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 62
+   },
+   "abstained_on_gold_applies": 30,
+   "confusion_truth_x_pred": {
+    "applies|ABSTAIN": 30,
+    "applies|applies": 32,
+    "out_of_scope|ABSTAIN": 22,
+    "out_of_scope|out_of_scope": 30,
+    "underdetermined|ABSTAIN": 8,
+    "underdetermined|underdetermined": 6
+   }
   },
   "template_A": {
-   "correct": 65,
-   "n": 65,
-   "acc": 1.0,
-   "cp95": [
+   "N": 65,
+   "answered": 65,
+   "abstained": 0,
+   "coverage": 1.0,
+   "coverage_cp95": [
     0.9448,
     1.0
-   ]
+   ],
+   "errors_among_answered": 0,
+   "selective_risk": 0.0,
+   "selective_risk_cp95": [
+    0.0,
+    0.0552
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 1.0,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 35
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 30
+   },
+   "abstained_on_gold_applies": 0,
+   "confusion_truth_x_pred": {
+    "applies|applies": 30,
+    "out_of_scope|out_of_scope": 30,
+    "underdetermined|underdetermined": 5
+   }
   },
   "template_B": {
-   "correct": 11,
-   "n": 66,
-   "acc": 0.1667,
-   "cp95": [
-    0.0862,
-    0.2787
-   ]
+   "N": 63,
+   "answered": 3,
+   "abstained": 60,
+   "coverage": 0.0476,
+   "coverage_cp95": [
+    0.0099,
+    0.1329
+   ],
+   "errors_among_answered": 0,
+   "selective_risk": 0.0,
+   "selective_risk_cp95": [
+    0.0,
+    0.7076
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.0476,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 31
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 32
+   },
+   "abstained_on_gold_applies": 30,
+   "confusion_truth_x_pred": {
+    "applies|ABSTAIN": 30,
+    "applies|applies": 2,
+    "out_of_scope|ABSTAIN": 22,
+    "underdetermined|ABSTAIN": 8,
+    "underdetermined|underdetermined": 1
+   }
+  },
+  "heldout_families": {
+   "N": 90,
+   "answered": 50,
+   "abstained": 40,
+   "coverage": 0.5556,
+   "coverage_cp95": [
+    0.447,
+    0.6604
+   ],
+   "errors_among_answered": 0,
+   "selective_risk": 0.0,
+   "selective_risk_cp95": [
+    0.0,
+    0.0711
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.5556,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 48
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 42
+   },
+   "abstained_on_gold_applies": 20,
+   "confusion_truth_x_pred": {
+    "applies|ABSTAIN": 20,
+    "applies|applies": 22,
+    "out_of_scope|ABSTAIN": 16,
+    "out_of_scope|out_of_scope": 25,
+    "underdetermined|ABSTAIN": 4,
+    "underdetermined|underdetermined": 3
+   }
   },
   "by_family": {
    "fisher_kpp_speed": {
-    "correct": 11,
-    "n": 16,
-    "acc": 0.6875,
-    "cp95": [
+    "N": 16,
+    "answered": 11,
+    "abstained": 5,
+    "coverage": 0.6875,
+    "coverage_cp95": [
      0.4134,
      0.8898
-    ]
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": 0.0,
+    "selective_risk_cp95": [
+     0.0,
+     0.2849
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.6875,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 9
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 7
+    },
+    "abstained_on_gold_applies": 2,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 2,
+     "applies|applies": 5,
+     "out_of_scope|ABSTAIN": 3,
+     "out_of_scope|out_of_scope": 5,
+     "underdetermined|underdetermined": 1
+    }
    },
    "greenhill_buckling": {
-    "correct": 9,
-    "n": 16,
-    "acc": 0.5625,
-    "cp95": [
-     0.2988,
-     0.8025
-    ]
+    "N": 13,
+    "answered": 8,
+    "abstained": 5,
+    "coverage": 0.6154,
+    "coverage_cp95": [
+     0.3158,
+     0.8614
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": 0.0,
+    "selective_risk_cp95": [
+     0.0,
+     0.3694
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.6154,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 7
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 6
+    },
+    "abstained_on_gold_applies": 2,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 2,
+     "applies|applies": 4,
+     "out_of_scope|ABSTAIN": 2,
+     "out_of_scope|out_of_scope": 4,
+     "underdetermined|ABSTAIN": 1
+    }
    },
    "hamilton_rule_form": {
-    "correct": 10,
-    "n": 16,
-    "acc": 0.625,
-    "cp95": [
-     0.3543,
-     0.848
-    ]
-   },
-   "hawk_dove_ess": {
-    "correct": 10,
-    "n": 16,
-    "acc": 0.625,
-    "cp95": [
-     0.3543,
-     0.848
-    ]
-   },
-   "kimura_regime": {
-    "correct": 8,
-    "n": 16,
-    "acc": 0.5,
-    "cp95": [
+    "N": 16,
+    "answered": 8,
+    "abstained": 8,
+    "coverage": 0.5,
+    "coverage_cp95": [
      0.2465,
      0.7535
-    ]
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": 0.0,
+    "selective_risk_cp95": [
+     0.0,
+     0.3694
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.5,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 8
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 8
+    },
+    "abstained_on_gold_applies": 4,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 4,
+     "applies|applies": 4,
+     "out_of_scope|ABSTAIN": 2,
+     "out_of_scope|out_of_scope": 3,
+     "underdetermined|ABSTAIN": 2,
+     "underdetermined|underdetermined": 1
+    }
+   },
+   "hawk_dove_ess": {
+    "N": 16,
+    "answered": 8,
+    "abstained": 8,
+    "coverage": 0.5,
+    "coverage_cp95": [
+     0.2465,
+     0.7535
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": 0.0,
+    "selective_risk_cp95": [
+     0.0,
+     0.3694
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.5,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 8
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 8
+    },
+    "abstained_on_gold_applies": 4,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 4,
+     "applies|applies": 4,
+     "out_of_scope|ABSTAIN": 2,
+     "out_of_scope|out_of_scope": 3,
+     "underdetermined|ABSTAIN": 2,
+     "underdetermined|underdetermined": 1
+    }
+   },
+   "kimura_regime": {
+    "N": 16,
+    "answered": 8,
+    "abstained": 8,
+    "coverage": 0.5,
+    "coverage_cp95": [
+     0.2465,
+     0.7535
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": 0.0,
+    "selective_risk_cp95": [
+     0.0,
+     0.3694
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.5,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 9
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 7
+    },
+    "abstained_on_gold_applies": 4,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 4,
+     "applies|applies": 3,
+     "out_of_scope|ABSTAIN": 4,
+     "out_of_scope|out_of_scope": 5
+    }
    },
    "turing_2d_rectangle": {
-    "correct": 9,
-    "n": 15,
-    "acc": 0.6,
-    "cp95": [
-     0.3229,
-     0.8366
-    ]
+    "N": 15,
+    "answered": 8,
+    "abstained": 7,
+    "coverage": 0.5333,
+    "coverage_cp95": [
+     0.2659,
+     0.7873
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": 0.0,
+    "selective_risk_cp95": [
+     0.0,
+     0.3694
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.5333,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 6
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 9
+    },
+    "abstained_on_gold_applies": 5,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 5,
+     "applies|applies": 4,
+     "out_of_scope|ABSTAIN": 1,
+     "out_of_scope|out_of_scope": 3,
+     "underdetermined|ABSTAIN": 1,
+     "underdetermined|underdetermined": 1
+    }
    },
    "turing_finite_domain": {
-    "correct": 12,
-    "n": 22,
-    "acc": 0.5455,
-    "cp95": [
-     0.3221,
-     0.7561
-    ]
+    "N": 22,
+    "answered": 10,
+    "abstained": 12,
+    "coverage": 0.4545,
+    "coverage_cp95": [
+     0.2439,
+     0.6779
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": 0.0,
+    "selective_risk_cp95": [
+     0.0,
+     0.3085
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.4545,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 10
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 12
+    },
+    "abstained_on_gold_applies": 6,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 6,
+     "applies|applies": 6,
+     "out_of_scope|ABSTAIN": 4,
+     "out_of_scope|out_of_scope": 2,
+     "underdetermined|ABSTAIN": 2,
+     "underdetermined|underdetermined": 2
+    }
    },
    "wavelength_formula_licence": {
-    "correct": 7,
-    "n": 14,
-    "acc": 0.5,
-    "cp95": [
+    "N": 14,
+    "answered": 7,
+    "abstained": 7,
+    "coverage": 0.5,
+    "coverage_cp95": [
      0.2304,
      0.7696
-    ]
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": 0.0,
+    "selective_risk_cp95": [
+     0.0,
+     0.4096
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.5,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 9
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 5
+    },
+    "abstained_on_gold_applies": 3,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 3,
+     "applies|applies": 2,
+     "out_of_scope|ABSTAIN": 4,
+     "out_of_scope|out_of_scope": 5
+    }
    }
-  },
-  "by_truth": {
-   "applies": {
-    "correct": 32,
-    "n": 65,
-    "acc": 0.4923,
-    "cp95": [
-     0.366,
-     0.6193
-    ]
-   },
-   "out_of_scope": {
-    "correct": 30,
-    "n": 52,
-    "acc": 0.5769,
-    "cp95": [
-     0.432,
-     0.7127
-    ]
-   },
-   "underdetermined": {
-    "correct": 14,
-    "n": 14,
-    "acc": 1.0,
-    "cp95": [
-     0.7684,
-     1.0
-    ]
-   }
-  },
-  "false_alarm_rate_on_applies": {
-   "false_alarms": 33,
-   "n": 65
   }
  },
- "R_retrieval_always_applies": {
+ "constant_always_applies": {
   "all": {
-   "correct": 65,
-   "n": 131,
-   "acc": 0.4962,
-   "cp95": [
-    0.4077,
-    0.5848
-   ]
+   "N": 128,
+   "answered": 128,
+   "abstained": 0,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.9716,
+    1.0
+   ],
+   "errors_among_answered": 66,
+   "selective_risk": 0.5156,
+   "selective_risk_cp95": [
+    0.4257,
+    0.6048
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.4844,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 66,
+    "denominator": 66
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 62
+   },
+   "abstained_on_gold_applies": 0,
+   "confusion_truth_x_pred": {
+    "applies|applies": 62,
+    "out_of_scope|applies": 52,
+    "underdetermined|applies": 14
+   }
   },
   "template_A": {
-   "correct": 30,
-   "n": 65,
-   "acc": 0.4615,
-   "cp95": [
-    0.337,
-    0.5897
-   ]
+   "N": 65,
+   "answered": 65,
+   "abstained": 0,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.9448,
+    1.0
+   ],
+   "errors_among_answered": 35,
+   "selective_risk": 0.5385,
+   "selective_risk_cp95": [
+    0.4103,
+    0.663
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.4615,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 35,
+    "denominator": 35
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 30
+   },
+   "abstained_on_gold_applies": 0,
+   "confusion_truth_x_pred": {
+    "applies|applies": 30,
+    "out_of_scope|applies": 30,
+    "underdetermined|applies": 5
+   }
   },
   "template_B": {
-   "correct": 35,
-   "n": 66,
-   "acc": 0.5303,
-   "cp95": [
-    0.4034,
-    0.6544
-   ]
+   "N": 63,
+   "answered": 63,
+   "abstained": 0,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.9431,
+    1.0
+   ],
+   "errors_among_answered": 31,
+   "selective_risk": 0.4921,
+   "selective_risk_cp95": [
+    0.3638,
+    0.6211
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.5079,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 31,
+    "denominator": 31
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 32
+   },
+   "abstained_on_gold_applies": 0,
+   "confusion_truth_x_pred": {
+    "applies|applies": 32,
+    "out_of_scope|applies": 22,
+    "underdetermined|applies": 9
+   }
+  },
+  "heldout_families": {
+   "N": 90,
+   "answered": 90,
+   "abstained": 0,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.9598,
+    1.0
+   ],
+   "errors_among_answered": 48,
+   "selective_risk": 0.5333,
+   "selective_risk_cp95": [
+    0.4251,
+    0.6393
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.4667,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 48,
+    "denominator": 48
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 42
+   },
+   "abstained_on_gold_applies": 0,
+   "confusion_truth_x_pred": {
+    "applies|applies": 42,
+    "out_of_scope|applies": 41,
+    "underdetermined|applies": 7
+   }
   },
   "by_family": {
    "fisher_kpp_speed": {
-    "correct": 7,
-    "n": 16,
-    "acc": 0.4375,
-    "cp95": [
-     0.1975,
-     0.7012
-    ]
-   },
-   "greenhill_buckling": {
-    "correct": 9,
-    "n": 16,
-    "acc": 0.5625,
-    "cp95": [
+    "N": 16,
+    "answered": 16,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7941,
+     1.0
+    ],
+    "errors_among_answered": 9,
+    "selective_risk": 0.5625,
+    "selective_risk_cp95": [
      0.2988,
      0.8025
-    ]
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.4375,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 9,
+     "denominator": 9
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 7
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|applies": 7,
+     "out_of_scope|applies": 8,
+     "underdetermined|applies": 1
+    }
+   },
+   "greenhill_buckling": {
+    "N": 13,
+    "answered": 13,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7529,
+     1.0
+    ],
+    "errors_among_answered": 7,
+    "selective_risk": 0.5385,
+    "selective_risk_cp95": [
+     0.2513,
+     0.8078
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.4615,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 7,
+     "denominator": 7
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 6
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|applies": 6,
+     "out_of_scope|applies": 6,
+     "underdetermined|applies": 1
+    }
    },
    "hamilton_rule_form": {
-    "correct": 8,
-    "n": 16,
-    "acc": 0.5,
-    "cp95": [
+    "N": 16,
+    "answered": 16,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7941,
+     1.0
+    ],
+    "errors_among_answered": 8,
+    "selective_risk": 0.5,
+    "selective_risk_cp95": [
      0.2465,
      0.7535
-    ]
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.5,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 8,
+     "denominator": 8
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 8
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|applies": 8,
+     "out_of_scope|applies": 5,
+     "underdetermined|applies": 3
+    }
    },
    "hawk_dove_ess": {
-    "correct": 8,
-    "n": 16,
-    "acc": 0.5,
-    "cp95": [
+    "N": 16,
+    "answered": 16,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7941,
+     1.0
+    ],
+    "errors_among_answered": 8,
+    "selective_risk": 0.5,
+    "selective_risk_cp95": [
      0.2465,
      0.7535
-    ]
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.5,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 8,
+     "denominator": 8
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 8
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|applies": 8,
+     "out_of_scope|applies": 5,
+     "underdetermined|applies": 3
+    }
    },
    "kimura_regime": {
-    "correct": 7,
-    "n": 16,
-    "acc": 0.4375,
-    "cp95": [
-     0.1975,
-     0.7012
-    ]
+    "N": 16,
+    "answered": 16,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7941,
+     1.0
+    ],
+    "errors_among_answered": 9,
+    "selective_risk": 0.5625,
+    "selective_risk_cp95": [
+     0.2988,
+     0.8025
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.4375,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 9,
+     "denominator": 9
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 7
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|applies": 7,
+     "out_of_scope|applies": 9
+    }
    },
    "turing_2d_rectangle": {
-    "correct": 9,
-    "n": 15,
-    "acc": 0.6,
-    "cp95": [
-     0.3229,
-     0.8366
-    ]
+    "N": 15,
+    "answered": 15,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.782,
+     1.0
+    ],
+    "errors_among_answered": 6,
+    "selective_risk": 0.4,
+    "selective_risk_cp95": [
+     0.1634,
+     0.6771
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.6,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 6,
+     "denominator": 6
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 9
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|applies": 9,
+     "out_of_scope|applies": 4,
+     "underdetermined|applies": 2
+    }
    },
    "turing_finite_domain": {
-    "correct": 12,
-    "n": 22,
-    "acc": 0.5455,
-    "cp95": [
-     0.3221,
-     0.7561
-    ]
+    "N": 22,
+    "answered": 22,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.8456,
+     1.0
+    ],
+    "errors_among_answered": 10,
+    "selective_risk": 0.4545,
+    "selective_risk_cp95": [
+     0.2439,
+     0.6779
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.5455,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 10,
+     "denominator": 10
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 12
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|applies": 12,
+     "out_of_scope|applies": 6,
+     "underdetermined|applies": 4
+    }
    },
    "wavelength_formula_licence": {
-    "correct": 5,
-    "n": 14,
-    "acc": 0.3571,
-    "cp95": [
-     0.1276,
-     0.6486
-    ]
-   }
-  },
-  "by_truth": {
-   "applies": {
-    "correct": 65,
-    "n": 65,
-    "acc": 1.0,
-    "cp95": [
-     0.9448,
+    "N": 14,
+    "answered": 14,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7684,
      1.0
-    ]
-   },
-   "out_of_scope": {
-    "correct": 0,
-    "n": 52,
-    "acc": 0.0,
-    "cp95": [
-     0.0,
-     0.0685
-    ]
-   },
-   "underdetermined": {
-    "correct": 0,
-    "n": 14,
-    "acc": 0.0,
-    "cp95": [
-     0.0,
-     0.2316
-    ]
+    ],
+    "errors_among_answered": 9,
+    "selective_risk": 0.6429,
+    "selective_risk_cp95": [
+     0.3514,
+     0.8724
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.3571,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 9,
+     "denominator": 9
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 5
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|applies": 5,
+     "out_of_scope|applies": 9
+    }
    }
-  },
-  "false_alarm_rate_on_applies": {
-   "false_alarms": 0,
-   "n": 65
   }
  },
- "FMT_format_only_trained_on_dev_tested_heldout": {
-  "acc": {
-   "correct": 45,
-   "n": 93,
-   "acc": 0.4839,
-   "cp95": [
-    0.3789,
-    0.5899
-   ]
+ "constant_always_out_of_scope": {
+  "all": {
+   "N": 128,
+   "answered": 128,
+   "abstained": 0,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.9716,
+    1.0
+   ],
+   "errors_among_answered": 76,
+   "selective_risk": 0.5938,
+   "selective_risk_cp95": [
+    0.5034,
+    0.6796
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.4062,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 66
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 62,
+    "denominator": 62
+   },
+   "abstained_on_gold_applies": 0,
+   "confusion_truth_x_pred": {
+    "applies|out_of_scope": 62,
+    "out_of_scope|out_of_scope": 52,
+    "underdetermined|out_of_scope": 14
+   }
   },
-  "majority_class_rate_heldout": {
-   "class": "applies",
-   "rate": 0.4839
+  "template_A": {
+   "N": 65,
+   "answered": 65,
+   "abstained": 0,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.9448,
+    1.0
+   ],
+   "errors_among_answered": 35,
+   "selective_risk": 0.5385,
+   "selective_risk_cp95": [
+    0.4103,
+    0.663
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.4615,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 35
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 30,
+    "denominator": 30
+   },
+   "abstained_on_gold_applies": 0,
+   "confusion_truth_x_pred": {
+    "applies|out_of_scope": 30,
+    "out_of_scope|out_of_scope": 30,
+    "underdetermined|out_of_scope": 5
+   }
   },
-  "note": "must not clearly exceed majority rate; interval shown for the classifier accuracy"
+  "template_B": {
+   "N": 63,
+   "answered": 63,
+   "abstained": 0,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.9431,
+    1.0
+   ],
+   "errors_among_answered": 41,
+   "selective_risk": 0.6508,
+   "selective_risk_cp95": [
+    0.5203,
+    0.7666
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.3492,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 31
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 32,
+    "denominator": 32
+   },
+   "abstained_on_gold_applies": 0,
+   "confusion_truth_x_pred": {
+    "applies|out_of_scope": 32,
+    "out_of_scope|out_of_scope": 22,
+    "underdetermined|out_of_scope": 9
+   }
+  },
+  "heldout_families": {
+   "N": 90,
+   "answered": 90,
+   "abstained": 0,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.9598,
+    1.0
+   ],
+   "errors_among_answered": 49,
+   "selective_risk": 0.5444,
+   "selective_risk_cp95": [
+    0.436,
+    0.6498
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.4556,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 48
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 42,
+    "denominator": 42
+   },
+   "abstained_on_gold_applies": 0,
+   "confusion_truth_x_pred": {
+    "applies|out_of_scope": 42,
+    "out_of_scope|out_of_scope": 41,
+    "underdetermined|out_of_scope": 7
+   }
+  },
+  "by_family": {
+   "fisher_kpp_speed": {
+    "N": 16,
+    "answered": 16,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7941,
+     1.0
+    ],
+    "errors_among_answered": 8,
+    "selective_risk": 0.5,
+    "selective_risk_cp95": [
+     0.2465,
+     0.7535
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.5,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 9
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 7,
+     "denominator": 7
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|out_of_scope": 7,
+     "out_of_scope|out_of_scope": 8,
+     "underdetermined|out_of_scope": 1
+    }
+   },
+   "greenhill_buckling": {
+    "N": 13,
+    "answered": 13,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7529,
+     1.0
+    ],
+    "errors_among_answered": 7,
+    "selective_risk": 0.5385,
+    "selective_risk_cp95": [
+     0.2513,
+     0.8078
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.4615,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 7
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 6,
+     "denominator": 6
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|out_of_scope": 6,
+     "out_of_scope|out_of_scope": 6,
+     "underdetermined|out_of_scope": 1
+    }
+   },
+   "hamilton_rule_form": {
+    "N": 16,
+    "answered": 16,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7941,
+     1.0
+    ],
+    "errors_among_answered": 11,
+    "selective_risk": 0.6875,
+    "selective_risk_cp95": [
+     0.4134,
+     0.8898
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.3125,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 8
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 8,
+     "denominator": 8
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|out_of_scope": 8,
+     "out_of_scope|out_of_scope": 5,
+     "underdetermined|out_of_scope": 3
+    }
+   },
+   "hawk_dove_ess": {
+    "N": 16,
+    "answered": 16,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7941,
+     1.0
+    ],
+    "errors_among_answered": 11,
+    "selective_risk": 0.6875,
+    "selective_risk_cp95": [
+     0.4134,
+     0.8898
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.3125,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 8
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 8,
+     "denominator": 8
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|out_of_scope": 8,
+     "out_of_scope|out_of_scope": 5,
+     "underdetermined|out_of_scope": 3
+    }
+   },
+   "kimura_regime": {
+    "N": 16,
+    "answered": 16,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7941,
+     1.0
+    ],
+    "errors_among_answered": 7,
+    "selective_risk": 0.4375,
+    "selective_risk_cp95": [
+     0.1975,
+     0.7012
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.5625,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 9
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 7,
+     "denominator": 7
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|out_of_scope": 7,
+     "out_of_scope|out_of_scope": 9
+    }
+   },
+   "turing_2d_rectangle": {
+    "N": 15,
+    "answered": 15,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.782,
+     1.0
+    ],
+    "errors_among_answered": 11,
+    "selective_risk": 0.7333,
+    "selective_risk_cp95": [
+     0.449,
+     0.9221
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.2667,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 6
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 9,
+     "denominator": 9
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|out_of_scope": 9,
+     "out_of_scope|out_of_scope": 4,
+     "underdetermined|out_of_scope": 2
+    }
+   },
+   "turing_finite_domain": {
+    "N": 22,
+    "answered": 22,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.8456,
+     1.0
+    ],
+    "errors_among_answered": 16,
+    "selective_risk": 0.7273,
+    "selective_risk_cp95": [
+     0.4978,
+     0.8927
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.2727,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 10
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 12,
+     "denominator": 12
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|out_of_scope": 12,
+     "out_of_scope|out_of_scope": 6,
+     "underdetermined|out_of_scope": 4
+    }
+   },
+   "wavelength_formula_licence": {
+    "N": 14,
+    "answered": 14,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7684,
+     1.0
+    ],
+    "errors_among_answered": 5,
+    "selective_risk": 0.3571,
+    "selective_risk_cp95": [
+     0.1276,
+     0.6486
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.6429,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 9
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 5,
+     "denominator": 5
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|out_of_scope": 5,
+     "out_of_scope|out_of_scope": 9
+    }
+   }
+  }
+ },
+ "constant_always_underdetermined(an ANSWER, not abstention)": {
+  "all": {
+   "N": 128,
+   "answered": 128,
+   "abstained": 0,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.9716,
+    1.0
+   ],
+   "errors_among_answered": 114,
+   "selective_risk": 0.8906,
+   "selective_risk_cp95": [
+    0.8233,
+    0.9389
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.1094,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 66
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 62,
+    "denominator": 62
+   },
+   "abstained_on_gold_applies": 0,
+   "confusion_truth_x_pred": {
+    "applies|underdetermined": 62,
+    "out_of_scope|underdetermined": 52,
+    "underdetermined|underdetermined": 14
+   }
+  },
+  "template_A": {
+   "N": 65,
+   "answered": 65,
+   "abstained": 0,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.9448,
+    1.0
+   ],
+   "errors_among_answered": 60,
+   "selective_risk": 0.9231,
+   "selective_risk_cp95": [
+    0.8295,
+    0.9746
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.0769,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 35
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 30,
+    "denominator": 30
+   },
+   "abstained_on_gold_applies": 0,
+   "confusion_truth_x_pred": {
+    "applies|underdetermined": 30,
+    "out_of_scope|underdetermined": 30,
+    "underdetermined|underdetermined": 5
+   }
+  },
+  "template_B": {
+   "N": 63,
+   "answered": 63,
+   "abstained": 0,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.9431,
+    1.0
+   ],
+   "errors_among_answered": 54,
+   "selective_risk": 0.8571,
+   "selective_risk_cp95": [
+    0.7461,
+    0.9325
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.1429,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 31
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 32,
+    "denominator": 32
+   },
+   "abstained_on_gold_applies": 0,
+   "confusion_truth_x_pred": {
+    "applies|underdetermined": 32,
+    "out_of_scope|underdetermined": 22,
+    "underdetermined|underdetermined": 9
+   }
+  },
+  "heldout_families": {
+   "N": 90,
+   "answered": 90,
+   "abstained": 0,
+   "coverage": 1.0,
+   "coverage_cp95": [
+    0.9598,
+    1.0
+   ],
+   "errors_among_answered": 83,
+   "selective_risk": 0.9222,
+   "selective_risk_cp95": [
+    0.8463,
+    0.9682
+   ],
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.0778,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 48
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 42,
+    "denominator": 42
+   },
+   "abstained_on_gold_applies": 0,
+   "confusion_truth_x_pred": {
+    "applies|underdetermined": 42,
+    "out_of_scope|underdetermined": 41,
+    "underdetermined|underdetermined": 7
+   }
+  },
+  "by_family": {
+   "fisher_kpp_speed": {
+    "N": 16,
+    "answered": 16,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7941,
+     1.0
+    ],
+    "errors_among_answered": 15,
+    "selective_risk": 0.9375,
+    "selective_risk_cp95": [
+     0.6977,
+     0.9984
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.0625,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 9
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 7,
+     "denominator": 7
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|underdetermined": 7,
+     "out_of_scope|underdetermined": 8,
+     "underdetermined|underdetermined": 1
+    }
+   },
+   "greenhill_buckling": {
+    "N": 13,
+    "answered": 13,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7529,
+     1.0
+    ],
+    "errors_among_answered": 12,
+    "selective_risk": 0.9231,
+    "selective_risk_cp95": [
+     0.6397,
+     0.9981
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.0769,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 7
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 6,
+     "denominator": 6
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|underdetermined": 6,
+     "out_of_scope|underdetermined": 6,
+     "underdetermined|underdetermined": 1
+    }
+   },
+   "hamilton_rule_form": {
+    "N": 16,
+    "answered": 16,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7941,
+     1.0
+    ],
+    "errors_among_answered": 13,
+    "selective_risk": 0.8125,
+    "selective_risk_cp95": [
+     0.5435,
+     0.9595
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.1875,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 8
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 8,
+     "denominator": 8
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|underdetermined": 8,
+     "out_of_scope|underdetermined": 5,
+     "underdetermined|underdetermined": 3
+    }
+   },
+   "hawk_dove_ess": {
+    "N": 16,
+    "answered": 16,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7941,
+     1.0
+    ],
+    "errors_among_answered": 13,
+    "selective_risk": 0.8125,
+    "selective_risk_cp95": [
+     0.5435,
+     0.9595
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.1875,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 8
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 8,
+     "denominator": 8
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|underdetermined": 8,
+     "out_of_scope|underdetermined": 5,
+     "underdetermined|underdetermined": 3
+    }
+   },
+   "kimura_regime": {
+    "N": 16,
+    "answered": 16,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7941,
+     1.0
+    ],
+    "errors_among_answered": 16,
+    "selective_risk": 1.0,
+    "selective_risk_cp95": [
+     0.7941,
+     1.0
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.0,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 9
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 7,
+     "denominator": 7
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|underdetermined": 7,
+     "out_of_scope|underdetermined": 9
+    }
+   },
+   "turing_2d_rectangle": {
+    "N": 15,
+    "answered": 15,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.782,
+     1.0
+    ],
+    "errors_among_answered": 13,
+    "selective_risk": 0.8667,
+    "selective_risk_cp95": [
+     0.5954,
+     0.9834
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.1333,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 6
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 9,
+     "denominator": 9
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|underdetermined": 9,
+     "out_of_scope|underdetermined": 4,
+     "underdetermined|underdetermined": 2
+    }
+   },
+   "turing_finite_domain": {
+    "N": 22,
+    "answered": 22,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.8456,
+     1.0
+    ],
+    "errors_among_answered": 18,
+    "selective_risk": 0.8182,
+    "selective_risk_cp95": [
+     0.5972,
+     0.9481
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.1818,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 10
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 12,
+     "denominator": 12
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|underdetermined": 12,
+     "out_of_scope|underdetermined": 6,
+     "underdetermined|underdetermined": 4
+    }
+   },
+   "wavelength_formula_licence": {
+    "N": 14,
+    "answered": 14,
+    "abstained": 0,
+    "coverage": 1.0,
+    "coverage_cp95": [
+     0.7684,
+     1.0
+    ],
+    "errors_among_answered": 14,
+    "selective_risk": 1.0,
+    "selective_risk_cp95": [
+     0.7684,
+     1.0
+    ],
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.0,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 9
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 5,
+     "denominator": 5
+    },
+    "abstained_on_gold_applies": 0,
+    "confusion_truth_x_pred": {
+     "applies|underdetermined": 5,
+     "out_of_scope|underdetermined": 9
+    }
+   }
+  }
+ },
+ "always_abstain": {
+  "all": {
+   "N": 128,
+   "answered": 0,
+   "abstained": 128,
+   "coverage": 0.0,
+   "coverage_cp95": [
+    0.0,
+    0.0284
+   ],
+   "errors_among_answered": 0,
+   "selective_risk": null,
+   "selective_risk_cp95": null,
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.0,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 66
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 62
+   },
+   "abstained_on_gold_applies": 62,
+   "confusion_truth_x_pred": {
+    "applies|ABSTAIN": 62,
+    "out_of_scope|ABSTAIN": 52,
+    "underdetermined|ABSTAIN": 14
+   }
+  },
+  "template_A": {
+   "N": 65,
+   "answered": 0,
+   "abstained": 65,
+   "coverage": 0.0,
+   "coverage_cp95": [
+    0.0,
+    0.0552
+   ],
+   "errors_among_answered": 0,
+   "selective_risk": null,
+   "selective_risk_cp95": null,
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.0,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 35
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 30
+   },
+   "abstained_on_gold_applies": 30,
+   "confusion_truth_x_pred": {
+    "applies|ABSTAIN": 30,
+    "out_of_scope|ABSTAIN": 30,
+    "underdetermined|ABSTAIN": 5
+   }
+  },
+  "template_B": {
+   "N": 63,
+   "answered": 0,
+   "abstained": 63,
+   "coverage": 0.0,
+   "coverage_cp95": [
+    0.0,
+    0.0569
+   ],
+   "errors_among_answered": 0,
+   "selective_risk": null,
+   "selective_risk_cp95": null,
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.0,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 31
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 32
+   },
+   "abstained_on_gold_applies": 32,
+   "confusion_truth_x_pred": {
+    "applies|ABSTAIN": 32,
+    "out_of_scope|ABSTAIN": 22,
+    "underdetermined|ABSTAIN": 9
+   }
+  },
+  "heldout_families": {
+   "N": 90,
+   "answered": 0,
+   "abstained": 90,
+   "coverage": 0.0,
+   "coverage_cp95": [
+    0.0,
+    0.0402
+   ],
+   "errors_among_answered": 0,
+   "selective_risk": null,
+   "selective_risk_cp95": null,
+   "accuracy_over_all_N_counting_abstain_as_wrong": 0.0,
+   "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 48
+   },
+   "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+    "count": 0,
+    "denominator": 42
+   },
+   "abstained_on_gold_applies": 42,
+   "confusion_truth_x_pred": {
+    "applies|ABSTAIN": 42,
+    "out_of_scope|ABSTAIN": 41,
+    "underdetermined|ABSTAIN": 7
+   }
+  },
+  "by_family": {
+   "fisher_kpp_speed": {
+    "N": 16,
+    "answered": 0,
+    "abstained": 16,
+    "coverage": 0.0,
+    "coverage_cp95": [
+     0.0,
+     0.2059
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": null,
+    "selective_risk_cp95": null,
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.0,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 9
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 7
+    },
+    "abstained_on_gold_applies": 7,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 7,
+     "out_of_scope|ABSTAIN": 8,
+     "underdetermined|ABSTAIN": 1
+    }
+   },
+   "greenhill_buckling": {
+    "N": 13,
+    "answered": 0,
+    "abstained": 13,
+    "coverage": 0.0,
+    "coverage_cp95": [
+     0.0,
+     0.2471
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": null,
+    "selective_risk_cp95": null,
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.0,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 7
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 6
+    },
+    "abstained_on_gold_applies": 6,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 6,
+     "out_of_scope|ABSTAIN": 6,
+     "underdetermined|ABSTAIN": 1
+    }
+   },
+   "hamilton_rule_form": {
+    "N": 16,
+    "answered": 0,
+    "abstained": 16,
+    "coverage": 0.0,
+    "coverage_cp95": [
+     0.0,
+     0.2059
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": null,
+    "selective_risk_cp95": null,
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.0,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 8
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 8
+    },
+    "abstained_on_gold_applies": 8,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 8,
+     "out_of_scope|ABSTAIN": 5,
+     "underdetermined|ABSTAIN": 3
+    }
+   },
+   "hawk_dove_ess": {
+    "N": 16,
+    "answered": 0,
+    "abstained": 16,
+    "coverage": 0.0,
+    "coverage_cp95": [
+     0.0,
+     0.2059
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": null,
+    "selective_risk_cp95": null,
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.0,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 8
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 8
+    },
+    "abstained_on_gold_applies": 8,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 8,
+     "out_of_scope|ABSTAIN": 5,
+     "underdetermined|ABSTAIN": 3
+    }
+   },
+   "kimura_regime": {
+    "N": 16,
+    "answered": 0,
+    "abstained": 16,
+    "coverage": 0.0,
+    "coverage_cp95": [
+     0.0,
+     0.2059
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": null,
+    "selective_risk_cp95": null,
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.0,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 9
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 7
+    },
+    "abstained_on_gold_applies": 7,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 7,
+     "out_of_scope|ABSTAIN": 9
+    }
+   },
+   "turing_2d_rectangle": {
+    "N": 15,
+    "answered": 0,
+    "abstained": 15,
+    "coverage": 0.0,
+    "coverage_cp95": [
+     0.0,
+     0.218
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": null,
+    "selective_risk_cp95": null,
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.0,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 6
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 9
+    },
+    "abstained_on_gold_applies": 9,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 9,
+     "out_of_scope|ABSTAIN": 4,
+     "underdetermined|ABSTAIN": 2
+    }
+   },
+   "turing_finite_domain": {
+    "N": 22,
+    "answered": 0,
+    "abstained": 22,
+    "coverage": 0.0,
+    "coverage_cp95": [
+     0.0,
+     0.1544
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": null,
+    "selective_risk_cp95": null,
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.0,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 10
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 12
+    },
+    "abstained_on_gold_applies": 12,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 12,
+     "out_of_scope|ABSTAIN": 6,
+     "underdetermined|ABSTAIN": 4
+    }
+   },
+   "wavelength_formula_licence": {
+    "N": 14,
+    "answered": 0,
+    "abstained": 14,
+    "coverage": 0.0,
+    "coverage_cp95": [
+     0.0,
+     0.2316
+    ],
+    "errors_among_answered": 0,
+    "selective_risk": null,
+    "selective_risk_cp95": null,
+    "accuracy_over_all_N_counting_abstain_as_wrong": 0.0,
+    "false_acceptance(answered applies on gold out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 9
+    },
+    "false_refusal(gold applies answered out_of_scope/underdetermined)": {
+     "count": 0,
+     "denominator": 5
+    },
+    "abstained_on_gold_applies": 5,
+    "confusion_truth_x_pred": {
+     "applies|ABSTAIN": 5,
+     "out_of_scope|ABSTAIN": 9
+    }
+   }
+  }
+ },
+ "format_only_nearest_centroid_trained_on_dev_tested_heldout": {
+  "correct": 28,
+  "n": 90,
+  "acc": 0.3111,
+  "cp95": [
+   0.2177,
+   0.4174
+  ],
+  "majority_class": "applies",
+  "majority_rate": 0.4667
  }
 }
