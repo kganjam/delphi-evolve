@@ -697,7 +697,7 @@ def write_lean_tree(certs: Sequence[Mapping], lean_dir=LEAN_DIR) -> list[str]:
     cdir = lean_dir / "DarwinBridge" / "Certs"
     cdir.mkdir(parents=True, exist_ok=True)
     mods = []
-    for cert in certs:
+    for cert in sorted(certs, key=lambda c: c["label"]):
         mod = module_name(cert)
         (cdir / (mod.rsplit(".", 1)[1] + ".lean")).write_text(render_lean(cert))
         mods.append(mod)
@@ -705,6 +705,138 @@ def write_lean_tree(certs: Sequence[Mapping], lean_dir=LEAN_DIR) -> list[str]:
         "-- GENERATED aggregate of dataset certificates\n" + "".join(f"import {m}\n" for m in mods))
     (lean_dir / "DarwinBridge" / "Audit.lean").write_text(render_audit(mods))
     return mods
+
+
+# --------------------------------------------------------------------------- mutation suite
+def _row(cert: dict, g: str) -> dict:
+    return next(e for e in cert["table"] if e["genotype"] == g)
+
+
+def _bounds(cert: Mapping, g: str) -> tuple[int, int]:
+    e = _row(dict(cert), g)
+    d = cert["delta_scaled"]
+    return min(e["r1"], e["r2"]) - d, max(e["r1"], e["r2"]) + d
+
+
+def _clone(cert: Mapping) -> dict:
+    return json.loads(json.dumps(cert))
+
+
+def data_mutants(cert: Mapping) -> list[dict]:
+    """Instance-level mutants. Each has `expect` in {"accept", "reject"}; "accept" mutants are
+    boundary controls proving the checker is not rejecting everything or comparing strictly."""
+    out = []
+
+    def add(name, c, expect, why):
+        out.append({"name": f"{cert['label']}__{name}", "cert": c, "expect": expect, "why": why})
+
+    if cert["kind"] == "route":
+        r = cert["route"]
+        u, v = r[-2], r[-1]
+        hi_u = _bounds(cert, u)[1]
+        d = cert["delta_scaled"]
+        for name, off, exp, why in (
+            ("dominance_tight_equal", 0, "accept", "lo(next) == hi(current): boundary of >= must still be accepted"),
+            ("dominance_violated_by_one", -1, "reject", "lo(next) = hi(current)-1 : the dominance inequality fails by one unit"),
+        ):
+            c = _clone(cert)
+            e = _row(c, v)
+            e["r1"] = e["r2"] = hi_u + d + off
+            add(name, c, exp, why)
+        c = _clone(cert)
+        c["route"] = r[::-1]
+        c["start"], c["target"] = cert["target"], cert["start"]
+        add("reversed_route", c, "reject", "descending traversal of an ascending route must fail")
+        if len(r) > 3:
+            c = _clone(cert)
+            c["route"] = r[:2] + r[3:]
+            add("skipped_vertex_nonadjacent", c, "reject", "removing a vertex makes consecutive genotypes non-adjacent")
+            c = _clone(cert)
+            c["table"] = [e for e in c["table"] if e["genotype"] != r[2]]
+            add("unknown_intermediate", c, "reject", "an intermediate with no declared interval cannot be certified")
+        c = _clone(cert)
+        c["delta_scaled"] = -1
+        add("negative_delta", c, "reject", "a negative sensitivity bound would make intervals inverted")
+        c = _clone(cert)
+        c["table"].append(dict(c["table"][0]))
+        add("duplicate_key", c, "reject", "duplicate table keys are ambiguous")
+        c = _clone(cert)
+        c["target"] = c["start"]
+        c["route"] = [c["start"]]
+        add("start_equals_target", c, "reject", "trivial one-vertex route is not a certificate")
+        c = _clone(cert)
+        c["target"] = r[-2]
+        add("wrong_target", c, "reject", "declared target is not the route's end")
+    else:
+        s = cert["start"]
+        u = s
+        lo_u = _bounds(cert, u)[0]
+        d = cert["delta_scaled"]
+        v = next(g for g in neighbors(u) if g in {e["genotype"] for e in cert["table"]} and g not in cert["closed_set"])
+        for name, off, exp, why in (
+            ("cut_edge_tight_strict", -1, "accept", "hi(v) == lo(u)-1: strict-descent boundary accepted"),
+            ("open_cut_edge_equal", 0, "reject", "hi(v) == lo(u): edge not certifiably descending => cut is open"),
+            ("open_cut_edge_higher", 10 ** (cert["scale_exponent"] - 1), "reject", "neighbour clearly higher: a real ascent edge leaves S"),
+        ):
+            c = _clone(cert)
+            e = _row(c, v)
+            e["r1"] = e["r2"] = lo_u + off - d  # hi(v) = r + delta = lo(u) + off
+            add(name, c, exp, why)
+        c = _clone(cert)
+        c["table"] = [e for e in c["table"] if e["genotype"] != v]
+        add("neighbour_unknown", c, "reject", "a missing neighbour keeps an escape edge possible")
+        c = _clone(cert)
+        c["closed_set"] = list(c["closed_set"]) + [c["target"]]
+        add("target_in_closed_set", c, "reject", "target inside S")
+        c = _clone(cert)
+        c["closed_set"] = [g for g in c["closed_set"] if g != c["start"]]
+        add("start_not_in_closed_set", c, "reject", "start must belong to S")
+        c = _clone(cert)
+        c["delta_scaled"] = -1
+        add("negative_delta", c, "reject", "negative sensitivity bound")
+        c = _clone(cert)
+        c["table"].append(dict(c["table"][0]))
+        add("duplicate_key", c, "reject", "duplicate table keys")
+        # the cut's own neighbour list must be complete: drop S membership of a needed vertex
+        # (only meaningful for |S|>1) -- covered by source mutant on `nbrs`.
+    return out
+
+
+SOURCE_MUTANTS = [
+    ("core_flip_dominance", "DarwinBridge/Core.lean", "| some (_, ha), some (lb, _) => decide (ha ≤ lb)",
+     "| some (_, ha), some (lb, _) => decide (lb ≤ ha)", "dominance inequality direction flipped"),
+    ("core_dominance_uses_lo", "DarwinBridge/Core.lean", "| some (_, ha), some (lb, _) => decide (ha ≤ lb)",
+     "| some (ha, _), some (lb, _) => decide (ha ≤ lb)", "uses lo(u) instead of hi(u)"),
+    ("core_unknown_vertex_accepted", "DarwinBridge/Core.lean", "  | _, _ => false\n\n/-- Certified strictly",
+     "  | _, _ => true\n\n/-- Certified strictly", "unknown vertices treated as dominated"),
+    ("core_flip_descent", "DarwinBridge/Core.lean", "| some (la, _), some (_, hb) => decide (hb < la)",
+     "| some (la, _), some (_, hb) => decide (la < hb)", "strict-descent direction flipped"),
+    ("core_cut_ignores_descent", "DarwinBridge/Core.lean", "decide (b ∈ S) || downB B a b", "decide (b ∈ S) || true",
+     "cut accepts every outgoing edge"),
+    ("core_target_may_be_inside", "DarwinBridge/Core.lean", "decide (s ∈ S) && !(decide (t ∈ S)) && cutB",
+     "decide (s ∈ S) && cutB", "target-outside-S check dropped"),
+    ("geno_incomplete_neighbours", "DarwinBridge/Geno.lean",
+     "  ((List.range 20).filter (· ≠ g.c)).map (fun x => ⟨g.a, g.b, x, g.d⟩) ++\n  ((List.range 20).filter (· ≠ g.d)).map (fun x => ⟨g.a, g.b, g.c, x⟩)",
+     "  ((List.range 20).filter (· ≠ g.c)).map (fun x => ⟨g.a, g.b, x, g.d⟩)",
+     "neighbour enumerator omits the fourth position (missing edges)"),
+    ("geno_adjacency_too_loose", "DarwinBridge/Geno.lean", "(g.a ≠ h.a ∧ g.b = h.b ∧ g.c = h.c ∧ g.d = h.d) ∨",
+     "(g.a ≠ h.a ∧ g.b = h.b ∧ g.c = h.c) ∨", "adjacency ignores position 4 (accepts double substitutions)"),
+]
+
+
+def apply_source_mutant(tree: Path, mutant: tuple) -> None:
+    name, rel, old, new, _ = mutant
+    f = Path(tree) / rel
+    text = f.read_text()
+    if text.count(old) != 1:
+        raise RuntimeError(f"mutant {name}: pattern occurs {text.count(old)} times in {rel}")
+    f.write_text(text.replace(old, new))
+
+
+def copy_lean_tree(dest) -> Path:
+    dest = Path(dest)
+    shutil.copytree(LEAN_DIR, dest, ignore=shutil.ignore_patterns(".lake", "build"))
+    return dest
 
 
 if __name__ == "__main__":  # pragma: no cover

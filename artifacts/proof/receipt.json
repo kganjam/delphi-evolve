@@ -1,0 +1,616 @@
+{
+  "axioms": {
+    "DarwinBridge.Certs.TrpbBlockedDelta005.cert_ok": [
+      "propext"
+    ],
+    "DarwinBridge.Certs.TrpbBlockedDelta005.instance_sound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "DarwinBridge.Certs.TrpbRouteDelta0.cert_ok": [
+      "propext"
+    ],
+    "DarwinBridge.Certs.TrpbRouteDelta0.instance_sound": [
+      "propext"
+    ],
+    "DarwinBridge.Certs.TrpbRouteDelta005.cert_ok": [
+      "propext"
+    ],
+    "DarwinBridge.Certs.TrpbRouteDelta005.instance_sound": [
+      "propext"
+    ],
+    "DarwinBridge.adjB_sound": [],
+    "DarwinBridge.blockedCert_sound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "DarwinBridge.blocked_cut_sound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "DarwinBridge.closed_no_reach": [],
+    "DarwinBridge.contains_satisfiable": [],
+    "DarwinBridge.nbrs_complete": [
+      "propext",
+      "Quot.sound"
+    ],
+    "DarwinBridge.nbrs_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "DarwinBridge.nbrs_sound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "DarwinBridge.routeCert_sound": [
+      "propext"
+    ],
+    "DarwinBridge.route_blocked_exclusive": [
+      "propext",
+      "Quot.sound"
+    ],
+    "DarwinBridge.route_endpoints": [
+      "propext"
+    ],
+    "DarwinBridge.route_floor": [
+      "propext"
+    ],
+    "DarwinBridge.route_sound": [
+      "propext"
+    ],
+    "DarwinBridge.sensitivity_satisfiable": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "certificates": [
+    {
+      "certificate_sha256": "83e8f4cdd69c0bba6a6bea5a68fe499e6e56d198aac6a4cd1d3a7f5cd0a3b7c5",
+      "closed_set": [
+        "GCLS"
+      ],
+      "crossing_edges_checked": 76,
+      "delta_decimal": "0.005",
+      "delta_status": "assumed",
+      "kind": "blocked",
+      "label": "trpb_blocked_delta005",
+      "route": null,
+      "source_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+      "start": "GCLS",
+      "table_rows": 77,
+      "target": "AIKG"
+    },
+    {
+      "certificate_sha256": "2ed364171da5a9d9b2d290daaef59918b4fd1d371901611f76b84bd0c6f07373",
+      "closed_set": null,
+      "crossing_edges_checked": null,
+      "delta_decimal": "0",
+      "delta_status": "assumed",
+      "kind": "route",
+      "label": "trpb_route_delta0",
+      "route": [
+        "VFVS",
+        "VFMS",
+        "VFMG",
+        "VIMG",
+        "VIKG",
+        "AIKG"
+      ],
+      "source_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+      "start": "VFVS",
+      "table_rows": 6,
+      "target": "AIKG"
+    },
+    {
+      "certificate_sha256": "d6cad7bac99a87e300f8dcdc1b25a94526217e370679654f281487328f3354da",
+      "closed_set": null,
+      "crossing_edges_checked": null,
+      "delta_decimal": "0.005",
+      "delta_status": "assumed",
+      "kind": "route",
+      "label": "trpb_route_delta005",
+      "route": [
+        "VFVS",
+        "VFLS",
+        "VLLS",
+        "VLLG",
+        "VLSG",
+        "VISG",
+        "VIKG",
+        "AIKG"
+      ],
+      "source_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+      "start": "VFVS",
+      "table_rows": 8,
+      "target": "AIKG"
+    }
+  ],
+  "checks": [
+    {
+      "check": "certificates_present",
+      "detail": "3 certificates: trpb_blocked_delta005, trpb_route_delta0, trpb_route_delta005",
+      "ok": true
+    },
+    {
+      "check": "lean_files_match_certificate_json",
+      "detail": "",
+      "ok": true
+    },
+    {
+      "check": "python_mirror_accepts_certificates",
+      "detail": "trpb_blocked_delta005: blocked accepted; trpb_route_delta0: route accepted; trpb_route_delta005: route accepted",
+      "ok": true
+    },
+    {
+      "check": "certificate_tied_to_source_csv",
+      "detail": "sha256 a631d8cf6c5b188a…, 91 rows re-read",
+      "ok": true
+    },
+    {
+      "check": "no_sorry_admit_native_decide_axiom_unsafe",
+      "detail": "",
+      "ok": true
+    },
+    {
+      "check": "fresh_lake_build_original",
+      "detail": "7.0s; ok",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "check": "axiom_audit",
+      "detail": "20/20 theorems; axioms used: ['Quot.sound', 'propext']",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "check": "instance_mutants_as_expected",
+      "detail": "26 mutants; unexpected: []",
+      "ok": true
+    },
+    {
+      "check": "python_mirror_agrees_with_lean_on_mutants",
+      "detail": "[]",
+      "ok": true
+    },
+    {
+      "check": "lean_source_mutants_all_rejected",
+      "detail": "8/8 break compilation",
+      "ok": true
+    },
+    {
+      "check": "sensitivity_sweep",
+      "detail": "14 rows written to artifacts/proof/sensitivity_sweep.json",
+      "ok": true
+    }
+  ],
+  "command": "python scripts/check_proofs.py",
+  "compile_command": "lake build  (fresh copy of lean/, no cached .lake)",
+  "compile_exit_code": 0,
+  "dominance_mutant_exit_code": 1,
+  "generated_at_seattle": "2026-10-31 00:13:10 PDT",
+  "generated_at_utc": "2026-10-31T07:13:10+00:00",
+  "instance_mutants": [
+    {
+      "as_expected": true,
+      "expect": "accept",
+      "lean_accepted": true,
+      "lean_exit_code": 0,
+      "lean_first_error": "",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_delta005__cut_edge_tight_strict",
+      "python_mirror_accepted": true,
+      "python_reason": "blocked accepted",
+      "why": "hi(v) == lo(u)-1: strict-descent boundary accepted"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_blocked_delta005__open_cut_edge_equal.lean:182:77: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_delta005__open_cut_edge_equal",
+      "python_mirror_accepted": false,
+      "python_reason": "open cut edge GCLS->ACLS",
+      "rejected_by_decision": true,
+      "why": "hi(v) == lo(u): edge not certifiably descending => cut is open"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_blocked_delta005__open_cut_edge_higher.lean:182:77: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_delta005__open_cut_edge_higher",
+      "python_mirror_accepted": false,
+      "python_reason": "open cut edge GCLS->ACLS",
+      "rejected_by_decision": true,
+      "why": "neighbour clearly higher: a real ascent edge leaves S"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_blocked_delta005__neighbour_unknown.lean:180:77: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_delta005__neighbour_unknown",
+      "python_mirror_accepted": false,
+      "python_reason": "open cut edge GCLS->ACLS",
+      "rejected_by_decision": true,
+      "why": "a missing neighbour keeps an escape edge possible"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_blocked_delta005__target_in_closed_set.lean:183:77: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_delta005__target_in_closed_set",
+      "python_mirror_accepted": false,
+      "python_reason": "s must be in S and t not",
+      "rejected_by_decision": true,
+      "why": "target inside S"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_blocked_delta005__start_not_in_closed_set.lean:182:77: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_delta005__start_not_in_closed_set",
+      "python_mirror_accepted": false,
+      "python_reason": "s must be in S and t not",
+      "rejected_by_decision": true,
+      "why": "start must belong to S"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_blocked_delta005__negative_delta.lean:182:77: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_delta005__negative_delta",
+      "python_mirror_accepted": false,
+      "python_reason": "delta must be a non-negative integer",
+      "rejected_by_decision": true,
+      "why": "negative sensitivity bound"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_blocked_delta005__duplicate_key.lean:184:77: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_delta005__duplicate_key",
+      "python_mirror_accepted": false,
+      "python_reason": "duplicate key ACLS",
+      "rejected_by_decision": true,
+      "why": "duplicate table keys"
+    },
+    {
+      "as_expected": true,
+      "expect": "accept",
+      "lean_accepted": true,
+      "lean_exit_code": 0,
+      "lean_first_error": "",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta0__dominance_tight_equal",
+      "python_mirror_accepted": true,
+      "python_reason": "route accepted",
+      "why": "lo(next) == hi(current): boundary of >= must still be accepted"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta0__dominance_violated_by_one.lean:45:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta0__dominance_violated_by_one",
+      "python_mirror_accepted": false,
+      "python_reason": "dominance fails VIKG->AIKG",
+      "rejected_by_decision": true,
+      "why": "lo(next) = hi(current)-1 : the dominance inequality fails by one unit"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta0__reversed_route.lean:45:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta0__reversed_route",
+      "python_mirror_accepted": false,
+      "python_reason": "dominance fails AIKG->VIKG",
+      "rejected_by_decision": true,
+      "why": "descending traversal of an ascending route must fail"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta0__skipped_vertex_nonadjacent.lean:44:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta0__skipped_vertex_nonadjacent",
+      "python_mirror_accepted": false,
+      "python_reason": "non-adjacent step VFMS->VIMG",
+      "rejected_by_decision": true,
+      "why": "removing a vertex makes consecutive genotypes non-adjacent"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta0__unknown_intermediate.lean:43:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta0__unknown_intermediate",
+      "python_mirror_accepted": false,
+      "python_reason": "unknown vertex at step VFMS->VFMG",
+      "rejected_by_decision": true,
+      "why": "an intermediate with no declared interval cannot be certified"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta0__negative_delta.lean:45:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta0__negative_delta",
+      "python_mirror_accepted": false,
+      "python_reason": "delta must be a non-negative integer",
+      "rejected_by_decision": true,
+      "why": "a negative sensitivity bound would make intervals inverted"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta0__duplicate_key.lean:47:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta0__duplicate_key",
+      "python_mirror_accepted": false,
+      "python_reason": "duplicate key AIKG",
+      "rejected_by_decision": true,
+      "why": "duplicate table keys are ambiguous"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta0__start_equals_target.lean:40:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta0__start_equals_target",
+      "python_mirror_accepted": false,
+      "python_reason": "start == target",
+      "rejected_by_decision": true,
+      "why": "trivial one-vertex route is not a certificate"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta0__wrong_target.lean:45:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta0__wrong_target",
+      "python_mirror_accepted": false,
+      "python_reason": "route endpoints",
+      "rejected_by_decision": true,
+      "why": "declared target is not the route's end"
+    },
+    {
+      "as_expected": true,
+      "expect": "accept",
+      "lean_accepted": true,
+      "lean_exit_code": 0,
+      "lean_first_error": "",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta005__dominance_tight_equal",
+      "python_mirror_accepted": true,
+      "python_reason": "route accepted",
+      "why": "lo(next) == hi(current): boundary of >= must still be accepted"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta005__dominance_violated_by_one.lean:51:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta005__dominance_violated_by_one",
+      "python_mirror_accepted": false,
+      "python_reason": "dominance fails VIKG->AIKG",
+      "rejected_by_decision": true,
+      "why": "lo(next) = hi(current)-1 : the dominance inequality fails by one unit"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta005__reversed_route.lean:51:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta005__reversed_route",
+      "python_mirror_accepted": false,
+      "python_reason": "dominance fails AIKG->VIKG",
+      "rejected_by_decision": true,
+      "why": "descending traversal of an ascending route must fail"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta005__skipped_vertex_nonadjacent.lean:50:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta005__skipped_vertex_nonadjacent",
+      "python_mirror_accepted": false,
+      "python_reason": "non-adjacent step VFLS->VLLG",
+      "rejected_by_decision": true,
+      "why": "removing a vertex makes consecutive genotypes non-adjacent"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta005__unknown_intermediate.lean:49:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta005__unknown_intermediate",
+      "python_mirror_accepted": false,
+      "python_reason": "unknown vertex at step VFLS->VLLS",
+      "rejected_by_decision": true,
+      "why": "an intermediate with no declared interval cannot be certified"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta005__negative_delta.lean:51:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta005__negative_delta",
+      "python_mirror_accepted": false,
+      "python_reason": "delta must be a non-negative integer",
+      "rejected_by_decision": true,
+      "why": "a negative sensitivity bound would make intervals inverted"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta005__duplicate_key.lean:53:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta005__duplicate_key",
+      "python_mirror_accepted": false,
+      "python_reason": "duplicate key AIKG",
+      "rejected_by_decision": true,
+      "why": "duplicate table keys are ambiguous"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta005__start_equals_target.lean:44:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta005__start_equals_target",
+      "python_mirror_accepted": false,
+      "python_reason": "start == target",
+      "rejected_by_decision": true,
+      "why": "trivial one-vertex route is not a certificate"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_route_delta005__wrong_target.lean:51:71: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_route_delta005__wrong_target",
+      "python_mirror_accepted": false,
+      "python_reason": "route endpoints",
+      "rejected_by_decision": true,
+      "why": "declared target is not the route's end"
+    }
+  ],
+  "kind": "darwin-bridge-proof-receipt/1",
+  "lean_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "limitations": [
+    "Soundness is conditional on interval containment (assumed, not proved) and on the declared four-site graph.",
+    "delta is an assumed sensitivity bound, not a confidence bound; two replicates cannot give simultaneous 95% intervals.",
+    "Text->integer conversion and graph search are untrusted Python; Lean checks the resulting finite instance.",
+    "Absence of a certified route / presence of a blocked certificate says nothing about sequence space beyond these four sites."
+  ],
+  "min_mutant_exit_code": 1,
+  "open_cut_edge_mutant_exit_code": 1,
+  "python_version": "3.13.12",
+  "receipt_path": "artifacts/proof/receipt.json",
+  "source_mutants": [
+    {
+      "description": "dominance inequality direction flipped",
+      "file": "DarwinBridge/Core.lean",
+      "first_error": "error: DarwinBridge/Core.lean:96:43: Application type mismatch: The argument",
+      "lean_exit_code": 1,
+      "name": "core_flip_dominance",
+      "rejected": true
+    },
+    {
+      "description": "uses lo(u) instead of hi(u)",
+      "file": "DarwinBridge/Core.lean",
+      "first_error": "error: DarwinBridge/Core.lean:96:43: Application type mismatch: The argument",
+      "lean_exit_code": 1,
+      "name": "core_dominance_uses_lo",
+      "rejected": true
+    },
+    {
+      "description": "unknown vertices treated as dominated",
+      "file": "DarwinBridge/Core.lean",
+      "first_error": "error: DarwinBridge/Core.lean:100:20: unsolved goals",
+      "lean_exit_code": 1,
+      "name": "core_unknown_vertex_accepted",
+      "rejected": true
+    },
+    {
+      "description": "strict-descent direction flipped",
+      "file": "DarwinBridge/Core.lean",
+      "first_error": "error: DarwinBridge/Core.lean:107:43: Application type mismatch: The argument",
+      "lean_exit_code": 1,
+      "name": "core_flip_descent",
+      "rejected": true
+    },
+    {
+      "description": "cut accepts every outgoing edge",
+      "file": "DarwinBridge/Core.lean",
+      "first_error": "error: DarwinBridge/Core.lean:257:62: Application type mismatch: The argument",
+      "lean_exit_code": 1,
+      "name": "core_cut_ignores_descent",
+      "rejected": true
+    },
+    {
+      "description": "target-outside-S check dropped",
+      "file": "DarwinBridge/Core.lean",
+      "first_error": "error: DarwinBridge/Core.lean:246:10: Tactic `cases` failed with a nested error:",
+      "lean_exit_code": 1,
+      "name": "core_target_may_be_inside",
+      "rejected": true
+    },
+    {
+      "description": "neighbour enumerator omits the fourth position (missing edges)",
+      "file": "DarwinBridge/Geno.lean",
+      "first_error": "error: DarwinBridge/Geno.lean:54:25: Application type mismatch: The argument",
+      "lean_exit_code": 1,
+      "name": "geno_incomplete_neighbours",
+      "rejected": true
+    },
+    {
+      "description": "adjacency ignores position 4 (accepts double substitutions)",
+      "file": "DarwinBridge/Geno.lean",
+      "first_error": "error: DarwinBridge/Geno.lean:53:23: Unknown identifier `h3`",
+      "lean_exit_code": 1,
+      "name": "geno_adjacency_too_loose",
+      "rejected": true
+    }
+  ],
+  "source_tie": {
+    "csv": "/data/artifacts/v2-scout/data/caltech/summary_AA.csv",
+    "rows_checked": 91,
+    "sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+    "verified": true
+  },
+  "status": "completed",
+  "wall_seconds": 104.5
+}
