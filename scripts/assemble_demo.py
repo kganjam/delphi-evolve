@@ -134,5 +134,10 @@ if demo.get("operational_claims", {}).get("status") == "recorded":
     destination.mkdir(parents=True, exist_ok=True)
     for name in ("index.html", "receipt.js", "bench.js"):
         shutil.copyfile(R / "claim_runtime/demo" / name, destination / name)
+if (R / "artifacts/turing_scope/results.json").exists():
+    destination = R / "site/turing"
+    destination.mkdir(parents=True, exist_ok=True)
+    for name in ("index.html", "data.js"):
+        shutil.copyfile(R / "turing_scope/site" / name, destination / name)
 print(json.dumps({"ok": True, "sha256": hashlib.sha256(out.encode()).hexdigest(), "proof": demo["proof"]["status"],
                   "compute": demo["compute"]["status"], "benchmark": demo["benchmark"]["status"]}))

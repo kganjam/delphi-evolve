@@ -1,6 +1,6 @@
 {
  "kind": "recorded outputs of `python -m turing_scope demo` (Python adapter run); NOT a Lean proof, NOT an observation",
- "generated_seattle": "2026-10-31 01:43:45 PDT",
+ "generated_seattle": "2026-10-31 01:49:58 PDT",
  "evidence_type": "model-derived",
  "pins": {
   "turing-ddi": {
@@ -170,7 +170,7 @@
     ],
     "changed_fields": [],
     "status": "active",
-    "path": "/data/worktrees/delphi-evolve/turing-scope/turing_scope/sources/turing-ddi.local.mcp.json"
+    "path": "/data/worktrees/delphi-evolve/release/turing_scope/sources/turing-ddi.local.mcp.json"
    },
    {
     "claim": "turing-wavelength",
@@ -188,7 +188,7 @@
     ],
     "changed_fields": [],
     "status": "active",
-    "path": "/data/worktrees/delphi-evolve/turing-scope/turing_scope/sources/turing-wavelength.local.mcp.json"
+    "path": "/data/worktrees/delphi-evolve/release/turing_scope/sources/turing-wavelength.local.mcp.json"
    }
   ],
   "claim_iris": [
@@ -384,7 +384,7 @@
     ],
     "changed_fields": [],
     "status": "active",
-    "path": "/data/worktrees/delphi-evolve/turing-scope/turing_scope/sources/turing-ddi.local.mcp.json"
+    "path": "/data/worktrees/delphi-evolve/release/turing_scope/sources/turing-ddi.local.mcp.json"
    },
    {
     "claim": "turing-wavelength",
@@ -402,7 +402,7 @@
     ],
     "changed_fields": [],
     "status": "active",
-    "path": "/data/worktrees/delphi-evolve/turing-scope/turing_scope/sources/turing-wavelength.local.mcp.json"
+    "path": "/data/worktrees/delphi-evolve/release/turing_scope/sources/turing-wavelength.local.mcp.json"
    }
   ],
   "claim_iris": [

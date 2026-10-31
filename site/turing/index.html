@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Turing scope: when does a Delphi claim apply to this domain?</title>
+<style>
+:root{color-scheme:light;--bg:#fcfcfb;--panel:#fff;--ink:#0b0b0b;--ink2:#52514e;--muted:#8a8984;--line:#e2e1dc;
+--band:#2a78d6;--bandfill:rgba(42,120,214,.16);--unst:#eb6834;--stab:#6b6a66;--ok:#1a6b3a;--bad:#a33a12}
+@media (prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#1a1a19;--panel:#222221;--ink:#f0efec;--ink2:#c3c2b7;--muted:#9a998f;--line:#3a3a38;
+--band:#3987e5;--bandfill:rgba(57,135,229,.2);--unst:#d95926;--stab:#a8a79d;--ok:#6fcf97;--bad:#f2a07b}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+main{max-width:1060px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:1.5rem;margin:.2em 0}h2{font-size:1.05rem;margin:0 0 .5em}
+.banner{border:1px solid var(--line);border-left:5px solid var(--band);background:var(--panel);padding:10px 14px;border-radius:6px;margin:12px 0}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;padding:1px 7px;border-radius:99px;border:1px solid currentColor}
+.t-model{color:var(--band)}.t-obs{color:var(--muted)}.t-unk{color:var(--bad)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:14px 0}
+.lens{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lens button{font:inherit;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:6px;padding:6px 12px;cursor:pointer}
+.lens button[aria-pressed=true]{border-color:var(--band);box-shadow:inset 0 0 0 1px var(--band);font-weight:700}
+.lens .main{font-size:1.05rem}
+.flow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:800px){.flow{grid-template-columns:1fr}}
+.flow>div{border:1px solid var(--line);border-radius:6px;padding:10px 12px;position:relative;background:var(--bg)}
+.flow>div+div::before{content:"\2192";position:absolute;left:-16px;top:12px;color:var(--muted)}
+@media(max-width:800px){.flow>div+div::before{content:"\2193";left:12px;top:-18px}}
+.flow h3{margin:0 0 4px;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+.verdict{font-size:1.35rem;font-weight:800}.v-stable{color:var(--ok)}.v-unstable{color:var(--bad)}.v-refused{color:var(--muted)}
+code,.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85em}
+ul.chk{list-style:none;padding:0;margin:0}ul.chk li{padding:2px 0}
+table{border-collapse:collapse;width:100%;font-size:.88rem}th,td{padding:4px 8px;border-bottom:1px solid var(--line);text-align:left}
+th{color:var(--ink2);font-weight:600}tr.u td{background:rgba(235,104,52,.12)}
+svg text{fill:var(--ink2);font-size:12px}svg .ax{stroke:var(--line)}svg .zero{stroke:var(--muted);stroke-dasharray:4 3}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}@media(max-width:800px){.cols{grid-template-columns:1fr}}
+.small{font-size:.82rem;color:var(--ink2)}
+.scan{display:flex;flex-wrap:wrap;gap:6px}.scan button{font:inherit;font-size:.82rem;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:5px 8px;border-radius:6px;cursor:pointer;text-align:left}
+.scan button[aria-pressed=true]{border-color:var(--band);box-shadow:inset 0 0 0 1px var(--band)}
+</style>
+</head>
+<body>
+<main>
+<h1>Does the Turing claim apply on <em>this</em> domain?</h1>
+<p class="small">Two existing Delphi claims (<code>turing-ddi</code>, <code>turing-wavelength</code>) turned into an executable applicability check. Same chemistry, only the domain length changes.</p>
+<div class="banner" id="banner">
+  <span class="tag t-model">MODEL-DERIVED</span> exact rational linear algebra from declared inputs &nbsp;
+  <span class="tag t-obs">OBSERVED: none</span> no measurement is used &nbsp;
+  <span class="tag t-unk">NOT ESTABLISHED</span> nonlinear patterns, any real tissue or fabricated material.<br>
+  <span class="small">Established mathematics, not a discovered theorem and not biology. These are <b>recorded outputs</b> of <code>python -m turing_scope demo</code>; nothing below is computed in your browser.</span>
+</div>
+
+<div class="card">
+  <h2>1 · Choose the domain length (1-D, zero-flux ends, L = r·π)</h2>
+  <div class="lens" id="mainlens"></div>
+  <p class="small" style="margin:.6em 0 .3em">Other recorded lengths (the answer is not monotone in L):</p>
+  <div class="scan" id="scan"></div>
+</div>
+
+<div class="card">
+  <h2>2 · Source claim → applicability → mathematical result</h2>
+  <div class="flow" id="flow"></div>
+</div>
+
+<div class="card">
+  <h2>3 · Unstable <i>q</i> band versus the discrete modes this domain offers</h2>
+  <div id="chart"></div>
+  <p class="small" id="chartcap"></p>
+  <table id="modes"></table>
+</div>
+
+<div class="card">
+  <h2>4 · What changes the answer</h2>
+  <div class="cols">
+    <div><b>Source faults</b> <span class="small">(software fault injection on a copy of the snapshot, not Delphi events)</span><table id="faults"></table></div>
+    <div><b>Law mutations</b> <span class="small">(chemistry or diffusion changed)</span><table id="muts"></table></div>
+    <div><b>Lean receipt</b><div id="lean" class="small"></div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>5 · Who proves what</h2>
+  <div class="cols">
+    <div><b>Lean (integer arithmetic, no Mathlib)</b><p class="small">Dispersion identities for any integer J, D<sub>u</sub>, D<sub>v</sub>, domain p/s; positivity of det and negativity of trace for <i>every</i> mode beyond a cutoff (<code>neumann_tail_hurwitz</code>); this instance: all modes stable at L=π, exactly mode 1 unstable at L=2π (<code>long_unstable_iff</code>); det factorization (5q−1)(2q−1). Stability is defined by the Routh–Hurwitz sign test.</p></div>
+    <div><b>Python (exact fractions)</b><p class="small">Source identity and assumption checks; exact q<sub>n</sub> = n²/r²; band endpoints; exhaustive classification below the cutoff. Numeric <code>numpy.linalg.eigvals</code> is an independent <i>floating-point</i> cross-check on 2001 modes, not a proof.</p></div>
+    <div><b>Not covered</b><p class="small">Routh–Hurwitz equivalence and the PDE dynamics (not in Lean); nonlinear pattern selection; whether any real system has these parameters; other boundaries, growth, mechanics, higher dimensions. The Delphi records are local <i>unsigned</i> nanopubs, not network publications.</p></div>
+  </div>
+</div>
+</main>
+<script src="data.js"></script>
+<script>
+(function(){
+const D = window.TURING_DATA, $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const MAIN = {"1": D.short, "2": D.long};
+const byR = {}; D.scan.forEach(s => byR[s.length_over_pi] = s);
+let cur = "1";
+const resFor = r => r === "1" ? D.short : r === "2" ? D.long : null;
+
+function lbl(r){ return r==="1" ? "L = π" : r==="2" ? "L = 2π" : "L = " + r + "π"; }
+function buttons(){
+  $("mainlens").innerHTML = ["1","2"].map(r => `<button class="main" data-r="${r}" aria-pressed="${r===cur}">${lbl(r)}</button>`).join("");
+  $("scan").innerHTML = D.scan.map(s => `<button data-r="${s.length_over_pi}" aria-pressed="${s.length_over_pi===cur}">${lbl(s.length_over_pi)}<br><b class="${s.verdict==='stable'?'v-stable':'v-unstable'}">${s.verdict==='stable'?'stable':'unstable n='+s.unstable_modes.join(',')}</b></button>`).join("");
+  document.querySelectorAll("[data-r]").forEach(b => b.onclick = () => { cur = b.dataset.r; render(); });
+}
+// Only L=π and L=2π carry full recorded results; for other lengths we show the recorded scan verdict and modes.
+function render(){
+  buttons();
+  const full = resFor(cur), sc = byR[cur];
+  const verdict = full ? full.verdict : sc.verdict;
+  const vcls = verdict==="stable" ? "v-stable" : verdict==="refused" ? "v-refused" : "v-unstable";
+  const sc0 = (full||D.short).source_checks;
+  const src = sc0[0];
+  const wl = (full||D.short).wavelength;
+  const checks = [
+    ["source record matches pinned hash", src.ok, "turing-ddi content sha256 " + src.content_sha256.slice(0,12) + "…"],
+    ["boundary declared: zero-flux Neumann", true, "other boundaries are refused"],
+    ["well-mixed state stable (tr J=−2<0, det J=1>0)", true, "turing-ddi precondition"],
+    ["declared: linearization, fixed domain, no mechanics", true, "requester-declared"],
+    ["continuum band non-empty: 1/5 < q < 1/2", true, "exact, S=7, discriminant 9"],
+    ["wavelength formula λc = 2π/kc licensed?", full ? wl.status==="licensed" : false, full ? "status: "+wl.status+" (near-onset passes; domain not large vs λc)" : "not recorded for this length (only L=π and L=2π carry the full gate record)"]
+  ];
+  $("flow").innerHTML = `
+   <div><h3>Source claim <span class="tag t-obs">LOCAL, UNSIGNED</span></h3>
+     <b>turing-ddi</b><br><span class="small">Turing diffusion-driven instability. Assumptions in the Delphi record: two species, linearization about a homogeneous steady state, fixed domain without growth or mechanics.</span><br>
+     <span class="small mono">${esc(src.nanopubs[0])}</span><br>
+     <span class="small">+ <b>turing-wavelength</b>: near onset, domain large vs the wavelength.</span></div>
+   <div><h3>Applicability check</h3><ul class="chk">${checks.map(c => `<li>${c[1]?"✔":"✘"} ${esc(c[0])}<br><span class="small">&nbsp;&nbsp;&nbsp;${esc(c[2])}</span></li>`).join("")}</ul></div>
+   <div><h3>Mathematical result <span class="tag t-model">MODEL-DERIVED</span></h3>
+     <div class="verdict ${vcls}">${verdict==="stable"?"linearly stable":"linearly unstable"}</div>
+     <div class="small">${lbl(cur)} · 1-D Neumann<br>${full ? full.reasons.map(esc).join("<br>") : "unstable mode(s) n = " + (sc.unstable_modes.join(", ")||"none") + "; q = " + sc.q_of_unstable_modes.join(", ")}</div>
+     <p class="small">Linear statement about the declared J and D only. Says nothing about nonlinear patterns or real systems.</p></div>`;
+  chart(full, sc);
+  faults(); muts(); lean();
+}
+
+function chart(full, sc){
+  const W=860,H=352,m={l:56,r:16,t:16,b:86},pw=W-m.l-m.r,ph=H-m.t-m.b;
+  const qmax=1.3, y0=-0.45, y1=0.08;
+  const X=q=>m.l+q/qmax*pw, Y=v=>m.t+(y1-v)/(y1-y0)*ph;
+  const pts=D.curve.map(p=>X(p[0]).toFixed(1)+","+Y(Math.max(y0-0.2,p[1])).toFixed(1)).join(" ");
+  const lo=0.2, hi=0.5;
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Largest real part of the eigenvalue versus squared wavenumber q, with the unstable band and the available discrete modes">`;
+  s+=`<defs><clipPath id="cp"><rect x="${m.l}" y="${m.t}" width="${pw}" height="${ph}"/></clipPath></defs>`;
+  for(let v=-0.4; v<=0.0001; v+=0.1){ s+=`<line class="ax" x1="${m.l}" x2="${W-m.r}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${m.l-6}" y="${Y(v)+4}" text-anchor="end">${Math.abs(v)<0.01?"0.0":v.toFixed(1)}</text>`; }
+  for(let q=0;q<=1.2001;q+=0.2){ s+=`<text x="${X(q)}" y="${m.t+ph+16}" text-anchor="middle">${q.toFixed(1)}</text>`; }
+  s+=`<rect x="${X(lo)}" y="${m.t}" width="${X(hi)-X(lo)}" height="${ph}" fill="var(--bandfill)"/>`;
+  s+=`<text x="${(X(lo)+X(hi))/2}" y="${m.t+ph-8}" text-anchor="middle" style="fill:var(--band);font-weight:700">unstable band 1/5 &lt; q &lt; 1/2 (exact)</text>`;
+  s+=`<line class="zero" x1="${m.l}" x2="${W-m.r}" y1="${Y(0)}" y2="${Y(0)}"/><text x="${W-m.r}" y="${Y(0)-5}" text-anchor="end">σ = 0 (unstable above)</text>`;
+  s+=`<polyline clip-path="url(#cp)" fill="none" stroke="var(--ink)" stroke-width="2" points="${pts}"/>`;
+  s+=`<text x="${X(0.3)}" y="${Y(-0.3)}" >σ(q): larger real part of the eigenvalues of J − qD</text>`;
+  s+=`<text x="${m.l-40}" y="${m.t+ph/2}" transform="rotate(-90 ${m.l-40} ${m.t+ph/2})" text-anchor="middle">σ(q) (axis clipped at −0.45; σ(0) = −1)</text>`;
+  s+=`<text x="${m.l+pw/2}" y="${H-6}" text-anchor="middle">squared wavenumber q · markers below the axis are the admissible q_n on this domain</text>`;
+  // discrete modes rug
+  const rows = full ? full.modes : null;
+  const r = cur.includes("/") ? (+cur.split("/")[0])/(+cur.split("/")[1]) : +cur;
+  const ry=m.t+ph+32;
+  s+=`<line class="ax" x1="${m.l}" x2="${W-m.r}" y1="${ry}" y2="${ry}"/>`;
+  const unst = new Set(full ? full.unstable_modes : sc.unstable_modes);
+  let beyond=false;
+  for(let n=0;n<200;n++){
+    const q=n*n/(r*r); if(q>qmax){beyond=true;break;}
+    const u=unst.has(n), cx=X(q);
+    s+=`<g><title>n=${n}, q=${q.toFixed(4)} ${u?"UNSTABLE":"stable"}</title>`;
+    s+= u ? `<path d="M${cx} ${ry-8}L${cx+8} ${ry}L${cx} ${ry+8}L${cx-8} ${ry}Z" fill="var(--unst)" stroke="var(--panel)" stroke-width="2"/>`
+          : `<circle cx="${cx}" cy="${ry}" r="5" fill="var(--stab)" stroke="var(--panel)" stroke-width="2"/>`;
+    s+=`<text x="${cx}" y="${ry+24}" text-anchor="middle">n=${n}</text></g>`;
+    if(u){ // lift marker to the recorded eigenvalue if we have it
+      const row = rows && rows.find(x=>x.n===n);
+      if(row && row.max_eigenvalue_approx!==undefined){
+        s+=`<line x1="${cx}" x2="${cx}" y1="${ry-10}" y2="${Y(row.max_eigenvalue_approx)}" stroke="var(--unst)" stroke-dasharray="3 3"/>`;
+        s+=`<path d="M${cx} ${Y(row.max_eigenvalue_approx)-8}L${cx+8} ${Y(row.max_eigenvalue_approx)}L${cx} ${Y(row.max_eigenvalue_approx)+8}L${cx-8} ${Y(row.max_eigenvalue_approx)}Z" fill="var(--unst)" stroke="var(--panel)" stroke-width="2"/>`;
+        s+=`<text x="${cx+12}" y="${Y(row.max_eigenvalue_approx)-6}" style="fill:var(--ink)">n=${n}: det = ${row.determinant}, σ ≈ ${row.max_eigenvalue_approx.toFixed(4)}</text>`;
+      }
+    }
+  }
+  s+="</svg>";
+  $("chart").innerHTML=s;
+  $("chartcap").innerHTML = `Legend: ◆ orange = admissible mode with det &lt; 0 (unstable) · ● gray = admissible mode, stable · blue band = continuum interval where det(J − qD) &lt; 0. Admissible q on ${lbl(cur)} are q<sub>n</sub> = n²/${cur}². ${beyond? "All further modes lie beyond q=1.3 and are stable (tail rule: det ≥ det J > 0 once q ≥ S/(DuDv) = 7/10; Lean: neumann_tail_hurwitz).":""}`;
+  if(full){
+    $("modes").innerHTML = `<tr><th>n</th><th>q = n²/r²</th><th>trace</th><th>det</th><th>class</th><th>wavelength 2L/n</th></tr>` +
+     full.modes.map(x=>`<tr class="${x['class']==='unstable'?'u':''}"><td>${x.n}</td><td class="mono">${x.q}</td><td class="mono">${x.trace}</td><td class="mono">${x.determinant}</td><td>${x['class']}${x.covered_by_tail_theorem?" (tail rule)":""}</td><td>${x.wavelength_over_pi? x.wavelength_over_pi+"π":"—"}</td></tr>`).join("");
+  } else {
+    $("modes").innerHTML = `<tr><td class="small">Full exact mode table is recorded for L = π and L = 2π. For this length the recorded scan lists unstable mode(s): ${sc.unstable_modes.join(", ")||"none"} with q = ${sc.q_of_unstable_modes.join(", ")||"—"}. Regenerate any length with <code>python -m turing_scope check</code>.</td></tr>`;
+  }
+}
+function faults(){
+  const f=D.faults;
+  $("faults").innerHTML = Object.entries(f).map(([k,v])=>`<tr><td>${esc(k.replace(/_/g," "))}</td><td><b>${esc(v.verdict)}</b>${v.refusal?` <span class="small">${esc(v.refusal.code)}</span>`:""}${(!v.refusal && v.wavelength_status==="refused")?` <span class="small">wavelength answer refused</span>`:""}</td></tr>`).join("");
+}
+function muts(){
+  $("muts").innerHTML = `<tr><th></th><th>L=π</th><th>L=2π</th></tr>` + Object.entries(D.mutations).map(([k,v])=>`<tr><td>${esc(v.description)}</td><td>${v["L=pi"].verdict.replace("linearly_","")}</td><td>${v["L=2pi"].verdict.replace("linearly_","")}</td></tr>`).join("") +
+   `<tr><td><i>unmutated</i></td><td>stable</td><td>unstable</td></tr>`;
+}
+function lean(){
+  const l=D.lean;
+  $("lean").innerHTML = l ? `${esc(l.lean_version.split(",")[0])}; build exit ${l.build_exit}; axioms ${esc(l.axioms.join(" | "))}; recorded ${esc(l.timestamp_seattle)}.<br>` +
+    l.mutants.map(m=>`${esc(m.file)}: exit ${m.exit} ${m.as_expected?"✔ as expected":"✘"}`).join("<br>") +
+    `<br>Mutants assert the unstable-mode claim after the law/domain change; Lean rejects each (<code>decide</code> proves it false).` : "No Lean receipt recorded.";
+}
+render();
+})();
+</script>
+</body>
+</html>

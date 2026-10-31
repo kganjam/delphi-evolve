@@ -405,11 +405,20 @@ def test_lean_sources_have_no_forbidden_tokens_and_receipt_matches_files():
         assert "Mathlib" not in body
     rec = json.loads((ART / "lean_receipt.json").read_text())
     assert rec["ok"] and rec["build"]["exit"] == 0 and rec["forbidden_tokens_in_source"] == []
+    assert rec["axiom_audit"]["unexpected_axioms"] == []
+    assert len(rec["generic_law_mutants"]) == 2
+    assert all(m["killed_in_model_file"] for m in rec["generic_law_mutants"])
     for rel, h in rec["sources"].items():
         assert sha_file(ROOT / rel) == h, f"{rel} changed after the recorded Lean compile"
     assert all(m["as_expected"] for m in rec["mutants"])
     assert any(m["exit"] == 0 for m in rec["mutants"]) and sum(m["exit"] != 0 for m in rec["mutants"]) == 3
     assert all(m["proved_false_by_decide"] for m in rec["mutants"] if m["exit"] != 0)
+
+
+def test_axiom_audit_recognizes_unexpected_assumptions():
+    from turing_scope.lean_check import axiom_names, ALLOWED_AXIOMS
+    output = "lemma depends on axioms: [propext, Classical.choice, Quot.sound, madeUpBiology]"
+    assert axiom_names(output) - ALLOWED_AXIOMS == {"madeUpBiology"}
 
 
 @pytest.mark.skipif(not shutil.which("lake"), reason="lake not installed")
