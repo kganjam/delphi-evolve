@@ -142,5 +142,19 @@
   "director: preregister grid (N, steps, dt, models, solvers) -> I run a dt-convergence + FD-solver CPU pilot, then launch bounded H100 shards (<=10, 1 GPU each) through compute_ops",
   "human: decide on enabling Compute API / supplying Brev login",
   "expect ~15 min cold start per fresh H100 node"
- ]
+ ],
+ "team_alignment_response_0658pdt": {
+  "read": "/data/artifacts/delphi-evolve-rethink/messages/2026-10-31-TEAM-ALIGNMENT.md",
+  "what_compute_does_and_does_not_serve": {
+   "joel_21_theorems": "Lean/Mathlib is CPU+RAM bound; NO GPU and no Nebius CPU job needed (cache get, tenant CPU quota is 24 vCPU anyway).",
+   "kavita_100x_agents_dataset_discovery": "model-API bound, not GPU bound. Verified capacity from my side: Gemini API key with gemini-3.8-flash accepted 16 concurrent requests twice (32 calls, 0 HTTP errors, no 429, median latency ~1.8 s). Higher concurrency and daily quota are NOT measured. Other model families are Orchestra's, not verified by me.",
+   "openresearch": "not in my scope; not tested by me.",
+   "google_credits": "I did not claim or inspect any credits. The existing GCP lab project (ACTIVE; Vertex+Gemini work via gcloud OAuth in location global) is usable now; whether Amit's 'two people may claim credits' is separate and unverified."
+  },
+  "gpu_status": "still zero running; PDE sweep stays held pending a preregistered grid, and may be dropped if the strategy no longer includes it.",
+  "gemini_concurrency_test": {
+   "artifact": "artifacts/gpuops/gemini_concurrency_16.json",
+   "note": "first run: 6/16 returned no content; diagnosed as finishReason MAX_TOKENS (61 thinking tokens vs my 64-token cap), my test parameter, not throttling. Rerun: 12 OK, 4 MAX_TOKENS, 11/12 answers exactly correct (the 12th not inspected)."
+  }
+ }
 }

@@ -1,0 +1,13 @@
+{
+ "model": "gemini-3.8-flash",
+ "concurrency": 16,
+ "wall_s": 3.06,
+ "status_counts": {
+  "200": 12,
+  "EMPTY": 4
+ },
+ "correct_answers": 11,
+ "latency_s_median": 1.83,
+ "first_error": "{\"finishReason\": \"MAX_TOKENS\", \"usage\": {\"promptTokenCount\": 11, \"totalTokenCount\": 72, \"promptTokensDetails\": [{\"modality\": \"TEXT\", \"tokenCount\": 11}], \"thoughtsTokenCount\": 61, \"serviceTier\": \"standard\"}, \"promptFeedback\": null}",
+ "empty_n": 4
+}
