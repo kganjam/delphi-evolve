@@ -11,7 +11,7 @@ Significance 20 · Scientific/technical impact 25 · Decentralized agency 20 · 
 - **G1 Independent check.** The headline output is checked by something other than the model/solver that produced it (held-out measured data, independent solver, exact arithmetic or compiled proof).
 - **G2 Delphi changes a decision.** At least one existing Delphi claim (hash-pinned) changes a constraint, inference, refusal or experiment choice; a removal/context-change ablation shows the dependence. A citation graph does not count.
 - **G3 Collective is measured or not claimed.** Any multi-agent claim has a matched single-agent/ordinary-budget control and a recorded result, including a null. Otherwise the pitch says nothing about collective advantage.
-- **G4 Authorized resources only.** Claude Sonnet subscription workers; GPUs only under the shared-capacity rules and only if they do work a CPU would not; no unlisted model families or credentials.
+- **G4 Authorized resources only (amended 06:11 PDT after the primary review).** Claude Sonnet tmux sessions are the worker harness. Other model families and credits the user authorized (Codex/GPT, GLM, Grok, MiniMax, Gemini, Nebius LLMs, API keys) may be *measured subjects* of a preregistered comparison, free/subscription capacity first, per-arm tokens and any metered charge recorded, no secret exposure, public data only. GPUs only under the shared-capacity rules and only if they do work a CPU could not do in time.
 - **G5 Honesty.** Observed / predicted / simulated / unknown separated; no fabricated measurements or statistics; a simulator is not biological validation.
 
 ## Scored criteria (0–3 each; weight in brackets reflects the rubric, not a win probability)
@@ -34,12 +34,12 @@ Significance 20 · Scientific/technical impact 25 · Decentralized agency 20 · 
 | B | NCA / amorphous inverse design with independent-solver evaluation | `rethink-nca` | pending report |
 | C | Bioelectric / electrical fabrication / cellular logic | `rethink-electric` | pending report |
 | D | Critic's wildcard (Adaptyv/binder data direction observed in pane) | `rethink-critic` | pending report |
-| E | **Claims-as-tests**: Delphi math claims (Thompson 18+ shown, pop-gen 18, Turing 3) become operational predictions with declared scope, adjudicated by exact arithmetic/Lean where model-internal and by open data where empirical; geometry/boundary conditions decide applicability (Turing π vs 2π, Rayleigh–Plateau finite length, tree buckling) | director + host memo `2026-10-31-rubric-strategy-from-morphoswarm-8c.md` | Probe run: Thompson ch02-02 vs Tallo (n=496,827; `artifacts/rethink_director/thompson_tallo_probe.json`): pooled log-log slope 0.588, gymnosperm 0.665, angiosperm 0.563, per-study median 0.624 against the claim's 2/3. Data is reachable; the claim splits by clade. |
+| E | **Claims-as-tests / scope-and-falsification**: Delphi math claims (Thompson 18+ shown, pop-gen 18, Turing 3) become operational predictions with declared scope, adjudicated by exact arithmetic/Lean where model-internal and by open data where empirical; geometry/boundary conditions decide applicability (Turing π vs 2π, Rayleigh–Plateau finite length, tree buckling) | director + host memo `2026-10-31-rubric-strategy-from-morphoswarm-8c.md` | Probe run: Thompson ch02-02 vs Tallo (n=496,827; `artifacts/rethink_director/thompson_tallo_probe.json`): pooled log-log slope 0.588, gymnosperm 0.665, angiosperm 0.563, per-study median 0.624 against the claim's 2/3. Data is reachable; the claim splits by clade. |
 
 ## Director's pre-commitments about candidate E (so it cannot be favoured silently)
 
 - Known allometry results (McMahon/Niklas-type) mean E has limited novelty as biology; its defensible contribution is an operational, reproducible claim→scope→check pipeline over an existing corpus. Say so.
-- The host memo proposes model-family diversity (Claude, Codex, GLM, Grok, MiniMax, Gemini). That exceeds this phase's authorization (Claude Sonnet only, no metered fallback); the diversity comparison, if run, is Claude Sonnet role/prompt diversity vs repeated sampling at matched tokens, and is labelled so.
+- The host memo proposes model-family diversity. The primary review corrected my initial reading: other families are permitted as measured subjects (see G4). The comparison must be matched in total tokens/cost against a sequential multi-attempt single-agent baseline.
 - Verification asymmetry (1−(1−p)^N) is arithmetic, not a finding. Only an executed comparison counts toward Collective Capability.
 - GPUs are justified only for a workload a CPU cannot do in time; exact-math counterexample search is CPU-cheap. Do not launch GPU jobs for optics.
 - Decision is not made until the three scout reports have been read.
@@ -47,3 +47,8 @@ Significance 20 · Scientific/technical impact 25 · Decentralized agency 20 · 
 ## Output of this document when completed
 
 Selected concept; headline supported now vs intended; acceptance tests; kill conditions; four-hour build plan; excluded scope; preserved negative results for every rejected candidate.
+
+## Notes added after reading incoming reviews (06:11 PDT)
+- Primary review: Thompson ch02-02 is embedded in a self-weight buckling / limiting-height argument; pooled OLS is only a descriptive operationalization. Tallo 2022 already tests the H–D slope against 2/3 with mixed models, so the probe is a reproduction, not new biology. It is retained as an example of an operational-fidelity mismatch.
+- Delphi's LLM dataset-resolvability assessments are not ground truth. An 880-row board is coverage, not 880 resolved claims.
+- 1−(1−p)^N is not evidence; the comparison must match compute against a sequential single agent.
