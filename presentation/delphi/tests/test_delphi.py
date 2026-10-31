@@ -186,3 +186,35 @@ def test_atlas_is_credited_and_misprediction_map_is_pending():
     m = re.search(r"Misprediction map over a large ensemble: (\S+)", s6)
     assert m and m.group(1).lower() == "pending"
     assert re.search(r"98\.3|0\.4 ?%", " ".join(t.values())) is None  # toy-ensemble figures are not shown
+
+
+def test_video_captions_follow_the_same_rules():
+    caps = json.loads((D / "video/captions.json").read_text())
+    txt = " ".join(list(caps["deck_slide_captions"].values()) + [caps["site_ledger_caption"], caps["persistent_tag"]])
+    assert not [p for p in HARD_BANNED if re.search(p, txt, re.I)]
+    for sent in re.split(r"(?<=[.!?])\s+", txt):
+        assert not any(re.search(p, sent, re.I) and not NEG.search(sent) for p in FORBIDDEN), sent
+    assert "not frozen" not in txt.lower()  # the test set is frozen; stale caption guard
+
+
+def test_video_manifest_is_pinned_and_silent():
+    m = json.loads((D / "video/manifest.json").read_text())
+    assert m["ok"] and m["video"]["audio"] == "none" and 60 <= m["video"]["duration_s"] <= 95 and m["page_errors"] == []
+    assert subprocess.run(["git", "-C", str(REPO), "cat-file", "-e", m["source"]["git_head"] + "^{commit}"], capture_output=True).returncode == 0
+    mp4 = D / "video" / m["video"]["file"]
+    assert hashlib.sha256(mp4.read_bytes()).hexdigest() == m["video"]["sha256"], "video changed after its manifest was written"
+
+
+def test_bundle_manifest_hashes_match_current_files_when_present():
+    bm = D / "dist/bundle-manifest.json"
+    if not bm.exists():
+        return
+    m = json.loads(bm.read_text())
+    stale = [f for f, h in m["files"].items() if (REPO / f).exists() and hashlib.sha256((REPO / f).read_bytes()).hexdigest() != h]
+    # files regenerated after the bundle (video manifest, rehearsal sheet) are expected to differ until the final cut; the deck and facts must not
+    assert not [f for f in stale if f.startswith(("presentation/delphi/deck.", "presentation/delphi/facts", "site/delphi/index"))], stale
+
+
+def test_rehearsal_sheet_says_no_human_rehearsal_yet():
+    t = (D / "REHEARSAL.md").read_text()
+    assert "no human rehearsal has been done" in t

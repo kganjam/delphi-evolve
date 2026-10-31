@@ -204,6 +204,9 @@ def render_blog_md(parts):
     return "\n\n".join(("# " if t == "h1" else "## " if t == "h2" else "") + x for t, x in parts) + "\n"
 
 
+CAPS = {}
+
+
 def storyboard(f, timing):
     ps = {r["slide"]: r for r in timing["per_slide"]}
     mm = lambda t: f"{int(t // 60)}:{int(t % 60):02d}"
@@ -213,14 +216,16 @@ def storyboard(f, timing):
         (2, "Request, refusal with witness, repair, independent solver", "Step the four boxes left to right; hold on the printed caveats.",
          "'Limitation first: the algorithm is trivial. The offer is the certificate, the refusal and the repair.'", "deck slide 2; site/delphi#repair"),
         (3, "Compiled nodes and the test set", "Trace price, selection_only, hamilton_regression; point at the ATLAS note; then the four-row table and its caveat.",
-         "'Not external validation. Not frozen.'", "deck slide 3; site/delphi#nodes"),
+         "'Frozen test set. Agreement with our own key is not external validation.'", "deck slide 3; site/delphi#nodes"),
         (4, "The ledger", "Five rows with witnesses, then the 17 and 3 line and the no-control-arm sentence.",
          "'Audit versus self-audit, not collective intelligence. One team, one day.'", "deck slide 4; site/delphi#ledger"),
-        (5, "What the collective measured", "Three bars; hold on 'No collective advantage'; then the two pending cards.",
-         "'Null stated as a null.'", "deck slide 5; site/delphi#collective"),
+        (5, "What the collective measured", "Three bars; then the headroom card (checker-tool arm not run) and the proof-pilot ceiling.",
+         "'More agents did not help. A ceiling and a missing arm, stated as such.'", "deck slide 5; site/delphi#collective"),
         (6, "Close: reusable now, next as a proposal, credit", "Hold on the three cards, then the closing line.",
          "'Outside use: none observed yet. Nothing deployed.'", "deck slide 6; site/delphi#close"),
     ]
+    CAPS.clear()
+    CAPS.update({n: cap.strip("'") for n, shot, act, cap, src in shots})
     out = ["# Video storyboard: Delphi, three-minute walkthrough", "",
            f"Built to `planning/rethink/PITCH-OUTLINE.md`. Start times are the measured per-slide starts of a synthetic-voice read-through (`timing.json`, total {timing['total_mm_ss']}); a human presenter will differ. No narration audio and no video has been recorded; this is a shot list. Backup if the live demo fails: a captioned recording made from the same artifacts.", "",
            "| Start | Slide | Shot | Action | Caption | Source |", "|---|---|---|---|---|---|"]
@@ -251,6 +256,11 @@ def main():
     (HERE / "blog.md").write_text(render_blog_md(parts))
     if (HERE / "timing.json").exists():
         (HERE / "storyboard.md").write_text(storyboard(f, json.loads((HERE / "timing.json").read_text())))
+    if CAPS:
+        (HERE / "video").mkdir(exist_ok=True)
+        (HERE / "video" / "captions.json").write_text(json.dumps({"deck_slide_captions": {str(k): v for k, v in sorted(CAPS.items())},
+            "site_ledger_caption": "The ledger on the landing page: every row with its witness, kind, and printed timing caveats.",
+            "persistent_tag": "Draft. Declared-model statements only. We ran no experiment. Pending items are not results."}, indent=1) + "\n")
     for src, dst in (("deck.pdf", "deck.pdf"), ("deck.html", "deck.html"), ("speaker-notes.md", "speaker-notes.md")):
         shutil.copyfile(HERE / src, out / "assets" / dst)
     print("site written:", sorted(p.name for p in out.iterdir()), "review linked" if review else "review pending")
