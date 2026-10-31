@@ -8,6 +8,7 @@ FAMS = [(fam_turing, 24), (fam_wavelength, 16), (fam_turing2d, 16), (fam_kimura,
         (fam_greenhill, 16), (fam_hamilton, 16), (fam_kpp, 16)]
 DEV_FAMILIES = ["turing_finite_domain", "hawk_dove_ess"]          # prompt tuning allowed here only; all others are held out
 SEED = 20261031
+DROP_IDS = {"wl-0010": "near-tie between adjacent admissible modes (n=9 vs n=8, growth rates differ by 0.3%) whose wavelengths fall on opposite sides of the 10% criterion; blinded audit flagged it"}
 
 def sha(p): return hashlib.sha256(open(p, "rb").read()).hexdigest()
 
@@ -18,6 +19,9 @@ def build():
         allitems += mod.make(rng, n, 1)
     # stable shuffle so position in the file is not label-bearing; ids stay family-prefixed
     random.Random(SEED).shuffle(allitems)
+    for pub, full, key in allitems:
+        if pub['id'] in DROP_IDS: common.exclude(pub['family'], DROP_IDS[pub['id']], {'id': pub['id']})
+    allitems = [t for t in allitems if t[0]['id'] not in DROP_IDS]
     for pub, full, key in allitems:      # v1.1: every request carries its declared target and conventions
         txt = pub['request_text'] + ' ' + conventions.CONV[pub['family']] + ' ' + conventions.COMMON
         pub['request_text'] = txt; full['request_text'] = txt

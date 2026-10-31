@@ -1,6 +1,6 @@
 {
  "role": "critic",
- "status": "v1 on FREEZE-HOLD (director 06:54); v1.1 built in scopedesk/bench/v1_1 (not frozen: needs Codex audit + blinded audit); Thompson repair artifact and AMENDMENT_001 done; leakage audit item 2 NOT yet done",
+ "status": "bench v1.1 FROZEN 07:40 PDT (135 items); v1 on hold; Codex re-audit of v1.1, second-reader phrasing review and Scope Desk oracle-wrapper audit still NOT done",
  "model": "claude-sonnet-5-5 (subscription; metered spend unknown, none inferred)",
  "wall_time_pdt": "2026-10-31 06:00-06:20",
  "artifacts": [
@@ -173,13 +173,17 @@
  },
  "v1_1": {
   "path": "scopedesk/bench/v1_1",
-  "n": 136,
+  "n": 135,
   "families": 8,
   "change": "rayleigh_plateau dropped (volume-constraint defect); turing_2d_rectangle added; targets/conventions stated in every request; wavelength rule outcome-based",
-  "key_sha256": "d3862d0b3397c8abc4eb3d1f9149ecd261f322055f8c60c1dddd851003b70b4e",
+  "key_sha256": "b9fc2e961fa6cf73ae204d2385f1988fd6266b935c97f6f96f4a8cf34f538605",
   "verification": "verify_key.py 136/136 (same author)",
   "diff": "scopedesk/bench/v1_1/V1_TO_V1_1_DIFF.md",
-  "status": "not frozen: Codex audit of v1.1 and blinded different-session audit pending"
+  "status": "FROZEN (see scopedesk/bench/v1_1/FROZEN.md); adjudication in V1_1_ADJUDICATION.md",
+  "blind_audits": {
+   "director_text_only": "135/136 on draft (ts-0008)",
+   "critic_subagent_sonnet": "132/136 on draft (gh-0004/0012/0016 relabelled applies after amendment; ts-0008 resolved by pinned convention); both saw pre-amendment text"
+  }
  },
  "leakage_audit_v1_1": {
   "script": "scopedesk/bench/v1_1/leakage_audit.py",
