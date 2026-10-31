@@ -290,5 +290,17 @@
       ],
       "limitations": "same author as generator; conventions, subcritical behaviour and phrasing still not independently reviewed; no human review"
     }
-  ]
+  ],
+  "frontier_review": {
+    "reported_to": "codex-03 via messages/critic-to-codex03.md (file only)",
+    "reviewed_shas": [
+      "1b329cc (full)",
+      "75b896d (spot)",
+      "a3e0fd8 (not reviewed)"
+    ],
+    "fix_branch": "kganjam/delphi-frontier work/critic-honesty-fixes from base ac311552d095, commits e4ab195 b9f603b 81ca466 aa29a6d (pushed, exit 0)",
+    "probe_control_failed": "declared control 2 failed at one prior (89.53% vs >90%); not retrofitted",
+    "correction": "critic's '148 no source' register claim withdrawn: all 250 entries carry attestations (465)",
+    "not_touched": "frontier/models.py store.py tests website GOAL.md"
+  }
 }
