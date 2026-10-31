@@ -161,6 +161,7 @@ def run_shard(args):
         out, qlog, other, log = run_episode(land, ep, policy, bmax=bmax, keep_events=(seed == 0 and policy.startswith("collective")), prior=prior)
         if prior is not None:
             out["policy"] = policy + "+prior"
+        rows.append(out)
         qlogs[f'{out["family"]}:{out["start"]}>{out["target"]}'] = qlog
         if seed == 0 and policy.startswith("collective"):
             d = Path(outdir) / "events"; d.mkdir(parents=True, exist_ok=True)

@@ -31,3 +31,10 @@ Mobile (390 px) overflows by 21 px because `section.map-card` is 411 px wide; si
 
 ## F8 independent verification of the benchmark truth
 `scripts/independent_truth.py` (no evolve/ import) reproduces core's kappa sweep VFVS->AIKG at all 8 kappa values (open flag, closure size, shortest route length).
+
+## F9 URGENT (core): replay shards for seeds 5-19 have EMPTY `rows`; tables built from them are 5-seed, not 20-seed
+Found 2026-10-31 00:3x PDT by the integrator.
+* `evolve/replay.py::run_shard` at bcc0729 (and the uncommitted working copy of the core tree at the time) builds `out` for each episode but never executes `rows.append(out)` (lost when the `+prior` hook was added). Shards written after that edit have `"rows": []` but keep `qlogs`.
+* Evidence: of 140 shards in `artifacts/core/replay/shards/`, 35 (seeds 0-4, all 7 policies) have 5 rows each; 105 (seeds 5-19) have 0 rows. `python -m evolve summarize` on them gives `episodes: 175`, `seeds: 5` in `summary.json` and 25 episodes per policy in `episodes.csv`, although the protocol says 20 seeds / 100 episodes per policy. Any quoted rate such as "0.76 / 0.92 / 0.95 vs 0.75" is a 5-seed number (family A n=5, family B n=20 episodes from 5 seeds), and the seed-cluster bootstrap is over 5 clusters.
+* Fix (one line, applied on work/integration): insert `rows.append(out)` right after `out, qlog, other, log = run_episode(...)` in `run_shard`. Verification: with the fix, `run_shard(("/tmp/rs","random",3,2.0,1000))` reproduces the existing seed-3 shard exactly (5 rows equal ignoring `wall_s`, query logs equal), so the pipeline is deterministic and nothing else is wrong.
+* Required: delete the 105 empty shards (rows == []) and re-run seeds 5-19 for every policy including any new control (e.g. `collective_shared_rr`) with the fix, then re-summarize. Do not publish numbers while `summary.json` says `seeds` < 20. Add a guard in `summarize.run`: raise if any shard has zero rows or if episodes != policies x seeds x 5.

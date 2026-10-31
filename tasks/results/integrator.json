@@ -99,6 +99,11 @@
       "cmd": "python3 -I scripts/independent_truth.py data/raw/summary_AA.csv artifacts/demo.json VFVS AIKG (capped; no evolve/ import)",
       "exit": 0,
       "result": "independent forward-closure from VFVS reproduces core's kappa sweep at all 8 kappa (open flag, closure size 577/381/278/230/137/77/56/25, shortest route 5/5/5/5/6/7/7/none)"
+    },
+    {
+      "cmd": "python -m evolve summarize on copy of core's 140 shards (capped)",
+      "exit": 0,
+      "result": "episodes 175, seeds 5 (NOT 20): 105 shards have rows=[]; diagnosed missing rows.append(out); fixed and verified determinism on one shard. Early 5-seed numbers (not to be quoted): cert rate at 1000 assays all-family q2c 0.76, collective_shared 0.76, collective_isolated 0.92, random 0.08; 0 false certificates."
     }
   ],
   "findings": [
@@ -121,7 +126,8 @@
     "F3: pyproject.toml lacked rdflib and scipy; fixed in integration (clean-venv test run 40 passed).",
     "gpu worker local commit 220c80c: real Nebius H100 80GB probe job aijob-e00gqrf19pjdrbyat3 (plain fp32/bf16 vs Transformer-Engine bf16 ESM2 parity on 64 variants; throughput 229/430/587 seq/s). Committed log contains no credential values. Spend/stop bound and whether the code path is actually BioNeMo are not yet established; wait for gpu receipt. Reference FASTA verified by the worker against TARGET_b0.3.fa and the PDB (V183 F184 V227 S228).",
     "experience docs (novelty.md, outreach drafts, pitch/storyboard templates) are disciplined: ALDE credited with TrpB simulations, Johnston credited with route accessibility, no market numbers, outreach unsent. Required wording fix F6 for blocked semantics.",
-    "experience worker completed (receipt status completed). Its handoff items are done by scripts/assemble_demo.py except re-rendering docs and the final replay/GPU numbers."
+    "experience worker completed (receipt status completed). Its handoff items are done by scripts/assemble_demo.py except re-rendering docs and the final replay/GPU numbers.",
+    "F9 (URGENT, core): evolve/replay.py run_shard lacks rows.append(out); shards for seeds 5-19 (105 of 140) have empty rows, so summarize yields 175 episodes / 5 seeds, not 700 / 20. One-line fix applied on work/integration and verified to reproduce shard random seed 3 exactly (rows and qlogs). Core's worker log at 00:30 cites these 5-seed results as a 20-seed run. Any number from the current summary.json is a 5-seed number. Peer messaging cannot reach workers; finding documented in planning/INTEGRATION-FINDINGS.md."
   ],
   "artifacts": [
     "scripts/audit_data.py",
