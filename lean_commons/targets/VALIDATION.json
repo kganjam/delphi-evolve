@@ -16,7 +16,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 0.45
+   "reference_seconds": 1.7
   },
   {
    "id": "T02",
@@ -28,7 +28,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 0.52
+   "reference_seconds": 1.49
   },
   {
    "id": "Q01",
@@ -40,7 +40,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 0.61
+   "reference_seconds": 1.62
   },
   {
    "id": "T03",
@@ -52,7 +52,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 0.66
+   "reference_seconds": 1.43
   },
   {
    "id": "T04",
@@ -64,7 +64,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 0.69
+   "reference_seconds": 1.71
   },
   {
    "id": "T05",
@@ -76,7 +76,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 0.81
+   "reference_seconds": 1.81
   },
   {
    "id": "T06",
@@ -88,7 +88,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 0.8
+   "reference_seconds": 1.81
   },
   {
    "id": "T07",
@@ -100,7 +100,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 0.94
+   "reference_seconds": 1.88
   },
   {
    "id": "T08",
@@ -112,7 +112,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 1.01
+   "reference_seconds": 1.89
   },
   {
    "id": "H01",
@@ -124,7 +124,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 1.48
+   "reference_seconds": 1.8
   },
   {
    "id": "H02",
@@ -136,7 +136,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 1.12
+   "reference_seconds": 1.77
   },
   {
    "id": "H03",
@@ -148,7 +148,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 0.94
+   "reference_seconds": 2.0
   },
   {
    "id": "H04",
@@ -160,7 +160,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 1.4
+   "reference_seconds": 1.9
   },
   {
    "id": "D01",
@@ -172,7 +172,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 2.06
+   "reference_seconds": 1.83
   },
   {
    "id": "D02",
@@ -184,7 +184,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 2.83
+   "reference_seconds": 1.91
   },
   {
    "id": "T09",
@@ -196,7 +196,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 1.54
+   "reference_seconds": 1.83
   },
   {
    "id": "T10",
@@ -208,7 +208,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 1.34
+   "reference_seconds": 1.85
   },
   {
    "id": "T11",
@@ -220,7 +220,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 1.39
+   "reference_seconds": 2.14
   },
   {
    "id": "T12",
@@ -232,7 +232,7 @@
     "propext"
    ],
    "mutant_rejected": true,
-   "reference_seconds": 1.56
+   "reference_seconds": 2.15
   }
  ]
 }
