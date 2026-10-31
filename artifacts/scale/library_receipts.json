@@ -1,0 +1,234 @@
+{
+ "generated": "2026-10-31T01:50-07:00 PDT",
+ "array_dir": "/data/artifacts/delphi-evolve-scale/arrays",
+ "models": {
+  "te8m": {
+   "file": "/data/artifacts/delphi-evolve-scale/arrays/te8m_library.npz",
+   "bytes": 57091702,
+   "sha256": "51b0c7403cc3fd11db71310cf0fb4c0a6ee7569890de0db84f0cb756814d3ca9",
+   "repo": "nvidia/esm2_t6_8M_UR50D",
+   "revision": "3674a6acb6c217bbeff709d182a11b196125dfc3",
+   "covered": 160000,
+   "hidden_size": 320,
+   "rp_dim": 32,
+   "arrays": [
+    "have",
+    "lp_un",
+    "lp_mask",
+    "lp_all",
+    "site_rp",
+    "mean_rp",
+    "meta_json"
+   ]
+  },
+  "te35m": {
+   "file": "/data/artifacts/delphi-evolve-scale/arrays/te35m_library.npz",
+   "bytes": 56781849,
+   "sha256": "6f5f91fe26d9f977c83954522db10864b61845696d4e2b81023d8555bccae017",
+   "repo": "nvidia/esm2_t12_35M_UR50D",
+   "revision": "ca13c2d411d8aad9ea8dfa1f24a80a36a8946b5e",
+   "covered": 160000,
+   "hidden_size": 480,
+   "rp_dim": 32,
+   "arrays": [
+    "have",
+    "lp_un",
+    "lp_mask",
+    "lp_all",
+    "site_rp",
+    "mean_rp",
+    "meta_json"
+   ]
+  },
+  "te150m": {
+   "file": "/data/artifacts/delphi-evolve-scale/arrays/te150m_library.npz",
+   "bytes": 56645343,
+   "sha256": "94af5966492cf6e481911fa16851b9f781ae9590f8a50a0f7aee3507d6a5b5e1",
+   "repo": "nvidia/esm2_t30_150M_UR50D",
+   "revision": "a2e82bef92128da1852464b0864651b1a11337d0",
+   "covered": 160000,
+   "hidden_size": 640,
+   "rp_dim": 32,
+   "arrays": [
+    "have",
+    "lp_un",
+    "lp_mask",
+    "lp_all",
+    "site_rp",
+    "mean_rp",
+    "meta_json"
+   ]
+  },
+  "te650m": {
+   "file": "/data/artifacts/delphi-evolve-scale/arrays/te650m_library.npz",
+   "bytes": 56433907,
+   "sha256": "f2f22a6ff186e352d8ab6e2240388ebe14b53f0a4bb05f1556f89826beffb979",
+   "repo": "nvidia/esm2_t33_650M_UR50D",
+   "revision": "118f470e7e96ba8741227ab898e54758850e9563",
+   "covered": 160000,
+   "hidden_size": 1280,
+   "rp_dim": 32,
+   "arrays": [
+    "have",
+    "lp_un",
+    "lp_mask",
+    "lp_all",
+    "site_rp",
+    "mean_rp",
+    "meta_json"
+   ]
+  },
+  "te3b": {
+   "file": "/data/artifacts/delphi-evolve-scale/arrays/te3b_library.npz",
+   "bytes": 55403246,
+   "sha256": "476ed4669fd8a227b78c3991e5488a427dc0822929bd61ad9b47186079128570",
+   "repo": "nvidia/esm2_t36_3B_UR50D",
+   "revision": "0850cbdf0494675c6db7a5d0d7390ceed3b3504c",
+   "covered": 160000,
+   "hidden_size": 2560,
+   "rp_dim": 32,
+   "arrays": [
+    "have",
+    "lp_un",
+    "lp_mask",
+    "lp_all",
+    "site_rp",
+    "mean_rp",
+    "meta_json"
+   ]
+  }
+ },
+ "jobs": [
+  {
+   "id": "aijob-e00kejm199cp3hq1nt",
+   "name": "delphi-evolve-scale-te3b-u0-5-074404",
+   "model_key": "te3b",
+   "units": "0-5",
+   "state": "COMPLETED",
+   "started_at": "2026-10-31T07:51:47Z",
+   "finished_at": "2026-10-31T08:10:09Z",
+   "gpu_seconds": 1102,
+   "recovered_dir": "/data/artifacts/delphi-evolve-scale/recovered/aijob-e00kejm199cp3hq1nt"
+  },
+  {
+   "id": "aijob-e00db00w7bzzp973r0",
+   "name": "delphi-evolve-scale-te150m-u0-31-074511",
+   "model_key": "te150m",
+   "units": "0-31",
+   "state": "COMPLETED",
+   "started_at": "2026-10-31T07:53:00Z",
+   "finished_at": "2026-10-31T08:09:47Z",
+   "gpu_seconds": 1007,
+   "recovered_dir": "/data/artifacts/delphi-evolve-scale/recovered/aijob-e00db00w7bzzp973r0"
+  },
+  {
+   "id": "aijob-e00hsqc8eyxhaps2rw",
+   "name": "delphi-evolve-scale-te3b-u6-11-075857",
+   "model_key": "te3b",
+   "units": "6-11",
+   "state": "COMPLETED",
+   "started_at": "2026-10-31T08:06:33Z",
+   "finished_at": "2026-10-31T08:24:21Z",
+   "gpu_seconds": 1068,
+   "recovered_dir": "/data/artifacts/delphi-evolve-scale/recovered/aijob-e00hsqc8eyxhaps2rw"
+  },
+  {
+   "id": "aijob-e00nga5q6vjqbbee30",
+   "name": "delphi-evolve-scale-te3b-u12-16-080004",
+   "model_key": "te3b",
+   "units": "12-16",
+   "state": "COMPLETED",
+   "started_at": "2026-10-31T08:07:51Z",
+   "finished_at": "2026-10-31T08:23:29Z",
+   "gpu_seconds": 938,
+   "recovered_dir": "/data/artifacts/delphi-evolve-scale/recovered/aijob-e00nga5q6vjqbbee30"
+  },
+  {
+   "id": "aijob-e00y49t1xsfxm7cmqf",
+   "name": "delphi-evolve-scale-te3b-u17-21-080112",
+   "model_key": "te3b",
+   "units": "17-21",
+   "state": "COMPLETED",
+   "started_at": "2026-10-31T08:09:14Z",
+   "finished_at": "2026-10-31T08:24:49Z",
+   "gpu_seconds": 935,
+   "recovered_dir": "/data/artifacts/delphi-evolve-scale/recovered/aijob-e00y49t1xsfxm7cmqf"
+  },
+  {
+   "id": "aijob-e00zv8gre71k3mxt1s",
+   "name": "delphi-evolve-scale-te3b-u22-26-080322",
+   "model_key": "te3b",
+   "units": "22-26",
+   "state": "COMPLETED",
+   "started_at": "2026-10-31T08:11:16Z",
+   "finished_at": "2026-10-31T08:26:47Z",
+   "gpu_seconds": 931,
+   "recovered_dir": "/data/artifacts/delphi-evolve-scale/recovered/aijob-e00zv8gre71k3mxt1s"
+  },
+  {
+   "id": "aijob-e00msfjf9v25bjzb2w",
+   "name": "delphi-evolve-scale-te3b-u27-31-080429",
+   "model_key": "te3b",
+   "units": "27-31",
+   "state": "COMPLETED",
+   "started_at": "2026-10-31T08:12:37Z",
+   "finished_at": "2026-10-31T08:28:05Z",
+   "gpu_seconds": 928,
+   "recovered_dir": "/data/artifacts/delphi-evolve-scale/recovered/aijob-e00msfjf9v25bjzb2w"
+  },
+  {
+   "id": "aijob-e00bz2z168xhb8sqj0",
+   "name": "delphi-evolve-scale-te650m-u0-31-080639",
+   "model_key": "te650m",
+   "units": "0-31",
+   "state": "COMPLETED",
+   "started_at": "2026-10-31T08:15:05Z",
+   "finished_at": "2026-10-31T08:41:22Z",
+   "gpu_seconds": 1577,
+   "recovered_dir": "/data/artifacts/delphi-evolve-scale/recovered/aijob-e00bz2z168xhb8sqj0"
+  },
+  {
+   "id": "aijob-e00cgjqnrbdeeybnj5",
+   "name": "delphi-evolve-scale-te35m-u0-31-080849",
+   "model_key": "te35m",
+   "units": "0-31",
+   "state": "COMPLETED",
+   "started_at": "2026-10-31T08:17:50Z",
+   "finished_at": "2026-10-31T08:27:19Z",
+   "gpu_seconds": 569,
+   "recovered_dir": "/data/artifacts/delphi-evolve-scale/recovered/aijob-e00cgjqnrbdeeybnj5"
+  },
+  {
+   "id": "aijob-e00j9xfkkz9rpeakz6",
+   "name": "delphi-evolve-scale-te8m-u0-31-081200",
+   "model_key": "te8m",
+   "units": "0-31",
+   "state": "COMPLETED",
+   "started_at": "2026-10-31T08:19:44Z",
+   "finished_at": "2026-10-31T08:26:44Z",
+   "gpu_seconds": 420,
+   "recovered_dir": "/data/artifacts/delphi-evolve-scale/recovered/aijob-e00j9xfkkz9rpeakz6"
+  }
+ ],
+ "total_owned_job_gpu_seconds": 9475,
+ "total_owned_job_gpu_hours": 2.63,
+ "priors_z_npz": {
+  "file": "artifacts/scale/priors_z.npz",
+  "sha256": "c327c7b45d4e2143d85fa331deaee8c7001166ad3d0612e027adf0513df1f2ad",
+  "bytes": 5161724,
+  "keys": [
+   "te150m__mm_ctx",
+   "te150m__mm_wt",
+   "te35m__mm_ctx",
+   "te35m__mm_wt",
+   "te3b__mm_ctx",
+   "te3b__mm_wt",
+   "te650m__mm_ctx",
+   "te650m__mm_wt",
+   "te8m__mm_ctx",
+   "te8m__mm_wt"
+  ],
+  "order": "lexicographic AA20, site 183 slowest == evolve.data.encode == trpb_ref.all_genotypes",
+  "units": "z-score over all 160000 variants (mean 0, sd 1) of score relative to parent VFVS; NOT score units"
+ }
+}

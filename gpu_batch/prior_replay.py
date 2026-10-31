@@ -137,12 +137,11 @@ def summarize(a):
             row[f"false@{b}"] = int((c & (g.correct == False)).sum())  # noqa: E712
         row["rmst@1000"] = float(np.minimum(g.t, 1000).mean())
         if tag != "none" and not base[base.policy == pol].empty:
-            b0 = base[base.policy == pol].set_index(["family", "seed", "start", "target"])
-            g1 = g.set_index(["family", "seed", "start", "target"])
-            idx = g1.index.intersection(b0.index)
-            d = (np.minimum(g1.loc[idx, "t"], 1000) - np.minimum(b0.loc[idx, "t"], 1000)).to_frame("d")
-            d["seed"] = [i[1] for i in idx]
-            per_seed = d.groupby("seed")["d"].mean().to_numpy()
+            keys = ["family", "seed", "start", "target"]
+            m = g[keys + ["t"]].merge(base[base.policy == pol][keys + ["t"]], on=keys, suffixes=("", "_none"))
+            m["d"] = np.minimum(m["t"], 1000) - np.minimum(m["t_none"], 1000)
+            idx = m.index
+            per_seed = m.groupby("seed")["d"].mean().to_numpy()
             boots = [per_seed[rng.integers(0, len(per_seed), len(per_seed))].mean() for _ in range(2000)]
             row.update(paired_rmst_diff_vs_none=float(per_seed.mean()), paired_seed_bootstrap_lo=float(np.percentile(boots, 2.5)),
                        paired_seed_bootstrap_hi=float(np.percentile(boots, 97.5)), paired_n_episodes=int(len(idx)), paired_n_seeds=int(len(per_seed)))

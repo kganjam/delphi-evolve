@@ -115,7 +115,8 @@
    ],
    "purpose": "3B remaining shards (released after pilot unit_done is recovered and checked)",
    "created_at": "2026-10-31T07:59:03Z",
-   "last_state": "RUNNING"
+   "last_state": "COMPLETED",
+   "ended_at": "2026-10-31T08:25:19Z"
   },
   {
    "name": "delphi-evolve-scale-te3b-u12-16-080004",
@@ -142,7 +143,8 @@
    ],
    "purpose": "3B remaining shards (released after pilot unit_done is recovered and checked)",
    "created_at": "2026-10-31T08:00:11Z",
-   "last_state": "RUNNING"
+   "last_state": "COMPLETED",
+   "ended_at": "2026-10-31T08:24:18Z"
   },
   {
    "name": "delphi-evolve-scale-te3b-u17-21-080112",
@@ -169,7 +171,8 @@
    ],
    "purpose": "3B remaining shards (released after pilot unit_done is recovered and checked)",
    "created_at": "2026-10-31T08:01:18Z",
-   "last_state": "RUNNING"
+   "last_state": "COMPLETED",
+   "ended_at": "2026-10-31T08:25:19Z"
   },
   {
    "name": "delphi-evolve-scale-te3b-u22-26-080322",
@@ -196,7 +199,8 @@
    ],
    "purpose": "3B remaining shards (released after pilot unit_done is recovered and checked)",
    "created_at": "2026-10-31T08:03:28Z",
-   "last_state": "RUNNING"
+   "last_state": "COMPLETED",
+   "ended_at": "2026-10-31T08:27:21Z"
   },
   {
    "name": "delphi-evolve-scale-te3b-u27-31-080429",
@@ -223,7 +227,8 @@
    ],
    "purpose": "3B remaining shards (released after pilot unit_done is recovered and checked)",
    "created_at": "2026-10-31T08:04:37Z",
-   "last_state": "IMAGE_PULLING"
+   "last_state": "COMPLETED",
+   "ended_at": "2026-10-31T08:28:23Z"
   },
   {
    "name": "delphi-evolve-scale-te650m-u0-31-080639",
@@ -250,7 +255,8 @@
    ],
    "purpose": "650M TE through the SAME protocol as the other sizes (adds lp_all + random-projected embeddings; cross-checks the gpu worker's lp_mask/lp_un numerics)",
    "created_at": "2026-10-31T08:06:45Z",
-   "last_state": "IMAGE_PULLING"
+   "last_state": "COMPLETED",
+   "ended_at": "2026-10-31T08:41:37Z"
   },
   {
    "name": "delphi-evolve-scale-te35m-u0-31-080849",
@@ -277,7 +283,8 @@
    ],
    "purpose": "35M TE, small end of size ablation",
    "created_at": "2026-10-31T08:08:57Z",
-   "last_state": "IMAGE_PULLING"
+   "last_state": "COMPLETED",
+   "ended_at": "2026-10-31T08:28:23Z"
   },
   {
    "name": "delphi-evolve-scale-te8m-u0-31-081200",
@@ -303,7 +310,9 @@
     "/tmp/scale_out"
    ],
    "purpose": "8M TE, smallest point of size ablation",
-   "created_at": "2026-10-31T08:12:06Z"
+   "created_at": "2026-10-31T08:12:06Z",
+   "last_state": "COMPLETED",
+   "ended_at": "2026-10-31T08:27:21Z"
   }
  ]
 }
