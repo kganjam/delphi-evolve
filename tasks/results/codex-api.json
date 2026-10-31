@@ -1,9 +1,9 @@
 {
   "role": "codex-api",
   "status": "active",
-  "updated_at": "2026-10-31T06:51:40.398755-07:00",
+  "updated_at": "2026-10-31T06:53:55.544710-07:00",
   "branch": "work/codex-api",
-  "commit": "Recorded in git history; this status file is included in the reported commit.",
+  "commit": "596ae9e (first pushed increment); next audit commit recorded in git history",
   "goal": "Native persistent goal active: scientific review, evaluation, integration, honest demo/pitch/site/blog/video with existing workers.",
   "checklist": [
     {
@@ -43,13 +43,21 @@
     {
       "command": "Copy two inherited service receipts byte-for-byte and compute SHA256",
       "exit": 0
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 artifacts/integration/codex-api/audit_benchmark_semantics.py --output artifacts/integration/codex-api/benchmark-semantic-audit.json",
+      "exit": 0,
+      "result": "136 inputs reviewed; Rayleigh physical-model defect and enumerated input-semantic gaps; no model score"
     }
   ],
   "artifacts": [
     "artifacts/integration/codex-api/service-fixed-review.json",
     "artifacts/integration/codex-api/service-fixed-review.lean",
     "artifacts/integration/codex-api/provenance.json",
-    "planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md"
+    "planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md",
+    "planning/rethink/CODEX-BENCHMARK-SEMANTICS.md",
+    "artifacts/integration/codex-api/audit_benchmark_semantics.py",
+    "artifacts/integration/codex-api/benchmark-semantic-audit.json"
   ],
   "limitations": [
     "No new service tests run by this reporter yet.",
@@ -57,7 +65,7 @@
     "No deployment/submission/external reuse receipt."
   ],
   "next_steps": [
-    "Write sourced review addendum, commit and push.",
-    "Review current worker source and evaluation artifacts without editing their trees."
+    "Complete claim/pitch ledger assigned by director.",
+    "Audit v1.1 before evaluation and review 21-claim statement freeze when published."
   ]
 }
