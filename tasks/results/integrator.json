@@ -104,6 +104,26 @@
       "cmd": "python -m evolve summarize on copy of core's 140 shards (capped)",
       "exit": 0,
       "result": "episodes 175, seeds 5 (NOT 20): 105 shards have rows=[]; diagnosed missing rows.append(out); fixed and verified determinism on one shard. Early 5-seed numbers (not to be quoted): cert rate at 1000 assays all-family q2c 0.76, collective_shared 0.76, collective_isolated 0.92, random 0.08; 0 false certificates."
+    },
+    {
+      "cmd": "python3 -I scripts/audit_episodes.py data/raw/summary_AA.csv artifacts/core/replay (capped)",
+      "exit": 0,
+      "result": "core 20-seed committed results: truth recomputed independently for all 24 unique pairs (21 starts) 0 mismatches; table_primary at 1000 assays recomputed for 11 policies 0 mismatches; 587 open routes edge-checked against my own intervals 0 bad edges; flags consistent; 0 false certificates; 100 episodes per policy"
+    },
+    {
+      "cmd": "python3 scripts/bridge_core_cert.py on core's committed certificate (body 7523e361), then scripts/assemble_demo.py + check_demo.py",
+      "exit": "0,0,0",
+      "result": "route bridge ok (7/7 exact intervals, original builds, mutant rejected by kernel decide); assembled demo: proof completed, benchmark completed, compute unavailable; check_demo 0 hard failures 0 soft; blocked example tied to proof's admCert_sound certificate by content (closed set + all listed intervals)"
+    },
+    {
+      "cmd": "python3 scripts/browser_smoke.py site (Results section present, demo.json present)",
+      "exit": 0,
+      "result": "0 console errors, 0 page errors, 0 failed requests, 0 px overflow on 1280 and 390 widths; screenshots of light, mobile and dark results viewed"
+    },
+    {
+      "cmd": "/tmp/integ/venv/bin/python -m pytest -q tests (capped, merged tree incl. core 7f2ba75)",
+      "exit": 0,
+      "result": "109 passed"
     }
   ],
   "findings": [
@@ -130,7 +150,10 @@
     "F9 (URGENT, core): evolve/replay.py run_shard lacks rows.append(out); shards for seeds 5-19 (105 of 140) have empty rows, so summarize yields 175 episodes / 5 seeds, not 700 / 20. One-line fix applied on work/integration and verified to reproduce shard random seed 3 exactly (rows and qlogs). Core's worker log at 00:30 cites these 5-seed results as a 20-seed run. Any number from the current summary.json is a 5-seed number. Peer messaging cannot reach workers; finding documented in planning/INTEGRATION-FINDINGS.md.",
     "F9 update 00:41 PDT: core worker independently found and fixed the missing rows.append(out) (replay.py:165 in its working tree), removed the empty shards and is re-running; its 75 shards present at that time had 0 empty. My identical one-line fix is on work/integration; expect a trivial merge. Earlier 5-seed numbers are superseded and must not be quoted.",
     "proof d69d0ee separates 'no certifiable route' (admCertB/admCert_sound) from strong blocked (blocked_cut_sound) with a kernel-checked counterexample in lean/DarwinBridge/Distinction.lean, and Lean-checks core's HTGR>GTVN cut as the weak statement only (bridged_from body hash 9ad27d69... equals core's certificate). Resolves F1 at the proof level; wording rules F6 still apply. proof's own limitation: a 23-member VFVS>AIKG admissible closure OOMs in the kernel at 3 GB and must not be cited.",
-    "gpu job aijob-e00d27jgpd2n9kwva1 (n=512 parity): compute succeeded but the main stage exited 1 on an OSError writing the output volume; worker recovered the result JSON from the job log and kept 'FAILED_main_stage' in the file name. Treat as log-recovered, not as a clean job exit."
+    "gpu job aijob-e00d27jgpd2n9kwva1 (n=512 parity): compute succeeded but the main stage exited 1 on an OSError writing the output volume; worker recovered the result JSON from the job log and kept 'FAILED_main_stage' in the file name. Treat as log-recovered, not as a clean job exit.",
+    "core 7f2ba75 corrected 20-seed replay (11 arms x 100 episodes): at 1000 assays certified fraction random 0.21, greedy 0.08, GP-uncertainty 0.13, directed 0.32, q2c 0.78, collective shared 0.78, collective isolated 0.77; post-hoc: q2c_nomodel 0.96, shared_rr 0.78, shared-no-GP 0.96, isolated-no-GP 0.65. Paired q2c-directed +0.46 [0.40,0.53]; collective_shared - q2c 0.00 [0.00,0.00]. No collective advantage over a single policy. 0 false certificates (by construction). All comparators are the repo's own; ALDE not run; no GPU prior run.",
+    "F10 reproducibility wart: core certificate body_sha256 includes software.numpy/python versions, so regenerating certificates in another environment changes the hash although route/intervals are identical; running the test suite rewrites tracked artifacts/core/certificates/*.json with the local numpy version. Integration ties bridges by content (closed set + intervals) for the cut and refreshed the route bridge against core's committed file. Do not commit test-regenerated certificates.",
+    "Pitch rewritten to 395 spoken words (~2.8 min at 140 wpm) with every number rendered from site/data/demo.json and site/data/results.json placeholders; docs staleness test passes."
   ],
   "artifacts": [
     "scripts/audit_data.py",
@@ -144,7 +167,13 @@
     "planning/INTEGRATION-FINDINGS.md",
     "scripts/reproduce.sh",
     "scripts/assemble_demo.py",
-    "scripts/independent_truth.py"
+    "scripts/independent_truth.py",
+    "scripts/audit_episodes.py",
+    "scripts/build_results_json.py",
+    "site/results.js",
+    "site/data/results.json",
+    "site/data/demo.json",
+    "artifacts/demo.json"
   ],
   "limitations": [
     "experience nanopub validation is rdflib structural only (worker-reported, not rerun by me).",
