@@ -73,6 +73,8 @@ def landing(f, commit, review_exists):
     wit = "".join(f"<details><summary>Drop: {E(v['drops'])} <span class='mono'>({E(k)})</span></summary><p>{E(v['reading'])}</p></details>" for k, v in W.items() if k != "reversed_cost_is_false")
     wit += f"<details><summary>Drop: {E(W['reversed_cost_is_false']['drops'])} <span class='mono'>(reversed_cost_is_false; plus {len(P['mutants'])} changed-target mutants the compiler rejects)</span></summary><p>{E(W['reversed_cost_is_false']['reading'])}</p></details>"
     kc = Kl["kind_counts"]
+    FRONTIER = ('Delphi Frontier map (a proposal, nothing deployed): <a href="../review/frontier.html">the reviewed map of the 21 records from the review worker</a>.'
+                if (Path(FA.ROOT) / "site/review/frontier.html").exists() else f"Delphi Frontier map: {PEND}")
     lrows = "".join(f"<tr><td>{E(r['id'])}</td><td>{E(r['claim'])}</td><td>{E(r['kind'])}</td><td>{E(r['caught_by'])}</td><td>{E(r['allowed'])}</td><td class='mono'>{E(str(r['claim_stated_pdt']))}</td><td class='mono'>{E(str(r['kill_recorded_pdt']))}</td><td>{E(str(r['duration_min']))}</td></tr>" for r in Kl["all_rows"])
     V = f["errors"]["stability_mislabel"]
     bar = lambda v, label, color: f'<div style="display:flex;align-items:center;gap:10px;margin:6px 0"><div style="width:170px">{label}</div><div style="flex:1;background:var(--rule);border-radius:4px;height:22px"><div style="width:{v}%;height:22px;background:{color};border-radius:4px"></div></div><div class="mono" style="width:64px">{v}/100</div></div>'
@@ -130,9 +132,11 @@ def landing(f, commit, review_exists):
 <h2 id="close">6. Close</h2>
 <div class="grid3">
  <div class="card"><h3>Reusable now</h3>The checker, repair enumerator, test set and ledger are in this repository. A fresh-clone acceptance run passed (exit 0, {Ac['seconds']} s) at an earlier commit; a receipt for the final commit is {PEND} Outside use: none observed yet.</div>
- <div class="card"><h3>Next, a proposal</h3>A pilot on a modelling team's recent reuse decisions. Delphi Frontier, nothing deployed: one page per open problem showing what we know, what's next and who is working on it. Scorecard of {Sc['records']} candidate laws: {PEND} Misprediction map over a large ensemble: {PEND}</div>
+ <div class="card"><h3>Next, a proposal</h3>A pilot on a modelling team's recent reuse decisions. Delphi Frontier, nothing deployed: one page per open problem showing what we know, what's next and who is working on it. Misprediction map over a large ensemble: {PEND}</div>
  <div class="card"><h3>Credit, and what we do not claim</h3>ATLAS (facebookresearch/atlas-lean), Prove2Me (arXiv 2608.28433), Rashid et al. 2017, lean-bio, crnt-lean, Ripple (arXiv 2607.13531). We aim to complement ATLAS, not compete with it; offering Turing statements to it is pending. No first library, no universal threshold, no claim that a named law is wrong.</div>
 </div>
+<div class="card"><h3>Scorecard of {Sc['records']} records, version 0</h3><b>{Sc['attempted']}</b> attempted: {Sc['scope_found']} with a scope condition found, {Sc['holds_as_declared']} holding as declared, {Sc['formal_node_only']} formal node only. {Sc['self_declared_non_formal']} self-declared non-formal. <b>{Sc['not_attempted']} not attempted.</b> Statuses are the critic's single-reader judgement and Codex has not approved them. The records' correspondence to their source papers is not reviewed; the checks are of declared models only; several scope findings are textbook, not discoveries. Source: <span class="mono">scopedesk/scorecard/</span>.</div>
+<p>{FRONTIER}</p>
 <h2>Downloads</h2>
 <ul><li><a href="assets/deck.pdf">Six-slide deck (PDF)</a> · <a href="assets/deck.html">HTML deck</a> · <a href="assets/speaker-notes.md">three-minute script</a> · <a href="blog.html">blog</a></li>
 <li>Numbers are re-derived from committed artifacts by <span class="mono">presentation/delphi/trace.py</span>; the claim ledger is <span class="mono">planning/rethink/CLAIM-LEDGER.md</span>.</li></ul>
@@ -184,7 +188,7 @@ def blog_parts(f):
         ("h2", "What the collective measured"),
         ("p", f"On the one controlled task, shared specialists matched a single planner ({Bl['shared_1000']} of 100 each) and a plain lazy search reached {Bl['lazysp_1000']}. More agents did not help. A proof-search pilot on 19 frozen integer-arithmetic lemmas, with shared, private and sequential library controls, is pending checker repair and result replay (call-matched, not compute-matched). The only agent run we have used prompts that did not match their labels, so it is exploratory agreement and not a ceiling."),
         ("h2", "Reusable now, and next"),
-        ("p", f"The checker, repair enumerator, test set and ledger are in the repository; outside use is none observed yet. Next, as a proposal and not a deployed system: a pilot on a modelling team's recent reuse decisions, and Delphi Frontier, one page per open problem showing what we know, what is next and who is working on it. The scorecard of {Sc['records']} candidate laws and a misprediction map over a large parameter ensemble are pending."),
+        ("p", f"The checker, repair enumerator, test set and ledger are in the repository; outside use is none observed yet. Next, as a proposal and not a deployed system: a pilot on a modelling team's recent reuse decisions, and Delphi Frontier, one page per open problem showing what we know, what is next and who is working on it. A first scorecard of the {Sc['records']} candidate records has {Sc['attempted']} attempted, {Sc['self_declared_non_formal']} self-declared non-formal and {Sc['not_attempted']} not attempted, by one reader, not approved by Codex. A misprediction map over a large parameter ensemble is pending."),
     ]
 
 

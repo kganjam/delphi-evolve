@@ -241,7 +241,20 @@ def register():
     claim(6, "(exit 0, 56.6 s)", [AC], lambda: f"(exit 0, {ac['total_seconds']} s)" if ac["overall_pass"] else "MISMATCH")
     FR = "artifacts/integration/codex-api/admissible-review/committed-freeze.json"
     fr = T.J(FR)
-    claim(6, "Scorecard of 21 candidate laws", [FR], lambda: f"Scorecard of {len(fr['claims'])} candidate laws")
+    SCJ = "scopedesk/scorecard/scorecard.json"
+    sc = T.J(SCJ)
+
+    def scorecard():
+        st = {}
+        for r in sc["rows"]:
+            st[r["status"][:3]] = st.get(r["status"][:3], 0) + 1
+        a_, b_, c_, d_, e_ = (st.get(k, 0) for k in ("(a)", "(b)", "(c)", "(d)", "(e)"))
+        assert len(sc["rows"]) == 21 == len(fr["claims"]) and a_ + b_ + c_ + d_ + e_ == 21
+        lim = " ".join(sc["global_limits"])
+        assert "single-reader" in lim and "Codex has not approved this scorecard" in lim and "DECLARED models" in lim
+        return (f"Scorecard of {len(sc['rows'])} records, version 0 {a_ + b_ + c_} attempted: {a_} with a scope condition found, {b_} holding as declared, {c_} formal node only. "
+                f"{d_} self-declared non-formal. {e_} not attempted. Single-reader statuses, not approved by Codex; declared-model checks only; several scope findings are textbook, not discoveries.")
+    claim(6, "Scorecard of 21 records, version 0 7 attempted: 5 with a scope condition found, 1 holding as declared, 1 formal node only. 2 self-declared non-formal. 12 not attempted. Single-reader statuses, not approved by Codex; declared-model checks only; several scope findings are textbook, not discoveries.", [SCJ, FR], scorecard)
     AD = (R / "planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md").read_text()
     PA = (R / "planning/rethink/PRIOR-ART-VERDICT.md").read_text()
     SRC = "presentation/delphi/sources.md"
@@ -365,7 +378,7 @@ def main():
                 errors.append(f"slide {i} notes: number {tk!r} is not on the slide itself")
     # every unmeasured item must read 'pending', never a number
     for i, label in ((3, "Second-reader review:"), (5, "Results:"), (5, "Scored comparison:"), (6, "receipt for the final commit is"),
-                     (6, "Scorecard of 21 candidate laws:"), (6, "Misprediction map over a large ensemble:")):
+                     (6, "Misprediction map over a large ensemble:")):
         m = re.search(re.escape(label) + r" (\S+)", slides[i - 1]["html"])
         if not m or m.group(1).lower() != "pending":
             errors.append(f"slide {i}: {label!r} must read 'pending', found {m.group(1) if m else None!r}")

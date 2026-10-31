@@ -728,8 +728,22 @@
   "f04_artifact_kind": "independent software/model review; no biological measurements"
  },
  "scorecard": {
-  "ledger": "P01 (pending: freeze not approved)",
+  "ledger": "unledgered: critic's scorecard v0 (single reader; Codex has not approved)",
   "records": 21,
+  "scorecard_artifact": "scopedesk/scorecard/scorecard.json",
+  "attempted": 7,
+  "scope_found": 5,
+  "holds_as_declared": 1,
+  "formal_node_only": 1,
+  "self_declared_non_formal": 2,
+  "not_attempted": 12,
+  "scorecard_limits": [
+   "Source-correspondence of each record to the original paper is NOT reviewed.",
+   "Statuses and 'does not establish' text are the critic's single-reader judgement (not computed).",
+   "Codex has not approved this scorecard; 'Codex-reviewed' refers to the cited artifacts only.",
+   "All checks are of DECLARED models (bench conventions, Lean statements); nothing here validates any biological claim; the host's B0-B3 buckets are not used.",
+   "Delphi LLM assessments are not used as evidence (0 assessments present in these records)."
+  ],
   "freeze_file": "artifacts/integration/codex-api/admissible-review/committed-freeze.json",
   "freeze_sha256": "dbf233d1ebe7156576e8e24bb4f7b7f3f6c3c75d4552efde198798eeb482ba0e",
   "compiled": "PENDING",

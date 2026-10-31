@@ -232,7 +232,15 @@ def scorecard_facts():
     fr = J("artifacts/integration/codex-api/admissible-review/committed-freeze.json")
     recs = fr["claims"]
     assert len(recs) == 21
-    return {"ledger": "P01 (pending: freeze not approved)", "records": len(recs), "freeze_file": "artifacts/integration/codex-api/admissible-review/committed-freeze.json",
+    sc = J("scopedesk/scorecard/scorecard.json")
+    cnt = sc["counts"]
+    assert sc["n_claims"] == len(sc["rows"]) == 21 and sum(cnt.values()) == 21
+    lim = " ".join(sc["global_limits"])
+    assert "single-reader" in lim and "Codex has not approved this scorecard" in lim
+    a, b, c_, d_, e_ = (cnt[k] for k in ("(a) CHECKED-SCOPE-FOUND", "(b) CHECKED-HOLDS-AS-DECLARED", "(c) FORMAL-NODE-ONLY", "(d) SELF-DECLARED NON-FORMAL / EMPIRICAL", "(e) NOT ATTEMPTED"))
+    return {"ledger": "unledgered: critic's scorecard v0 (single reader; Codex has not approved)", "records": len(recs), "scorecard_artifact": "scopedesk/scorecard/scorecard.json",
+            "attempted": a + b + c_, "scope_found": a, "holds_as_declared": b, "formal_node_only": c_, "self_declared_non_formal": d_, "not_attempted": e_,
+            "scorecard_limits": sc["global_limits"], "freeze_file": "artifacts/integration/codex-api/admissible-review/committed-freeze.json",
             "freeze_sha256": sha("artifacts/integration/codex-api/admissible-review/committed-freeze.json"),
             "compiled": "PENDING", "excluded": "PENDING", "scores": "PENDING"}
 

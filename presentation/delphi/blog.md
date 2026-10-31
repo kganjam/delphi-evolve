@@ -28,4 +28,4 @@ On the one controlled task, shared specialists matched a single planner (78 of 1
 
 ## Reusable now, and next
 
-The checker, repair enumerator, test set and ledger are in the repository; outside use is none observed yet. Next, as a proposal and not a deployed system: a pilot on a modelling team's recent reuse decisions, and Delphi Frontier, one page per open problem showing what we know, what is next and who is working on it. The scorecard of 21 candidate laws and a misprediction map over a large parameter ensemble are pending.
+The checker, repair enumerator, test set and ledger are in the repository; outside use is none observed yet. Next, as a proposal and not a deployed system: a pilot on a modelling team's recent reuse decisions, and Delphi Frontier, one page per open problem showing what we know, what is next and who is working on it. A first scorecard of the 21 candidate records has 7 attempted, 2 self-declared non-formal and 12 not attempted, by one reader, not approved by Codex. A misprediction map over a large parameter ensemble is pending.

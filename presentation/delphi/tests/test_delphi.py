@@ -52,14 +52,14 @@ def _mut(root, old, new):
 
 def test_changed_number_fails(tmp_path):
     root = _copy(tmp_path)
-    _mut(root, "Scorecard of 21 candidate laws", "Scorecard of 22 candidate laws")
+    _mut(root, "Scorecard of 21 records", "Scorecard of 22 records")
     code, out = trace(root, out=tmp_path / "t.json")
-    assert code == 1 and "21 candidate laws" in out
+    assert code == 1 and "21 records" in out
 
 
 def test_pending_replaced_by_a_number_fails(tmp_path):
     root = _copy(tmp_path)
-    _mut(root, 'Scorecard of 21 candidate laws: <span class="pend">pending</span>', "Scorecard of 21 candidate laws: <b>7</b>")
+    _mut(root, 'Misprediction map over a large ensemble: <span class="pend">pending</span>', "Misprediction map over a large ensemble: <b>7</b>")
     code, out = trace(root, out=tmp_path / "t.json")
     assert code == 1 and ("must read 'pending'" in out or "not traced" in out)
 
@@ -159,6 +159,14 @@ def test_hard_banned_claims_and_citations_absent_everywhere():
     """Not negation-aware: these strings must not appear at all (ATLAS exists; the two citations were wrong; prove2.me is not to be visited)."""
     bad = [(n, p) for n, t in _texts().items() for p in HARD_BANNED if re.search(p, t, re.I)]
     assert not bad, bad
+
+
+def test_scorecard_counts_are_shown_with_their_limits():
+    t = _texts()
+    for k in ("deck slide 6", "site/index.html"):
+        assert re.search(r"\b7\b.{0,12}attempted", t[k]) and re.search(r"\b12\b.{0,4}not attempted", t[k], re.S), k
+        assert re.search(r"not approved by Codex|Codex has not approved", t[k]), k
+        assert re.search(r"single-reader", t[k], re.I), k
 
 
 def test_atlas_is_credited_and_misprediction_map_is_pending():
