@@ -1,10 +1,10 @@
 {
  "role": "presentation-refresh",
- "status": "completed_pending_commit_hash_in_followup_receipt_commit",
+ "status": "completed",
  "completed_pdt": "2026-10-31 02:08",
  "model": "claude-sonnet-5-5 (existing Claude Max subscription; no metered API charge established; CLI cost estimates are not subscription spend). No GPU, no subagents, no extra APIs used.",
  "branch": "work/presentation",
- "commit": "set in the receipt-only follow-up commit (see git log)",
+ "commit": "95fa703 (deck, PDF, notes, appendix, video, validator, tests); this receipt's status/commit fields are updated in the following receipt-only commit",
  "inputs": {
   "root": "/data/worktrees/delphi-evolve/release",
   "git_head": "fcbc98f9f6206a49fe36d89b0c080867437ef859 (work/release, git status clean for every input path, also origin/work/release; tree of site/ identical to 43fa7b9 'Publish the stronger LazySP comparison')",
