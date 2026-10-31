@@ -1,0 +1,41 @@
+{
+ "_note": "SYNTHETIC FIXTURE: a prediction formatted as an observation",
+ "requirement": {
+  "dataset_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "assay_context_id": "db041357c9bffd045034a32730c61e828e9571c07defb8b697a40ee1956a94ba",
+  "reference_sha256": "f74260ce69d3eb224de1e90d7e687f404da225d62eac7c553d478d044b05ae8c"
+ },
+ "claims": [
+  {
+   "schema": "typed-evidence-claim/v1",
+   "kind": "predicted",
+   "status": "active",
+   "subject": "VFVS",
+   "value": {
+    "outcome": "measured",
+    "score_micro": 1,
+    "replicate_micro": [
+     0,
+     2
+    ],
+    "min_input_count": 100
+   },
+   "dataset_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "assay_context_id": "db041357c9bffd045034a32730c61e828e9571c07defb8b697a40ee1956a94ba",
+   "reference_sha256": "f74260ce69d3eb224de1e90d7e687f404da225d62eac7c553d478d044b05ae8c",
+   "positions": [
+    183,
+    184,
+    227,
+    228
+   ],
+   "units": "integer micro-units of raw growth-rate score mu minus per-replicate stop-codon mean (evolve.data, 1e-6 resolution)",
+   "provenance": {
+    "SYNTHETIC_FIXTURE": "format example only, not a measurement"
+   },
+   "id": "9c9f76eb3672f993c4fa62d958d1ae21368589c05e66f8d73332fcb239bc3ace"
+  }
+ ],
+ "action": "lookup",
+ "subject": "VFVS"
+}

@@ -1,0 +1,37 @@
+{
+ "claim": "kimura-fixation-probability",
+ "task": "hypothetical_trajectory",
+ "model": {
+  "ploidy": "diploid",
+  "selection": "genic_additive",
+  "ne": "constant",
+  "linkage": "none"
+ },
+ "s_source": {
+  "kind": "declared_hypothetical",
+  "label": "HYPOTHETICAL SCENARIO",
+  "declared_by": "demo author; not derived from any measurement"
+ },
+ "scenario": {
+  "route": [
+   "VFVS",
+   "VFMS",
+   "SFMS",
+   "SIMS",
+   "SIMG",
+   "SIKG",
+   "AIKG"
+  ],
+  "per_step_s": [
+   0.01,
+   0.01,
+   -0.005,
+   0.01,
+   0.01,
+   0.01
+  ],
+  "Ne": 1000,
+  "N_census_diploids": 1000,
+  "derive_s_from_assay_scores": false
+ }
+}
