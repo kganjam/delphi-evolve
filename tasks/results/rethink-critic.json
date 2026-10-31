@@ -1,6 +1,6 @@
 {
  "role": "critic",
- "status": "bench v1.2 candidate built (opaque ids, pinned model payload, complete diagnosis fields, self-contained README); v1.1 NOT approved (Codex withheld); approvals pending; NCA oracle layer audited 55/55 on Turing1D/2D/wavelength (verdict+conditions)",
+ "status": "bench v1.2 candidate rev3 (128 items) after Codex pre-run delta review: linear-target prompts, answer/abstain scoring, 3 uniform-column items excluded; READY TO FREEZE pending Codex re-check and director go; NOT frozen",
  "model": "claude-sonnet-5-5 (subscription; metered spend unknown, none inferred)",
  "wall_time_pdt": "2026-10-31 06:00-06:20",
  "artifacts": [
@@ -214,16 +214,15 @@
  },
  "v1_2": {
   "path": "scopedesk/bench/v1_2",
-  "n": 135,
-  "key_sha256": "bc8caf20db7ec56d5075b550af0a03cbb85363bc1501e1434c3b5a83dd1eb046",
-  "changes": [
-   "opaque public ids (q+8hex) with private legacy map",
-   "model_payload.jsonl pinned and hashed",
-   "violated_conditions completed for Hamilton synergy, non-KPP cubic, near-onset wavelength",
-   "self-contained README and AUDIT_BRIEF",
-   "mechanism_groups declared in split.json"
+  "n": 128,
+  "key_sha256": "774f6a08bf77330b8d46dbcbc0fd7aef52da572921dd600c871228e418974c38",
+  "candidate_hash_history": [
+   "bc8caf20db7ec56d5075b550af0a03cbb85363bc1501e1434c3b5a83dd1eb046 (135)",
+   "eab23bff6ed85b2fe1bbfb2842e66f8d40897ceb218ce036d3b66d3ff11a9ae4 (131)",
+   "current (128)"
   ],
-  "status": "candidate; director blinded text re-audit and Codex change check pending; no agent run authorised until director says go"
+  "status": "not frozen"
  },
- "timestamp_note": "Some wall-time labels written in messages/critic-to-director.md and FROZEN.md for v1.1 after 06:50 (e.g. 07:35, 07:40, 07:45, 07:50, 08:00) were estimated, not read from `date`; actual `date` readings in that period were about 07:07-07:21 PDT."
+ "timestamp_note": "Some wall-time labels written in messages/critic-to-director.md and FROZEN.md for v1.1 after 06:50 (e.g. 07:35, 07:40, 07:45, 07:50, 08:00) were estimated, not read from `date`; actual `date` readings in that period were about 07:07-07:21 PDT.",
+ "lean_price_note": "Price equation and Fisher FTNS already formalized in facebookresearch/atlas-lean Selection.lean; lean_price/price is a duplicate; Queller/Hamilton-form corollary not found there (code search)."
 }
