@@ -53,7 +53,7 @@ Selected concept; headline supported now vs intended; acceptance tests; kill con
 - Delphi's LLM dataset-resolvability assessments are not ground truth. An 880-row board is coverage, not 880 resolved claims.
 - 1−(1−p)^N is not evidence; the comparison must match compute against a sequential single agent.
 
-## Note on host PITCH v2 "operationalization gap" (read 06:16 PDT)
+## Note on host PITCH v2 "operationalization gap" (read 06:12 PDT)
 Leading direction E now = *operationalization-fidelity audit*: detect when a test or computation addresses a different proposition than the source claim (envelope→mean, dropped scope, changed estimator/population/units, conditional→universal). Director conditions for this to count as ground truth (not LLM opinion):
 1. For claims with a formal core, a mutant is labelled unfaithful only if an exact **distinguishing instance** exists and is machine-checked (the same discipline as the Lean law mutants); an *equivalent* mutant (provably the same proposition) is labelled faithful and included as a harmless-change control. A mutation is not unfaithful merely because we changed text.
 2. Empirical-claim pairs (e.g. Thompson/Tallo) cannot have by-construction labels beyond the source passage; they are reported as a separate, human-reviewed set and not mixed into the accuracy figure.
