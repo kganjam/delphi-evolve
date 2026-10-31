@@ -1,6 +1,6 @@
 # Research: neural / amorphous / morphogenetic computing, and what a 24 h falsifiable result could be
 
-Worker: research-nca. Model: Claude Sonnet 5.5 (`claude-sonnet-5-5`) under the repository's subscription arrangement; metered spend unknown and not inferred. Research window: 2026-10-31 00:56 to about 01:15 PDT (Seattle). The clock moves to PST on 2026-11-01 at 02:00.
+Worker: research-nca. Model: Claude Sonnet 5.5 (`claude-sonnet-5-5`) under the repository's subscription arrangement; metered spend unknown and not inferred. Research window: 2026-10-31 00:56 to 01:06 PDT (Seattle); revision 2 (Lean compile, reconciliation) later the same morning, final commit time in `git log`. The clock moves to PST on 2026-11-01 at 02:00.
 
 No experiments were run, no GPU was touched, nothing was sent to anyone. Everything below is literature, license and data-availability inspection. Machine-readable sources: `artifacts/research/research-nca.json`. Run record: `tasks/results/research-nca.json`.
 
@@ -121,7 +121,7 @@ Killed or parked on the evidence: a "living NCA" with synNotch cascade steps, be
 5. Sparse-regression distillation of the NCA into a fixed mass-action library (so "NCA is a CRN in disguise" is a testable alternative).
 
 **Held-out evaluation (never seen in training or tuning).**
-- Domain sizes at least 8 wavelengths, non-convex outlines, interior holes.
+- Domain sizes at least 8 wavelengths, non-convex outlines, interior holes; **each domain first checked for an admissible unstable mode (finite-domain quantisation), and the decision reported per domain**.
 - Damage: shapes, sizes and positions not in training; also strip and multi-site damage.
 - Parameter interventions: uniform D rescale `s`; production-rate knockdown; for the wavelength claim, only inside the near-onset stratum.
 - Anisotropic domain growth (Thompson claim).
@@ -145,27 +145,27 @@ I make no claim about how large any effect will be. Thresholds and the number of
 
 **Realistic 24 h allocation** (about 22.7 h left to the 23:48 PDT freeze target; this is a plan, not a measurement, and I have no timing data):
 - 0 to 3 h, CPU: solver harness, refinement study, class B reaction-list expansion, Jacobian and margin code. This is the longest-pole risk, since the independent solvers must agree with each other first.
-- 3 to 4 h, CPU: Lean statement and checker (Section 7); freeze thresholds.
+- 3 to 4 h, CPU: extend the compiled Lean file (conservation lemma, parameter box) and freeze thresholds.
 - 4 to 12 h, **GPU**: population training of class A, C, D rules (tiny grids, so one GPU is ample; **ten H100s would not help and should not be requested for this**). Only the gpu worker may launch it.
 - 12 to 19 h, **CPU, at most 2 threads**: independent-solver evaluation on held-out sets, inside `systemd-run` caps. FEM and stochastic solves are the CPU bottleneck.
 - 19 to 23 h: controls, analysis, negative results, write-up.
 
 **GPU vs CPU.** GPUs are for gradient training of many small rules in parallel. Everything that decides the scientific result, the independent solves, is CPU-bound and sequential. If the GPU is unavailable the project degrades to fewer training seeds, not to failure.
 
-**Lean statement (conditional).** I have **not** compiled this; it is a statement sketch for the proof worker.
+**Lean statement (conditional) — compiled in revision 2.** `artifacts/research/research-nca-ddi.lean` (sha256 `3d8fb867945ff1851663b9402dcabfe58ee0c6749a5cac5fdb8eb50d49cd18f4`) compiles with Lean 4.35.0, **core only, no Mathlib** (none is installed on this host), over `Rat`, with no `sorry`, `admit` or `native_decide`; `#print axioms` shows only `propext`, `Classical.choice`, `Quot.sound`. Receipt: `artifacts/research/research-nca-ddi-receipt.json`. It contains:
+- `ddi_exists`: if `Du, Dv > 0`, `Dv*fu + Du*gv > 0` and `4*Du*Dv*(fu*gv - fv*gu) < (Dv*fu + Du*gv)^2`, there is a rational `q > 0` with `det(J - qD) < 0` (witness `q = S/(2·Du·Dv)`). This is the linear half of `turing-ddi`. The earlier sketch's `htr` and `hdet` hypotheses turned out to be unnecessary for this half and were dropped.
+- `trace_neg`: `trace J < 0` implies `trace(J - qD) < 0` for `q ≥ 0`, so a 2x2 mode is unstable exactly when `det ≤ 0` (the 2x2 Hurwitz criterion is used as the *definition* `stableMode`, not re-proved).
+- **Finite-domain statements for the sibling checkpoint's example** (`J = [[1,-2],[2,-3]]`, `D = diag(1,10)`, from `artifacts/research/turing-domain-counterexample.json` on main): `example_short_domain_all_stable` (every Neumann mode `q = n²·s` is stable for any rational `s ≥ 1`, i.e. `L ≤ π`), `example_long_domain_unstable` (`s = 1/4`, `n = 1` gives `det < 0`), `example_continuum_interval` (`det < 0` for `1/5 < q < 1/2`).
+- **Mutants:** five edited copies were each rejected by the compiler: discriminant hypothesis replaced by `0 < 1`; discriminant inequality reversed; short-domain bound weakened to `s ≥ 1/4`; the equal-diffusivity claim `D = diag(1,1)` stated as unstable; and an example-specific rewrite changed to `Dv = 1`. The last one fails at a `rewrite`, which is a weaker failure than a false-statement rejection; the equal-diffusivity statement is the stronger one.
+- **Correction to my own earlier draft:** a continuum witness `q > 0` is not enough on a bounded domain; the admissible `q` are discrete. So C1's held-out domains must each be checked for an admissible unstable mode, not merely be "several wavelengths wide". `s` is a rational parameter here, so nothing in the file is about π itself.
 
-```lean
-theorem ddi (fu fv gu gv Du Dv : ℝ)
-    (hDu : 0 < Du) (hDv : 0 < Dv)
-    (htr : fu + gv < 0) (hdet : 0 < fu * gv - fv * gu)
-    (hpos : 0 < Dv * fu + Du * gv)
-    (hdisc : 4 * Du * Dv * (fu * gv - fv * gu) < (Dv * fu + Du * gv) ^ 2) :
-    ∃ q : ℝ, 0 < q ∧ (fu - Du * q) * (gv - Dv * q) - fv * gu < 0
-```
-
-The witness is `q = (Dv*fu + Du*gv) / (2*Du*Dv)`. I checked the algebra by hand: `det(J - qD) = DuDv q² - (Dv fu + Du gv) q + det J`, minimised at that `q`. It is the linear-instability half of `turing-ddi`, and it matches the claim's stated inequality because `hpos` plus `hdisc` is equivalent to `Dv fu + Du gv > 2√(DuDv det J)`. A second lemma: for a symmetric no-flux Laplacian whose rows sum to zero and a reaction field with a conservation vector `c` satisfying `c·S = 0`, the discrete update preserves `c·u` exactly. Then a box version: the checker accepts only if the margin is positive at every vertex of a rational parameter box and the margin function is shown monotone, or by interval arithmetic.
+Not formalised: the discrete conservation lemma (rows of a no-flux Laplacian sum to zero; `c·S = 0` preserves `c·u`) and the parameter-box version. The reaction list to Jacobian step is not in Lean.
 
 **What this does and does not certify.** It certifies that, *given* the reaction list, the homogeneous steady state is linearly unstable to some wavenumber. It does *not* certify that a pattern forms, that the solver is correct, that damage is recovered, or anything about a cell. `turing-ddi` itself says nonlinear existence is not proved in general. The reaction list to Jacobian step would be a sympy computation unless it is also formalised, and the correspondence must be recorded as an unproved link rather than hidden. Insufficient interval width must yield "unknown", not "pass".
+
+### 6b. Reconciliation with the sibling checkpoint (`ceab2ce` on main)
+
+I read `docs/research/inverse-design-synthesis.md` and `artifacts/research/turing-domain-counterexample.json` from main after my first push. Agreements: the novelty of target-image NCA generation or damage recovery is insufficient; domain-aware Turing admissibility and NCA-to-reaction-network compilation are candidate bets; a Lean target of mass or non-negativity preservation plus a finite-domain instability criterion, with a changed-law mutant, is the right shape; a model proof does not establish biology. Differences: the sibling's top three bets are intervention-tested NCA, bioelectric control under uncertainty and electrical cellulose fabrication, and it ranks the cross-solver framing as part of a hybrid comparison, whereas I rank it first because it needs no new data and can fail cleanly. I did not examine the sibling's cited `bioelectrics` repository, the Xiang & Wang NCA metamaterial preprint (arXiv 2607.14475) or Jaxley; those are sibling-sourced. The coordinator should decide between the two orderings; they are not independently validated against each other.
 
 ## 7. Scientific novelty beyond a framework or demo
 

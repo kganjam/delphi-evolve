@@ -1,0 +1,72 @@
+{
+  "schema": "lean-receipt/0.1",
+  "worker": "research-nca",
+  "file": "artifacts/research/research-nca-ddi.lean",
+  "sha256": "3d8fb867945ff1851663b9402dcabfe58ee0c6749a5cac5fdb8eb50d49cd18f4",
+  "lean": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "mathlib": "not used; not installed on this host",
+  "command": "systemd-run --user --scope -q -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=300 timeout 250 lean ddi.lean",
+  "compile_exit": 0,
+  "axioms": {
+    "NcaDdi.ddi_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NcaDdi.example_short_domain_all_stable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NcaDdi.example_long_domain_unstable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NcaDdi.example_continuum_interval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "forbidden_tokens_grep_count": 0,
+  "mutants": [
+    {
+      "id": "m1",
+      "edit": "discriminant hypothesis replaced by (0:Rat)<1",
+      "exit": 1,
+      "first_error": "Application type mismatch"
+    },
+    {
+      "id": "m4",
+      "edit": "discriminant inequality reversed in det_neg_at_witness",
+      "exit": 1,
+      "first_error": "grind failed"
+    },
+    {
+      "id": "m3",
+      "edit": "short-domain bound 1<=s weakened to 1/4<=s",
+      "exit": 1,
+      "first_error": "grind failed"
+    },
+    {
+      "id": "m5",
+      "edit": "added theorem claiming D=diag(1,1) long-domain mode unstable",
+      "exit": 1,
+      "first_error": "grind failed (false statement)"
+    },
+    {
+      "id": "m2",
+      "edit": "long-domain example D changed to diag(1,1) in the stated theorem",
+      "exit": 1,
+      "first_error": "rewrite pattern not found (weak: fails structurally, not by falsity)"
+    }
+  ],
+  "scope": "Linear stability of a homogeneous steady state of the linearised 2-species system over rational parameters; 2x2 Hurwitz criterion used as definition. Not: nonlinear patterns, solvers, damage, biology.",
+  "not_proved": [
+    "discrete conservation lemma",
+    "parameter-box certificate",
+    "reaction list to Jacobian correspondence"
+  ],
+  "note": "Scratch copies and mutants lived in /tmp/nca-lean (not committed); the committed file is byte-identical to the compiled ddi.lean (sha256 above)."
+}

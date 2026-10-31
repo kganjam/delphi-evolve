@@ -1,19 +1,22 @@
 {
   "role": "research-nca",
-  "status": "complete",
+  "status": "completed",
   "task": "Deep research on NCA / morphogenetic / amorphous computing; deliver ranked candidates and a falsifiable top candidate",
   "branch": "work/research-nca",
-  "commit": "98b62ab01dc96dc56cf9a7c75aaef79b04044d3e",
+  "commit": "PENDING",
   "model": "Claude Sonnet 5.5 (claude-sonnet-5-5), subscription; metered spend unknown, not inferred from CLI",
   "wall_time_seattle": {
     "start": "2026-10-31 00:56 PDT",
-    "end": "2026-10-31 01:05:52 PDT",
-    "zone_note": "PST begins 2026-11-01 02:00"
+    "end": "2026-10-31 01:11:40 PDT",
+    "zone_note": "PST begins 2026-11-01 02:00",
+    "note": "start 00:56; first push 01:05:52; revision 2 end time shown in end"
   },
   "artifacts": [
     "docs/research/research-nca.md",
     "artifacts/research/research-nca.json",
-    "tasks/results/research-nca.json"
+    "tasks/results/research-nca.json",
+    "artifacts/research/research-nca-ddi.lean",
+    "artifacts/research/research-nca-ddi-receipt.json"
   ],
   "commands_actually_run": [
     {
@@ -51,10 +54,34 @@
     {
       "command": "curl https://r.jina.ai/https://pmc.ncbi.nlm.nih.gov/articles/PMC3525670/",
       "outcome": "abstract only (19754 bytes)"
+    },
+    {
+      "command": "systemd-run --user --scope -q -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=300 timeout 250 lean ddi.lean (core Lean 4.35.0)",
+      "outcome": "exit 0 after 4 fix iterations; earlier iterations failed (unknown tactic field_simp/by_contra, grind failures) and were fixed"
+    },
+    {
+      "command": "same wrapper: #print axioms on 4 theorems",
+      "outcome": "exit 0; propext, Classical.choice, Quot.sound only"
+    },
+    {
+      "command": "same wrapper: 5 mutant copies",
+      "outcome": "all 5 exit 1"
+    },
+    {
+      "command": "same wrapper on repo copy artifacts/research/research-nca-ddi.lean",
+      "outcome": "exit 0, sha256 matches receipt"
+    },
+    {
+      "command": "git fetch; git show ceab2ce (sibling research on main)",
+      "outcome": "read inverse-design-synthesis.md, turing-domain-counterexample.json"
+    },
+    {
+      "command": "curl Europe PMC fullTextXML PMC3525670; r.jina.ai Europe PMC and Science",
+      "outcome": "HTTP 500 / tiny error bodies; Muller numbers not retrieved"
     }
   ],
-  "exit_codes": "Numeric exit codes were not captured for the curl/pdftotext/WebFetch commands; outcomes above are what the output showed. Git commit/push exit codes are recorded in the final message and the follow-up commit.",
-  "process_cap_note": "No test/build/agent processes were spawned. Short curl/pdftotext commands were not wrapped in systemd-run as AGENTS.md requests for process-spawning runs; pdftotext used timeout 60.",
+  "exit_codes": "Lean compile and mutant exits recorded in artifacts/research/research-nca-ddi-receipt.json. Numeric exit codes were not captured for curl/pdftotext/WebFetch research commands. Git exits in final message.",
+  "process_cap_note": "Lean runs used systemd-run caps (TasksMax=128, MemoryMax=4G, MemorySwapMax=0, RuntimeMaxSec=300). Earlier short curl/pdftotext commands were not wrapped (pdftotext used timeout 60). No GPU, no threads beyond default Lean.",
   "headline_findings": [
     "No source read that combines mass-action-bounded local rules + independent mechanistic solver + unseen damage/geometry; search result, not an absence claim",
     "Richardson 2024: no damage test, one Gray-Scott parameter set, no real data, repo unlicensed",
@@ -65,17 +92,26 @@
   "top_candidate": "C1 cross-solver transfer-gap benchmark for realizable local rules",
   "limitations": [
     "No experiments or timings run",
-    "Lean statement is a sketch, not compiled",
     "Realizability box numbers (Nodal/Lefty diffusivities) not retrieved",
     "WebFetch summaries are model-written; several sources read at abstract or snippet level only",
     "Could not find a 2025/26 'Neural Developmental Programs' paper by that title",
-    "ALDE not read; no query-to-certify claims made"
+    "ALDE not read; no query-to-certify claims made",
+    "Lean file covers only linear 2-species instability and a finite-domain example; conservation lemma and parameter box not formalised; reaction-list to Jacobian step unproved",
+    "Muller 2012 numeric diffusivities not retrieved; realizability box unsourced",
+    "Research claims remain search results, not absence proofs; no experiments or solver runs performed; C1 not implemented",
+    "Sibling note on main ranks candidates differently; coordinator must decide"
   ],
   "next_steps": [
     "Obtain Liu 2013 Dryad files by a browser or authenticated route and read the READMEs for dose labels (C2)",
-    "Retrieve Muller 2012 numeric FRAP diffusivities from the full text",
     "Coordinator decides whether C1 starts; GPU use only via the gpu worker",
     "Freeze thresholds and seed count in a committed file before any run",
-    "Run a further literature pass on cross-solver RD inverse design before any novelty wording"
+    "Run a further literature pass on cross-solver RD inverse design before any novelty wording",
+    "Retrieve Muller 2012 FRAP values via institutional access",
+    "If C1 approved: implement refinement study and independent solvers first; freeze thresholds before any run"
+  ],
+  "checks": [
+    "JSON files parse (python -I json.load)",
+    "Lean file compiles, no sorry/admit/native_decide (grep count 0), standard axioms only",
+    "5 mutants rejected (one weak: structural rewrite failure)"
   ]
 }
