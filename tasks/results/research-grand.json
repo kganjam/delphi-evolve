@@ -1,0 +1,75 @@
+{
+ "worker": "research-grand",
+ "status": "completed",
+ "model": "subscription Claude Sonnet 5.5; metered spend unknown, not inferred",
+ "started_seattle": "2026-10-31 00:56 PDT",
+ "finished_seattle": "2026-10-31 01:09 PDT",
+ "commit": "filled by git after commit; see branch work/research-grand",
+ "owned_paths": [
+  "docs/research/research-grand.md",
+  "artifacts/research/research-grand.json",
+  "tasks/results/research-grand.json"
+ ],
+ "commands_run": [
+  {
+   "cmd": "WebFetch millenniumproblems.bio, futurehouse.org/news/..., scienceclawhack.ai, pmc ALDE, PMC12663927",
+   "exit": "tool ok (pnas.org 403, bioRxiv 429, Weizmann PDF ECONNRESET)"
+  },
+  {
+   "cmd": "curl -X POST https://delphisci-mcp.fly.dev/mcp initialize, tools/list, delphi_overview, delphi_graph x4 thinkers, delphi_search_claims domain=math-, delphi_get_claim x7",
+   "exit": "0; local source only"
+  },
+  {
+   "cmd": "curl raw HTML of millenniumproblems.bio and futurehouse.org news; python -I text grep for prize/$/reward",
+   "exit": "0; HTTP 200, no prize amounts"
+  },
+  {
+   "cmd": "curl via r.jina.ai: Johnston bioRxiv, PMC12663927, gitlab milo-lab-public/rubisco_is_slow",
+   "exit": "0 HTTP 200"
+  },
+  {
+   "cmd": "curl GitHub API flamholz/rubisco + raw DatasetS2/S1 CSV; python -I analysis of S2",
+   "exit": "0; sha256 98839cbc\u2026"
+  },
+  {
+   "cmd": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=300 python3 -I probe2.py summary_AA.csv",
+   "exit": "0 (first run exit 1: wrong # Stop coding; fixed and rerun)"
+  },
+  {
+   "cmd": "git fetch origin; git show origin/work/{experience,replay-recovery,claim-reuse,proof,core,scale}:<paths>",
+   "exit": "0 read-only"
+  },
+  {
+   "cmd": "WebSearch x9 (standard mode)",
+   "exit": "ok; results labelled SNIP"
+  }
+ ],
+ "artifacts": [
+  "docs/research/research-grand.md",
+  "artifacts/research/research-grand.json"
+ ],
+ "headline_findings": [
+  "Millennium Problems: 12 problems, thresholds on page, NO prize amount, no evaluator; only a comment form.",
+  "Problem 4 raw text compares against G. partita Sc/o and maize kcat in paired assays; in the 399-row Flamholz table no natural row meets both (best Sc/o at kcat>=4.05 is 112; fold gaps ~2.1x Sc/o or ~2.5-2.75x kcat).",
+  "scienceclawhack.ai: weights 20/25/20/25/10, collaboration +10, sponsor bonus none stated.",
+  "Replay on work/replay-recovery: q2c 78/100 vs random 21, directed 32 at 1000 queries; shared 78 vs isolated 77 vs q2c 78: no collective uplift. Claim reuse gain over cache = 0.",
+  "Scout probe: TrpB parent route is certifiable at delta 0 and lost by delta 0.01 (source mu-bg units, directional only).",
+  "Top proposed addition: held-out-landscape certification with misspecification tolerated margin (GB1), not another feature."
+ ],
+ "limitations": [
+  "No implementation or benchmark result; two scout-grade probes are not benchmark results and use a score definition different from core's.",
+  "GB1 and DHFR tables not opened; ALDE last 5,269 chars, Ribeca 2026 and many snippets unread.",
+  "Delphi queried local source only; truth scores are model elicitations.",
+  "Cradle and Edison funding facts are press-level; no market size computed.",
+  "Flamholz repository has no licence; de Pins repo licence not checked."
+ ],
+ "next_steps": [
+  "Core/integrator decides whether to run LHC on GB1 with an LazySP-faithful directed baseline and preregistered H1-H4.",
+  "If the presentation keeps the collective claim, run the preregistered round-robin ablation or drop the claim.",
+  "Optionally build the Rubisco ledger from the hashed table; send nothing to FutureHouse without explicit user instruction."
+ ],
+ "no_messages_sent": true,
+ "no_gpu_used": true,
+ "no_agents_spawned": true,
+ "no_secrets_read": true
+}

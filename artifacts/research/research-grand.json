@@ -1,0 +1,372 @@
+{
+ "kind": "research-grand-manifest/1",
+ "written_seattle": "2026-10-31 PDT (zone changes to PST 2026-11-01 02:00)",
+ "model": "subscription Claude Sonnet 5.5 (claude-sonnet-5-5); metered spend unknown, not inferred",
+ "evidence_tags": {
+  "BODY": "source body read",
+  "RAW": "raw artifact inspected or computed this session",
+  "SNIP": "search snippet only",
+  "TEAM": "artifact on another team branch read, not rerun",
+  "INF": "inference",
+  "UNV": "not verified"
+ },
+ "sources": [
+  {
+   "id": "mp-site",
+   "url": "https://millenniumproblems.bio/",
+   "access": "WebFetch summary, then curl raw HTML HTTP 200 27345 B",
+   "tag": "RAW",
+   "finding": "12 problems; Problem 4 text: Sc/o >= Galdieria partita and kcat >= maize, paired assays, 'beyond the naturally occurring pareto frontier'; no prize, no evaluator, only a comment form"
+  },
+  {
+   "id": "fh-news",
+   "url": "https://www.futurehouse.org/news/millennium-problems-for-biology",
+   "access": "curl raw HTML HTTP 200 23413 B",
+   "tag": "RAW",
+   "finding": "published 2026-09-23, Sam Rodriques (full list Rodriques, Hinks); only 'Prize' hit is allusion to math Millennium Prize Problems; contact millenniumproblems@futurehouse.org"
+  },
+  {
+   "id": "hack-site",
+   "url": "https://scienceclawhack.ai/",
+   "access": "WebFetch summary",
+   "tag": "BODY",
+   "finding": "weights 20/25/20/25/10; collaboration bonus +10 outside core; sponsor bonus none stated; E14 Fund $50K SAFE; in person only; slides Sun Nov 1 1:00 PM"
+  },
+  {
+   "id": "alde",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11739421/",
+   "access": "WebFetch (first 100000 of 105269 chars)",
+   "tag": "BODY",
+   "finding": "GB1 and TrpB simulations, 96+4x96, 70 inits; MIT code github.com/jsunn-y/ALDE; ESM2 little benefit"
+  },
+  {
+   "id": "johnston-biorxiv",
+   "url": "https://www.biorxiv.org/content/10.1101/2024.06.23.600144.full",
+   "access": "r.jina.ai after direct 429; PNAS page 403",
+   "tag": "BODY",
+   "finding": "160,000-variant TrpB landscape, AIKG optimum, 520 local optima, path ECDFs, DE simulations"
+  },
+  {
+   "id": "depins-2025",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12663927/",
+   "access": "r.jina.ai (110733 B); Weizmann PDF failed ECONNRESET/empty",
+   "tag": "BODY",
+   "finding": ">250 new rubisco kcat,C plus 190 literature; 440 sequences with rates; no Sc/o; never above ~30 per s at 30 C; code gitlab.com/milo-lab-public/rubisco_is_slow"
+  },
+  {
+   "id": "flamholz-2019-data",
+   "url": "https://github.com/flamholz/rubisco/tree/master/data",
+   "access": "GitHub API + raw download",
+   "tag": "RAW",
+   "finding": "DatasetS2_RubiscoKinetics_Merged.csv, 399 rows, sha256 98839cbc53dbb4cad9b2b20ebdeaab5f821f1075d21214e56c0054588d54d480; API reports no licence"
+  },
+  {
+   "id": "trpb-summary-AA",
+   "url": "/data/artifacts/v2-scout/data/caltech/summary_AA.csv",
+   "access": "local file from CaltechDATA h5rah-5z170 (CC0)",
+   "tag": "RAW",
+   "finding": "sha256 a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82 (matches core audit); 9783 active non-stop rows"
+  },
+  {
+   "id": "lazysp",
+   "url": "https://arxiv.org/abs/1603.03490",
+   "access": "search snippet",
+   "tag": "SNIP",
+   "finding": "LazySP: lazy evaluation of expensive edges on an optimistic graph; complete and optimal with admissible estimate"
+  },
+  {
+   "id": "safeopt",
+   "url": "https://safeopt.readthedocs.io/en/latest/safeopt.SafeOpt.html",
+   "access": "search snippet",
+   "tag": "SNIP",
+   "finding": "safe-set expansion from a seed set with uncertainty bounds"
+  },
+  {
+   "id": "jaxley",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12695658/",
+   "access": "search snippet",
+   "tag": "SNIP",
+   "finding": "differentiable biophysical simulator on GPU, gradient fitting"
+  },
+  {
+   "id": "betse",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4933718",
+   "access": "search snippet",
+   "tag": "SNIP",
+   "finding": "forward bioelectric tissue simulator, not differentiable"
+  },
+  {
+   "id": "papkou-2023",
+   "url": "https://doi.org/10.1126/science.adh3860",
+   "access": "search snippet",
+   "tag": "SNIP",
+   "finding": ">260,000 DHFR genotypes, 514 peaks, high peaks accessible; data location not found"
+  },
+  {
+   "id": "cradle-series-b",
+   "url": "https://www.cradle.bio/blog/series-b",
+   "access": "search snippet",
+   "tag": "SNIP",
+   "finding": "$73M Series B, December 2024 per press"
+  },
+  {
+   "id": "edison-seed",
+   "url": "https://siliconangle.com/2025/12/18/edison-scientific-raises-70m-build-autonomous-ai-scientists-research",
+   "access": "search snippet",
+   "tag": "SNIP",
+   "finding": "$70M seed December 2025 per trade press; primary announcement not located"
+  },
+  {
+   "id": "delphi-mcp",
+   "url": "https://delphisci-mcp.fly.dev/mcp",
+   "access": "JSON-RPC tools/list, delphi_overview, delphi_graph, delphi_search_claims, delphi_get_claim (local source only)",
+   "tag": "RAW",
+   "finding": "880 claims: wolfram 321, thompson 291, darwin 247, popgen 18, turing 3; repo unlicensed so no code copied"
+  },
+  {
+   "id": "team-replay",
+   "url": "origin/work/replay-recovery:artifacts/recovery/summary.json",
+   "access": "git show",
+   "tag": "TEAM",
+   "finding": "700 episodes; cert rate at 1000: random .21 greedy .08 uncertainty .13 directed .32 q2c .78 shared .78 isolated .77; false certificates 0"
+  },
+  {
+   "id": "team-claim-reuse",
+   "url": "origin/work/claim-reuse:artifacts/claim_reuse/reuse_benchmark.json",
+   "access": "git show",
+   "tag": "TEAM",
+   "finding": "claim_gain_over_cache 0; 427215 avoided requests either way"
+  }
+ ],
+ "failures": [
+  {
+   "target": "weizmann de-pins PDF",
+   "result": "WebFetch ECONNRESET; curl no file; used PMC copy"
+  },
+  {
+   "target": "pnas.org Johnston",
+   "result": "HTTP 403; used bioRxiv via r.jina.ai"
+  },
+  {
+   "target": "biorxiv direct",
+   "result": "HTTP 429 via WebFetch; r.jina.ai HTTP 200"
+  },
+  {
+   "target": "Papkou DHFR data location",
+   "result": "not found"
+  },
+  {
+   "target": "GB1 table",
+   "result": "not opened"
+  },
+  {
+   "target": "Edison primary funding announcement",
+   "result": "not located"
+  }
+ ],
+ "computed": [
+  {
+   "id": "rubisco-joint-threshold-probe",
+   "input_sha256": "98839cbc53dbb4cad9b2b20ebdeaab5f821f1075d21214e56c0054588d54d480",
+   "rows": 399,
+   "rows_with_Sc_and_kcat": 256,
+   "distinct_triples": 245,
+   "distinct_species": 216,
+   "rows_meeting_S_ge_238_and_kcat_ge_4.05": 0,
+   "best_S_at_kcat_ge_4.05": {
+    "species": "Poa palustris",
+    "S": 112,
+    "kcat": 4.2
+   },
+   "galdieria_partita_Tokara": {
+    "S": 238,
+    "kcat": 1.6
+   },
+   "maize_kcat_range": [
+    4.05,
+    4.4
+   ],
+   "pareto_rows": 15,
+   "fold_gap_S_at_maize_kcat": 2.1,
+   "fold_gap_kcat_at_Gpartita_S": [
+    2.5,
+    2.75
+   ],
+   "rows_kcat_ge_4.05_without_S_on_row": 10,
+   "limits": "heterogeneous literature, all 25 C, no mutants, row duplicates; a statement about this table only",
+   "status": "scout-grade"
+  },
+  {
+   "id": "trpb-delta-fragility-probe",
+   "input_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+   "score": "source mu_k-bg columns, NOT core's score definition",
+   "active_nonstop": 9783,
+   "fraction_starts_with_nondecreasing_path_to_AIKG": {
+    "mean_only": {
+     "0": 0.896,
+     "0.01": 0.803,
+     "0.02": 0.556,
+     "0.05": 0.037
+    },
+    "mean_pm_half_replicate_gap": {
+     "0": 0.88,
+     "0.01": 0.783,
+     "0.02": 0.513,
+     "0.05": 0.029
+    }
+   },
+   "parent_VFVS_certified_at_delta": {
+    "0": true,
+    "0.01": false
+   },
+   "limits": "delta assumed raw growth-rate units; top value 0.358; directional only, not a benchmark result",
+   "status": "scout-grade"
+  }
+ ],
+ "ideas": [
+  {
+   "rank": 1,
+   "id": "LHC",
+   "title": "Landscape-held-out certification + misspecification tolerated margin",
+   "confidence": "medium-high",
+   "data": "TrpB RAW; GB1 UNV",
+   "falsifiable": true,
+   "fail_conditions": [
+    "q2c equals a faithful LazySP baseline",
+    "GB1 too connected/sparse to separate policies",
+    "interval noise model too weak for tolerated margin to mean anything"
+   ],
+   "gpu_role": "optional ESM2 prior only; not on critical path"
+  },
+  {
+   "rank": 2,
+   "id": "RTAL",
+   "title": "Rubisco threshold-attainability ledger (Millennium Problem 4)",
+   "confidence": "medium",
+   "data": "table RAW; sequences UNV",
+   "falsifiable": "emptiness claim refuted by one measured enzyme",
+   "fail_conditions": [
+    "Flamholz 2019 already covers the trade-off",
+    "table licence absent",
+    "heterogeneous assays dominate"
+   ]
+  },
+  {
+   "rank": 3,
+   "id": "KIM",
+   "title": "Kimura-regime accessibility of certified routes",
+   "confidence": "medium",
+   "owner": "work/claim-reuse; do not duplicate"
+  },
+  {
+   "rank": 4,
+   "id": "PSURG",
+   "title": "Pattern Surgeon: perturbation separating Turing from mechanical patterning",
+   "confidence": "low",
+   "data": "none verified"
+  },
+  {
+   "rank": 5,
+   "id": "NCA-ELEC",
+   "title": "Electrical/NCA inverse design",
+   "confidence": "low",
+   "note": "no artifact on any origin branch; simulation vs simulation; heavy prior art"
+  },
+  {
+   "rank": 6,
+   "id": "MP-LEDGER",
+   "title": "12-problem threshold-distance ledger",
+   "confidence": "medium as outreach, low as science"
+  }
+ ],
+ "delphi_claims": [
+  {
+   "id": "kimura-fixation-probability",
+   "change": "edge admission gets an N_e*s regime parameter; no growth-to-selection conversion"
+  },
+  {
+   "id": "darwin1859-ch04-10",
+   "truth": 0.285,
+   "disagreement": 0.13,
+   "change": "step-size profile of certified routes becomes an output, threshold preregistered"
+  },
+  {
+   "id": "darwin1859-ch06-07",
+   "truth": 0.95,
+   "change": "forbids graph path implies historical path"
+  },
+  {
+   "id": "turing-morphogen-hypothesis",
+   "change": "score pattern designs on a mechanism-discriminating perturbation, not similarity"
+  },
+  {
+   "id": "turing-ddi",
+   "change": "analytic stability check and negative control"
+  },
+  {
+   "id": "turing-wavelength",
+   "change": "held-out lambda proportional to sqrt(D) scaling test"
+  },
+  {
+   "id": "wolfram2002-ch06-05",
+   "truth": 0.915,
+   "change": "CA/NCA design stratified by rule class, tested on held-out initial conditions"
+  },
+  {
+   "id": "wolfram2002-ch01-08",
+   "truth": 0.475,
+   "change": "irreducibility gives a failure prediction for class 3/4"
+  },
+  {
+   "id": "wolfram2002-ch01-11",
+   "truth": 0.58,
+   "change": "require discrimination against a rival mechanism"
+  },
+  {
+   "id": "thompson1917-ch04-08",
+   "truth": 0.22,
+   "change": "require clamp/block intervention, not correlation"
+  },
+  {
+   "id": "thompson1917-ch07-08",
+   "truth": 0.87,
+   "change": "evaluate lattice designs on irregular Voronoi topology"
+  }
+ ],
+ "millennium": {
+  "prizes_stated": false,
+  "evaluator_stated": false,
+  "problems": [
+   "Origins of life",
+   "Cryopreservation",
+   "The reverse translatase",
+   "Improve Rubisco",
+   "The quadruplet cell",
+   "Somatic limb regeneration",
+   "Bacterial production of gene therapies",
+   "Programmable proteases",
+   "Cell-penetrating protein binders",
+   "Protein amplification chain reaction",
+   "5' polymerases (body: 3'>5')",
+   "New nitrogenases"
+  ],
+  "tractable_in_24h": "Problem 4 only, as a table ledger, not a solution"
+ },
+ "judging": {
+  "weights": {
+   "significance": 20,
+   "technical_impact": 25,
+   "decentralized_agency": 20,
+   "collective_capability": 25,
+   "execution": 10
+  },
+  "collaboration_bonus": 10,
+  "sponsor_bonus": "none stated"
+ },
+ "company_wedges": [
+  "assay-decision layer for enzyme teams",
+  "verification and pre-registration infrastructure for AI-for-biology claims",
+  "threshold-closing carbon-fixation vertical (defer)"
+ ],
+ "no_market_size_invented": true
+}
