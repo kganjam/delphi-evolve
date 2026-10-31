@@ -179,6 +179,17 @@
    ],
    "result": "55/55 agree with the key on turing_finite_domain (24), turing_2d_rectangle (16), wavelength_formula_licence (15); condition ids 55/55",
    "not_covered": "gate ablations, repair enumerator, pde.solve, and the five non-Turing families (no oracle exists for them)"
+  },
+  "scopedesk_oracles_full": {
+   "script": "scopedesk/bench/audit/audit_oracle_full.py",
+   "output": "scopedesk/bench/audit/oracle_full_audit_v1_2.json",
+   "audited": "scopedesk/oracles repair.enumerate, gate.decide + three ablations, pde.solve (rethink-nca cb59f0d)",
+   "results": {
+    "repair_domain_length": "21 repairs on the 1-D/2-D DOMAIN_ADMISSIBLE_MODE items all valid by an independent exact check; sorted by relative change; no closer valid scale on the k/4 grid missed; value = scale factor, relative_change = |s-1| (my first run misread this, corrected)",
+    "gate": "default decision agrees with key 20/20 (1-D items with stated bc); record_hash_changed -> refused_source 20/20; record_removed and continuum_only equal the textbook condition 20/20",
+    "pde": "12 cases on the two declared kinetics: 9 settled all agree with an independently derived exact linear key; 2 nonconverged and 1 not_settled are reported and not scored"
+   },
+   "not_covered": "reaction_scale and diffusion_ratio repair knobs; 2-D PDE; subcritical/nonlinear behaviour of linearly stable states (oracle declares it unprobed); only 12 PDE cases; five bench families have no oracle"
   }
  },
  "v1_1": {
