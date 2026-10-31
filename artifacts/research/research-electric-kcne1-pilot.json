@@ -1,0 +1,86 @@
+{
+ "crosstab_trafficking_by_function": {
+  "traf=Gain|func=Loss": 42,
+  "traf=Gain|func=Normal": 130,
+  "traf=Gain|func=PartialLoss": 95,
+  "traf=Gain|func=PossibleGain": 27,
+  "traf=Gain|func=PossibleLoss": 18,
+  "traf=Loss|func=Loss": 64,
+  "traf=Loss|func=Normal": 19,
+  "traf=Loss|func=PartialLoss": 16,
+  "traf=Loss|func=PossibleGain": 2,
+  "traf=Loss|func=PossibleLoss": 4,
+  "traf=Normal|func=Loss": 19,
+  "traf=Normal|func=Normal": 426,
+  "traf=Normal|func=PartialLoss": 100,
+  "traf=Normal|func=PossibleGain": 72,
+  "traf=Normal|func=PossibleLoss": 29,
+  "traf=PartialLoss|func=Loss": 20,
+  "traf=PartialLoss|func=Normal": 233,
+  "traf=PartialLoss|func=PartialLoss": 52,
+  "traf=PartialLoss|func=PossibleGain": 29,
+  "traf=PartialLoss|func=PossibleLoss": 31,
+  "traf=PossibleGain|func=Loss": 16,
+  "traf=PossibleGain|func=Normal": 264,
+  "traf=PossibleGain|func=PartialLoss": 73,
+  "traf=PossibleGain|func=PossibleGain": 66,
+  "traf=PossibleGain|func=PossibleLoss": 20,
+  "traf=PossibleLoss|func=Gain": 1,
+  "traf=PossibleLoss|func=Loss": 12,
+  "traf=PossibleLoss|func=Normal": 368,
+  "traf=PossibleLoss|func=PartialLoss": 70,
+  "traf=PossibleLoss|func=PossibleGain": 60,
+  "traf=PossibleLoss|func=PossibleLoss": 37
+ },
+ "held_out_position_window_mean_baseline": [
+  {
+   "bootstrap": "200 resamples of positions, seed 0; empirical spread, not a formal confidence level",
+   "n": 2415,
+   "n_positions": 127,
+   "position_bootstrap_2.5_97.5_percentile": [
+    0.5076818360624922,
+    0.6356154155846093
+   ],
+   "spearman": 0.5760358541292971,
+   "window": 1
+  },
+  {
+   "bootstrap": "200 resamples of positions, seed 0; empirical spread, not a formal confidence level",
+   "n": 2415,
+   "n_positions": 127,
+   "position_bootstrap_2.5_97.5_percentile": [
+    0.5444309720792101,
+    0.6436883033777063
+   ],
+   "spearman": 0.597090560189139,
+   "window": 2
+  },
+  {
+   "bootstrap": "200 resamples of positions, seed 0; empirical spread, not a formal confidence level",
+   "n": 2415,
+   "n_positions": 127,
+   "position_bootstrap_2.5_97.5_percentile": [
+    0.5512376515999814,
+    0.6516101866921067
+   ],
+   "spearman": 0.6036049575416497,
+   "window": 3
+  }
+ ],
+ "inputs_sha256": {
+  "/tmp/re_dl/mave/scores_urn:mavedb:00000674-a-2.csv": "1a93be4bcc074be74ae3a720e88297c029e7cc9ea0c088cf6ea06196618abc24",
+  "/tmp/re_dl/mave/scores_urn:mavedb:00000674-b-1.csv": "22716e52fd54bd9a74d9a5c526d8efa753e25db0a3fec0187b95b3435e541640"
+ },
+ "leave_one_variant_out_same_position_mean": {
+  "caveat": "uses same-position variants; a ceiling, NOT a held-out-position baseline",
+  "n": 2413,
+  "spearman": 0.6952869630800781
+ },
+ "limits": "descriptive; categories as supplied by MaveDB; no held-out-position evaluation; not a benchmark",
+ "n_function_rows_parsed": 2539,
+ "n_missense_function": 2418,
+ "n_missense_trafficking": 2437,
+ "n_paired_missense": 2415,
+ "n_trafficking_rows_parsed": 2554,
+ "spearman_trafficking_vs_function": 0.06169958897368902
+}

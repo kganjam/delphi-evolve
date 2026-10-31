@@ -1,7 +1,7 @@
 # Research-electric: bioelectric fields, electrobiofabrication, ion-channel actuators
 
 Author: research worker, model = subscription Claude Sonnet 5.5 (repo-required). Metered spend: unknown, not inferred from CLI.
-Run: 2026-10-31 00:56 to about 01:20 PDT, Seattle. Branch `work/research-electric`. No GPU, no paid service, no messages sent, no agents spawned.
+Run: first pass 2026-10-31 00:56 to 01:03 PDT, second pass 01:04 to 01:14 PDT, Seattle (clock-read, not estimated). Branch `work/research-electric`. No GPU, no paid service, no messages sent, no agents spawned.
 Machine-readable companion: `artifacts/research/research-electric.json` (every source with how far I read it).
 
 Labels: **[READ]** I read the body or raw data. **[ABS]** abstract or search snippet only. **[INF]** my inference. **[PILOT]** my quick count on a real file; descriptive, not a benchmark result.
@@ -66,7 +66,18 @@ Paired expression and function assays exist, listed in ProteinGym's `reference_f
 - 2415 missense variants have both a trafficking and a function score.
 - **Spearman(surface score, function score) = 0.062.** Surface expression carries almost no rank information about function for this protein.
 - Cross-tab (trafficking category vs function category, as supplied): of 173 variants with function "Loss", 96 have reduced trafficking (Loss, PartialLoss or PossibleLoss), 19 "Normal", 58 gain-type (42 "Gain", 16 "PossibleGain"). Of 406 with function "PartialLoss", 138 have reduced trafficking, 100 "Normal", 168 gain-type. Combined (Loss plus PartialLoss, 579 variants), 345 are not trafficking-impaired by these labels, but for strict "Loss" a slight majority (96 of 173) are. That is directionally compatible with the authors' statement that most deleterious variants act through gating rather than trafficking, but the split depends on how categories are lumped. My category lumping differs from theirs (they report 152 of 574 loss or partial loss with reduced surface expression), so do not compare the percentages.
-- Leave-one-variant-out position-mean for function (uses the same position's other variants): **Spearman 0.695, n = 2413.** This is a ceiling for "position matters", not a held-out-position baseline. A model must beat position-grouped baselines, not this.
+- Leave-one-variant-out position-mean for function (uses the same position's other variants): **Spearman 0.695, n = 2413.** This is a ceiling for "position matters", not a held-out-position baseline.
+- **Cheap held-out-position baseline** (mean function of variants at neighbouring positions within +/-1, 2, 3 residues, excluding the held-out position; 127 positions): **Spearman 0.576, 0.597, 0.604** with position-bootstrap 2.5 to 97.5 percentile spreads of about 0.51 to 0.64, 0.54 to 0.64 and 0.55 to 0.65 (200 resamples, seed 0; an empirical spread, not a formal confidence level). For scale, the KCNE1 authors report AlphaMissense at |rho| = 0.62 against function. **A language model therefore has to beat roughly 0.60 under position holdout, which is a hard bar and makes a null result likely.** Caveat: KCNE1 is only 129 residues, so neighbours are dense; Kir2.1 (428 residues) may differ.
+- Reproduce: `artifacts/research/research-electric-kcne1-pilot.py` (stdlib only, run under the systemd-run caps) writes `artifacts/research/research-electric-kcne1-pilot.json`.
+
+### 4b. Prior art found in the second pass (changes the ranking of novelty)
+
+- **KCNQ1 landscape, medRxiv 2025 (PMC12724399)** [READ: body of the PMC mirror]. Four multiplexed assays, 13,403 variants, separating trafficking, gating and dominant-negative effects; surface abundance and function in variant-only and heterozygous conditions; AlphaMissense vs function rho = -0.49 with a set of discordant variants; licence CC BY 4.0. Data are "in the supplemental files and will be deposited in MaveDB … upon paper publication"; analysis code `github.com/GlazerLab/KCNQ1_MAVE` (no licence reported by the GitHub API). **This is a larger and more mechanism-resolved dataset than KCNE1, and it already does the function-versus-trafficking separation with its own computational comparison.** I downloaded the Europe PMC supplement archive (6.2 MB, truncated zip; I recovered `media-1.docx`, a 12-table, figure-heavy methods supplement by splitting the stream). It contains no variant-level score table, and the MaveDB deposit is pending, so **I have not inspected a single KCNQ1 variant row**.
+- **PNAS 2026 "Classification models for KCNQ1 variants distinguish functional and trafficking effects"** (doi 10.1073/pnas.2537217123) [ABS only; PNAS returned 403 and the r.jina.ai route returned a Cloudflare challenge; no preprint copy found]. By title and search snippet it builds classifiers for electrophysiology-derived and trafficking properties of KCNQ1. **This is close prior art for the Channel Bridge question; I could not read it.** Until it is read, Channel Bridge must not claim to be the first to separate function from trafficking in a predictor.
+- **Huang-lab benchmark of 61 KCNQ1 variants** [ABS]: trafficking loss is the most common cause of loss of function, and predictor accuracy depends on mechanism with a reliance on conservation.
+- **IonBench** (Owen and Mirams, PLOS Comput Biol 2025) [ABS] benchmarks optimisers for ion-channel current models on simulated data; it does not address protocol selection. The research-synthesis branch's `bioelectrics` MIT package (read there, not by me) covers tissue-level intervention optimisation.
+- **Baddam et al. 2025** (*Komagataeibacter xylinus* in AC fields, Oxford Open Materials Science itaf007) [READ: first 100k characters]. DEP trapping at 5 Vpp, 250 kHz to 10 MHz; cellulose at 750 kHz with 1, 2, 5 Vpp (modeled maxima 11.6, 21.5, 54 kV/m), fluorescence up more than 35% at 2 and 5 Vpp, n = 3; a 7 Vpp condition lysed cells. **Fibril alignment was not measured** (imaging inside the microreactor was not possible) and **data are only "on reasonable request"**. It does not rescue candidate 4 as a data source.
+- Licence checks: AlphaMissense predictions are described as CC BY 4.0 in the project README per a search result [ABS]; the Zenodo licence text was not confirmed. Allen Cell Types data licence still unverified (the AllenSDK code carries a BSD-style licence with a no-commercial-redistribution clause; that is code, not data).
 
 ## 5. Candidate projects, ranked
 
@@ -74,7 +85,7 @@ Confidence is in the evidence base, not in the outcome.
 
 | # | Candidate | Real data | Novelty beyond demo | Fit to 24 h | Evidence confidence |
 |---|---|---|---|---|---|
-| 1 | Channel function-beyond-expression benchmark and certificate | KCNE1, KCNJ2 (CC0, MIT), +2 fragments | Low to medium; ProteinGym lists these assays | High | High on data, low on novelty |
+| 1 | Channel function-beyond-expression benchmark and certificate | KCNE1 (CC0), KCNJ2 (MIT), +2 fragments; KCNQ1 (CC BY, supplement not yet inspected) | Low: ProteinGym lists these assays and KCNQ1 work (one paper unread) already separates function from trafficking | High | High on data, low on novelty |
 | 2 | Electrotaxis field-program discrimination | One field magnitude, 53 tracks in two files (4 files total) | Low; 3 papers | Medium | Medium-low |
 | 3 | Jaxley conductance inversion, held-out stimulus classes (Allen Cell Types) | Allen DB; licence not verified | Low; Gouwens 2018, Jaxley | Medium, GPU useful | Medium |
 | 4 | Drift-to-extrusion alignment window for bacterial cellulose | SEM images only, qualitative | Would be new, but needs experiments | Low | High that data are insufficient |
@@ -94,7 +105,7 @@ Confidence is in the evidence base, not in the outcome.
 - **Query-to-certify arm (secondary).** Replay assay-budget policies (random, position-diverse, uncertainty, PLM-prior) on the real table, as in the core project's protocol but on a different protein family. **Do not duplicate or import core code.**
 - **GPU versus CPU.** CPU (<=2 threads): data audit, baselines, folds, bootstrap, Lean. One H100 is enough: ESM2 scoring of about 10k variants is minutes; LoRA grouped-CV is the largest job, order of 1 to 2 hours. Planned bound: 2 GPU-hours, 1 GPU. **More GPUs buy nothing here beyond larger ESM variants; do not scale out for show.** What GPU time measurably buys: model size and fine-tuning versus the cheap baselines, which is exactly the comparison.
 - **Conditional Lean statement.** Let `I(V,a)` be net membrane current at voltage `V` for actuator level `a`. Assume (H1) `V -> I(V,a)` strictly increasing for every `a` (a single stable rest potential) and (H2) the actuator change raises net current at the old rest: `I(V*(a), a') >= 0` where `I(V*(a),a)=0` and `I(V*(a'),a')=0`. Then `V*(a') <= V*(a)`. One-line proof by monotonicity. For the chord-conductance form `I = sum g_i (V - E_i)` with `g_i > 0`, H1 holds automatically, and H2 holds when a K+ conductance is added at `V* >= E_K`. **A mutant must be rejected:** drop H1 and exhibit an N-shaped I-V with three roots where the conclusion fails (inward rectifier plus leak can be bistable [INF; to be checked in the literature]). The statement is arithmetic. It does not prove that the dye score is a monotone function of conductance; that stays an explicit assumption `A_map`, and the Kir2.1 authors' own remark about dye dynamic range is the reason to doubt it.
-- **Why it may fail.** (1) Position-mean information dominates, so models may not add anything. (2) KCNE1 "function" is a depletion assay and Kir "function" is a saturating dye; both blur voltage gating. (3) HEK293 overexpression need not match native cells. (4) Four assays, two real channels with n > 1000; fragment datasets are too small to say anything alone. (5) ProteinGym or the original authors may already have run the equivalent split; I did not search their supplements for it.
+- **Why it may fail.** (1) Position-mean information dominates, so models may not add anything. (2) KCNE1 "function" is a depletion assay and Kir "function" is a saturating dye; both blur voltage gating. (3) HEK293 overexpression need not match native cells. (4) Four assays, two real channels with n > 1000; fragment datasets are too small to say anything alone. (5) KCNQ1 papers (one unread) and ProteinGym may already contain the equivalent split; I did not search their supplements. (6) A neighbour-window baseline already reaches about 0.60 Spearman on KCNE1 under position holdout, close to the AlphaMissense figure the authors quote, so a language-model win is far from guaranteed.
 - **Cannot be verified without new experiments.** Voltage-dependence (V1/2, kinetics) of any variant; native-cell effect; any designed channel's function; field or tissue consequences; bistability of the readout.
 
 ## 7. Delphi claims and what they would change
@@ -111,13 +122,15 @@ Claims that change a design or test:
 
 ## 8. Failures and gaps
 
-- Springer PDF (Sano 2010 journal version): auth redirect, not read. Used the thesis.
+- Springer PDF (Sano 2010 journal version): auth redirect; the r.jina.ai copy returned only the reference list. Not read. Used the thesis.
+- PNAS KCNQ1 classifier paper: 403, then Cloudflare challenge. Not read.
+- KCNQ1 supplement: archive truncated; only the methods docx recovered; no variant rows. Variant-level data unavailable until MaveDB deposit or an author copy.
 - bioRxiv direct fetch: HTTP 429; used r.jina.ai, worked.
 - "SHREAD", differentiable BETSE, Kozek and Glazer details: not found or only metadata.
-- Allen Cell Types licence, AlphaMissense licence, ProteinGym data licence: not verified.
+- Allen Cell Types data licence and ProteinGym data licence: not verified. AlphaMissense: README per search result only.
 - Search results alone (marked [ABS]) are leads; prior notes were not treated as authority.
 - Only two of four electrotaxis CSVs were opened.
 
 ## 9. Recommendation
 
-Run Channel Bridge as a bounded side vertical only if the core owner agrees; it is a falsifiable benchmark on real CC0 data, not a physical electrofabrication result. Do not claim voltage-gating prediction, nanoscale field patterning, or novelty over ProteinGym without the split check in §6(5). If a field-control panel is wanted for the pitch, use the Prescott data as a described, cited experiment-design example, and say plainly that one field magnitude cannot validate a field-selection policy.
+Run Channel Bridge as a bounded side vertical only if the core owner agrees, and only after (a) reading the PNAS KCNQ1 paper and (b) inspecting the KCNQ1 supplement, either of which could change or kill the framing. It is a falsifiable benchmark on real open data, not a physical electrofabrication result, and the cheap-baseline number in §4 says a null is the likelier outcome. Do not claim voltage-gating prediction, nanoscale field patterning, or novelty over ProteinGym or the KCNQ1 work. If a field-control panel is wanted for the pitch, use the Prescott data as a described, cited experiment-design example, and say plainly that one field magnitude cannot validate a field-selection policy.
