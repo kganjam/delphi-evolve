@@ -169,3 +169,11 @@ def test_create_failure_does_not_crash_or_orphan(tmp_path):
     assert b.runs[1].status == "pending"                           # quota is retried (bounded), not fatal
     for _ in range(4): b.step()
     assert b.runs[1].status == "failed" and b.runs[1].attempts == 3
+
+
+def test_total_inject_size_guard(tmp_path):
+    import os
+    (tmp_path / "s.py").write_text("print(1)\n")
+    (tmp_path / "big.bin").write_bytes(os.urandom(50_000))      # incompressible: > 48 KB raw in total
+    with pytest.raises(ValueError):
+        B.create_argv({"id": "x", "script": "s.py", "files": ["big.bin"]}, "delphi-evolve-ops-t-x", tmp_path, tmp_path / "tmp")

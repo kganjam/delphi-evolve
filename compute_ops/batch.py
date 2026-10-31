@@ -34,6 +34,7 @@ CPU_IMAGE = "python:3.12-slim"
 DEFAULTS = {"gpu": ("gpu-h100-sxm", "1gpu-16vcpu-200gb"), "cpu": ("cpu-d3", "16vcpu-64gb")}
 CHUNK = 40 * 1024            # injected files: API rejects >64 KiB plaintext AFTER encoding; 61 KB raw chunks failed live (11:30 PDT), so stay at 40 KiB (x4/3 = 54 KiB)
 MAX_CHUNKS = 16
+MAX_TOTAL_ENCODED = 60_000    # inferred bound on the summed, base64-encoded inject files (API error: plaintext must not exceed 65536 bytes); inferred from 3 observations, not documented
 TERMINAL = {"COMPLETED", "FAILED", "CANCELLED", "CANCELED", "STOPPED", "DELETED", "ERROR", "SUCCEEDED"}
 WAITING = {"PENDING", "QUEUED", "WAITING", "SCHEDULING", "CREATING", "PROVISIONING", "INITIALIZING"}
 OUTDIR = ROOT / "artifacts/gpuops"
@@ -92,7 +93,11 @@ def create_argv(item: dict, name: str, base: Path, tmpdir: Path) -> list[str]:
     for k, v in (item.get("env") or {}).items():
         a += ["--env", f"{k}={v}"]
     tmpdir.mkdir(parents=True, exist_ok=True)
-    for i, part in enumerate(chunk_bundle(build_bundle(item, base))):
+    parts = chunk_bundle(build_bundle(item, base))
+    total_raw = sum(map(len, parts)) + (HERE / "cops_run.py").stat().st_size
+    if total_raw * 4 / 3 > MAX_TOTAL_ENCODED:        # observed live: the API rejected 50,147 B (x4/3 = 66.9 KB) and 63,554 B in total, accepted 28.9 KB: the limit is on the SUM of injected files
+        raise ValueError(f"injected files total {total_raw} B raw (about {int(total_raw * 4 / 3)} B encoded) > {MAX_TOTAL_ENCODED}; shrink the file list")
+    for i, part in enumerate(parts):
         p = tmpdir / f"part-{i:03d}"
         p.write_bytes(part)
         a += ["--inject-file", f"{p}:/work/_b/part-{i:03d}"]
