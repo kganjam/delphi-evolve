@@ -1,0 +1,72 @@
+{
+ "episodes": 700,
+ "policies": [
+  "random",
+  "greedy",
+  "uncertainty",
+  "directed",
+  "q2c",
+  "collective_shared",
+  "collective_isolated"
+ ],
+ "seeds": 20,
+ "primary_at_1000_family_all": {
+  "random": {
+   "cert_rate": 0.21,
+   "false_certificates": 0,
+   "abstain": 79,
+   "rmst_assays": 877.4
+  },
+  "greedy": {
+   "cert_rate": 0.08,
+   "false_certificates": 0,
+   "abstain": 92,
+   "rmst_assays": 933.74
+  },
+  "uncertainty": {
+   "cert_rate": 0.13,
+   "false_certificates": 0,
+   "abstain": 87,
+   "rmst_assays": 930.87
+  },
+  "directed": {
+   "cert_rate": 0.32,
+   "false_certificates": 0,
+   "abstain": 68,
+   "rmst_assays": 709.17
+  },
+  "q2c": {
+   "cert_rate": 0.78,
+   "false_certificates": 0,
+   "abstain": 22,
+   "rmst_assays": 483.1
+  },
+  "collective_shared": {
+   "cert_rate": 0.78,
+   "false_certificates": 0,
+   "abstain": 22,
+   "rmst_assays": 466.94
+  },
+  "collective_isolated": {
+   "cert_rate": 0.77,
+   "false_certificates": 0,
+   "abstain": 23,
+   "rmst_assays": 484.79
+  }
+ },
+ "any_false_certificate": false,
+ "any_full_data_verification_failure": false,
+ "truth_open_fraction": {
+  "A": 0.6,
+  "B": 1.0
+ },
+ "query_log_bytes": {
+  "collective_isolated": 774063,
+  "collective_shared": 751654,
+  "directed": 1120626,
+  "greedy": 1512532,
+  "q2c": 896200,
+  "random": 1368001,
+  "uncertainty": 1499085
+ }
+}
