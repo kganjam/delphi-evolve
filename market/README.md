@@ -15,6 +15,10 @@ token or compiler-call ledger, oracle repair verdicts, Lean proof records.
    A direct-reuse diagnostic says when a gain is not attributable to reuse.
 3. **Is a probability calibrated?** `basin.py` scores Beta-Binomial basin posteriors on held-out runs and counts Lean-clamped nodes that still pattern (re-indexed, never averaged away).
 
+4. **What does the 21-claim scorecard honestly say?** `python -m market triage` (`triage.py`). Four buckets: holds as stated; holds only with a scope condition we supplied; empirical or not formalizable; unresolved.
+   A "holds" verdict stands only with a compiled proof, a clean axiom audit, every mutant failing, and a non-author statement review (plus a written scope condition for the second bucket). Missing any of these downgrades it to `unresolved` visibly.
+   The trap claims (`turing-morphogen-hypothesis`, `kimura-neutral-theory`) cannot be holds. A total other than 21 is flagged. A thin scorecard is called thin in the headline. It tallies records; it proves nothing and decides nothing.
+
 ## Rules baked into the code (each has a test that fails if it is removed)
 - Arms are compared only if total budgets differ by <= 5% of the smaller arm (tokens for desk arms, compiler calls for Lean arms); otherwise `REFUSED_BUDGET_MISMATCH` with no win/loss text.
 - Intervals are family-cluster bootstraps. Fewer than 6 families gives `INSUFFICIENT FAMILIES`, not a verdict (a 3-family bootstrap can have zero width).
@@ -27,8 +31,11 @@ token or compiler-call ledger, oracle repair verdicts, Lean proof records.
 `diversity.py` implements crowd error = mean individual error - diversity and **raises** if the identity fails at 1e-12. It is an algebraic identity for the unweighted mean
 and guarantees only that the crowd beats the *mean* individual. It says nothing about the *best* individual, so it is an appendix, not a headline.
 
+## What this package does not say
+It asserts no universal diffusion-ratio threshold, no validated structure-to-diffusion pipeline, and no claim that scope repair is unique to biology (all retracted or killed upstream). It measures; the science lives in the key, the oracles and the Lean artifacts.
+
 ## Input formats
-See the docstrings of `desk.py` (key, instances, answers, ledger, repairs) and `lean.py` (statements, results, ledger). **Assumptions to confirm with the owners:** the arms ledger rows carry `arm` plus `total_tokens` or token fields; Lean result rows carry `proved` and `axioms_clean`; `family` is the independence unit (the model, not a run).
+See the docstrings of `desk.py` (key, instances, answers, ledger, repairs) and `lean.py` (statements, results, ledger), `triage.py` (claim records). **Assumptions to confirm with the owners:** the arms ledger rows carry `arm` plus `total_tokens` or token fields; Lean result rows carry `proved` and `axioms_clean`; `family` is the independence unit (the model, not a run).
 
 ## Retained, not on the Scope Desk path
 `store.py` / `report.py` / `arms.py`: an immutable hash-chained binary-claim forecast store and report from the earlier market design (`python -m market forecast-report`). Tested, unused by the desk path.

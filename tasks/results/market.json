@@ -12,19 +12,80 @@
     "market/basin.py: held-out Beta-Binomial scoring of basin-volume probabilities; Lean-clamped nodes that still pattern are counted as re-indexed, never averaged.",
     "market/diversity.py: crowd error = mean individual error - diversity, checked numerically on every call (raises above 1e-12). Demoted to an appendix per the director; carries the theorem-limit text (guarantees only vs the MEAN individual, says nothing about the BEST).",
     "market/scoring.py, aggregate.py (mean, median, log-opinion pool, fixed extremisation a=1.5, out-of-fold recalibration), calibration.py (bins, ECE, reliability figure, family error correlation, within-outcome variant), stats.py (Clopper-Pearson, McNemar, AUC, cluster bootstrap), arms.py (budget gate).",
-    "market/store.py + report.py: retained immutable hash-chained binary-claim forecast store and report from the first design; tested; NOT on the Scope Desk path. No separate market API was built."
+    "market/store.py + report.py: retained immutable hash-chained binary-claim forecast store and report from the first design; tested; NOT on the Scope Desk path. No separate market API was built.",
+    "market/triage.py: scorecard tally for the 21 math-domain claims in four buckets (holds as stated / holds with supplied scope / empirical-not-formalizable / unresolved). A hold needs compiled proof, clean axioms, all mutants failing, non-author statement review (and a written scope condition for the second bucket); otherwise it is visibly downgraded to unresolved. Trap claims cannot be holds; a total other than 21 is flagged; thin scorecards are called thin."
   ],
   "commands_run": [
-    {"cmd": "python3 -m pytest tests/test_market_scoring.py (systemd-run scope TasksMax=128 MemoryMax=4G MemorySwapMax=0 RuntimeMaxSec=600)", "exit": 1, "note": "first run: 3 failed, 11 passed. Two were test bugs (a median case that closes the identity by coincidence; a float-noise equality). One exposed a REAL bug: a constant error series with 1e-17 spread produced a spurious correlation instead of undefined. Fixed in calibration.py with a tolerance."},
-    {"cmd": "same, after fixes", "exit": 0, "note": "14 passed"},
-    {"cmd": "python3 -m pytest tests/test_market_desk.py (scope)", "exit": 0, "note": "13 passed first run"},
-    {"cmd": "mutation check: 10 hand-made mutants of desk/diversity/scoring/aggregate/arms/stats run against the market tests (scope)", "exit": 0, "note": "8 killed, 2 SURVIVED: log pool using a median of logits (tests used only 2 forecasters) and the budget spread measured relative to the larger arm (tests were not near the 5% boundary). Added tests; both then killed. Also found 1050/1000-1 = 0.05000000000000004 would refuse an arm exactly at tolerance; fixed with a 1e-12 slack."},
-    {"cmd": "mutation check on new Lean/basin/min-families logic: 6 mutants (scope)", "exit": 0, "note": "6/6 killed"},
-    {"cmd": "python3 -m pytest tests/test_market_scoring.py tests/test_market_desk.py tests/test_market_lean.py tests/test_market_store.py -q (scope), final", "exit": 0, "note": "45 passed in 4.22 s"},
-    {"cmd": "python3 -m market selftest (scope)", "exit": 0, "note": "hand example passes; random-fixture max |identity residual| 3.3e-16, tolerance 1e-12"},
-    {"cmd": "python3 -m market desk ... and python3 -m market lean ... on literal test fixtures (scope)", "exit": 0, "note": "rendering and CLI paths only; output is not a result"}
+    {
+      "cmd": "python3 -m pytest tests/test_market_scoring.py (systemd-run scope TasksMax=128 MemoryMax=4G MemorySwapMax=0 RuntimeMaxSec=600)",
+      "exit": 1,
+      "note": "first run: 3 failed, 11 passed. Two were test bugs (a median case that closes the identity by coincidence; a float-noise equality). One exposed a REAL bug: a constant error series with 1e-17 spread produced a spurious correlation instead of undefined. Fixed in calibration.py with a tolerance."
+    },
+    {
+      "cmd": "same, after fixes",
+      "exit": 0,
+      "note": "14 passed"
+    },
+    {
+      "cmd": "python3 -m pytest tests/test_market_desk.py (scope)",
+      "exit": 0,
+      "note": "13 passed first run"
+    },
+    {
+      "cmd": "mutation check: 10 hand-made mutants of desk/diversity/scoring/aggregate/arms/stats run against the market tests (scope)",
+      "exit": 0,
+      "note": "8 killed, 2 SURVIVED: log pool using a median of logits (tests used only 2 forecasters) and the budget spread measured relative to the larger arm (tests were not near the 5% boundary). Added tests; both then killed. Also found 1050/1000-1 = 0.05000000000000004 would refuse an arm exactly at tolerance; fixed with a 1e-12 slack."
+    },
+    {
+      "cmd": "mutation check on new Lean/basin/min-families logic: 6 mutants (scope)",
+      "exit": 0,
+      "note": "6/6 killed"
+    },
+    {
+      "cmd": "python3 -m pytest tests/test_market_scoring.py tests/test_market_desk.py tests/test_market_lean.py tests/test_market_store.py -q (scope), final",
+      "exit": 0,
+      "note": "45 passed in 4.22 s"
+    },
+    {
+      "cmd": "python3 -m market selftest (scope)",
+      "exit": 0,
+      "note": "hand example passes; random-fixture max |identity residual| 3.3e-16, tolerance 1e-12"
+    },
+    {
+      "cmd": "python3 -m market desk ... and python3 -m market lean ... on literal test fixtures (scope)",
+      "exit": 0,
+      "note": "rendering and CLI paths only; output is not a result"
+    },
+    {
+      "cmd": "gh api repos/knowledgepixels/{project-delphi-nanopubs,nanopub-skill} (read-only tree + skills/delphi/SKILL.md); gh search code 'tournament OR leaderboard OR debate' on both",
+      "exit": 0,
+      "note": "project-delphi-nanopubs is nearly empty (.gitkeep dirs plus one skill file); neither public repo contains tournament, debate or leaderboard code. Amit's named gap must be in a repo I was not pointed to, so the 'check the repo first' condition could not be met and no tournament module was built. The skill's rules (observed/model/derived distinct, unknown stays unknown, synthetic runs show executability only, acceptance from checks that run) match this harness."
+    },
+    {
+      "cmd": "python3 -m pytest tests/test_market_triage.py (scope), first run",
+      "exit": 1,
+      "note": "1 failed: my hand count in the test was wrong (empirical bucket is 4, unresolved 7; 10+4+7=21). The code was right; test corrected."
+    },
+    {
+      "cmd": "mutation check on triage: 7 mutants (scope)",
+      "exit": 0,
+      "note": "7/7 killed"
+    },
+    {
+      "cmd": "python3 -m pytest tests/test_market_scoring.py tests/test_market_desk.py tests/test_market_lean.py tests/test_market_store.py tests/test_market_triage.py -q (scope), final",
+      "exit": 0,
+      "note": "51 passed"
+    },
+    {
+      "cmd": "grep for diffusion/threshold/Stokes/hydrodynamic claims in market/",
+      "exit": 0,
+      "note": "none; the only hit is the probability-threshold sweep in desk.py"
+    }
   ],
-  "artifacts": ["market/", "tests/test_market_*.py"],
+  "artifacts": [
+    "market/",
+    "tests/test_market_*.py"
+  ],
   "limitations": [
     "No real data has been scored. There is no measured finding in this file.",
     "Input formats are my reading of scopedesk/SPEC.md (answers, key) plus ASSUMPTIONS for the arms ledger rows (arm plus total_tokens or token fields) and the Lean result rows (proved, axioms_clean, compiler_calls, optional cross_family_lemma_uses). I read the spec through git show and did not look at the owners' code. Confirm with the arms and bench owners.",
@@ -33,12 +94,16 @@
     "Within-arm dependence in the shared-library arm (statements share lemmas by design) is not modelled; pairing is across arms by statement.",
     "The closest published replication of the shared-library mechanism (Berlot-Attwell et al., arXiv 2504.03048, as relayed in the host's post-audit) was negative after compute adjustment. A null is the prior-informed expectation and the harness is built to print it plainly. I relied on the host's relay of that paper and did not read it.",
     "The binary-claim forecast store is an honest-process ledger, not protection against an adversary with file access.",
-    "Prereg files are committed before any agent answer exists but the hash binding to a run is only as good as the runner recording the report's prereg sha256."
+    "Prereg files are committed before any agent answer exists but the hash binding to a run is only as good as the runner recording the report's prereg sha256.",
+    "Not done, deliberately: tournament/debate ranking (target repo unknown, cannot rule out duplication), any nanopub code (the Ashley-maintained skill exists and I wrote none), Kavita's seven-point claim spec, dataset discovery at scale, and any PR or outreach. Those are other roles' work or need the user's authorization.",
+    "The triage tally trusts the records it is given; it cannot check that a Lean artifact compiles or that a mutant set is meaningful. Those checks belong to the proof owners and the independent audit."
   ],
   "next_steps": [
     "Director: wire `python -m market desk` and `python -m market lean` into the acceptance runner once the key, answers and ledger exist; confirm the ledger and result row formats above.",
     "Whoever owns the key: make `family` the model (the independence unit), not a run, and publish KEY.sha256 for the hash check.",
     "Decide whether the TXT arm gets answers from the deterministic textbook criterion; its error rate is the audit's headline number.",
-    "Commit prereg_desk.json and prereg_lean.json before any run (done at the code commit) and do not edit them afterwards without a dated note."
+    "Commit prereg_desk.json and prereg_lean.json before any run (done at the code commit) and do not edit them afterwards without a dated note.",
+    "Proof owners: emit one triage record per claim with the fields in market/triage.py, then run `python -m market triage --claims C.jsonl --out DIR`.",
+    "If a tournament ranking is wanted, first get the name of the repo Amit inspected; the existing paired comparisons in desk.py already give head-to-head differences with family-cluster intervals."
   ]
 }

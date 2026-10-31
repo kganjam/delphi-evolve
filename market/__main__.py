@@ -5,6 +5,7 @@ tested, and NOT part of the Scope Desk interface (the director owns that interfa
   python -m market desk --key KEY.jsonl --answers answers.jsonl [--instances inst.jsonl] [--ledger arms/ledger.jsonl]
                         [--repairs repairs.jsonl] [--key-sha KEY.sha256] --out DIR
   python -m market lean --statements S.jsonl --results R.jsonl [--ledger L.jsonl] [--statements-sha S.sha256] --out DIR
+  python -m market triage --claims C.jsonl [--expected 21] --out DIR
   python -m market forecast-report --store DIR [--resolutions PATH] --out DIR      (legacy binary-claim store)
 """
 from __future__ import annotations
@@ -25,6 +26,8 @@ def main(argv=None) -> int:
     l = sub.add_parser("lean")
     l.add_argument("--statements", required=True); l.add_argument("--results", required=True); l.add_argument("--ledger")
     l.add_argument("--statements-sha"); l.add_argument("--out", required=True)
+    t = sub.add_parser("triage")
+    t.add_argument("--claims", required=True); t.add_argument("--expected", type=int, default=21); t.add_argument("--out", required=True)
     f = sub.add_parser("forecast-report")
     f.add_argument("--store", required=True); f.add_argument("--resolutions"); f.add_argument("--out", required=True)
     a = ap.parse_args(argv)
@@ -36,6 +39,10 @@ def main(argv=None) -> int:
         from .desk import run_desk
         rep, md = run_desk(a.key, a.answers, a.instances, a.ledger, a.repairs, a.key_sha, a.out)
         print(rep["headline"]["slide_markdown"])
+        return 0
+    if a.cmd == "triage":
+        from .triage import run_triage
+        print(run_triage(a.claims, a.out, a.expected)["markdown"])
         return 0
     if a.cmd == "lean":
         from .lean import run_lean
