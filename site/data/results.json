@@ -1545,6 +1545,7 @@
  "uncertainty_procedure": "paired differences on identical episodes; percentile bootstrap over the 20 seeds as clusters; descriptive, not a coverage claim",
  "caveats": [
   "20 seeds; family B repeats one start and four targets, so its 80 episodes are not independent pairs",
+  "all policies receive 96 randomly sampled initial measurements and the endpoint labels free (96 unique observations in family A; normally 98 in family B); family B targets were selected from the published table, not discovered by these policies",
   "family A has 8 blocked pairs; blocked certification is the same for all policies because a cut needs every neighbour assayed",
   "false certificates are 0 by construction (certificates use only revealed labels), so that column is a check, not a finding",
   "policies marked post-hoc were added after the first results and are exploratory; best-of-several selection is optimistic",

@@ -50,7 +50,7 @@ Limitation: the Nebius documentation does not enumerate job states for us. The W
 ## Results (2026-10-31, run 00:44-02:13 PDT; all numbers from saved artifacts)
 
 ### Compute actually used
-Ten owned single-H100 jobs, 2.63 H100-hours of job wall time (`artifacts/scale/library_receipts.json`; includes image pull and model load). Peak concurrent own H100s counted by the monitor: 8 (cap 10; the gpu worker's 650M job had finished). 57 monitor cycles, 0 failed listings, **0 cycles with another team's job waiting, 0 releases**: the yield path ran live only as a no-op; it is verified by fixtures, not by a real eviction. Metered charge: unknown (the event covers Nebius; no invoice seen), not zero.
+Ten owned single-H100 jobs, 2.63 H100-hours of job wall time (`artifacts/scale/library_receipts.json`; from recorded started_at to finished_at; not a billing measurement). Peak concurrent own H100s counted by the monitor: 8 (cap 10; the gpu worker's 650M job had finished). 57 monitor cycles, 0 failed listings, **0 cycles with another team's job waiting, 0 releases**: the yield path ran live only as a no-op; it is verified by fixtures, not by a real eviction. Metered charge: unknown (the event covers Nebius; no invoice seen), not zero.
 
 Measured throughput (variants/s, six passes per variant incl. random projection, batch 64, H100): 8M and 35M not logged separately here, 150M 217, 650M 126, 3B 36.7. A 3B unit of 5,000 variants took 136 s plus 7 s of paced log emission; model load 227 s (12 GB download); NGC image pull about 7 min. Peak GPU memory 7.7 GB for 3B at batch 64. Each unit ships as ~1.6 MB (354 log lines). 15B was NOT run: the size curve below is flat from 150M to 3B, so a 61 GB-checkpoint, ~7 GPU-hour run had no evidence behind it.
 
@@ -76,18 +76,18 @@ Core commit 8883518, core's frozen 20-seed panel (100 episodes per row), budget 
 | policy | prior | RMST@1000 | diff vs none [interval] | certified@1000 | false certificates |
 |---|---|---|---|---|---|
 | q2c | none | 483.1 | | 78 | 0 |
-| q2c | 8M | 464.5 | -18.6 [-45.7, +7.5] | 79 | 0 |
+| q2c | 8M | 464.5 | -18.6 [-46.6, +7.6] | 79 | 0 |
 | q2c | 35M | 486.2 | +3.2 [-20.7, +29.3] | 78 | 0 |
 | q2c | 150M | 453.2 | -29.9 [-86.3, +21.2] | 80 | 0 |
 | q2c | 650M | 490.1 | +7.0 [-20.3, +36.4] | 78 | 0 |
 | q2c | 3B | 475.5 | -7.6 [-34.2, +14.9] | 77 | 0 |
-| q2c | shuffled 150M (control) | 463.6 | -19.5 [-59.2, +19.1] | 77 | 0 |
-| q2c | shuffled 3B (control) | 463.5 | -19.6 [-43.7, +3.5] | 80 | 0 |
+| q2c | shuffled 150M (control) | 463.6 | -19.5 [-60.3, +19.1] | 77 | 0 |
+| q2c | shuffled 3B (control) | 463.5 | -19.6 [-42.2, +2.2] | 80 | 0 |
 | collective_shared | none | 466.9 | | 78 | 0 |
 | collective_shared | 3B | 466.9 | -0.0 [-39.1, +39.7] | 78 | 0 |
 | collective_shared | shuffled 3B | 460.5 | -6.5 [-32.3, +25.0] | 78 | 0 |
 
-**Result: no detectable benefit.** Every interval contains zero, no size shows a trend, and the shuffled-prior controls move RMST as much as the real priors (-19.5, -19.6), so the differences are within what perturbing the surrogate does. No false certificates in any configuration (certification still rests on revealed measurements). The honest statement is "an ESM2 zero-shot prior of 8M-3B parameters did not measurably reduce assays-to-certificate for core's q2c or shared-collective policies at this budget on this landscape". Not tested: a supervised/embedding kernel, other priors, other budgets, 650M with collective_shared, and the other three scoring protocols in the replay.
+**Result: no clear benefit under this integration.** Every interval contains zero, no size shows a trend, and the shuffled-prior controls move RMST as much as the real priors (-19.5, -19.6), so the differences are within what perturbing the surrogate does. No false certificates in any configuration (certification still rests on revealed measurements). The honest statement is "an ESM2 zero-shot prior of 8M-3B parameters did not measurably reduce assays-to-certificate for core's q2c or shared-collective policies at this budget on this landscape". Not tested: a supervised/embedding kernel, other priors, other budgets, 650M with collective_shared, and the other three scoring protocols in the replay.
 
 ## Reuse contract (exact IDs)
 
@@ -103,7 +103,7 @@ Durable (untracked, this host): `/data/artifacts/delphi-evolve-scale/arrays/{te8
 
 To use a prior in a core policy: take `z`, then per episode fit `prior = a + b z` by OLS on that episode's free initial observations (`gpu_batch.prior_replay.episode_prior`) and pass it as `prior=` to `run_episode`. Do not use a shared slope fitted on all labels. For the demo `compute` block: provider Nebius, models above (BioNeMo TransformerEngine checkpoints, bf16), job IDs above; state the null replay result with it. All fields are `predicted`, never `observed`.
 
-Reproduce: `python -m gpu_batch.controller monitor --launch` with the queue in `artifacts/scale/launch_queue.json` (needs the Nebius `hackathon` profile), then `gpu_batch.assemble recover|library`, `gpu_batch.ablation`, `gpu_batch.prior_replay run|summarize`.
+To run new GPU jobs (consumes shared capacity): `python -m gpu_batch.controller monitor --launch` with the queue in `artifacts/scale/launch_queue.json` (needs the Nebius `hackathon` profile), then `gpu_batch.assemble recover|library`, `gpu_batch.ablation`, `gpu_batch.prior_replay run|summarize`.
 
 ## Limitations
 * The yield-to-other-teams path was never triggered live. Job state names are inferred; unknown states are treated as waiting.
@@ -112,3 +112,7 @@ Reproduce: `python -m gpu_batch.controller monitor --launch` with the queue in `
 * Random-projection embeddings (`site_rp`, `mean_rp`) were produced and shipped but not yet evaluated downstream; no claim is made about them.
 * Nebius LLM inference was not used: only a cloud IAM token is configured, no AI Studio API key. Brev, OpenAI: not touched.
 * Actual metered charges: unknown.
+
+## Coordinator audit
+
+The coordinator independently checked all five full-library file hashes and 160,000-row coverage, recomputed ten correlations from source measurements, recounted all 1,100 episode summaries and their paired seed bootstrap intervals, and queried all ten owned jobs live as COMPLETED. See `artifacts/integration/scale-coordinator-audit.json`. The scale replay did not retain per-query logs; it does not have the query-by-query audit of the core and LazySP studies. This limits independent reconstruction of its certificate histories. Compact scalar priors and episode rows are committed; full projected embeddings remain on this host.

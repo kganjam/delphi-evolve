@@ -15,3 +15,4 @@ artifacts/core/replay/shards/
 build/
 *.egg-info/
 artifacts/core/replay_kappa*/shards/
+site/presentation/

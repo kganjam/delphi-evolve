@@ -1,0 +1,130 @@
+{
+ "status": "completed",
+ "models": 5,
+ "variants_per_model": 160000,
+ "episodes": 1100,
+ "comparisons": [
+  {
+   "policy": "collective_shared",
+   "prior": "esm_te3b_mm_ctx",
+   "certified": 78,
+   "episodes": 100,
+   "rmst_assays": 466.93,
+   "interval": [
+    -39.10124999999999,
+    39.74999999999999
+   ]
+  },
+  {
+   "policy": "collective_shared",
+   "prior": "none",
+   "certified": 78,
+   "episodes": 100,
+   "rmst_assays": 466.94,
+   "interval": null
+  },
+  {
+   "policy": "collective_shared",
+   "prior": "shuf_te3b_mm_ctx",
+   "certified": 78,
+   "episodes": 100,
+   "rmst_assays": 460.46,
+   "interval": [
+    -32.34325000000001,
+    25.043249999999983
+   ]
+  },
+  {
+   "policy": "q2c",
+   "prior": "esm_te150m_mm_ctx",
+   "certified": 80,
+   "episodes": 100,
+   "rmst_assays": 453.24,
+   "interval": [
+    -86.30225000000002,
+    21.15499999999992
+   ]
+  },
+  {
+   "policy": "q2c",
+   "prior": "esm_te35m_mm_ctx",
+   "certified": 78,
+   "episodes": 100,
+   "rmst_assays": 486.25,
+   "interval": [
+    -20.65075,
+    29.263999999999974
+   ]
+  },
+  {
+   "policy": "q2c",
+   "prior": "esm_te3b_mm_ctx",
+   "certified": 77,
+   "episodes": 100,
+   "rmst_assays": 475.51,
+   "interval": [
+    -34.19050000000001,
+    14.920999999999992
+   ]
+  },
+  {
+   "policy": "q2c",
+   "prior": "esm_te650m_mm_ctx",
+   "certified": 78,
+   "episodes": 100,
+   "rmst_assays": 490.13,
+   "interval": [
+    -20.270250000000004,
+    36.41149999999999
+   ]
+  },
+  {
+   "policy": "q2c",
+   "prior": "esm_te8m_mm_ctx",
+   "certified": 79,
+   "episodes": 100,
+   "rmst_assays": 464.46,
+   "interval": [
+    -46.625249999999994,
+    7.6
+   ]
+  },
+  {
+   "policy": "q2c",
+   "prior": "none",
+   "certified": 78,
+   "episodes": 100,
+   "rmst_assays": 483.1,
+   "interval": null
+  },
+  {
+   "policy": "q2c",
+   "prior": "shuf_te150m_mm_ctx",
+   "certified": 77,
+   "episodes": 100,
+   "rmst_assays": 463.61,
+   "interval": [
+    -60.29225,
+    19.08199999999999
+   ]
+  },
+  {
+   "policy": "q2c",
+   "prior": "shuf_te3b_mm_ctx",
+   "certified": 80,
+   "episodes": 100,
+   "rmst_assays": 463.48,
+   "interval": [
+    -42.242,
+    2.1732499999999844
+   ]
+  }
+ ],
+ "all_rmst_intervals_include_zero": true,
+ "source_sha256": {
+  "artifacts/scale/replay_rows.jsonl.gz": "806ed78723efe5d5c74e4cd7a44118fea225de509acb9686bf483a4a5b44e2b4",
+  "artifacts/scale/replay_summary.csv": "c6306a5796bf3a0d674720a17746e1309793ea390256fd2744c1f0126697a369",
+  "artifacts/scale/library_receipts.json": "da3f98517fc25c041d516fff70e4933938ff51d29460c87178ea48072fabf3f6"
+ },
+ "scope": "Separate follow-up on the same repeated-target panel; no clear assay-saving benefit under the tested prior integration. Episode rows and summaries recounted; these runs did not retain per-query traces. Protein model outputs remain predictions; intervals are descriptive seed bootstraps, not calibrated coverage."
+}

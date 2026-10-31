@@ -1,0 +1,242 @@
+{
+ "status": "completed",
+ "source_commit": "c23bc7b372ae3a4c952a126b7ed1b62880910241",
+ "scope": "Coordinator checked full library hashes/coverage, recomputed ten correlations from raw measured scores, recounted all episode summary counts and paired seed bootstrap intervals, and queried live status for all ten owned scale jobs. No per-query trace audit possible: follow-up did not retain traces.",
+ "library_checks": [
+  {
+   "model": "te8m",
+   "protocol": "mm_ctx",
+   "spearman_recomputed": 0.18247572036036105,
+   "file_sha256": "51b0c7403cc3fd11db71310cf0fb4c0a6ee7569890de0db84f0cb756814d3ca9"
+  },
+  {
+   "model": "te8m",
+   "protocol": "mm_wt",
+   "spearman_recomputed": 0.19432654374414873,
+   "file_sha256": "51b0c7403cc3fd11db71310cf0fb4c0a6ee7569890de0db84f0cb756814d3ca9"
+  },
+  {
+   "model": "te35m",
+   "protocol": "mm_ctx",
+   "spearman_recomputed": 0.1759510074402109,
+   "file_sha256": "6f5f91fe26d9f977c83954522db10864b61845696d4e2b81023d8555bccae017"
+  },
+  {
+   "model": "te35m",
+   "protocol": "mm_wt",
+   "spearman_recomputed": 0.18654442072724953,
+   "file_sha256": "6f5f91fe26d9f977c83954522db10864b61845696d4e2b81023d8555bccae017"
+  },
+  {
+   "model": "te150m",
+   "protocol": "mm_ctx",
+   "spearman_recomputed": 0.19567290257608108,
+   "file_sha256": "94af5966492cf6e481911fa16851b9f781ae9590f8a50a0f7aee3507d6a5b5e1"
+  },
+  {
+   "model": "te150m",
+   "protocol": "mm_wt",
+   "spearman_recomputed": 0.20186535970947408,
+   "file_sha256": "94af5966492cf6e481911fa16851b9f781ae9590f8a50a0f7aee3507d6a5b5e1"
+  },
+  {
+   "model": "te650m",
+   "protocol": "mm_ctx",
+   "spearman_recomputed": 0.17297150072052797,
+   "file_sha256": "f2f22a6ff186e352d8ab6e2240388ebe14b53f0a4bb05f1556f89826beffb979"
+  },
+  {
+   "model": "te650m",
+   "protocol": "mm_wt",
+   "spearman_recomputed": 0.16972438803554263,
+   "file_sha256": "f2f22a6ff186e352d8ab6e2240388ebe14b53f0a4bb05f1556f89826beffb979"
+  },
+  {
+   "model": "te3b",
+   "protocol": "mm_ctx",
+   "spearman_recomputed": 0.1695636871300143,
+   "file_sha256": "476ed4669fd8a227b78c3991e5488a427dc0822929bd61ad9b47186079128570"
+  },
+  {
+   "model": "te3b",
+   "protocol": "mm_wt",
+   "spearman_recomputed": 0.1710041900187648,
+   "file_sha256": "476ed4669fd8a227b78c3991e5488a427dc0822929bd61ad9b47186079128570"
+  }
+ ],
+ "live_jobs": [
+  {
+   "id": "aijob-e00j9xfkkz9rpeakz6",
+   "state": "COMPLETED"
+  },
+  {
+   "id": "aijob-e00cgjqnrbdeeybnj5",
+   "state": "COMPLETED"
+  },
+  {
+   "id": "aijob-e00bz2z168xhb8sqj0",
+   "state": "COMPLETED"
+  },
+  {
+   "id": "aijob-e00msfjf9v25bjzb2w",
+   "state": "COMPLETED"
+  },
+  {
+   "id": "aijob-e00zv8gre71k3mxt1s",
+   "state": "COMPLETED"
+  },
+  {
+   "id": "aijob-e00y49t1xsfxm7cmqf",
+   "state": "COMPLETED"
+  },
+  {
+   "id": "aijob-e00nga5q6vjqbbee30",
+   "state": "COMPLETED"
+  },
+  {
+   "id": "aijob-e00hsqc8eyxhaps2rw",
+   "state": "COMPLETED"
+  },
+  {
+   "id": "aijob-e00db00w7bzzp973r0",
+   "state": "COMPLETED"
+  },
+  {
+   "id": "aijob-e00kejm199cp3hq1nt",
+   "state": "COMPLETED"
+  }
+ ],
+ "job_started_to_finished_seconds": 9475.0,
+ "job_hours": 2.6319444444444446,
+ "summary": {
+  "status": "completed",
+  "models": 5,
+  "variants_per_model": 160000,
+  "episodes": 1100,
+  "comparisons": [
+   {
+    "policy": "collective_shared",
+    "prior": "esm_te3b_mm_ctx",
+    "certified": 78,
+    "episodes": 100,
+    "rmst_assays": 466.93,
+    "interval": [
+     -39.10124999999999,
+     39.74999999999999
+    ]
+   },
+   {
+    "policy": "collective_shared",
+    "prior": "none",
+    "certified": 78,
+    "episodes": 100,
+    "rmst_assays": 466.94,
+    "interval": null
+   },
+   {
+    "policy": "collective_shared",
+    "prior": "shuf_te3b_mm_ctx",
+    "certified": 78,
+    "episodes": 100,
+    "rmst_assays": 460.46,
+    "interval": [
+     -32.34325000000001,
+     25.043249999999983
+    ]
+   },
+   {
+    "policy": "q2c",
+    "prior": "esm_te150m_mm_ctx",
+    "certified": 80,
+    "episodes": 100,
+    "rmst_assays": 453.24,
+    "interval": [
+     -86.30225000000002,
+     21.15499999999992
+    ]
+   },
+   {
+    "policy": "q2c",
+    "prior": "esm_te35m_mm_ctx",
+    "certified": 78,
+    "episodes": 100,
+    "rmst_assays": 486.25,
+    "interval": [
+     -20.65075,
+     29.263999999999974
+    ]
+   },
+   {
+    "policy": "q2c",
+    "prior": "esm_te3b_mm_ctx",
+    "certified": 77,
+    "episodes": 100,
+    "rmst_assays": 475.51,
+    "interval": [
+     -34.19050000000001,
+     14.920999999999992
+    ]
+   },
+   {
+    "policy": "q2c",
+    "prior": "esm_te650m_mm_ctx",
+    "certified": 78,
+    "episodes": 100,
+    "rmst_assays": 490.13,
+    "interval": [
+     -20.270250000000004,
+     36.41149999999999
+    ]
+   },
+   {
+    "policy": "q2c",
+    "prior": "esm_te8m_mm_ctx",
+    "certified": 79,
+    "episodes": 100,
+    "rmst_assays": 464.46,
+    "interval": [
+     -46.625249999999994,
+     7.6
+    ]
+   },
+   {
+    "policy": "q2c",
+    "prior": "none",
+    "certified": 78,
+    "episodes": 100,
+    "rmst_assays": 483.1,
+    "interval": null
+   },
+   {
+    "policy": "q2c",
+    "prior": "shuf_te150m_mm_ctx",
+    "certified": 77,
+    "episodes": 100,
+    "rmst_assays": 463.61,
+    "interval": [
+     -60.29225,
+     19.08199999999999
+    ]
+   },
+   {
+    "policy": "q2c",
+    "prior": "shuf_te3b_mm_ctx",
+    "certified": 80,
+    "episodes": 100,
+    "rmst_assays": 463.48,
+    "interval": [
+     -42.242,
+     2.1732499999999844
+    ]
+   }
+  ],
+  "all_rmst_intervals_include_zero": true,
+  "source_sha256": {
+   "artifacts/scale/replay_rows.jsonl.gz": "806ed78723efe5d5c74e4cd7a44118fea225de509acb9686bf483a4a5b44e2b4",
+   "artifacts/scale/replay_summary.csv": "c6306a5796bf3a0d674720a17746e1309793ea390256fd2744c1f0126697a369",
+   "artifacts/scale/library_receipts.json": "da3f98517fc25c041d516fff70e4933938ff51d29460c87178ea48072fabf3f6"
+  },
+  "scope": "Separate follow-up on the same repeated-target panel; no clear assay-saving benefit under the tested prior integration. Episode rows and summaries recounted; these runs did not retain per-query traces. Protein model outputs remain predictions; intervals are descriptive seed bootstraps, not calibrated coverage."
+ },
+ "audit_validator_sha256": "72b3d1489baf4474d11dad1965c8a26b1af76473179f12a39237254b7575c2e9"
+}

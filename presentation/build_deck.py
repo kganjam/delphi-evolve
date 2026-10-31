@@ -28,7 +28,9 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
+sys.path.insert(0, str(HERE.parent))
 import validate as V  # noqa: E402
+from evolve.release_evidence import scale_block  # noqa: E402
 
 AA = "ACDEFGHIKLMNPQRSTVWY"
 E = html.escape
@@ -237,10 +239,11 @@ def load_inputs(root: Path) -> dict:
                        "verify": json.loads((cr / "verification_receipt.json").read_text())}
     else:
         D["claims"] = None
-    gr = any((root / "artifacts/scale").glob("**/prior_replay*/table_primary.csv")) if (root / "artifacts/scale").exists() else False
+    D["scale"] = scale_block(root)
+    gr = D["scale"]["status"] == "completed"
     D["gpu_replay_present"] = gr
-    D["gpu_replay_text"] = ("result file present but not quoted here" if gr else "not available in this release")
-    D["gpu_replay_short"] = "result file present but not quoted" if gr else "not part of this release"
+    D["gpu_replay_text"] = ("1,100 follow-up episodes: no clear assay-saving benefit; all descriptive RMST intervals include zero" if gr and D["scale"]["all_rmst_intervals_include_zero"] else "not quoted; inspect the separate follow-up") if gr else "not available in this build"
+    D["gpu_replay_short"] = "tested without a clear benefit" if gr and D["scale"]["all_rmst_intervals_include_zero"] else "not established here"
     ts = root / "artifacts/turing_scope"
     D["turing"] = {"results": json.loads((ts / "results.json").read_text()), "lean": json.loads((ts / "lean_receipt.json").read_text())} if (ts / "results.json").exists() and (ts / "lean_receipt.json").exists() else None
     t = (root / "site/data/landscape.js").read_text()
@@ -460,7 +463,7 @@ def build_slides(D: dict, R: dict | None, draft_reasons: list[str], prov: dict) 
         n_only = Lz["info"]["only_lazysp"]
         if n_alt < q2c_n:
             raise SystemExit("LazySP-alternate certifies fewer episodes than q2c: the slide-4 narrative must be rewritten by hand")
-        head4 = (f"Against a strong, established baseline our planner does not win: lazy path search certifies {n_alt} of {nep} episodes at {B} assays; model-assisted query-to-certify {q2c_n}.")
+        head4 = (f"The benchmark changed our design: established search certifies {n_alt}/{nep}; our model-assisted planner {q2c_n}/{nep}.")
         def row(p, basis, cls="", lz=None):
             if lz is None:
                 r250, r = T[("all", p, 250)], T[("all", p, B)]
@@ -470,14 +473,11 @@ def build_slides(D: dict, R: dict | None, draft_reasons: list[str], prov: dict) 
             return (f'<tr{cls}><td><span class="sw" style="border-color:{POLICY_COLOR.get(p, "#555")};border-top-style:{swstyle(p)}"></span>{POLICY_LABEL[p]}</td><td style="text-align:left;font-size:12.5px;color:var(--ink2)">{basis}</td>'
                     f'<td>{pct(a250)}</td><td><b>{pct(a1000)}</b></td><td>{rm:.0f}</td></tr>')
         rows = [row("lazysp_alternate", "established search · follow-up primary", lz=alt),
-                row("lazysp_forward", "follow-up secondary", lz=fwd),
-                row("lazysp_reverse", "follow-up secondary", lz=rev),
                 row("q2c", "model-assisted · original"),
                 row("collective_shared", "shared specialists · original"),
-                row("q2c_nomodel", "POST HOC, chosen after seeing the original run", ' class="follow"'),
-                row("directed", "original"), row("random", "original")]
+                row("q2c_nomodel", "POST HOC, chosen after seeing the original run", ' class="follow"')]
         curve_rows = list(R["ep"]) + [dict(r, policy=f"lazysp_{v}") for v in ("alternate", "forward") for r in Lz["ep"] if r["policy"] == f"lazysp_{v}"]
-        curve_pols = ["lazysp_alternate", "lazysp_forward", "q2c", "collective_shared", "q2c_nomodel", "directed", "random"]
+        curve_pols = ["lazysp_alternate", "q2c", "collective_shared", "q2c_nomodel"]
         pp = lambda x: f"{x * 100:+.0f}"
         av = lambda x, d=0: f"{x:+.{d}f}"
         pair_rows = (
@@ -495,7 +495,9 @@ def build_slides(D: dict, R: dict | None, draft_reasons: list[str], prov: dict) 
   <table style="font-size:13.5px"><tr><th style="text-align:left">measure</th><th>difference</th></tr>{pair_rows}</table></div>
  <div class="col">
   <table style="font-size:14px"><tr><th>policy</th><th style="text-align:left">basis</th><th>@250</th><th>@{B}</th><th>assays†</th></tr>{"".join(rows)}</table>
-  <div class="scope" style="margin-top:8px;font-size:14px;line-height:1.32"><b>Read carefully.</b> Established search {n_alt}, model-assisted {q2c_n}, post hoc no-GP {cnt_('q2c_nomodel')}, shared specialists {cnt_('collective_shared')} (no agent uplift). The gain is concentrated in one repeated endpoint pair; the assays-to-certificate interval includes 0. <b>No superiority claim for Q2C, none for LazySP in general.</b> Our LazySP is an existing node-query adaptation, not an invention; the follow-up was preregistered before its new episodes but after the original study. One enzyme, assumed intervals, retrospective; about 24 effective problems, not 100. {false_tot} false certificates among {cert_tot} issued (structural consistency, not biology). † unresolved counted at budget.</div>
+  <div class="scope" style="margin-top:16px;font-size:17px;line-height:1.4"><b>Keep the evidence layer. Choose the simpler planner.</b> No collective uplift. No superiority claim for Q2C. The LazySP adaptation is established work, not an invention.</div>
+  <p class="small" style="font-size:16px;margin-top:16px">One enzyme; retrospective; assumed intervals. The gain concentrates in one repeated endpoint pair, and the assay-count interval includes 0. About 24 distinct problems, not 100 independent targets.</p>
+  <p class="small" style="font-size:14px">The follow-up was declared before its runs, after the original study. {false_tot} false certificates among {cert_tot} issued checks structural consistency, not biology. † Unresolved counted at budget. All arms and limits are in the appendix.</p>
  </div>
 </div>"""
         fn4 = fn(f'<b>Source</b> artifacts/lazysp/results/ (3 variants × {nep} episodes; {Lz["audit_shards"]} shards audited, 0 errors) · artifacts/core/replay/ ({R["seeds"]} seeds × 5 pairs × {len(pols)} arms)',
@@ -595,6 +597,8 @@ def build_slides(D: dict, R: dict | None, draft_reasons: list[str], prov: dict) 
                   if bridge_ok else "the benchmark route is not Lean-bridged in this build")
     gpu_txt = (f"BioNeMo ESM2-650M prior for {cp['variants']:,} variants on one Nebius H100 ({cp['runtime_seconds'] // 60} min). Zero-shot Spearman <b>{sp}</b> with the measured score; near-zero gain over one-hot site identity in a random-split ridge check. The OpenResearch analysis ran locally on CPU: no hosted service, no biological experiment."
                if gpu_ok else "GPU prior receipt unavailable in this build.")
+    if D["gpu_replay_present"]:
+        gpu_txt = "Five BioNeMo ESM2 sizes, <b>8M–3B</b>, each scored all <b>160,000 variants</b> on Nebius H100s. Weak rank association did not improve with size. OpenResearch ran a companion analysis locally on CPU."
     s6 = f"""
 <div class="brand"><i></i>Darwin’s Bridge / Delphi Evolve</div><div class="num">6 / 6</div>
 <h2 style="font-size:31px;margin:24px 0 12px">The contribution is compact: <em>assay decisions with machine-checkable, conditional certificates and typed, reusable evidence.</em></h2>
@@ -609,7 +613,7 @@ def build_slides(D: dict, R: dict | None, draft_reasons: list[str], prov: dict) 
   <p style="margin:0 0 8px;font:500 24px/1.18 var(--serif)">One lab. One prior campaign. One prospective round.</p>
   <p class="small" style="margin:0;color:#d8d3c2;font-size:16px">Pre-register the rule, equal assay budgets, read out cost and days to a defensible decision (120 days). No customer, LOI or market size exists.</p></div></div>
 </div>
-<div class="scope" style="margin-top:18px;font-size:17px"><b>Not new:</b> query-efficient path evaluation (LazySP, BAEE, which we ran as the strong baseline), ML-guided directed evolution (ALDE, not run). <b>Not shown:</b> that Q2C beats LazySP, a wet-lab advantage, collective-agent uplift, or biological truth of any certificate.</div>
+<div class="scope" style="margin-top:18px;font-size:17px"><b>Prior art:</b> query-efficient path evaluation (LazySP adapted here; BAEE not run), ML-guided directed evolution (ALDE not run). <b>Still to establish:</b> a prospective wet-lab advantage. Model size and agent count did not establish a gain here.</div>
 <p style="font:500 30px/1.2 var(--serif);margin:22px 0 0;max-width:1120px">Biologic design starts with <em style="font-style:normal;border-bottom:4px solid var(--orange)">justified enzyme experiments</em> — one measured decision at a time.</p>
 {fn(f'<b>Source</b> artifacts/proof/receipt.json, artifacts/integration/core_kappa2_route_lean.json, artifacts/gpu/, tasks/results/gpu.json; docs/company-hypothesis.md (hypotheses)', 'prior art: docs/novelty.md', commit)}"""
     n6 = (f"Lean checks the generic route and cut theorems, plus one seven-node route recomputed exactly from raw data, conditional on assumed intervals. "
@@ -683,8 +687,8 @@ def appendix_md(D: dict, R: dict | None, prov: dict) -> str:
          f"Built {prov['built']} from artifacts commit `{prov['git']['head']}`. Every number below is read from the files named in `deck.provenance.json`.", "",
          "## Strong LazySP-style follow-up (complete, independently audited)", "",
          *lazysp_appendix(D, R),
-         "## Not part of this release (no benefit claimed)", "",
-         f"* **GPU-prior policy ablation** (replay with the ESM2 prior as input): {D['gpu_replay_text']}. The prior's agreement with the measured data was computed (weak Spearman) but its effect on assay decisions is untested; a model-size ablation is in progress on another branch and nothing from it is claimed here.",
+         "## Separate follow-ups and unrun comparisons", "",
+         f"* **GPU-prior policy ablation** (replay with the ESM2 prior as input): {D['gpu_replay_text']}. See docs/scale.md for all configurations and shuffled controls. Episode summaries were recounted; the scale runs did not retain per-query traces. This is not a general claim that protein models cannot help.",
          "* **ALDE** (active-learning-assisted directed evolution) was not run; it is the closest prior art on this landscape.", ""]
     if R is not None:
         T, pols = R["T"], R["pols"]
@@ -757,6 +761,7 @@ def main():
             "artifacts/claim_reuse/demo_receipt.json", "artifacts/claim_reuse/reuse_benchmark.json", "artifacts/claim_reuse/verification_receipt.json",
             "artifacts/gpu/compute_block.json", "tasks/results/gpu.json", "artifacts/gpu/orx/receipt.json",
             "artifacts/turing_scope/results.json", "artifacts/turing_scope/lean_receipt.json", "site/data/lazysp.json", "docs/lazysp.md", "docs/pitch.md"]
+    rels += ["artifacts/scale/replay_summary.csv", "artifacts/scale/replay_rows.jsonl.gz", "artifacts/scale/library_receipts.json", "artifacts/scale/priors_z.npz"]
     if not draft:
         rels += [f"artifacts/lazysp/results/{f}" for f in V.LAZY_FILES + ["episodes_with_original.csv", "table_paired.csv", "crosschecks.json"]]
         rels += [f"artifacts/core/replay/{f}" for f in V.REQUIRED_REPLAY]
