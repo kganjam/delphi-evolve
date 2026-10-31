@@ -1,0 +1,50 @@
+{
+  "revision": "ffcd3151ea4dc4ac9a7c4bf304c11a402eced056",
+  "benchmark_revision": "af7f38e24e3750af142dc6cbc0a45709ca0b4001",
+  "previous_revision": "5eaceb85b034fcd82907264ed1ee96cd00b2e50a",
+  "kind": "nonblinded metadata/text delta, no scientific oracle recomputation",
+  "checks": {
+    "instances_public.jsonl_128_unique": true,
+    "instances_full.jsonl_128_unique": true,
+    "key.jsonl_128_unique": true,
+    "model_payload.jsonl_128_unique": true,
+    "exact_family_convention_suffix": true,
+    "payload_row_order_and_exact_text": true,
+    "retained_hidden_inputs_unchanged": false,
+    "retained_keys_unchanged": false,
+    "only_three_uniform_greenhill_removed": false,
+    "linear_mode_questions_explicit": true,
+    "no_unqualified_no_pattern_wavelength": true,
+    "always_abstain_zero_coverage_risk_null": true,
+    "B0_reports_68_answers_not_128_correct": true
+  },
+  "all_ok": false,
+  "removed_since_131": [
+    {
+      "id": "q44e7d930",
+      "legacy_id": "gh-0004",
+      "family": "greenhill_buckling"
+    },
+    {
+      "id": "q57bc947d",
+      "legacy_id": "gh-0012",
+      "family": "greenhill_buckling"
+    },
+    {
+      "id": "q59310210",
+      "legacy_id": "gh-0016",
+      "family": "greenhill_buckling"
+    }
+  ],
+  "hashes": {
+    "instances_public.jsonl": "52bcf55502516eebd8edc9c114748935059720efb5662a26f6714ea1c3e397b4",
+    "instances_full.jsonl": "fcfc0ae6db0a284f954fb254c275ded83112f048b909673324ccf157bd651a56",
+    "key.jsonl": "774f6a08bf77330b8d46dbcbc0fd7aef52da572921dd600c871228e418974c38",
+    "model_payload.jsonl": "89ad490e61fb257207f62bff15e53dc83d9e8231eaa96b0d00c5166e030b87b2"
+  },
+  "README_corrections": [
+    "Greenhill row retains removed density-unlisted shortcut; replace with current conventions.",
+    "Final paragraph says 131-item set; candidate is 128.",
+    "Exclusion paragraph should distinguish seven audit removals from pre-existing wavelength near-tie exclusion."
+  ]
+}
