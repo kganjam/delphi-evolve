@@ -1,0 +1,71 @@
+{
+ "counts": {
+  "source_rows_summary_AA": 193170,
+  "stop_containing_rows": 34041,
+  "measured_nonstop_genotypes": 159129,
+  "library_nonstop_genotypes": 160000,
+  "unmeasured_nonstop_genotypes": 871,
+  "knn_imputed_rows_separate_file": 871,
+  "knn_imputed_overlap_with_measured": 0,
+  "knn_imputed_equals_unmeasured_set": true,
+  "source_declared_active_rows": 9783,
+  "source_declared_censored_rows": 0,
+  "low_count_rows_min_input_lt_10_flagged_not_dropped": 698,
+  "imputed_rows_used_as_observations": 0
+ },
+ "sha256": {
+  "simplified_AA.csv": "d7e3ab4bcb721819ddf79ac0c9d322046dcdc4ce7d0df7d5ccd423fee771cb76",
+  "summary_AA.csv": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+  "KNN_imputed_TrpB.csv": "83b4db9f82fe8d09c4bf7006f3cc730d511eee12147e8fe2e9198281960f34c4"
+ },
+ "manifest_license": "CC0 1.0 (CaltechDATA record rights, spdx cc0-1.0)",
+ "manifest_doi": "https://doi.org/10.22002/h5rah-5z170",
+ "stop_codon_background_mean_mu": {
+  "replicate_1": 0.13199016134928954,
+  "replicate_2": 0.135774431042854
+ },
+ "score_definition": "mean over 2 replicates of (raw growth rate mu_k minus per-replicate mean raw mu of the 34,041 stop-containing rows); integer micro-units; no /max normalisation, no authors' row-specific mu-bg, no KNN labels",
+ "score_summary_micro": {
+  "min": -59264,
+  "median": 4094.0,
+  "max": 357764
+ },
+ "replicate_pearson_scores": 0.9591916828011969,
+ "noise_model_check": {
+  "recomputed_sd_by_bin": [
+   0.014953,
+   0.009995,
+   0.005851,
+   0.002992
+  ],
+  "frozen": [
+   0.014953,
+   0.009995,
+   0.005851,
+   0.002992
+  ],
+  "ok": true,
+  "bin_counts": [
+   4640,
+   20224,
+   71721,
+   62544
+  ],
+  "bin_edges_min_input_count": [
+   20,
+   50,
+   200
+  ]
+ },
+ "assumed_kappa": 2.0,
+ "kappa_statement": "kappa is an ASSUMED sensitivity multiplier on replicate-difference SD/2; it is not a confidence level and carries no coverage claim",
+ "parent": {
+  "genotype": "VFVS",
+  "score_micro": 144751
+ },
+ "versions": {
+  "python": "3.13.12",
+  "numpy": "2.4.4",
+  "pandas": "2.3.3"
+ }
+}
