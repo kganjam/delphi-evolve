@@ -1,0 +1,769 @@
+{
+ "summary": {
+  "n": 92,
+  "tiers": {
+   "D2": 29,
+   "D1": 33,
+   "E": 12,
+   "P": 18
+  },
+  "by_domain": {
+   "math-population-gene": {
+    "D2": 11,
+    "D1": 6,
+    "E": 1
+   },
+   "thompson-growth-form": {
+    "P": 17,
+    "E": 11,
+    "D1": 25,
+    "D2": 18
+   },
+   "math-reaction-diffus": {
+    "D1": 2,
+    "P": 1
+   }
+  },
+  "d1_trivial": 18,
+  "d1_nontrivial": 15,
+  "judgment": "single-reader manual triage; source-only until an independent second labeller agrees"
+ },
+ "rows": [
+  {
+   "i": 0,
+   "id": "fisher-ftns",
+   "domain": "math-population-gene",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": "FTNS partial-change form vs total change under epistasis (Delphi record already notes)"
+  },
+  {
+   "i": 1,
+   "id": "fisher-infinitesimal",
+   "domain": "math-population-gene",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 2,
+   "id": "fisher-kpp-speed",
+   "domain": "math-population-gene",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 3,
+   "id": "fisher-sex-ratio",
+   "domain": "math-population-gene",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 4,
+   "id": "hamilton-haplodiploidy",
+   "domain": "math-population-gene",
+   "tier": "D1",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 5,
+   "id": "hamilton-lmc",
+   "domain": "math-population-gene",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 6,
+   "id": "hamilton-rule",
+   "domain": "math-population-gene",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": "Hamilton's rule: only for regression-defined r,b,c; fails as a causal rule under non-additivity"
+  },
+  {
+   "i": 7,
+   "id": "hamilton-senescence",
+   "domain": "math-population-gene",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 8,
+   "id": "kimura-fixation-probability",
+   "domain": "math-population-gene",
+   "tier": "D1",
+   "trivial_d1": false,
+   "scope_note": "diffusion approximation: valid only for small s and N_e large; neutral limit vs strong selection"
+  },
+  {
+   "i": 9,
+   "id": "kimura-fixation-time",
+   "domain": "math-population-gene",
+   "tier": "D1",
+   "trivial_d1": false,
+   "scope_note": "limit p->0 vs finite p"
+  },
+  {
+   "i": 10,
+   "id": "kimura-heterozygosity",
+   "domain": "math-population-gene",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 11,
+   "id": "kimura-neutral-theory",
+   "domain": "math-population-gene",
+   "tier": "E",
+   "trivial_d1": false,
+   "scope_note": "dN/dS empirical test"
+  },
+  {
+   "i": 12,
+   "id": "kimura-substitution-rate",
+   "domain": "math-population-gene",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 13,
+   "id": "maynardsmith-ess",
+   "domain": "math-population-gene",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 14,
+   "id": "maynardsmith-hawk-dove",
+   "domain": "math-population-gene",
+   "tier": "D1",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 15,
+   "id": "maynardsmith-hitchhiking",
+   "domain": "math-population-gene",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 16,
+   "id": "maynardsmith-twofold-cost",
+   "domain": "math-population-gene",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 17,
+   "id": "maynardsmith-war-of-attrition",
+   "domain": "math-population-gene",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 18,
+   "id": "thompson1917-ch02-01",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 19,
+   "id": "thompson1917-ch02-02",
+   "domain": "thompson-growth-form",
+   "tier": "E",
+   "trivial_d1": false,
+   "scope_note": "Greenhill buckling is a LIMIT (upper envelope), not a central-tendency slope; operationalisation drift"
+  },
+  {
+   "i": 20,
+   "id": "thompson1917-ch02-03",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 21,
+   "id": "thompson1917-ch02-05",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 22,
+   "id": "thompson1917-ch02-06",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 23,
+   "id": "thompson1917-ch02-09",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 24,
+   "id": "thompson1917-ch02-10",
+   "domain": "thompson-growth-form",
+   "tier": "E",
+   "trivial_d1": false,
+   "scope_note": "equal exponent across swimming/flight/walking (empirical)"
+  },
+  {
+   "i": 25,
+   "id": "thompson1917-ch02-12",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 26,
+   "id": "thompson1917-ch02-15",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 27,
+   "id": "thompson1917-ch03-07",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 28,
+   "id": "thompson1917-ch03-17",
+   "domain": "thompson-growth-form",
+   "tier": "E",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 29,
+   "id": "thompson1917-ch03-21",
+   "domain": "thompson-growth-form",
+   "tier": "E",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 30,
+   "id": "thompson1917-ch03-23",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 31,
+   "id": "thompson1917-ch03-30",
+   "domain": "thompson-growth-form",
+   "tier": "E",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 32,
+   "id": "thompson1917-ch05-10",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 33,
+   "id": "thompson1917-ch05-11",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 34,
+   "id": "thompson1917-ch05-12",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": "Rayleigh-Plateau: instability only above a length threshold; finite-length / boundary effects"
+  },
+  {
+   "i": 35,
+   "id": "thompson1917-ch05-17",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 36,
+   "id": "thompson1917-ch05-23",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 37,
+   "id": "thompson1917-ch05-24",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 38,
+   "id": "thompson1917-ch07-02",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 39,
+   "id": "thompson1917-ch07-04",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 40,
+   "id": "thompson1917-ch07-06",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 41,
+   "id": "thompson1917-ch07-09",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 42,
+   "id": "thompson1917-ch07-11",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 43,
+   "id": "thompson1917-ch08-01",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 44,
+   "id": "thompson1917-ch08-02",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 45,
+   "id": "thompson1917-ch08-03",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 46,
+   "id": "thompson1917-ch08-04",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 47,
+   "id": "thompson1917-ch08-05",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 48,
+   "id": "thompson1917-ch08-06",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 49,
+   "id": "thompson1917-ch08-09",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 50,
+   "id": "thompson1917-ch09-08",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 51,
+   "id": "thompson1917-ch09-10",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 52,
+   "id": "thompson1917-ch09-16",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 53,
+   "id": "thompson1917-ch10-01",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 54,
+   "id": "thompson1917-ch10-02",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 55,
+   "id": "thompson1917-ch10-04",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 56,
+   "id": "thompson1917-ch11-01",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 57,
+   "id": "thompson1917-ch11-03",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 58,
+   "id": "thompson1917-ch11-04",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 59,
+   "id": "thompson1917-ch11-05",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 60,
+   "id": "thompson1917-ch11-06",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 61,
+   "id": "thompson1917-ch11-08",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 62,
+   "id": "thompson1917-ch11-10",
+   "domain": "thompson-growth-form",
+   "tier": "E",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 63,
+   "id": "thompson1917-ch11-16",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 64,
+   "id": "thompson1917-ch12-04",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 65,
+   "id": "thompson1917-ch12-05",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 66,
+   "id": "thompson1917-ch12-06",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 67,
+   "id": "thompson1917-ch13-01",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 68,
+   "id": "thompson1917-ch13-03",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 69,
+   "id": "thompson1917-ch13-04",
+   "domain": "thompson-growth-form",
+   "tier": "E",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 70,
+   "id": "thompson1917-ch13-06",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 71,
+   "id": "thompson1917-ch13-13",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 72,
+   "id": "thompson1917-ch14-07",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 73,
+   "id": "thompson1917-ch14-08",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 74,
+   "id": "thompson1917-ch14-09",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 75,
+   "id": "thompson1917-ch14-10",
+   "domain": "thompson-growth-form",
+   "tier": "D1",
+   "trivial_d1": true,
+   "scope_note": null
+  },
+  {
+   "i": 76,
+   "id": "thompson1917-ch15-06",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 77,
+   "id": "thompson1917-ch15-10",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 78,
+   "id": "thompson1917-ch15-11",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 79,
+   "id": "thompson1917-ch15-12",
+   "domain": "thompson-growth-form",
+   "tier": "E",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 80,
+   "id": "thompson1917-ch15-15",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 81,
+   "id": "thompson1917-ch16-04",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 82,
+   "id": "thompson1917-ch16-05",
+   "domain": "thompson-growth-form",
+   "tier": "E",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 83,
+   "id": "thompson1917-ch16-10",
+   "domain": "thompson-growth-form",
+   "tier": "D2",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 84,
+   "id": "thompson1917-ch16-14",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 85,
+   "id": "thompson1917-ch17-04",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 86,
+   "id": "thompson1917-ch17-06",
+   "domain": "thompson-growth-form",
+   "tier": "E",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 87,
+   "id": "thompson1917-ch17-08",
+   "domain": "thompson-growth-form",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 88,
+   "id": "thompson1917-ch17-18",
+   "domain": "thompson-growth-form",
+   "tier": "E",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 89,
+   "id": "turing-ddi",
+   "domain": "math-reaction-diffus",
+   "tier": "D1",
+   "trivial_d1": false,
+   "scope_note": "finite-domain admissible modes (turing_scope, already done)"
+  },
+  {
+   "i": 90,
+   "id": "turing-morphogen-hypothesis",
+   "domain": "math-reaction-diffus",
+   "tier": "P",
+   "trivial_d1": false,
+   "scope_note": null
+  },
+  {
+   "i": 91,
+   "id": "turing-wavelength",
+   "domain": "math-reaction-diffus",
+   "tier": "D1",
+   "trivial_d1": false,
+   "scope_note": "near-onset / large-domain gate of wavelength"
+  }
+ ]
+}

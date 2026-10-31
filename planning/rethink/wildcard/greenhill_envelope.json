@@ -1,0 +1,163 @@
+{
+ "source": "Tallo.csv",
+ "sha256": "bcd908a65634a07f1a5cac79affc91e10c80ac832d0243efc2b83c8c4c1668cd",
+ "rows_raw": 498838,
+ "rows_used": 496827,
+ "filter": "height_outlier=='N', diameter>0, height>0 (same as director probe)",
+ "greenhill_bound_grid_assumed_E_rho": {
+  "E3.0GPa_rho600": {
+   "frac_trees_above_Hcr": 0.08053306281663436,
+   "n_above": 40011,
+   "ratio_p50": 0.6172308998596374,
+   "ratio_p99": 1.283878177044536,
+   "ratio_max": 3.971733733445779
+  },
+  "E3.0GPa_rho800": {
+   "frac_trees_above_Hcr": 0.14369790691729717,
+   "n_above": 71393,
+   "ratio_p50": 0.6793505090354292,
+   "ratio_p99": 1.413090779014838,
+   "ratio_max": 4.3714586132728686
+  },
+  "E3.0GPa_rho1000": {
+   "frac_trees_above_Hcr": 0.2052605836639313,
+   "n_above": 101979,
+   "ratio_p50": 0.7318081516783734,
+   "ratio_p99": 1.5222058972368724,
+   "ratio_max": 4.709011041236869
+  },
+  "E6.0GPa_rho600": {
+   "frac_trees_above_Hcr": 0.011827054487779449,
+   "n_above": 5876,
+   "ratio_p50": 0.4898964898722334,
+   "ratio_p99": 1.0190147844197555,
+   "ratio_max": 3.152367153304707
+  },
+  "E6.0GPa_rho800": {
+   "frac_trees_above_Hcr": 0.027826587524430034,
+   "n_above": 13825,
+   "ratio_p50": 0.5392008563489861,
+   "ratio_p99": 1.1215708945673581,
+   "ratio_max": 3.4696290006723993
+  },
+  "E6.0GPa_rho1000": {
+   "frac_trees_above_Hcr": 0.05141024944296506,
+   "n_above": 25542,
+   "ratio_p50": 0.580836514906577,
+   "ratio_p99": 1.2081756212930044,
+   "ratio_max": 3.7375445402946372
+  },
+  "E10.0GPa_rho600": {
+   "frac_trees_above_Hcr": 0.0025984900176520198,
+   "n_above": 1291,
+   "ratio_p50": 0.41319470217490917,
+   "ratio_p99": 0.8594703556050416,
+   "ratio_max": 2.658809430121477
+  },
+  "E10.0GPa_rho800": {
+   "frac_trees_above_Hcr": 0.0059638465703353485,
+   "n_above": 2963,
+   "ratio_p50": 0.4547796154034109,
+   "ratio_p99": 0.9459695289298139,
+   "ratio_max": 2.9263984356453663
+  },
+  "E10.0GPa_rho1000": {
+   "frac_trees_above_Hcr": 0.011827054487779449,
+   "n_above": 5876,
+   "ratio_p50": 0.4898964898722334,
+   "ratio_p99": 1.0190147844197555,
+   "ratio_max": 3.152367153304707
+  },
+  "E15.0GPa_rho600": {
+   "frac_trees_above_Hcr": 0.0008836073723851563,
+   "n_above": 439,
+   "ratio_p50": 0.36095881995253376,
+   "ratio_p99": 0.7508165126765244,
+   "ratio_max": 2.3226839776107737
+  },
+  "E15.0GPa_rho800": {
+   "frac_trees_above_Hcr": 0.0018195468442737614,
+   "n_above": 904,
+   "ratio_p50": 0.3972865877767069,
+   "ratio_p99": 0.8263805007088846,
+   "ratio_max": 2.5564445054146567
+  },
+  "E15.0GPa_rho1000": {
+   "frac_trees_above_Hcr": 0.0034559313402854515,
+   "n_above": 1717,
+   "ratio_p50": 0.4279640032952671,
+   "ratio_p99": 0.8901914089465693,
+   "ratio_max": 2.75384636280337
+  }
+ },
+ "upper_envelope_slope_log10h_on_log10d": {
+  "q90": {
+   "all": {
+    "slope": 0.638996042944051,
+    "n_bins": 14,
+    "n_min_bin": 5953
+   },
+   "Angiosperm": {
+    "slope": 0.6343871205683638,
+    "n_bins": 14,
+    "n_min_bin": 4009
+   },
+   "Gymnosperm": {
+    "slope": 0.7021787404583124,
+    "n_bins": 14,
+    "n_min_bin": 729
+   }
+  },
+  "q99": {
+   "all": {
+    "slope": 0.632399566496179,
+    "n_bins": 14,
+    "n_min_bin": 5953
+   },
+   "Angiosperm": {
+    "slope": 0.6334921162873413,
+    "n_bins": 14,
+    "n_min_bin": 4009
+   },
+   "Gymnosperm": {
+    "slope": 0.6694600678164335,
+    "n_bins": 14,
+    "n_min_bin": 729
+   }
+  }
+ },
+ "ols_vs_sma": {
+  "all": {
+   "n": 496827,
+   "ols": 0.5880655225139046,
+   "pearson_r": 0.7541280957710642,
+   "sma": 0.7797952706066897
+  },
+  "Angiosperm": {
+   "n": 333227,
+   "ols": 0.563327283576557,
+   "pearson_r": 0.7449197813513935,
+   "sma": 0.7562254321594185
+  },
+  "Gymnosperm": {
+   "n": 102765,
+   "ols": 0.6650450294223262,
+   "pearson_r": 0.7463138482227571,
+   "sma": 0.8911063770370048
+  }
+ },
+ "per_study_ols_slope": {
+  "n_studies": 52,
+  "p10_p50_p90": [
+   0.4990940776350004,
+   0.6240299311945559,
+   0.7367088438621228
+  ]
+ },
+ "interpretation_limits": [
+  "Greenhill constant assumes uniform cylinder; taper and branch mass change the limit (Thompson pp.19-20 discuss both).",
+  "E and rho are an assumed grid, not measured on Tallo trees; the bound is only as good as that input.",
+  "Tallo mixes studies and measurement protocols; heights saturate with diameter so a power law is only a local fit.",
+  "Descriptive probe. Not a test of Thompson's mechanical argument and not a Lean-checked statement."
+ ]
+}
