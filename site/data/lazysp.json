@@ -1,0 +1,39 @@
+{
+ "status": "completed",
+ "primary": {
+  "variant": "alternate",
+  "basis": "primary follow-up",
+  "certified": 96,
+  "episodes": 100,
+  "rmst_assays": 476.59
+ },
+ "variants": [
+  {
+   "variant": "alternate",
+   "basis": "primary follow-up",
+   "certified": 96,
+   "episodes": 100,
+   "rmst_assays": 476.59
+  },
+  {
+   "variant": "forward",
+   "basis": "secondary follow-up",
+   "certified": 96,
+   "episodes": 100,
+   "rmst_assays": 369.62
+  },
+  {
+   "variant": "reverse",
+   "basis": "secondary follow-up",
+   "certified": 49,
+   "episodes": 100,
+   "rmst_assays": 593.88
+  }
+ ],
+ "sources": {
+  "artifacts/lazysp/results/episodes.csv": "a8d78cca2469e5f8ad8159ca297a5257dec6a2350f8ea2f6f5bde93e969a8b7f",
+  "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c",
+  "artifacts/lazysp/results/audit.json": "dc6c3edab0d9f394047dd1d12052cfd574bc8bf32d3424b410786fac0f460dbb"
+ },
+ "scope": "Follow-up node-query adaptation of established LazySP; same 100 episodes and 1,000-assay budget. Selectors were declared before this follow-up, after the original experiment. The apparent gain over original Q2C is concentrated in one repeated endpoint pair. This does not establish general superiority. No route certifiable is not biological impossibility."
+}

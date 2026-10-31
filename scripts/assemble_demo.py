@@ -111,9 +111,10 @@ cl = J("artifacts/evidence/demo_claims.json")["claims"]
 demo["claims"] = cl
 demo["claims_status"] = "Delphi records queried live 2026-10-31 (local and network kept separate); relation is motivation/context only; nanopub drafts are unsigned and unpublished"
 
-from evolve.release_evidence import claim_block, compute_block
+from evolve.release_evidence import claim_block, compute_block, lazysp_block
 try:
     demo["operational_claims"] = claim_block(R)
+    lazysp = lazysp_block(R)
 except (ValueError, OSError, KeyError) as error:
     errs.append(f"claim-runtime integration: {error}")
 
@@ -129,6 +130,8 @@ out = json.dumps(demo, indent=1)
 (R / "artifacts/demo.json").write_text(out)
 (R / "site/data").mkdir(parents=True, exist_ok=True)
 (R / "site/data/demo.json").write_text(out)
+if lazysp.get("status") == "completed":
+    (R / "site/data/lazysp.json").write_text(json.dumps(lazysp, indent=1))
 if demo.get("operational_claims", {}).get("status") == "recorded":
     destination = R / "site/claims"
     destination.mkdir(parents=True, exist_ok=True)

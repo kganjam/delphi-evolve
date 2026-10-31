@@ -9,6 +9,18 @@
   fetch("data/results.json").then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(render).catch((e) => {
     root.innerHTML = `<div class="na"><b>No replay results loaded</b> (data/results.json: ${esc(e.message || e)}). Nothing is shown rather than a placeholder.</div>`;
   });
+  const followup = document.getElementById("lazysp-result");
+  if (followup) fetch("data/lazysp.json").then(r => {
+    if (!r.ok) throw new Error(r.status);
+    return r.json();
+  }).then(d => {
+    if (d.status !== "completed") throw new Error("incomplete follow-up");
+    followup.innerHTML = `<h3>The stronger baseline changed the conclusion</h3>
+      <p>Established lazy path search resolves <strong>${d.primary.certified}/${d.primary.episodes}</strong> cases with the primary alternating selector. Our original model-assisted planner is not demonstrated to beat it.</p>
+      <div class="tablewrap"><table class="mini"><tr><th>LazySP selector</th><th>Basis</th><th>Certified at 1,000 assays</th><th>Restricted-mean assays</th></tr>
+      ${d.variants.map(v => `<tr><td>${esc(v.variant)}</td><td>${esc(v.basis)}</td><td>${v.certified}/${v.episodes}</td><td>${v.rmst_assays.toFixed(1)}</td></tr>`).join("")}</table></div>
+      <p class="hint">${esc(d.scope)}</p><p><a href="https://github.com/kganjam/delphi-evolve/blob/main/docs/lazysp.md">Read the protocol, source-checked query traces and comparison ↗</a></p>`;
+  }).catch(() => { followup.textContent = "No completed stronger-baseline result loaded."; });
 
   function render(R) {
     const state = { budget: 1000, fam: "all" };

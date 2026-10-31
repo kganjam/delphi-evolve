@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from evolve.release_evidence import claim_block, compute_block
+from evolve.release_evidence import claim_block, compute_block, lazysp_block
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -50,6 +50,20 @@ def test_actual_release_receipts_bind_artifacts():
     assert compute_block(ROOT)["variants"] == 160000
     claims = claim_block(ROOT)
     assert {s["decision"] for s in claims["scenarios"]} >= {"compute", "refuse"}
+    assert lazysp_block(ROOT)["primary"]["certified"] == 96
+
+
+def test_incomplete_lazysp_panel_cannot_be_published(tmp_path):
+    import shutil
+    base = tmp_path / "artifacts/lazysp/results"
+    base.mkdir(parents=True)
+    for name in ("episodes.csv", "summary.json", "audit.json"):
+        shutil.copyfile(ROOT / "artifacts/lazysp/results" / name, base / name)
+    assert lazysp_block(tmp_path)["status"] == "completed"
+    lines = (base / "episodes.csv").read_text().splitlines()
+    (base / "episodes.csv").write_text("\n".join(lines[:-1]) + "\n")
+    with pytest.raises(ValueError, match="all 300"):
+        lazysp_block(tmp_path)
 
 
 @pytest.mark.parametrize("mutation", ["failed-kernel", "surviving-mutant", "missing-receipt", "late-fake-observation"])

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import csv
 import json
 from pathlib import Path
 
@@ -54,3 +55,40 @@ def claim_block(root: Path) -> dict:
                      "This is recorded execution, not a live browser service or a biological validation.",
             "reuse_limit": "Same-context savings equal ordinary caching. Additional context-fault checks "
                            "are software fixtures, not measured wet-lab savings."}
+
+
+def lazysp_block(root: Path) -> dict:
+    """Recount the stronger follow-up baseline from episode rows, not prose."""
+    base = root / "artifacts/lazysp/results"
+    if not (base / "episodes.csv").exists():
+        return {"status": "unavailable"}
+    summary = json.loads((base / "summary.json").read_text())
+    audit = json.loads((base / "audit.json").read_text())
+    with (base / "episodes.csv").open() as handle:
+        rows = list(csv.DictReader(handle))
+    if len(rows) != 300:
+        raise ValueError("LazySP follow-up requires all 300 episode rows")
+    output = []
+    for variant in ("alternate", "forward", "reverse"):
+        selected = [r for r in rows if r["variant"] == variant]
+        keys = {(r["family"], r["seed"], r["start"], r["target"]) for r in selected}
+        if len(selected) != 100 or len(keys) != 100 or {int(r["seed"]) for r in selected} != set(range(20)):
+            raise ValueError(f"Incomplete or duplicated LazySP panel: {variant}")
+        if audit[variant]["shards_audited"] != 100 or audit[variant]["errors"]:
+            raise ValueError(f"LazySP audit missing or failed: {variant}")
+        if any(int(r["bmax"]) != 1000 or r["status"] not in {"open", "blocked", "unresolved"} for r in selected):
+            raise ValueError("LazySP budget or verdict differs from the declared follow-up")
+        count = sum(r["status"] != "unresolved" for r in selected)
+        rmst = sum(int(r["assays"]) if r["status"] != "unresolved" else 1000 for r in selected) / 100
+        expected = summary["variants"][variant]
+        if count / 100 != expected["resolved_at"]["1000"] or abs(rmst - expected["rmst_assays"]) > 0.001:
+            raise ValueError(f"LazySP summary differs from episode rows: {variant}")
+        output.append({"variant": variant, "basis": "primary follow-up" if variant == "alternate" else "secondary follow-up",
+                       "certified": count, "episodes": 100, "rmst_assays": rmst})
+    return {"status": "completed", "primary": output[0], "variants": output,
+            "sources": {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
+                        for p in (base / "episodes.csv", base / "summary.json", base / "audit.json")},
+            "scope": "Follow-up node-query adaptation of established LazySP; same 100 episodes and 1,000-assay budget. "
+                     "Selectors were declared before this follow-up, after the original experiment. "
+                     "The apparent gain over original Q2C is concentrated in one repeated endpoint pair. "
+                     "This does not establish general superiority. No route certifiable is not biological impossibility."}

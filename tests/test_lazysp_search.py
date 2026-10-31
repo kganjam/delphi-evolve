@@ -12,6 +12,14 @@ from baselines.lazysp.policy import neighbors_py, hamming_table
 from evolve import data
 
 
+def test_identical_endpoint_must_still_be_available():
+    for available in (False, True):
+        path, stats, aborted = shortest_optimistic_path(
+            7, 7, lambda _: [], lambda _: 0, lambda u, v: True, lambda _: available)
+        assert path == ([7] if available else None)
+        assert stats["expansions"] == 0 and not aborted
+
+
 def tiny_graph(dims=(3, 3, 3)):
     nodes = list(itertools.product(*[range(d) for d in dims]))
     adj = {u: [v for v in nodes if sum(a != b for a, b in zip(u, v)) == 1] for u in nodes}

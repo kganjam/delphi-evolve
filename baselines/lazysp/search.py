@@ -37,10 +37,10 @@ def shortest_optimistic_path(
     exists in the optimistic graph; aborted=True means the wall-clock deadline was hit (unknown).
     """
     stats = {"expansions": 0, "generated": 0}
-    if start == target:
-        return [start], stats, False
     if not node_ok(start) or not node_ok(target):
         return None, stats, False
+    if start == target:
+        return [start], stats, False
     g = {start: 0}
     parent = {start: -1}
     heap = [(heuristic(start), heuristic(start), start)]

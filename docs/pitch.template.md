@@ -16,15 +16,15 @@ Now increase how much we distrust each measurement. The route lengthens, then ca
 
 **1:00–1:40 — [show the Results bars]**
 
-“Does this change which experiments we ask for? In retrospective replay, each policy starts with the same observations and pays for additional measurements. At a budget of a thousand, query-to-certify resolves {{policies:q2c.all.1000.certified}} of {{results:episodes_per_policy}} cases; directed frontier search resolves {{policies:directed.all.1000.certified}}.
+“Does this change which experiments we ask for? In retrospective replay, every policy starts with the same observations and pays for additional measurements. At a budget of a thousand, our model-assisted planner resolves {{policies:q2c.all.1000.certified}} of {{results:episodes_per_policy}} cases. A stronger baseline using established lazy path search resolves {{lazysp:primary.certified}}.
 
-The uncomfortable results matter too. Sharing between agents did not beat one planner. Removing our model later reached {{policies:q2c_nomodel.all.1000.certified}}, but performed worse at small budgets. That was an exploratory follow-up. This is a benchmark on existing measurements, not a new wet-lab result.”
+That result changed our pitch. Sharing between agents did not beat one planner. The contribution is an auditable decision process, not an algorithmic superiority claim. These are retrospective decisions on existing measurements, not new wet-lab results.”
 
 **1:40–2:20 — [Proof tab, then the claim trace]**
 
 “Lean checks a precise conditional statement: if the true values lie inside the declared intervals, the certified route never steps down. It does not prove that our biological assumptions are true.
 
-Delphi supplies reusable mathematical claims. Our hand-authored adapters use existing Kimura and Fisher records, check their assumptions, and either calculate or refuse. Withdraw the source and the decision changes. A bacterial growth score cannot silently become a population-genetic parameter. Same-context evidence reuse matches ordinary caching; the added value is checking when reuse is legitimate.”
+Delphi supplies reusable mathematical claims. Our hand-authored adapters use existing Kimura and Fisher records, check their assumptions, and either calculate or refuse. Withdraw the source and the decision changes. A bacterial growth score cannot silently become a population-genetic parameter. A Turing-model example also checks whether the chosen domain admits an unstable mode. Reuse must preserve the assumptions that make a claim applicable.”
 
 **2:20–3:00 — [compute receipt; return to the route]**
 
@@ -36,7 +36,7 @@ From a promising design to an experiment we can justify.”
 
 ## Q&A — not spoken
 
-- **Novel?** A systems contribution, not a new path-search algorithm. Johnston et al. analysed this landscape; ALDE, LazySP and Bayesian active edge evaluation are established. See `docs/novelty.md`. The direct LazySP-style comparison is a separate follow-up; do not invent its outcome.
+- **Novel?** A systems contribution, not a new path-search algorithm. Johnston et al. analysed this landscape; ALDE, LazySP and Bayesian active edge evaluation are established. See `docs/novelty.md`. The completed LazySP-style follow-up reaches 96/100 with its primary selector, ahead of original Q2C78/100; its gain is concentrated in one repeated endpoint pair. A post-hoc no-GP arm also reaches96/100. This is not general superiority evidence.
 - **Proved biology?** No. Conditional interval/path algebra and named finite certificates; not all replay episodes were Lean-checked. Error bins use all replicates and are a transductive sensitivity analysis, not held-out uncertainty validation.
 - **Claims automatically extracted?** No. Existing Delphi source records feed hand-authored, source-pinned adapters. Kimura/Fisher calculations are separate from the TrpB route benchmark.
 - **New proteins or organisms?** No. Retrospective decisions on already-assayed variants. Structure predictions are low confidence and do not validate a new design.

@@ -4,7 +4,7 @@
  "branch": "work/lazy-baseline",
  "commit": "e12db4134c08c8e3e206986b58d2f7a4376122d1 (results commit; preregistration+code commit 1412a6f)",
  "model": "Claude Sonnet 5.5 (claude-sonnet-5-5), existing subscription; no metered API charge known; CLI cost estimates are not subscription spend. No GPU, paid API, subagent or message used.",
- "wall_time_seattle": "2026-10-31 ~01:05-~02:00 PDT (before the Nov 1 2026 DST change); full panel 01:28:45-01:39:38 PDT",
+ "wall_time_seattle": "Launch manifest mtime 2026-10-31 01:18:15 PDT; result commit 2026-10-31T01:48:58-07:00. Full panel 2026-10-31 01:28:45\u201301:39:38 PDT.",
  "summary": "Exact preregistered LazySP-style (A* optimistic shortest path, lazy node-query evaluation, Forward/Reverse/Alternate selectors) baseline run on the frozen 100-episode panel with the identical oracle, initial observations, budget and ledger certificate. Primary lazysp_alternate resolves 96/100 at 1000 assays vs saved q2c 78/100 (+0.18, seed-cluster bootstrap [0.14,0.22]) but RMST difference -6.5 [-53.5,+48.9] includes 0; the gap is concentrated in one problem (VFVS->ALKG) and a post hoc 24-problem-cluster bootstrap gives [0.00,0.51]. Secondary forward: 96/100, RMST 369.6; reverse: 49/100. Zero false certificates, 300/300 shards independently audited. Original Q2C is not demonstrated to beat a lazy path-search baseline; not a claim LazySP is better in general.",
  "commands_run": [
   {
@@ -105,5 +105,6 @@
  "next_steps": [
   "Coordinator: integrate docs/lazysp.md and results into docs/novelty.md, site, presentation; remove or qualify any claim that Q2C outperforms path-search",
   "Optional: investigate q2c failure on VFVS->ALKG; run LazySP on more targets with independent initial sets; inspect GB1 availability only after this"
- ]
+ ],
+ "coordinator_note": "Replaced the worker-estimated start/end window with launch-file and git timestamps. Coordinator fixed identical absent endpoints in generic search; all300 recorded panel episodes have distinct endpoints, so that case cannot affect these results."
 }

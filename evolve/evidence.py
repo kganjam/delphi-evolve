@@ -703,6 +703,7 @@ def render_docs(out_dir: Path | None = None) -> list[str]:
     for key, rel in (("landscape", "site/data/landscape.meta.json"),
                      ("demo", "site/data/demo.json"),
                      ("results", "site/data/results.json"),
+                     ("lazysp", "site/data/lazysp.json"),
                      ("delphi", "artifacts/evidence/delphi_queries.json"),
                      ("nano", "artifacts/evidence/nanopubs/validation.json"),
                      ("route", "artifacts/evidence/route_summary.json"),
