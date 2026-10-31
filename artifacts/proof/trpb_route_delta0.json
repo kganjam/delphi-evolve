@@ -1,0 +1,149 @@
+{
+  "assumptions": [
+    "A1 (interval containment): the true scaled growth value of every LISTED genotype lies in [min(r1,r2)-delta, max(r1,r2)+delta]. This is an assumption about the assay, not proved.",
+    "A2 (scope): genotypes not listed, including imputed or stop-containing ones, are UNKNOWN; the theorem never constrains them and no certificate relies on them except as members of S.",
+    "A3 (graph): only the declared four-site single-substitution graph; absence of a route here is not absence of a biological route."
+  ],
+  "certificate_sha256": "2ed364171da5a9d9b2d290daaef59918b4fd1d371901611f76b84bd0c6f07373",
+  "delta_decimal": "0",
+  "delta_scaled": 0,
+  "delta_status": "ASSUMED sensitivity bound (delta): not a confidence interval; two replicates cannot support simultaneous 95% bounds across 159,129 variants",
+  "graph_scope": {
+    "alphabet": "ACDEFGHIKLMNPQRSTVWY",
+    "edges": "two genotypes differing at exactly one of the four positions",
+    "name": "four-site-20^4-single-substitution",
+    "not_claimed": "nothing about sequence space beyond these four sites, nor about biology",
+    "positions": [
+      "AA1",
+      "AA2",
+      "AA3",
+      "AA4"
+    ],
+    "vertices": "all 20^4 = 160000 four-letter genotypes over ACDEFGHIKLMNPQRSTVWY (no stop codon)"
+  },
+  "interval_rule": "[min(r1,r2) - delta, max(r1,r2) + delta] on scaled exact integers",
+  "kind": "route",
+  "label": "trpb_route_delta0",
+  "limitations": [
+    "delta is an assumed sensitivity bound, not a statistical confidence bound.",
+    "Python text->integer conversion is checked by evolve.proof.verify_against_source, not by Lean.",
+    "Growth in the E. coli selection assay is a proxy for function, not kcat/KM.",
+    "Fitness values are real measurements only at listed rows; this certificate is descriptive (full-data), not a prediction benchmark."
+  ],
+  "note": "Envelope of the two replicates only (no added sensitivity margin). Descriptive.",
+  "outward_rounded_values": 0,
+  "route": [
+    "VFVS",
+    "VFMS",
+    "VFMG",
+    "VIMG",
+    "VIKG",
+    "AIKG"
+  ],
+  "scale_exponent": 23,
+  "schema": "darwin-bridge-proof-cert/1",
+  "source": {
+    "assay": "TrpB four-site (positions 183,184,227,228 of Tm9D8*) E. coli Trp-auxotroph growth selection, Johnston et al. PNAS 121(32):e2400439121",
+    "columns": {
+      "r1": "mu_1-bg",
+      "r2": "mu_2-bg"
+    },
+    "counts": {
+      "measured_nonstop": 159129,
+      "non_decimal_unknown": 0,
+      "rows": 193170,
+      "stop_containing": 34041
+    },
+    "doi": "10.22002/h5rah-5z170",
+    "file": "summary_AA.csv",
+    "license": "CC0 1.0 (CaltechDATA record metadata)",
+    "member_path": "data/figure_data/4-site_merged_replicates/20230827/four-site_summary_AA_data.csv",
+    "row_filter": "'# Stop' == 0 (stop-containing genotypes are outside the declared graph)",
+    "sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+    "unnormalized": true,
+    "url": "https://data.caltech.edu/records/h5rah-5z170"
+  },
+  "start": "VFVS",
+  "table": [
+    {
+      "genotype": "AIKG",
+      "idx": [
+        0,
+        7,
+        8,
+        5
+      ],
+      "r1": 35828416930161310000000,
+      "r1_text": "0.3582841693016131",
+      "r2": 35724501968262745000000,
+      "r2_text": "0.35724501968262745"
+    },
+    {
+      "genotype": "VFMG",
+      "idx": [
+        17,
+        4,
+        10,
+        5
+      ],
+      "r1": 16717381225455122000000,
+      "r1_text": "0.16717381225455122",
+      "r2": 15889460541690859000000,
+      "r2_text": "0.15889460541690859"
+    },
+    {
+      "genotype": "VFMS",
+      "idx": [
+        17,
+        4,
+        10,
+        15
+      ],
+      "r1": 15558891221337050000000,
+      "r1_text": "0.1555889122133705",
+      "r2": 15628347084930727000000,
+      "r2_text": "0.15628347084930727"
+    },
+    {
+      "genotype": "VFVS",
+      "idx": [
+        17,
+        4,
+        17,
+        15
+      ],
+      "r1": 14486914849481797000000,
+      "r1_text": "0.14486914849481797",
+      "r2": 14463312492724534000000,
+      "r2_text": "0.14463312492724534"
+    },
+    {
+      "genotype": "VIKG",
+      "idx": [
+        17,
+        7,
+        8,
+        5
+      ],
+      "r1": 31444292504136270000000,
+      "r1_text": "0.3144429250413627",
+      "r2": 31600016727544994000000,
+      "r2_text": "0.31600016727544994"
+    },
+    {
+      "genotype": "VIMG",
+      "idx": [
+        17,
+        7,
+        10,
+        5
+      ],
+      "r1": 28936192766640000000000,
+      "r1_text": "0.2893619276664",
+      "r2": 28236330441633906000000,
+      "r2_text": "0.28236330441633906"
+    }
+  ],
+  "target": "AIKG",
+  "theorem": "DarwinBridge.routeCert_sound"
+}
