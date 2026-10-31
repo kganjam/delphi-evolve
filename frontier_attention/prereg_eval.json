@@ -1,0 +1,21 @@
+{
+  "name": "frontier-allocation-evaluation",
+  "status": "fixed before any run; no run exists",
+  "question": "Does coordinated allocation resolve more preregistered, decision-relevant uncertainty than simple policies within the same resource budget?",
+  "arms": ["curator_order", "round_robin_first_cycle", "value_per_cost", "coordinated", "sequential_persistent_agent", "independent_parallel"],
+  "primary_comparison": ["coordinated", "sequential_persistent_agent"],
+  "budget_unit": "declared cost unit of the actions' resource_estimate; consumption from a ledger receipt",
+  "budget_tolerance": 0.05,
+  "alpha": 0.05,
+  "min_problems": 6,
+  "metrics": ["problems_resolved", "registered_value_resolved", "incorrect_acceptance", "duplicate_effort_cost", "failed_handoffs", "cost_per_accepted_correct"],
+  "not_metrics": ["questions generated", "messages sent", "leases taken", "votes received"],
+  "rules": [
+    "value per problem is the EVPI under declared utilities, frozen and hashed before any arm runs",
+    "an accepted result later overturned by independent review counts as incorrect acceptance and does NOT resolve the problem",
+    "a policy is reported as better only if it resolves more problems with exact p < alpha AND is not worse on incorrect acceptance",
+    "fewer than min_problems problems: descriptive only, no verdict",
+    "budgets that differ by more than the tolerance: comparison refused"
+  ],
+  "premise_note": "Models are not assumed inaccurate. An unguarded frontier model scored ~95% on the frozen benchmark; the value measured here is allocation, witness and reuse, not an accuracy gap."
+}

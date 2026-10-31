@@ -123,6 +123,28 @@
     "Commit prereg_desk.json and prereg_lean.json before any run (done at the code commit) and do not edit them afterwards without a dated note.",
     "If a tournament ranking is wanted, first get the name of the repo Amit inspected; the existing paired comparisons in desk.py already give head-to-head differences with family-cluster intervals.",
     "Proof owners: emit one verdict record per claim in the shape documented at the top of market/triage.py, then run `python -m market triage --freeze <bench-v1-freeze.json> --records R.jsonl --out DIR`. With no records it correctly reports 0 of 19 evaluable verified.",
-    "Bench owner: emit gate keys with problem_family set to the independence unit and at least 6 trap-bearing problem families, or no verdict can be issued."
-  ]
+    "Bench owner: emit gate keys with problem_family set to the independence unit and at least 6 trap-bearing problem families, or no verdict can be issued.",
+    "Frontier: confirm field names with the Foundation worker via codex-api queue; curation to add typed unlock edges, decision models and bounded actions to the seeds before any ranking; first real predictions need specs with resolver and horizon written before anyone forecasts."
+  ],
+  "frontier_attention": {
+    "assigned": "Reassigned 2026-10-31 (Seattle PDT) by director ruling to report to codex-api for the Delphi Frontier package: the attention and forecasting schema (known / open / what an answer unlocks / who is working / next bounded action).",
+    "status": "schema_validators_and_local_readonly_pilot_complete; nothing scored on real Frontier data",
+    "code": "frontier_attention/ (own package in this worktree, branch work/market; not in work/rethink-director)",
+    "binding_conditions_observed": [
+      "no persistence, endpoint, identity or federation",
+      "no GPU or model-inference job",
+      "Scope Desk integration untouched",
+      "coordination with codex-api through its durable queue only"
+    ],
+    "tests": "tests/test_frontier_attention.py: 32 passed (hand-worked EVPI=6, EVSI=4.0, dedupe 8 vs naive 10/16, Brier .29/3, family-first mean .45, exact McNemar p=.03125). 26 deliberate-breakage mutants over voi/card/credit/forecasting/policies/evaluate/schema, 0 survivors.",
+    "pilot_result_on_real_seed_map": "7 seed records (frontier-problems-0.1, commit 5165177 on work/frontier-curation): 0 bounded, 0 ready, 0 with a consequence estimate. Seeds hold prose where the schema needs typed unlock edges, decision models, pinned input hashes, a resource estimate, a stop rule and a reviewer. The adapter does not convert prose to structure.",
+    "premise": "Unguarded Claude Sonnet 5.5 121/127 and Gemini 3.8 flash 110/127 on the frozen benchmark: value is the witness, the refusal, the repair and allocation, not an accuracy gap. The schema values a decision change, including a negative answer.",
+    "limitations": [
+      "field names are a proposal; unconfirmed against the Foundation worker's Problem/Action/Evidence/Assessment/Interest/ResourceOffer/Event records",
+      "utilities and priors in tests are illustrative fixtures, not estimates about any real problem",
+      "atomic leases, idempotency and identity belong to the transactional layer; only the invariants are fixed here",
+      "allocation evaluation is a harness: no arm has run, the seed map has 7 problems (<6 per-verdict floor is marginal)",
+      "forecast scoring has no real predictions; calibration cannot be claimed from a handful of events"
+    ]
+  }
 }
