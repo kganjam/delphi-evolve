@@ -1,9 +1,9 @@
 {
   "role": "codex-api",
-  "status": "New 21-record Lean arms held after pre-run review; offline verifier and budget defects reproduced; active-frontier pitch proposal ready for director and dx-submit",
-  "updated_at": "2026-10-31T07:46:35.971527-07:00",
+  "status": "Lean pre-run hold documented; active-frontier proposal pushed; v1.2 rev3 metadata/text gate passes with README corrections; R06 mapping corrected; private Delphi Frontier repository created and five write invitations verified",
+  "updated_at": "2026-10-31T07:51:23.358095-07:00",
   "branch": "work/codex-api",
-  "commit": "491fdd285dcc490f3f66540aea96bdde9f80e0dc",
+  "commit": "269fd3b467f7269b45ec3f2c967dc119ec7887e3",
   "goal": "Broader native goal remains paused. Completed the specifically assigned Lean pre-run review and user-requested open-problem/active-knowledge pitch proposal; director retains run/integration authority.",
   "checklist": [
     {
@@ -89,6 +89,18 @@
     {
       "item": "Review a repaired runner plus independently frozen full Mathlib targets before any new prover arm",
       "done": false
+    },
+    {
+      "item": "Run critic v1.2 rev3 metadata check independently and inspect current prompt changes",
+      "done": true
+    },
+    {
+      "item": "Map kill-ledger R06 to original source and review; separate weak conclusion from vacuity and preserve later repair history",
+      "done": true
+    },
+    {
+      "item": "Create user-approved delphi-frontier repository and mirror active/pending collaborator write access from delphi-evolve",
+      "done": true
     }
   ],
   "commands_run": [
@@ -284,6 +296,26 @@
       "command": "Primary-source web search/open for ASK, OpenEvidence and SciDEX",
       "exit": 0,
       "result": "ASK primary abstract via indexed result; direct SSRN open403. Read OpenEvidence announcement and SciDEX project/quest descriptions; no independent audit of their execution or novelty claim."
+    },
+    {
+      "command": "Capped python3 -I pinned ffcd315 scopedesk/bench/v1_2/metadata_check.py OUT.json",
+      "exit": 0,
+      "result": "14/14 pass; candidate 128 items; key774f6a08...c38 and payload89ad490e...87b2."
+    },
+    {
+      "command": "Capped python3 -I artifacts/integration/codex-api/audit_bench_v1_2_rev3.py (initial diagnostic)",
+      "exit": 1,
+      "result": "Retained parameters/full keys were not unchanged; expected removed gh-0008 was a reviewer mistake. Original diagnostic preserved. Inspected differences:21 retained Turing structured inputs regenerated; retained verdicts unchanged."
+    },
+    {
+      "command": "Capped python3 -I artifacts/integration/codex-api/audit_bench_v1_2_rev3.py (expanded review)",
+      "exit": 0,
+      "result": "13 checks pass, including all22 current Turing-1D labels recomputed with exact rational determinants. Removed gh-0004,gh-0012,gh-0016; no new full/blinded audit claimed."
+    },
+    {
+      "command": "gh api: read authenticated login, source repo collaborators/invitations, target existence; POST user/repos private delphi-frontier; five sequential PUT collaborator invitations; re-read repo/invitations/collaborators",
+      "exit": 0,
+      "result": "Created private kganjam/delphi-frontier, owner kganjam; verified five pending write invitations copied from source active/pending roster. Credentials never read or printed. Target existence GET404 was expected before creation; all mutations/read-back succeed."
     }
   ],
   "artifacts": [
@@ -332,7 +364,12 @@
     "scripts/review_lean_commons.py",
     "artifacts/integration/codex-api/lean-commons-review/receipt.json",
     "planning/rethink/CODEX-LEAN-EXPERIMENT-PRE-RUN-REVIEW.md",
-    "planning/rethink/ACTIVE-FRONTIER-PITCH-PROPOSAL.md"
+    "planning/rethink/ACTIVE-FRONTIER-PITCH-PROPOSAL.md",
+    "planning/rethink/CODEX-BENCH-V1-2-REV3-REVIEW.md",
+    "artifacts/integration/codex-api/audit_bench_v1_2_rev3.py",
+    "artifacts/integration/codex-api/bench-v1-2-rev3-metadata.json",
+    "artifacts/integration/codex-api/bench-v1-2-rev3-initial-delta.json",
+    "artifacts/integration/codex-api/bench-v1-2-rev3-delta.json"
   ],
   "limitations": [
     "Fresh Price/Hamilton Lean compile and witness controls exit0 with standard axioms; no additive-genetic Fisher FTNS or independent biological correspondence review.",
@@ -347,11 +384,12 @@
     "Ownership/component identity check does not approve new presentation science or visuals. Final integrated source SHA is not yet selected; the existing director publication request is provisional.",
     "Verifier controls apply to guilds feb5dbd git objects; no claim that historical model outputs used the added-assumption hole. Those outputs need replay under repaired acceptance criteria.",
     "New 21-record Mathlib target freeze/preregistration remains unavailable/unapproved; existing 19-target integer experiment is a separate historical study.",
-    "Active-frontier design is a product proposal, not a deployed federation or proof of collective advantage; SciDEX/ASK already describe adjacent architecture."
+    "Active-frontier design is a product proposal, not a deployed federation or proof of collective advantage; SciDEX/ASK already describe adjacent architecture.",
+    "v1.2 rev3 approval covers requested metadata/text gate plus22 exact Turing-1D labels, not a new blinded128-item audit or permission to run Lean arms. Source README still needs bookkeeping corrections.",
+    "Delphi Frontier is private; five collaborators are invited, not yet confirmed accepted. No code migration, deployment or external adoption claimed."
   ],
   "next_steps": [
     "Keep broader native goal paused; preserve completed targeted work.",
-    "Critic resolves rounded/exact Greenhill constant and remaining linear-only wording in a new hashed candidate; director obtains final blinded text audit before approving evaluation.",
     "Host revises21recordfulltargets and consistentbuckets/README; new8028freeze not approved.",
     "Director reviews/integrates site/review at7f9035a and prepares exactSHA site-publish-request.json for primary; existingownerprivateSite only.",
     "Independent reader reviews Price/Hamilton correspondence before headline integration; Price staysappendixperFINALSHAPE.",
@@ -359,6 +397,7 @@
     "Director integrates dx-submit candidate 47590e9 with latest Codex reviews/ledger, obtains science/presentation and integrated-navigation checks, then supersedes the one canonical publication request with that exact pushed SHA. Package site/ and name the intended landing route; primary publishes existing Site.",
     "Host-confirmed existing runner owner repairs exact-target verification, helper restrictions, clean replay, proof-term dependency extraction and atomic reservations; director freezes full Mathlib targets and matched-resource preregistration before a three-target pilot.",
     "Director and dx-submit review ACTIVE-FRONTIER-PITCH-PROPOSAL.md as a narrative extension around the existing demonstration; show proposed actions and actual receipts with distinct statuses, preserving current file ownership.",
-    "Runner owner/director freeze the independent answer-status schema, coverage/risk/utility, always-abstain/exact-checker/same-information controls and actual prompt/tool boundary for the separate Scope Desk headroom check."
+    "Runner owner/director freeze the independent answer-status schema, coverage/risk/utility, always-abstain/exact-checker/same-information controls and actual prompt/tool boundary for the separate Scope Desk headroom check.",
+    "Critic corrects rev3 README bookkeeping and publishes FROZEN with exact reviewed key/payload hashes after director go; retain changed-parameter and historical-audit disclosures."
   ]
 }

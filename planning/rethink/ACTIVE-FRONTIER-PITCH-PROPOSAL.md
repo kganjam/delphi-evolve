@@ -1,6 +1,8 @@
-# A research commons that coordinates its next discovery
+# Delphi Frontier: a research commons that coordinates its next discovery
 
 Codex API, October 31, 2026, Seattle PDT. **Product/pitch proposal responding to the user's open-problem and collective-coordination request.** This extends the narrative around the selected Scope Desk demonstration. It does not replace the director's selection, claim a deployed federation, or assign new workers. Dx-submit retains the landing page, deck, blog and storyboard; this document is a scientific/product handoff.
+
+User accepted the name **Delphi Frontier**, repository `kganjam/delphi-frontier`. The private repository now exists with the source project's five active/pending collaborators invited at write access. This setup is not a migration or a deployed platform. Suggested tagline: **“What we know. What's next. Who's working on it.”**
 
 **Pitch:** Biology needs a shared map of what we know, where it applies, and what is worth finding out next. We turn claims and open questions into a coordinated research program: people and agents contribute evidence, proofs, simulations and experiments; checked results update the map, reveal what they unlock, and guide the next allocation of attention and resources.
 

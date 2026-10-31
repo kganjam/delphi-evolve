@@ -1,0 +1,281 @@
+{
+  "revision": "ffcd3151ea4dc4ac9a7c4bf304c11a402eced056",
+  "benchmark_revision": "af7f38e24e3750af142dc6cbc0a45709ca0b4001",
+  "previous_revision": "5eaceb85b034fcd82907264ed1ee96cd00b2e50a",
+  "kind": "nonblinded metadata/text delta plus exact determinant recheck of 22 Turing-1D items; not full/blinded revalidation",
+  "checks": {
+    "instances_public.jsonl_128_unique": true,
+    "instances_full.jsonl_128_unique": true,
+    "key.jsonl_128_unique": true,
+    "model_payload.jsonl_128_unique": true,
+    "exact_family_convention_suffix": true,
+    "payload_row_order_and_exact_text": true,
+    "retained_labels_unchanged": true,
+    "only_three_uniform_greenhill_removed": true,
+    "all_22_turing1d_exact_labels_recomputed": true,
+    "linear_mode_questions_explicit": true,
+    "no_unqualified_no_pattern_wavelength": true,
+    "always_abstain_zero_coverage_risk_null": true,
+    "B0_reports_68_answers_not_128_correct": true
+  },
+  "all_ok": true,
+  "removed_since_131": [
+    {
+      "id": "q44e7d930",
+      "legacy_id": "gh-0004",
+      "family": "greenhill_buckling"
+    },
+    {
+      "id": "q57bc947d",
+      "legacy_id": "gh-0012",
+      "family": "greenhill_buckling"
+    },
+    {
+      "id": "q59310210",
+      "legacy_id": "gh-0016",
+      "family": "greenhill_buckling"
+    }
+  ],
+  "changed_hidden_input_ids": [
+    "qc7bdd4c0",
+    "q8343e9c9",
+    "q77350570",
+    "q5a6512d2",
+    "q17503050",
+    "qd5e4b6b4",
+    "qda9a8ada",
+    "q17fe64c4",
+    "q6b8f0acf",
+    "q5ca988d8",
+    "q5e8142dd",
+    "qd643fbe2",
+    "q7f4d606c",
+    "q7cf8687e",
+    "qcca31b33",
+    "qf261c3f7",
+    "qa5ed7dfd",
+    "q26c103da",
+    "qa9957691",
+    "q90cbf6c9",
+    "q98f3297f"
+  ],
+  "changed_key_fields": [
+    {
+      "id": "q8343e9c9",
+      "fields": [
+        "witness"
+      ]
+    },
+    {
+      "id": "q5a6512d2",
+      "fields": [
+        "witness"
+      ]
+    },
+    {
+      "id": "qd5e4b6b4",
+      "fields": [
+        "witness"
+      ]
+    },
+    {
+      "id": "q17fe64c4",
+      "fields": [
+        "witness"
+      ]
+    },
+    {
+      "id": "q6b8f0acf",
+      "fields": [
+        "witness"
+      ]
+    },
+    {
+      "id": "q5ca988d8",
+      "fields": [
+        "witness"
+      ]
+    },
+    {
+      "id": "q5e8142dd",
+      "fields": [
+        "witness"
+      ]
+    },
+    {
+      "id": "qd643fbe2",
+      "fields": [
+        "expected_repairs",
+        "witness"
+      ]
+    },
+    {
+      "id": "q7cf8687e",
+      "fields": [
+        "expected_repairs",
+        "witness"
+      ]
+    },
+    {
+      "id": "qcca31b33",
+      "fields": [
+        "expected_repairs",
+        "witness"
+      ]
+    },
+    {
+      "id": "qf261c3f7",
+      "fields": [
+        "witness"
+      ]
+    },
+    {
+      "id": "qa5ed7dfd",
+      "fields": [
+        "expected_repairs",
+        "witness"
+      ]
+    },
+    {
+      "id": "q26c103da",
+      "fields": [
+        "witness"
+      ]
+    },
+    {
+      "id": "qa9957691",
+      "fields": [
+        "witness"
+      ]
+    },
+    {
+      "id": "q90cbf6c9",
+      "fields": [
+        "witness"
+      ]
+    }
+  ],
+  "turing1d_recheck": [
+    {
+      "id": "qc7bdd4c0",
+      "recomputed": "underdetermined",
+      "gold": "underdetermined"
+    },
+    {
+      "id": "q8343e9c9",
+      "recomputed": "applies",
+      "gold": "applies"
+    },
+    {
+      "id": "q77350570",
+      "recomputed": "out_of_scope",
+      "gold": "out_of_scope"
+    },
+    {
+      "id": "q5a6512d2",
+      "recomputed": "applies",
+      "gold": "applies"
+    },
+    {
+      "id": "q17503050",
+      "recomputed": "out_of_scope",
+      "gold": "out_of_scope"
+    },
+    {
+      "id": "q92f2ccd2",
+      "recomputed": "applies",
+      "gold": "applies"
+    },
+    {
+      "id": "qd5e4b6b4",
+      "recomputed": "applies",
+      "gold": "applies"
+    },
+    {
+      "id": "qda9a8ada",
+      "recomputed": "underdetermined",
+      "gold": "underdetermined"
+    },
+    {
+      "id": "q17fe64c4",
+      "recomputed": "applies",
+      "gold": "applies"
+    },
+    {
+      "id": "q6b8f0acf",
+      "recomputed": "applies",
+      "gold": "applies"
+    },
+    {
+      "id": "q5ca988d8",
+      "recomputed": "applies",
+      "gold": "applies"
+    },
+    {
+      "id": "q5e8142dd",
+      "recomputed": "applies",
+      "gold": "applies"
+    },
+    {
+      "id": "qd643fbe2",
+      "recomputed": "out_of_scope",
+      "gold": "out_of_scope"
+    },
+    {
+      "id": "q7f4d606c",
+      "recomputed": "underdetermined",
+      "gold": "underdetermined"
+    },
+    {
+      "id": "q7cf8687e",
+      "recomputed": "out_of_scope",
+      "gold": "out_of_scope"
+    },
+    {
+      "id": "qcca31b33",
+      "recomputed": "out_of_scope",
+      "gold": "out_of_scope"
+    },
+    {
+      "id": "qf261c3f7",
+      "recomputed": "applies",
+      "gold": "applies"
+    },
+    {
+      "id": "qa5ed7dfd",
+      "recomputed": "out_of_scope",
+      "gold": "out_of_scope"
+    },
+    {
+      "id": "q26c103da",
+      "recomputed": "applies",
+      "gold": "applies"
+    },
+    {
+      "id": "qa9957691",
+      "recomputed": "applies",
+      "gold": "applies"
+    },
+    {
+      "id": "q90cbf6c9",
+      "recomputed": "applies",
+      "gold": "applies"
+    },
+    {
+      "id": "q98f3297f",
+      "recomputed": "underdetermined",
+      "gold": "underdetermined"
+    }
+  ],
+  "hashes": {
+    "instances_public.jsonl": "52bcf55502516eebd8edc9c114748935059720efb5662a26f6714ea1c3e397b4",
+    "instances_full.jsonl": "fcfc0ae6db0a284f954fb254c275ded83112f048b909673324ccf157bd651a56",
+    "key.jsonl": "774f6a08bf77330b8d46dbcbc0fd7aef52da572921dd600c871228e418974c38",
+    "model_payload.jsonl": "89ad490e61fb257207f62bff15e53dc83d9e8231eaa96b0d00c5166e030b87b2"
+  },
+  "README_corrections": [
+    "Greenhill row retains removed density-unlisted shortcut; replace with current conventions.",
+    "Final paragraph says 131-item set; candidate is 128.",
+    "Exclusion paragraph should distinguish seven audit removals from pre-existing wavelength near-tie exclusion."
+  ]
+}
