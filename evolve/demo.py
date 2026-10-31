@@ -21,7 +21,6 @@ from . import data, replay
 from .graph import path_to, truth_bfs
 
 ROOT = Path(__file__).resolve().parents[1]
-CERT_DIR = ROOT / "artifacts" / "core" / "certificates"
 SCOPE = {"name": "measured-subgraph-of-four-site-20^4-single-substitution",
          "vertices": "the 159,129 non-stop genotypes with a measurement in summary_AA.csv",
          "edges": "two genotypes differing at exactly one of the four positions",
@@ -92,6 +91,10 @@ def _dec_event(e):
 
 
 def build(output: Path, replay_dir: Path = ROOT / "artifacts" / "core" / "replay"):
+    # Certificates belong to this output bundle. A temporary/demo test build must
+    # not overwrite the repository's audited certificates and invalidate its Lean receipt.
+    output = Path(output)
+    cert_dir = output.parent / "core" / "certificates"
     L = data.load(); Lo, Hi = L.intervals()
     start, target = data.encode("VFVS"), data.encode("AIKG")
     reached, parent, depth = truth_bfs(L.measured, Lo, Hi, start)
@@ -120,16 +123,16 @@ def build(output: Path, replay_dir: Path = ROOT / "artifacts" / "core" / "replay
         r, p, d = truth_bfs(L.measured, Lo, Hi, e["start"])
         if not r[e["target"]] and (blocked is None or r.sum() < blocked[0]):
             blocked = (int(r.sum()), e, np.flatnonzero(r))
-    CERT_DIR.mkdir(parents=True, exist_ok=True)
+    cert_dir.mkdir(parents=True, exist_ok=True)
     certs = {}
     if route:
         c = _cert(L, "route", start, target, route=route, Lo=Lo, Hi=Hi, label="VFVS->AIKG shortest admissible route (full labels)")
-        (CERT_DIR / "route_VFVS_AIKG_kappa2.json").write_text(json.dumps(c, indent=1)); certs["route"] = "artifacts/core/certificates/route_VFVS_AIKG_kappa2.json"
+        (cert_dir / "route_VFVS_AIKG_kappa2.json").write_text(json.dumps(c, indent=1)); certs["route"] = "artifacts/core/certificates/route_VFVS_AIKG_kappa2.json"
     if blocked:
         n, e, S = blocked
         c = _cert(L, "cut", e["start"], e["target"], S=set(int(x) for x in S), Lo=Lo, Hi=Hi, label="smallest blocked pair in panel (illustrative)")
         name = f"cut_{data.decode(e['start'])}_{data.decode(e['target'])}_kappa2.json"
-        (CERT_DIR / name).write_text(json.dumps(c, indent=1)); certs["cut"] = "artifacts/core/certificates/" + name
+        (cert_dir / name).write_text(json.dumps(c, indent=1)); certs["cut"] = "artifacts/core/certificates/" + name
     # --- nodes/edges for the figure: routes, subcube, neighbours of the weakest step
     keep = set(route or []) | {v for r in direct for v in r["nodes"]}
     weakest = None

@@ -61,7 +61,10 @@ def test_censored_failures_are_retained_not_dropped(land):
 
 def test_demo_json_contract(tmp_path):
     from evolve import demo
+    originals = {p: p.read_bytes() for p in (ROOT / "artifacts/core/certificates").glob("*.json")}
     d = demo.build(tmp_path / "demo.json", replay_dir=tmp_path / "none")
+    assert list((tmp_path / "core/certificates").glob("*.json")), "certificates travel with the output bundle"
+    assert all(p.read_bytes() == value for p, value in originals.items()), "test build changed audited certificates"
     for k in ("schema_version", "generated_at", "source", "nodes", "edges", "routes", "claims", "benchmark", "proof", "compute", "limitations"):
         assert k in d
     assert d["proof"]["status"] == "unavailable" and d["proof"]["exit_code"] is None and d["compute"]["status"] == "unavailable"

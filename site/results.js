@@ -23,12 +23,14 @@
       <div class="res-legend"><span><i class="sw solid"></i> frozen in the protocol before the main run</span><span><i class="sw hatch"></i> added post hoc (exploratory)</span></div>
       <div id="res-tip" class="tip" hidden></div>
       <details class="res-table"><summary>Show the same numbers as a table</summary><div class="tablewrap"><table class="mini" id="res-tab"></table></div></details>
+      <p>One enzyme assay; retrospective decisions under assumed error bounds. The shared collective did not beat the single planner. The top no-model arms were added after the initial results and are exploratory.</p>
+      <details class="res-table"><summary>Paired comparisons, uncertainty and full interpretation limits</summary>
       <h3 class="res-sub">Paired contrasts (certified fraction, a − b, all 100 episodes)</h3>
       <div class="tablewrap"><table class="mini" id="res-pairs"></table></div>
       <p class="hint">${esc(R.uncertainty_procedure)}. The interval is a descriptive resampling summary over ${R.seeds} seeds, not a coverage claim.</p>
       <h3 class="res-sub">Read this before quoting</h3>
       <ul class="res-cav">${R.caveats.map((c) => `<li>${esc(c)}</li>`).join("")}</ul>
-      <p class="hint">${esc(R.kind)}. Source tables: ${R.source_tables.map((s) => `<code>${esc(s)}</code>`).join(", ")}.</p>`;
+      <p class="hint">${esc(R.kind)}. Source tables: ${R.source_tables.map((s) => `<code>${esc(s)}</code>`).join(", ")}.</p></details>`;
     const tip = root.querySelector("#res-tip");
     function draw() {
       const rows = R.policies.map((p) => ({ p, v: p.by_family[state.fam][state.budget] }));

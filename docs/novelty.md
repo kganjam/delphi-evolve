@@ -14,7 +14,7 @@ Written 31 Oct 2026, Seattle PDT, by the experience worker. Sources were read fr
 | Embedding-space Bayesian optimisation for proteins | PELLM (github.com/soldatmat/PELLM) | Listed in planning/PLAN.md as adjacent; **not inspected by the experience worker**, so no comparison is made. |
 | Nanopublications, PROV, interval arithmetic, graph reachability | standard | Used, not contributed. |
 
-## What this project proposes (a systems contribution, not a discovered fact)
+## What this project built (a systems contribution)
 
 **Query-to-certify:** treat the engineering decision "is there a route / is it cut?" as the object to be certified, and select the next assay to settle *that* decision. Concretely in this repository:
 
@@ -23,7 +23,11 @@ Written 31 Oct 2026, Seattle PDT, by the experience worker. Sources were read fr
 3. a conditional machine-checked certificate (proof worker, Lean) whose input is the same table;
 4. nanopublication drafts and a Delphi claim record, so the decision links to its evidence and scope.
 
-What would make this more than a view: a retrospective assay-budget replay (core worker) in which policies pay for measurements, with false certificates and abstentions reported. **This file does not report any replay result**; see `tasks/results/core.json` once integrated. A null or negative replay result would be as informative as a positive one.
+The retrospective replay is now implemented: original seven policies × 100 episodes, plus four explicitly post-hoc arms × 100 episodes. The original query-to-certify policy resolves 78/100 cases at 1,000 paid assays versus 32/100 for directed frontier search. The shared collective also resolves 78/100: it adds no completion-rate benefit over a single planner. A post-hoc no-GP variant resolves 96/100 at that budget but is worse at 250 assays (16/100 versus 43/100). These results describe this table, this assumed interval model and this panel, not new biology or superiority to ALDE. Source: `artifacts/core/replay/table_primary.csv`; methods and limitations: `artifacts/core/README.md`. A closer LazySP-style baseline is being evaluated separately; no result is claimed here until its run is complete.
+
+Existing Delphi claims also have a separate operational use. The `claim_runtime` adapters bind existing Kimura and Fisher records to explicit applicability conditions and source hashes. A valid request computes; withdrawing a source or requesting an invalid biological transfer refuses. These are hand-authored adapters, not automatic theorem extraction, and their population-genetic calculations are not premises of the TrpB route result. In recorded-request accounting, same-context typed evidence saves exactly as many repeat lookups as ordinary caching. Its additional protection against injected context errors is a software test, not an empirical assay saving. See `docs/claim-reuse.md`.
+
+The distinctive deliverable is this integrated, inspectable chain: a scientific decision, paid information acquisition, an explicit evidence context, a conditional formal certificate, and a refusal when the premises are not available. We make no claim that the individual ingredients or their general combination are first inventions. The company hypothesis requires prospective evidence of reduced experiment cost or time-to-decision.
 
 ## Where we would be wrong to claim novelty
 

@@ -706,10 +706,14 @@ def render_docs(out_dir: Path | None = None) -> list[str]:
                      ("delphi", "artifacts/evidence/delphi_queries.json"),
                      ("nano", "artifacts/evidence/nanopubs/validation.json"),
                      ("route", "artifacts/evidence/route_summary.json"),
+                     ("claimreuse", "artifacts/claim_reuse/reuse_benchmark.json"),
+                     ("claimcheck", "artifacts/claim_reuse/verification_receipt.json"),
                      ("evsite", "site/data/evidence.json")):
         p = ROOT / rel
         if p.exists():
             sources[key] = json.loads(p.read_text())
+    # Name policies explicitly: adding an arm must not silently change a positional citation.
+    sources["policies"] = {p["id"]: p["by_family"] for p in sources.get("results", {}).get("policies", [])}
     for role in ("core", "proof", "gpu", "experience", "integrator"):
         p = ROOT / "tasks" / "results" / f"{role}.json"
         if p.exists():
