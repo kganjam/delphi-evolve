@@ -418,3 +418,49 @@ def test_recorded_store_conflicts_still_describe_this_schema():
     assert len(schema.OPEN_KINDS) == 10 and "10 values" in d["conflict"][0]["schema"]
     assert schema.RESOURCE_VERIFICATION == ("unverified", "availability_checked") and "availability_checked" in d["conflict"][1]["schema"]
     assert d["store_source"]["commit"] == "1d014d1" and all(c["unchanged_by_me"] for c in d["conflict"])
+
+
+# ------------------------------------------------------------------ register probe (hand-worked)
+def test_ordinal_pair_accounting_hand_example():
+    from frontier_attention import register_probe as rp
+    r = rp._ordinal([3, 3, 2, None])
+    # 6 pairs: (3,3) tied=1 ; (3,2)x2 ordered=2 ; pairs with the unrated item incomparable=3
+    assert (r["pairs_total"], r["pairs_tied"], r["pairs_ordered"], r["pairs_incomparable"]) == (6, 1, 2, 3)
+    assert r["fraction_pairs_ordered"] == pytest.approx(2 / 6)
+
+
+def test_pareto_layers_hand_example():
+    from frontier_attention import register_probe as rp
+    pts = [(3, 3), (3, 2), (2, 3), (2, 2), (1, 3), None]
+    # (3,3) dominates all -> layer1 ; (3,2),(2,3) incomparable -> layer2 ; (2,2) -> layer3 ; (1,3) is dominated by (2,3) but not
+    # by (2,2)... layer3 front after removing 1,2 = {(2,2),(1,3)} (neither dominates the other). Rated pairs C(5,2)=10.
+    r = rp.pareto_layers(pts)
+    assert r["layer_sizes"] == [1, 2, 2] and r["rated"] == 5
+    # comparable pairs: (3,3) with 4 others =4 ; (3,2)>(2,2) ; (2,3)>(2,2) ; (2,3)>(1,3) -> 7 ; (3,2) vs (1,3): incomparable
+    assert r["pairs_comparable"] == 7 and r["fraction_rated_pairs_comparable"] == pytest.approx(0.7)
+
+
+def test_probe_lenses_are_empty_for_recorded_problems_and_provenance_is_read_from_attestations():
+    from frontier_attention import register_probe as rp
+
+    def draft(slug, imp, tra, path, atts):
+        rec = {"slug": slug, "statement": f"{slug} question text", "why_it_matters": "w", "attestations": atts,
+               "importance": {"value": imp} if imp else None, "tractability": {"value": tra} if tra else None}
+        return {"id": slug, "payload": {"known_state": "k", "question": "q", "problem_kind": "sourced_field_open_problem", "downstream_uses": [],
+                                       "source": {"uri": None}, "original": {"register_record": rec, "provenance_path": path}}}
+    full = {"pmcid": "PMC1", "locator": "Intro", "quote": "q", "stance": "open"}
+    ds = [draft("a", "foundational", "near-term", "none", [full, dict(full, pmcid="PMC2")]),
+          draft("b", "significant", "medium-term", "none", [dict(full, stance="settled")]),
+          draft("c", None, None, "none", []),
+          draft("d", "specialist", "long-term", "why_source", [full])]
+    r = rp.probe(ds, "2026-10-31T17:00:00Z")
+    assert r["lenses_nonempty"] == [] and r["cards"]["bounded"] == 0 and r["cards"]["with_consequence_estimate"] == 0
+    pv = r["provenance_as_carried_by_the_records"]
+    # importer paths: a,b,c = none, d = why_source. Of the three 'none' records, a and b carry a full attestation (c has none).
+    assert pv["importer_provenance_path"] == {"none": 3, "why_source": 1} and pv["of_importer_none_path_with_a_full_attestation"] == 2
+    assert pv["records_with_a_full_attestation_pmcid_locator_quote"] == 3
+    # exactly one record (b) has a settled attestation; a and d have open ones, so counting 'open' instead would give 2
+    assert pv["records_with_a_settled_stance_attestation"] == 1 and r["unrated_records"] == 1
+    # the unrated record is excluded from the Pareto layering (3 rated, not 4): (3,3) > (2,2) > (1,1) -> three layers of 1
+    assert r["carried_orderings"]["pareto_importance_x_tractability"]["rated"] == 3
+    assert r["carried_orderings"]["pareto_importance_x_tractability"]["layer_sizes"] == [1, 1, 1]

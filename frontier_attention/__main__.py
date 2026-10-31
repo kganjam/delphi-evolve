@@ -71,6 +71,16 @@ def evaluate(args) -> int:
     return 0 if rep["verdict"] != "REFUSED" else 2
 
 
+def register_probe(args) -> int:
+    from . import register_probe as rp
+    drafts, sha = rp.load_drafts(args.drafts)
+    rep = {"drafts_sha256": sha, **rp.probe(drafts, args.now)}
+    if args.out:
+        Path(args.out).write_text(json.dumps(rep, indent=1, sort_keys=True))
+    print(json.dumps(rep, indent=1, sort_keys=True))
+    return 0
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="frontier_attention")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -79,8 +89,9 @@ def main(argv=None) -> int:
     s = sub.add_parser("score-events"); s.add_argument("--specs", required=True); s.add_argument("--forecasts", required=True)
     s.add_argument("--resolutions", required=True); s.add_argument("--now", required=True)
     e = sub.add_parser("evaluate"); e.add_argument("--rows", required=True); e.add_argument("--frozen", required=True); e.add_argument("--arms", required=True)
+    r = sub.add_parser("register-probe"); r.add_argument("--drafts", required=True); r.add_argument("--now", required=True); r.add_argument("--out")
     a = ap.parse_args(argv)
-    return {"selftest": lambda: selftest(), "cards": lambda: cards(a), "score-events": lambda: score_events(a), "evaluate": lambda: evaluate(a)}[a.cmd]()
+    return {"selftest": lambda: selftest(), "cards": lambda: cards(a), "score-events": lambda: score_events(a), "evaluate": lambda: evaluate(a), "register-probe": lambda: register_probe(a)}[a.cmd]()
 
 
 if __name__ == "__main__":

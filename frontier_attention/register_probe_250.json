@@ -1,0 +1,91 @@
+{
+ "candidate_dependency_edges_from_text_mentions": {
+  "max_in_degree": 3,
+  "meaning": "a slug appearing in another record's prose is NOT a typed dependency; these are untyped candidates a curator must confirm or reject",
+  "n_edges": 89,
+  "problems_mentioned_by_others": 63
+ },
+ "cards": {
+  "bounded": 0,
+  "issue_codes": {
+   "bad_enum": 500,
+   "bad_estimate": 250,
+   "bad_ref": 83,
+   "missing": 1314,
+   "unpinned": 250,
+   "untyped_edge": 83
+  },
+  "ready": 0,
+  "with_consequence_estimate": 0
+ },
+ "carried_orderings": {
+  "importance_label": {
+   "fraction_pairs_ordered": 0.3595823293172691,
+   "groups": {
+    "1": 52,
+    "2": 141,
+    "3": 20
+   },
+   "n": 250,
+   "pairs_incomparable": 8547,
+   "pairs_ordered": 11192,
+   "pairs_tied": 11386,
+   "pairs_total": 31125,
+   "rated": 213
+  },
+  "note": "curator ordinal labels, one labeller, no calibration, no consequence estimate. They order labels, not consequence.",
+  "pareto_importance_x_tractability": {
+   "fraction_rated_pairs_comparable": 0.5422978120294092,
+   "layer_sizes": [
+    4,
+    96,
+    97,
+    15,
+    1
+   ],
+   "pairs_comparable": 12244,
+   "pairs_rated": 22578,
+   "rated": 213
+  },
+  "tractability_label": {
+   "fraction_pairs_ordered": 0.37095582329317267,
+   "groups": {
+    "1": 8,
+    "2": 78,
+    "3": 127
+   },
+   "n": 250,
+   "pairs_incomparable": 8547,
+   "pairs_ordered": 11546,
+   "pairs_tied": 11032,
+   "pairs_total": 31125,
+   "rated": 213
+  }
+ },
+ "drafts_sha256": "5808c2bd34a20a4838bb8415bdcb483f3f7aee5d6bd3a02d4a1a34515633f6f7",
+ "lens_membership": {
+  "blocking_downstream": 0,
+  "exploratory": 0,
+  "neglected_important": 0,
+  "newly_actionable": 0,
+  "seeking_review": 0
+ },
+ "lenses_nonempty": [],
+ "n_problems": 250,
+ "provenance_as_carried_by_the_records": {
+  "attestations_total": 465,
+  "distinct_pmcids": 331,
+  "importer_provenance_path": {
+   "none": 148,
+   "references": 68,
+   "why_source": 34
+  },
+  "max_problems_sharing_one_pmcid": 5,
+  "of_importer_none_path_with_a_full_attestation": 145,
+  "quotes_are_curator_transcriptions_unverified_here": true,
+  "records_with_a_full_attestation_pmcid_locator_quote": 247,
+  "records_with_a_settled_stance_attestation": 37,
+  "records_with_exactly_one_distinct_source": 134
+ },
+ "unrated_records": 37
+}
