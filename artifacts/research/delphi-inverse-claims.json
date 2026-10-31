@@ -1,0 +1,147 @@
+{
+  "queried_utc": "2026-10-31T07:59:11.287907+00:00",
+  "claims": [
+    {
+      "id": "turing-ddi",
+      "source": "local",
+      "response": {
+        "claim": "https://w3id.org/delphi/resource/claim/turing-ddi",
+        "source": "local",
+        "nanopubs": [
+          "math-bio-theorems/nanopubs/unsigned/turing-ddi.trig"
+        ],
+        "fields": {
+          "rdfs:seeAlso": "https://doi.org/10.1103/PhysRevLett.64.2953",
+          "dct:source": "Alan Turing (1952) The chemical basis of morphogenesis",
+          "delphi:hypothesisType": "model-theorem",
+          "delphi:proposedTest": "Measure the reaction Jacobian and the diffusivities of a candidate morphogen pair independently, check that the inequality holds, and then confirm that perturbing the diffusivity ratio switches patterning on or off.",
+          "delphi:context": "Assumptions: two species, smooth kinetics, linearization about a homogeneous steady state, fixed domain without growth or mechanics. Formal status: the linear instability conditions are proved; existence and stability of nonlinear patterns are proved for many specific models but not in general.",
+          "skos:notation": "u_t = f(u,v) + D_u \\nabla^2 u, v_t = g(u,v) + D_v \\nabla^2 v; with tr J < 0 and det J > 0, instability at some wavenumber k iff D_v f_u + D_u g_v > 2\\sqrt{D_u D_v \\det J}, which requires D_u \\ne D_v",
+          "rdf:type": [
+            "https://w3id.org/delphi/ontology/TestableHypothesis",
+            "https://w3id.org/delphi/ontology/Claim"
+          ],
+          "dct:description": "A homogeneous steady state of two reacting chemicals that is stable without diffusion can become unstable to spatial perturbations when the chemicals diffuse at different rates, spontaneously producing a pattern.",
+          "rdfs:label": "Turing diffusion-driven instability"
+        },
+        "assessments": []
+      },
+      "response_sha256": "2a04297ce4848074b0851707c77fbeeec2832f333108dc66ae54395e0bd06f1f"
+    },
+    {
+      "id": "turing-wavelength",
+      "source": "local",
+      "response": {
+        "claim": "https://w3id.org/delphi/resource/claim/turing-wavelength",
+        "source": "local",
+        "nanopubs": [
+          "math-bio-theorems/nanopubs/unsigned/turing-wavelength.trig"
+        ],
+        "fields": {
+          "rdfs:seeAlso": [
+            "https://doi.org/10.1126/science.1252960",
+            "https://doi.org/10.1126/science.1226804"
+          ],
+          "dct:source": "Alan Turing (1952) The chemical basis of morphogenesis",
+          "delphi:hypothesisType": "model-theorem",
+          "delphi:proposedTest": "Alter morphogen production, degradation or diffusion in a developing tissue (e.g. Hox dosage or Bmp/Wnt inhibition in mouse limb buds) and test whether digit or element number changes in the direction and proportion the dispersion relation predicts.",
+          "delphi:context": "Assumptions: near onset of instability, two species, domain large compared with the wavelength. Formal status: proved by linear analysis. Away from onset, the selected wavelength depends on nonlinear terms and history.",
+          "skos:notation": "at onset k_c^2 = \\sqrt{\\det J/(D_u D_v)}, \\lambda_c = 2\\pi/k_c; under uniform rescaling of D, \\lambda \\propto \\sqrt{D}",
+          "rdf:type": [
+            "https://w3id.org/delphi/ontology/TestableHypothesis",
+            "https://w3id.org/delphi/ontology/Claim"
+          ],
+          "dct:description": "The spacing of a Turing pattern at onset is set by the reaction rates and diffusivities, not by the size of the tissue, so changing these parameters predictably changes the number of repeated elements.",
+          "rdfs:label": "Turing wavelength selection"
+        },
+        "assessments": []
+      },
+      "response_sha256": "81d6ed89f3c1050187e79b6a7de66e081aff2ce1bed2c049652414245763fc5a"
+    },
+    {
+      "id": "turing-morphogen-hypothesis",
+      "source": "local",
+      "response": {
+        "claim": "https://w3id.org/delphi/resource/claim/turing-morphogen-hypothesis",
+        "source": "local",
+        "nanopubs": [
+          "math-bio-theorems/nanopubs/unsigned/turing-morphogen-hypothesis.trig"
+        ],
+        "fields": {
+          "rdfs:seeAlso": [
+            "https://doi.org/10.1103/PhysRevLett.64.2953",
+            "https://doi.org/10.1038/376765a0"
+          ],
+          "dct:source": "Alan Turing (1952) The chemical basis of morphogenesis",
+          "delphi:hypothesisType": "principle-or-framework",
+          "delphi:proposedTest": "In a candidate system, identify the interacting molecules, measure their kinetics and diffusion, and confirm novel predictions such as stripe insertion during growth or pattern change after a targeted perturbation, while ruling out mechanical alternatives.",
+          "delphi:context": "Formal status: a framework rather than a mathematical proposition. Kondo and Asai (1995) confirmed the predicted stripe-branching dynamics in Pomacanthus and Castets et al. (1990) produced Turing patterns chemically. Mechanical buckling, prepatterns and cell-cell signalling can produce the same patterns, so a matching pattern alone does not identify the mechanism.",
+          "skos:notation": "no canonical formalization: the claim asserts that a biological pattern is generated by a system of the form u_t = F(u) + D\\nabla^2 u with D not proportional to the identity",
+          "rdf:type": [
+            "https://w3id.org/delphi/ontology/TestableHypothesis",
+            "https://w3id.org/delphi/ontology/Claim"
+          ],
+          "dct:description": "Chemical substances that react and diffuse through tissue (morphogens) are sufficient to account for the main phenomena of morphogenesis.",
+          "rdfs:label": "Reaction-diffusion of morphogens accounts for biological pattern"
+        },
+        "assessments": []
+      },
+      "response_sha256": "dfae4065464c777938a212dba86b04a79cd78b44975d02e1e29ea6ee97f946c5"
+    },
+    {
+      "id": "wolfram2002-ch09-08",
+      "source": "local",
+      "response": {
+        "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch09-08",
+        "source": "local",
+        "nanopubs": [
+          "wolfram-nks/nanopubs/unsigned/wolfram2002-ch09-08.trig"
+        ],
+        "fields": {
+          "dct:type": "computational-observation",
+          "delphi:context": "Stephen Wolfram, A New Kind of Science (Champaign, IL: Wolfram Media, 2002), Chapter 9, \u201cFundamental Physics\u201d; section \u201cConserved Quantities and Continuum Phenomena\u201d (from p. 458), p. 464. Scope: discrete systems with conserved quantities and intrinsic randomness, such as particle-conserving block cellular automata and fluids",
+          "dct:description": "Smooth continuum behavior, such as diffusion of density, emerges from discrete systems whenever small-scale apparent randomness washes out individual details and conserved quantities constrain overall features, as shown by block cellular automata whose average density follows the diffusion equation.",
+          "rdfs:label": "Continuum behavior emerges from discrete randomizing conserving rules",
+          "rdf:type": "https://w3id.org/delphi/ontology/Claim"
+        },
+        "assessments": [
+          {
+            "assessment": "https://w3id.org/delphi/resource/assessment/wolfram2002-ch09-08--grok",
+            "type": "dataset-resolvability/0.2.0",
+            "score": 0.749,
+            "verdict": "partially-resolvable",
+            "confidence": 0.7,
+            "assessor": "https://w3id.org/delphi/resource/agent/delphisci-resolvability-assessor-grok-4.7-high-fast",
+            "summary": "The block-automaton demonstration is fully specified and can be rerun: averaged density either approaches the diffusion equation or it does not. Hydrodynamic limits are proved for some related lattice systems, so the mechanism is not merely visual similarity. The word 'whenever', extended to fluids and arbitrary discrete rules, is wider than those checks.",
+            "nanopub": "wolfram-nks/nanopubs/assessments-unsigned/wolfram2002-ch09-08--grok.trig",
+            "dimensions": {
+              "analysis-feasibility": 0.76,
+              "discriminating-power": 0.7,
+              "data-adequacy": 0.62,
+              "data-existence": 0.86,
+              "operationalizability": 0.78
+            }
+          },
+          {
+            "assessment": "https://w3id.org/delphi/resource/assessment/wolfram2002-ch09-08--gpt",
+            "type": "dataset-resolvability/0.2.0",
+            "score": 0.773,
+            "verdict": "partially-resolvable",
+            "confidence": 0.8,
+            "assessor": "https://w3id.org/delphi/resource/agent/delphisci-resolvability-assessor-gpt-5.6-sol-medium",
+            "summary": "The named block systems and many neighboring rules can be simulated with standard methods. This resolves concrete instances, but the proposed general sufficiency of randomness plus conservation requires sharper conditions or a theorem.",
+            "nanopub": "wolfram-nks/nanopubs/assessments-unsigned/wolfram2002-ch09-08--gpt.trig",
+            "dimensions": {
+              "analysis-feasibility": 0.85,
+              "discriminating-power": 0.72,
+              "data-adequacy": 0.6,
+              "data-existence": 0.95,
+              "operationalizability": 0.72
+            }
+          }
+        ]
+      },
+      "response_sha256": "d812f5749c1334dcb8b2cb2362a6173b6fcc6cee5812fe45acefaf4c8fad3ddb"
+    }
+  ]
+}

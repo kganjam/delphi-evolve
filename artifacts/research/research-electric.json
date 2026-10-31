@@ -1,0 +1,295 @@
+{
+  "schema": "research-electric/manifest/v1",
+  "generated": "2026-10-31 PDT (Seattle)",
+  "model": "Claude Sonnet 5.5 (subscription); metered spend unknown, not inferred",
+  "read_levels": {
+    "BODY": "body or raw data read",
+    "ABSTRACT": "abstract or search snippet only",
+    "METADATA": "record metadata only",
+    "FAILED": "could not be read"
+  },
+  "sources": [
+    {
+      "id": "sano2010",
+      "title": "Electromagnetically Controlled Biological Assembly of Aligned Bacterial Cellulose Nanofibers",
+      "url": "https://research.chalmers.se/en/publication/123959",
+      "doi": "10.1007/s10439-010-9999-0",
+      "read": "ABSTRACT",
+      "licence": "publisher; not open",
+      "note": "journal PDF behind Springer auth redirect, FAILED"
+    },
+    {
+      "id": "sano2010-thesis",
+      "title": "Electromagnetic Control of Biological Assembly (M. B. Sano, Virginia Tech MS thesis)",
+      "url": "https://vtechworks.lib.vt.edu/items/e125558e-470c-45fd-bea1-292517a56158/full",
+      "handle": "10919/76975",
+      "read": "BODY",
+      "licence": "In Copyright",
+      "note": "fields 0.15/0.303/0.45 V/cm DC; measured velocity 1.37-7.47 um/min at 2-30 V/cm; >400 V/cm DEP traps cells and stops cellulose; alignment evidence qualitative SEM; text-quoted calculated 4.2-12.6 um/min at 0.15-0.45 V/cm not consistent with measured mobility; mobility formula was an image"
+    },
+    {
+      "id": "prescott2021",
+      "title": "Quantifying the impact of electric fields on single-cell motility",
+      "url": "https://www.biorxiv.org/content/10.1101/2021.01.22.427762v2.full",
+      "read": "BODY",
+      "licence": "bioRxiv",
+      "note": "direct fetch 429; read via r.jina.ai; held-out field-reversal window 180-300 min; code github.com/tpprescott/electro GPL-3.0"
+    },
+    {
+      "id": "prescott-data",
+      "title": "Zenodo supporting data (HCE cells, 0 and 200 mV/mm)",
+      "url": "https://zenodo.org/records/4749429",
+      "doi": "10.5281/zenodo.4749429",
+      "read": "BODY",
+      "licence": "CC-BY-NC-ND-4.0",
+      "files_opened": {
+        "Ctrl-1.csv": "sha256 2f8bed5f52c3e3d08de5b8aacaff374e8e8bf5cae47b36eb563dd99d02f40801",
+        "200mV-1.csv": "sha256 614f854bfdd7c446813b13bc60df363609c99e368b050457a3b0ccbad7e9c126"
+      },
+      "pilot": "Ctrl-1: 27 tracks x 61 points; 200mV-1: 26 tracks x 61 points; columns TID,PID,x,y in pixels",
+      "note": "notes file lists 50 mV/mm fields but deposit holds only Ctrl and 200mV files; two of four CSVs opened"
+    },
+    {
+      "id": "electrotaxis-dl-2022",
+      "title": "Deep-learning electrotaxis directedness predictor",
+      "url": "https://www.nature.com/articles/s41598-022-13925-4.pdf",
+      "read": "ABSTRACT"
+    },
+    {
+      "id": "electrotaxis-nn-controller-2025",
+      "title": "Controlling Cell Migratory Patterns Under an Electric Field Regulated by a Neural Network-Based Feedback Controller",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12292985/",
+      "read": "ABSTRACT"
+    },
+    {
+      "id": "daul2022",
+      "title": "Galvanotaxis of ciliates: Coleps hirtus",
+      "url": "https://doi.org/10.1088/1367-2630/ac6c47",
+      "dataset": "https://doi.org/10.18419/darus-2827",
+      "read": "ABSTRACT",
+      "licence": "CC-BY-4.0 per search result, record not opened"
+    },
+    {
+      "id": "dart2023",
+      "title": "An electrogenetic interface to program mammalian gene expression by direct current (DART)",
+      "url": "https://www.nature.com/articles/s42255-023-00850-7.pdf",
+      "read": "ABSTRACT",
+      "note": "press and ETH record only; electrode ROS to NRF2, mouse data"
+    },
+    {
+      "id": "excitable-tissue",
+      "title": "Kirkton and Bursac 2011; Nguyen 2016; Zhang/Cohen PRX 2016",
+      "url": "https://www.science.gov/topicpages/e/electrically+excitable+cells",
+      "read": "ABSTRACT"
+    },
+    {
+      "id": "shread",
+      "title": "SHREAD",
+      "read": "FAILED",
+      "note": "two searches returned nothing under this name; unresolved"
+    },
+    {
+      "id": "betse",
+      "title": "BETSE (Pietak and Levin 2016)",
+      "url": "https://www.frontiersin.org/articles/10.3389/fbioe.2016.00055/text",
+      "repo": "https://github.com/betsee/betse",
+      "licence": "BSD-2-Clause (GitHub API)",
+      "read": "ABSTRACT"
+    },
+    {
+      "id": "brodsky-levin-2018",
+      "title": "Genetic-algorithm search of biophysical simulations (ALIFE 2018)",
+      "url": "https://pdos.csail.mit.edu/~micahbro/ALIFE2018%20gabee%20CR.pdf",
+      "read": "ABSTRACT"
+    },
+    {
+      "id": "jaxley",
+      "title": "Jaxley: differentiable simulation enables large-scale training of detailed biophysical models of neural dynamics",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12695658/",
+      "doi": "10.1038/s41592-025-02895-w",
+      "read": "BODY",
+      "licence": "Apache-2.0 (code, GitHub API and paper)",
+      "note": "uses Allen Cell Types DB neurons 485574832, 488683425, 480353286, 473601979 for simulator validation"
+    },
+    {
+      "id": "gouwens2018",
+      "title": "Systematic generation of biophysically detailed models for diverse cortical neuron types",
+      "url": "https://link.springer.com/article/10.1038/s41467-017-02718-3",
+      "read": "ABSTRACT",
+      "note": "Allen Cell Types models, held-out stimulus tests; Allen data licence not verified"
+    },
+    {
+      "id": "payne-electrobiofabrication",
+      "title": "Electrobiofabrication review (Payne, Bentley, Rubloff groups)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7025432",
+      "read": "ABSTRACT"
+    },
+    {
+      "id": "proteingym-ref",
+      "title": "ProteinGym reference_files/DMS_substitutions.csv",
+      "url": "https://raw.githubusercontent.com/OATML-Markslab/ProteinGym/main/reference_files/DMS_substitutions.csv",
+      "read": "BODY",
+      "licence": "MIT (repo); data licence not verified",
+      "note": "KCNE1 2339/2315, KCNJ2 6917/6963, KCNH2 Kozek 200, SCN5A Glazer 224 single mutants"
+    },
+    {
+      "id": "kcne1-genomemed2024",
+      "title": "High-throughput functional mapping of variants in an arrhythmia gene, KCNE1, reveals novel biology",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11138074/",
+      "doi": "10.1186/s13073-024-01340-5",
+      "read": "BODY",
+      "licence": "open access; code BSD-3-Clause github.com/GlazerLab/KCNE1_DMS"
+    },
+    {
+      "id": "kcne1-mavedb",
+      "title": "MaveDB urn:mavedb:00000674-a-2 (trafficking) and -b-1 (function)",
+      "url": "https://api.mavedb.org/api/v1/score-sets/urn:mavedb:00000674-b-1",
+      "read": "BODY",
+      "licence": "CC0",
+      "files": {
+        "scores_urn:mavedb:00000674-a-2.csv": "sha256 1a93be4bcc074be74ae3a720e88297c029e7cc9ea0c088cf6ea06196618abc24",
+        "scores_urn:mavedb:00000674-b-1.csv": "sha256 22716e52fd54bd9a74d9a5c526d8efa753e25db0a3fec0187b95b3435e541640"
+      }
+    },
+    {
+      "id": "kir21-elife2022",
+      "title": "Determinants of trafficking, conduction, and disease within a K+ channel revealed through multiparametric deep mutational scanning",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9273215/",
+      "doi": "10.7554/eLife.76903",
+      "read": "BODY",
+      "licence": "open access; code and source data github.com/schmidt-lab/KirDMS MIT; reads SRA PRJNA791691"
+    },
+    {
+      "id": "delphi-mcp",
+      "title": "Delphi MCP",
+      "url": "https://delphisci-mcp.fly.dev/mcp",
+      "read": "BODY",
+      "note": "stateless; tools overview, search_claims, get_claim, rank_claims, graph, sparql; local source used, network queried once"
+    }
+  ],
+  "delphi_claims": [
+    {
+      "id": "turing-ddi",
+      "iri": "https://w3id.org/delphi/resource/claim/turing-ddi",
+      "changes": "Requires independent measurement of Jacobian and diffusivities before perturbing; for the cellulose case requires measured mobility and extrusion rate to be consistent before an alignment-window claim.",
+      "used_for_design": true
+    },
+    {
+      "id": "turing-wavelength",
+      "iri": "https://w3id.org/delphi/resource/claim/turing-wavelength",
+      "changes": "Pattern spacing must scale with parameters, not tissue size; a visual match is insufficient for any bioelectric simulator.",
+      "used_for_design": false
+    },
+    {
+      "id": "turing-morphogen-hypothesis",
+      "iri": "https://w3id.org/delphi/resource/claim/turing-morphogen-hypothesis",
+      "changes": "Matching pattern does not identify mechanism.",
+      "used_for_design": false
+    },
+    {
+      "id": "thompson1917-ch04-08",
+      "iri": "https://w3id.org/delphi/resource/claim/thompson1917-ch04-08",
+      "changes": "Endogenous-potential claim; assessors score 0.40 and 0.473, needs new data. Applied-field datasets cannot test it, so keep separate.",
+      "used_for_design": true
+    },
+    {
+      "id": "wolfram2002-ch12-29",
+      "iri": "https://w3id.org/delphi/resource/claim/wolfram2002-ch12-29",
+      "changes": "Frame inverse control as bounded forward-simulate-and-select over a finite candidate set; cost axis is assays or forward runs.",
+      "used_for_design": true
+    },
+    {
+      "id": "wolfram2002-ch12-27",
+      "iri": "https://w3id.org/delphi/resource/claim/wolfram2002-ch12-27",
+      "changes": "Same as ch12-29; NP-style verification is the certificate.",
+      "used_for_design": true
+    },
+    {
+      "id": "decorative-not-used",
+      "ids": [
+        "thompson1917-ch04-02",
+        "thompson1917-ch04-04",
+        "wolfram2002-ch06-11",
+        "darwin1859-ch06-10"
+      ],
+      "changes": "None; not used in the design."
+    }
+  ],
+  "pilot_artifacts": [
+    {
+      "what": "KCNE1 paired missense variants (trafficking and function)",
+      "n": 2415,
+      "spearman_surface_vs_function": 0.062,
+      "leave_one_variant_out_same_position_mean_spearman": 0.695,
+      "n_lovo": 2413,
+      "limits": "descriptive; categories as supplied by MaveDB; not a held-out-position baseline; script was ad hoc stdin Python and is not committed"
+    }
+  ],
+  "ideas": [
+    {
+      "rank": 1,
+      "id": "channel-bridge",
+      "title": "Channel function-beyond-expression held-out-position benchmark and conditional certificate",
+      "data": "KCNE1 (MaveDB CC0), KCNJ2 (eLife, MIT), KCNH2 and SCN5A fragments (ProteinGym)",
+      "novelty": "low to medium",
+      "feasibility_24h": "high",
+      "evidence_confidence": "high on data, low on novelty",
+      "gpu": "1 H100, bound 2 GPU-hours (ESM2 zero-shot and LoRA grouped CV)",
+      "falsifier": "No model beats the neighbour-window baseline by more than position-bootstrap spread on surface-normal variants"
+    },
+    {
+      "rank": 2,
+      "id": "electrotaxis-discrimination",
+      "title": "Electrotaxis field-program discrimination",
+      "data": "Prescott/Zhu/Zhao Zenodo, one nonzero field magnitude",
+      "novelty": "low",
+      "feasibility_24h": "medium",
+      "evidence_confidence": "medium-low"
+    },
+    {
+      "rank": 3,
+      "id": "jaxley-allen-inversion",
+      "title": "Jaxley conductance inversion with held-out stimulus classes",
+      "data": "Allen Cell Types DB (licence unverified)",
+      "novelty": "low",
+      "feasibility_24h": "medium",
+      "evidence_confidence": "medium",
+      "gpu": "useful via parameter-parallel simulation"
+    },
+    {
+      "rank": 4,
+      "id": "cellulose-alignment-window",
+      "title": "Drift-to-extrusion alignment window for bacterial cellulose",
+      "data": "qualitative SEM only",
+      "novelty": "would be new but requires experiments",
+      "feasibility_24h": "low",
+      "evidence_confidence": "high that data are insufficient"
+    },
+    {
+      "rank": 5,
+      "id": "dart-dose-response",
+      "title": "Electrochemical gene-switch dose-response",
+      "data": "not located",
+      "novelty": "unknown",
+      "feasibility_24h": "low",
+      "evidence_confidence": "low"
+    },
+    {
+      "rank": 6,
+      "id": "betse-inverse",
+      "title": "BETSE inverse pattern design",
+      "data": "none measured",
+      "novelty": "n/a",
+      "feasibility_24h": "kill",
+      "evidence_confidence": "high"
+    }
+  ],
+  "lean_statement": "H1: V -> I(V,a) strictly increasing for all a; H2: I(V*(a), a') >= 0 with I(V*(a),a)=0=I(V*(a'),a'); conclusion V*(a') <= V*(a). Mutant: drop H1 via N-shaped I-V. Arithmetic only; dye-score-to-conductance map is a separate assumption.",
+  "failures": [
+    "Springer journal PDF auth redirect",
+    "bioRxiv direct 429, worked via r.jina.ai",
+    "SHREAD unresolved",
+    "Allen, AlphaMissense, ProteinGym-data licences unverified",
+    "only two of four electrotaxis CSVs opened"
+  ]
+}

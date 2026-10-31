@@ -1,0 +1,89 @@
+{
+  "role": "research-nca",
+  "status": "completed",
+  "task": "Deep research on NCA / morphogenetic / amorphous computing; deliver ranked candidates and a falsifiable top candidate",
+  "branch": "work/research-nca",
+  "commit": "98b62ab01dc96dc56cf9a7c75aaef79b04044d3e",
+  "model": "Claude Sonnet 5.5 (claude-sonnet-5-5), subscription; metered spend unknown, not inferred from CLI",
+  "wall_time_seattle": {
+    "launch_file_mtime": "2026-10-31 00:56:44 PDT",
+    "report_branch_commit_time": "2026-10-31 01:05:52 PDT",
+    "scope": "Filesystem launch record and Git committer time; not a measured active research duration."
+  },
+  "artifacts": [
+    "docs/research/research-nca.md",
+    "artifacts/research/research-nca.json",
+    "tasks/results/research-nca.json"
+  ],
+  "commands_actually_run": [
+    {
+      "command": "date / TZ=America/Los_Angeles date",
+      "outcome": "Worker reports clock lookup; estimated end-time range removed because it was in the future when reviewed."
+    },
+    {
+      "command": "cat/sed of AGENTS.md, planning/PLAN.md, specs/CONTRACT.md, STATUS.md, tasks/semantics-review.md",
+      "outcome": "read"
+    },
+    {
+      "command": "sed/grep of /home/ubuntu/git/scienceclaw-hackathon-ideas/resources/research/{amorphous-computing,living-nca,morphoeval-*,morphoassert-*,imposed-pattern-decay,encarule-datasets,collective-behavior-datasets}.md",
+      "outcome": "read, partial for long files"
+    },
+    {
+      "command": "curl POST https://delphisci-mcp.fly.dev/mcp initialize, tools/list, delphi_search_claims, delphi_get_claim (source=local)",
+      "outcome": "HTTP 200 on every call observed; claim IRIs in manifest"
+    },
+    {
+      "command": "20 WebSearch calls (standard x18, extended x2) and ~12 WebFetch calls",
+      "outcome": "see artifacts/research/research-nca.json search_log"
+    },
+    {
+      "command": "curl https://api.github.com/repos/<repo> for license lookups",
+      "outcome": "licenses recorded; Smoldyn guessed path Not Found"
+    },
+    {
+      "command": "curl DataCite and Dryad API metadata for 10.5061/dryad.2j9p4 and 10.5061/dryad.35h8v",
+      "outcome": "metadata ok; file download Unauthorized/403"
+    },
+    {
+      "command": "curl -L arXiv PDFs 2507.12306 and 2604.24990 into /tmp/nca-dl/{mace,review}; timeout 60 pdftotext -layout",
+      "outcome": "converted; read via grep/sed; files not executed"
+    },
+    {
+      "command": "curl https://r.jina.ai/https://pmc.ncbi.nlm.nih.gov/articles/PMC3525670/",
+      "outcome": "abstract only (19754 bytes)"
+    }
+  ],
+  "exit_codes": "Numeric exit codes were not captured for the curl/pdftotext/WebFetch commands; outcomes above are what the output showed. Git commit/push exit codes are recorded in the final message and the follow-up commit.",
+  "process_cap_note": "No test/build/agent processes were spawned. Short curl/pdftotext commands were not wrapped in systemd-run as AGENTS.md requests for process-spawning runs; pdftotext used timeout 60.",
+  "headline_findings": [
+    "No source read that combines mass-action-bounded local rules + independent mechanistic solver + unseen damage/geometry; search result, not an absence claim",
+    "Richardson 2024: no damage test, one Gray-Scott parameter set, no real data, repo unlicensed",
+    "Only open intervention-labelled measured data located: Liu/Gregor Bicoid-dose gap-gene profiles (CC0), metadata read, files not downloaded",
+    "Min geometry data on request; Tica Turing-circuit preprint has no data statement",
+    "Delphi turing-ddi and turing-wavelength change the design: D-ratio=1 negative control, near-onset stratification, damage outside theorem scope; Darwin claims change nothing here"
+  ],
+  "top_candidate": "C1 cross-solver transfer-gap benchmark for realizable local rules",
+  "limitations": [
+    "No experiments or timings run",
+    "Lean statement is a sketch, not compiled",
+    "Realizability box numbers (Nodal/Lefty diffusivities) not retrieved",
+    "WebFetch summaries are model-written; several sources read at abstract or snippet level only",
+    "Could not find a 2025/26 'Neural Developmental Programs' paper by that title",
+    "ALDE not read; no query-to-certify claims made"
+  ],
+  "next_steps": [
+    "Obtain Liu 2013 Dryad files by a browser or authenticated route and read the READMEs for dose labels (C2)",
+    "Retrieve Muller 2012 numeric FRAP diffusivities from the full text",
+    "Coordinator decides whether C1 starts; GPU use only via the gpu worker",
+    "Freeze thresholds and seed count in a committed file before any run",
+    "Run a further literature pass on cross-solver RD inverse design before any novelty wording"
+  ],
+  "coordinator_review": {
+    "scope": "Scientific wording and time provenance reviewed; source-only research and unreplicated scout pilot results remain labelled as such.",
+    "corrections": [
+      "Removed future estimated timestamps",
+      "Restricted mathematical applicability statements",
+      "Kept computational validation distinct from empirical validation"
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "role": "research-electric",
+  "status": "completed",
+  "commit": "5e3895b",
+  "model": "Claude Sonnet 5.5 (subscription)",
+  "metered_spend": "unknown; not inferred from CLI",
+  "wall_time_seattle": {
+    "launch_file_mtime": "2026-10-31 00:56:44 PDT",
+    "report_branch_commit_time": "2026-10-31 01:05:09 PDT",
+    "scope": "Filesystem launch record and Git committer time; not a measured active research duration."
+  },
+  "deliverables": [
+    "docs/research/research-electric.md",
+    "artifacts/research/research-electric.json",
+    "tasks/results/research-electric.json"
+  ],
+  "commands_run": [
+    {
+      "cmd": "curl POST initialize / tools/list / tools/call to https://delphisci-mcp.fly.dev/mcp (search_claims, get_claim, overview)",
+      "exit": 0
+    },
+    {
+      "cmd": "curl Zenodo API record 4749429 and two CSVs; python3 -I stdin track count",
+      "exit": 0
+    },
+    {
+      "cmd": "curl VT thesis PDF; pdftotext; pdftoppm page 29 (viewed Fig 13)",
+      "exit": 0
+    },
+    {
+      "cmd": "curl MaveDB score sets urn:mavedb:00000674-a-2 and -b-1; python3 -I stdin paired-variant count and Spearman",
+      "exit": 0
+    },
+    {
+      "cmd": "curl ProteinGym reference_files/DMS_substitutions.csv; GitHub API licence checks",
+      "exit": 0
+    },
+    {
+      "cmd": "curl r.jina.ai bioRxiv Prescott v2",
+      "exit": 0
+    }
+  ],
+  "process_caps": "no process-spawning build or test scripts run; only short curl/pdftotext/python stdin commands, single thread",
+  "exits_note": "all listed commands exited 0; the Springer PDF and direct bioRxiv fetch failed through WebFetch (redirect, 429) and are recorded as failures",
+  "artifacts": [
+    "artifacts/research/research-electric.json"
+  ],
+  "key_findings": [
+    "Sano 2010 is externally powered electrokinetic cell steering plus electrolysis; alignment evidence qualitative; thesis text quotes a calculated velocity about 40x above its own measured mobility",
+    "Electrotaxis public data: one nonzero field magnitude (200 mV/mm), 2 replicates, CC BY-NC-ND; Prescott 2021 already did held-out field-reversal prediction",
+    "KCNE1 paired MaveDB assays (CC0): 2415 paired missense; Spearman(surface, function)=0.062 [pilot]",
+    "SHREAD could not be found under that name"
+  ],
+  "recommendation": "Channel Bridge held-out-position benchmark on KCNE1/KCNJ2 as a bounded side vertical; not a voltage-gating or nanoscale-patterning claim",
+  "limitations": [
+    "pilot numbers from ad hoc stdin script not committed; reproducible from sha256-listed files",
+    "journal version of Sano 2010 not read",
+    "many sources read at abstract or snippet level only (marked in manifest)",
+    "licences for Allen data, AlphaMissense, ProteinGym data unverified",
+    "ProteinGym or authors may already have run an equivalent position-held-out split; not checked"
+  ],
+  "next_steps": [
+    "Check ProteinGym and Coyote-Maestas/Muhammad supplements for existing position-held-out analyses before any novelty statement",
+    "Open the journal version of Sano 2010 to resolve the velocity inconsistency",
+    "Verify AlphaMissense and Allen Cell Types licences",
+    "If approved by coordinator: freeze splits and falsifier, then a gpu worker runs the 2 GPU-hour plan"
+  ],
+  "not_done": "no GPU use, no messages, no agents, no edits outside owned paths",
+  "coordinator_review": {
+    "scope": "Scientific wording and time provenance reviewed; source-only research and unreplicated scout pilot results remain labelled as such.",
+    "corrections": [
+      "Removed future estimated timestamps",
+      "Restricted mathematical applicability statements",
+      "Kept computational validation distinct from empirical validation"
+    ]
+  }
+}
