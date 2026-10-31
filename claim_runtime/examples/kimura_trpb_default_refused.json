@@ -1,0 +1,21 @@
+{
+ "claim": "kimura-fixation-probability",
+ "task": "fixation_probability",
+ "model": {
+  "ploidy": "haploid",
+  "selection": "genic_additive",
+  "ne": "constant",
+  "linkage": "none"
+ },
+ "s_source": {
+  "kind": "trpb_assay_growth_score",
+  "genotype_from": "VFVS",
+  "genotype_to": "AIKG",
+  "dataset_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82"
+ },
+ "params": {
+  "Ne": 1000,
+  "s": 0.0,
+  "p": 0.0005
+ }
+}

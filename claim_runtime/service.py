@@ -25,7 +25,9 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 PINS_PATH = HERE / "pins.json"
 RECEIPT_PATH = ROOT / "artifacts" / "claim_reuse" / "verification_receipt.json"
-ADAPTER_FILES = {K.ADAPTER_ID: HERE / "kimura.py", F.ADAPTER_ID: HERE / "fisher.py"}
+# the executable adapter = the numerics module PLUS this file (guards live here); both are hashed
+ADAPTER_FILES = {K.ADAPTER_ID: [HERE / "kimura.py", HERE / "service.py", HERE / "common.py"],
+                 F.ADAPTER_ID: [HERE / "fisher.py", HERE / "service.py", HERE / "common.py"]}
 ADAPTERS = {  # the ONLY executable claims
     K.CLAIM_ID: (K.ADAPTER_ID, K.ADAPTER_VERSION),
     F.CLAIM_ID: (F.ADAPTER_ID, F.ADAPTER_VERSION),
@@ -59,7 +61,7 @@ def load_pins(path: Path = PINS_PATH) -> dict:
 
 
 def adapter_source_sha(adapter_id: str) -> str:
-    return sha_file(ADAPTER_FILES[adapter_id])
+    return sha([sha_file(p) for p in ADAPTER_FILES[adapter_id]])
 
 
 def verification_status(adapter_id: str, claim_content_sha: str, receipt_path: Path = RECEIPT_PATH) -> dict:
@@ -144,15 +146,6 @@ class ClaimService:
     def _kimura_guards(self, req, resp):
         g, m, sp = self.guards, req.get("model", {}) or {}, req.get("s_source", {}) or {}
         probs = []
-        if g.on("ploidy_diploid") and m.get("ploidy") != "diploid":
-            probs.append(("model_transfer_refused",
-                          f"ploidy={m.get('ploidy')!r}: the claim is a diploid Wright-Fisher diffusion (4Ne s p). Haploid populations (e.g. E. coli) have a different exponent; no haploid adapter exists. Missing mapping: variance-effective size and per-copy s for the haploid model"))
-        if g.on("genic_selection") and m.get("selection") != "genic_additive":
-            probs.append(("model_transfer_refused", f"selection={m.get('selection')!r}: record assumes genic (additive) selection"))
-        if g.on("constant_ne") and m.get("ne") != "constant":
-            probs.append(("model_transfer_refused", "record assumes constant effective size Ne"))
-        if g.on("no_linkage") and m.get("linkage") != "none":
-            probs.append(("model_transfer_refused", "record assumes no linkage to other selected sites"))
         if g.on("s_source_not_assay"):
             kind = sp.get("kind")
             if kind == "declared_hypothetical":
@@ -162,6 +155,15 @@ class ClaimService:
             else:
                 probs.append(("unsupported_quantity_conversion",
                               f"s_source.kind={kind!r} is not a selection coefficient. Assay growth scores are not s; refusing. Missing: " + " | ".join(MISSING_TRPB_MAPPING)))
+        if g.on("ploidy_diploid") and m.get("ploidy") != "diploid":
+            probs.append(("model_transfer_refused",
+                          f"ploidy={m.get('ploidy')!r}: the claim is a diploid Wright-Fisher diffusion (4Ne s p). Haploid populations (e.g. E. coli) have a different exponent; no haploid adapter exists. Missing mapping: variance-effective size and per-copy s for the haploid model"))
+        if g.on("genic_selection") and m.get("selection") != "genic_additive":
+            probs.append(("model_transfer_refused", f"selection={m.get('selection')!r}: record assumes genic (additive) selection"))
+        if g.on("constant_ne") and m.get("ne") != "constant":
+            probs.append(("model_transfer_refused", "record assumes constant effective size Ne"))
+        if g.on("no_linkage") and m.get("linkage") != "none":
+            probs.append(("model_transfer_refused", "record assumes no linkage to other selected sites"))
         return probs
 
     def _kimura(self, req, resp):

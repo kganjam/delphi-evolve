@@ -56,7 +56,7 @@ def run_capture(cmd, env=None, timeout=900):
 
 
 def cmd_verify(a):
-    env = dict(os.environ, PYTHONPATH=str(ROOT), OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    env = dict(os.environ, PYTHONPATH=str(ROOT), OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2", CLAIM_RUNTIME_VERIFYING="1")
     pins = make_pins()
     t_cmd = [sys.executable, "-m", "pytest", "-q", "-p", "no:cacheprovider", "tests/test_claim_runtime_kimura.py",
              "tests/test_claim_runtime_service.py", "tests/test_claim_runtime_evidence.py", "tests/test_claim_runtime_reuse.py"]
@@ -98,7 +98,20 @@ def cmd_demo(a):
     dd = ROOT / "claim_runtime" / "demo"
     dd.mkdir(exist_ok=True)
     (dd / "receipt.js").write_text("window.CLAIM_RECEIPT = " + json.dumps(res, sort_keys=True) + ";\n")
-    print("wrote", ART / "demo_receipt.json", "and", dd / "receipt.js")
+    bench = {}
+    for name in ("reuse_benchmark", "popgen_benchmark", "verification_receipt", "mutation_receipt"):
+        f = ART / (name + ".json")
+        if f.exists():
+            b = json.loads(f.read_text())
+            if name == "reuse_benchmark":
+                for sc in b["baseline"].values():
+                    sc.pop("curve", None)
+                    sc.pop("by_policy", None)
+            if name == "popgen_benchmark":
+                b.pop("diploid_vs_diffusion", None)
+            bench[name] = b
+    (dd / "bench.js").write_text("window.CLAIM_BENCH = " + json.dumps(bench, sort_keys=True) + ";\n")
+    print("wrote", ART / "demo_receipt.json", "and", dd / "receipt.js", dd / "bench.js")
     return 0
 
 

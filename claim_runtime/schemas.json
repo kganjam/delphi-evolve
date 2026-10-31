@@ -1,0 +1,18 @@
+{
+  "claim-request/v1": {
+    "required": ["claim"],
+    "claim": "kimura-fixation-probability | fisher-ftns (only curated claims execute; anything else -> refused 'no_adapter')",
+    "kimura": {"task": "fixation_probability | hypothetical_trajectory",
+               "model": {"ploidy": "must be 'diploid'", "selection": "must be 'genic_additive'", "ne": "must be 'constant'", "linkage": "must be 'none'"},
+               "s_source": {"kind": "declared_hypothetical | cited_estimate(+citation,+estimation_context); anything else (e.g. trpb_assay_growth_score) is refused"},
+               "params": {"Ne": "number > 0", "s": "finite number", "p": "in [0,1]  OR  N_census_diploids (p = 1/(2N))"},
+               "scenario(hypothetical_trajectory)": {"route": "list of labels", "per_step_s": "declared numbers, len = steps", "Ne": "number", "N_census_diploids": "number"}},
+    "fisher": {"task": "partial_change | one_locus_check", "inference_type": "must be 'partial_change_selection_component'",
+               "variance_kind": "must be 'additive_genetic_variance_in_fitness'",
+               "conditions": {"average_effects_held_fixed": true, "environment_fixed": true, "frequency_independent": true},
+               "params": {"V_A": ">=0", "mean_fitness": ">0 (relative_discrete)", "scale": "relative_discrete | malthusian"}}
+  },
+  "claim-response/v1": ["status computed|refused", "decision compute|refuse", "reason_code", "reason", "result|null", "claim_use{iri,delphi_source,nanopubs,record_response_sha256,record_content_sha256,pinned_content_sha256}", "adapter{id,version,hand_authored,source_sha256}", "assumptions{recorded_by_delphi,added_by_adapter}", "verification{status}", "epistemic_status", "request_sha256", "response_sha256"],
+  "typed-evidence-claim/v1": ["id = sha256(canonical json of kind,subject,dataset_sha256,assay_context_id,reference_sha256,positions,units,value)", "kind observed|predicted|simulated", "status active|withdrawn|superseded", "subject genotype (residues at positions, in order)", "value{outcome,score_micro,replicate_micro,min_input_count}", "units", "provenance (not part of identity)"],
+  "evidence-input/v1": {"requirement": "{dataset_sha256, assay_context_id, reference_sha256, positions?, units?, kind?}", "claims": "list of typed-evidence-claim", "action": "lookup(+subject) | supports(+evidence_ids)"}
+}

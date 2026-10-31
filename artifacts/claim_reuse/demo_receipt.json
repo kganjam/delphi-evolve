@@ -1,0 +1,1856 @@
+{
+ "claim_scenarios": [
+  {
+   "request": {
+    "claim": "kimura-fixation-probability",
+    "model": {
+     "linkage": "none",
+     "ne": "constant",
+     "ploidy": "diploid",
+     "selection": "genic_additive"
+    },
+    "params": {
+     "N_census_diploids": 500,
+     "Ne": 500,
+     "s": 0.01
+    },
+    "s_source": {
+     "declared_by": "demo author; not derived from any measurement",
+     "kind": "declared_hypothetical",
+     "label": "HYPOTHETICAL SCENARIO"
+    },
+    "task": "fixation_probability"
+   },
+   "response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "kimura-fixation-probability/diploid-genic-diffusion",
+     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "version": "1.0.0"
+    },
+    "assumptions": {
+     "added_by_adapter": [
+      "diploid reading: 4Ne s p and the neutral value 1/(2N) imply 2N gene copies; genotype fitnesses 1 : 1+s : 1+2s (checked against an exact chain, not stated verbatim in the record)",
+      "a single new or standing mutant at initial frequency p, no recurrent mutation",
+      "s is a per-copy selection coefficient in the evolving population's own environment, NOT an assay score"
+     ],
+     "recorded_by_delphi": [
+      "diffusion approximation to the Wright-Fisher model",
+      "genic (additive) selection with coefficient s",
+      "constant effective population size Ne",
+      "no linkage to other selected sites"
+     ]
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/kimura-fixation-probability",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RA76F4g68zgxUhMgNanl8KsuUwKDJhYuUgXowdNzSsnMQ"
+     ],
+     "pinned_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+     "record_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+     "record_response_sha256": "8aa59e1c076386b62a73b2d8fa428cff5101bc06c4843505735bd14291386a36",
+     "store_status": "active"
+    },
+    "decision": "compute",
+    "epistemic_status": "SIMULATED (declared hypothetical scenario; not a measurement)",
+    "reason": "all applicability guards passed",
+    "reason_code": "ok",
+    "request": {
+     "claim": "kimura-fixation-probability",
+     "model": {
+      "linkage": "none",
+      "ne": "constant",
+      "ploidy": "diploid",
+      "selection": "genic_additive"
+     },
+     "params": {
+      "N_census_diploids": 500,
+      "Ne": 500,
+      "s": 0.01
+     },
+     "s_source": {
+      "declared_by": "demo author; not derived from any measurement",
+      "kind": "declared_hypothetical",
+      "label": "HYPOTHETICAL SCENARIO"
+     },
+     "task": "fixation_probability"
+    },
+    "request_sha256": "1b31b0a6c56b95b5ffb14d2ce12a051437e391531d9b0662d36717ec2f02731a",
+    "response_sha256": "d8e55e6ce5eb94a0338f0f6c55c20859166d1c684823cc724c0528286f7cb2fa",
+    "result": {
+     "Ne": 500,
+     "fixation_probability": 0.019801326734058274,
+     "neutral_expectation": 0.001,
+     "p": 0.001,
+     "ratio_to_neutral": 19.80132673405827,
+     "s": 0.01,
+     "sensitivity": {
+      "elasticity_Ne": 0.9900332919206251,
+      "elasticity_s": 0.9900332919206251,
+      "method": "central difference of ln u, rel_step=0.0001"
+     }
+    },
+    "schema": "claim-response/v1",
+    "status": "computed",
+    "verification": {
+     "mutation_exit": 0,
+     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "status": "verified",
+     "tests_exit": 0
+    }
+   },
+   "role": "existing Delphi math claim drives a SIMULATED calculation",
+   "scenario": "kimura_valid_calculation"
+  },
+  {
+   "request": {
+    "claim": "kimura-fixation-probability",
+    "model": {
+     "linkage": "none",
+     "ne": "constant",
+     "ploidy": "diploid",
+     "selection": "genic_additive"
+    },
+    "s_source": {
+     "declared_by": "demo author; not derived from any measurement",
+     "kind": "declared_hypothetical",
+     "label": "HYPOTHETICAL SCENARIO"
+    },
+    "scenario": {
+     "N_census_diploids": 1000,
+     "Ne": 1000,
+     "derive_s_from_assay_scores": false,
+     "per_step_s": [
+      0.01,
+      0.01,
+      -0.005,
+      0.01,
+      0.01,
+      0.01
+     ],
+     "route": [
+      "VFVS",
+      "VFMS",
+      "SFMS",
+      "SIMS",
+      "SIMG",
+      "SIKG",
+      "AIKG"
+     ]
+    },
+    "task": "hypothetical_trajectory"
+   },
+   "response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "kimura-fixation-probability/diploid-genic-diffusion",
+     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "version": "1.0.0"
+    },
+    "assumptions": {
+     "added_by_adapter": [
+      "diploid reading: 4Ne s p and the neutral value 1/(2N) imply 2N gene copies; genotype fitnesses 1 : 1+s : 1+2s (checked against an exact chain, not stated verbatim in the record)",
+      "a single new or standing mutant at initial frequency p, no recurrent mutation",
+      "s is a per-copy selection coefficient in the evolving population's own environment, NOT an assay score"
+     ],
+     "recorded_by_delphi": [
+      "diffusion approximation to the Wright-Fisher model",
+      "genic (additive) selection with coefficient s",
+      "constant effective population size Ne",
+      "no linkage to other selected sites"
+     ]
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/kimura-fixation-probability",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RA76F4g68zgxUhMgNanl8KsuUwKDJhYuUgXowdNzSsnMQ"
+     ],
+     "pinned_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+     "record_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+     "record_response_sha256": "8aa59e1c076386b62a73b2d8fa428cff5101bc06c4843505735bd14291386a36",
+     "store_status": "active"
+    },
+    "decision": "compute",
+    "epistemic_status": "SIMULATED (declared hypothetical scenario; not a measurement)",
+    "reason": "explicit hypothetical scenario",
+    "reason_code": "ok",
+    "request": {
+     "claim": "kimura-fixation-probability",
+     "model": {
+      "linkage": "none",
+      "ne": "constant",
+      "ploidy": "diploid",
+      "selection": "genic_additive"
+     },
+     "s_source": {
+      "declared_by": "demo author; not derived from any measurement",
+      "kind": "declared_hypothetical",
+      "label": "HYPOTHETICAL SCENARIO"
+     },
+     "scenario": {
+      "N_census_diploids": 1000,
+      "Ne": 1000,
+      "derive_s_from_assay_scores": false,
+      "per_step_s": [
+       0.01,
+       0.01,
+       -0.005,
+       0.01,
+       0.01,
+       0.01
+      ],
+      "route": [
+       "VFVS",
+       "VFMS",
+       "SFMS",
+       "SIMS",
+       "SIMG",
+       "SIKG",
+       "AIKG"
+      ]
+     },
+     "task": "hypothetical_trajectory"
+    },
+    "request_sha256": "1c4ad7ef33d095dc92007fc9870f9315d5b543e40381a7b791457a2b866f5380",
+    "response_sha256": "7a433c08f89ae538e719c0e42c8eb12bb9cf410d31b694076b0a32971802ac61",
+    "result": {
+     "Ne": 1000,
+     "labels": [
+      "HYPOTHETICAL",
+      "SIMULATED",
+      "route genotypes are labels only; s values are declared, not derived from TrpB data"
+     ],
+     "p0": 0.0005,
+     "product_of_step_fixation_probabilities": 6.30601631622306e-20,
+     "scenario_assumption_not_in_claim": "sequential fixation of single mutants (each step's mutant arises at 1/(2N) and the previous one is fixed); the product ignores mutation supply and waiting times",
+     "steps": [
+      {
+       "declared_s": 0.01,
+       "fixation_probability": 0.0198013266932447,
+       "from": "VFVS",
+       "ratio_to_neutral": 39.60265338648939,
+       "to": "VFMS"
+      },
+      {
+       "declared_s": 0.01,
+       "fixation_probability": 0.0198013266932447,
+       "from": "VFMS",
+       "ratio_to_neutral": 39.60265338648939,
+       "to": "SFMS"
+      },
+      {
+       "declared_s": -0.005,
+       "fixation_probability": 2.0714938334342377e-11,
+       "from": "SFMS",
+       "ratio_to_neutral": 4.1429876668684755e-08,
+       "to": "SIMS"
+      },
+      {
+       "declared_s": 0.01,
+       "fixation_probability": 0.0198013266932447,
+       "from": "SIMS",
+       "ratio_to_neutral": 39.60265338648939,
+       "to": "SIMG"
+      },
+      {
+       "declared_s": 0.01,
+       "fixation_probability": 0.0198013266932447,
+       "from": "SIMG",
+       "ratio_to_neutral": 39.60265338648939,
+       "to": "SIKG"
+      },
+      {
+       "declared_s": 0.01,
+       "fixation_probability": 0.0198013266932447,
+       "from": "SIKG",
+       "ratio_to_neutral": 39.60265338648939,
+       "to": "AIKG"
+      }
+     ],
+     "trpb_assay_scores_used": false
+    },
+    "schema": "claim-response/v1",
+    "status": "computed",
+    "verification": {
+     "mutation_exit": 0,
+     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "status": "verified",
+     "tests_exit": 0
+    }
+   },
+   "role": "explicit hypothetical trajectory (route labels only; s declared)",
+   "scenario": "kimura_hypothetical_trpb_route"
+  },
+  {
+   "request": {
+    "claim": "kimura-fixation-probability",
+    "model": {
+     "linkage": "none",
+     "ne": "constant",
+     "ploidy": "haploid",
+     "selection": "genic_additive"
+    },
+    "note": "E. coli-like haploid population",
+    "params": {
+     "N_census_diploids": 500,
+     "Ne": 500,
+     "s": 0.01
+    },
+    "s_source": {
+     "declared_by": "demo author; not derived from any measurement",
+     "kind": "declared_hypothetical",
+     "label": "HYPOTHETICAL SCENARIO"
+    },
+    "task": "fixation_probability"
+   },
+   "response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "kimura-fixation-probability/diploid-genic-diffusion",
+     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "version": "1.0.0"
+    },
+    "assumptions": {
+     "added_by_adapter": [
+      "diploid reading: 4Ne s p and the neutral value 1/(2N) imply 2N gene copies; genotype fitnesses 1 : 1+s : 1+2s (checked against an exact chain, not stated verbatim in the record)",
+      "a single new or standing mutant at initial frequency p, no recurrent mutation",
+      "s is a per-copy selection coefficient in the evolving population's own environment, NOT an assay score"
+     ],
+     "recorded_by_delphi": [
+      "diffusion approximation to the Wright-Fisher model",
+      "genic (additive) selection with coefficient s",
+      "constant effective population size Ne",
+      "no linkage to other selected sites"
+     ]
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/kimura-fixation-probability",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RA76F4g68zgxUhMgNanl8KsuUwKDJhYuUgXowdNzSsnMQ"
+     ],
+     "pinned_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+     "record_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+     "record_response_sha256": "8aa59e1c076386b62a73b2d8fa428cff5101bc06c4843505735bd14291386a36",
+     "store_status": "active"
+    },
+    "decision": "refuse",
+    "guards_failed": [
+     "model_transfer_refused"
+    ],
+    "missing_mapping": null,
+    "reason": "ploidy='haploid': the claim is a diploid Wright-Fisher diffusion (4Ne s p). Haploid populations (e.g. E. coli) have a different exponent; no haploid adapter exists. Missing mapping: variance-effective size and per-copy s for the haploid model",
+    "reason_code": "model_transfer_refused",
+    "request": {
+     "claim": "kimura-fixation-probability",
+     "model": {
+      "linkage": "none",
+      "ne": "constant",
+      "ploidy": "haploid",
+      "selection": "genic_additive"
+     },
+     "note": "E. coli-like haploid population",
+     "params": {
+      "N_census_diploids": 500,
+      "Ne": 500,
+      "s": 0.01
+     },
+     "s_source": {
+      "declared_by": "demo author; not derived from any measurement",
+      "kind": "declared_hypothetical",
+      "label": "HYPOTHETICAL SCENARIO"
+     },
+     "task": "fixation_probability"
+    },
+    "request_sha256": "a9e19186eb6ba5d7473dcdc010f8b67ff3049f8e293b1695369bc9153005394e",
+    "response_sha256": "c2d37d7e66b6ddfee40307a840b7e147c2d6284e94f3468b55fa9057aaabc634",
+    "result": null,
+    "schema": "claim-response/v1",
+    "status": "refused",
+    "verification": {
+     "mutation_exit": 0,
+     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "status": "verified",
+     "tests_exit": 0
+    }
+   },
+   "role": "invalid model transfer: haploid population",
+   "scenario": "kimura_refused_haploid_model_transfer"
+  },
+  {
+   "request": {
+    "claim": "kimura-fixation-probability",
+    "model": {
+     "linkage": "none",
+     "ne": "constant",
+     "ploidy": "haploid",
+     "selection": "genic_additive"
+    },
+    "params": {
+     "Ne": 1000,
+     "p": 0.0005,
+     "s": 0.0
+    },
+    "s_source": {
+     "dataset_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+     "genotype_from": "VFVS",
+     "genotype_to": "AIKG",
+     "kind": "trpb_assay_growth_score"
+    },
+    "task": "fixation_probability"
+   },
+   "response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "kimura-fixation-probability/diploid-genic-diffusion",
+     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "version": "1.0.0"
+    },
+    "assumptions": {
+     "added_by_adapter": [
+      "diploid reading: 4Ne s p and the neutral value 1/(2N) imply 2N gene copies; genotype fitnesses 1 : 1+s : 1+2s (checked against an exact chain, not stated verbatim in the record)",
+      "a single new or standing mutant at initial frequency p, no recurrent mutation",
+      "s is a per-copy selection coefficient in the evolving population's own environment, NOT an assay score"
+     ],
+     "recorded_by_delphi": [
+      "diffusion approximation to the Wright-Fisher model",
+      "genic (additive) selection with coefficient s",
+      "constant effective population size Ne",
+      "no linkage to other selected sites"
+     ]
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/kimura-fixation-probability",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RA76F4g68zgxUhMgNanl8KsuUwKDJhYuUgXowdNzSsnMQ"
+     ],
+     "pinned_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+     "record_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+     "record_response_sha256": "8aa59e1c076386b62a73b2d8fa428cff5101bc06c4843505735bd14291386a36",
+     "store_status": "active"
+    },
+    "decision": "refuse",
+    "guards_failed": [
+     "unsupported_quantity_conversion",
+     "model_transfer_refused"
+    ],
+    "missing_mapping": [
+     "map from assay growth score (mu minus stop-codon background, pooled selection culture) to relative fitness 1+s in the evolving population's own environment",
+     "ploidy/model: the TrpB assay organism is haploid E. coli; the Delphi claim is a diploid Wright-Fisher diffusion (4Ne s p). A haploid mapping (exponent 2Ns for haploid WF) is a different statement that this adapter does not implement",
+     "the effective population size Ne of the population in which these variants would arise (not measured by the assay)",
+     "dominance/genic assumption does not apply to a haploid; mutation supply, clonal interference and linkage are outside the claim's no-linkage assumption",
+     "an uncertainty model for the conversion (two replicates do not give a calibrated error on s)"
+    ],
+    "reason": "s_source.kind='trpb_assay_growth_score' is not a selection coefficient. Assay growth scores are not s; refusing. Missing: map from assay growth score (mu minus stop-codon background, pooled selection culture) to relative fitness 1+s in the evolving population's own environment | ploidy/model: the TrpB assay organism is haploid E. coli; the Delphi claim is a diploid Wright-Fisher diffusion (4Ne s p). A haploid mapping (exponent 2Ns for haploid WF) is a different statement that this adapter does not implement | the effective population size Ne of the population in which these variants would arise (not measured by the assay) | dominance/genic assumption does not apply to a haploid; mutation supply, clonal interference and linkage are outside the claim's no-linkage assumption | an uncertainty model for the conversion (two replicates do not give a calibrated error on s); ploidy='haploid': the claim is a diploid Wright-Fisher diffusion (4Ne s p). Haploid populations (e.g. E. coli) have a different exponent; no haploid adapter exists. Missing mapping: variance-effective size and per-copy s for the haploid model",
+    "reason_code": "unsupported_quantity_conversion",
+    "request": {
+     "claim": "kimura-fixation-probability",
+     "model": {
+      "linkage": "none",
+      "ne": "constant",
+      "ploidy": "haploid",
+      "selection": "genic_additive"
+     },
+     "params": {
+      "Ne": 1000,
+      "p": 0.0005,
+      "s": 0.0
+     },
+     "s_source": {
+      "dataset_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+      "genotype_from": "VFVS",
+      "genotype_to": "AIKG",
+      "kind": "trpb_assay_growth_score"
+     },
+     "task": "fixation_probability"
+    },
+    "request_sha256": "474fc24a5e5eb3f2ba0699732765418122dc3f409e68c68d61f1544aa3bc4698",
+    "response_sha256": "2524c12b68fa479c60853a826de0870dfdc868043e70bf6c168e3191356cc653",
+    "result": null,
+    "schema": "claim-response/v1",
+    "status": "refused",
+    "verification": {
+     "mutation_exit": 0,
+     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "status": "verified",
+     "tests_exit": 0
+    }
+   },
+   "role": "default TrpB request: growth score is not s; names missing mapping",
+   "scenario": "kimura_refused_trpb_assay_score_as_s"
+  },
+  {
+   "request": {
+    "claim": "fisher-ftns",
+    "conditions": {
+     "average_effects_held_fixed": true,
+     "environment_fixed": true,
+     "frequency_independent": true
+    },
+    "inference_type": "partial_change_selection_component",
+    "params": {
+     "V_A": 0.02,
+     "mean_fitness": 1.1,
+     "scale": "relative_discrete"
+    },
+    "provenance": {
+     "declared_by": "demo author; not derived from any measurement",
+     "label": "HYPOTHETICAL SCENARIO"
+    },
+    "task": "partial_change",
+    "variance_kind": "additive_genetic_variance_in_fitness"
+   },
+   "response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "fisher-ftns/partial-change",
+     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "version": "1.0.0"
+    },
+    "assumptions": {
+     "added_by_adapter": [
+      "frequency-independent selection (the record lists frequency dependence among the reasons the TOTAL reading fails)",
+      "the output is a prediction of the selection component only, never an observed or total change"
+     ],
+     "recorded_by_delphi": [
+      "partial change: average effects of alleles held fixed",
+      "environment held fixed",
+      "V_A is the additive genetic variance in fitness (not total genotypic, clonal-genotype or phenotypic variance)"
+     ]
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48"
+     ],
+     "pinned_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_response_sha256": "bd87ef318815338e55a5336259eb1b7ea309ccfd6c9fd1ab4ecf24bd7689a76a",
+     "store_status": "active"
+    },
+    "decision": "compute",
+    "epistemic_status": "PREDICTED selection-component change given the caller's declared V_A (V_A is not estimated here)",
+    "reason": "partial-change reading with stated conditions asserted",
+    "reason_code": "ok",
+    "request": {
+     "claim": "fisher-ftns",
+     "conditions": {
+      "average_effects_held_fixed": true,
+      "environment_fixed": true,
+      "frequency_independent": true
+     },
+     "inference_type": "partial_change_selection_component",
+     "params": {
+      "V_A": 0.02,
+      "mean_fitness": 1.1,
+      "scale": "relative_discrete"
+     },
+     "provenance": {
+      "declared_by": "demo author; not derived from any measurement",
+      "label": "HYPOTHETICAL SCENARIO"
+     },
+     "task": "partial_change",
+     "variance_kind": "additive_genetic_variance_in_fitness"
+    },
+    "request_sha256": "16c73eff2bd0369f50e2fd510efbd05ceab793f3c699773fd562f9921b7a2b9a",
+    "response_sha256": "639a02c1cd18d574225ba8929f4a8c2fc69924a417c93846a69a1b5e467f2c4e",
+    "result": {
+     "V_A": 0.02,
+     "not_a_total_change": true,
+     "partial_change_in_mean_fitness_due_to_selection": 0.01818181818181818,
+     "scale": "relative_discrete"
+    },
+    "schema": "claim-response/v1",
+    "status": "computed",
+    "verification": {
+     "mutation_exit": 0,
+     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "status": "verified",
+     "tests_exit": 0
+    }
+   },
+   "role": "existing Delphi math claim, partial-change reading only",
+   "scenario": "fisher_valid_partial_change"
+  },
+  {
+   "request": {
+    "claim": "fisher-ftns",
+    "inference_type": "partial_change_selection_component",
+    "params": {
+     "p": 0.3,
+     "w_AA": 1.2,
+     "w_Aa": 1.2,
+     "w_aa": 1.0
+    },
+    "task": "one_locus_check"
+   },
+   "response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "fisher-ftns/partial-change",
+     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "version": "1.0.0"
+    },
+    "assumptions": {
+     "added_by_adapter": [
+      "frequency-independent selection (the record lists frequency dependence among the reasons the TOTAL reading fails)",
+      "the output is a prediction of the selection component only, never an observed or total change"
+     ],
+     "recorded_by_delphi": [
+      "partial change: average effects of alleles held fixed",
+      "environment held fixed",
+      "V_A is the additive genetic variance in fitness (not total genotypic, clonal-genotype or phenotypic variance)"
+     ]
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48"
+     ],
+     "pinned_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_response_sha256": "bd87ef318815338e55a5336259eb1b7ea309ccfd6c9fd1ab4ecf24bd7689a76a",
+     "store_status": "active"
+    },
+    "decision": "compute",
+    "epistemic_status": "ANALYTIC/SIMULATED two-allele model; not an observation",
+    "reason": "exact one-locus identity check",
+    "reason_code": "ok",
+    "request": {
+     "claim": "fisher-ftns",
+     "inference_type": "partial_change_selection_component",
+     "params": {
+      "p": 0.3,
+      "w_AA": 1.2,
+      "w_Aa": 1.2,
+      "w_aa": 1.0
+     },
+     "task": "one_locus_check"
+    },
+    "request_sha256": "0c3952fef92edd34a16dc882a86fc09a01920086e3f8f2ae66a8824a649119ae",
+    "response_sha256": "c42840589a7636ef7bedad800820a234963a0abc42e783bfaec163cb45ffd587",
+    "result": {
+     "V_A": 0.008231999999999988,
+     "alpha": 0.1399999999999999,
+     "delta_p": 0.02667876588021777,
+     "dominance_deviation_d": -0.19999999999999996,
+     "identity_residual": 6.331740687315346e-17,
+     "p": 0.3,
+     "partial_change_VA_over_wbar": 0.00747005444646097,
+     "total_change_exact": 0.007327703136682739,
+     "wbar": 1.1019999999999999
+    },
+    "schema": "claim-response/v1",
+    "status": "computed",
+    "verification": {
+     "mutation_exit": 0,
+     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "status": "verified",
+     "tests_exit": 0
+    }
+   },
+   "role": "exact check: total change != V_A/wbar under dominance",
+   "scenario": "fisher_one_locus_dominance"
+  },
+  {
+   "request": {
+    "claim": "fisher-ftns",
+    "inference_type": "partial_change_selection_component",
+    "params": {
+     "p": 0.3,
+     "w_AA": 1.2,
+     "w_Aa": 1.1,
+     "w_aa": 1.0
+    },
+    "task": "one_locus_check"
+   },
+   "response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "fisher-ftns/partial-change",
+     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "version": "1.0.0"
+    },
+    "assumptions": {
+     "added_by_adapter": [
+      "frequency-independent selection (the record lists frequency dependence among the reasons the TOTAL reading fails)",
+      "the output is a prediction of the selection component only, never an observed or total change"
+     ],
+     "recorded_by_delphi": [
+      "partial change: average effects of alleles held fixed",
+      "environment held fixed",
+      "V_A is the additive genetic variance in fitness (not total genotypic, clonal-genotype or phenotypic variance)"
+     ]
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48"
+     ],
+     "pinned_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_response_sha256": "bd87ef318815338e55a5336259eb1b7ea309ccfd6c9fd1ab4ecf24bd7689a76a",
+     "store_status": "active"
+    },
+    "decision": "compute",
+    "epistemic_status": "ANALYTIC/SIMULATED two-allele model; not an observation",
+    "reason": "exact one-locus identity check",
+    "reason_code": "ok",
+    "request": {
+     "claim": "fisher-ftns",
+     "inference_type": "partial_change_selection_component",
+     "params": {
+      "p": 0.3,
+      "w_AA": 1.2,
+      "w_Aa": 1.1,
+      "w_aa": 1.0
+     },
+     "task": "one_locus_check"
+    },
+    "request_sha256": "7acf933509869a9328007f83c243154e3010bb0d8e0d35e6e3daab355ca08397",
+    "response_sha256": "1ac76b0f8955ed37f27856c566870c4692020a03f066b7b15f5de2832cb99cc6",
+    "result": {
+     "V_A": 0.004199999999999989,
+     "alpha": 0.09999999999999987,
+     "delta_p": 0.019811320754716952,
+     "dominance_deviation_d": -2.220446049250313e-16,
+     "identity_residual": -2.42861286636753e-17,
+     "p": 0.3,
+     "partial_change_VA_over_wbar": 0.003962264150943386,
+     "total_change_exact": 0.003962264150943362,
+     "wbar": 1.06
+    },
+    "schema": "claim-response/v1",
+    "status": "computed",
+    "verification": {
+     "mutation_exit": 0,
+     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "status": "verified",
+     "tests_exit": 0
+    }
+   },
+   "role": "exact check: total == partial when dominance deviation is 0",
+   "scenario": "fisher_one_locus_additive"
+  },
+  {
+   "request": {
+    "claim": "fisher-ftns",
+    "conditions": {
+     "average_effects_held_fixed": true,
+     "environment_fixed": true,
+     "frequency_independent": true
+    },
+    "inference_type": "every_mutation_step_improves_fitness",
+    "params": {
+     "V_A": 0.02,
+     "mean_fitness": 1.1,
+     "scale": "relative_discrete"
+    },
+    "provenance": {
+     "declared_by": "demo author; not derived from any measurement",
+     "label": "HYPOTHETICAL SCENARIO"
+    },
+    "task": "partial_change",
+    "variance_kind": "additive_genetic_variance_in_fitness"
+   },
+   "response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "fisher-ftns/partial-change",
+     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "version": "1.0.0"
+    },
+    "assumptions": {
+     "added_by_adapter": [
+      "frequency-independent selection (the record lists frequency dependence among the reasons the TOTAL reading fails)",
+      "the output is a prediction of the selection component only, never an observed or total change"
+     ],
+     "recorded_by_delphi": [
+      "partial change: average effects of alleles held fixed",
+      "environment held fixed",
+      "V_A is the additive genetic variance in fitness (not total genotypic, clonal-genotype or phenotypic variance)"
+     ]
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48"
+     ],
+     "pinned_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_response_sha256": "bd87ef318815338e55a5336259eb1b7ea309ccfd6c9fd1ab4ecf24bd7689a76a",
+     "store_status": "active"
+    },
+    "decision": "refuse",
+    "reason": "FTNS is a statement about the selection component of change in POPULATION mean fitness; it says nothing about whether any particular mutation or route step increases fitness (deleterious and neutral mutations exist; V_A >= 0 does not order individual genotypes)",
+    "reason_code": "inference_refused",
+    "request": {
+     "claim": "fisher-ftns",
+     "conditions": {
+      "average_effects_held_fixed": true,
+      "environment_fixed": true,
+      "frequency_independent": true
+     },
+     "inference_type": "every_mutation_step_improves_fitness",
+     "params": {
+      "V_A": 0.02,
+      "mean_fitness": 1.1,
+      "scale": "relative_discrete"
+     },
+     "provenance": {
+      "declared_by": "demo author; not derived from any measurement",
+      "label": "HYPOTHETICAL SCENARIO"
+     },
+     "task": "partial_change",
+     "variance_kind": "additive_genetic_variance_in_fitness"
+    },
+    "request_sha256": "a78f8ac4a78c739e6da86da08bbffdcb89dfd0e8c0606c9e4e56fcd36b879bbb",
+    "response_sha256": "2912367f03aa829d60f52f4c4874f50aff4aa2c3810b7d7b81d784fc53cd1b9b",
+    "result": null,
+    "schema": "claim-response/v1",
+    "status": "refused",
+    "verification": {
+     "mutation_exit": 0,
+     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "status": "verified",
+     "tests_exit": 0
+    }
+   },
+   "role": "rejected inference 'Fisher proves every mutation step improves fitness'",
+   "scenario": "fisher_refused_every_step_improves"
+  },
+  {
+   "request": {
+    "claim": "fisher-ftns",
+    "conditions": {
+     "average_effects_held_fixed": true,
+     "environment_fixed": true,
+     "frequency_independent": true
+    },
+    "inference_type": "total_fitness_change",
+    "params": {
+     "V_A": 0.02,
+     "mean_fitness": 1.1,
+     "scale": "relative_discrete"
+    },
+    "provenance": {
+     "declared_by": "demo author; not derived from any measurement",
+     "label": "HYPOTHETICAL SCENARIO"
+    },
+    "task": "partial_change",
+    "variance_kind": "additive_genetic_variance_in_fitness"
+   },
+   "response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "fisher-ftns/partial-change",
+     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "version": "1.0.0"
+    },
+    "assumptions": {
+     "added_by_adapter": [
+      "frequency-independent selection (the record lists frequency dependence among the reasons the TOTAL reading fails)",
+      "the output is a prediction of the selection component only, never an observed or total change"
+     ],
+     "recorded_by_delphi": [
+      "partial change: average effects of alleles held fixed",
+      "environment held fixed",
+      "V_A is the additive genetic variance in fitness (not total genotypic, clonal-genotype or phenotypic variance)"
+     ]
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48"
+     ],
+     "pinned_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_response_sha256": "bd87ef318815338e55a5336259eb1b7ea309ccfd6c9fd1ab4ecf24bd7689a76a",
+     "store_status": "active"
+    },
+    "decision": "refuse",
+    "reason": "the record states that the total change in mean fitness is NOT given by V_A under dominance, epistasis, frequency dependence or a changing environment",
+    "reason_code": "inference_refused",
+    "request": {
+     "claim": "fisher-ftns",
+     "conditions": {
+      "average_effects_held_fixed": true,
+      "environment_fixed": true,
+      "frequency_independent": true
+     },
+     "inference_type": "total_fitness_change",
+     "params": {
+      "V_A": 0.02,
+      "mean_fitness": 1.1,
+      "scale": "relative_discrete"
+     },
+     "provenance": {
+      "declared_by": "demo author; not derived from any measurement",
+      "label": "HYPOTHETICAL SCENARIO"
+     },
+     "task": "partial_change",
+     "variance_kind": "additive_genetic_variance_in_fitness"
+    },
+    "request_sha256": "6a9326d06e024c337309b7f7aa755adc44a98e1a2b4198a1a62ab3a261495c17",
+    "response_sha256": "6daaefd781ff4185c426d00629d6dc992d39dd86ff69aa96d4b740f3413f048a",
+    "result": null,
+    "schema": "claim-response/v1",
+    "status": "refused",
+    "verification": {
+     "mutation_exit": 0,
+     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "status": "verified",
+     "tests_exit": 0
+    }
+   },
+   "role": "total-change reading refused",
+   "scenario": "fisher_refused_total_change"
+  },
+  {
+   "request": {
+    "claim": "fisher-ftns",
+    "conditions": {
+     "average_effects_held_fixed": true,
+     "environment_fixed": true,
+     "frequency_independent": true
+    },
+    "inference_type": "partial_change_selection_component",
+    "params": {
+     "V_A": 0.02,
+     "mean_fitness": 1.1,
+     "scale": "relative_discrete"
+    },
+    "provenance": {
+     "declared_by": "demo author; not derived from any measurement",
+     "label": "HYPOTHETICAL SCENARIO"
+    },
+    "task": "partial_change",
+    "variance_kind": "clonal_genotypic_variance"
+   },
+   "response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "fisher-ftns/partial-change",
+     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "version": "1.0.0"
+    },
+    "assumptions": {
+     "added_by_adapter": [
+      "frequency-independent selection (the record lists frequency dependence among the reasons the TOTAL reading fails)",
+      "the output is a prediction of the selection component only, never an observed or total change"
+     ],
+     "recorded_by_delphi": [
+      "partial change: average effects of alleles held fixed",
+      "environment held fixed",
+      "V_A is the additive genetic variance in fitness (not total genotypic, clonal-genotype or phenotypic variance)"
+     ]
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48"
+     ],
+     "pinned_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_response_sha256": "bd87ef318815338e55a5336259eb1b7ea309ccfd6c9fd1ab4ecf24bd7689a76a",
+     "store_status": "active"
+    },
+    "decision": "refuse",
+    "reason": "genotypic variance among clones is not identified with additive genetic variance by this record; a clonal/haploid reading is a separate claim needing its own reviewed adapter",
+    "reason_code": "variance_refused",
+    "request": {
+     "claim": "fisher-ftns",
+     "conditions": {
+      "average_effects_held_fixed": true,
+      "environment_fixed": true,
+      "frequency_independent": true
+     },
+     "inference_type": "partial_change_selection_component",
+     "params": {
+      "V_A": 0.02,
+      "mean_fitness": 1.1,
+      "scale": "relative_discrete"
+     },
+     "provenance": {
+      "declared_by": "demo author; not derived from any measurement",
+      "label": "HYPOTHETICAL SCENARIO"
+     },
+     "task": "partial_change",
+     "variance_kind": "clonal_genotypic_variance"
+    },
+    "request_sha256": "a2abc0f1ffed5656e7f1a49f538943d4cdf565af817073a97729a56d07d0a27b",
+    "response_sha256": "6dfc03b16319e18b73c57d9f76f6295bf953d6049d598c8e3bc17a8af16bf8db",
+    "result": null,
+    "schema": "claim-response/v1",
+    "status": "refused",
+    "verification": {
+     "mutation_exit": 0,
+     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "status": "verified",
+     "tests_exit": 0
+    }
+   },
+   "role": "clonal genotype variance is not V_A",
+   "scenario": "fisher_refused_clonal_variance"
+  },
+  {
+   "request": {
+    "claim": "fisher-ftns",
+    "conditions": {
+     "average_effects_held_fixed": true,
+     "environment_fixed": true,
+     "frequency_independent": true
+    },
+    "inference_type": "partial_change_selection_component",
+    "params": {
+     "V_A": 0.02,
+     "mean_fitness": 1.1,
+     "scale": "relative_discrete"
+    },
+    "provenance": {
+     "declared_by": "demo author; not derived from any measurement",
+     "label": "HYPOTHETICAL SCENARIO"
+    },
+    "task": "partial_change",
+    "variance_kind": "landscape_score_variance"
+   },
+   "response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "fisher-ftns/partial-change",
+     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "version": "1.0.0"
+    },
+    "assumptions": {
+     "added_by_adapter": [
+      "frequency-independent selection (the record lists frequency dependence among the reasons the TOTAL reading fails)",
+      "the output is a prediction of the selection component only, never an observed or total change"
+     ],
+     "recorded_by_delphi": [
+      "partial change: average effects of alleles held fixed",
+      "environment held fixed",
+      "V_A is the additive genetic variance in fitness (not total genotypic, clonal-genotype or phenotypic variance)"
+     ]
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48"
+     ],
+     "pinned_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_response_sha256": "bd87ef318815338e55a5336259eb1b7ea309ccfd6c9fd1ab4ecf24bd7689a76a",
+     "store_status": "active"
+    },
+    "decision": "refuse",
+    "reason": "the variance of scores over TrpB genotypes is not a population's additive variance: no genotype frequencies, mating system or fitness definition is available",
+    "reason_code": "variance_refused",
+    "request": {
+     "claim": "fisher-ftns",
+     "conditions": {
+      "average_effects_held_fixed": true,
+      "environment_fixed": true,
+      "frequency_independent": true
+     },
+     "inference_type": "partial_change_selection_component",
+     "params": {
+      "V_A": 0.02,
+      "mean_fitness": 1.1,
+      "scale": "relative_discrete"
+     },
+     "provenance": {
+      "declared_by": "demo author; not derived from any measurement",
+      "label": "HYPOTHETICAL SCENARIO"
+     },
+     "task": "partial_change",
+     "variance_kind": "landscape_score_variance"
+    },
+    "request_sha256": "f09c9ff2d8eb92a4deb534adaf2b089aac0e72ba8f5f6ab303578b6a28a7a21b",
+    "response_sha256": "bb9a9b19b2fa4fcda9f4fd4fbf6d1fa5aa5f128a26c4e62f1067203500ae18b0",
+    "result": null,
+    "schema": "claim-response/v1",
+    "status": "refused",
+    "verification": {
+     "mutation_exit": 0,
+     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "status": "verified",
+     "tests_exit": 0
+    }
+   },
+   "role": "TrpB score variance is not a population's V_A",
+   "scenario": "fisher_refused_landscape_variance"
+  }
+ ],
+ "decision_changes": [
+  {
+   "after": {
+    "decision": "refuse",
+    "reason_code": "claim_unavailable",
+    "status": "refused"
+   },
+   "after_response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "kimura-fixation-probability/diploid-genic-diffusion",
+     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "version": "1.0.0"
+    },
+    "claim_use": {
+     "iri": "https://w3id.org/delphi/resource/claim/kimura-fixation-probability"
+    },
+    "decision": "refuse",
+    "reason": "the Delphi claim record is not in the store (deleted or never fetched); the adapter keeps no cached authority",
+    "reason_code": "claim_unavailable",
+    "request": {
+     "claim": "kimura-fixation-probability",
+     "model": {
+      "linkage": "none",
+      "ne": "constant",
+      "ploidy": "diploid",
+      "selection": "genic_additive"
+     },
+     "params": {
+      "N_census_diploids": 500,
+      "Ne": 500,
+      "s": 0.01
+     },
+     "s_source": {
+      "declared_by": "demo author; not derived from any measurement",
+      "kind": "declared_hypothetical",
+      "label": "HYPOTHETICAL SCENARIO"
+     },
+     "task": "fixation_probability"
+    },
+    "request_sha256": "1b31b0a6c56b95b5ffb14d2ce12a051437e391531d9b0662d36717ec2f02731a",
+    "response_sha256": "e35ba17a29e942f79536706873683c08fbae62f55aa6d72eef3e30191d9ab81f",
+    "result": null,
+    "schema": "claim-response/v1",
+    "status": "refused"
+   },
+   "before": {
+    "decision": "compute",
+    "reason_code": "ok",
+    "status": "computed"
+   },
+   "before_result": {
+    "Ne": 500,
+    "fixation_probability": 0.019801326734058274,
+    "neutral_expectation": 0.001,
+    "p": 0.001,
+    "ratio_to_neutral": 19.80132673405827,
+    "s": 0.01,
+    "sensitivity": {
+     "elasticity_Ne": 0.9900332919206251,
+     "elasticity_s": 0.9900332919206251,
+     "method": "central difference of ln u, rel_step=0.0001"
+    }
+   },
+   "change": "claim record removed from the store",
+   "decision_changed": true,
+   "scenario": "kimura_claim_deleted"
+  },
+  {
+   "after": {
+    "decision": "refuse",
+    "reason_code": "claim_withdrawn",
+    "status": "refused"
+   },
+   "after_response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "kimura-fixation-probability/diploid-genic-diffusion",
+     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "version": "1.0.0"
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/kimura-fixation-probability",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RA76F4g68zgxUhMgNanl8KsuUwKDJhYuUgXowdNzSsnMQ"
+     ],
+     "record_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+     "record_response_sha256": "8aa59e1c076386b62a73b2d8fa428cff5101bc06c4843505735bd14291386a36",
+     "store_status": "withdrawn"
+    },
+    "decision": "refuse",
+    "reason": "claim status is 'withdrawn'; withdrawn/unavailable claims cannot drive a computation",
+    "reason_code": "claim_withdrawn",
+    "request": {
+     "claim": "kimura-fixation-probability",
+     "model": {
+      "linkage": "none",
+      "ne": "constant",
+      "ploidy": "diploid",
+      "selection": "genic_additive"
+     },
+     "params": {
+      "N_census_diploids": 500,
+      "Ne": 500,
+      "s": 0.01
+     },
+     "s_source": {
+      "declared_by": "demo author; not derived from any measurement",
+      "kind": "declared_hypothetical",
+      "label": "HYPOTHETICAL SCENARIO"
+     },
+     "task": "fixation_probability"
+    },
+    "request_sha256": "1b31b0a6c56b95b5ffb14d2ce12a051437e391531d9b0662d36717ec2f02731a",
+    "response_sha256": "e96c1db9218fedb0921a46524bf57c89d44144d37ffe082d68d941d3bca88303",
+    "result": null,
+    "schema": "claim-response/v1",
+    "status": "refused"
+   },
+   "before": {
+    "decision": "compute",
+    "reason_code": "ok",
+    "status": "computed"
+   },
+   "before_result": {
+    "Ne": 500,
+    "fixation_probability": 0.019801326734058274,
+    "neutral_expectation": 0.001,
+    "p": 0.001,
+    "ratio_to_neutral": 19.80132673405827,
+    "s": 0.01,
+    "sensitivity": {
+     "elasticity_Ne": 0.9900332919206251,
+     "elasticity_s": 0.9900332919206251,
+     "method": "central difference of ln u, rel_step=0.0001"
+    }
+   },
+   "change": "claim status = withdrawn",
+   "decision_changed": true,
+   "scenario": "kimura_claim_withdrawn"
+  },
+  {
+   "after": {
+    "decision": "refuse",
+    "reason_code": "claim_unavailable",
+    "status": "refused"
+   },
+   "after_response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "kimura-fixation-probability/diploid-genic-diffusion",
+     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "version": "1.0.0"
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/kimura-fixation-probability",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RA76F4g68zgxUhMgNanl8KsuUwKDJhYuUgXowdNzSsnMQ"
+     ],
+     "record_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+     "record_response_sha256": "8aa59e1c076386b62a73b2d8fa428cff5101bc06c4843505735bd14291386a36",
+     "store_status": "unavailable"
+    },
+    "decision": "refuse",
+    "reason": "claim status is 'unavailable'; withdrawn/unavailable claims cannot drive a computation",
+    "reason_code": "claim_unavailable",
+    "request": {
+     "claim": "kimura-fixation-probability",
+     "model": {
+      "linkage": "none",
+      "ne": "constant",
+      "ploidy": "diploid",
+      "selection": "genic_additive"
+     },
+     "params": {
+      "N_census_diploids": 500,
+      "Ne": 500,
+      "s": 0.01
+     },
+     "s_source": {
+      "declared_by": "demo author; not derived from any measurement",
+      "kind": "declared_hypothetical",
+      "label": "HYPOTHETICAL SCENARIO"
+     },
+     "task": "fixation_probability"
+    },
+    "request_sha256": "1b31b0a6c56b95b5ffb14d2ce12a051437e391531d9b0662d36717ec2f02731a",
+    "response_sha256": "75e0a620ba9a144be265783e8ad9cb10a5d2e2a4a341ea139d21b8ff06561cae",
+    "result": null,
+    "schema": "claim-response/v1",
+    "status": "refused"
+   },
+   "before": {
+    "decision": "compute",
+    "reason_code": "ok",
+    "status": "computed"
+   },
+   "before_result": {
+    "Ne": 500,
+    "fixation_probability": 0.019801326734058274,
+    "neutral_expectation": 0.001,
+    "p": 0.001,
+    "ratio_to_neutral": 19.80132673405827,
+    "s": 0.01,
+    "sensitivity": {
+     "elasticity_Ne": 0.9900332919206251,
+     "elasticity_s": 0.9900332919206251,
+     "method": "central difference of ln u, rel_step=0.0001"
+    }
+   },
+   "change": "claim fetch failed (unavailable)",
+   "decision_changed": true,
+   "scenario": "kimura_claim_unavailable"
+  },
+  {
+   "after": {
+    "decision": "refuse",
+    "reason_code": "claim_changed",
+    "status": "refused"
+   },
+   "after_response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "kimura-fixation-probability/diploid-genic-diffusion",
+     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "version": "1.0.0"
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/kimura-fixation-probability",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RA76F4g68zgxUhMgNanl8KsuUwKDJhYuUgXowdNzSsnMQ"
+     ],
+     "record_content_sha256": "ebb3217d53dc927aaa1554ff92dce31ee2132a0abf88de202a1bbc36974efbb7",
+     "record_response_sha256": "8aa59e1c076386b62a73b2d8fa428cff5101bc06c4843505735bd14291386a36",
+     "store_status": "active"
+    },
+    "decision": "refuse",
+    "pinned_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+    "reason": "the claim record content differs from the version this adapter was reviewed against; re-review the adapter and re-pin",
+    "reason_code": "claim_changed",
+    "request": {
+     "claim": "kimura-fixation-probability",
+     "model": {
+      "linkage": "none",
+      "ne": "constant",
+      "ploidy": "diploid",
+      "selection": "genic_additive"
+     },
+     "params": {
+      "N_census_diploids": 500,
+      "Ne": 500,
+      "s": 0.01
+     },
+     "s_source": {
+      "declared_by": "demo author; not derived from any measurement",
+      "kind": "declared_hypothetical",
+      "label": "HYPOTHETICAL SCENARIO"
+     },
+     "task": "fixation_probability"
+    },
+    "request_sha256": "1b31b0a6c56b95b5ffb14d2ce12a051437e391531d9b0662d36717ec2f02731a",
+    "response_sha256": "b381aff50bb68a0605a481f320ba2cb90df72b6c6f9d47d87c10c7ed31ffa221",
+    "result": null,
+    "schema": "claim-response/v1",
+    "status": "refused"
+   },
+   "before": {
+    "decision": "compute",
+    "reason_code": "ok",
+    "status": "computed"
+   },
+   "before_result": {
+    "Ne": 500,
+    "fixation_probability": 0.019801326734058274,
+    "neutral_expectation": 0.001,
+    "p": 0.001,
+    "ratio_to_neutral": 19.80132673405827,
+    "s": 0.01,
+    "sensitivity": {
+     "elasticity_Ne": 0.9900332919206251,
+     "elasticity_s": 0.9900332919206251,
+     "method": "central difference of ln u, rel_step=0.0001"
+    }
+   },
+   "change": "assumption text changed => content hash differs from the pinned/verified one",
+   "decision_changed": true,
+   "scenario": "kimura_claim_context_edited"
+  },
+  {
+   "after": {
+    "decision": "compute",
+    "reason_code": "ok",
+    "status": "computed"
+   },
+   "after_response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "kimura-fixation-probability/diploid-genic-diffusion",
+     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "version": "1.0.0"
+    },
+    "assumptions": {
+     "added_by_adapter": [
+      "diploid reading: 4Ne s p and the neutral value 1/(2N) imply 2N gene copies; genotype fitnesses 1 : 1+s : 1+2s (checked against an exact chain, not stated verbatim in the record)",
+      "a single new or standing mutant at initial frequency p, no recurrent mutation",
+      "s is a per-copy selection coefficient in the evolving population's own environment, NOT an assay score"
+     ],
+     "recorded_by_delphi": [
+      "diffusion approximation to the Wright-Fisher model",
+      "genic (additive) selection with coefficient s",
+      "constant effective population size Ne",
+      "no linkage to other selected sites"
+     ]
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/kimura-fixation-probability",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RA76F4g68zgxUhMgNanl8KsuUwKDJhYuUgXowdNzSsnMQ"
+     ],
+     "pinned_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+     "record_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+     "record_response_sha256": "8aa59e1c076386b62a73b2d8fa428cff5101bc06c4843505735bd14291386a36",
+     "store_status": "active"
+    },
+    "decision": "compute",
+    "epistemic_status": "SIMULATED (declared hypothetical scenario; not a measurement)",
+    "reason": "all applicability guards passed",
+    "reason_code": "ok",
+    "request": {
+     "claim": "kimura-fixation-probability",
+     "model": {
+      "linkage": "none",
+      "ne": "constant",
+      "ploidy": "haploid",
+      "selection": "genic_additive"
+     },
+     "note": "E. coli-like haploid population",
+     "params": {
+      "N_census_diploids": 500,
+      "Ne": 500,
+      "s": 0.01
+     },
+     "s_source": {
+      "declared_by": "demo author; not derived from any measurement",
+      "kind": "declared_hypothetical",
+      "label": "HYPOTHETICAL SCENARIO"
+     },
+     "task": "fixation_probability"
+    },
+    "request_sha256": "a9e19186eb6ba5d7473dcdc010f8b67ff3049f8e293b1695369bc9153005394e",
+    "response_sha256": "5f3d9f249c339d97487a580e030654923db55f2994c0f54854547890023af1a4",
+    "result": {
+     "Ne": 500,
+     "fixation_probability": 0.019801326734058274,
+     "neutral_expectation": 0.001,
+     "p": 0.001,
+     "ratio_to_neutral": 19.80132673405827,
+     "s": 0.01,
+     "sensitivity": {
+      "elasticity_Ne": 0.9900332919206251,
+      "elasticity_s": 0.9900332919206251,
+      "method": "central difference of ln u, rel_step=0.0001"
+     }
+    },
+    "schema": "claim-response/v1",
+    "status": "computed",
+    "verification": {
+     "mutation_exit": 0,
+     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "status": "verified",
+     "tests_exit": 0
+    }
+   },
+   "before": {
+    "decision": "refuse",
+    "reason_code": "model_transfer_refused",
+    "status": "refused"
+   },
+   "before_result": null,
+   "change": "MUTANT: ploidy guard disabled; haploid E. coli request now computes (wrong) => negative control detects the mutant",
+   "decision_changed": true,
+   "scenario": "mutated_guard_ploidy"
+  },
+  {
+   "after": {
+    "decision": "compute",
+    "reason_code": "ok",
+    "status": "computed"
+   },
+   "after_response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "kimura-fixation-probability/diploid-genic-diffusion",
+     "source_sha256": "60947e754be946ac22b5a7b5c1744f0aab3d4b922e70e36ae758e2a910c8b0d8",
+     "version": "1.0.0"
+    },
+    "assumptions": {
+     "added_by_adapter": [
+      "diploid reading: 4Ne s p and the neutral value 1/(2N) imply 2N gene copies; genotype fitnesses 1 : 1+s : 1+2s (checked against an exact chain, not stated verbatim in the record)",
+      "a single new or standing mutant at initial frequency p, no recurrent mutation",
+      "s is a per-copy selection coefficient in the evolving population's own environment, NOT an assay score"
+     ],
+     "recorded_by_delphi": [
+      "diffusion approximation to the Wright-Fisher model",
+      "genic (additive) selection with coefficient s",
+      "constant effective population size Ne",
+      "no linkage to other selected sites"
+     ]
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/kimura-fixation-probability",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RA76F4g68zgxUhMgNanl8KsuUwKDJhYuUgXowdNzSsnMQ"
+     ],
+     "pinned_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+     "record_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34",
+     "record_response_sha256": "8aa59e1c076386b62a73b2d8fa428cff5101bc06c4843505735bd14291386a36",
+     "store_status": "active"
+    },
+    "decision": "compute",
+    "epistemic_status": "PREDICTED from a cited external estimate (not verified here)",
+    "reason": "all applicability guards passed",
+    "reason_code": "ok",
+    "request": {
+     "claim": "kimura-fixation-probability",
+     "model": {
+      "linkage": "none",
+      "ne": "constant",
+      "ploidy": "haploid",
+      "selection": "genic_additive"
+     },
+     "params": {
+      "Ne": 1000,
+      "p": 0.0005,
+      "s": 0.0
+     },
+     "s_source": {
+      "dataset_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+      "genotype_from": "VFVS",
+      "genotype_to": "AIKG",
+      "kind": "trpb_assay_growth_score"
+     },
+     "task": "fixation_probability"
+    },
+    "request_sha256": "474fc24a5e5eb3f2ba0699732765418122dc3f409e68c68d61f1544aa3bc4698",
+    "response_sha256": "c8fab588a540ae71653517ef992358634aaad85572eee9197069bd7ae784ecfd",
+    "result": {
+     "Ne": 1000,
+     "fixation_probability": 0.0005,
+     "neutral_expectation": 0.0005,
+     "p": 0.0005,
+     "ratio_to_neutral": 1.0,
+     "s": 0.0,
+     "sensitivity": {
+      "elasticity_Ne": null,
+      "elasticity_s": null,
+      "note": "undefined at s=0 (use du/ds directly) or u=0"
+     }
+    },
+    "schema": "claim-response/v1",
+    "status": "computed",
+    "verification": {
+     "mutation_exit": 0,
+     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "status": "verified",
+     "tests_exit": 0
+    }
+   },
+   "before": {
+    "decision": "refuse",
+    "reason_code": "unsupported_quantity_conversion",
+    "status": "refused"
+   },
+   "before_result": null,
+   "change": "MUTANT: assay-score guard disabled; TrpB assay score would be treated as s",
+   "decision_changed": true,
+   "scenario": "mutated_guard_s_source"
+  },
+  {
+   "after": {
+    "decision": "compute",
+    "reason_code": "ok",
+    "status": "computed"
+   },
+   "after_response": {
+    "adapter": {
+     "hand_authored": true,
+     "id": "fisher-ftns/partial-change",
+     "source_sha256": "8aed5f426f3892db75f17c80df07a6849d98688ea4562783129bbca10d56313e",
+     "version": "1.0.0"
+    },
+    "assumptions": {
+     "added_by_adapter": [
+      "frequency-independent selection (the record lists frequency dependence among the reasons the TOTAL reading fails)",
+      "the output is a prediction of the selection component only, never an observed or total change"
+     ],
+     "recorded_by_delphi": [
+      "partial change: average effects of alleles held fixed",
+      "environment held fixed",
+      "V_A is the additive genetic variance in fitness (not total genotypic, clonal-genotype or phenotypic variance)"
+     ]
+    },
+    "claim_use": {
+     "delphi_source": "network",
+     "iri": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+     "nanopub_note": "network nanopub published by Delphi, not by this service; local drafts are not published",
+     "nanopubs": [
+      "https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48"
+     ],
+     "pinned_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709",
+     "record_response_sha256": "bd87ef318815338e55a5336259eb1b7ea309ccfd6c9fd1ab4ecf24bd7689a76a",
+     "store_status": "active"
+    },
+    "decision": "compute",
+    "epistemic_status": "PREDICTED selection-component change given the caller's declared V_A (V_A is not estimated here)",
+    "reason": "partial-change reading with stated conditions asserted",
+    "reason_code": "ok",
+    "request": {
+     "claim": "fisher-ftns",
+     "conditions": {
+      "average_effects_held_fixed": true,
+      "environment_fixed": true,
+      "frequency_independent": true
+     },
+     "inference_type": "every_mutation_step_improves_fitness",
+     "params": {
+      "V_A": 0.02,
+      "mean_fitness": 1.1,
+      "scale": "relative_discrete"
+     },
+     "provenance": {
+      "declared_by": "demo author; not derived from any measurement",
+      "label": "HYPOTHETICAL SCENARIO"
+     },
+     "task": "partial_change",
+     "variance_kind": "additive_genetic_variance_in_fitness"
+    },
+    "request_sha256": "a78f8ac4a78c739e6da86da08bbffdcb89dfd0e8c0606c9e4e56fcd36b879bbb",
+    "response_sha256": "3476be6ff34b89e489c54c0adb38813299a3e9484a4b124fdf666b8a83119739",
+    "result": {
+     "V_A": 0.02,
+     "not_a_total_change": true,
+     "partial_change_in_mean_fitness_due_to_selection": 0.01818181818181818,
+     "scale": "relative_discrete"
+    },
+    "schema": "claim-response/v1",
+    "status": "computed",
+    "verification": {
+     "mutation_exit": 0,
+     "receipt_sha256": "f3175b5915d3b764e5edf8187be8e38d3cef94210ce4138ab0a5c9fbd219663b",
+     "status": "verified",
+     "tests_exit": 0
+    }
+   },
+   "before": {
+    "decision": "refuse",
+    "reason_code": "inference_refused",
+    "status": "refused"
+   },
+   "before_result": null,
+   "change": "MUTANT: inference guard disabled; 'every step improves' request is no longer refused",
+   "decision_changed": true,
+   "scenario": "mutated_guard_fisher_steps"
+  }
+ ],
+ "evidence_scenarios": {
+  "campaign_order": "protocol.json",
+  "certificate_support": {
+   "after_one_item_becomes_predicted": {
+    "problems": [
+     {
+      "evidence_id": "3846f5e9f1f796afa7583a6e26d307ce6da22570b68f88b531bf4105a32a9f94",
+      "failed_guards": [
+       "id_integrity",
+       "kind_observed"
+      ]
+     }
+    ],
+    "reason": "evidence failed guards",
+    "supported": false
+   },
+   "all_observed_same_context": {
+    "problems": [],
+    "reason": "all evidence usable",
+    "supported": true
+   },
+   "empty_set": {
+    "problems": [],
+    "reason": "no evidence supplied (an empty set supports nothing)",
+    "supported": false
+   },
+   "evidence_ids": [
+    "9cedbc2a102a94ad1b0640084d345aa7178d63b154f633575d8ea49a5b89e3b3",
+    "7e72dd92ec7d93d33a69a93a33387738323e38fa0c183625dab0becfabf9e1ca",
+    "3846f5e9f1f796afa7583a6e26d307ce6da22570b68f88b531bf4105a32a9f94",
+    "afa55a0690859bd6feadffee5a5bbfc6b22baa9b6733177e36c197270a9a71ed",
+    "a55761bba3839265f541e75bb628c2cab782f53a11a61c4729da1eea815f1a5a",
+    "3d48bf87ec8a58a7d5bc0c0e22c7c1bf4c5dd234470432b7ff3a75b1b621f9d4"
+   ]
+  },
+  "changed_assay_context": {
+   "decision": {
+    "decision": "assay_required",
+    "evidence_id": null,
+    "reason": "stored evidence failed applicability guards",
+    "rejected": [
+     {
+      "evidence_id": "7e72dd92ec7d93d33a69a93a33387738323e38fa0c183625dab0becfabf9e1ca",
+      "failed_guards": [
+       "assay_context"
+      ]
+     }
+    ]
+   },
+   "requested_context_note": "SYNTHETIC LABEL: a different selection medium / readout"
+  },
+  "deleted": {
+   "decision": {
+    "decision": "assay_required",
+    "evidence_id": null,
+    "reason": "no stored evidence",
+    "rejected": []
+   }
+  },
+  "first_cross_campaign_repeat": {
+   "campaign_index": 1,
+   "first_assayed_by": "0/B:VFVS>AIKG/random",
+   "first_request_number": 173,
+   "genotype": "CFVS",
+   "request_number": 2,
+   "requesting_campaign": "0/B:VFVS>AIKG/greedy"
+  },
+  "prediction_masquerading": {
+   "decision": {
+    "decision": "assay_required",
+    "evidence_id": null,
+    "reason": "stored evidence failed applicability guards",
+    "rejected": [
+     {
+      "evidence_id": "d40b6f710fc7d7cc4167c9e3b0f505698ad80382ca0f4a9170acaeb653b25d97",
+      "failed_guards": [
+       "kind_observed"
+      ]
+     }
+    ]
+   }
+  },
+  "recorded_request_accounting": {
+   "note": "reuse here avoids the one recorded request shown; see reuse_benchmark.json for totals; not an adaptive-policy uplift",
+   "requests_in_campaign": 1000
+  },
+  "requirement": {
+   "assay_context_id": "be6e5edfa5813bd3f2a39072de4db3141b42c22b96a28fa9b5b271b7114f9392",
+   "dataset_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+   "kind": "observed",
+   "positions": [
+    183,
+    184,
+    227,
+    228
+   ],
+   "reference_sha256": "f74260ce69d3eb224de1e90d7e687f404da225d62eac7c553d478d044b05ae8c",
+   "units": "integer micro-units of raw growth-rate score mu minus per-replicate stop-codon mean (evolve.data, 1e-6 resolution)"
+  },
+  "same_context_reuse": {
+   "decision": {
+    "decision": "reuse",
+    "evidence_id": "7e72dd92ec7d93d33a69a93a33387738323e38fa0c183625dab0becfabf9e1ca",
+    "reason": "valid same-context observed evidence",
+    "rejected": []
+   },
+   "duplicate_import": "duplicate_same_evidence",
+   "evidence": {
+    "assay_context_id": "be6e5edfa5813bd3f2a39072de4db3141b42c22b96a28fa9b5b271b7114f9392",
+    "dataset_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+    "id": "7e72dd92ec7d93d33a69a93a33387738323e38fa0c183625dab0becfabf9e1ca",
+    "kind": "observed",
+    "positions": [
+     183,
+     184,
+     227,
+     228
+    ],
+    "provenance": {
+     "first_requested_by": "0/B:VFVS>AIKG/random#n=173",
+     "source_file": "summary_AA.csv"
+    },
+    "reference_sha256": "f74260ce69d3eb224de1e90d7e687f404da225d62eac7c553d478d044b05ae8c",
+    "schema": "typed-evidence-claim/v1",
+    "status": "active",
+    "subject": "CFVS",
+    "units": "integer micro-units of raw growth-rate score mu minus per-replicate stop-codon mean (evolve.data, 1e-6 resolution)",
+    "value": {
+     "min_input_count": 242,
+     "outcome": "measured",
+     "replicate_micro": [
+      93627,
+      93066
+     ],
+     "score_micro": 93346
+    }
+   },
+   "evidence_count_after_duplicate": 1
+  },
+  "withdrawn": {
+   "decision": {
+    "decision": "assay_required",
+    "evidence_id": null,
+    "reason": "stored evidence failed applicability guards",
+    "rejected": [
+     {
+      "evidence_id": "7e72dd92ec7d93d33a69a93a33387738323e38fa0c183625dab0becfabf9e1ca",
+      "failed_guards": [
+       "status_active"
+      ]
+     }
+    ]
+   }
+  },
+  "wrong_coordinates": {
+   "decision": {
+    "decision": "assay_required",
+    "evidence_id": null,
+    "reason": "stored evidence failed applicability guards",
+    "rejected": [
+     {
+      "evidence_id": "7e72dd92ec7d93d33a69a93a33387738323e38fa0c183625dab0becfabf9e1ca",
+      "failed_guards": [
+       "reference_coordinates"
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "generated_at_utc": "2026-10-31T08:02:43Z",
+ "kind": "claim-reuse-demo-receipt/v1",
+ "labels": "claim computations are SIMULATED/hypothetical; evidence reuse reuses OBSERVED source-table scores; nothing here is a new measurement or biological result",
+ "receipt_sha256_body": "40770955e4a3eea4ec309fd677fe83610b77a46a4bda3e096e17ae31548fc31e",
+ "seattle_time": "2026-10-31 01:02:45 PDT"
+}

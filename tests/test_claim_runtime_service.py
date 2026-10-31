@@ -249,3 +249,49 @@ def test_demo_decision_changes(receipt):
 def test_guard_mutants_all_detected():
     res = M.guard_mutants()
     assert res and all(m["killed"] for m in res), [m for m in res if not m["killed"]]
+
+
+def test_trig_drafts_are_valid_unsigned_and_unpublished():
+    rdflib = pytest.importorskip("rdflib")
+    d = Path(__file__).resolve().parent.parent / "artifacts" / "claim_reuse" / "nanopubs"
+    files = sorted(d.glob("*.trig"))
+    assert len(files) >= 4
+    for f in files:
+        txt = f.read_text()
+        assert "UNSIGNED DRAFT" in txt and "purl.org/nanopub/temp" in txt
+        assert "RA" not in txt.split("sub:Head")[0]                       # no invented trusty URI for our own nanopub
+        g = rdflib.Dataset()
+        g.parse(data=txt, format="trig")
+        assert {str(c.identifier).rsplit("/", 1)[-1] for c in g.contexts()} >= {"Head", "assertion", "provenance", "pubinfo"}
+
+
+def test_trpb_default_reason_leads_with_quantity_conversion(svc):
+    r = svc().request(D.KIMURA_TRPB_DEFAULT)
+    assert r["reason_code"] == "unsupported_quantity_conversion" and "Assay growth scores are not s" in r["reason"]
+
+
+def test_cli_examples_run_without_delphi_network_or_credentials():
+    import os, subprocess, sys
+    root = Path(__file__).resolve().parent.parent
+    env = dict(os.environ, PYTHONPATH=str(root), CLAIM_RUNTIME_MUTANT_RUN="")
+    def run(*a):
+        return subprocess.run([sys.executable, "-m", "claim_runtime", *a], cwd=root, env=env, capture_output=True, text=True, timeout=60)
+    if os.environ.get("CLAIM_RUNTIME_MUTANT_RUN") == "1" or os.environ.get("CLAIM_RUNTIME_VERIFYING") == "1":
+        pytest.skip("receipt-dependent test: skipped while the receipt is being (re)generated or in mutant copies")
+    ok = run("request", "claim_runtime/examples/kimura_valid.json")
+    assert ok.returncode == 0 and json.loads(ok.stdout)["status"] == "computed"
+    no = run("request", "claim_runtime/examples/kimura_trpb_default_refused.json")
+    assert no.returncode == 2 and json.loads(no.stdout)["reason_code"] == "unsupported_quantity_conversion"
+    ev = run("evidence", "claim_runtime/examples/evidence_lookup_prediction_refused.json")
+    assert ev.returncode == 2 and "kind_observed" in ev.stdout
+    assert run("evidence", "claim_runtime/examples/evidence_lookup_reuse.json").returncode == 0
+
+
+def test_committed_verification_receipt_matches_current_adapters():
+    import os
+    if os.environ.get("CLAIM_RUNTIME_MUTANT_RUN") == "1" or os.environ.get("CLAIM_RUNTIME_VERIFYING") == "1":
+        pytest.skip("receipt-dependent test: skipped while the receipt is being (re)generated or in mutant copies")
+    from claim_runtime.service import RECEIPT_PATH, verification_status
+    pins = load_pins()
+    for cid, (aid, _) in ADAPTERS.items():
+        assert verification_status(aid, pins[cid]["content_sha256"], RECEIPT_PATH)["status"] == "verified"

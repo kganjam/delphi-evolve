@@ -1,0 +1,43 @@
+{
+  "role": "claim-reuse",
+  "status": "complete_pending_integration",
+  "model": "Claude Sonnet 5.5 (Max subscription; no metered API charge incurred or known; no GPU used)",
+  "branch": "work/claim-reuse",
+  "goal": "Close the 'decorative Darwin links' gap: make EXISTING Delphi claims (kimura-fixation-probability, fisher-ftns) and typed OBSERVED TrpB evidence causally drive computations and reuse decisions, with refusal of invalid model transfers, falsifiable receipts and mutation checks. Not generic MLDE, not protein design, not new biology.",
+  "started_seattle": "2026-10-31 00:43 PDT",
+  "commit": "see git log on work/claim-reuse (final commit hash is the branch head)",
+  "commands_run": [
+    {"cmd": "python -m claim_runtime.reuse_report <shards> <episodes.csv> <tar> artifacts/claim_reuse/reuse_benchmark.json", "exit": 0, "scope": "systemd-run TasksMax=128 MemoryMax=4G RuntimeMaxSec=600, OMP_NUM_THREADS=2"},
+    {"cmd": "python -m claim_runtime.popgen_benchmark artifacts/claim_reuse/popgen_benchmark.json", "exit": 0},
+    {"cmd": "python -m claim_runtime verify (pytest of 4 test files + mutation)", "exit": 0, "tests": "86 passed, 2 skipped under verify env; later full run 89 passed, 1 skipped (rdflib absent in main env)", "mutation": "guard mutants 9/9 killed, source mutants 7/7 killed"},
+    {"cmd": "CLAIM_REUSE_SHARDS=... pytest tests/test_claim_runtime_*.py", "exit": 0, "note": "includes recomputation of pooled baseline from real traces"},
+    {"cmd": "/tmp venv python -m pytest tests/test_claim_runtime_service.py -k trig (rdflib 7.6.0)", "exit": 0, "note": "4 TriG drafts parse; Head/assertion/provenance/pubinfo present"},
+    {"cmd": "python scripts/browser_smoke.py claim_runtime/demo <out>", "exit": 0, "note": "desktop+mobile, no console errors, 0 overflow"},
+    {"cmd": "python -m claim_runtime demo --shards <shards>", "exit": 0}
+  ],
+  "artifacts": ["claim_runtime/", "artifacts/claim_reuse/{protocol,reuse_benchmark,popgen_benchmark,demo_receipt,verification_receipt,mutation_receipt}.json", "artifacts/claim_reuse/delphi_records/", "artifacts/claim_reuse/nanopubs/*.trig", "claim_runtime/demo/index.html", "docs/claim-reuse.md", "tests/test_claim_runtime_*.py"],
+  "key_results": {
+    "kimura_valid": "Ne=500,s=0.01,N=500 -> fixation probability computed from the pinned claim (SIMULATED)",
+    "refusals": "haploid model, TrpB assay score as s, Fisher every-step-improves, total change, clonal/landscape variance",
+    "decision_change": "deleting/withdrawing/unavailable/edited Kimura claim flips compute->refuse; disabling a guard flips refuse->compute (mutant detected)",
+    "reuse_baseline_pooled": {"requests": 488601, "cache_avoided": 465564, "claim_avoided": 465564, "claim_gain_over_cache": 0},
+    "reuse_baseline_per_policy": {"cache_avoided": 427215, "claim_avoided": 427215},
+    "fault_injection_pooled_synthetic": {"cache_invalid_reuse_events": 92239, "typed_claim_invalid_reuse_events": 0, "forced_reassays": 2564},
+    "popgen_exact_chain": "diffusion error <=0.6% (s=0.01), <=2.4% (s=-0.01), up to 139% at s=-0.05; naive diploid formula on haploid chain up to 99% error"
+  },
+  "limitations": [
+    "Kimura 1962 primary PDF not retrievable (PMC bot challenge); assumptions verified against the Delphi record and exact WF chains only",
+    "Fisher primary sources not re-read; adapter enforces the record's stated partial-change reading",
+    "Adapter review by the authoring model only, no independent scientist review",
+    "Avoided assays are recorded-request overlaps, not adaptive-policy uplift or wet-lab savings; cache == claim reuse under identical contexts",
+    "Fault injection is synthetic; real recorded data contain a single assay context, so context-change protection is shown only on fixtures",
+    "Local Delphi records are not published nanopubs; TriG drafts are unsigned; nothing was published or sent externally",
+    "Verification receipt and demo receipt are bound to current adapter hashes; re-running verify requires re-running demo",
+    "No market traction is claimed"
+  ],
+  "next_steps": [
+    "integrator: link claim_runtime/demo/index.html from the site and cite docs/claim-reuse.md; do not claim cache-vs-claim gain",
+    "independent review of adapters by a population geneticist; retrieve Kimura 1962 via a non-bot channel",
+    "if a real second assay context becomes available, replace synthetic context-drift fixtures"
+  ]
+}

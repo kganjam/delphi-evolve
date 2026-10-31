@@ -1,0 +1,20 @@
+{
+ "claim": "fisher-ftns",
+ "task": "partial_change",
+ "inference_type": "partial_change_selection_component",
+ "variance_kind": "additive_genetic_variance_in_fitness",
+ "conditions": {
+  "average_effects_held_fixed": true,
+  "environment_fixed": true,
+  "frequency_independent": true
+ },
+ "params": {
+  "V_A": 0.02,
+  "mean_fitness": 1.1,
+  "scale": "relative_discrete"
+ },
+ "provenance": {
+  "label": "HYPOTHETICAL SCENARIO",
+  "declared_by": "demo author; not derived from any measurement"
+ }
+}
