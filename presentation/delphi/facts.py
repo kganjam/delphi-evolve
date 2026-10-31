@@ -232,7 +232,17 @@ def scorecard_facts():
     fr = J("artifacts/integration/codex-api/admissible-review/committed-freeze.json")
     recs = fr["claims"]
     assert len(recs) == 21
-    return {"ledger": "P01 (pending: freeze not approved)", "records": len(recs), "freeze_file": "artifacts/integration/codex-api/admissible-review/committed-freeze.json",
+    sc = J("scopedesk/scorecard/scorecard.json")
+    cnt = sc["counts"]
+    assert sc["n_claims"] == len(sc["rows"]) == 21 and sum(cnt.values()) == 21
+    lim = " ".join(sc["global_limits"])
+    assert "single-reader" in lim and "Codex reviewed v0" in lim and "approves the CORRECTED descriptions" in lim
+    md = T("scopedesk/scorecard/SCORECARD.md")
+    assert "The 12 are a project backlog, not 12 open scientific problems" in md and "NOT 6 false laws" in md
+    linked, lemma, emp, none = (cnt[k] for k in ("BENCHMARK-LINKED", "RELATED FORMAL LEMMA, TARGET NOT ESTABLISHED", "EMPIRICAL / FRAMEWORK", "NO CHECK IN THIS SCORECARD"))
+    return {"ledger": "unledgered: critic's scorecard v0.1 (single reader; Codex reviewed the corrected descriptions, re-review pending)", "records": len(recs), "scorecard_artifact": "scopedesk/scorecard/scorecard.json",
+            "linked": linked, "related_lemma": lemma, "empirical": emp, "no_check": none,
+            "scorecard_limits": sc["global_limits"], "freeze_file": "artifacts/integration/codex-api/admissible-review/committed-freeze.json",
             "freeze_sha256": sha("artifacts/integration/codex-api/admissible-review/committed-freeze.json"),
             "compiled": "PENDING", "excluded": "PENDING", "scores": "PENDING"}
 
@@ -278,7 +288,7 @@ def bench_facts():
         fam[r["family"]] = fam.get(r["family"], 0) + 1
     status = T(f"{d}/STATUS.md")
     frozen = T(f"{d}/FROZEN.md")
-    assert ks["key.jsonl"] in frozen and "No agent has run on any version of this bench" in frozen and len(pub) == 127
+    assert ks["key.jsonl"] in frozen and len(pub) == 127
     cod = J("artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json")
     assert cod["all_ok"] is True and cod["n_items"] == 127 and len(cod["checks"]) == 14 and all(c["ok"] for c in cod["checks"].values())
     at5p = "artifacts/delphi_submit/at5_v1_2_frozen127.json"
@@ -298,7 +308,7 @@ def bench_facts():
     bl = J("scopedesk/audit_v12/blind_vs_key_v12.json")
     sem = J("artifacts/integration/codex-api/benchmark-v1-1-review.json")
     return {"ledger": "P03 (the ledger row still describes the earlier 128-item candidate; Codex receipts cover the frozen 127)", "items": len(pub), "families": len(fam), "family_counts": fam, "key_sha256": ks["key.jsonl"],
-            "key_file": f"{d}/key.jsonl", "status": "frozen (FROZEN.md); Codex metadata/text check 14 of 14 pass; no agent has run on it",
+            "key_file": f"{d}/key.jsonl", "status": "frozen (FROZEN.md); Codex metadata/text check 14 of 14 pass",
             "codex_metadata": {"artifact": "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json", "checks": len(cod["checks"]), "all_ok": cod["all_ok"]}, "at5": {"artifact": at5p, "totals": tot, "caveat": "trap-enriched; shares its convention document with the checker; not external validation"},
             "metadata_check": {"artifact": f"{d}/metadata_check_receipt.json", "keys": sorted(mc.keys())[:6]},
             "blind_audit": {"artifact": "scopedesk/audit_v12/blind_vs_key_v12.json", "agree": bl["agree"], "n": bl["n"], "scope": "earlier 135-item candidate, one same-family model run"}}
@@ -366,8 +376,54 @@ def accept_facts():
             "scope": "fresh clone at an earlier commit; a receipt for the final SHA is pending"}
 
 
+def headroom_facts():
+    g = J("tasks/results/guilds.json")["bench_v12_headroom_check"]
+    b = J("scopedesk/bench/v1_2/KEY.sha256".replace("KEY.sha256", "FROZEN.md").replace("FROZEN.md", "key_verification.json")) if False else None
+    ks = {ln.split()[1]: ln.split()[0] for ln in T("scopedesk/bench/v1_2/KEY.sha256").splitlines() if len(ln.split()) == 2}
+    assert g["key_sha256"] == ks["key.jsonl"] and g["payload_sha256"] == ks["model_payload.jsonl"]
+    out = {}
+    for tag, key, art in (("claude", "claude_sonnet_5_5", "artifacts/bench_headroom/U_claude/SCORES.json"), ("gemini", "gemini_3_8_flash", "artifacts/bench_headroom/U_gemini/SCORES.json")):
+        s = J(art)["all"]
+        assert s["N"] == g[key]["N"] == 127 and s["errors_among_answered"] == g[key]["errors_among_answered"] and s["coverage"] == 1.0
+        right = s["N"] - s["errors_among_answered"]
+        out[tag] = {"right": right, "n": s["N"], "pct": round(100 * right / s["N"], 1), "artifact": art}
+    assert (out["claude"]["right"], out["gemini"]["right"]) == (121, 110) and (out["claude"]["pct"], out["gemini"]["pct"]) == (95.3, 86.6)
+    ge = g["gemini_errors_by_family"]
+    fams = len(ge)
+    assert fams == 8 and ge["wavelength_formula_licence"] == {"errors": 7, "N": 14} and ge["greenhill_buckling"] == {"errors": 6, "N": 13}
+    assert "checker tool" in g["arm_not_run"] and "effective n is 8 families" in g["interpretation"]
+    return {"ledger": "unledgered (dx-guilds result, preregistered first; checker-tool arm not run)", "artifact": "tasks/results/guilds.json", "prereg": g["prereg"], **out,
+            "families": fams, "gemini_wavelength": ge["wavelength_formula_licence"], "gemini_greenhill": ge["greenhill_buckling"],
+            "scope": "models had no code tool: judgement, not derivation; coarse consistency check of the key scored by its author; not a model ranking"}
+
+
+def lean_pilot_facts():
+    import statistics
+    g = J("tasks/results/guilds.json")["lean_verified_library_experiment"]
+    cert = g["primary_result"]["certified_per_run"]
+    assert all(v == [19, 19, 19] for v in cert.values()) and sorted(cert) == ["N", "P", "Q", "S"]
+    med = lambda d: {k: statistics.median(v) for k, v in d.items()}
+    calls, toks = med(g["calls_to_complete"]), med(g["tokens"])
+    assert calls == {"N": 21, "P": 22, "Q": 20, "S": 21}
+    tk = {k: round(v / 1000) for k, v in toks.items()}
+    assert tk == {"N": 72, "P": 80, "Q": 78, "S": 80}
+    reuse = {k: g["reuse_proof_term_library_deps"][k] for k in "NPQS"}
+    assert [max(reuse["N"])] == [0] and min(reuse["Q"]) == 14
+    rs = g["rescore_after_codex_finding"]
+    assert rs["proofs"] == rs["strict"] == 228 and rs["mutants_accepted"] == 0
+    m = re.search(r"deterministic tactics (\d+)/19", g["primary_result"]["note"])
+    assert m and int(m.group(1)) == 4
+    assert "30 model calls per run" in g["design"] and "call-matched" in g["design"]
+    pre = T("lean_commons/PREREG.md")
+    assert "Addendum D" in pre and "post-outcome" in pre
+    return {"ledger": "unledgered (dx-guilds result; Codex fidelity review of the 19 statements is advisory only)", "artifact": "tasks/results/guilds.json", "prereg": "lean_commons/PREREG.md",
+            "lemmas": 19, "replicates": 3, "calls_per_run": 30, "all_arms_19": True, "median_calls": calls, "median_tokens_k": tk, "reuse_deps": reuse,
+            "recertified": rs["proofs"], "deterministic_solved": int(m.group(1)),
+            "scope": "integer-arithmetic surrogates written by the experimenter; call-matched, not compute-matched; checker repaired after the outcomes (Addendum D); ceiling, so the primary outcome is uninformative"}
+
+
 def build():
-    return {"bench": bench_facts(), "repair": repair_facts(), "kills": kill_facts(), "accept": accept_facts(), "price": price_facts(), "turing": turing_facts(), "errors": error_facts(), "scorecard": scorecard_facts(),
+    return {"headroom": headroom_facts(), "leanpilot": lean_pilot_facts(), "bench": bench_facts(), "repair": repair_facts(), "kills": kill_facts(), "accept": accept_facts(), "price": price_facts(), "turing": turing_facts(), "errors": error_facts(), "scorecard": scorecard_facts(),
             "robustness": robustness_facts(), "baseline": baseline_facts()}
 
 

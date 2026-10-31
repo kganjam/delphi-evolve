@@ -1,9 +1,9 @@
 {
  "deck": "presentation/delphi/deck.html",
- "claims_checked": 40,
- "inputs_hash_checked": 40,
+ "claims_checked": 41,
+ "inputs_hash_checked": 46,
  "pdf_pages_checked": 6,
- "provenance_head": "87f2e19116ee5999f9e5146b8277ea9ddf6b7dba",
+ "provenance_head": "75bb7a458b0812a61ae1fdc7581a00459e82b42f",
  "ok": true,
  "errors": [],
  "trace": [
@@ -185,17 +185,6 @@
    }
   },
   {
-   "slide": 5,
-   "shown": "A proof-search pilot on 19 frozen integer-arithmetic lemmas, with shared, private and sequential library controls; checker repair and result replay are under review.",
-   "where": "html",
-   "files": [
-    "planning/rethink/CODEX-LEAN19-SLIDE-AND-FREEZE-DECISION.md"
-   ],
-   "sha256": {
-    "planning/rethink/CODEX-LEAN19-SLIDE-AND-FREEZE-DECISION.md": "1cccf1a0889ba5199736ec1e6d96c78411281ec45266cad3a2ccf09b3a5b9622"
-   }
-  },
-  {
    "slide": 3,
    "shown": "Version 1.2: 127 requests, 8 families, key hash 28645a12….",
    "where": "html",
@@ -223,14 +212,14 @@
   },
   {
    "slide": 3,
-   "shown": "Frozen. Codex's metadata and text check passes (14 of 14). No agent has run on it yet.",
+   "shown": "Frozen. Codex's metadata and text check passes (14 of 14).",
    "where": "html",
    "files": [
     "scopedesk/bench/v1_2/FROZEN.md",
     "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json"
    ],
    "sha256": {
-    "scopedesk/bench/v1_2/FROZEN.md": "afb917ca61220785f15961cbdd23e65455aba041f56134c8ff0500f86086da6c",
+    "scopedesk/bench/v1_2/FROZEN.md": "313af83b1645ad03bfbe0eb3196247eeb5b965eb5ed775c7ee0a2be92f6f24c3",
     "artifacts/integration/codex-api/bench-v1-2-frozen127-metadata.json": "27627e6b32b4e585a68d5bc1b86fa05588115cf1de7e177348b7404d0de09c91"
    }
   },
@@ -385,13 +374,43 @@
   },
   {
    "slide": 5,
-   "shown": "(R09)",
+   "shown": "Unguarded models, no code tool: Claude Sonnet 5.5 121/127 (95.3%), Gemini 3.8 flash 110/127 (86.6%). Checker-tool arm not run. Effective n is 8 families. This measures judgement, not derivation, and is a coarse consistency check scored by the key's author; not a model ranking. Gemini's misses sit in wavelength (7 of 14) and Greenhill (6 of 13).",
    "where": "html",
    "files": [
-    "scopedesk/ledger/kill_ledger.json"
+    "tasks/results/guilds.json",
+    "artifacts/bench_headroom/U_claude/SCORES.json",
+    "artifacts/bench_headroom/U_gemini/SCORES.json",
+    "scopedesk/bench/v1_2/KEY.sha256"
    ],
    "sha256": {
-    "scopedesk/ledger/kill_ledger.json": "fc99c68bef82d9f974ebe5f1a1e0521efe93c627141bfeeb3f761222ce3972f2"
+    "tasks/results/guilds.json": "e1b0dde57ce912c034d7d4b626eac86642a1322de1192334c3205e2dc125717f",
+    "artifacts/bench_headroom/U_claude/SCORES.json": "be8c88e3ddc611c5e059d34db871fea30e5866be9024656ce036e2167931846b",
+    "artifacts/bench_headroom/U_gemini/SCORES.json": "6a787ddd1492164ed98e15f72a5473e5360f75c981ab404ba01c61be1ec23ae2",
+    "scopedesk/bench/v1_2/KEY.sha256": "be295adfb382da0f3b0f733002450a902e524391bdb458b79c8cb632ae1d8e1d"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "Same model, 3 replicates, 30 calls per run: every arm certified 19/19 in every run, a ceiling. Library reuse is real but saved nothing: median calls none 21, private 22, sequential 20, shared 21; median tokens 72k, 80k, 78k, 80k. Deterministic tactics certified 4/19. All 228 recorded proofs re-certified after the checker was repaired, a repair made after the outcomes. Call-matched, not compute-matched; arithmetic surrogates, not biology.",
+   "where": "html",
+   "files": [
+    "tasks/results/guilds.json",
+    "lean_commons/PREREG.md"
+   ],
+   "sha256": {
+    "tasks/results/guilds.json": "e1b0dde57ce912c034d7d4b626eac86642a1322de1192334c3205e2dc125717f",
+    "lean_commons/PREREG.md": "445fa39cf604d6fa10522b8a78ae6e78c8f24b1c91ffa02d4c75592cadd14076"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "proof-search pilot, 19 frozen integer-arithmetic lemmas",
+   "where": "html",
+   "files": [
+    "planning/rethink/CODEX-LEAN19-SLIDE-AND-FREEZE-DECISION.md"
+   ],
+   "sha256": {
+    "planning/rethink/CODEX-LEAN19-SLIDE-AND-FREEZE-DECISION.md": "1cccf1a0889ba5199736ec1e6d96c78411281ec45266cad3a2ccf09b3a5b9622"
    }
   },
   {
@@ -407,12 +426,16 @@
   },
   {
    "slide": 6,
-   "shown": "Scorecard of 21 candidate laws",
+   "shown": "Scorecard 21 records: 6 linked to scope-check benchmark families, 1 related formal lemma (target unestablished), 2 empirical/framework, 12 without a corresponding check. Single-reader statuses; Codex reviewed the corrected descriptions. The 12 are a backlog, not open problems, and the 6 are not 6 false laws.",
    "where": "html",
    "files": [
+    "scopedesk/scorecard/scorecard.json",
+    "scopedesk/scorecard/SCORECARD.md",
     "artifacts/integration/codex-api/admissible-review/committed-freeze.json"
    ],
    "sha256": {
+    "scopedesk/scorecard/scorecard.json": "e0f7c9b1847d44eb3b4e2ebfe678505c9434198046b9d3f6d6bfed1b8b042df9",
+    "scopedesk/scorecard/SCORECARD.md": "5ea1535476dee1229a6d098a7fd3c88072a55799c1ae698305a42670b7e1457b",
     "artifacts/integration/codex-api/admissible-review/committed-freeze.json": "dbf233d1ebe7156576e8e24bb4f7b7f3f6c3c75d4552efde198798eeb482ba0e"
    }
   },
@@ -457,7 +480,7 @@
     "presentation/delphi/sources.md"
    ],
    "sha256": {
-    "presentation/delphi/sources.md": "3f5a32166a1ddfed0ca55e86af33dc3e3539e3e38b26371e77d43015b1e09dca"
+    "presentation/delphi/sources.md": "04dd24c014e7e841baa9f7c0e32176ae7a1bbed90b89c849cda6ab96a774a1bf"
    }
   },
   {
