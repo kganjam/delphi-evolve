@@ -235,14 +235,18 @@ def test_now_seattle_zone_labels():
 
 # ---- rendered docs --------------------------------------------------------------------
 
-def test_docs_render_from_artifacts_without_unresolved_placeholders():
-    outs = ev.render_docs()
+def test_docs_render_from_artifacts_without_unresolved_placeholders(tmp_path):
+    outs = ev.render_docs(tmp_path)  # render to a temp dir; committed docs are re-rendered only by the CLI
     assert len(outs) == 3
+    committed = {n: (ROOT / "docs" / f"{n}.md").read_text().split("\n---\n*Rendered")[0] for n in ev.DOC_TEMPLATES}
+    for n in ev.DOC_TEMPLATES:
+        fresh = (tmp_path / f"{n}.md").read_text().split("\n---\n*Rendered")[0]
+        assert fresh == committed[n], f"docs/{n}.md is stale; run python -m evolve.evidence docs"
     route = json.loads((ev.EVIDENCE_DIR / "route_summary.json").read_text())
     meta = json.loads((ev.SITE_DATA / "landscape.meta.json").read_text())
-    blog = (ROOT / "docs" / "blog.md").read_text()
-    pitch = (ROOT / "docs" / "pitch.md").read_text()
-    story = (ROOT / "docs" / "video-storyboard.md").read_text()
+    blog = (tmp_path / "blog.md").read_text()
+    pitch = (tmp_path / "pitch.md").read_text()
+    story = (tmp_path / "video-storyboard.md").read_text()
     for txt in (blog, pitch, story):
         assert "{{" not in txt and "}}" not in txt
     assert f"{meta['counts']['measured_non_stop']:,}" in blog and f"{meta['counts']['measured_non_stop']:,}" in pitch
