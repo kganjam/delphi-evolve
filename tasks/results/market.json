@@ -13,7 +13,7 @@
     "market/diversity.py: crowd error = mean individual error - diversity, checked numerically on every call (raises above 1e-12). Demoted to an appendix per the director; carries the theorem-limit text (guarantees only vs the MEAN individual, says nothing about the BEST).",
     "market/scoring.py, aggregate.py (mean, median, log-opinion pool, fixed extremisation a=1.5, out-of-fold recalibration), calibration.py (bins, ECE, reliability figure, family error correlation, within-outcome variant), stats.py (Clopper-Pearson, McNemar, AUC, cluster bootstrap), arms.py (budget gate).",
     "market/store.py + report.py: retained immutable hash-chained binary-claim forecast store and report from the first design; tested; NOT on the Scope Desk path. No separate market API was built.",
-    "market/triage.py: scorecard tally for the 21 math-domain claims in four buckets (holds as stated / holds with supplied scope / empirical-not-formalizable / unresolved). A hold needs compiled proof, clean axioms, all mutants failing, non-author statement review (and a written scope condition for the second bucket); otherwise it is visibly downgraded to unresolved. Trap claims cannot be holds; a total other than 21 is flagged; thin scorecards are called thin."
+    "market/triage.py: scorecard tally built on the frozen bench-v1-freeze.json (read from /data/worktrees/admissible-seed, not modified). Uses the freeze's own ids, buckets B0-B3 and verdict vocabulary; a verdict stands only with compiled artifact, clean axioms, non-author statement review, all mutants failing (proofs), scope condition or counterexample as relevant, and the mandatory B1 anti-triviality mutant; otherwise CLAIMED_BUT_UNVERIFIED. B0 claims cannot get verdicts; frozen buckets cannot change; no record counts as NOT_ATTEMPTED. The parser reads the real freeze (counts 2/4/11/4)."
   ],
   "commands_run": [
     {
@@ -42,11 +42,6 @@
       "note": "6/6 killed"
     },
     {
-      "cmd": "python3 -m pytest tests/test_market_scoring.py tests/test_market_desk.py tests/test_market_lean.py tests/test_market_store.py -q (scope), final",
-      "exit": 0,
-      "note": "45 passed in 4.22 s"
-    },
-    {
       "cmd": "python3 -m market selftest (scope)",
       "exit": 0,
       "note": "hand example passes; random-fixture max |identity residual| 3.3e-16, tolerance 1e-12"
@@ -62,24 +57,29 @@
       "note": "project-delphi-nanopubs is nearly empty (.gitkeep dirs plus one skill file); neither public repo contains tournament, debate or leaderboard code. Amit's named gap must be in a repo I was not pointed to, so the 'check the repo first' condition could not be met and no tournament module was built. The skill's rules (observed/model/derived distinct, unknown stays unknown, synthetic runs show executability only, acceptance from checks that run) match this harness."
     },
     {
-      "cmd": "python3 -m pytest tests/test_market_triage.py (scope), first run",
-      "exit": 1,
-      "note": "1 failed: my hand count in the test was wrong (empirical bucket is 4, unresolved 7; 10+4+7=21). The code was right; test corrected."
-    },
-    {
-      "cmd": "mutation check on triage: 7 mutants (scope)",
-      "exit": 0,
-      "note": "7/7 killed"
-    },
-    {
-      "cmd": "python3 -m pytest tests/test_market_scoring.py tests/test_market_desk.py tests/test_market_lean.py tests/test_market_store.py tests/test_market_triage.py -q (scope), final",
-      "exit": 0,
-      "note": "51 passed"
-    },
-    {
       "cmd": "grep for diffusion/threshold/Stokes/hydrodynamic claims in market/",
       "exit": 0,
       "note": "none; the only hit is the probability-threshold sweep in desk.py"
+    },
+    {
+      "cmd": "rewrote triage.py on bench-v1-freeze.json after reading it (earlier version used buckets I had invented from a relayed summary and a hardcoded trap list; discarded before any commit of it was used)",
+      "exit": 0,
+      "note": "correction of my own frame-inventing, not a test result"
+    },
+    {
+      "cmd": "python3 -m pytest tests/test_market_triage.py (scope)",
+      "exit": 0,
+      "note": "6 passed, including a skip-if-absent test that parses the real freeze file"
+    },
+    {
+      "cmd": "mutation check on triage: 10 mutants (scope)",
+      "exit": 0,
+      "note": "10/10 killed"
+    },
+    {
+      "cmd": "python3 -m pytest tests/test_market_{scoring,desk,lean,store,triage}.py -q (scope), final",
+      "exit": 0,
+      "note": "51 passed in 3.74 s"
     }
   ],
   "artifacts": [
@@ -103,7 +103,7 @@
     "Whoever owns the key: make `family` the model (the independence unit), not a run, and publish KEY.sha256 for the hash check.",
     "Decide whether the TXT arm gets answers from the deterministic textbook criterion; its error rate is the audit's headline number.",
     "Commit prereg_desk.json and prereg_lean.json before any run (done at the code commit) and do not edit them afterwards without a dated note.",
-    "Proof owners: emit one triage record per claim with the fields in market/triage.py, then run `python -m market triage --claims C.jsonl --out DIR`.",
-    "If a tournament ranking is wanted, first get the name of the repo Amit inspected; the existing paired comparisons in desk.py already give head-to-head differences with family-cluster intervals."
+    "If a tournament ranking is wanted, first get the name of the repo Amit inspected; the existing paired comparisons in desk.py already give head-to-head differences with family-cluster intervals.",
+    "Proof owners: emit one verdict record per claim in the shape documented at the top of market/triage.py, then run `python -m market triage --freeze <bench-v1-freeze.json> --records R.jsonl --out DIR`. With no records it correctly reports 0 of 19 evaluable verified."
   ]
 }

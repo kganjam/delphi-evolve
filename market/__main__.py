@@ -5,7 +5,7 @@ tested, and NOT part of the Scope Desk interface (the director owns that interfa
   python -m market desk --key KEY.jsonl --answers answers.jsonl [--instances inst.jsonl] [--ledger arms/ledger.jsonl]
                         [--repairs repairs.jsonl] [--key-sha KEY.sha256] --out DIR
   python -m market lean --statements S.jsonl --results R.jsonl [--ledger L.jsonl] [--statements-sha S.sha256] --out DIR
-  python -m market triage --claims C.jsonl [--expected 21] --out DIR
+  python -m market triage --freeze bench-v1-freeze.json [--records R.jsonl] [--freeze-sha HEX] --out DIR
   python -m market forecast-report --store DIR [--resolutions PATH] --out DIR      (legacy binary-claim store)
 """
 from __future__ import annotations
@@ -27,7 +27,7 @@ def main(argv=None) -> int:
     l.add_argument("--statements", required=True); l.add_argument("--results", required=True); l.add_argument("--ledger")
     l.add_argument("--statements-sha"); l.add_argument("--out", required=True)
     t = sub.add_parser("triage")
-    t.add_argument("--claims", required=True); t.add_argument("--expected", type=int, default=21); t.add_argument("--out", required=True)
+    t.add_argument("--freeze", required=True); t.add_argument("--records"); t.add_argument("--freeze-sha"); t.add_argument("--out", required=True)
     f = sub.add_parser("forecast-report")
     f.add_argument("--store", required=True); f.add_argument("--resolutions"); f.add_argument("--out", required=True)
     a = ap.parse_args(argv)
@@ -42,7 +42,7 @@ def main(argv=None) -> int:
         return 0
     if a.cmd == "triage":
         from .triage import run_triage
-        print(run_triage(a.claims, a.out, a.expected)["markdown"])
+        print(run_triage(a.freeze, a.records, a.out, a.freeze_sha)["markdown"])
         return 0
     if a.cmd == "lean":
         from .lean import run_lean
