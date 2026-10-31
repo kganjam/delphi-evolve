@@ -1,5 +1,12 @@
 {
   "axioms": {
+    "DarwinBridge.Certs.CoreKappa2AdmCutHtgrGtvn.cert_ok": [
+      "propext"
+    ],
+    "DarwinBridge.Certs.CoreKappa2AdmCutHtgrGtvn.instance_sound": [
+      "propext",
+      "Quot.sound"
+    ],
     "DarwinBridge.Certs.TrpbBlockedDelta005.cert_ok": [
       "propext"
     ],
@@ -26,7 +33,29 @@
     "DarwinBridge.Certs.TrpbRouteDelta005.instance_sound": [
       "propext"
     ],
+    "DarwinBridge.Distinction.adm_accepts": [
+      "propext"
+    ],
+    "DarwinBridge.Distinction.blocked_rejects": [
+      "propext"
+    ],
+    "DarwinBridge.Distinction.true_route_exists_despite_adm_cut": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "DarwinBridge.adjB_sound": [],
+    "DarwinBridge.admCert_sound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "DarwinBridge.admReach_nd": [
+      "propext"
+    ],
+    "DarwinBridge.adm_cut_sound": [
+      "propext",
+      "Quot.sound"
+    ],
     "DarwinBridge.blockedCert_sound": [
       "propext",
       "Quot.sound"
@@ -49,8 +78,15 @@
       "propext",
       "Quot.sound"
     ],
+    "DarwinBridge.routeB_admReach": [
+      "propext"
+    ],
     "DarwinBridge.routeCert_sound": [
       "propext"
+    ],
+    "DarwinBridge.route_adm_exclusive": [
+      "propext",
+      "Quot.sound"
     ],
     "DarwinBridge.route_blocked_exclusive": [
       "propext",
@@ -71,6 +107,22 @@
     ]
   },
   "certificates": [
+    {
+      "certificate_sha256": "a521cb6ae5eb5c4b95aa62143912e778b38ee148541f4cd86c82438a25ef7584",
+      "closed_set": [
+        "HTGR"
+      ],
+      "crossing_edges_checked": 76,
+      "delta_decimal": "0",
+      "delta_status": "assumed",
+      "kind": "adm_blocked",
+      "label": "core_kappa2_adm_cut_htgr_gtvn",
+      "route": null,
+      "source_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+      "start": "HTGR",
+      "table_rows": 77,
+      "target": "GTVN"
+    },
     {
       "certificate_sha256": "83e8f4cdd69c0bba6a6bea5a68fe499e6e56d198aac6a4cd1d3a7f5cd0a3b7c5",
       "closed_set": [
@@ -152,7 +204,7 @@
   "checks": [
     {
       "check": "certificates_present",
-      "detail": "4 certificates: trpb_blocked_delta005, trpb_blocked_multi_delta005, trpb_route_delta0, trpb_route_delta005",
+      "detail": "5 certificates: core_kappa2_adm_cut_htgr_gtvn, trpb_blocked_delta005, trpb_blocked_multi_delta005, trpb_route_delta0, trpb_route_delta005",
       "ok": true
     },
     {
@@ -162,12 +214,12 @@
     },
     {
       "check": "python_mirror_accepts_certificates",
-      "detail": "trpb_blocked_delta005: blocked accepted; trpb_blocked_multi_delta005: blocked accepted; trpb_route_delta0: route accepted; trpb_route_delta005: route accepted",
+      "detail": "core_kappa2_adm_cut_htgr_gtvn: adm_blocked accepted; trpb_blocked_delta005: blocked accepted; trpb_blocked_multi_delta005: blocked accepted; trpb_route_delta0: route accepted; trpb_route_delta005: route accepted",
       "ok": true
     },
     {
       "check": "certificate_tied_to_source_csv",
-      "detail": "sha256 a631d8cf6c5b188a…, 225 rows re-read",
+      "detail": "sha256 a631d8cf6c5b188a…, 302 rows re-read",
       "ok": true
     },
     {
@@ -177,19 +229,19 @@
     },
     {
       "check": "fresh_lake_build_original",
-      "detail": "11.4s; ok",
+      "detail": "19.5s; ok",
       "exit_code": 0,
       "ok": true
     },
     {
       "check": "axiom_audit",
-      "detail": "22/22 theorems; axioms used: ['Quot.sound', 'propext']",
+      "detail": "32/32 theorems; axioms used: ['Classical.choice', 'Quot.sound', 'propext']",
       "exit_code": 0,
       "ok": true
     },
     {
       "check": "instance_mutants_as_expected",
-      "detail": "35 mutants; unexpected: []",
+      "detail": "42 mutants; unexpected: []",
       "ok": true
     },
     {
@@ -199,12 +251,7 @@
     },
     {
       "check": "lean_source_mutants_all_rejected",
-      "detail": "8/8 break compilation",
-      "ok": true
-    },
-    {
-      "check": "sensitivity_sweep",
-      "detail": "14 rows written to artifacts/proof/sensitivity_sweep.json",
+      "detail": "10/10 break compilation",
       "ok": true
     }
   ],
@@ -212,9 +259,99 @@
   "compile_command": "lake build  (fresh copy of lean/, no cached .lake)",
   "compile_exit_code": 0,
   "dominance_mutant_exit_code": 1,
-  "generated_at_seattle": "2026-10-31 00:21:19 PDT",
-  "generated_at_utc": "2026-10-31T07:21:19+00:00",
+  "generated_at_seattle": "2026-10-31 00:37:56 PDT",
+  "generated_at_utc": "2026-10-31T07:37:56+00:00",
   "instance_mutants": [
+    {
+      "as_expected": true,
+      "expect": "accept",
+      "lean_accepted": true,
+      "lean_exit_code": 0,
+      "lean_first_error": "",
+      "mirror_agrees": true,
+      "name": "core_kappa2_adm_cut_htgr_gtvn__cut_edge_not_admissible_tight",
+      "python_mirror_accepted": true,
+      "python_reason": "adm_blocked accepted",
+      "why": "lo(v) == hi(u)-1: edge just fails dominance, cut stays closed"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "core_kappa2_adm_cut_htgr_gtvn__open_edge_equal.lean:182:73: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "core_kappa2_adm_cut_htgr_gtvn__open_edge_equal",
+      "python_mirror_accepted": false,
+      "python_reason": "admissible edge leaves S: HTGR->ATGR",
+      "rejected_by_decision": true,
+      "why": "lo(v) == hi(u): edge is admissible, S is not closed"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "core_kappa2_adm_cut_htgr_gtvn__open_edge_higher.lean:182:73: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "core_kappa2_adm_cut_htgr_gtvn__open_edge_higher",
+      "python_mirror_accepted": false,
+      "python_reason": "admissible edge leaves S: HTGR->ATGR",
+      "rejected_by_decision": true,
+      "why": "v clearly dominates u: cut opened"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "core_kappa2_adm_cut_htgr_gtvn__target_in_closed_set.lean:183:73: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "core_kappa2_adm_cut_htgr_gtvn__target_in_closed_set",
+      "python_mirror_accepted": false,
+      "python_reason": "s must be in S and t not",
+      "rejected_by_decision": true,
+      "why": "target inside S"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "core_kappa2_adm_cut_htgr_gtvn__start_not_in_closed_set.lean:182:73: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "core_kappa2_adm_cut_htgr_gtvn__start_not_in_closed_set",
+      "python_mirror_accepted": false,
+      "python_reason": "s must be in S and t not",
+      "rejected_by_decision": true,
+      "why": "start must belong to S"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "core_kappa2_adm_cut_htgr_gtvn__negative_delta.lean:182:73: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "core_kappa2_adm_cut_htgr_gtvn__negative_delta",
+      "python_mirror_accepted": false,
+      "python_reason": "delta must be a non-negative integer",
+      "rejected_by_decision": true,
+      "why": "negative sensitivity bound"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "core_kappa2_adm_cut_htgr_gtvn__duplicate_key.lean:184:73: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "core_kappa2_adm_cut_htgr_gtvn__duplicate_key",
+      "python_mirror_accepted": false,
+      "python_reason": "duplicate key ATGR",
+      "rejected_by_decision": true,
+      "why": "duplicate table keys"
+    },
     {
       "as_expected": true,
       "expect": "accept",
@@ -729,6 +866,22 @@
       "rejected": true
     },
     {
+      "description": "admissible cut accepts every outgoing edge",
+      "file": "DarwinBridge/Core.lean",
+      "first_error": "error: DarwinBridge/Core.lean:293:10: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+      "lean_exit_code": 1,
+      "name": "core_adm_cut_ignores_dominance",
+      "rejected": true
+    },
+    {
+      "description": "admissible cut: target-outside-S check dropped",
+      "file": "DarwinBridge/Core.lean",
+      "first_error": "error: DarwinBridge/Core.lean:283:10: Tactic `cases` failed with a nested error:",
+      "lean_exit_code": 1,
+      "name": "core_adm_target_may_be_inside",
+      "rejected": true
+    },
+    {
       "description": "neighbour enumerator omits the fourth position (missing edges)",
       "file": "DarwinBridge/Geno.lean",
       "first_error": "error: DarwinBridge/Geno.lean:54:25: Application type mismatch: The argument",
@@ -747,10 +900,10 @@
   ],
   "source_tie": {
     "csv": "/data/artifacts/v2-scout/data/caltech/summary_AA.csv",
-    "rows_checked": 225,
+    "rows_checked": 302,
     "sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
     "verified": true
   },
   "status": "completed",
-  "wall_seconds": 191.6
+  "wall_seconds": 117.5
 }

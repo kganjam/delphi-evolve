@@ -58,7 +58,7 @@ def load_certs() -> list[dict]:
     for pat in ("trpb_*.json", "core_*.json"):   # optional_unverified/ is deliberately not globbed
         for f in sorted(ART.glob(pat)):
             certs.append(P.read_json(f))
-    return certs
+    return sorted(certs, key=lambda c: c["label"])   # same order as evolve.proof.write_lean_tree
 
 
 SWEEP_DELTAS = ["0", "0.001", "0.0025", "0.005", "0.0075", "0.01", "0.015"]
