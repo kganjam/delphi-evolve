@@ -251,16 +251,16 @@
   "video_bundle_rehearsal": {
    "video": {
     "file": "presentation/delphi/video/delphi-90s-captioned.mp4",
-    "sha256": "141f45efa4a6e3761d5fc57271bae91aedf3b0f5d7195b3c0f3ff01c7974c9fc",
-    "duration_s": 90.72,
+    "sha256": "a1b8e9752a9054a24e9251ed2606c467fc6e89404b80f460dadd2602bd4558cb",
+    "duration_s": 89.84,
     "audio": "none",
     "manifest": "presentation/delphi/video/manifest.json"
    },
    "bundle": {
     "zip": "/data/artifacts/delphi-evolve-submit/dist/delphi-bundle.zip",
-    "sha256": "5ab6bbb581093917db09cd1e70e4bb3fd9a742a95f349f0a33b4984a92b78397",
-    "bytes": 5772325,
-    "n_files": 132,
+    "sha256": "475545d1492c7f086f924457dfb61f66231f272c33efdea294ecf77c85a43e66",
+    "bytes": 6196449,
+    "n_files": 133,
     "manifest": "presentation/delphi/dist/bundle-manifest.json",
     "verified": "unzipped and re-hashed all files, 0 mismatches"
    },
@@ -271,6 +271,23 @@
    "claims_traced": 41
   },
   "host_integration_note": "Host (claude-15) note: kill_ledger.json at critic 4ea95fe is what slide 4 reads (rows unchanged); delphi-frontier ledger row 16 (validator over seed questions, 0 of 7 bounded) is in a separate repo my gate cannot read, so it is NOT cited; R09 is stated as a mismatched run, not a measured null.",
-  "review_status": "Unreviewed items labelled 'single-reader, not Codex-reviewed' on every slide footnote and the landing page; nothing marked accepted; REVIEW-BRIEF.md for the fresh read-only reviewer; 18 tests pass; 41 claims traced."
+  "review_status": "Unreviewed items labelled 'single-reader, not Codex-reviewed' on every slide footnote and the landing page; nothing marked accepted; REVIEW-BRIEF.md for the fresh read-only reviewer; 18 tests pass; 41 claims traced.",
+  "redteam_applied": {
+   "source": "scopedesk/redteam/REDTEAM-DX-SUBMIT.md (critic, single-reader, same model family)",
+   "applied": [
+    "A1 21 rows 16/2/3 from explicit caught_by_class_rows",
+    "A2 no advantage shown in two small comparisons",
+    "A3 answers from stated methods under declared conventions",
+    "A5 scorecard revised after Codex v0 review, not re-reviewed",
+    "A6 Frontier proposal + ledger R21 (0 of 7 bounded)",
+    "B1-B5"
+   ],
+   "answered_with_reason": [
+    "A4: slide cites blind_vs_key_v12.json (132 of 135, key bc8caf20), a different audit from the critic's AT3 (132 of 136, key 747ddbae); same-family label added"
+   ],
+   "claims_traced": 42,
+   "tests": "18 passed",
+   "script": "394 words, 2:35 synthetic voice"
+  }
  }
 }
