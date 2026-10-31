@@ -4,7 +4,7 @@
  "model": "subscription Claude Sonnet 5.5; metered spend unknown, not inferred",
  "started_seattle": "2026-10-31 00:56 PDT",
  "finished_seattle": "2026-10-31 01:09 PDT",
- "commit": "filled by git after commit; see branch work/research-grand",
+ "commit": "see git log: research-grand commit (hash recorded in follow-up commit)",
  "owned_paths": [
   "docs/research/research-grand.md",
   "artifacts/research/research-grand.json",
