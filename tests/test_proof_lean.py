@@ -12,7 +12,8 @@ sys.path.insert(0, str(ROOT))
 from evolve import proof as P  # noqa: E402
 
 ART = ROOT / "artifacts" / "proof"
-CERTS = {p.stem: P.read_json(p) for p in sorted(ART.glob("trpb_*.json"))}
+CERTS = {p.stem: P.read_json(p) for pat in ("trpb_*.json", "core_*.json") for p in sorted(ART.glob(pat))}
+CORE = "core_kappa2_adm_cut_htgr_gtvn"
 
 
 @pytest.fixture(scope="module")
@@ -61,6 +62,7 @@ def _compile(cert, name, built_):
 @pytest.mark.parametrize("label,mutant", [
     ("trpb_route_delta005", "dominance_tight_equal"),
     ("trpb_blocked_delta005", "cut_edge_tight_strict"),
+    (CORE, "cut_edge_not_admissible_tight"),
 ])
 def test_boundary_controls_are_accepted(built, label, mutant):
     m = next(m for m in P.data_mutants(CERTS[label]) if m["name"].endswith(mutant))
@@ -74,12 +76,38 @@ def test_boundary_controls_are_accepted(built, label, mutant):
     ("trpb_blocked_delta005", "open_cut_edge_equal"),       # a cut edge opened
     ("trpb_blocked_delta005", "neighbour_unknown"),
     ("trpb_blocked_multi_delta005", "member_removed_opens_edge"),
+    (CORE, "open_edge_equal"),                                # an admissible edge leaves the closed set
+    (CORE, "open_edge_higher"),
+    (CORE, "target_in_closed_set"),
+    (CORE, "start_not_in_closed_set"),
 ])
 def test_scientific_mutants_are_rejected_by_the_kernel_decision(built, label, mutant):
     m = next(m for m in P.data_mutants(CERTS[label]) if m["name"].endswith(mutant))
     r = _compile(m["cert"], "mut_" + mutant, built)
     assert r["exit_code"] != 0
     assert re.search(r"decide.*proved that the proposition", r["stdout"] + r["stderr"], re.S)
+
+
+def test_admissible_cut_is_strictly_weaker_than_blocked_cut_counterexample():
+    """A=[0,2], B=[1,3]: adm checker accepts, blocked checker rejects, and a value assignment inside
+    the intervals has a non-decreasing A=>B path (all kernel-checked in DarwinBridge/Distinction.lean)."""
+    r = P.run_cmd([P.find_tool("lake"), "env", P.find_tool("lean"), "DarwinBridge/Audit.lean"], cwd=P.LEAN_DIR)
+    ax = P.parse_axiom_report(r["stdout"] + r["stderr"])
+    for n in ("adm_accepts", "blocked_rejects", "true_route_exists_despite_adm_cut"):
+        assert f"DarwinBridge.Distinction.{n}" in ax and set(ax[f"DarwinBridge.Distinction.{n}"]) <= P.ALLOWED_AXIOMS
+    src = (P.LEAN_DIR / "DarwinBridge" / "Distinction.lean").read_text()
+    assert "admCertB 0 tbl [A] A B = true" in src and "blockedCertB 0 tbl [A] A B = false" in src
+
+
+def test_source_mutant_breaking_the_adm_cut_stops_the_theorem_compiling():
+    for name in ("core_adm_cut_ignores_dominance", "core_adm_target_may_be_inside"):
+        mut = next(m for m in P.SOURCE_MUTANTS if m[0] == name)
+        with tempfile.TemporaryDirectory() as td:
+            tree = P.copy_lean_tree(Path(td) / "lean")
+            P.apply_source_mutant(tree, mut)
+            r = P.run_cmd([P.find_tool("lake"), "build"], cwd=tree)
+            assert r["exit_code"] != 0, name
+            assert "Core.lean" in (r["stdout"] + r["stderr"])
 
 
 def test_source_mutant_breaking_the_comparison_stops_the_theorem_compiling():

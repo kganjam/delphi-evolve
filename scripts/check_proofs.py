@@ -55,8 +55,9 @@ def forbidden_tokens(lean_dir: Path) -> list[str]:
 
 def load_certs() -> list[dict]:
     certs = []
-    for f in sorted(ART.glob("trpb_*.json")):
-        certs.append(P.read_json(f))
+    for pat in ("trpb_*.json", "core_*.json"):   # optional_unverified/ is deliberately not globbed
+        for f in sorted(ART.glob(pat)):
+            certs.append(P.read_json(f))
     return certs
 
 
@@ -75,7 +76,8 @@ def run_sweep(csv_path, scope: bool) -> dict:
             for kind, s, t in SWEEP_PAIRS:
                 row = {"delta": d, "delta_status": "assumed", "kind": kind, "start": s, "target": t}
                 try:
-                    build = P.build_route_certificate if kind == "route" else P.build_blocked_certificate
+                    build = {"route": P.build_route_certificate, "blocked": P.build_blocked_certificate,
+                             "adm_blocked": P.build_adm_certificate}[kind]
                     cert = build(inst, s, t, source, label=f"sweep_{kind}_{d.replace('.', 'p')}_{s}_{t}")
                 except P.CannotCertify as exc:
                     row.update(status="cannot_certify", reason=str(exc)[:200])
@@ -101,6 +103,8 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--csv")
     ap.add_argument("--regenerate", action="store_true")
+    ap.add_argument("--bridge-core-cut", metavar="CORE_CUT_JSON",
+                    help="re-express a core 'cut' certificate as an admissible-cut proof certificate (writes JSON + Lean, then exits)")
     ap.add_argument("--fast", action="store_true")
     ap.add_argument("--sweep", action="store_true", help="write artifacts/proof/sensitivity_sweep.json (Lean-checks each certificate found)")
     ap.add_argument("--no-scope", action="store_true", help="do not wrap subprocesses in systemd-run")
@@ -120,6 +124,14 @@ def main() -> int:
         csv_path = P.find_source_csv(args.csv)
     except FileNotFoundError:
         pass
+
+    if args.bridge_core_cut:
+        cp = Path(args.bridge_core_cut)
+        cert = P.build_cert_from_core_cut(P.read_json(cp), "core_kappa2_adm_cut_htgr_gtvn", cp.name)
+        P.write_json(ART / f"{cert['label']}.json", cert)
+        mods = P.write_lean_tree(load_certs())
+        print(f"bridged {cp.name} -> {cert['label']} ({len(cert['table'])} table rows, |S|={len(cert['closed_set'])}); lean tree: {mods}")
+        return 0
 
     if args.regenerate:
         if csv_path is None:
@@ -158,7 +170,10 @@ def main() -> int:
             obs = P.load_trpb_observations(csv_path)[0]
             rows = 0
             for c in certs:
-                rows += P.verify_against_source(c, csv_path, observations=obs)["rows_checked"]
+                if c.get("interval_origin", {}).get("kind") == "external-intervals":
+                    rows += P.verify_core_origin(c, csv_path)["rows_checked"]
+                else:
+                    rows += P.verify_against_source(c, csv_path, observations=obs)["rows_checked"]
             src_info = {"verified": True, "csv": str(csv_path), "sha256": P.sha256_file(csv_path), "rows_checked": rows}
             record("certificate_tied_to_source_csv", True, detail=f"sha256 {src_info['sha256'][:16]}…, {rows} rows re-read")
         except P.ProofInputError as exc:
@@ -184,7 +199,7 @@ def main() -> int:
         if compile_exit == 0:
             audit = P.run_cmd([P.find_tool("lake"), "env", P.find_tool("lean"), "DarwinBridge/Audit.lean"], cwd=tree, scope=scope)
             axioms = P.parse_axiom_report(audit["stdout"] + audit["stderr"])
-            expected = 14 + 2 * len(certs)
+            expected = len(P.AUDIT_CORE) + 2 * len(certs)
             ok = audit["exit_code"] == 0 and len(axioms) == expected and all(set(a) <= P.ALLOWED_AXIOMS for a in axioms.values())
             record("axiom_audit", ok, exit_code=audit["exit_code"],
                    detail=f"{len(axioms)}/{expected} theorems; axioms used: {sorted({a for v in axioms.values() for a in v})}")

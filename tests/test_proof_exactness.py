@@ -185,3 +185,64 @@ def test_loader_leaves_nan_rows_unknown_and_counts_them(tmp_path):
     f.write_text("AAs,# Stop,mu_1-bg,mu_2-bg\nVFVS,0.0,0.1,0.2\nVFMS,0.0,nan,0.2\nVFLS,0.0,,0.2\nV*VS,1.0,0.1,0.1\n")
     obs, counts = P.load_trpb_observations(f)
     assert list(obs) == ["VFVS"] and counts["non_decimal_unknown"] == 2 and counts["stop_containing"] == 1
+
+
+# ---------------------------------------------------------------- core kappa-2 admissible cut (bridged)
+CORE = P.read_json(ART / "core_kappa2_adm_cut_htgr_gtvn.json")
+
+
+def test_core_cut_is_a_one_node_admissible_closure_with_exact_integer_intervals():
+    c = CORE
+    assert c["kind"] == "adm_blocked" and c["closed_set"] == ["HTGR"] and c["start"] == "HTGR" and c["target"] == "GTVN"
+    assert c["delta_scaled"] == 0 and c["scale_exponent"] == 6 and len(c["table"]) == 77
+    assert c["interval_origin"]["kind"] == "external-intervals"
+    assert P.certificate_digest(c) == c["certificate_sha256"]
+    u = next(e for e in c["table"] if e["genotype"] == "HTGR")
+    for v in P.neighbors("HTGR"):
+        e = next(r for r in c["table"] if r["genotype"] == v)
+        assert min(e["r1"], e["r2"]) < max(u["r1"], u["r2"]), v     # hi(u) > lo(v): not certified dominating
+    assert c["crossing_edges_checked"] == 76
+    assert P.check_certificate_python(c) == (True, "adm_blocked accepted")
+    assert "Does NOT exclude a true non-decreasing path" in c["semantics"]
+
+
+def test_core_cut_not_overclaimed_as_blocked():
+    # most outside neighbours are NOT certifiably lower, so the strong blocked statement would be false
+    c = CORE
+    hi_lo = {e["genotype"]: (max(e["r1"], e["r2"]), min(e["r1"], e["r2"])) for e in c["table"]}
+    not_descending = [v for v in P.neighbors("HTGR") if not hi_lo[v][0] < hi_lo["HTGR"][1]]
+    assert not_descending, "if every neighbour were strictly lower, a blocked certificate would be available"
+    forged = copy.deepcopy(c)
+    forged["kind"] = "blocked"
+    assert P.check_certificate_python(forged)[0] is False
+
+
+def test_core_cut_adversarial_edits_flip_python_verdict():
+    for m in P.data_mutants(CORE):
+        acc, why = P.check_certificate_python(m["cert"])
+        assert acc == (m["expect"] == "accept"), (m["name"], why)
+
+
+def test_overlapping_interval_example_is_adm_accepted_but_not_blocked():
+    # A=[0,2], B=[1,3], delta 0: same counterexample as Distinction.lean, via the Python mirror
+    inst = P.Instance({"AAAA": ("0", "2"), "CAAA": ("1", "3")}, "0")
+    assert not inst.dominates("AAAA", "CAAA")                     # hi(A)=2 > lo(B)=1: not certified
+    cert = P.build_adm_certificate(inst, "AAAA", "CAAA", {"sha256": "unit-test"}, label="ab_adm")
+    assert cert["closed_set"] == ["AAAA"] and P.check_certificate_python(cert)[0] is True
+    forged = copy.deepcopy(cert)
+    forged["kind"] = "blocked"                                     # B is not certifiably below A
+    assert P.check_certificate_python(forged)[0] is False
+
+
+def test_core_origin_tie_when_csv_available():
+    try:
+        csv = P.find_source_csv()
+    except FileNotFoundError:
+        pytest.skip("summary_AA.csv not present on this machine; recomputation NOT verified here")
+    r = P.verify_core_origin(CORE, csv)
+    assert r["rows_checked"] == 77 and 0 <= r["exact_integer_matches"] <= 77   # the rest agree within 1e-6 (float order)
+    t = copy.deepcopy(CORE)
+    t["table"][0]["r2"] += 5
+    t["certificate_sha256"] = P.certificate_digest(t)    # re-seal so only the recomputation can catch it
+    with pytest.raises(P.ProofInputError):
+        P.verify_core_origin(t, csv)

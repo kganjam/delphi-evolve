@@ -50,6 +50,12 @@ def blockedCertB (δ : Int) (tbl : Table) (S : List Geno) (s t : Geno) : Bool :=
   tableOkB δ tbl && decide (s ≠ t) && decide s.Valid && decide t.Valid &&
   S.all (fun g => decide g.Valid) && blockedB nbrs (obsBounds δ tbl) S s t
 
+/-- "No certifiable route" certificate: `S` is closed under the admissible-step relation of the
+table.  Weaker than `blockedCertB` (see `Core.lean`); it is the cut matching `routeCertB`. -/
+def admCertB (δ : Int) (tbl : Table) (S : List Geno) (s t : Geno) : Bool :=
+  tableOkB δ tbl && decide (s ≠ t) && decide s.Valid && decide t.Valid &&
+  S.all (fun g => decide g.Valid) && admBlockedB nbrs (obsBounds δ tbl) S s t
+
 /-! ### Soundness -/
 
 section
@@ -87,6 +93,26 @@ theorem blockedCert_sound {ι : Int → α} (hα : OrderLaws α) (hι : Embeddin
   exact blocked_cut_sound hα hι nbrs_complete hf S s t h.2
 
 end
+
+theorem admCert_sound {δ : Int} {tbl : Table} {S : List Geno} {s t : Geno}
+    (h : admCertB δ tbl S s t = true) : ¬ Reach (AdmEdge Adj (obsBounds δ tbl)) s t := by
+  unfold admCertB at h
+  simp only [Bool.and_eq_true] at h
+  exact adm_cut_sound nbrs_complete S s t h.2
+
+/-- Under the sensitivity assumption an admissible-cut certificate additionally rules out any
+route that the route checker could accept; and an accepted route rules out the cut. -/
+theorem route_adm_exclusive {δ : Int} {tbl : Table} {route S : List Geno} {s t : Geno}
+    (hr : routeCertB δ tbl route s t = true) (ha : admCertB δ tbl S s t = true) : False := by
+  unfold routeCertB at hr
+  simp only [Bool.and_eq_true, decide_eq_true_eq] at hr
+  obtain ⟨⟨⟨⟨_, _⟩, hhead⟩, hlast⟩, hrt⟩ := hr
+  cases route with
+  | nil => simp at hhead
+  | cons s' r =>
+    have hs : s' = s := by simpa using hhead
+    subst hs
+    exact admCert_sound ha (routeB_admReach adjB_sound s' r hrt t hlast)
 
 /-! ### Non-vacuity and mutual exclusion -/
 
