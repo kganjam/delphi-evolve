@@ -1,0 +1,48 @@
+{
+ "kind": "literature verification receipt",
+ "by": "delphi-rethink-director (Claude Sonnet 5.5), single-reader, not independently reviewed",
+ "at": "2026-10-31 13:02:17 PDT",
+ "tool": "OpenResearch orx 0.2.23:  (alphaXiv extracted full text), run under systemd-run caps; no login; exit 0 for all four",
+ "texts_stored": "scratch only (not committed); sha256 and byte counts recorded here; re-fetch with the same command",
+ "grep_method": "whitespace-normalised full text searched for finite-domain / controlled-experiment / reuse phrases; quoted passages are short excerpts",
+ "rows": [
+  {
+   "arxiv": "1407.7114",
+   "authors": "Kurics, Menshykau, Iber (2014)",
+   "bytes": 84481,
+   "sha256": "05eddf994b3e5c1724497172c62c48333aa8b9fa6f2bab3298824006ecde1649",
+   "finding": "FULL TEXT states the finite-domain caveat: conditions can be satisfied and no pattern emerge when h is negative only between two discrete wavenumbers; the distance between wavenumbers shrinks as domain size grows. The ABSTRACT does not mention it.",
+   "excerpt_short": "\"...h is not negative for any k within the discrete set of wavenumbers, and only takes a negative value in between two of these discrete wavenumbers.\""
+  },
+  {
+   "arxiv": "2509.15829",
+   "authors": "Ouchdiri et al. (2025)",
+   "bytes": 63561,
+   "sha256": "8450857e92b1bced0c7839a1b0d58c201403bfccd1108ccff1da8f3ffedbebc9",
+   "finding": "FULL TEXT states: in a finite domain d > d_c alone does not guarantee pattern formation since the critical wavenumber might match no admissible mode for the domain and boundary conditions. The ABSTRACT does not mention it.",
+   "excerpt_short": "\"In a finite domain, having d > d_c alone does not guarantee pattern formation since the critical wavenumber k_c might not match any admissible mode...\""
+  },
+  {
+   "arxiv": "2608.28433",
+   "authors": "Prove2Me (Chen et al. 2026)",
+   "bytes": 46487,
+   "sha256": "17a4a5c7defebe846441c8cd29c372707094db1415f64cb7e179f805381b6ea6",
+   "finding": "Confirms: Table 1 reports case studies, not a controlled experiment; separating model from harness requires holding the model fixed and varying only the harness, left to future work.",
+   "excerpt_short": "\"Table 1 reports case studies, not a controlled experiment.\""
+  },
+  {
+   "arxiv": "2504.03048",
+   "authors": "Berlot-Attwell et al. (2025)",
+   "bytes": 73087,
+   "sha256": "5013904f110441d89a248d9fe23a07f4c306e8bb515e308d9fe34d0e715b8815",
+   "finding": "Confirms: no evidence of direct reuse of learned lemmas in LEGO-Prover (one name-reuse instance in 189 successful proofs for the 4o-mini run) and evidence against soft reuse.",
+   "excerpt_short": "\"We find no evidence of the direct reuse of learned lemmas...\""
+  }
+ ],
+ "consequence": "The finite-domain statements in 1407.7114 and 2509.15829 are present in the full texts (not the abstracts). They may be cited as: 'finite-size effects on Turing pattern formation are discussed in these papers (full text checked via orx)'. Mode quantisation itself remains textbook; our algorithm is trivial; no novelty claim. Page/section numbers not recorded.",
+ "not_established": [
+  "page/section locations",
+  "that these are the earliest or best sources",
+  "anything about the biology in those papers"
+ ]
+}
