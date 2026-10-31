@@ -1,0 +1,15 @@
+{
+ "dev_families": [
+  "turing_finite_domain",
+  "hawk_dove_ess"
+ ],
+ "heldout_families": [
+  "fisher_kpp_speed",
+  "greenhill_buckling",
+  "hamilton_rule_form",
+  "kimura_regime",
+  "rayleigh_plateau",
+  "wavelength_formula_licence"
+ ],
+ "rule": "prompt/harness tuning only on dev families; report held-out families separately; headline numbers are family-clustered"
+}

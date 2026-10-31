@@ -1,0 +1,26 @@
+{
+ "N": 10000000,
+ "n_stable": 2501284,
+ "n_continuum_turing": 72989,
+ "L=pi": {
+  "admissible_mode": 1371,
+  "continuum_pass_but_no_mode": 71618,
+  "frac_of_continuum_pass_without_mode": 0.9812163476688268
+ },
+ "L=2pi": {
+  "admissible_mode": 48913,
+  "continuum_pass_but_no_mode": 24076,
+  "frac_of_continuum_pass_without_mode": 0.3298579237967365
+ },
+ "L=5pi": {
+  "admissible_mode": 69328,
+  "continuum_pass_but_no_mode": 3661,
+  "frac_of_continuum_pass_without_mode": 0.05015824302292126
+ },
+ "L=20pi": {
+  "admissible_mode": 72748,
+  "continuum_pass_but_no_mode": 241,
+  "frac_of_continuum_pass_without_mode": 0.003301867404677417
+ },
+ "seconds_cpu_single_thread": 15.49
+}

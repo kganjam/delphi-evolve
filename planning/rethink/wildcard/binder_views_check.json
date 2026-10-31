@@ -1,0 +1,196 @@
+{
+  "caveat": "Organizer-preselected 402 of 1,131 submissions; one target (EGFR); SPR binding label; binding is conditional on expression in the primary analysis; retrospective; random group 5-fold (not LODO); bootstrap conditions on fixed OOF predictions; best-of-views and permutation are exploratory/descriptive; fusion is of precomputed features, not evidence about LLM agents.",
+  "frozen_acceptance_rule": "fused AUROC > best single view with 95% group-bootstrap CI of the difference excluding 0 (written before first run; NOT relaxed)",
+  "inputs": {
+    "r2_result_summary.csv": "b98dd231fa663e10e2768ad0cb7c8b33ba993bc809bd6168390ac87120ce3b7b"
+  },
+  "primary_designer_groups": {
+    "acceptance": {
+      "best_single_view_ci_excludes_0.5": true,
+      "fused_beats_best_single_with_ci_excluding_zero": false
+    },
+    "auc_fused_all_views": 0.6098461538461538,
+    "auc_fused_without_length": 0.6154965034965035,
+    "auc_single_view": {
+      "biophysics": 0.5733146853146853,
+      "language_model": 0.679048951048951,
+      "length": 0.506965034965035,
+      "novelty": 0.5052307692307693,
+      "structure_confidence": 0.5392447552447552
+    },
+    "bootstrap_replicates_used": 2000,
+    "group_bootstrap_95_conditional_on_fixed_oof": {
+      "best_single": [
+        0.6047022996666567,
+        0.7619950825574331
+      ],
+      "biophysics": [
+        0.4627421798113723,
+        0.6856784061619614
+      ],
+      "delta_all": [
+        -0.17251343076091785,
+        0.024470152696645733
+      ],
+      "delta_nolen": [
+        -0.16256930378216897,
+        0.01716434936269653
+      ],
+      "fused_all": [
+        0.49367211271810874,
+        0.7303743459253835
+      ],
+      "fused_nolen": [
+        0.5057001106343386,
+        0.7299846250767565
+      ],
+      "language_model": [
+        0.593836407765691,
+        0.7594470409621339
+      ],
+      "length": [
+        0.3243645066726749,
+        0.7021642083064497
+      ],
+      "novelty": [
+        0.3892897502309127,
+        0.631598107429337
+      ],
+      "structure_confidence": [
+        0.41886490014650096,
+        0.667225380614086
+      ]
+    },
+    "group_col": "username",
+    "n": 380,
+    "n_groups": 111,
+    "n_positive": 55,
+    "refit_permutation": {
+      "B": 200,
+      "best_view_auc_observed": 0.679048951048951,
+      "note": "descriptive; designs treated exchangeable; best-of-5 views",
+      "null_95th_pct": 0.5951146853146851,
+      "null_max": 0.6267692307692307,
+      "null_mean": 0.523203916083916
+    }
+  },
+  "sens_end_to_end_unknown_as_failure": {
+    "auc_fused_all_views": 0.5446685878962536,
+    "auc_fused_without_length": 0.5713125491223474,
+    "auc_single_view": {
+      "biophysics": 0.5973277443018077,
+      "language_model": 0.6441708147760021,
+      "length": 0.45043227665706054,
+      "novelty": 0.45577678805344507,
+      "structure_confidence": 0.5168980875032749
+    },
+    "group_col": "username",
+    "n": 402,
+    "n_groups": 112,
+    "n_positive": 55
+  },
+  "sens_sequence_cluster_groups": {
+    "acceptance": {
+      "best_single_view_ci_excludes_0.5": true,
+      "fused_beats_best_single_with_ci_excluding_zero": false
+    },
+    "auc_fused_all_views": 0.6965874125874126,
+    "auc_fused_without_length": 0.7017342657342658,
+    "auc_single_view": {
+      "biophysics": 0.6632167832167832,
+      "language_model": 0.7033286713286713,
+      "length": 0.5239160839160839,
+      "novelty": 0.6006713286713287,
+      "structure_confidence": 0.5678321678321678
+    },
+    "bootstrap_replicates_used": 2000,
+    "group_bootstrap_95_conditional_on_fixed_oof": {
+      "best_single": [
+        0.6265409881717042,
+        0.795203345407427
+      ],
+      "biophysics": [
+        0.5649162585292737,
+        0.7532288030351714
+      ],
+      "delta_all": [
+        -0.08191379553226433,
+        0.043884530111649576
+      ],
+      "delta_nolen": [
+        -0.07258311838773006,
+        0.044362978115088846
+      ],
+      "fused_all": [
+        0.5937945742385937,
+        0.7882359903049152
+      ],
+      "fused_nolen": [
+        0.5881021778079167,
+        0.7990463579499596
+      ],
+      "language_model": [
+        0.605721881870663,
+        0.7938637573932013
+      ],
+      "length": [
+        0.36294920174642625,
+        0.6750262333985073
+      ],
+      "novelty": [
+        0.4872142383286349,
+        0.7038542071084651
+      ],
+      "structure_confidence": [
+        0.4837453723264657,
+        0.653620636474304
+      ]
+    },
+    "group_col": "seqcluster",
+    "n": 380,
+    "n_groups": 297,
+    "n_positive": 55
+  },
+  "sequence_duplicates": {
+    "largest_cluster": 10,
+    "n_exact_duplicate_sequences": 0,
+    "n_seq_clusters_5mer_jaccard_0.5": 297
+  },
+  "stratified_by_length_class": {
+    "length<150 (mini-binder-like)": {
+      "n": 307,
+      "n_binders": 36,
+      "raw_auc_esm_pll_per_res": 0.7401599015990159,
+      "raw_auc_iptm": 0.7140733907339073
+    },
+    "length>=150 (antibody/scFv-like)": {
+      "n": 73,
+      "n_binders": 19,
+      "raw_auc_esm_pll_per_res": 0.6871345029239766,
+      "raw_auc_iptm": 0.6301169590643275
+    }
+  },
+  "views": {
+    "biophysics": [
+      "gravy",
+      "net_charge_per_res",
+      "frac_aromatic",
+      "frac_gly_pro",
+      "frac_cys"
+    ],
+    "language_model": [
+      "esm_pll_per_res"
+    ],
+    "length": [
+      "num_residues"
+    ],
+    "novelty": [
+      "similarity_check"
+    ],
+    "structure_confidence": [
+      "pae_interaction",
+      "iptm",
+      "plddt"
+    ]
+  }
+}
