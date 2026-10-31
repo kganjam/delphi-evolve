@@ -24,4 +24,4 @@ All frames are screen recordings of the real static site (`site/index.html`, ser
 
 
 ---
-*Rendered 2026-10-31 00:19:59 PDT by `python -m evolve.evidence docs` from: delphi, evsite, landscape, nano, route. Edit `docs/video-storyboard.template.md`, not this file.*
+*Rendered 2026-10-31 00:23:04 PDT by `python -m evolve.evidence docs` from: delphi, evsite, experience, landscape, nano, route. Edit `docs/video-storyboard.template.md`, not this file.*

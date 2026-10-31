@@ -1,14 +1,14 @@
 {
-  "validated_utc": "2026-10-31T07:15:26Z",
+  "validated_utc": "2026-10-31T07:22:21Z",
   "reports": [
     {
       "file": "operational-hypothesis-v1.trig",
       "rdflib": "7.6.0",
       "graphs": {
+        "http://purl.org/nanopub/temp/delphi-evolve/operational-hypothesis-v1/provenance": 19,
         "http://purl.org/nanopub/temp/delphi-evolve/operational-hypothesis-v1/pubinfo": 5,
-        "http://purl.org/nanopub/temp/delphi-evolve/operational-hypothesis-v1/Head": 4,
         "http://purl.org/nanopub/temp/delphi-evolve/operational-hypothesis-v1/assertion": 8,
-        "http://purl.org/nanopub/temp/delphi-evolve/operational-hypothesis-v1/provenance": 19
+        "http://purl.org/nanopub/temp/delphi-evolve/operational-hypothesis-v1/Head": 4
       },
       "triples": 36,
       "valid": true,
@@ -18,10 +18,10 @@
       "file": "observed-landscape-counts-v1.trig",
       "rdflib": "7.6.0",
       "graphs": {
-        "http://purl.org/nanopub/temp/delphi-evolve/observed-landscape-counts-v1/Head": 4,
         "http://purl.org/nanopub/temp/delphi-evolve/observed-landscape-counts-v1/provenance": 16,
         "http://purl.org/nanopub/temp/delphi-evolve/observed-landscape-counts-v1/pubinfo": 5,
-        "http://purl.org/nanopub/temp/delphi-evolve/observed-landscape-counts-v1/assertion": 8
+        "http://purl.org/nanopub/temp/delphi-evolve/observed-landscape-counts-v1/assertion": 8,
+        "http://purl.org/nanopub/temp/delphi-evolve/observed-landscape-counts-v1/Head": 4
       },
       "triples": 33,
       "valid": true,

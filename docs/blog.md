@@ -12,11 +12,11 @@ The data are real: Johnston et al. (PNAS 2024) measured bacterial growth for ess
 
 | Item | State | Evidence |
 |---|---|---|
-| Landscape pack from the original CSV, with source SHA-256 | ran | `site/data/landscape.meta.json` (built 2026-10-31 00:13:42 PDT) |
+| Landscape pack from the original CSV, with source SHA-256 | ran | `site/data/landscape.meta.json` (built 2026-10-31 00:22:21 PDT) |
 | Delphi MCP queried live | 20 calls succeeded, 0 failed | `artifacts/evidence/delphi_queries.json`, run 2026-10-31T07:04:23Z |
 | Nanopublication drafts, parsed with rdflib | all valid: yes; unsigned, not published | `artifacts/evidence/nanopubs/` |
 | Descriptive full-data route analysis | ran | `artifacts/evidence/route_summary.json` |
-| Interactive site; browser logic cross-checked against a Python mirror | ran | `tests/test_evidence.py`; experience result: not yet written |
+| Interactive site; browser logic cross-checked against a Python mirror | ran | `tests/test_evidence.py`; experience result: completed |
 | Core worker's audited loader, measured-graph truth, replay protocol | not integrated into this checkout | `tasks/results/core.json` |
 | Lean conditional certificate (proof worker) | not integrated into this checkout | `tasks/results/proof.json` |
 | GPU foundation-model prior (BioNeMo / ESM2) | no result integrated; do not assume it ran | `tasks/results/gpu.json` |
@@ -68,4 +68,4 @@ python -m venv .venv && .venv/bin/pip install pandas numpy rdflib pytest
 
 
 ---
-*Rendered 2026-10-31 00:19:59 PDT by `python -m evolve.evidence docs` from: delphi, evsite, landscape, nano, route. Edit `docs/blog.template.md`, not this file.*
+*Rendered 2026-10-31 00:23:04 PDT by `python -m evolve.evidence docs` from: delphi, evsite, experience, landscape, nano, route. Edit `docs/blog.template.md`, not this file.*

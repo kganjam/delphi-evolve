@@ -455,10 +455,19 @@
     el.innerHTML = h;
   }
 
-  function kvTable(o) {
-    if (o === null || o === undefined) return "<span class='hint'>unknown</span>";
-    if (typeof o !== "object") return esc(o);
-    return `<table class="kv">${Object.entries(o).map(([k, v]) => `<tr><th>${esc(k)}</th><td>${typeof v === "object" && v !== null ? "<pre style='margin:0;white-space:pre-wrap'>" + esc(JSON.stringify(v, null, 1)) + "</pre>" : v === null ? "unknown" : esc(v)}</td></tr>`).join("")}</table>`;
+  const scalar = (v) => v === null || v === undefined ? "<span class='hint'>unknown</span>" : typeof v === "number" ? esc(Number.isInteger(v) ? v : +v.toPrecision(5)) : esc(v);
+  /* Generic, honest renderer for integration JSON: scalars, flat objects and arrays of flat objects become tables; deeper data is shown as JSON. */
+  function kvTable(o, depth) {
+    depth = depth || 0;
+    if (o === null || o === undefined || typeof o !== "object") return scalar(o);
+    if (Array.isArray(o)) {
+      if (o.length && o.every((r) => r && typeof r === "object" && !Array.isArray(r) && Object.values(r).every((v) => v === null || typeof v !== "object")) && o.length <= 60) {
+        const cols = [...new Set(o.flatMap((r) => Object.keys(r)))];
+        return `<div class="tablewrap"><table class="mini"><tr>${cols.map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${o.map((r) => `<tr>${cols.map((c) => `<td>${scalar(r[c])}</td>`).join("")}</tr>`).join("")}</table></div>`;
+      }
+      return `<pre class="json">${esc(JSON.stringify(o, null, 1).slice(0, 4000))}</pre>`;
+    }
+    return `<table class="kv">${Object.entries(o).map(([k, v]) => `<tr><th>${esc(k)}</th><td class="${typeof v === "object" && v !== null ? "t" : ""}">${typeof v === "object" && v !== null ? (depth < 2 ? kvTable(v, depth + 1) : `<pre class="json">${esc(JSON.stringify(v, null, 1).slice(0, 4000))}</pre>`) : scalar(v)}</td></tr>`).join("")}</table>`;
   }
   function renderProof() {
     const el = $("#p-proof"), p = state.demo && state.demo.proof;
@@ -533,7 +542,7 @@
       [!!state.ev, state.ev ? `Delphi MCP queried live ${state.ev.delphi_run_utc.slice(0, 16).replace("T", " ")} UTC` : "Delphi record: not loaded"],
       [!!(state.ev && state.ev.nanopub_drafts.every((x) => x.valid_rdflib)), state.ev ? `${state.ev.nanopub_drafts.length} nanopub drafts · rdflib-valid · unsigned` : "Nanopub drafts: not loaded"],
       [!!state.demo, state.demo ? `demo.json loaded (schema ${esc(state.demo.schema_version ?? "?")})` : "demo.json (core output): not present"],
-      [!!(state.demo && state.demo.proof && state.demo.proof.exit_code === 0 && state.demo.proof.mutation_exit_code > 0), state.demo && state.demo.proof ? `Proof receipt: exit ${state.demo.proof.exit_code ?? "?"}, mutant exit ${state.demo.proof.mutation_exit_code ?? "?"}` : "Lean receipt: none"],
+      [!!(state.demo && state.demo.proof && state.demo.proof.exit_code === 0 && state.demo.proof.mutation_exit_code > 0), state.demo && state.demo.proof && state.demo.proof.exit_code != null ? `Proof receipt: exit ${state.demo.proof.exit_code ?? "?"}, mutant exit ${state.demo.proof.mutation_exit_code ?? "?"}` : "Lean receipt: none"],
       [!!(state.demo && state.demo.benchmark && state.demo.benchmark.metrics), state.demo && state.demo.benchmark ? `Replay: ${esc(state.demo.benchmark.status ?? "status unknown")}` : "Replay benchmark: none"],
       [!!(state.demo && state.demo.compute && state.demo.compute.job_id), state.demo && state.demo.compute && state.demo.compute.job_id ? `GPU job ${esc(state.demo.compute.job_id)}` : "GPU run: none recorded"],
     ];
