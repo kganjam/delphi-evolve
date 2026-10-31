@@ -1,0 +1,546 @@
+{
+ "key_sha256": "28645a12f2f4c77fc1acedb10b23b4070832eefa381b88ca65a12b9e4ecdaa2f",
+ "caveat": "arm U: single call per item, no tools; agreement with the key is item-level (items within a family are not independent; effective n = 8 families); not blinded to nothing - the models saw only the prompt; scored by the key's author",
+ "claude": {
+  "served_model": "claude-sonnet-5-5",
+  "family_verified": true,
+  "tokens_total": 206230,
+  "overall": {
+   "N": 127,
+   "answered": 127,
+   "agree": 121,
+   "agree_over_N_cp95": [
+    0.952755905511811,
+    [
+     0.9,
+     0.982
+    ]
+   ],
+   "selective_risk": 0.047
+  },
+  "heldout": {
+   "N": 90,
+   "answered": 90,
+   "agree": 84,
+   "agree_over_N_cp95": [
+    0.9333333333333333,
+    [
+     0.861,
+     0.975
+    ]
+   ],
+   "selective_risk": 0.067
+  },
+  "dev": {
+   "N": 37,
+   "answered": 37,
+   "agree": 37,
+   "agree_over_N_cp95": [
+    1.0,
+    [
+     0.905,
+     1.0
+    ]
+   ],
+   "selective_risk": 0.0
+  },
+  "by_family": {
+   "fisher_kpp_speed": {
+    "N": 16,
+    "answered": 16,
+    "agree": 15,
+    "agree_over_N_cp95": [
+     0.9375,
+     [
+      0.698,
+      0.998
+     ]
+    ],
+    "selective_risk": 0.062
+   },
+   "greenhill_buckling": {
+    "N": 13,
+    "answered": 13,
+    "agree": 12,
+    "agree_over_N_cp95": [
+     0.9230769230769231,
+     [
+      0.64,
+      0.998
+     ]
+    ],
+    "selective_risk": 0.077
+   },
+   "hamilton_rule_form": {
+    "N": 16,
+    "answered": 16,
+    "agree": 16,
+    "agree_over_N_cp95": [
+     1.0,
+     [
+      0.794,
+      1.0
+     ]
+    ],
+    "selective_risk": 0.0
+   },
+   "hawk_dove_ess": {
+    "N": 16,
+    "answered": 16,
+    "agree": 16,
+    "agree_over_N_cp95": [
+     1.0,
+     [
+      0.794,
+      1.0
+     ]
+    ],
+    "selective_risk": 0.0
+   },
+   "kimura_regime": {
+    "N": 16,
+    "answered": 16,
+    "agree": 14,
+    "agree_over_N_cp95": [
+     0.875,
+     [
+      0.617,
+      0.984
+     ]
+    ],
+    "selective_risk": 0.125
+   },
+   "turing_2d_rectangle": {
+    "N": 15,
+    "answered": 15,
+    "agree": 14,
+    "agree_over_N_cp95": [
+     0.9333333333333333,
+     [
+      0.681,
+      0.998
+     ]
+    ],
+    "selective_risk": 0.067
+   },
+   "turing_finite_domain": {
+    "N": 21,
+    "answered": 21,
+    "agree": 21,
+    "agree_over_N_cp95": [
+     1.0,
+     [
+      0.839,
+      1.0
+     ]
+    ],
+    "selective_risk": 0.0
+   },
+   "wavelength_formula_licence": {
+    "N": 14,
+    "answered": 14,
+    "agree": 13,
+    "agree_over_N_cp95": [
+     0.9285714285714286,
+     [
+      0.661,
+      0.998
+     ]
+    ],
+    "selective_risk": 0.071
+   }
+  },
+  "by_gold": {
+   "applies": {
+    "N": 62,
+    "answered": 62,
+    "agree": 57,
+    "agree_over_N_cp95": [
+     0.9193548387096774,
+     [
+      0.822,
+      0.973
+     ]
+    ],
+    "selective_risk": 0.081
+   },
+   "out_of_scope": {
+    "N": 51,
+    "answered": 51,
+    "agree": 50,
+    "agree_over_N_cp95": [
+     0.9803921568627451,
+     [
+      0.896,
+      1.0
+     ]
+    ],
+    "selective_risk": 0.02
+   },
+   "underdetermined": {
+    "N": 14,
+    "answered": 14,
+    "agree": 14,
+    "agree_over_N_cp95": [
+     1.0,
+     [
+      0.768,
+      1.0
+     ]
+    ],
+    "selective_risk": 0.0
+   }
+  },
+  "confusion_gold_x_pred": {
+   "underdetermined|underdetermined": 14,
+   "applies|applies": 57,
+   "out_of_scope|out_of_scope": 50,
+   "out_of_scope|underdetermined": 1,
+   "applies|out_of_scope": 4,
+   "applies|underdetermined": 1
+  },
+  "disagreements": [
+   {
+    "id": "q76e41417",
+    "family": "wavelength_formula_licence",
+    "gold": "out_of_scope",
+    "pred": "underdetermined"
+   },
+   {
+    "id": "q152932ba",
+    "family": "kimura_regime",
+    "gold": "applies",
+    "pred": "out_of_scope"
+   },
+   {
+    "id": "q4883736e",
+    "family": "greenhill_buckling",
+    "gold": "applies",
+    "pred": "underdetermined"
+   },
+   {
+    "id": "q3bdeb1eb",
+    "family": "kimura_regime",
+    "gold": "applies",
+    "pred": "out_of_scope"
+   },
+   {
+    "id": "q3831c7fa",
+    "family": "turing_2d_rectangle",
+    "gold": "applies",
+    "pred": "out_of_scope"
+   },
+   {
+    "id": "qac38a27f",
+    "family": "fisher_kpp_speed",
+    "gold": "applies",
+    "pred": "out_of_scope"
+   }
+  ]
+ },
+ "gemini": {
+  "served_model": "gemini-3.8-flash",
+  "family_verified": true,
+  "tokens_total": 180433,
+  "overall": {
+   "N": 127,
+   "answered": 127,
+   "agree": 110,
+   "agree_over_N_cp95": [
+    0.8661417322834646,
+    [
+     0.794,
+     0.92
+    ]
+   ],
+   "selective_risk": 0.134
+  },
+  "heldout": {
+   "N": 90,
+   "answered": 90,
+   "agree": 73,
+   "agree_over_N_cp95": [
+    0.8111111111111111,
+    [
+     0.715,
+     0.886
+    ]
+   ],
+   "selective_risk": 0.189
+  },
+  "dev": {
+   "N": 37,
+   "answered": 37,
+   "agree": 37,
+   "agree_over_N_cp95": [
+    1.0,
+    [
+     0.905,
+     1.0
+    ]
+   ],
+   "selective_risk": 0.0
+  },
+  "by_family": {
+   "fisher_kpp_speed": {
+    "N": 16,
+    "answered": 16,
+    "agree": 16,
+    "agree_over_N_cp95": [
+     1.0,
+     [
+      0.794,
+      1.0
+     ]
+    ],
+    "selective_risk": 0.0
+   },
+   "greenhill_buckling": {
+    "N": 13,
+    "answered": 13,
+    "agree": 7,
+    "agree_over_N_cp95": [
+     0.5384615384615384,
+     [
+      0.251,
+      0.808
+     ]
+    ],
+    "selective_risk": 0.462
+   },
+   "hamilton_rule_form": {
+    "N": 16,
+    "answered": 16,
+    "agree": 16,
+    "agree_over_N_cp95": [
+     1.0,
+     [
+      0.794,
+      1.0
+     ]
+    ],
+    "selective_risk": 0.0
+   },
+   "hawk_dove_ess": {
+    "N": 16,
+    "answered": 16,
+    "agree": 16,
+    "agree_over_N_cp95": [
+     1.0,
+     [
+      0.794,
+      1.0
+     ]
+    ],
+    "selective_risk": 0.0
+   },
+   "kimura_regime": {
+    "N": 16,
+    "answered": 16,
+    "agree": 15,
+    "agree_over_N_cp95": [
+     0.9375,
+     [
+      0.698,
+      0.998
+     ]
+    ],
+    "selective_risk": 0.062
+   },
+   "turing_2d_rectangle": {
+    "N": 15,
+    "answered": 15,
+    "agree": 12,
+    "agree_over_N_cp95": [
+     0.8,
+     [
+      0.519,
+      0.957
+     ]
+    ],
+    "selective_risk": 0.2
+   },
+   "turing_finite_domain": {
+    "N": 21,
+    "answered": 21,
+    "agree": 21,
+    "agree_over_N_cp95": [
+     1.0,
+     [
+      0.839,
+      1.0
+     ]
+    ],
+    "selective_risk": 0.0
+   },
+   "wavelength_formula_licence": {
+    "N": 14,
+    "answered": 14,
+    "agree": 7,
+    "agree_over_N_cp95": [
+     0.5,
+     [
+      0.23,
+      0.77
+     ]
+    ],
+    "selective_risk": 0.5
+   }
+  },
+  "by_gold": {
+   "applies": {
+    "N": 62,
+    "answered": 62,
+    "agree": 51,
+    "agree_over_N_cp95": [
+     0.8225806451612904,
+     [
+      0.705,
+      0.908
+     ]
+    ],
+    "selective_risk": 0.177
+   },
+   "out_of_scope": {
+    "N": 51,
+    "answered": 51,
+    "agree": 45,
+    "agree_over_N_cp95": [
+     0.8823529411764706,
+     [
+      0.761,
+      0.956
+     ]
+    ],
+    "selective_risk": 0.118
+   },
+   "underdetermined": {
+    "N": 14,
+    "answered": 14,
+    "agree": 14,
+    "agree_over_N_cp95": [
+     1.0,
+     [
+      0.768,
+      1.0
+     ]
+    ],
+    "selective_risk": 0.0
+   }
+  },
+  "confusion_gold_x_pred": {
+   "underdetermined|underdetermined": 14,
+   "applies|applies": 51,
+   "out_of_scope|out_of_scope": 45,
+   "out_of_scope|applies": 1,
+   "applies|underdetermined": 9,
+   "applies|out_of_scope": 2,
+   "out_of_scope|underdetermined": 5
+  },
+  "disagreements": [
+   {
+    "id": "qc600c322",
+    "family": "greenhill_buckling",
+    "gold": "out_of_scope",
+    "pred": "applies"
+   },
+   {
+    "id": "qa20f8997",
+    "family": "turing_2d_rectangle",
+    "gold": "applies",
+    "pred": "underdetermined"
+   },
+   {
+    "id": "qa0021105",
+    "family": "greenhill_buckling",
+    "gold": "applies",
+    "pred": "underdetermined"
+   },
+   {
+    "id": "q67e0c178",
+    "family": "wavelength_formula_licence",
+    "gold": "applies",
+    "pred": "underdetermined"
+   },
+   {
+    "id": "q00b4e7db",
+    "family": "greenhill_buckling",
+    "gold": "applies",
+    "pred": "out_of_scope"
+   },
+   {
+    "id": "q5b57638f",
+    "family": "turing_2d_rectangle",
+    "gold": "out_of_scope",
+    "pred": "underdetermined"
+   },
+   {
+    "id": "q76e41417",
+    "family": "wavelength_formula_licence",
+    "gold": "out_of_scope",
+    "pred": "underdetermined"
+   },
+   {
+    "id": "q9920d68c",
+    "family": "wavelength_formula_licence",
+    "gold": "out_of_scope",
+    "pred": "underdetermined"
+   },
+   {
+    "id": "qf88e65a0",
+    "family": "wavelength_formula_licence",
+    "gold": "out_of_scope",
+    "pred": "underdetermined"
+   },
+   {
+    "id": "q152932ba",
+    "family": "kimura_regime",
+    "gold": "applies",
+    "pred": "out_of_scope"
+   },
+   {
+    "id": "q84df581b",
+    "family": "wavelength_formula_licence",
+    "gold": "out_of_scope",
+    "pred": "underdetermined"
+   },
+   {
+    "id": "q40aff276",
+    "family": "wavelength_formula_licence",
+    "gold": "applies",
+    "pred": "underdetermined"
+   },
+   {
+    "id": "q4883736e",
+    "family": "greenhill_buckling",
+    "gold": "applies",
+    "pred": "underdetermined"
+   },
+   {
+    "id": "q2a7d8a44",
+    "family": "turing_2d_rectangle",
+    "gold": "applies",
+    "pred": "underdetermined"
+   },
+   {
+    "id": "qda5686b7",
+    "family": "greenhill_buckling",
+    "gold": "applies",
+    "pred": "underdetermined"
+   },
+   {
+    "id": "q78684eca",
+    "family": "wavelength_formula_licence",
+    "gold": "applies",
+    "pred": "underdetermined"
+   },
+   {
+    "id": "q7e935be4",
+    "family": "greenhill_buckling",
+    "gold": "applies",
+    "pred": "underdetermined"
+   }
+  ]
+ },
+ "models_disagree_with_each_other": 17
+}
