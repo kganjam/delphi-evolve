@@ -1,0 +1,238 @@
+{
+ "lean_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+ "targets_sha256": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce",
+ "defs_sha256": "0201bbe3a2c022a5ab647b43e9804355a34c6795ba8a78836c9938a88e50ef30",
+ "n_targets": 19,
+ "all_reference_compile": true,
+ "all_mutants_rejected": true,
+ "rows": [
+  {
+   "id": "T01",
+   "family": "turing",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 0.45
+  },
+  {
+   "id": "T02",
+   "family": "turing",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 0.52
+  },
+  {
+   "id": "Q01",
+   "family": "generic",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 0.61
+  },
+  {
+   "id": "T03",
+   "family": "turing",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 0.66
+  },
+  {
+   "id": "T04",
+   "family": "turing",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 0.69
+  },
+  {
+   "id": "T05",
+   "family": "turing",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 0.81
+  },
+  {
+   "id": "T06",
+   "family": "turing",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 0.8
+  },
+  {
+   "id": "T07",
+   "family": "turing",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 0.94
+  },
+  {
+   "id": "T08",
+   "family": "turing",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 1.01
+  },
+  {
+   "id": "H01",
+   "family": "hamilton",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 1.48
+  },
+  {
+   "id": "H02",
+   "family": "hamilton",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 1.12
+  },
+  {
+   "id": "H03",
+   "family": "hamilton",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 0.94
+  },
+  {
+   "id": "H04",
+   "family": "hamilton",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 1.4
+  },
+  {
+   "id": "D01",
+   "family": "hawkdove",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 2.06
+  },
+  {
+   "id": "D02",
+   "family": "hawkdove",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 2.83
+  },
+  {
+   "id": "T09",
+   "family": "turing",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 1.54
+  },
+  {
+   "id": "T10",
+   "family": "turing",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 1.34
+  },
+  {
+   "id": "T11",
+   "family": "turing",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 1.39
+  },
+  {
+   "id": "T12",
+   "family": "turing",
+   "reference_compiles": true,
+   "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "mutant_rejected": true,
+   "reference_seconds": 1.56
+  }
+ ]
+}

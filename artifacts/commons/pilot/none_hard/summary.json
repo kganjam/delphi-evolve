@@ -1,0 +1,49 @@
+{
+ "run_id": "pilot2",
+ "arm": "none",
+ "family": "claude",
+ "model_requested": "sonnet",
+ "agents": 3,
+ "budget_tokens": 90000,
+ "tokens_spent": 20643,
+ "n_targets": 4,
+ "n_proved": 4,
+ "proved": [
+  {
+   "task": "Q01",
+   "t_s": 12.8,
+   "tokens_cum": 3458,
+   "tries": 1,
+   "agent": "none-a0",
+   "used_commons": []
+  },
+  {
+   "task": "T04",
+   "t_s": 16.1,
+   "tokens_cum": 7098,
+   "tries": 1,
+   "agent": "none-a1",
+   "used_commons": []
+  },
+  {
+   "task": "T08",
+   "t_s": 26.9,
+   "tokens_cum": 15647,
+   "tries": 1,
+   "agent": "none-a0",
+   "used_commons": []
+  },
+  {
+   "task": "T07",
+   "t_s": 35.7,
+   "tokens_cum": 20643,
+   "tries": 2,
+   "agent": "none-a2",
+   "used_commons": []
+  }
+ ],
+ "failed_tasks": [],
+ "wall_s": 39.0,
+ "contract_sha256": "f788e88ed2a20030d4686c79721b51b1c16aee8cf5b8e9b4d3969c7ce3548272",
+ "targets_sha256": "7b9597e18d72b2830e07065317c2b80733b7d76792d2377496a259a8c661fdd9"
+}

@@ -1,0 +1,462 @@
+{
+ "runs": [
+  {
+   "run": "N_r0",
+   "arm": "N",
+   "n_proved": 19,
+   "n_targets": 19,
+   "calls_used": 24,
+   "tokens": 85998,
+   "wall_s": 117.7,
+   "first_try_success": "15/19",
+   "reuse": {
+    "certified_with_library_lemma": 0,
+    "cross_agent_uses": 0,
+    "total_lemma_uses": 0
+   },
+   "failed": [],
+   "accounts": [
+    "max_allen",
+    "max_gmail",
+    "max_outlook",
+    "max_outlook1"
+   ],
+   "families": [
+    "claude"
+   ],
+   "all_family_verified": true
+  },
+  {
+   "run": "N_r1",
+   "arm": "N",
+   "n_proved": 19,
+   "n_targets": 19,
+   "calls_used": 21,
+   "tokens": 71349,
+   "wall_s": 92.9,
+   "first_try_success": "17/19",
+   "reuse": {
+    "certified_with_library_lemma": 0,
+    "cross_agent_uses": 0,
+    "total_lemma_uses": 0
+   },
+   "failed": [],
+   "accounts": [
+    "max_allen",
+    "max_gmail",
+    "max_outlook",
+    "max_outlook1"
+   ],
+   "families": [
+    "claude"
+   ],
+   "all_family_verified": true
+  },
+  {
+   "run": "N_r2",
+   "arm": "N",
+   "n_proved": 19,
+   "n_targets": 19,
+   "calls_used": 21,
+   "tokens": 72122,
+   "wall_s": 93.5,
+   "first_try_success": "17/19",
+   "reuse": {
+    "certified_with_library_lemma": 0,
+    "cross_agent_uses": 0,
+    "total_lemma_uses": 0
+   },
+   "failed": [],
+   "accounts": [
+    "max_allen",
+    "max_gmail",
+    "max_outlook",
+    "max_outlook1"
+   ],
+   "families": [
+    "claude"
+   ],
+   "all_family_verified": true
+  },
+  {
+   "run": "P_r0",
+   "arm": "P",
+   "n_proved": 19,
+   "n_targets": 19,
+   "calls_used": 22,
+   "tokens": 79678,
+   "wall_s": 77.1,
+   "first_try_success": "16/19",
+   "reuse": {
+    "certified_with_library_lemma": 9,
+    "cross_agent_uses": 0,
+    "total_lemma_uses": 9
+   },
+   "failed": [],
+   "accounts": [
+    "max_allen",
+    "max_gmail",
+    "max_outlook",
+    "max_outlook1"
+   ],
+   "families": [
+    "claude"
+   ],
+   "all_family_verified": true
+  },
+  {
+   "run": "P_r1",
+   "arm": "P",
+   "n_proved": 19,
+   "n_targets": 19,
+   "calls_used": 22,
+   "tokens": 82133,
+   "wall_s": 95.8,
+   "first_try_success": "16/19",
+   "reuse": {
+    "certified_with_library_lemma": 7,
+    "cross_agent_uses": 0,
+    "total_lemma_uses": 7
+   },
+   "failed": [],
+   "accounts": [
+    "max_allen",
+    "max_gmail",
+    "max_outlook",
+    "max_outlook1"
+   ],
+   "families": [
+    "claude"
+   ],
+   "all_family_verified": true
+  },
+  {
+   "run": "P_r2",
+   "arm": "P",
+   "n_proved": 19,
+   "n_targets": 19,
+   "calls_used": 22,
+   "tokens": 80149,
+   "wall_s": 115.3,
+   "first_try_success": "16/19",
+   "reuse": {
+    "certified_with_library_lemma": 8,
+    "cross_agent_uses": 0,
+    "total_lemma_uses": 9
+   },
+   "failed": [],
+   "accounts": [
+    "max_allen",
+    "max_gmail",
+    "max_outlook",
+    "max_outlook1"
+   ],
+   "families": [
+    "claude"
+   ],
+   "all_family_verified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "Q",
+   "n_proved": 19,
+   "n_targets": 19,
+   "calls_used": 19,
+   "tokens": 71861,
+   "wall_s": 141.5,
+   "first_try_success": "19/19",
+   "reuse": {
+    "certified_with_library_lemma": 11,
+    "cross_agent_uses": 0,
+    "total_lemma_uses": 14
+   },
+   "failed": [],
+   "accounts": [
+    "max_allen",
+    "max_gmail",
+    "max_outlook",
+    "max_outlook1"
+   ],
+   "families": [
+    "claude"
+   ],
+   "all_family_verified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "Q",
+   "n_proved": 19,
+   "n_targets": 19,
+   "calls_used": 21,
+   "tokens": 81411,
+   "wall_s": 220.1,
+   "first_try_success": "17/19",
+   "reuse": {
+    "certified_with_library_lemma": 11,
+    "cross_agent_uses": 0,
+    "total_lemma_uses": 14
+   },
+   "failed": [],
+   "accounts": [
+    "max_allen",
+    "max_gmail",
+    "max_outlook",
+    "max_outlook1"
+   ],
+   "families": [
+    "claude"
+   ],
+   "all_family_verified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "Q",
+   "n_proved": 19,
+   "n_targets": 19,
+   "calls_used": 20,
+   "tokens": 78108,
+   "wall_s": 187.7,
+   "first_try_success": "18/19",
+   "reuse": {
+    "certified_with_library_lemma": 11,
+    "cross_agent_uses": 0,
+    "total_lemma_uses": 14
+   },
+   "failed": [],
+   "accounts": [
+    "max_allen",
+    "max_gmail",
+    "max_outlook",
+    "max_outlook1"
+   ],
+   "families": [
+    "claude"
+   ],
+   "all_family_verified": true
+  },
+  {
+   "run": "S_r0",
+   "arm": "S",
+   "n_proved": 19,
+   "n_targets": 19,
+   "calls_used": 21,
+   "tokens": 75858,
+   "wall_s": 58.6,
+   "first_try_success": "17/19",
+   "reuse": {
+    "certified_with_library_lemma": 10,
+    "cross_agent_uses": 8,
+    "total_lemma_uses": 13
+   },
+   "failed": [],
+   "accounts": [
+    "max_allen",
+    "max_gmail",
+    "max_outlook",
+    "max_outlook1"
+   ],
+   "families": [
+    "claude"
+   ],
+   "all_family_verified": true
+  },
+  {
+   "run": "S_r1",
+   "arm": "S",
+   "n_proved": 19,
+   "n_targets": 19,
+   "calls_used": 22,
+   "tokens": 84090,
+   "wall_s": 71.9,
+   "first_try_success": "16/19",
+   "reuse": {
+    "certified_with_library_lemma": 10,
+    "cross_agent_uses": 7,
+    "total_lemma_uses": 13
+   },
+   "failed": [],
+   "accounts": [
+    "max_allen",
+    "max_gmail",
+    "max_outlook",
+    "max_outlook1"
+   ],
+   "families": [
+    "claude"
+   ],
+   "all_family_verified": true
+  },
+  {
+   "run": "S_r2",
+   "arm": "S",
+   "n_proved": 19,
+   "n_targets": 19,
+   "calls_used": 21,
+   "tokens": 79784,
+   "wall_s": 93.2,
+   "first_try_success": "17/19",
+   "reuse": {
+    "certified_with_library_lemma": 11,
+    "cross_agent_uses": 6,
+    "total_lemma_uses": 14
+   },
+   "failed": [],
+   "accounts": [
+    "max_allen",
+    "max_gmail",
+    "max_outlook",
+    "max_outlook1"
+   ],
+   "families": [
+    "claude"
+   ],
+   "all_family_verified": true
+  }
+ ],
+ "by_arm": {
+  "N": {
+   "runs": 3,
+   "n_proved": [
+    19,
+    19,
+    19
+   ],
+   "calls_used": [
+    24,
+    21,
+    21
+   ],
+   "tokens": [
+    85998,
+    71349,
+    72122
+   ],
+   "wall_s": [
+    117.7,
+    92.9,
+    93.5
+   ],
+   "median_calls": 21,
+   "median_tokens": 72122,
+   "median_wall_s": 93.5,
+   "lemma_uses": [
+    0,
+    0,
+    0
+   ],
+   "cross_agent_uses": [
+    0,
+    0,
+    0
+   ]
+  },
+  "P": {
+   "runs": 3,
+   "n_proved": [
+    19,
+    19,
+    19
+   ],
+   "calls_used": [
+    22,
+    22,
+    22
+   ],
+   "tokens": [
+    79678,
+    82133,
+    80149
+   ],
+   "wall_s": [
+    77.1,
+    95.8,
+    115.3
+   ],
+   "median_calls": 22,
+   "median_tokens": 80149,
+   "median_wall_s": 95.8,
+   "lemma_uses": [
+    9,
+    7,
+    9
+   ],
+   "cross_agent_uses": [
+    0,
+    0,
+    0
+   ]
+  },
+  "Q": {
+   "runs": 3,
+   "n_proved": [
+    19,
+    19,
+    19
+   ],
+   "calls_used": [
+    19,
+    21,
+    20
+   ],
+   "tokens": [
+    71861,
+    81411,
+    78108
+   ],
+   "wall_s": [
+    141.5,
+    220.1,
+    187.7
+   ],
+   "median_calls": 20,
+   "median_tokens": 78108,
+   "median_wall_s": 187.7,
+   "lemma_uses": [
+    14,
+    14,
+    14
+   ],
+   "cross_agent_uses": [
+    0,
+    0,
+    0
+   ]
+  },
+  "S": {
+   "runs": 3,
+   "n_proved": [
+    19,
+    19,
+    19
+   ],
+   "calls_used": [
+    21,
+    22,
+    21
+   ],
+   "tokens": [
+    75858,
+    84090,
+    79784
+   ],
+   "wall_s": [
+    58.6,
+    71.9,
+    93.2
+   ],
+   "median_calls": 21,
+   "median_tokens": 79784,
+   "median_wall_s": 71.9,
+   "lemma_uses": [
+    13,
+    13,
+    14
+   ],
+   "cross_agent_uses": [
+    8,
+    7,
+    6
+   ]
+  }
+ }
+}

@@ -1,0 +1,154 @@
+[
+ {
+  "id": "T01",
+  "name": "dispersion_trace",
+  "family": "turing",
+  "statement": "∀ (m : Scope.Model) (N M : Int), m.modeTr N M = m.trJ * M - (m.Du + m.Dv) * N",
+  "mutant": "∀ (m : Scope.Model) (N M : Int), m.modeTr N M = m.trJ * M - (m.Du - m.Dv) * N",
+  "note": ""
+ },
+ {
+  "id": "T02",
+  "name": "dispersion_det",
+  "family": "turing",
+  "statement": "∀ (m : Scope.Model) (N M : Int), m.modeDet N M = m.Du * m.Dv * N ^ 2 - m.S * N * M + m.detJ * M ^ 2",
+  "mutant": "∀ (m : Scope.Model) (N M : Int), m.modeDet N M = m.Du * m.Dv * N ^ 2 + m.S * N * M + m.detJ * M ^ 2",
+  "note": ""
+ },
+ {
+  "id": "Q01",
+  "name": "quadratic_nonneg_of_disc",
+  "family": "generic",
+  "statement": "∀ (a b c x : Int), 0 < a → b ^ 2 ≤ 4 * a * c → 0 ≤ a * x ^ 2 + b * x + c",
+  "mutant": "∀ (a b c x : Int), 0 < a → b ^ 2 ≤ 4 * a * c + 4 → 0 ≤ a * x ^ 2 + b * x + c",
+  "note": "first mutant (+1) was TRUE over Z (integrality) and was replaced by +4 before freeze"
+ },
+ {
+  "id": "T03",
+  "name": "mode_trace_negative",
+  "family": "turing",
+  "statement": "∀ (m : Scope.Model) (N M : Int), m.trJ < 0 → 0 < m.Du → 0 < m.Dv → 0 < M → 0 ≤ N → m.modeTr N M < 0",
+  "mutant": "∀ (m : Scope.Model) (N M : Int), m.trJ < 0 → 0 < m.Du → 0 < m.Dv → 0 < M → 0 ≤ N → 0 < m.modeTr N M",
+  "note": ""
+ },
+ {
+  "id": "T04",
+  "name": "instability_needs_S_positive",
+  "family": "turing",
+  "statement": "∀ (m : Scope.Model) (N M : Int), 0 < m.detJ → 0 < m.Du → 0 < m.Dv → 0 < M → 0 ≤ N → m.modeDet N M < 0 → 0 < m.S",
+  "mutant": "∀ (m : Scope.Model) (N M : Int), 0 < m.detJ → 0 < m.Du → 0 < m.Dv → 0 < M → 0 ≤ N → m.modeDet N M < 0 → m.S < 0",
+  "note": ""
+ },
+ {
+  "id": "T05",
+  "name": "det_positive_beyond_cutoff",
+  "family": "turing",
+  "statement": "∀ (m : Scope.Model) (N M : Int), 0 < m.detJ → 0 < M → 0 ≤ N → m.S * M ≤ m.Du * m.Dv * N → 0 ≤ m.Du * m.Dv → 0 < m.modeDet N M",
+  "mutant": "∀ (m : Scope.Model) (N M : Int), 0 < m.detJ → 0 < M → 0 ≤ N → m.S * M ≤ m.Du * m.Dv * N + 1 → 0 ≤ m.Du * m.Dv → 0 < m.modeDet N M",
+  "note": ""
+ },
+ {
+  "id": "T06",
+  "name": "instability_below_cutoff",
+  "family": "turing",
+  "statement": "∀ (m : Scope.Model) (N M : Int), 0 < m.detJ → 0 < M → 0 ≤ N → 0 ≤ m.Du * m.Dv → m.modeDet N M < 0 → m.Du * m.Dv * N < m.S * M",
+  "mutant": "∀ (m : Scope.Model) (N M : Int), 0 < m.detJ → 0 < M → 0 ≤ N → 0 ≤ m.Du * m.Dv → m.modeDet N M < 0 → m.Du * m.Dv * N ≤ m.S * M - M",
+  "note": ""
+ },
+ {
+  "id": "T07",
+  "name": "finite_domain_no_instability",
+  "family": "turing",
+  "statement": "∀ (m : Scope.Model) (p s : Int), 0 < m.detJ → 0 < p → 0 ≤ m.Du * m.Dv → m.S * p ^ 2 ≤ m.Du * m.Dv * s ^ 2 → ∀ n : Nat, 1 ≤ n → 0 ≤ m.modeDet (Scope.modeN s n) (Scope.modeM p)",
+  "mutant": "∀ (m : Scope.Model) (p s : Int), 0 < m.detJ → 0 < p → 0 ≤ m.Du * m.Dv → m.S * p ^ 2 ≤ m.Du * m.Dv * s ^ 2 + p ^ 2 → ∀ n : Nat, 1 ≤ n → 0 ≤ m.modeDet (Scope.modeN s n) (Scope.modeM p)",
+  "note": "algebraic core of the finite-domain exclusion (length (p/s)pi, Neumann)"
+ },
+ {
+  "id": "T08",
+  "name": "no_instability_any_wavenumber",
+  "family": "turing",
+  "statement": "∀ (m : Scope.Model) (N M : Int), 0 < m.Du * m.Dv → m.S ^ 2 ≤ 4 * (m.Du * m.Dv) * m.detJ → 0 ≤ m.modeDet N M",
+  "mutant": "∀ (m : Scope.Model) (N M : Int), 0 < m.Du * m.Dv → m.S ^ 2 ≤ 4 * (m.Du * m.Dv) * m.detJ + 1 → 0 ≤ m.modeDet N M",
+  "note": ""
+ },
+ {
+  "id": "H01",
+  "name": "hamilton_monotone_in_r",
+  "family": "hamilton",
+  "statement": "∀ (r₁ r₂ B C : Int), r₁ ≤ r₂ → 0 ≤ B → Scope.hamGain r₁ B C ≤ Scope.hamGain r₂ B C",
+  "mutant": "∀ (r₁ r₂ B C : Int), r₁ ≤ r₂ → Scope.hamGain r₁ B C ≤ Scope.hamGain r₂ B C",
+  "note": ""
+ },
+ {
+  "id": "H02",
+  "name": "hamilton_rule_iff",
+  "family": "hamilton",
+  "statement": "∀ (r B C : Int), Scope.Favoured r B C ↔ C < r * B",
+  "mutant": "∀ (r B C : Int), Scope.Favoured r B C ↔ C ≤ r * B",
+  "note": ""
+ },
+ {
+  "id": "H03",
+  "name": "hamilton_threshold_persists",
+  "family": "hamilton",
+  "statement": "∀ (r₁ r₂ B C : Int), r₁ ≤ r₂ → 0 ≤ B → Scope.Favoured r₁ B C → Scope.Favoured r₂ B C",
+  "mutant": "∀ (r₁ r₂ B C : Int), r₁ ≤ r₂ → 0 ≤ B → Scope.Favoured r₂ B C → Scope.Favoured r₁ B C",
+  "note": ""
+ },
+ {
+  "id": "H04",
+  "name": "hamilton_cost_monotone",
+  "family": "hamilton",
+  "statement": "∀ (r B C₁ C₂ : Int), C₁ ≤ C₂ → Scope.Favoured r B C₂ → Scope.Favoured r B C₁",
+  "mutant": "∀ (r B C₁ C₂ : Int), C₁ ≤ C₂ → Scope.Favoured r B C₁ → Scope.Favoured r B C₂",
+  "note": ""
+ },
+ {
+  "id": "D01",
+  "name": "dove_not_ess",
+  "family": "hawkdove",
+  "statement": "∀ (V C : Int), 0 < V → Scope.hdDD V C < Scope.hdHD V C",
+  "mutant": "∀ (V C : Int), 0 < V → Scope.hdHD V C < Scope.hdDD V C",
+  "note": ""
+ },
+ {
+  "id": "D02",
+  "name": "hawk_ess_iff_V_gt_C",
+  "family": "hawkdove",
+  "statement": "∀ (V C : Int), 0 < Scope.hdHH V C - Scope.hdDH V C ↔ C < V",
+  "mutant": "∀ (V C : Int), 0 < Scope.hdHH V C - Scope.hdDH V C ↔ C ≤ V",
+  "note": ""
+ },
+ {
+  "id": "T09",
+  "name": "instability_necessary_conditions",
+  "family": "turing",
+  "statement": "∀ (m : Scope.Model) (N M : Int), 0 < m.detJ → 0 < m.Du → 0 < m.Dv → 0 < M → 0 ≤ N → m.modeDet N M < 0 → 0 < m.S ∧ 4 * (m.Du * m.Dv) * m.detJ < m.S ^ 2",
+  "mutant": "∀ (m : Scope.Model) (N M : Int), 0 < m.detJ → 0 < m.Du → 0 < m.Dv → 0 < M → 0 ≤ N → m.modeDet N M < 0 → 0 < m.S ∧ m.S ^ 2 < 4 * (m.Du * m.Dv) * m.detJ",
+  "note": "chain: T04 + T08 (which uses Q01 + T02)"
+ },
+ {
+  "id": "T10",
+  "name": "instability_lower_bound",
+  "family": "turing",
+  "statement": "∀ (m : Scope.Model) (N M : Int), 0 < M → 0 ≤ N → 0 ≤ m.Du * m.Dv → m.modeDet N M < 0 → m.detJ * M < m.S * N",
+  "mutant": "∀ (m : Scope.Model) (N M : Int), 0 < M → 0 ≤ N → 0 ≤ m.Du * m.Dv → m.modeDet N M < 0 → m.detJ * M ≤ m.S * N - N",
+  "note": "uses T02"
+ },
+ {
+  "id": "T11",
+  "name": "finite_domain_instability_needs_long_domain",
+  "family": "turing",
+  "statement": "∀ (m : Scope.Model) (p s : Int), 0 < m.detJ → 0 < p → 0 ≤ m.Du * m.Dv → (∃ n : Nat, 1 ≤ n ∧ m.modeDet (Scope.modeN s n) (Scope.modeM p) < 0) → m.Du * m.Dv * s ^ 2 < m.S * p ^ 2",
+  "mutant": "∀ (m : Scope.Model) (p s : Int), 0 < m.detJ → 0 < p → 0 ≤ m.Du * m.Dv → (∃ n : Nat, 1 ≤ n ∧ m.modeDet (Scope.modeN s n) (Scope.modeM p) < 0) → m.Du * m.Dv * s ^ 2 ≤ m.S * p ^ 2 - p ^ 2",
+  "note": "chain: T07 (which uses T06 + T02)"
+ },
+ {
+  "id": "T12",
+  "name": "hurwitz_beyond_cutoff",
+  "family": "turing",
+  "statement": "∀ (m : Scope.Model) (N M : Int), m.trJ < 0 → 0 < m.detJ → 0 < m.Du → 0 < m.Dv → 0 < M → 0 ≤ N → m.S * M ≤ m.Du * m.Dv * N → Scope.Hurwitz (m.modeTr N M) (m.modeDet N M)",
+  "mutant": "∀ (m : Scope.Model) (N M : Int), m.trJ < 0 → 0 < m.detJ → 0 < m.Du → 0 < m.Dv → 0 < M → 0 ≤ N → m.S * M ≤ m.Du * m.Dv * N → Scope.Hurwitz (m.modeTr N M) (-(m.modeDet N M))",
+  "note": "chain: T03 + T05"
+ }
+]
