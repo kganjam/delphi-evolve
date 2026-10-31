@@ -177,5 +177,48 @@
   "slide_constraint": "claims no universal diffusion threshold; d_c is kinetics-specific",
   "status_update": "CLOSED AS A CLAIM per primary's 2026-10-31 DELPHI-FRAMING-AND-DIFFUSION-VERDICT: known literature (Muller 2012; Kuhn 2022) and an exact Lean counterexample. Retained only as background arithmetic; not a finding; no slide use."
  },
- "framing_note": "Work is a module of Delphi, not a separate entry or brand. PDE sweep remains held with no GPU launched; if it is not preregistered, GPU use ends at zero."
+ "framing_note": "Work is a module of Delphi, not a separate entry or brand. PDE sweep remains held with no GPU launched; if it is not preregistered, GPU use ends at zero.",
+ "robustness_tax_replication_0725pdt": {
+  "source": "messages/2026-10-31-FINDING-robustness-tax.md (primary)",
+  "code": "turing_ratio/robustness_tax_check.py -> artifacts/gpuops/robustness_tax_check.json (3M samples per ensemble, 32 noisy copies, margin 1.2 r*, CPU seconds)",
+  "closed_form": "primary's r*=(sqrt(det J)+sqrt(-bc))^2/a^2 is algebraically identical to my d_c=[(ae-2bc)+2sqrt(bc(bc-ae))]/a^2",
+  "floor": "over 6.0M stable activator-inhibitor samples (two ensembles) min r* = 1.071 and 1.076, zero at or below 1: consistent with 'r*>1 strictly' (the proof is primary's; mine is numerical)",
+  "survival_pct_by_rstar_bin": {
+   "E2_gaussian_sigma10": {
+    "1.5-2": 11.8,
+    "2-3": 24.7,
+    "3-5": 41.5,
+    "5-10": 55.2,
+    "10-30": 64.5,
+    "30+": 73.5
+   },
+   "E2_uniform_pm10": {
+    "1.5-2": 21.6,
+    "2-3": 40.8,
+    "3-5": 58.7,
+    "5-10": 70.0,
+    "10-30": 77.8,
+    "30+": 85.7
+   },
+   "E1_gaussian_sigma10": {
+    "1.5-2": 9.5,
+    "2-3": 18.7,
+    "3-5": 29.2,
+    "5-10": 36.0,
+    "10-30": 51.0,
+    "30+": 69.9
+   },
+   "E1_uniform_pm10": {
+    "1.5-2": 17.3,
+    "2-3": 31.0,
+    "3-5": 41.9,
+    "5-10": 47.8,
+    "10-30": 64.8,
+    "30+": 82.6
+   }
+  },
+  "reading": "monotone in all four ensemble x noise combinations; primary's absolute numbers are matched to ~1-2 points only by E2 + Gaussian sigma=10%, i.e. the ABSOLUTE survival depends on the noise model (up to ~10-20 points) and the sampling box, the monotone trend does not",
+  "limits_of_independence": "shares the classical Turing criterion (quadratic condition) with the other implementations, so it checks implementation/sampling, not the criterion itself; sampling boxes are my choices; a two-species LINEAR stability result under a stated noise model, not about any organism; novelty/prior art NOT checked by me",
+  "slide_requirement": "any slide must state the noise model (Gaussian vs uniform) and sampling box; 'about 11% at r*=1.5' is Gaussian-sigma-10% specific"
+ }
 }
