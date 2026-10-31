@@ -1,0 +1,2670 @@
+{
+ "summary": {
+  "n_configs": 82,
+  "pde_categories": {
+   "no_pattern": 19,
+   "pattern": 44,
+   "nonconverged": 17,
+   "not_settled": 2
+  },
+  "scored_for_linear_agreement": 63,
+  "linear_nonlinear_disagreements": 0,
+  "disagreement_ids": [],
+  "dominant_mode_equals_fastest_linear_mode": "35/44",
+  "wall_s": 1084.3799715042114
+ },
+ "rows": [
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1/2",
+    "Dv": "5",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    2
+   ],
+   "pde_amp": 6.6590247814204535e-15,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1/2",
+    "Dv": "5",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    4
+   ],
+   "pde_amp": 7.411102517575435e-15,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1/2",
+    "Dv": "5",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    3
+   ],
+   "pde_amp": 2.663523144848721e-15,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1/2",
+    "Dv": "10",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    2
+   ],
+   "pde_amp": 0.0045431968240315,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1/2",
+    "Dv": "10",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    3
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    3
+   ],
+   "pde_amp": 0.3075438096096061,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 564.9196832378498,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1/2",
+    "Dv": "10",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    6
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    6
+   ],
+   "pde_amp": 0.3075438096095872,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 564.9196832378498,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1/2",
+    "Dv": "20",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    1
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    2
+   ],
+   "pde_amp": 0.3776723817187823,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1/2",
+    "Dv": "20",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    3
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    3
+   ],
+   "pde_amp": 0.6177811186887249,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1/2",
+    "Dv": "20",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    6
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    5
+   ],
+   "pde_amp": 0.6770042327876411,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "5",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    3
+   ],
+   "pde_amp": 8.295713924479329e-15,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "5",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    6
+   ],
+   "pde_amp": 8.646162521567427e-15,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "5",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    8
+   ],
+   "pde_amp": 2.1152589550219202e-15,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "10",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    2
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    2
+   ],
+   "pde_amp": 0.28392657151685774,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 718.0274714908245,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "10",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    5
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    5
+   ],
+   "pde_amp": 0.25563717980711964,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 653.6483949560406,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "10",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    9
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    9
+   ],
+   "pde_amp": 0.30684047143176796,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 524.6690205085146,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "20",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    2
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    2
+   ],
+   "pde_amp": 0.6456668636741494,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "20",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    4
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    4
+   ],
+   "pde_amp": 0.6456668636741348,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "20",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    8
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    8
+   ],
+   "pde_amp": 0.6456610427060985,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "2",
+    "Dv": "5",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    7
+   ],
+   "pde_amp": 2.5709514910120326e-15,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "2",
+    "Dv": "5",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    8
+   ],
+   "pde_amp": 6.4438381110165086e-15,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "2",
+    "Dv": "5",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    1
+   ],
+   "pde_amp": 6.256281598982791e-15,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "2",
+    "Dv": "10",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    3
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    3
+   ],
+   "pde_amp": 0.30754380960692146,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 564.9196832378498,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "2",
+    "Dv": "10",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    6
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    6
+   ],
+   "pde_amp": 0.3075438096095349,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 564.9196832378498,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "2",
+    "Dv": "10",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    13
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    13
+   ],
+   "pde_amp": 0.30147656853135363,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 527.6693990580435,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "2",
+    "Dv": "20",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    3
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    3
+   ],
+   "pde_amp": 0.6177811186887249,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "2",
+    "Dv": "20",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    6
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    5
+   ],
+   "pde_amp": 0.6770042327876411,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "2",
+    "Dv": "20",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    11
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    10
+   ],
+   "pde_amp": 0.6769859553769971,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1/2",
+    "Dv": "10",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    2
+   ],
+   "pde_amp": 8.950169145503841e-14,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1/2",
+    "Dv": "10",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    4
+   ],
+   "pde_amp": 8.059756552576357e-14,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1/2",
+    "Dv": "10",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    8
+   ],
+   "pde_amp": 1.3401760644811528e-13,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1/2",
+    "Dv": "16",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    2
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    2
+   ],
+   "pde_amp": 0.31543049790787225,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 471.05695518166647,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1/2",
+    "Dv": "16",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    4
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    3
+   ],
+   "pde_amp": 0.4159439208565336,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 471.05695518166647,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1/2",
+    "Dv": "16",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    7
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    7
+   ],
+   "pde_amp": 0.41495603238089845,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 351.73742527198095,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1/2",
+    "Dv": "30",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    2
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    1
+   ],
+   "pde_amp": 1.0281830201516802,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1/2",
+    "Dv": "30",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    3
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    3
+   ],
+   "pde_amp": 0.8768818725210391,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1/2",
+    "Dv": "30",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    6
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    5
+   ],
+   "pde_amp": 0.9895855394430308,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "10",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    3
+   ],
+   "pde_amp": 1.2959743741531565e-13,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "10",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    5
+   ],
+   "pde_amp": 7.645409208207479e-14,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "10",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    11
+   ],
+   "pde_amp": 1.0971670208691211e-13,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "16",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    3
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    2
+   ],
+   "pde_amp": 0.36521511375344673,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 771.6535148412206,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "16",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    5
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    5
+   ],
+   "pde_amp": 0.4104904614054937,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 352.03721983577606,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "16",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    10
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    10
+   ],
+   "pde_amp": 0.41047057843440465,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 352.03721983577606,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "30",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    2
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    2
+   ],
+   "pde_amp": 0.9192278569255986,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "30",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    4
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    4
+   ],
+   "pde_amp": 0.9192278618870798,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "30",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    9
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    8
+   ],
+   "pde_amp": 0.9190990839073763,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "2",
+    "Dv": "10",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    4
+   ],
+   "pde_amp": 1.262620140683145e-13,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "2",
+    "Dv": "10",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    7
+   ],
+   "pde_amp": 8.690013200047842e-14,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "2",
+    "Dv": "10",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "no_pattern",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    15
+   ],
+   "pde_amp": 1.1465002510228407e-13,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "2",
+    "Dv": "16",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    4
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    3
+   ],
+   "pde_amp": 0.4159439208565336,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 471.05695518166647,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "2",
+    "Dv": "16",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    7
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    7
+   ],
+   "pde_amp": 0.41495603238089845,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 351.73742527198095,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "2",
+    "Dv": "16",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    14
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    14
+   ],
+   "pde_amp": 0.41265986653155434,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 351.73742527198095,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "2",
+    "Dv": "30",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    3
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    3
+   ],
+   "pde_amp": 0.8768818725210391,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "2",
+    "Dv": "30",
+    "r_over_pi": "8",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    6
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    5
+   ],
+   "pde_amp": 0.9895855394430308,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "2",
+    "Dv": "30",
+    "r_over_pi": "16",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    12
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    10
+   ],
+   "pde_amp": 0.9895825686897753,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "20",
+    "r_over_pi": "4",
+    "bc": "periodic"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    1
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    1
+   ],
+   "pde_amp": 0.6456668636248223,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "20",
+    "r_over_pi": "8",
+    "bc": "periodic"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    2
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    2
+   ],
+   "pde_amp": 0.6456668636741745,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "20",
+    "r_over_pi": "16",
+    "bc": "periodic"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    4
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    4
+   ],
+   "pde_amp": 0.6456668636741901,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "2",
+    "Dv": "20",
+    "r_over_pi": "4",
+    "bc": "periodic"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    1
+   ],
+   "pde_category": "not_settled",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    1
+   ],
+   "pde_amp": 0.5499441920014698,
+   "converged": true,
+   "settled": false,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "2",
+    "Dv": "20",
+    "r_over_pi": "8",
+    "bc": "periodic"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    3
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    3
+   ],
+   "pde_amp": 0.6177811186887451,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "2",
+    "Dv": "20",
+    "r_over_pi": "16",
+    "bc": "periodic"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    6
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    6
+   ],
+   "pde_amp": 0.6177810846886603,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "16",
+    "r_over_pi": "4",
+    "bc": "periodic"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    1
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    1
+   ],
+   "pde_amp": 0.36521511379111865,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 885.4211490263954,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "16",
+    "r_over_pi": "8",
+    "bc": "periodic"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    3
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    2
+   ],
+   "pde_amp": 0.3652151137535683,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 771.6535148412206,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "16",
+    "r_over_pi": "16",
+    "bc": "periodic"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    5
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    5
+   ],
+   "pde_amp": 0.41049046140528495,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 352.03721983577606,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "2",
+    "Dv": "16",
+    "r_over_pi": "4",
+    "bc": "periodic"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    2
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    2
+   ],
+   "pde_amp": 0.31543049790869926,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 471.05695518166647,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "2",
+    "Dv": "16",
+    "r_over_pi": "8",
+    "bc": "periodic"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    4
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    3
+   ],
+   "pde_amp": 0.4159439208565476,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 471.05695518166647,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "2",
+    "Dv": "16",
+    "r_over_pi": "16",
+    "bc": "periodic"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    7
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    7
+   ],
+   "pde_amp": 0.4149561020850495,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 351.73742527198095,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "20",
+    "a_over_pi": "2",
+    "b_over_pi": "3",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    1,
+    0
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    1,
+    0
+   ],
+   "pde_amp": 0.7153628919758082,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "20",
+    "a_over_pi": "4",
+    "b_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    0,
+    2
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    0,
+    2
+   ],
+   "pde_amp": 0.7498957499572623,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "20",
+    "a_over_pi": "6",
+    "b_over_pi": "3",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    3,
+    0
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    2,
+    1
+   ],
+   "pde_amp": 0.7122572591760233,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "16",
+    "a_over_pi": "2",
+    "b_over_pi": "3",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    1,
+    1
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    1,
+    1
+   ],
+   "pde_amp": 0.8044456118546084,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 356.5052285544246,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "16",
+    "a_over_pi": "4",
+    "b_over_pi": "4",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    1,
+    2
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    1,
+    2
+   ],
+   "pde_amp": 0.7613458499315713,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 410.97275089132694,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "16",
+    "a_over_pi": "6",
+    "b_over_pi": "3",
+    "bc": "neumann"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    3,
+    1
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    0,
+    2
+   ],
+   "pde_amp": 0.8093709932723575,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 356.5052285544246,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "params": {
+     "A": "1",
+     "B": "9/5"
+    },
+    "gamma": "1",
+    "Dv": "20",
+    "r_over_pi": "4",
+    "bc": "neumann",
+    "tag": "same_J_as_schnakenberg"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    2
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    2
+   ],
+   "pde_amp": 0.5737300833957306,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "20",
+    "r_over_pi": "4",
+    "bc": "neumann",
+    "tag": "same_J_as_schnakenberg"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    2
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    2
+   ],
+   "pde_amp": 0.6456668636741494,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "params": {
+     "A": "1",
+     "B": "9/5"
+    },
+    "gamma": "1",
+    "Dv": "20",
+    "r_over_pi": "8",
+    "bc": "neumann",
+    "tag": "same_J_as_schnakenberg"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    4
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    3
+   ],
+   "pde_amp": 0.7114651596446364,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "20",
+    "r_over_pi": "8",
+    "bc": "neumann",
+    "tag": "same_J_as_schnakenberg"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    4
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    4
+   ],
+   "pde_amp": 0.6456668636741348,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "params": {
+     "A": "1",
+     "B": "9/5"
+    },
+    "gamma": "1",
+    "Dv": "20",
+    "r_over_pi": "16",
+    "bc": "neumann",
+    "tag": "same_J_as_schnakenberg"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    8
+   ],
+   "pde_category": "nonconverged",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    6
+   ],
+   "pde_amp": 0.7113991702405105,
+   "converged": false,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": [
+    "dt_cfl"
+   ],
+   "mode_matches_fastest_linear": false,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "20",
+    "r_over_pi": "16",
+    "bc": "neumann",
+    "tag": "same_J_as_schnakenberg"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    8
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    8
+   ],
+   "pde_amp": 0.6456610427060985,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "9",
+    "r_over_pi": "16",
+    "bc": "neumann",
+    "tag": "near_onset"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    9
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    9
+   ],
+   "pde_amp": 0.17998182603351995,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 1671.4354407406531,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "10",
+    "r_over_pi": "16",
+    "bc": "neumann",
+    "tag": "near_onset"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    9
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    9
+   ],
+   "pde_amp": 0.30684047143176796,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 524.6690205085146,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "13",
+    "r_over_pi": "16",
+    "bc": "neumann",
+    "tag": "near_onset"
+   },
+   "linear_scope_verdict": "out_of_scope",
+   "linear_condition_ids": [
+    "DIFFUSION_RATIO"
+   ],
+   "linear_fastest_mode": null,
+   "pde_category": "not_settled",
+   "pde_pattern": false,
+   "pde_m_dom": [
+    10
+   ],
+   "pde_amp": 0.0005101681466486405,
+   "converged": true,
+   "settled": false,
+   "horizon_tau": 300.0,
+   "disagrees_with_linear": null,
+   "refusal": null,
+   "why_nonconverged": null,
+   "C0_plain_formula": "out_of_scope"
+  },
+  {
+   "config": {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "14",
+    "r_over_pi": "16",
+    "bc": "neumann",
+    "tag": "near_onset"
+   },
+   "linear_scope_verdict": "applies",
+   "linear_condition_ids": [],
+   "linear_fastest_mode": [
+    10
+   ],
+   "pde_category": "pattern",
+   "pde_pattern": true,
+   "pde_m_dom": [
+    10
+   ],
+   "pde_amp": 0.23800628447064814,
+   "converged": true,
+   "settled": true,
+   "horizon_tau": 1051.684930827931,
+   "disagrees_with_linear": false,
+   "refusal": null,
+   "why_nonconverged": null,
+   "mode_matches_fastest_linear": true,
+   "C0_plain_formula": "applies"
+  }
+ ],
+ "gate_vs_C0_vs_pde": {
+  "n_scored": 63,
+  "gate_equals_pde": 63,
+  "C0_equals_pde": 62,
+  "gate_wrong": [],
+  "C0_wrong_not_gate_wrong": [
+   {
+    "model": "schnakenberg",
+    "gamma": "1/2",
+    "Dv": "10",
+    "r_over_pi": "4",
+    "bc": "neumann"
+   }
+  ],
+  "category_counts": {
+   "no_pattern": 19,
+   "pattern": 44,
+   "nonconverged": 17,
+   "not_settled": 2
+  },
+  "nonconverged_or_unsettled": [
+   {
+    "config": {
+     "model": "brusselator",
+     "gamma": "1/2",
+     "Dv": "30",
+     "r_over_pi": "4",
+     "bc": "neumann"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "brusselator",
+     "gamma": "1/2",
+     "Dv": "30",
+     "r_over_pi": "8",
+     "bc": "neumann"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "brusselator",
+     "gamma": "1/2",
+     "Dv": "30",
+     "r_over_pi": "16",
+     "bc": "neumann"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "brusselator",
+     "gamma": "1",
+     "Dv": "30",
+     "r_over_pi": "4",
+     "bc": "neumann"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "brusselator",
+     "gamma": "1",
+     "Dv": "30",
+     "r_over_pi": "8",
+     "bc": "neumann"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "brusselator",
+     "gamma": "1",
+     "Dv": "30",
+     "r_over_pi": "16",
+     "bc": "neumann"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "brusselator",
+     "gamma": "2",
+     "Dv": "30",
+     "r_over_pi": "4",
+     "bc": "neumann"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "brusselator",
+     "gamma": "2",
+     "Dv": "30",
+     "r_over_pi": "8",
+     "bc": "neumann"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "brusselator",
+     "gamma": "2",
+     "Dv": "30",
+     "r_over_pi": "16",
+     "bc": "neumann"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "schnakenberg",
+     "gamma": "2",
+     "Dv": "20",
+     "r_over_pi": "4",
+     "bc": "periodic"
+    },
+    "category": "not_settled",
+    "why": null,
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "schnakenberg",
+     "gamma": "1",
+     "Dv": "20",
+     "a_over_pi": "2",
+     "b_over_pi": "3",
+     "bc": "neumann"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "schnakenberg",
+     "gamma": "1",
+     "Dv": "20",
+     "a_over_pi": "4",
+     "b_over_pi": "4",
+     "bc": "neumann"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "schnakenberg",
+     "gamma": "1",
+     "Dv": "20",
+     "a_over_pi": "6",
+     "b_over_pi": "3",
+     "bc": "neumann"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "brusselator",
+     "gamma": "1",
+     "Dv": "16",
+     "a_over_pi": "2",
+     "b_over_pi": "3",
+     "bc": "neumann"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "brusselator",
+     "gamma": "1",
+     "Dv": "16",
+     "a_over_pi": "4",
+     "b_over_pi": "4",
+     "bc": "neumann"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "brusselator",
+     "gamma": "1",
+     "Dv": "16",
+     "a_over_pi": "6",
+     "b_over_pi": "3",
+     "bc": "neumann"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "brusselator",
+     "params": {
+      "A": "1",
+      "B": "9/5"
+     },
+     "gamma": "1",
+     "Dv": "20",
+     "r_over_pi": "8",
+     "bc": "neumann",
+     "tag": "same_J_as_schnakenberg"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "brusselator",
+     "params": {
+      "A": "1",
+      "B": "9/5"
+     },
+     "gamma": "1",
+     "Dv": "20",
+     "r_over_pi": "16",
+     "bc": "neumann",
+     "tag": "same_J_as_schnakenberg"
+    },
+    "category": "nonconverged",
+    "why": [
+     "dt_cfl"
+    ],
+    "linear": "applies"
+   },
+   {
+    "config": {
+     "model": "brusselator",
+     "gamma": "1",
+     "Dv": "13",
+     "r_over_pi": "16",
+     "bc": "neumann",
+     "tag": "near_onset"
+    },
+    "category": "not_settled",
+    "why": null,
+    "linear": "out_of_scope"
+   }
+  ]
+ }
+}

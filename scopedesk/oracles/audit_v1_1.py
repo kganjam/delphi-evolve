@@ -37,6 +37,7 @@ def main(bench, out):
                      "oracle": lin["scope_verdict"], "oracle_conditions": lin["condition_ids"], "agree": lin["scope_verdict"] == k["verdict"],
                      "conditions_agree": sorted(lin["condition_ids"]) == sorted(k["condition_ids"]), "refusal": lin.get("refusal"),
                      "C0_plain_formula": base["scope_verdict"], "C0_agree": base["scope_verdict"] == k["verdict"],
+                     "ts_crosscheck": (d["full"].get("turing_scope_crosscheck") or {}).get("agree"),
                      **{f"gate_{m}": d[m]["decision"] for m in d}, **{f"gate_{m}_agree": d[m]["decision"] == k["verdict"] for m in d}})
     res = {"n": len(rows), "by_family": {}, "rows": rows,
            "note": "key = critic's frozen bench; gate ablations: record_removed -> falls back to the plain formula (no scope), record_hash_changed -> refuses (provenance), continuum_only -> records valid but admissibility ignored"}
@@ -49,6 +50,8 @@ def main(bench, out):
             e["C0_plain_formula_agree"] = sum(r["C0_agree"] for r in fr)
             for m in ("full", "record_removed", "record_hash_changed", "continuum_only"):
                 e[f"gate_{m}_agree"] = sum(r[f"gate_{m}_agree"] for r in fr)
+            xc = [r["ts_crosscheck"] for r in fr if r.get("ts_crosscheck") is not None]
+            e["turing_scope_crosscheck_agree"] = f"{sum(xc)}/{len(xc)}"
             e["key_verdict_counts"] = dict(Counter(r["key"] for r in fr))
         res["by_family"][fam] = e
     res["disagreements"] = [r for r in rows if not r["agree"]]

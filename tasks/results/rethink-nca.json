@@ -1,6 +1,6 @@
 {
  "role": "nca",
- "status": "first_go_no_go_pushed; v2 post-hoc NCA variant pending (see next_steps)",
+ "status": "go/no-go memo pushed (NO-GO NCA headline); scopedesk/oracles layer implemented, tested and audited; see oracle_layer",
  "goal": "NCA/amorphous inverse-design proposal + decisive feasibility experiment (see planning/rethink/nca.md)",
  "model": "Claude Sonnet 5.5 (subscription; metered charge not known; no GPU used)",
  "branch": "work/rethink-nca",
@@ -56,10 +56,77 @@
   "NCA recipe short (1000 iters, K=16, hidden channels); v1 models diverge",
   "G refusals partly caused by declared gamma>=0.5 bound",
   "post-hoc controls (grid_oracle, noise_baseline, nca_v2) are not frozen decision rules",
-  "no GPU, no outside contact, no multi-agent contribution claimed"
+  "no GPU, no outside contact, no multi-agent contribution claimed",
+  "oracle agreement with critic key shares the bench's conventions (same author semantics)",
+  "linear-vs-nonlinear sweep: 82 configs, one noise-function seed (11), small perturbations only",
+  "C0 differs from the gate on only 1 of 80 scored PDE configs, so the finite-domain scope rarely changes a decision on this grid",
+  "pure-Jacobian bench items cannot be PDE-checked (no nonlinear equation); pde.solve refuses them"
  ],
  "next_steps": [
-  "finish post-hoc NCA v2 (no hidden channels, K=32) and report",
-  "if director selects this line: test NCA only where no closed form exists (growing or irregular domain) with an independent target"
- ]
+  "critic/director to wire scope_verdict into audit runner; map wellmixed_unstable",
+  "if wanted: extend PDE to Dirichlet and a third kinetics model; GPU not needed (CPU sweep 18 min under load)"
+ ],
+ "wall_time_seattle": "2026-10-31 05:58 PDT start; memo pushed 07:01; oracle layer pushed 07:37 (from `date`)",
+ "nca_post_hoc_v2": {
+  "description": "no hidden channels, 32-step windows, 2 seeds, 1000 iters",
+  "independent_success": [
+   0.25,
+   0.24
+  ],
+  "random_gamma_baseline": 0.229,
+  "verdict": "still at random baseline; amplitude 570x-14,000,000x Euler",
+  "file": "artifacts/rethink_nca/nca_v2_results.json"
+ },
+ "oracle_layer": {
+  "dir": "scopedesk/oracles/",
+  "readme": "scopedesk/oracles/README.md",
+  "api": [
+   "linear.check",
+   "linear.plain_formula (C0)",
+   "pde.solve",
+   "repair.enumerate",
+   "gate.decide(record_removed|record_hash_changed|continuum_only)",
+   "gate.wavelength_licence"
+  ],
+  "kinetics": [
+   "schnakenberg",
+   "brusselator"
+  ],
+  "domains": "1-D Neumann/Dirichlet/periodic; 2-D rectangle Neumann/Dirichlet/torus (PDE: Neumann and periodic)",
+  "audit_vs_critic_v1_1_bench": {
+   "turing_finite_domain": "24/24",
+   "turing_2d_rectangle": "16/16",
+   "wavelength_formula_licence": "16/16",
+   "C0_plain_formula": "16/24 and 11/16",
+   "record_hash_changed": "refuses all",
+   "turing_scope_crosscheck_1d_neumann": "7/7",
+   "file": "scopedesk/oracles/results/audit_v1_1.json"
+  },
+  "linear_vs_nonlinear": {
+   "configs": 82,
+   "categories": {
+    "pattern": 61,
+    "no_pattern": 19,
+    "not_settled": 2,
+    "nonconverged": 0
+   },
+   "pattern_flag_agreement_linear_vs_pde": "80/80",
+   "C0_vs_pde": "79/80",
+   "dominant_mode_equals_fastest_linear": "43/61",
+   "first_run_nonconverged_due_to_crude_cfl": 17,
+   "files": [
+    "scopedesk/oracles/results/linear_vs_nonlinear.json",
+    "scopedesk/oracles/results/linear_vs_nonlinear_v1_crude_cfl.json"
+   ]
+  },
+  "validity_limits": "README section 'Explicit validity limits'; Euler-FD not used; rd.euler_dt capped (critic gamma>=32 flips)",
+  "tests": "tests/test_scopedesk_oracles.py + tests/test_rethink_nca.py: 16 passed under systemd-run caps",
+  "commands_run": [
+   "python3 -m scopedesk.oracles.audit_v1_1 BENCH OUT (exit 0)",
+   "python3 -m scopedesk.oracles.study_linear_vs_nonlinear (exit 0, 1084 s; first run 17 nonconverged)",
+   "same --rerun-unscored after CFL fix (exit 0, 456 s)",
+   "python3 -m scopedesk.oracles.study_summary (exit 0)",
+   "python3 -m pytest tests/test_scopedesk_oracles.py tests/test_rethink_nca.py (16 passed)"
+  ]
+ }
 }

@@ -52,3 +52,13 @@ def react(model, p, u, v):
     A, B = float(p["A"]), float(p["B"])
     w = u * u * v
     return A - (B + 1) * u + w, B * u - w
+
+
+def jac_norm(model, p, u, v):
+    """Pointwise 1-norm of the reaction Jacobian (gamma=1) on numpy fields u, v: max column/row sum used as a stiffness bound."""
+    if model == "schnakenberg":
+        fu, fv, gu, gv = -1 + 2 * u * v, u * u, -2 * u * v, -u * u
+    else:
+        B = float(p["B"])
+        fu, fv, gu, gv = -(B + 1) + 2 * u * v, u * u, B - 2 * u * v, -u * u
+    return np.maximum(np.abs(fu) + np.abs(gu), np.abs(fv) + np.abs(gv))
