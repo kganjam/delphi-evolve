@@ -257,6 +257,67 @@ theorem blocked_cut_sound [DecidableEq V] [LE α] [LT α] [LE β] [LT β]
     · exact absurd hle (hα.not_le_of_lt (downB_sound hα hι hf h2))
   exact closed_no_reach (S := fun x => x ∈ S) hclosed hs' ht'
 
+/-! ### Admissible-route cuts ("no certifiable route")
+
+`AdmEdge` is the relation the route checker accepts.  A cut that is closed under `AdmEdge` shows
+that NO CERTIFIABLE route exists from `s` to `t` relative to the table `B`.  This is strictly
+weaker than `blocked_cut_sound`: it says the certifier cannot succeed (e.g. an edge may have
+overlapping intervals), not that every true path is blocked.  Unknown vertices (no interval) can
+never be on an admissible route.  Completeness of `B` with respect to the underlying dataset is
+NOT a Lean fact. -/
+
+def AdmEdge (Adj : V → V → Prop) (B : Bounds V β) [LE β] [DecidableRel (α := β) (· ≤ ·)]
+    (a b : V) : Prop := Adj a b ∧ domB B a b = true
+
+def admBlockedB [DecidableEq V] [LE β] [DecidableRel (α := β) (· ≤ ·)]
+    (nbrs : V → List V) (B : Bounds V β) (S : List V) (s t : V) : Bool :=
+  decide (s ∈ S) && !(decide (t ∈ S)) &&
+    S.all (fun a => (nbrs a).all (fun b => decide (b ∈ S) || !(domB B a b)))
+
+theorem adm_cut_sound [DecidableEq V] [LE β] [DecidableRel (α := β) (· ≤ ·)]
+    {B : Bounds V β} {Adj : V → V → Prop} {nbrs : V → List V}
+    (hcomplete : ∀ a b, Adj a b → b ∈ nbrs a) (S : List V) (s t : V)
+    (h : admBlockedB nbrs B S s t = true) : ¬ Reach (AdmEdge Adj B) s t := by
+  unfold admBlockedB at h
+  simp only [Bool.and_eq_true, Bool.not_eq_true'] at h
+  obtain ⟨⟨hs, ht⟩, hcut⟩ := h
+  have hs' : s ∈ S := of_decide_eq_true hs
+  have ht' : t ∉ S := by simpa using ht
+  have hclosed : ∀ a b, (a ∈ S) → AdmEdge Adj B a b → (b ∈ S) := by
+    intro a b ha ⟨hab, hdom⟩
+    have h1 := List.all_eq_true.mp hcut a ha
+    have h2 := List.all_eq_true.mp h1 b (hcomplete a b hab)
+    simp only [Bool.or_eq_true, Bool.not_eq_true'] at h2
+    rcases h2 with h2 | h2
+    · exact of_decide_eq_true h2
+    · rw [hdom] at h2; exact absurd h2 (by simp)
+  exact closed_no_reach (S := fun x => x ∈ S) hclosed hs' ht'
+
+/-- Admissible routes are exactly what the true-value theorem upgrades: admissible reachability
+implies non-decreasing reachability under containment. -/
+theorem admReach_nd [LE α] [LT α] [LE β] [LT β]
+    [DecidableRel (α := β) (· ≤ ·)] [DecidableRel (α := β) (· < ·)]
+    {ι : β → α} (hα : OrderLaws α) (hι : Embedding ι) {B : Bounds V β}
+    {Adj : V → V → Prop} {f : V → α} (hf : Contains ι B f) {a b : V}
+    (h : Reach (AdmEdge Adj B) a b) : NDReach Adj f a b := by
+  induction h with
+  | refl x => exact Reach.refl x
+  | step hab _ ih => exact Reach.step ⟨hab.1, domB_sound hα hι hf hab.2⟩ ih
+
+/-- A checked route is an admissible path. -/
+theorem routeB_admReach [LE β] [DecidableRel (α := β) (· ≤ ·)]
+    {B : Bounds V β} {Adj : V → V → Prop} {adjB : V → V → Bool}
+    (hadj : ∀ a b, adjB a b = true → Adj a b) :
+    ∀ (s : V) (r : List V), routeB adjB B (s :: r) = true →
+      ∀ t, (s :: r).getLast? = some t → Reach (AdmEdge Adj B) s t
+  | s, [], _, t, ht => by simp at ht; subst ht; exact Reach.refl _
+  | s, b :: rest, h, t, ht => by
+    unfold routeB at h
+    simp only [Bool.and_eq_true] at h
+    obtain ⟨⟨h1, h2⟩, h3⟩ := h
+    have ht' : (b :: rest).getLast? = some t := by simpa [List.getLast?_cons_cons] using ht
+    exact Reach.step ⟨hadj s b h1, h2⟩ (routeB_admReach hadj b rest h3 t ht')
+
 /-! ### Non-vacuity -/
 
 /-- The hypothesis `Contains` is satisfiable whenever every declared interval is

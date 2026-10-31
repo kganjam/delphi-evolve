@@ -1,0 +1,74 @@
+{
+ "role": "proof",
+ "status": "completed",
+ "updated": "2026-10-31T00:45-07:00 PDT",
+ "model": "claude-sonnet-5-5 (Claude Max subscription; no metered charge known)",
+ "commit": "checkpoint 05ba7b4 (theorems, bridge, tests); final commit = the one containing this file (see git log work/proof -1)",
+ "summary": "Recovered after the capped-OOM death of the previous proof worker (delphi-v2-proof.scope oom-kill, 2026-10-31 00:25:41 PDT). Kept all prior valid proofs. Added generic adm_cut_sound ('no certifiable route': closed set under the route checker's own relation), admReach_nd/routeB_admReach/route_adm_exclusive, a kernel-checked counterexample (A=[0,2], B=[1,3]) that the admissible cut is strictly weaker than blocked_cut_sound, and a small real-data instance: core's kappa=2 one-node conservative cut HTGR->GTVN (77 table rows, 76 crossing edges, delta=0, scale 1e-6, exact core integers). The 23-member VFVS->AIKG admissible closure (1092 rows) that caused the OOM is removed from the verified build and kept only as an UNCHECKED artifact.",
+ "scientific_statement": "adm_cut_sound: no route of certified-dominance steps (hi u <= lo v, both intervals listed) from start to target in the full 20^4 graph relative to the listed table. NOT 'no true ascending route' (that is blocked_cut_sound, which needs hi v < lo u on every boundary edge and is not claimed for the HTGR cut). Intervals are core's ASSUMED kappa=2 model, not confidence intervals.",
+ "artifacts": [
+  "lean/DarwinBridge/Core.lean",
+  "lean/DarwinBridge/Checker.lean",
+  "lean/DarwinBridge/Distinction.lean",
+  "lean/DarwinBridge/Certs/CoreKappa2AdmCutHtgrGtvn.lean",
+  "artifacts/proof/core_kappa2_adm_cut_htgr_gtvn.json",
+  "artifacts/proof/receipt.json",
+  "artifacts/proof/CORRESPONDENCE.md",
+  "artifacts/proof/optional_unverified/ (UNVERIFIED 23-member certificate JSON + rendered Lean as .txt)",
+  "/data/artifacts/delphi-evolve-workers/proof-recovery-note.md"
+ ],
+ "commands_run": [
+  {
+   "cmd": "scripts/check_proofs.py --bridge-core-cut <core cut_HTGR_GTVN_kappa2.json> (scope 4G/600s)",
+   "exit": 0,
+   "result": "77-row adm_blocked certificate + Lean module written"
+  },
+  {
+   "cmd": "evolve.proof.check_certificate_python + verify_core_origin on the CSV (scope 4G)",
+   "exit": 0,
+   "result": "mirror accepts; 77 intervals re-derived from raw summary_AA.csv (sha a631d8cf...) agree within 1e-6; 53/77 exactly, rest differ by 1 unit (float order)"
+  },
+  {
+   "cmd": "lake build (lean/, LEAN_NUM_THREADS=1, scope 4G/600s)",
+   "exit": 0,
+   "result": "13 jobs; bridged cert module 8.0s; peak RSS ~600 MB (/usr/bin/time)"
+  },
+  {
+   "cmd": "pytest tests/test_proof_lean.py -x (scope 4G)",
+   "exit": 0,
+   "result": "20 passed, before final edits"
+  },
+  {
+   "cmd": "python3 scripts/check_proofs.py (full acceptance, single serialized run, scope 5G/swap0, LEAN_NUM_THREADS=1)",
+   "exit": 0,
+   "result": "status=completed; wall 117.5s; 5 certificates; 32/32 axiom audits (propext, Quot.sound; Classical.choice only in the Distinction counterexample); 42 instance mutants as expected; Python mirror agrees on all; 10/10 Lean-source mutants break compilation; no sorry/admit/native_decide/axiom"
+  },
+  {
+   "cmd": "pytest tests/test_proof_exactness.py tests/test_proof_lean.py (scope 4G/600s)",
+   "exit": 0,
+   "result": "60 passed in 42s (final tree)"
+  },
+  {
+   "cmd": "lake env lean on the parked 23-member certificate, scope MemoryMax=3G/300s, LEAN_NUM_THREADS=1, run twice",
+   "exit": 143,
+   "result": "killed by the cgroup OOM killer (journal: run-u237467.scope oom-kill, 50.8s CPU). Confirms the certificate needs >3 GB for one decide +kernel. Not retried with a larger cap. NOT verified."
+  }
+ ],
+ "mutation_evidence": "42 instance mutants (incl. core cut: open_edge_equal, open_edge_higher, target_in_closed_set, start_not_in_closed_set, negative_delta, duplicate_key, member_removed; boundary control cut_edge_not_admissible_tight accepted) and 10 Lean-source mutants (incl. core_adm_cut_ignores_dominance, core_adm_target_may_be_inside).",
+ "oom_record": {
+  "incident": "previous worker scope delphi-v2-proof.scope, Result=oom-kill, 2026-10-31 00:25:41 PDT, while running check_proofs.py --regenerate (5 GB outer scope) for the 23-member certificate",
+  "cause_status": "not diagnosed beyond: the single decide +kernel for the 1092-row certificate alone exceeds 3 GB (observed). Parallel regeneration/sweep/mutants were not repeated.",
+  "recovery": "no cap raised; heavy certificate removed from CERT_SPECS (now OPTIONAL_UNVERIFIED_SPECS), the sweep, the Lean library, the audit and the receipt; all runs serialized and scoped"
+ },
+ "limitations": [
+  "Conditional on interval containment (assumed) and on the declared four-site single-substitution graph; 'no certifiable route' does not imply no true ascending route, nor no evolutionary route in sequence space.",
+  "The HTGR->GTVN cut shows only that the conservative relation (lower[v] >= upper[u]) has no route; for the strong statement a separate blocked certificate with hi v < lo u on all 76 neighbours would be needed (not claimed; the cut's neighbours are not all certifiably lower).",
+  "Core's integers are taken as given by Lean; recomputation from the raw CSV is Python (53/77 exact, remainder within 1e-6 float order). kappa is a sensitivity multiplier, not a confidence level.",
+  "The 23-member VFVS->AIKG admissible closure is unverified (kernel check OOMs at 3 GB); do not cite it. A scalable fix (one theorem per member / indexed table) was not attempted.",
+  "Only the previously independently-accepted route/localpeak/two-vertex instances plus the new bridged cut are verified; no wider biological reach is claimed. sensitivity_sweep.json is unchanged from the prior accepted run."
+ ],
+ "next_steps": [
+  "Integrator may reuse core_kappa2_adm_cut_htgr_gtvn as the weak-cut Lean receipt; label it 'No route certifiable at this bound'.",
+  "Optional: scalable table lookup so large closures check inside 2 GB."
+ ]
+}

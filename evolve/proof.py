@@ -38,6 +38,8 @@ POSITIONS = ("AA1", "AA2", "AA3", "AA4")
 SCHEMA = "darwin-bridge-proof-cert/1"
 THEOREM_ROUTE = "DarwinBridge.routeCert_sound"
 THEOREM_BLOCKED = "DarwinBridge.blockedCert_sound"
+THEOREM_ADM = "DarwinBridge.admCert_sound"
+KINDS = ("route", "blocked", "adm_blocked")
 ASSUMED_BOUND_LABEL = (
     "ASSUMED sensitivity bound (delta): not a confidence interval; two replicates cannot "
     "support simultaneous 95% bounds across 159,129 variants"
@@ -172,6 +174,60 @@ def load_trpb_observations(path, col1: str = "mu_1-bg", col2: str = "mu_2-bg"):
 
 
 # --------------------------------------------------------------------------- instance model
+class _LazyIntervals(Mapping):
+    """genotype -> (lower, upper) validated exact integers, evaluated on demand."""
+
+    def __init__(self, lookup):
+        self._lookup = lookup
+
+    def __getitem__(self, g):
+        genotype_indices(g)
+        v = self._lookup.get(g)
+        if v is None:
+            raise KeyError(g)
+        lo, hi = v
+        for x in (lo, hi):
+            if not isinstance(x, int) or isinstance(x, bool):
+                raise ProofInputError(f"{g}: interval endpoints must be exact integers, got {x!r}")
+        if lo > hi:
+            raise ProofInputError(f"{g}: lower > upper")
+        return (lo, hi)
+
+    def __contains__(self, g):
+        try:
+            self[g]
+            return True
+        except KeyError:
+            return False
+
+    def __iter__(self):
+        raise TypeError("lazy interval table cannot be enumerated")
+
+    def __len__(self):
+        raise TypeError("lazy interval table has no size")
+
+
+def _decimal_text(n: int, k: int) -> str:
+    sign = "-" if n < 0 else ""
+    digits = str(abs(n)).rjust(k + 1, "0")
+    return sign + (digits[:-k] + "." + digits[-k:] if k else digits)
+
+
+class _LazyText(Mapping):
+    def __init__(self, table, k):
+        self._t, self._k = table, k
+
+    def __getitem__(self, g):
+        lo, hi = self._t[g]
+        return (_decimal_text(lo, self._k), _decimal_text(hi, self._k))
+
+    def __iter__(self):
+        raise TypeError
+
+    def __len__(self):
+        raise TypeError
+
+
 class Instance:
     """Exact scaled-integer instance: observations + assumed sensitivity bound."""
 
@@ -223,6 +279,22 @@ class Instance:
                 raise ProofInputError(f"{g}: value not exact at scale 10^{k}")
             self.table[g] = (ia, ib)
             self.text[g] = (str(obs[g][0]), str(obs[g][1]))
+
+    @classmethod
+    def from_intervals(cls, lookup, scale_exponent: int, origin: Optional[Mapping] = None) -> "Instance":
+        """Instance whose per-genotype intervals are supplied directly as exact integers
+        (value x 10^scale_exponent), e.g. by the core worker's interval model.  `lookup` is a
+        mapping genotype -> (lower, upper) that is only consulted for genotypes the finders touch;
+        absent genotypes are UNKNOWN.  delta is 0 because the interval IS the assumption."""
+        if not isinstance(scale_exponent, int) or isinstance(scale_exponent, bool) or not 0 <= scale_exponent <= 60:
+            raise ProofInputError("scale_exponent out of range")
+        self = cls.__new__(cls)
+        self.k, self.outward, self.rounded = scale_exponent, False, 0
+        self.delta, self.delta_text = 0, "0"
+        self.table = _LazyIntervals(lookup)
+        self.text = _LazyText(self.table, scale_exponent)
+        self.origin = dict(origin or {"kind": "external-intervals"})
+        return self
 
     def bounds(self, g: str) -> Optional[tuple[int, int]]:
         if g not in self.table:
@@ -294,6 +366,29 @@ def find_blocked_set(inst: Instance, start: str, target: str, cap: int = 400) ->
     return S
 
 
+def find_adm_closure(inst: Instance, start: str, target: str, cap: int = 400) -> list[str]:
+    """Set of genotypes reachable from `start` by certified-dominance steps (an AdmEdge-closed set).
+    CannotCertify if the target is in it (a route exists) or it exceeds `cap`."""
+    genotype_indices(start), genotype_indices(target)
+    if start == target:
+        raise CannotCertify("start == target")
+    if start not in inst.table:
+        raise CannotCertify("start has no declared interval")
+    S, seen, i = [start], {start}, 0
+    while i < len(S):
+        u = S[i]
+        i += 1
+        for v in neighbors(u):
+            if v not in seen and inst.dominates(u, v):
+                if v == target:
+                    raise CannotCertify(f"a certified route reaches {target} (via {u}->{v})")
+                if len(S) >= cap:
+                    raise CannotCertify(f"admissible closure exceeds cap={cap}")
+                seen.add(v)
+                S.append(v)
+    return S
+
+
 # --------------------------------------------------------------------------- certificates
 def _canonical(obj) -> str:
     return json.dumps(obj, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
@@ -311,7 +406,7 @@ def _base_certificate(kind, inst: Instance, listed: Iterable[str], source: Mappi
         "schema": SCHEMA,
         "kind": kind,
         "label": label,
-        "theorem": THEOREM_ROUTE if kind == "route" else THEOREM_BLOCKED,
+        "theorem": {"route": THEOREM_ROUTE, "blocked": THEOREM_BLOCKED, "adm_blocked": THEOREM_ADM}[kind],
         "graph_scope": {
             "name": "four-site-20^4-single-substitution",
             "vertices": "all 20^4 = 160000 four-letter genotypes over ACDEFGHIKLMNPQRSTVWY (no stop codon)",
@@ -380,6 +475,151 @@ def build_blocked_certificate(inst: Instance, start: str, target: str, source: M
     return cert
 
 
+def build_adm_certificate(inst: Instance, start: str, target: str, source: Mapping,
+                          label: str = "adm_blocked", cap: int = 400) -> dict:
+    """'No certifiable route' certificate: the admissible closure of `start` excludes `target`.
+    Weaker than build_blocked_certificate (see CORRESPONDENCE.md): it does NOT show that no true
+    non-decreasing path exists."""
+    S = find_adm_closure(inst, start, target, cap=cap)
+    needed = set(S)
+    for u in S:
+        needed.update(neighbors(u))
+    listed = [g for g in needed if g in inst.table]
+    cert = _base_certificate("adm_blocked", inst, listed, source, label, start, target)
+    cert["closed_set"] = S
+    cert["crossing_edges_checked"] = sum(len(neighbors(u)) for u in S)
+    cert["semantics"] = ("no route of certified-dominance steps (hi u <= lo v, both intervals listed) exists from start "
+                         "to target in the full 20^4 graph, relative to the LISTED table; unlisted genotypes cannot lie on "
+                         "an admissible route. Does not exclude a true non-decreasing path.")
+    if getattr(inst, "origin", None):
+        cert["interval_origin"] = inst.origin
+    cert["certificate_sha256"] = certificate_digest(cert)
+    return cert
+
+
+# --------------------------------------------------------------------------- core interval-model bridge
+CORE_CERT_SCHEMA = "delphi-evolve/core-certificate/v1"
+
+
+def _core_interval(row: Mapping, bg1: float, bg2: float, edges, sds, kappa: float) -> tuple[int, int]:
+    """Recompute core's kappa-model integer interval (1e-6 units) from a raw CSV row.  Floats are used
+    only here, to RECOMPUTE core's integers for comparison; Lean only ever sees the integers."""
+    s = ((float(row["mu_1"]) - bg1) + (float(row["mu_2"]) - bg2)) / 2
+    c = min(float(row["InputCount_1"]), float(row["InputCount_2"]))
+    b = sum(c >= e for e in edges)
+    eps = math.ceil(kappa * sds[b] / 2 * 1e6)
+    m = round(s * 1e6)
+    return m - eps, m + eps
+
+
+def recompute_core_intervals(csv_path, model: Mapping, wanted: Iterable[str]) -> dict:
+    """Independent re-derivation of core's integer intervals for `wanted` genotypes from the raw CSV
+    (does not import evolve.data).  Returns {genotype: (lo, hi)} for measured non-stop rows."""
+    wanted = set(wanted)
+    edges, sds, kappa = model["sd_bin_edges_min_input_count"], model["sd_bin_values"], model["kappa"]
+    got, stop1, stop2, ns = {}, 0.0, 0.0, 0
+    with open(csv_path, newline="") as f:
+        for r in csv.DictReader(f):
+            if float(r["# Stop"]) > 0:
+                stop1 += float(r["mu_1"]); stop2 += float(r["mu_2"]); ns += 1
+            elif r["AAs"] in wanted:
+                got[r["AAs"]] = r
+    bg1, bg2 = stop1 / ns, stop2 / ns
+    return {g: _core_interval(r, bg1, bg2, edges, sds, kappa) for g, r in got.items()}
+
+
+def load_measured_genotypes(csv_path) -> set:
+    out = set()
+    with open(csv_path, newline="") as f:
+        for r in csv.DictReader(f):
+            if float(r["# Stop"]) <= 0:
+                out.add(r["AAs"])
+    return out
+
+
+def build_cert_from_core_cut(core: Mapping, label: str, core_file_name: str = "") -> dict:
+    """Re-express core's kappa-model cut certificate (kind 'cut': closed_set + 76-neighbour boundary,
+    edge rule lower[v] >= upper[u]) as an `adm_blocked` proof certificate with delta=0 and
+    r1=lower, r2=upper (so Lean's obsBounds reproduces core's integer interval exactly).
+    Raises CannotCertify unless every closed-set neighbour is either listed or declared unmeasured."""
+    if core.get("schema") != CORE_CERT_SCHEMA or core.get("kind") != "cut":
+        raise ProofInputError("expected a core 'cut' certificate")
+    im = core["interval_model"]
+    if im.get("units") != "1e-6 growth-rate units, integers":
+        raise ProofInputError("unexpected interval units")
+    nodes = core["nodes"]
+    obs = {}
+    for g, nd in nodes.items():
+        if not nd.get("measured"):
+            continue
+        for x in (nd["lower"], nd["upper"]):
+            if not isinstance(x, int) or isinstance(x, bool):
+                raise ProofInputError(f"{g}: core interval endpoint is not an exact integer")
+        obs[g] = (_decimal_text(nd["lower"], 6), _decimal_text(nd["upper"], 6))
+    inst = Instance(obs, "0", scale_exponent=6)
+    inst.origin = {"kind": "external-intervals", "producer": core["schema"], "core_file": core_file_name,
+                   "core_body_sha256": core["body_sha256"], "interval_model": im,
+                   "recomputation": "evolve.proof.recompute_core_intervals (independent of core code)"}
+    S, s, t = list(core["closed_set"]), core["start"], core["target"]
+    genotype_indices(s), genotype_indices(t)
+    if s not in S or t in S:
+        raise CannotCertify("core closed_set must contain start and exclude target")
+    needed = set(S)
+    for u in S:
+        needed.update(neighbors(u))
+    unmeasured = sorted(g for g in needed if g not in obs)
+    source = {"sha256": core["dataset"]["summary_AA_sha256"], "file": "summary_AA.csv", "doi": core["dataset"]["doi"],
+              "license": core["dataset"]["license"],
+              "note": "intervals are core's kappa-model integers; r1=lower, r2=upper, delta=0 reproduces them exactly",
+              "interval_model": im}
+    cert = _base_certificate("adm_blocked", inst, [g for g in needed if g in obs], source, label, s, t)
+    cert["closed_set"] = S
+    cert["crossing_edges_checked"] = sum(len(neighbors(u)) for u in S)
+    cert["unlisted_neighbours"] = unmeasured
+    cert["semantics"] = ("NO CERTIFIABLE ROUTE: no route of certified-dominance steps (hi u <= lo v, both intervals listed) "
+                         "exists from start to target in the full 20^4 graph, relative to the LISTED table; unlisted genotypes "
+                         "cannot lie on an admissible route. Does NOT exclude a true non-decreasing path unless the "
+                         "stronger blocked_cut_sound hypotheses are checked separately.")
+    cert["interval_origin"] = inst.origin
+    cert["delta_status"] = "delta=0: the interval itself is core's ASSUMED kappa-model interval (kappa is a sensitivity multiplier, not a confidence level)"
+    cert["bridged_from"] = {"file": core_file_name, "body_sha256": core["body_sha256"], "core_kind": "cut"}
+    cert["certificate_sha256"] = certificate_digest(cert)
+    return cert
+
+
+def verify_core_origin(cert: Mapping, csv_path) -> dict:
+    """Tie an external-interval certificate to the raw CSV: file hash, every listed interval recomputed
+    from the raw rows (|diff| <= 1 unit tolerated for float summation order only), and every neighbour of
+    the closed set is either listed or genuinely absent from the measured non-stop rows."""
+    origin = cert.get("interval_origin", {})
+    if origin.get("kind") != "external-intervals":
+        raise ProofInputError("not an external-interval certificate")
+    actual = sha256_file(csv_path)
+    if actual != cert["source"]["sha256"]:
+        raise ProofInputError(f"source sha256 mismatch: {actual}")
+    if certificate_digest(cert) != cert["certificate_sha256"]:
+        raise ProofInputError("certificate digest mismatch")
+    listed = {e["genotype"]: e for e in cert["table"]}
+    rec = recompute_core_intervals(csv_path, origin["interval_model"], listed)
+    exact = 0
+    for g, e in listed.items():
+        if g not in rec:
+            raise ProofInputError(f"{g}: listed but not a measured non-stop row")
+        lo, hi = rec[g]
+        if e["r1"] != min(e["r1"], e["r2"]) or abs(e["r1"] - lo * 10 ** (cert["scale_exponent"] - 6)) > 10 ** (cert["scale_exponent"] - 6) \
+                or abs(e["r2"] - hi * 10 ** (cert["scale_exponent"] - 6)) > 10 ** (cert["scale_exponent"] - 6):
+            raise ProofInputError(f"{g}: interval differs from raw-CSV recomputation by more than 1e-6")
+        exact += (e["r1"], e["r2"]) == (lo * 10 ** (cert["scale_exponent"] - 6), hi * 10 ** (cert["scale_exponent"] - 6))
+    measured = load_measured_genotypes(csv_path)
+    for u in cert["closed_set"]:
+        for v in neighbors(u):
+            if v in measured and v not in listed:
+                raise ProofInputError(f"measured neighbour {v} of {u} omitted from table")
+            if v not in measured and v in listed:
+                raise ProofInputError(f"{v} listed but not measured")
+    return {"source_sha256": actual, "rows_checked": len(listed), "exact_integer_matches": exact}
+
+
 # --------------------------------------------------------------------------- python mirror
 def check_certificate_python(cert: Mapping) -> tuple[bool, str]:
     """Differential-testing mirror of Lean's routeCertB/blockedCertB (exact integers only).
@@ -404,6 +644,8 @@ def check_certificate_python(cert: Mapping) -> tuple[bool, str]:
         genotype_indices(s), genotype_indices(t)
         if s == t:
             return False, "start == target"
+        if cert["kind"] not in KINDS:
+            return False, "unknown kind"
         if cert["kind"] == "route":
             r = cert["route"]
             if not r or r[0] != s or r[-1] != t:
@@ -422,6 +664,15 @@ def check_certificate_python(cert: Mapping) -> tuple[bool, str]:
             genotype_indices(g)
         if s not in S or t in S:
             return False, "s must be in S and t not"
+        if cert["kind"] == "adm_blocked":
+            for u in S:
+                for v in neighbors(u):
+                    if v in S:
+                        continue
+                    bu, bv = bnd(u), bnd(v)
+                    if bu is not None and bv is not None and bu[1] <= bv[0]:
+                        return False, f"admissible edge leaves S: {u}->{v}"
+            return True, "adm_blocked accepted"
         for u in S:
             for v in neighbors(u):
                 if v in S:
@@ -438,6 +689,9 @@ def verify_against_source(cert: Mapping, csv_path, col1: str = "mu_1-bg", col2: 
                           observations: Optional[Mapping] = None) -> dict:
     """Tie the certificate to the data: file hash, every table row's exact text, exact scaling,
     and the declared-unknown status of absent genotypes.  Raises ProofInputError on mismatch."""
+    if cert.get("interval_origin", {}).get("kind") == "external-intervals":
+        raise ProofInputError("certificate intervals come from an external interval model; "
+                              "verify_against_source covers only raw-replicate certificates")
     actual = sha256_file(csv_path)
     if actual != cert["source"]["sha256"]:
         raise ProofInputError(f"source sha256 mismatch: {actual} != {cert['source']['sha256']}")
@@ -456,6 +710,14 @@ def verify_against_source(cert: Mapping, csv_path, col1: str = "mu_1-bg", col2: 
                 raise ProofInputError(f"{g} scaled value mismatch")
     if certificate_digest(cert) != cert["certificate_sha256"]:
         raise ProofInputError("certificate digest mismatch")
+    if cert["kind"] == "adm_blocked":
+        # Lean proves the cut relative to the LISTED table; completeness of the table over the
+        # neighbourhood of S is established here (Python), not in Lean.
+        listed = {e["genotype"] for e in cert["table"]}
+        for u in cert["closed_set"]:
+            for v in neighbors(u):
+                if v in obs and v not in listed:
+                    raise ProofInputError(f"measured neighbour {v} of {u} omitted from table (admissible-cut incomplete)")
     return {"source_sha256": actual, "rows_checked": len(cert["table"])}
 
 
@@ -528,6 +790,21 @@ def render_lean(cert: Mapping) -> str:
             "      (∀ x, x ∈ route → F start ≤ F x) :=",
             "  routeCert_sound hα hι cert_ok hF",
         ]
+    elif kind == "adm_blocked":
+        L += [
+            f"/-- members: {', '.join(cert['closed_set'])} -/",
+            "def closedSet : List Geno := [",
+            ",\n".join(f"  {_geno(g)}" for g in cert["closed_set"]),
+            "]",
+            "",
+            "/-- The kernel checks closure of `closedSet` under certified-dominance steps over all 76 neighbours. -/",
+            "theorem cert_ok : admCertB delta tbl closedSet start target = true := by decide +kernel",
+            "",
+            "/-- NO CERTIFIABLE ROUTE from `start` to `target` (full 20^4 graph, relative to `tbl`).",
+            "Weaker than a true-value blocked statement: overlapping intervals are merely uncertified. -/",
+            "theorem instance_sound : ¬ Reach (AdmEdge Adj (obsBounds delta tbl)) start target :=",
+            "  admCert_sound cert_ok",
+        ]
     else:
         L += [
             f"/-- members: {', '.join(cert['closed_set'])} -/",
@@ -549,14 +826,20 @@ def render_lean(cert: Mapping) -> str:
     return "\n".join(L)
 
 
+AUDIT_CORE = ["DarwinBridge.route_sound", "DarwinBridge.route_endpoints", "DarwinBridge.route_floor",
+              "DarwinBridge.closed_no_reach", "DarwinBridge.blocked_cut_sound", "DarwinBridge.adm_cut_sound",
+              "DarwinBridge.admReach_nd", "DarwinBridge.routeB_admReach",
+              "DarwinBridge.contains_satisfiable", "DarwinBridge.nbrs_complete",
+              "DarwinBridge.nbrs_sound", "DarwinBridge.nbrs_length", "DarwinBridge.adjB_sound",
+              "DarwinBridge.routeCert_sound", "DarwinBridge.blockedCert_sound", "DarwinBridge.admCert_sound",
+              "DarwinBridge.sensitivity_satisfiable", "DarwinBridge.route_blocked_exclusive",
+              "DarwinBridge.route_adm_exclusive", "DarwinBridge.Distinction.adm_accepts",
+              "DarwinBridge.Distinction.blocked_rejects", "DarwinBridge.Distinction.true_route_exists_despite_adm_cut"]
+
+
 def render_audit(mods: Sequence[str]) -> str:
-    L = ["import DarwinBridge.Checker"] + [f"import {m}" for m in mods] + ["", "-- axiom audit (parsed by scripts/check_proofs.py)"]
-    core = ["DarwinBridge.route_sound", "DarwinBridge.route_endpoints", "DarwinBridge.route_floor",
-            "DarwinBridge.closed_no_reach", "DarwinBridge.blocked_cut_sound",
-            "DarwinBridge.contains_satisfiable", "DarwinBridge.nbrs_complete",
-            "DarwinBridge.nbrs_sound", "DarwinBridge.nbrs_length", "DarwinBridge.adjB_sound",
-            "DarwinBridge.routeCert_sound", "DarwinBridge.blockedCert_sound",
-            "DarwinBridge.sensitivity_satisfiable", "DarwinBridge.route_blocked_exclusive"]
+    L = ["import DarwinBridge.Checker", "import DarwinBridge.Distinction"] + [f"import {m}" for m in mods] + ["", "-- axiom audit (parsed by scripts/check_proofs.py)"]
+    core = AUDIT_CORE
     for n in core:
         L.append(f"#print axioms {n}")
     for m in mods:
@@ -665,6 +948,14 @@ CERT_SPECS = [
              "certifiably descending. Found by search over the 6000 highest-replicate-mean genotypes (the only one "
              "with 1 < |S| <= 30); selection of the example is post hoc and descriptive."},
 ]
+# OPTIONAL, NOT in the verified build: a 23-member admissible closure (1092 table rows).  Its single
+# `decide +kernel` exhausted a 5 GB scope on this host (oom-kill, 2026-10-31 00:25 PDT), so it is not
+# part of CERT_SPECS, the Lean library or the receipt.  Kept only as an unchecked certificate JSON.
+OPTIONAL_UNVERIFIED_SPECS = [
+    {"label": "trpb_adm_noroute_delta01", "kind": "adm_blocked", "start": "VFVS", "target": "AIKG", "delta": "0.01",
+     "note": "At assumed delta=0.01 the admissible (certifiable) closure of the parent VFVS has 23 members and excludes "
+             "AIKG: NO CERTIFIABLE ROUTE. This is not a proof that no true route exists."},
+]
 DEFAULT_CSV_CANDIDATES = [
     "data/raw/summary_AA.csv",
     "/data/artifacts/v2-scout/data/caltech/summary_AA.csv",
@@ -688,7 +979,8 @@ def generate_all(csv_path, specs=CERT_SPECS) -> list[dict]:
     certs = []
     for sp in specs:
         inst = Instance(obs, sp["delta"])
-        build = build_route_certificate if sp["kind"] == "route" else build_blocked_certificate
+        build = {"route": build_route_certificate, "blocked": build_blocked_certificate,
+                 "adm_blocked": build_adm_certificate}[sp["kind"]]
         cert = build(inst, sp["start"], sp["target"], source, label=sp["label"])
         cert["note"] = sp["note"]
         cert["certificate_sha256"] = certificate_digest(cert)
@@ -771,6 +1063,39 @@ def data_mutants(cert: Mapping) -> list[dict]:
         c = _clone(cert)
         c["target"] = r[-2]
         add("wrong_target", c, "reject", "declared target is not the route's end")
+    elif cert["kind"] == "adm_blocked":
+        S, d = cert["closed_set"], cert["delta_scaled"]
+        listed = {e["genotype"] for e in cert["table"]}
+        u = cert["start"]
+        hi_u = _bounds(cert, u)[1]
+        # a listed outside neighbour of `u` adjacent to no other member of S, so edits change exactly one edge
+        v = next(g for g in neighbors(u) if g in listed and g not in S
+                 and not any(adjacent(g, w) for w in S if w != u))
+        for name, off, exp, why in (
+            ("cut_edge_not_admissible_tight", -1, "accept", "lo(v) == hi(u)-1: edge just fails dominance, cut stays closed"),
+            ("open_edge_equal", 0, "reject", "lo(v) == hi(u): edge is admissible, S is not closed"),
+            ("open_edge_higher", 10 ** (cert["scale_exponent"] - 1), "reject", "v clearly dominates u: cut opened"),
+        ):
+            c = _clone(cert)
+            e = _row(c, v)
+            e["r1"] = e["r2"] = hi_u + off + d  # lo(v) = r - delta = hi(u) + off
+            add(name, c, exp, why)
+        if len(S) > 1:
+            c = _clone(cert)
+            c["closed_set"] = [g for g in S if g != S[-1]]
+            add("member_removed_opens_edge", c, "reject", "dropping a closure member re-opens the edge into it")
+        c = _clone(cert)
+        c["closed_set"] = list(S) + [c["target"]]
+        add("target_in_closed_set", c, "reject", "target inside S")
+        c = _clone(cert)
+        c["closed_set"] = [g for g in S if g != c["start"]]
+        add("start_not_in_closed_set", c, "reject", "start must belong to S")
+        c = _clone(cert)
+        c["delta_scaled"] = -1
+        add("negative_delta", c, "reject", "negative sensitivity bound")
+        c = _clone(cert)
+        c["table"].append(dict(c["table"][0]))
+        add("duplicate_key", c, "reject", "duplicate table keys")
     else:
         s = cert["start"]
         u = s
@@ -823,6 +1148,10 @@ SOURCE_MUTANTS = [
      "cut accepts every outgoing edge"),
     ("core_target_may_be_inside", "DarwinBridge/Core.lean", "decide (s ∈ S) && !(decide (t ∈ S)) && cutB",
      "decide (s ∈ S) && cutB", "target-outside-S check dropped"),
+    ("core_adm_cut_ignores_dominance", "DarwinBridge/Core.lean", "decide (b ∈ S) || !(domB B a b)", "decide (b ∈ S) || true",
+     "admissible cut accepts every outgoing edge"),
+    ("core_adm_target_may_be_inside", "DarwinBridge/Core.lean", "decide (s ∈ S) && !(decide (t ∈ S)) &&\n    S.all (fun a => (nbrs a).all (fun b => decide (b ∈ S) || !(domB",
+     "decide (s ∈ S) &&\n    S.all (fun a => (nbrs a).all (fun b => decide (b ∈ S) || !(domB", "admissible cut: target-outside-S check dropped"),
     ("geno_incomplete_neighbours", "DarwinBridge/Geno.lean",
      "  ((List.range 20).filter (· ≠ g.c)).map (fun x => ⟨g.a, g.b, x, g.d⟩) ++\n  ((List.range 20).filter (· ≠ g.d)).map (fun x => ⟨g.a, g.b, g.c, x⟩)",
      "  ((List.range 20).filter (· ≠ g.c)).map (fun x => ⟨g.a, g.b, x, g.d⟩)",
