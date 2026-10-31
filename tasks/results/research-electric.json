@@ -1,7 +1,7 @@
 {
   "role": "research-electric",
   "status": "completed",
-  "commit": "see git log -1 -- tasks/results/research-electric.json (hash recorded after the commit that adds it)",
+  "commit": "1e45453",
   "model": "Claude Sonnet 5.5 (subscription)",
   "metered_spend": "unknown; not inferred from CLI",
   "wall_time_seattle": {"start": "2026-10-31 00:56 PDT", "end": "2026-10-31 01:14 PDT (clock-read)"},
