@@ -21,6 +21,8 @@ def main():
     parser.add_argument("prompt", type=Path)
     parser.add_argument("logs", type=Path)
     parser.add_argument("--rounds", type=int, default=3)
+    parser.add_argument("--interactive", action="store_true",
+                        help="Run an ordinary Claude TUI in the enclosing tmux pane; set /goal there")
     args = parser.parse_args()
     if os.environ.get("DELPHI_WORKER_ACTIVE"):
         raise SystemExit("Refusing a nested worker launcher")
@@ -50,8 +52,18 @@ def main():
         "worker": wid, "session": session, "role": args.role,
         "model": "sonnet", "account": creds.provider,
         "worktree": str(args.worktree), "cost_basis": "subscription; CLI estimates are not spend",
+        "interactive": args.interactive,
     }, indent=2) + "\n")
     try:
+        if args.interactive:
+            # No task queue, supervisor, print-mode loop or API fallback. The user can
+            # attach to this ordinary Claude session and edit its native /goal.
+            command = ["/home/ubuntu/.local/bin/claude", "--model", "sonnet",
+                       "--effort", "high", "--session-id", session,
+                       "--allowedTools", "Read", "Write", "Edit", "Bash", "WebFetch", "WebSearch"]
+            result = subprocess.run(command, cwd=args.worktree, env=env, check=False)
+            (args.logs / "interactive.exit").write_text(str(result.returncode) + "\n")
+            return
         for round_no in range(args.rounds):
             prompt = args.prompt.read_text() if round_no == 0 else (
                 "Continue your assigned goal. Read your task and current receipts, inspect other "
