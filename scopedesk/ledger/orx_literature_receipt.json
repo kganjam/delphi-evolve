@@ -2,7 +2,7 @@
  "kind": "literature verification receipt",
  "by": "delphi-rethink-director (Claude Sonnet 5.5), single-reader, not independently reviewed",
  "at": "2026-10-31 13:02:17 PDT",
- "tool": "OpenResearch orx 0.2.23:  (alphaXiv extracted full text), run under systemd-run caps; no login; exit 0 for all four",
+ "tool": "OpenResearch orx 0.2.23: orx paper <arxiv-id> --full --no-telemetry (alphaXiv extracted full text), run under systemd-run caps; no login; exit 0 for all four",
  "texts_stored": "scratch only (not committed); sha256 and byte counts recorded here; re-fetch with the same command",
  "grep_method": "whitespace-normalised full text searched for finite-domain / controlled-experiment / reuse phrases; quoted passages are short excerpts",
  "rows": [
