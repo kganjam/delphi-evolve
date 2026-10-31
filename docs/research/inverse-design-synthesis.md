@@ -8,7 +8,7 @@ Research checkpoint, October 31, 2026. These are candidate experiments, not clai
 - [x] Read primary sources for NCA, electrical cellulose assembly, bioelectric computation and differentiable simulation.
 - [x] Query live Delphi claims and their complete assumptions.
 - [x] Calculate an exact model example in which domain size changes whether a Turing claim applies.
-- [ ] Reconcile independent research reports.
+- [x] Reconcile independent research reports, correcting scope and provenance errors; unreplicated pilot calculations remain scout-reported.
 - [ ] Inspect actual data files for any proposed new empirical benchmark.
 - [ ] Freeze one bounded experiment before allocating additional training jobs.
 - [ ] Change the main pitch only after a new direction produces a stronger measured result.
@@ -47,6 +47,20 @@ This is qualitative judgment, not a measured ranking. All outputs below are prop
 | Millennium threshold audit | Comparable evidence and exact distance to a target | Useful evidence work, limited standalone design demo |
 
 The top three research bets are **intervention-tested NCA**, **bioelectric control under uncertainty**, and **electrical cellulose fabrication**. They match the requested ambition, but data inspection can change their order. Ion-channel protocol selection is a practical fallback if they lack measurements; it must improve on established comparisons.
+
+### Decision after the three scouts
+
+Keep the measured TrpB build on the critical path. The NCA scout located no downloadable measured damage-and-regeneration benchmark in its bounded search; its strongest proposal is a computational cross-solver test. The electrical scout found usable paired channel-expression/function assays, but these do not directly measure voltage gating or tissue control. The grand-problem scout recommends strengthening the existing experiment before adding a new platform. See `research-nca.md`, `research-electric.md`, and `research-grand.md` for source-level limits.
+
+A new worker is implementing a faithful LazySP-style comparison, because the current Hamming-directed policy is not that baseline. The current random policy already samples the unknown frontier, rather than the entire sequence space; the scout's contrary characterization was corrected after reading `evolve/policies.py`. Results against a stronger baseline may reduce or remove the claimed advantage. No NCA training or electrical fabrication job has been launched.
+
+The long-term ambition remains inverse design of collective behavior. An investible first claim would require a prospectively useful intervention or a demonstrated reduction in experimental work; neither a self-repairing animation nor the presence of a claims graph establishes that.
+
+## Useful legacy code, and a trap to avoid
+
+MorphoSwarm's `lean/morphoswarm-core/MorphoSwarm/Mechanism/GiererMeinhardt.lean` contains parameterized rational proofs about a particular well-mixed reaction model, including opposite local responses to pressing and clamping the inhibitor. This is a more substantial reuse candidate than an unrelated constant identity. The coordinator read the source but has not rerun its compiler in this review. It does not prove a tissue intervention works.
+
+Conversely, `lean/problems/_examples/turing_criterion.lean` defines a Boolean predicate checking positive activation/inhibition and a diffusion ratio above one. Those three conditions alone are not the general two-species instability criterion. Do not reuse that example as a physical oracle merely because its Lean definition compiles. The live Delphi record and the finite-domain calculation below provide the relevant additional conditions.
 
 ## Actual existing Delphi claims
 
