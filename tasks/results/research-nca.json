@@ -3,24 +3,55 @@
   "status": "complete",
   "task": "Deep research on NCA / morphogenetic / amorphous computing; deliver ranked candidates and a falsifiable top candidate",
   "branch": "work/research-nca",
-  "commit": "PENDING_FILLED_BY_FOLLOWUP_COMMIT",
+  "commit": "98b62ab01dc96dc56cf9a7c75aaef79b04044d3e",
   "model": "Claude Sonnet 5.5 (claude-sonnet-5-5), subscription; metered spend unknown, not inferred from CLI",
-  "wall_time_seattle": {"start": "2026-10-31 00:56 PDT", "end": "see git log commit time", "zone_note": "PST begins 2026-11-01 02:00"},
+  "wall_time_seattle": {
+    "start": "2026-10-31 00:56 PDT",
+    "end": "2026-10-31 01:05:52 PDT",
+    "zone_note": "PST begins 2026-11-01 02:00"
+  },
   "artifacts": [
     "docs/research/research-nca.md",
     "artifacts/research/research-nca.json",
     "tasks/results/research-nca.json"
   ],
   "commands_actually_run": [
-    {"command": "date / TZ=America/Los_Angeles date", "outcome": "ok, 2026-10-31 ~00:56-01:15 PDT"},
-    {"command": "cat/sed of AGENTS.md, planning/PLAN.md, specs/CONTRACT.md, STATUS.md, tasks/semantics-review.md", "outcome": "read"},
-    {"command": "sed/grep of /home/ubuntu/git/scienceclaw-hackathon-ideas/resources/research/{amorphous-computing,living-nca,morphoeval-*,morphoassert-*,imposed-pattern-decay,encarule-datasets,collective-behavior-datasets}.md", "outcome": "read, partial for long files"},
-    {"command": "curl POST https://delphisci-mcp.fly.dev/mcp initialize, tools/list, delphi_search_claims, delphi_get_claim (source=local)", "outcome": "HTTP 200 on every call observed; claim IRIs in manifest"},
-    {"command": "20 WebSearch calls (standard x18, extended x2) and ~12 WebFetch calls", "outcome": "see artifacts/research/research-nca.json search_log"},
-    {"command": "curl https://api.github.com/repos/<repo> for license lookups", "outcome": "licenses recorded; Smoldyn guessed path Not Found"},
-    {"command": "curl DataCite and Dryad API metadata for 10.5061/dryad.2j9p4 and 10.5061/dryad.35h8v", "outcome": "metadata ok; file download Unauthorized/403"},
-    {"command": "curl -L arXiv PDFs 2507.12306 and 2604.24990 into /tmp/nca-dl/{mace,review}; timeout 60 pdftotext -layout", "outcome": "converted; read via grep/sed; files not executed"},
-    {"command": "curl https://r.jina.ai/https://pmc.ncbi.nlm.nih.gov/articles/PMC3525670/", "outcome": "abstract only (19754 bytes)"}
+    {
+      "command": "date / TZ=America/Los_Angeles date",
+      "outcome": "ok, 2026-10-31 ~00:56-01:15 PDT"
+    },
+    {
+      "command": "cat/sed of AGENTS.md, planning/PLAN.md, specs/CONTRACT.md, STATUS.md, tasks/semantics-review.md",
+      "outcome": "read"
+    },
+    {
+      "command": "sed/grep of /home/ubuntu/git/scienceclaw-hackathon-ideas/resources/research/{amorphous-computing,living-nca,morphoeval-*,morphoassert-*,imposed-pattern-decay,encarule-datasets,collective-behavior-datasets}.md",
+      "outcome": "read, partial for long files"
+    },
+    {
+      "command": "curl POST https://delphisci-mcp.fly.dev/mcp initialize, tools/list, delphi_search_claims, delphi_get_claim (source=local)",
+      "outcome": "HTTP 200 on every call observed; claim IRIs in manifest"
+    },
+    {
+      "command": "20 WebSearch calls (standard x18, extended x2) and ~12 WebFetch calls",
+      "outcome": "see artifacts/research/research-nca.json search_log"
+    },
+    {
+      "command": "curl https://api.github.com/repos/<repo> for license lookups",
+      "outcome": "licenses recorded; Smoldyn guessed path Not Found"
+    },
+    {
+      "command": "curl DataCite and Dryad API metadata for 10.5061/dryad.2j9p4 and 10.5061/dryad.35h8v",
+      "outcome": "metadata ok; file download Unauthorized/403"
+    },
+    {
+      "command": "curl -L arXiv PDFs 2507.12306 and 2604.24990 into /tmp/nca-dl/{mace,review}; timeout 60 pdftotext -layout",
+      "outcome": "converted; read via grep/sed; files not executed"
+    },
+    {
+      "command": "curl https://r.jina.ai/https://pmc.ncbi.nlm.nih.gov/articles/PMC3525670/",
+      "outcome": "abstract only (19754 bytes)"
+    }
   ],
   "exit_codes": "Numeric exit codes were not captured for the curl/pdftotext/WebFetch commands; outcomes above are what the output showed. Git commit/push exit codes are recorded in the final message and the follow-up commit.",
   "process_cap_note": "No test/build/agent processes were spawned. Short curl/pdftotext commands were not wrapped in systemd-run as AGENTS.md requests for process-spawning runs; pdftotext used timeout 60.",
