@@ -660,6 +660,10 @@ CERT_SPECS = [
     {"label": "trpb_blocked_delta005", "kind": "blocked", "start": "GCLS", "target": "AIKG", "delta": "0.005",
      "note": "GCLS: all 76 neighbours measured and certifiably lower at delta=0.005 => no non-decreasing path "
              "to AIKG in the declared graph, under the assumed containment."},
+    {"label": "trpb_blocked_multi_delta005", "kind": "blocked", "start": "FTFI", "target": "AIKG", "delta": "0.005",
+     "note": "Two-member closed set {FTFI, FWFI}: every one of the 2x76 outgoing edges is either internal or "
+             "certifiably descending. Found by search over the 6000 highest-replicate-mean genotypes (the only one "
+             "with 1 < |S| <= 30); selection of the example is post hoc and descriptive."},
 ]
 DEFAULT_CSV_CANDIDATES = [
     "data/raw/summary_AA.csv",
@@ -785,6 +789,10 @@ def data_mutants(cert: Mapping) -> list[dict]:
         c = _clone(cert)
         c["table"] = [e for e in c["table"] if e["genotype"] != v]
         add("neighbour_unknown", c, "reject", "a missing neighbour keeps an escape edge possible")
+        if len(cert["closed_set"]) > 1:
+            c = _clone(cert)
+            c["closed_set"] = [g for g in c["closed_set"] if g != c["closed_set"][-1]]
+            add("member_removed_opens_edge", c, "reject", "dropping a closure member re-opens the edge into it")
         c = _clone(cert)
         c["closed_set"] = list(c["closed_set"]) + [c["target"]]
         add("target_in_closed_set", c, "reject", "target inside S")

@@ -7,6 +7,13 @@
       "propext",
       "Quot.sound"
     ],
+    "DarwinBridge.Certs.TrpbBlockedMultiDelta005.cert_ok": [
+      "propext"
+    ],
+    "DarwinBridge.Certs.TrpbBlockedMultiDelta005.instance_sound": [
+      "propext",
+      "Quot.sound"
+    ],
     "DarwinBridge.Certs.TrpbRouteDelta0.cert_ok": [
       "propext"
     ],
@@ -81,6 +88,23 @@
       "target": "AIKG"
     },
     {
+      "certificate_sha256": "54fa13691f4811d91213b1f70c7c2539a38a8b54bdc7a66540467045caa11b90",
+      "closed_set": [
+        "FTFI",
+        "FWFI"
+      ],
+      "crossing_edges_checked": 152,
+      "delta_decimal": "0.005",
+      "delta_status": "assumed",
+      "kind": "blocked",
+      "label": "trpb_blocked_multi_delta005",
+      "route": null,
+      "source_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+      "start": "FTFI",
+      "table_rows": 134,
+      "target": "AIKG"
+    },
+    {
       "certificate_sha256": "2ed364171da5a9d9b2d290daaef59918b4fd1d371901611f76b84bd0c6f07373",
       "closed_set": null,
       "crossing_edges_checked": null,
@@ -128,7 +152,7 @@
   "checks": [
     {
       "check": "certificates_present",
-      "detail": "3 certificates: trpb_blocked_delta005, trpb_route_delta0, trpb_route_delta005",
+      "detail": "4 certificates: trpb_blocked_delta005, trpb_blocked_multi_delta005, trpb_route_delta0, trpb_route_delta005",
       "ok": true
     },
     {
@@ -138,12 +162,12 @@
     },
     {
       "check": "python_mirror_accepts_certificates",
-      "detail": "trpb_blocked_delta005: blocked accepted; trpb_route_delta0: route accepted; trpb_route_delta005: route accepted",
+      "detail": "trpb_blocked_delta005: blocked accepted; trpb_blocked_multi_delta005: blocked accepted; trpb_route_delta0: route accepted; trpb_route_delta005: route accepted",
       "ok": true
     },
     {
       "check": "certificate_tied_to_source_csv",
-      "detail": "sha256 a631d8cf6c5b188a…, 91 rows re-read",
+      "detail": "sha256 a631d8cf6c5b188a…, 225 rows re-read",
       "ok": true
     },
     {
@@ -153,19 +177,19 @@
     },
     {
       "check": "fresh_lake_build_original",
-      "detail": "7.0s; ok",
+      "detail": "11.4s; ok",
       "exit_code": 0,
       "ok": true
     },
     {
       "check": "axiom_audit",
-      "detail": "20/20 theorems; axioms used: ['Quot.sound', 'propext']",
+      "detail": "22/22 theorems; axioms used: ['Quot.sound', 'propext']",
       "exit_code": 0,
       "ok": true
     },
     {
       "check": "instance_mutants_as_expected",
-      "detail": "26 mutants; unexpected: []",
+      "detail": "35 mutants; unexpected: []",
       "ok": true
     },
     {
@@ -188,8 +212,8 @@
   "compile_command": "lake build  (fresh copy of lean/, no cached .lake)",
   "compile_exit_code": 0,
   "dominance_mutant_exit_code": 1,
-  "generated_at_seattle": "2026-10-31 00:13:10 PDT",
-  "generated_at_utc": "2026-10-31T07:13:10+00:00",
+  "generated_at_seattle": "2026-10-31 00:21:19 PDT",
+  "generated_at_utc": "2026-10-31T07:21:19+00:00",
   "instance_mutants": [
     {
       "as_expected": true,
@@ -291,6 +315,122 @@
       "name": "trpb_blocked_delta005__duplicate_key",
       "python_mirror_accepted": false,
       "python_reason": "duplicate key ACLS",
+      "rejected_by_decision": true,
+      "why": "duplicate table keys"
+    },
+    {
+      "as_expected": true,
+      "expect": "accept",
+      "lean_accepted": true,
+      "lean_exit_code": 0,
+      "lean_first_error": "",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_multi_delta005__cut_edge_tight_strict",
+      "python_mirror_accepted": true,
+      "python_reason": "blocked accepted",
+      "why": "hi(v) == lo(u)-1: strict-descent boundary accepted"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_blocked_multi_delta005__open_cut_edge_equal.lean:297:77: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_multi_delta005__open_cut_edge_equal",
+      "python_mirror_accepted": false,
+      "python_reason": "open cut edge FTFI->ATFI",
+      "rejected_by_decision": true,
+      "why": "hi(v) == lo(u): edge not certifiably descending => cut is open"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_blocked_multi_delta005__open_cut_edge_higher.lean:297:77: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_multi_delta005__open_cut_edge_higher",
+      "python_mirror_accepted": false,
+      "python_reason": "open cut edge FTFI->ATFI",
+      "rejected_by_decision": true,
+      "why": "neighbour clearly higher: a real ascent edge leaves S"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_blocked_multi_delta005__neighbour_unknown.lean:295:77: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_multi_delta005__neighbour_unknown",
+      "python_mirror_accepted": false,
+      "python_reason": "open cut edge FTFI->ATFI",
+      "rejected_by_decision": true,
+      "why": "a missing neighbour keeps an escape edge possible"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_blocked_multi_delta005__member_removed_opens_edge.lean:296:77: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_multi_delta005__member_removed_opens_edge",
+      "python_mirror_accepted": false,
+      "python_reason": "open cut edge FTFI->FWFI",
+      "rejected_by_decision": true,
+      "why": "dropping a closure member re-opens the edge into it"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_blocked_multi_delta005__target_in_closed_set.lean:298:77: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_multi_delta005__target_in_closed_set",
+      "python_mirror_accepted": false,
+      "python_reason": "s must be in S and t not",
+      "rejected_by_decision": true,
+      "why": "target inside S"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_blocked_multi_delta005__start_not_in_closed_set.lean:296:77: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_multi_delta005__start_not_in_closed_set",
+      "python_mirror_accepted": false,
+      "python_reason": "s must be in S and t not",
+      "rejected_by_decision": true,
+      "why": "start must belong to S"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_blocked_multi_delta005__negative_delta.lean:297:77: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_multi_delta005__negative_delta",
+      "python_mirror_accepted": false,
+      "python_reason": "delta must be a non-negative integer",
+      "rejected_by_decision": true,
+      "why": "negative sensitivity bound"
+    },
+    {
+      "as_expected": true,
+      "expect": "reject",
+      "lean_accepted": false,
+      "lean_exit_code": 1,
+      "lean_first_error": "trpb_blocked_multi_delta005__duplicate_key.lean:299:77: error: Tactic `decide` proved that the proposition",
+      "mirror_agrees": true,
+      "name": "trpb_blocked_multi_delta005__duplicate_key",
+      "python_mirror_accepted": false,
+      "python_reason": "duplicate key ATFI",
       "rejected_by_decision": true,
       "why": "duplicate table keys"
     },
@@ -607,10 +747,10 @@
   ],
   "source_tie": {
     "csv": "/data/artifacts/v2-scout/data/caltech/summary_AA.csv",
-    "rows_checked": 91,
+    "rows_checked": 225,
     "sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
     "verified": true
   },
   "status": "completed",
-  "wall_seconds": 104.5
+  "wall_seconds": 191.6
 }
