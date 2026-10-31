@@ -1,0 +1,2 @@
+# v1 is on FREEZE-HOLD (2026-10-31 06:54 PDT, director) — do not run agents on it
+Defect found by an independent audit before any agent ran: the `rayleigh_plateau` family's pinned-end scope condition was physically wrong (a fixed-volume liquid bridge between pinned disks cannot use the n=1 mode; sourced limit is L>2πR for pinned and periodic alike), plus unstated conventions in several requests. v1 files are left untouched for the record; the corrected benchmark is `scopedesk/bench/v1_1/` (new KEY.sha256). See `v1_1/V1_TO_V1_1_DIFF.md`.

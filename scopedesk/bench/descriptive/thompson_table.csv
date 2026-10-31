@@ -1,0 +1,5 @@
+operationalisation,quantity,point,ci_low,ci_high,evidence_kind,tests_buckling_claim
+pooled OLS,pooled_OLS_slope,0.5881,0.5016,0.695,observed-derived,no (mean allometry)
+pooled SMA,pooled_SMA_slope,0.7798,0.7229,0.8463,observed-derived,no (mean allometry)
+q99 envelope,q99_envelope_slope,0.6324,0.5638,0.6698,observed-derived,no (upper-percentile proxy)
+"fraction above uniform Greenhill bound (assumed E=10GPa, rho=800)",frac_trees_above_Greenhill_E10GPa_rho800_uniform,0.006,0.0035,0.0096,observed + assumed inputs,"only conditionally (uniform cylinder, assumed E, rho)"
