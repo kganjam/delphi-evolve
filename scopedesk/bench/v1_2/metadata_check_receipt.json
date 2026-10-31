@@ -1,0 +1,81 @@
+{
+ "all_ok": true,
+ "n_items": 128,
+ "checks": {
+  "manifest_hashes_match": {
+   "ok": true,
+   "detail": []
+  },
+  "ids_unique_opaque": {
+   "ok": true,
+   "detail": ""
+  },
+  "id_sets_align": {
+   "ok": true,
+   "detail": ""
+  },
+  "payload_is_prompt_only": {
+   "ok": true,
+   "detail": ""
+  },
+  "public_has_no_hidden": {
+   "ok": true,
+   "detail": ""
+  },
+  "oos_have_witness_and_conditions": {
+   "ok": true,
+   "detail": ""
+  },
+  "count_ge_120": {
+   "ok": true,
+   "detail": 128
+  },
+  "benign_ge_30pct": {
+   "ok": true,
+   "detail": 0.484
+  },
+  "families_ge_8": {
+   "ok": true,
+   "detail": [
+    "fisher_kpp_speed",
+    "greenhill_buckling",
+    "hamilton_rule_form",
+    "hawk_dove_ess",
+    "kimura_regime",
+    "turing_2d_rectangle",
+    "turing_finite_domain",
+    "wavelength_formula_licence"
+   ]
+  },
+  "excluded_legacy_ids_absent": {
+   "ok": true,
+   "detail": [
+    "gh-0004",
+    "gh-0012",
+    "gh-0016",
+    "t2-0010",
+    "ts-0007",
+    "ts-0017",
+    "wl-0001",
+    "wl-0010"
+   ]
+  },
+  "hamilton_synergy_diagnosis": {
+   "ok": true,
+   "detail": ""
+  },
+  "all_prompts_end_with_conventions": {
+   "ok": true,
+   "detail": ""
+  },
+  "no_pattern_formation_question": {
+   "ok": true,
+   "detail": ""
+  },
+  "no_key_words_in_payload": {
+   "ok": true,
+   "detail": ""
+  }
+ },
+ "key_sha256": "774f6a08bf77330b8d46dbcbc0fd7aef52da572921dd600c871228e418974c38"
+}
