@@ -1,0 +1,52 @@
+{
+  "kind": "claim-reuse-protocol/v1",
+  "declared_at_seattle": "2026-10-31 00:46 PDT (measured with date)",
+  "declared_before": "any cross-campaign reuse count was computed; only the aggregate recovered-replay summary.json (episode counts / certificate rates) had been read",
+  "trace_source": {
+    "branch": "work/replay-recovery",
+    "path": "artifacts/recovery/original-shards.tar.gz",
+    "tar_sha256": "626a775a7d028b5b971ac2bd29d1fa5acce742cbc36c276b3a64b7839c40d2ae",
+    "expected_episodes": 700,
+    "expected_paid_requests": 488601,
+    "note": "Original, immutable core shards; nothing is rerun and no policy decision changes."
+  },
+  "campaign_definition": "one episode = (seed, pair, policy); its recorded paid query list is the ordered assay REQUEST history. Free initial observations are not requests.",
+  "seeds": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],
+  "pair_order_within_seed": ["B:VFVS>AIKG", "B:VFVS>CLKG", "B:VFVS>VLKG", "B:VFVS>ALKG", "A:<seed-specific start>><seed-specific target>"],
+  "policy_order_within_pair": ["random","greedy","uncertainty","directed","q2c","collective_shared","collective_isolated"],
+  "campaign_order": "for seed in seeds: for pair in pair_order_within_seed: for policy in policy_order_within_pair",
+  "store_scopes": {
+    "pooled": "one store shared by all 700 campaigns",
+    "per_policy": "one store per policy (100 campaigns each)"
+  },
+  "strategies": {
+    "fresh": "every recorded request is a new assay",
+    "sequence_cache": "genotype-keyed cache of previous results, context-blind",
+    "typed_claim_reuse": "reuse only evidence claims whose typed guard (kind=observed, status=active, dataset hash, assay context id, reference hash, coordinate positions, units) matches the requester's context"
+  },
+  "primary_metric": "avoided duplicate assays = requests served from store instead of re-assaying, counted over recorded requests only",
+  "caveats_declared_now": [
+    "avoided requests are not an adaptive-policy uplift: a policy that received free data would have chosen different queries",
+    "no wet-lab cost; the oracle is a lookup in already-measured data, so a 'reused' value is identical to a fresh lookup by construction",
+    "under identical contexts sequence_cache and typed_claim_reuse are expected to avoid exactly the same requests; any difference is a bug or a context difference"
+  ],
+  "fault_injection": {
+    "label": "SYNTHETIC SOFTWARE VALIDATION FIXTURES, not biological measurements",
+    "selection_rule": "evidence id e is attacked by attack a iff int(sha256(a + '|' + e)[:8],16) % 1000 < rate_per_mille[a]",
+    "rate_per_mille": {
+      "context_drift": 50,
+      "coordinate_shift": 50,
+      "prediction_as_observation": 50,
+      "withdrawn": 50
+    },
+    "attack_definitions": {
+      "context_drift": "stored fact carries a different assay_context_id than the requester",
+      "coordinate_shift": "stored fact's reference coordinate hash / residue positions differ from the requester's",
+      "prediction_as_observation": "stored fact is kind=predicted but its value field is formatted like an observation",
+      "withdrawn": "stored fact status = withdrawn"
+    },
+    "metrics": ["invalid_facts_reused", "campaigns_with_invalid_evidence", "avoided_assays_retained", "reassays_forced"],
+    "negative_controls": "disabling each guard in turn must make the matching attack pass through (invalid_facts_reused > 0)"
+  },
+  "no_cherry_picks": "seeds 0..19, all 700 episodes, all pairs and policies; no subset reported alone"
+}
