@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Explore 21 pinned Delphi records, the evidence we have checked and the questions that remain.">
+  <title>Delphi Frontier · a map of the next question</title>
+  <link rel="stylesheet" href="frontier.css">
+  <script src="frontier.js" defer></script>
+</head>
+<body>
+  <header class="shell masthead"><a href="index.html">Delphi<span> / frontier</span></a><span>Review prototype · 21 records</span></header>
+  <main class="shell">
+    <section class="intro">
+      <p class="eyebrow">Knowledge becomes a place to work</p>
+      <h1>Find the edge.<br><em>Make the next move.</em></h1>
+      <p class="lede">Explore a claim. Ask what supports it. Find the question that a proof, a computation or a new measurement could resolve.</p>
+      <p class="scope">This small map shows our review of 21 extracted Delphi records. Unchecked here does not mean unknown to science.</p>
+    </section>
+    <div id="load-status" role="status">Loading the pinned review inventory…</div>
+    <section class="workspace" aria-label="Knowledge map and selected claim">
+      <div class="map-panel">
+        <div class="panel-top"><h2>The map so far</h2><span>Curated topic groups</span></div>
+        <div class="legend" aria-label="Review coverage legend">
+          <span><i class="checked"></i>6 model checks</span><span><i class="related"></i>1 related lemma</span><span><i class="question"></i>2 empirical / framework</span><span><i class="unchecked"></i>12 unchecked here</span>
+        </div>
+        <svg id="map" viewBox="0 0 720 650" role="group" aria-label="Select a claim to inspect its review. Topic placement is curated, not a learned similarity or proof graph."></svg>
+        <p class="map-note">Lines show review connections. Dashed lines need a missing correspondence or empirical evidence; they are not established derivations.</p>
+        <label for="claim-picker">Choose a claim by name</label><select id="claim-picker" aria-controls="claim-panel"></select>
+      </div>
+      <article id="claim-panel" class="claim-panel" aria-label="Selected claim">
+        <p class="eyebrow" id="claim-group"></p><h2 id="claim-title"></h2>
+        <p id="claim-status" class="status-tag"></p>
+        <p class="eyebrow">Extracted claim · under review</p><p id="claim-statement"></p>
+        <div class="finding"><p class="eyebrow">What our review establishes</p><p id="claim-finding"></p></div>
+        <button id="prove-button" type="button" aria-expanded="false" aria-controls="evidence-panel">Prove to me <span aria-hidden="true">↗</span></button>
+        <div id="evidence-panel" hidden>
+          <h3>Inspect the evidence</h3><p class="fine">These are recorded artifacts. This page does not execute Lean or a scientific simulation.</p>
+          <ul id="evidence-links"></ul><p id="no-evidence" class="fine"></p>
+          <details><summary>Exact extracted mathematics and context</summary><p id="claim-math" class="math"></p><p id="claim-context"></p></details>
+          <details><summary>Source and pinned version</summary><p id="claim-source"></p><a id="source-link" href="#">Open the extracted record ↗</a><p class="fine">Record content SHA-256</p><code id="claim-hash"></code><p class="fine">The original-paper correspondence has not been audited here.</p></details>
+        </div>
+        <div class="next-action"><span class="eyebrow">The next useful action · proposed</span><h3 id="next-action"></h3><p class="fine">A suggested contribution, not a claimed scientific discovery or a running task.</p></div>
+        <div id="bridge-panel"><h3>What lies between</h3><ul id="bridge-list"></ul></div>
+      </article>
+    </section>
+    <section class="vision" aria-labelledby="questions-title"><p class="eyebrow">Seeded from work already in progress</p><h2 id="questions-title">A question is a place to contribute.</h2><p class="scope">Six unresolved project questions and one resolved correction. These are scoped tasks and evidence gaps, not claims of newly discovered open problems in biology.</p><div id="problem-cards" class="problem-grid"></div><p class="fine">Coordination links lead to the private Delphi Frontier repository and require collaborator access. Express interest, offer help or resources, or explain what this blocks. No votes or funding totals are displayed as scientific evidence.</p></section>
+    <section class="vision" aria-labelledby="vision-title"><p class="eyebrow">The community we want to build</p><h2 id="vision-title">A conversation that changes the map.</h2><div class="vision-grid">
+      <article><span>01 / Challenge</span><h3>“Show me why.”</h3><p>Ask for a source, counterexample, proof, reproduction or a test of applicability. Name what would settle the question.</p></article>
+      <article><span>02 / Contribute</span><h3>Bring something checkable.</h3><p>A person or agent supplies an artifact with its assumptions, inputs and limits. A useful failure belongs here too.</p></article>
+      <article><span>03 / Advance</span><h3>Help the next question.</h3><p>Review the result, preserve disagreement and show what it enables. Credit follows an attributable contribution and observed reuse.</p></article>
+    </div><p class="fine">Proposed community workflow. Task claiming, live discussion, signing, resource allocation and autonomous execution are not implemented in this prototype.</p></section>
+  </main>
+  <footer class="shell"><p><a href="index.html">Explore the existing scope calculations →</a> · <a href="frontier-data.json">Download the map data</a></p><p>This map uses a deterministic browser layout. It is not a GPU simulation, a complete map of biology or a count of proved biological laws.</p></footer>
+</body>
+</html>

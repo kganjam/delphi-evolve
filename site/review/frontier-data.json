@@ -1,0 +1,464 @@
+{
+  "title": "Delphi Frontier · review map",
+  "source_revision": "0c2d4f258ea82f25115b543493b090a906550f08",
+  "scope": "21 extracted records; colors describe this project's review coverage, not scientific truth.",
+  "counts": {
+    "related": 1,
+    "unchecked": 12,
+    "checked": 6,
+    "question": 2
+  },
+  "nodes": [
+    {
+      "id": "fisher-ftns",
+      "short": "Fisher partial change",
+      "label": "Fisher's fundamental theorem of natural selection (partial-change form)",
+      "group": "Selection and inheritance",
+      "category": "related",
+      "review_title": "Related formal lemma; target unestablished",
+      "finding": "Price and total-fitness variance are available. Additive genetic variance and the fixed-average-effect partial-change target are not established by our probe.",
+      "next_action": "Freeze genetic projection and partial-change semantics, then prove the missing correspondence.",
+      "statement": "The rate of increase in mean fitness of a population due to natural selection equals its additive genetic variance in fitness at that time.",
+      "math": "\\Delta_{NS}\\bar{w} = V_A(w)/\\bar{w} (discrete generations); \\left.\\frac{d\\bar{m}}{dt}\\right|_{NS} = V_A(m) for Malthusian fitness m",
+      "context": "Assumptions: the 'partial change' holds average effects of alleles and the environment fixed (Price 1972, Ewens 1989); V_A is the additive genetic variance in fitness. Formal status: proved in this partial-change reading. Read as a claim about the total change in mean fitness it is false under dominance, epistasis, frequency dependence or a changing environment.",
+      "source": "Ronald A. Fisher (1930) The Genetical Theory of Natural Selection",
+      "record_sha256": "d7832308474c4a0e87d984b0764f7b7d7c928a2d4509368f7cf34e0f028a97fe",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/fisher-ftns.json",
+      "evidence": [
+        {
+          "label": "Recorded compilation receipt",
+          "url": "https://github.com/kganjam/delphi-evolve/blob/b4e60db91050ccaec8cd16f8f57373690c5efa7b/artifacts/integration/codex-api/price-probe.json",
+          "kind": "recorded compilation"
+        },
+        {
+          "label": "Inspect Price / Hamilton source",
+          "url": "https://github.com/kganjam/delphi-evolve/blob/b4e60db91050ccaec8cd16f8f57373690c5efa7b/experiments/price_probe/Price.lean",
+          "kind": "related formal source"
+        }
+      ]
+    },
+    {
+      "id": "fisher-infinitesimal",
+      "short": "Infinitesimal model",
+      "label": "Fisher's infinitesimal model of quantitative inheritance",
+      "group": "Selection and inheritance",
+      "category": "unchecked",
+      "review_title": "No check recorded here",
+      "finding": "This inventory contains no corresponding check. That does not mean the claim is unknown to science.",
+      "next_action": "Review the source-to-statement mapping, choose a precise target and record its acceptance conditions.",
+      "statement": "Continuous traits determined by many Mendelian loci of small additive effect produce the observed correlations between relatives, so biometric and Mendelian inheritance are consistent.",
+      "math": "Cov(z_i, z_j) = 2\\Theta_{ij} V_A + \\Delta_{ij} V_D; in the limit of M \\to \\infty loci the offspring trait given parents is Gaussian with mean (z_1+z_2)/2 and segregation variance V_0(1-\\bar{F}), with error O(1/\\sqrt{M}) (Barton, Etheridge and Veber 2017)",
+      "context": "Assumptions: many unlinked loci of small additive effect, random mating, environmental effects independent of genotype. Formal status: the covariance decomposition is proved; the infinitesimal limit, including under selection, is proved by Barton, Etheridge and Veber (2017). Large-effect loci and epistasis break the Gaussian limit.",
+      "source": "Ronald A. Fisher (1919) The Correlation between Relatives on the Supposition of Mendelian Inheritance",
+      "record_sha256": "0ebb88c6881a8e43045e775f9222e5004da05597f91d1e0a8a5160a7b3fba1de",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/fisher-infinitesimal.json",
+      "evidence": []
+    },
+    {
+      "id": "fisher-kpp-speed",
+      "short": "Wave speed",
+      "label": "Fisher-KPP wave of advance of an advantageous gene",
+      "group": "Pattern formation",
+      "category": "checked",
+      "review_title": "Alternative-kinetics scope check",
+      "finding": "The record already specifies logistic growth and warns that Allee effects change the speed.",
+      "next_action": "Specify kinetics and initial conditions before importing a front-speed formula.",
+      "statement": "An advantageous allele spreading through a continuous population advances as a travelling wave whose speed is set by the selection coefficient and the diffusion (dispersal) rate.",
+      "math": "u_t = D u_{xx} + s u(1-u); travelling waves u(x-ct) exist iff c \\ge c^* = 2\\sqrt{sD}; compactly supported initial data spread at asymptotic speed c^*",
+      "context": "Assumptions: one spatial dimension (extended to R^n), constant diffusion D, logistic (genic) selection with coefficient s, deterministic large-population limit. Formal status: proved; Kolmogorov, Petrovsky and Piskunov (1937) gave the proof independently, and Aronson and Weinberger (1978) proved the asymptotic spreading speed in several dimensions. Finite populations, Allee effects or long-tailed dispersal change the speed.",
+      "source": "Ronald A. Fisher (1937) The wave of advance of advantageous genes",
+      "record_sha256": "da1f743727e4d1359a0a9c450e035962f1f3a24d49e04a68b78cb569b71d48d7",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/fisher-kpp-speed.json",
+      "evidence": [
+        {
+          "label": "Frozen benchmark and limitations",
+          "url": "https://github.com/kganjam/delphi-evolve/blob/70c12544a952fbdcfa370e8249c980092b522785/scopedesk/bench/v1_2/FROZEN.md",
+          "kind": "declared-model benchmark"
+        }
+      ]
+    },
+    {
+      "id": "fisher-sex-ratio",
+      "short": "Sex ratio",
+      "label": "Fisher's principle of equal investment in the sexes",
+      "group": "Selection and inheritance",
+      "category": "unchecked",
+      "review_title": "No check recorded here",
+      "finding": "This inventory contains no corresponding check. That does not mean the claim is unknown to science.",
+      "next_action": "Review the source-to-statement mapping, choose a precise target and record its acceptance conditions.",
+      "statement": "Under random mating and autosomal inheritance, selection drives parents to invest equally in sons and daughters, which gives a 1:1 sex ratio when the two cost the same.",
+      "math": "ESS allocation: N_m c_m = N_f c_f; with c_m = c_f the unbeatable primary sex ratio is 1:1",
+      "context": "Assumptions: panmixia, autosomal control of the sex ratio, each offspring has one father and one mother, no local mate competition or sex-specific resource competition. Formal status: proved as an invasion (ESS) result (Shaw and Mohler 1953). Its own named exceptions (local mate competition, Hamilton 1967) are predicted deviations, not refutations.",
+      "source": "Ronald A. Fisher (1930) The Genetical Theory of Natural Selection",
+      "record_sha256": "0a8f299cd1d59b9bcbf209fd8bec747c95431d8e2c2b52f758938598013026aa",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/fisher-sex-ratio.json",
+      "evidence": []
+    },
+    {
+      "id": "hamilton-haplodiploidy",
+      "short": "Haplodiploidy",
+      "label": "Haplodiploidy hypothesis for eusociality",
+      "group": "Selection and inheritance",
+      "category": "unchecked",
+      "review_title": "No check recorded here",
+      "finding": "This inventory contains no corresponding check. That does not mean the claim is unknown to science.",
+      "next_action": "Review the source-to-statement mapping, choose a precise target and record its acceptance conditions.",
+      "statement": "Because full sisters in haplodiploid species share three quarters of their genes, more than a mother shares with her offspring, haplodiploid insects are predisposed to evolve sterile worker castes.",
+      "math": "with a singly mated queen, r_{sister,sister} = 3/4 > r_{mother,daughter} = 1/2, but r_{sister,brother} = 1/4",
+      "context": "Formal status: the relatedness coefficients are proved. The explanatory claim is largely abandoned: the low sister-brother relatedness offsets the gain unless the sex ratio is biased, diploid termites are eusocial, and comparative work points to ancestral monogamy instead (Hughes et al. 2008).",
+      "source": "W. D. Hamilton (1964) The genetical evolution of social behaviour. II",
+      "record_sha256": "6c576d1c5be556fd3a1392d152ea2ea60adc930d2e428f67b75a6d84dd9e5bfc",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/hamilton-haplodiploidy.json",
+      "evidence": []
+    },
+    {
+      "id": "hamilton-lmc",
+      "short": "Local mate competition",
+      "label": "Local mate competition sex ratio",
+      "group": "Selection and inheritance",
+      "category": "unchecked",
+      "review_title": "No check recorded here",
+      "finding": "This inventory contains no corresponding check. That does not mean the claim is unknown to science.",
+      "next_action": "Review the source-to-statement mapping, choose a precise target and record its acceptance conditions.",
+      "statement": "When a few mothers lay eggs on a patch and their offspring mate there before the daughters disperse, the evolutionarily stable sex ratio is female-biased, and the bias weakens as the number of mothers grows.",
+      "math": "unbeatable proportion of males x^* = \\frac{n-1}{2n} for n foundresses per patch (diploid case)",
+      "context": "Assumptions: n foundresses per patch, mating confined to the natal patch, only females disperse, mothers control the sex ratio. Formal status: proved as an ESS within the model. Haplodiploidy and inbreeding shift x* slightly.",
+      "source": "W. D. Hamilton (1967) Extraordinary Sex Ratios",
+      "record_sha256": "4f265442ad42233e442bcffc16aa6d3241fbf0ba3f72ba099a24f83907f7c444",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/hamilton-lmc.json",
+      "evidence": []
+    },
+    {
+      "id": "hamilton-rule",
+      "short": "Hamilton regression",
+      "label": "Hamilton's rule",
+      "group": "Selection and inheritance",
+      "category": "checked",
+      "review_title": "Conditional regression corollary compiled",
+      "finding": "The record explicitly uses regression coefficients. A witness with fixed causal payoff coefficients does not refute that identity.",
+      "next_action": "Review the genotype, transmission and regression mapping for the intended application.",
+      "statement": "A gene for social behaviour increases in frequency when the benefit to the recipient, weighted by genetic relatedness, exceeds the cost to the actor.",
+      "math": "\\Delta \\bar{p} > 0 \\iff r b - c > 0, with r, b, c defined as regression coefficients (Queller form via the Price equation)",
+      "context": "Assumptions: in Hamilton's original derivation, additive fitness effects and weak selection; in the general form, b and c are partial regressions of fitness on the actor's and the partner's genotype. Formal status: proved; exact in the regression form (Gardner, West and Wild 2011). Critics argue that the general form is close to an identity with little predictive content (Nowak, Tarnita and Wilson 2010).",
+      "source": "W. D. Hamilton (1964) The genetical evolution of social behaviour. I",
+      "record_sha256": "86130c5e0ed4e508645b7880e357077d488123603a346dd92622f644c4782d71",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/hamilton-rule.json",
+      "evidence": [
+        {
+          "label": "Frozen benchmark and limitations",
+          "url": "https://github.com/kganjam/delphi-evolve/blob/70c12544a952fbdcfa370e8249c980092b522785/scopedesk/bench/v1_2/FROZEN.md",
+          "kind": "declared-model benchmark"
+        },
+        {
+          "label": "Recorded compilation receipt",
+          "url": "https://github.com/kganjam/delphi-evolve/blob/b4e60db91050ccaec8cd16f8f57373690c5efa7b/artifacts/integration/codex-api/price-probe.json",
+          "kind": "recorded compilation"
+        },
+        {
+          "label": "Inspect Price / Hamilton source",
+          "url": "https://github.com/kganjam/delphi-evolve/blob/b4e60db91050ccaec8cd16f8f57373690c5efa7b/experiments/price_probe/Price.lean",
+          "kind": "related formal source"
+        }
+      ]
+    },
+    {
+      "id": "hamilton-senescence",
+      "short": "Senescence",
+      "label": "Declining force of selection with age",
+      "group": "Selection and inheritance",
+      "category": "unchecked",
+      "review_title": "No check recorded here",
+      "finding": "This inventory contains no corresponding check. That does not mean the claim is unknown to science.",
+      "next_action": "Review the source-to-statement mapping, choose a precise target and record its acceptance conditions.",
+      "statement": "The strength of selection on survival falls with age after reproduction begins, so senescence is an inevitable outcome of natural selection.",
+      "math": "s(a) = \\frac{\\partial r}{\\partial \\ln p_a} = \\frac{1}{T}\\sum_{x=a+1}^{\\infty} e^{-rx} l_x m_x, non-increasing in a",
+      "context": "Assumptions: an age-structured population with fixed age-specific fertility and no growth or repair after maturity. Formal status: the formula for s(a) is proved. The inevitability claim is refuted as stated: Jones et al. (2013) found species with flat or declining mortality with age, consistent with life histories where fertility rises with size.",
+      "source": "W. D. Hamilton (1966) The moulding of senescence by natural selection",
+      "record_sha256": "10c404500901cad6d8dfca5a4854b4264b0a405a32efa7062dcdca61fa455511",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/hamilton-senescence.json",
+      "evidence": []
+    },
+    {
+      "id": "kimura-fixation-probability",
+      "short": "Fixation probability",
+      "label": "Kimura fixation probability of a mutant allele",
+      "group": "Molecular evolution",
+      "category": "checked",
+      "review_title": "Approximation regime checked",
+      "finding": "The record declares a diffusion approximation. The benchmark's finite haploid chain needs an explicit mapping to its diploid convention. Neutral fixation equals initial frequency exactly.",
+      "next_action": "Align ploidy and selection conventions, then compare the approximation with the specified finite chain.",
+      "statement": "The probability that a mutant allele eventually fixes in a finite population depends on its initial frequency, its selective advantage and the effective population size, and equals its initial frequency when it is neutral.",
+      "math": "u(p) = \\frac{1-e^{-4N_e s p}}{1-e^{-4N_e s}}; neutral limit u(p) = p, so a new mutant fixes with probability 1/(2N)",
+      "context": "Assumptions: diffusion approximation to the Wright-Fisher model, genic (additive) selection with coefficient s, constant effective size N_e, no linkage to other selected sites. Formal status: proved within the diffusion limit.",
+      "source": "Motoo Kimura (1962) On the probability of fixation of mutant genes in a population",
+      "record_sha256": "859527bc0b704a138bbd5509f70874fba40ea23ef2a2b66eb03567d554f6ce9f",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/kimura-fixation-probability.json",
+      "evidence": [
+        {
+          "label": "Frozen benchmark and limitations",
+          "url": "https://github.com/kganjam/delphi-evolve/blob/70c12544a952fbdcfa370e8249c980092b522785/scopedesk/bench/v1_2/FROZEN.md",
+          "kind": "declared-model benchmark"
+        }
+      ]
+    },
+    {
+      "id": "kimura-fixation-time",
+      "short": "Fixation time",
+      "label": "Mean time to fixation of a neutral mutant",
+      "group": "Molecular evolution",
+      "category": "unchecked",
+      "review_title": "No check recorded here",
+      "finding": "This inventory contains no corresponding check. That does not mean the claim is unknown to science.",
+      "next_action": "Review the source-to-statement mapping, choose a precise target and record its acceptance conditions.",
+      "statement": "A neutral mutant that does go to fixation takes on average about four times the effective population size, in generations, to do so.",
+      "math": "\\bar{t}_1(p) = -\\frac{4N_e(1-p)\\ln(1-p)}{p}; as p = 1/(2N) \\to 0, \\bar{t}_1 \\to 4N_e generations",
+      "context": "Assumptions: diffusion approximation to the Wright-Fisher model, neutrality, constant N_e. Formal status: proved within the diffusion limit (Kimura and Ohta 1969).",
+      "source": "Motoo Kimura (1969) The average number of generations until fixation of a mutant gene in a finite population",
+      "record_sha256": "f7e573f7ae0938a73ce3418b12bbc2a728953c9725aa5b51ab6b3140a845e2c5",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/kimura-fixation-time.json",
+      "evidence": []
+    },
+    {
+      "id": "kimura-heterozygosity",
+      "short": "Heterozygosity",
+      "label": "Neutral equilibrium heterozygosity (Kimura-Crow)",
+      "group": "Molecular evolution",
+      "category": "unchecked",
+      "review_title": "No check recorded here",
+      "finding": "This inventory contains no corresponding check. That does not mean the claim is unknown to science.",
+      "next_action": "Review the source-to-statement mapping, choose a precise target and record its acceptance conditions.",
+      "statement": "Under neutral mutation to new alleles and drift, expected heterozygosity reaches an equilibrium that rises with the product of effective population size and mutation rate.",
+      "math": "H = \\frac{\\theta}{1+\\theta}, \\theta = 4N_e\\mu (infinite-alleles model)",
+      "context": "Assumptions: infinite-alleles mutation, neutrality, constant N_e, equilibrium. Formal status: proved within the model. Observed diversity varies far less across species than census sizes predict (Lewontin's paradox; Leffler et al. 2012), which points to linked selection and demography.",
+      "source": "Motoo Kimura (1964) The number of alleles that can be maintained in a finite population",
+      "record_sha256": "ee7a766ce1684e651aa28d7a90b1ee3744a5ee1e12ef7a86bf095ac9da0352c5",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/kimura-heterozygosity.json",
+      "evidence": []
+    },
+    {
+      "id": "kimura-neutral-theory",
+      "short": "Neutral theory",
+      "label": "Neutral theory: most molecular substitutions are neutral",
+      "group": "Molecular evolution",
+      "category": "question",
+      "review_title": "Empirical question",
+      "finding": "The estimator is formalizable. A model proof alone cannot settle what fraction of substitutions in nature is neutral.",
+      "next_action": "Specify a population, data, estimator assumptions and a discriminating analysis.",
+      "statement": "Most evolutionary changes at the molecular level are caused by random drift of selectively neutral or nearly neutral mutations, not by positive selection.",
+      "math": "empirical claim: for most sites |N_e s| \\lesssim 1, so the fraction of substitutions driven by positive selection \\alpha is small; tested with d_N/d_S and McDonald-Kreitman \\alpha = 1 - \\frac{D_s P_n}{D_n P_s}",
+      "context": "Formal status: not a mathematical statement; an empirical claim about the distribution of fitness effects. King and Jukes (1969) proposed it independently. Genomic estimates of alpha and pervasive linked selection are cited against its strong form (Kern and Hahn 2018).",
+      "source": "Motoo Kimura (1968) Evolutionary Rate at the Molecular Level",
+      "record_sha256": "da19838a69d9e9722bba87dfbbb6863efce475110b2bb16616b6afc0e1731c1a",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/kimura-neutral-theory.json",
+      "evidence": []
+    },
+    {
+      "id": "kimura-substitution-rate",
+      "short": "Substitution rate",
+      "label": "Neutral substitution rate equals the mutation rate",
+      "group": "Molecular evolution",
+      "category": "unchecked",
+      "review_title": "No check recorded here",
+      "finding": "This inventory contains no corresponding check. That does not mean the claim is unknown to science.",
+      "next_action": "Review the source-to-statement mapping, choose a precise target and record its acceptance conditions.",
+      "statement": "For neutral mutations the long-run rate of molecular substitution equals the mutation rate per generation, independent of population size, which yields a molecular clock.",
+      "math": "k = 2N\\mu \\cdot \\frac{1}{2N} = \\mu",
+      "context": "Assumptions: strictly neutral mutations, mutation rate constant per generation, steady state. Formal status: an exact consequence of the neutral fixation probability. Variation in generation time and weak selection on nearly neutral sites cause departures from strict clock-like rates.",
+      "source": "Motoo Kimura (1968) Evolutionary Rate at the Molecular Level",
+      "record_sha256": "355677ed51102caa1f93594875c4115231352bf238b1407829387f8ceb1c7bf0",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/kimura-substitution-rate.json",
+      "evidence": []
+    },
+    {
+      "id": "maynardsmith-ess",
+      "short": "General ESS",
+      "label": "Evolutionarily stable strategy conditions",
+      "group": "Evolutionary games",
+      "category": "unchecked",
+      "review_title": "No check recorded here",
+      "finding": "This inventory contains no corresponding check. That does not mean the claim is unknown to science.",
+      "next_action": "Review the source-to-statement mapping, choose a precise target and record its acceptance conditions.",
+      "statement": "A strategy is evolutionarily stable if, once common, it cannot be invaded by any rare alternative strategy.",
+      "math": "I is an ESS iff for all J \\ne I: E(I,I) > E(J,I), or E(I,I) = E(J,I) and E(I,J) > E(J,J); every ESS is an asymptotically stable rest point of the replicator dynamics (Taylor and Jonker 1978), not conversely",
+      "context": "Assumptions: an infinite, well-mixed population with pairwise interactions and asexual or clonal inheritance of strategies. Formal status: the definition is exact, and the link to replicator dynamics is proved. Finite populations, mutation and genetic constraints can stop an ESS from being reached.",
+      "source": "John Maynard Smith (1973) The Logic of Animal Conflict",
+      "record_sha256": "36db93eef14a346cf4feafc9bac39682f264e45029115245a41526d0e51c52f1",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/maynardsmith-ess.json",
+      "evidence": []
+    },
+    {
+      "id": "maynardsmith-hawk-dove",
+      "short": "Hawk–Dove",
+      "label": "Hawk-Dove mixed ESS",
+      "group": "Evolutionary games",
+      "category": "checked",
+      "review_title": "Declared game checked",
+      "finding": "The checked ESS calculation concerns the specified symmetric payoff matrix and 0 < V < C.",
+      "next_action": "Supply the payoff interpretation and test whether role asymmetries change the applicable game.",
+      "statement": "When the cost of injury exceeds the value of the contested resource, the stable outcome is a mixture in which animals escalate with probability equal to the ratio of resource value to injury cost.",
+      "math": "payoffs E(H,H) = (V-C)/2, E(H,D) = V, E(D,H) = 0, E(D,D) = V/2; for C > V the unique ESS plays Hawk with probability p^* = V/C",
+      "context": "Assumptions: symmetric pairwise contests, fixed V and C, no role asymmetries (asymmetries such as ownership give the Bourgeois ESS instead). Formal status: proved within the game.",
+      "source": "John Maynard Smith (1982) Evolution and the Theory of Games",
+      "record_sha256": "260c6098924bbc22e0503bbe08a3f1143e0b5ad7ef5cc6103781fb3cfaba2e4b",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/maynardsmith-hawk-dove.json",
+      "evidence": [
+        {
+          "label": "Frozen benchmark and limitations",
+          "url": "https://github.com/kganjam/delphi-evolve/blob/70c12544a952fbdcfa370e8249c980092b522785/scopedesk/bench/v1_2/FROZEN.md",
+          "kind": "declared-model benchmark"
+        }
+      ]
+    },
+    {
+      "id": "maynardsmith-hitchhiking",
+      "short": "Hitchhiking",
+      "label": "Genetic hitchhiking (selective sweep)",
+      "group": "Molecular evolution",
+      "category": "unchecked",
+      "review_title": "No check recorded here",
+      "finding": "This inventory contains no corresponding check. That does not mean the claim is unknown to science.",
+      "next_action": "Review the source-to-statement mapping, choose a precise target and record its acceptance conditions.",
+      "statement": "When a favourable mutation sweeps to fixation, it reduces genetic variation at closely linked neutral sites, and the reduction is larger the tighter the linkage relative to the strength of selection.",
+      "math": "the relative heterozygosity H_{after}/H_{before} at a neutral site at recombination fraction c is an increasing function of c/s that tends to 0 as c/s \\to 0; the affected region has a width of order s in recombination units, up to logarithmic factors in N",
+      "context": "Assumptions: a single sweep from a new mutation, deterministic allele-frequency trajectory, two loci. Formal status: proved under these approximations (later refined in coalescent treatments). Background selection produces a similar correlation between diversity and recombination.",
+      "source": "John Maynard Smith (1974) The hitch-hiking effect of a favourable gene",
+      "record_sha256": "ff60ad49a1b7d87e9f76e3f6a277b8ed69ba15fe2f82d5b818ee2cb181d8d127",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/maynardsmith-hitchhiking.json",
+      "evidence": []
+    },
+    {
+      "id": "maynardsmith-twofold-cost",
+      "short": "Cost of sex",
+      "label": "Twofold cost of sex",
+      "group": "Evolutionary games",
+      "category": "unchecked",
+      "review_title": "No check recorded here",
+      "finding": "This inventory contains no corresponding check. That does not mean the claim is unknown to science.",
+      "next_action": "Review the source-to-statement mapping, choose a precise target and record its acceptance conditions.",
+      "statement": "An asexual mutant female in a sexual population with equal sex ratio produces twice as many grandchildren as a sexual female, so sex needs a compensating advantage of up to twofold to persist.",
+      "math": "with equal fecundity and a 1:1 sex ratio, the odds of asexual to sexual females double each generation: \\frac{q_{t+1}}{1-q_{t+1}} = 2\\frac{q_t}{1-q_t}",
+      "context": "Assumptions: anisogamy with males contributing no resources, equal fecundity and viability of sexual and asexual females, a 1:1 sex ratio. Formal status: proved as a population-dynamic identity under these assumptions. Its biological force depends on how often those assumptions hold.",
+      "source": "John Maynard Smith (1978) The Evolution of Sex",
+      "record_sha256": "0800d319ccf1e3ad34cd981efdcc348b7f10046e048a7e72b6974ae1ba32f0ae",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/maynardsmith-twofold-cost.json",
+      "evidence": []
+    },
+    {
+      "id": "maynardsmith-war-of-attrition",
+      "short": "War of attrition",
+      "label": "War of attrition ESS",
+      "group": "Evolutionary games",
+      "category": "unchecked",
+      "review_title": "No check recorded here",
+      "finding": "This inventory contains no corresponding check. That does not mean the claim is unknown to science.",
+      "next_action": "Review the source-to-statement mapping, choose a precise target and record its acceptance conditions.",
+      "statement": "In contests settled by display, where the animal willing to persist longer wins and costs grow with time, the stable strategy is to choose a persistence time at random from an exponential distribution whose mean equals the resource value.",
+      "math": "with cost linear in time at unit rate and resource value V, the ESS persistence time has density p(x) = \\frac{1}{V} e^{-x/V}",
+      "context": "Assumptions: symmetric contests, cost linear in display time, no information about the opponent's choice. Formal status: proved (Maynard Smith 1974); existence and uniqueness in the generalized game proved by Bishop and Cannings (1978).",
+      "source": "John Maynard Smith (1974) The theory of games and the evolution of animal conflicts",
+      "record_sha256": "852de9bb7ee00258e4feeda07121166674d3ab0b20059fb71cc3be455e11a0f2",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/maynardsmith-war-of-attrition.json",
+      "evidence": []
+    },
+    {
+      "id": "turing-ddi",
+      "short": "Linear instability",
+      "label": "Turing diffusion-driven instability",
+      "group": "Pattern formation",
+      "category": "checked",
+      "review_title": "Additional domain condition made explicit",
+      "finding": "The continuum inequality does not ensure an unstable mode on a particular finite domain.",
+      "next_action": "Specify the domain and boundary conditions; check the determinant at admissible modes.",
+      "statement": "A homogeneous steady state of two reacting chemicals that is stable without diffusion can become unstable to spatial perturbations when the chemicals diffuse at different rates, spontaneously producing a pattern.",
+      "math": "u_t = f(u,v) + D_u \\nabla^2 u, v_t = g(u,v) + D_v \\nabla^2 v; with tr J < 0 and det J > 0, instability at some wavenumber k iff D_v f_u + D_u g_v > 2\\sqrt{D_u D_v \\det J}, which requires D_u \\ne D_v",
+      "context": "Assumptions: two species, smooth kinetics, linearization about a homogeneous steady state, fixed domain without growth or mechanics. Formal status: the linear instability conditions are proved; existence and stability of nonlinear patterns are proved for many specific models but not in general.",
+      "source": "Alan Turing (1952) The chemical basis of morphogenesis",
+      "record_sha256": "6f278b74291bc5eb7d85862b30a0ed669ad9a70278742d5b13e8b99e658cb9a8",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/turing-ddi.json",
+      "evidence": [
+        {
+          "label": "Frozen benchmark and limitations",
+          "url": "https://github.com/kganjam/delphi-evolve/blob/70c12544a952fbdcfa370e8249c980092b522785/scopedesk/bench/v1_2/FROZEN.md",
+          "kind": "declared-model benchmark"
+        },
+        {
+          "label": "Explore exact calculation",
+          "url": "index.html",
+          "kind": "browser calculation"
+        }
+      ]
+    },
+    {
+      "id": "turing-morphogen-hypothesis",
+      "short": "Morphogen mechanism",
+      "label": "Reaction-diffusion of morphogens accounts for biological pattern",
+      "group": "Pattern formation",
+      "category": "question",
+      "review_title": "Target needs specification",
+      "finding": "No single theorem target is specified here. A matching pattern alone does not identify its mechanism.",
+      "next_action": "Choose a biological system and measurements that distinguish reaction–diffusion from alternatives.",
+      "statement": "Chemical substances that react and diffuse through tissue (morphogens) are sufficient to account for the main phenomena of morphogenesis.",
+      "math": "no canonical formalization: the claim asserts that a biological pattern is generated by a system of the form u_t = F(u) + D\\nabla^2 u with D not proportional to the identity",
+      "context": "Formal status: a framework rather than a mathematical proposition. Kondo and Asai (1995) confirmed the predicted stripe-branching dynamics in Pomacanthus and Castets et al. (1990) produced Turing patterns chemically. Mechanical buckling, prepatterns and cell-cell signalling can produce the same patterns, so a matching pattern alone does not identify the mechanism.",
+      "source": "Alan Turing (1952) The chemical basis of morphogenesis",
+      "record_sha256": "630a2637018223fe0469d55eeffb244b5fbd493beb71f3f70177f947b758befb",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/turing-morphogen-hypothesis.json",
+      "evidence": []
+    },
+    {
+      "id": "turing-wavelength",
+      "short": "Onset wavelength",
+      "label": "Turing wavelength selection",
+      "group": "Pattern formation",
+      "category": "checked",
+      "review_title": "Declared scope operationalized",
+      "finding": "Near onset and large domain are already in the record. Our tolerance and finite-mode comparison are additional benchmark choices.",
+      "next_action": "Map the onset formula to a specified domain and distinguish a linear mode from the nonlinear selected pattern.",
+      "statement": "The spacing of a Turing pattern at onset is set by the reaction rates and diffusivities, not by the size of the tissue, so changing these parameters predictably changes the number of repeated elements.",
+      "math": "at onset k_c^2 = \\sqrt{\\det J/(D_u D_v)}, \\lambda_c = 2\\pi/k_c; under uniform rescaling of D, \\lambda \\propto \\sqrt{D}",
+      "context": "Assumptions: near onset of instability, two species, domain large compared with the wavelength. Formal status: proved by linear analysis. Away from onset, the selected wavelength depends on nonlinear terms and history.",
+      "source": "Alan Turing (1952) The chemical basis of morphogenesis",
+      "record_sha256": "30268875988596fc4b95ad94a90c3ffcf42727a50a2f0d53a2c976daaca98260",
+      "source_url": "https://github.com/kganjam/delphi-evolve/blob/0c2d4f258ea82f25115b543493b090a906550f08/scopedesk/scorecard/records/turing-wavelength.json",
+      "evidence": [
+        {
+          "label": "Frozen benchmark and limitations",
+          "url": "https://github.com/kganjam/delphi-evolve/blob/70c12544a952fbdcfa370e8249c980092b522785/scopedesk/bench/v1_2/FROZEN.md",
+          "kind": "declared-model benchmark"
+        }
+      ]
+    }
+  ],
+  "bridges": [
+    {
+      "from": "fisher-ftns",
+      "to": "hamilton-rule",
+      "kind": "proposed",
+      "label": "Shared Price route; Fisher genetic partition remains unestablished"
+    },
+    {
+      "from": "turing-ddi",
+      "to": "turing-wavelength",
+      "kind": "scope",
+      "label": "Both require a specified admissible spectrum; not a proof edge"
+    },
+    {
+      "from": "turing-ddi",
+      "to": "turing-morphogen-hypothesis",
+      "kind": "proposed",
+      "label": "From mathematical mechanism to biological identification: measurements required"
+    },
+    {
+      "from": "kimura-fixation-probability",
+      "to": "kimura-neutral-theory",
+      "kind": "proposed",
+      "label": "Model-to-world transfer requires population evidence"
+    },
+    {
+      "from": "maynardsmith-hawk-dove",
+      "to": "maynardsmith-ess",
+      "kind": "scope",
+      "label": "A checked special case does not establish the general target"
+    }
+  ]
+}

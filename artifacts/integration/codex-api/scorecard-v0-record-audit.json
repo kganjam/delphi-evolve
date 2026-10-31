@@ -1,0 +1,148 @@
+{
+  "source_revision": "0c2d4f258ea82f25115b543493b090a906550f08",
+  "review_type": "non-blinded transcription and count audit",
+  "n_records": 21,
+  "field_copy_checks": 84,
+  "original_counts": {
+    "a": 5,
+    "b": 1,
+    "c": 1,
+    "d": 2,
+    "e": 12
+  },
+  "review_coverage_counts": {
+    "related": 1,
+    "unchecked": 12,
+    "checked": 6,
+    "question": 2
+  },
+  "records": [
+    {
+      "id": "fisher-ftns",
+      "content_sha256": "d7832308474c4a0e87d984b0764f7b7d7c928a2d4509368f7cf34e0f028a97fe",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "fisher-infinitesimal",
+      "content_sha256": "0ebb88c6881a8e43045e775f9222e5004da05597f91d1e0a8a5160a7b3fba1de",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "fisher-kpp-speed",
+      "content_sha256": "da1f743727e4d1359a0a9c450e035962f1f3a24d49e04a68b78cb569b71d48d7",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "fisher-sex-ratio",
+      "content_sha256": "0a8f299cd1d59b9bcbf209fd8bec747c95431d8e2c2b52f758938598013026aa",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "hamilton-haplodiploidy",
+      "content_sha256": "6c576d1c5be556fd3a1392d152ea2ea60adc930d2e428f67b75a6d84dd9e5bfc",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "hamilton-lmc",
+      "content_sha256": "4f265442ad42233e442bcffc16aa6d3241fbf0ba3f72ba099a24f83907f7c444",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "hamilton-rule",
+      "content_sha256": "86130c5e0ed4e508645b7880e357077d488123603a346dd92622f644c4782d71",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "hamilton-senescence",
+      "content_sha256": "10c404500901cad6d8dfca5a4854b4264b0a405a32efa7062dcdca61fa455511",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "kimura-fixation-probability",
+      "content_sha256": "859527bc0b704a138bbd5509f70874fba40ea23ef2a2b66eb03567d554f6ce9f",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "kimura-fixation-time",
+      "content_sha256": "f7e573f7ae0938a73ce3418b12bbc2a728953c9725aa5b51ab6b3140a845e2c5",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "kimura-heterozygosity",
+      "content_sha256": "ee7a766ce1684e651aa28d7a90b1ee3744a5ee1e12ef7a86bf095ac9da0352c5",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "kimura-neutral-theory",
+      "content_sha256": "da19838a69d9e9722bba87dfbbb6863efce475110b2bb16616b6afc0e1731c1a",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "kimura-substitution-rate",
+      "content_sha256": "355677ed51102caa1f93594875c4115231352bf238b1407829387f8ceb1c7bf0",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "maynardsmith-ess",
+      "content_sha256": "36db93eef14a346cf4feafc9bac39682f264e45029115245a41526d0e51c52f1",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "maynardsmith-hawk-dove",
+      "content_sha256": "260c6098924bbc22e0503bbe08a3f1143e0b5ad7ef5cc6103781fb3cfaba2e4b",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "maynardsmith-hitchhiking",
+      "content_sha256": "ff60ad49a1b7d87e9f76e3f6a277b8ed69ba15fe2f82d5b818ee2cb181d8d127",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "maynardsmith-twofold-cost",
+      "content_sha256": "0800d319ccf1e3ad34cd981efdcc348b7f10046e048a7e72b6974ae1ba32f0ae",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "maynardsmith-war-of-attrition",
+      "content_sha256": "852de9bb7ee00258e4feeda07121166674d3ab0b20059fb71cc3be455e11a0f2",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "turing-ddi",
+      "content_sha256": "6f278b74291bc5eb7d85862b30a0ed669ad9a70278742d5b13e8b99e658cb9a8",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "turing-morphogen-hypothesis",
+      "content_sha256": "630a2637018223fe0469d55eeffb244b5fbd493beb71f3f70177f947b758befb",
+      "field_copy_checks": 4,
+      "assessments": 0
+    },
+    {
+      "id": "turing-wavelength",
+      "content_sha256": "30268875988596fc4b95ad94a90c3ffcf42727a50a2f0d53a2c976daaca98260",
+      "field_copy_checks": 4,
+      "assessments": 0
+    }
+  ],
+  "limits": "Does not establish source-to-paper faithfulness, mathematical validity, empirical truth, novelty or a new prover/evaluation result."
+}
