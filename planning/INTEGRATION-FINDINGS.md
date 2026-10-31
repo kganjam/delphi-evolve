@@ -18,3 +18,8 @@ scripts/fetch_data.py sent a personal contact email in its User-Agent; replaced 
 
 ## F5 site
 Mobile (390 px) overflows by 21 px because `section.map-card` is 411 px wide; site requests data/demo.json and logs a console 404 when absent.
+
+## F6 wording that must follow F1 (docs/pitch*, docs/blog*, docs/video-storyboard*, site Decision panel)
+* docs/pitch.template.md says "a closed set with no admitted exit rules out a path in the declared graph". The Lean theorem requires every exit edge to be *certified descending* (`hi v < lo u`), and unmeasured neighbours must be inside the set. "No admitted exit" (overlapping intervals count as not admitted) is weaker and is NOT what Lean proves. Say: "a closed set whose every exit is certified lower rules out any non-decreasing path, for every assignment inside the intervals".
+* Site/pitch "BLOCKED" from the browser or core replay = "no route can be certified from the measurements and the assumed bound". Use that phrase, or "Lean-certified blocked" only for artifacts/proof/trpb_blocked*.json (and bridge receipts).
+* The Lean-checked artifacts are: proof's three/four certificates (delta 0, 0.005, replicate envelope) and integrator's bridged core kappa=2 route (artifacts/integration/). Do not say the replay benchmark's decisions are Lean-checked; only the open route certificates are.
