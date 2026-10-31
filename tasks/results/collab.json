@@ -1,7 +1,7 @@
 {
  "role": "collab",
  "status": "in_progress: service built and tested; nanopub publication PREPARED (unsigned drafts, local-only signing check), NOTHING published; service not yet publicly hosted; no external use recorded",
- "updated_seattle": "2026-10-31 07:25 PDT",
+ "updated_seattle": "2026-10-31 07:50 PDT",
  "model": "Claude Sonnet 5.5 (existing Max subscription via Claude Code); no metered API spend, no GPU job, no subagents, no cloud resources created",
  "branch": "work/collab",
  "code_commit": "bb9d6a4 (falsify/, tests/test_falsify.py); docs + this receipt committed on top",
@@ -116,7 +116,8 @@
    "artifacts/falsify_np/prepared/L1pi/unsigned.trig",
    "artifacts/falsify_np/prepared/L2pi/unsigned.trig",
    "artifacts/falsify_np/delphi-turing-ddi.network.{trig,mcp.json}",
-   "tests/test_falsify_nanopub.py"
+   "tests/test_falsify_nanopub.py",
+   "prepared drafts rebuilt at code commit 09b895f (engine with diffusion_requirement); must be rebuilt again at the final pushed commit and a fresh dct:created before any publish"
   ],
   "commands_run": [
    {
@@ -173,5 +174,16 @@
    "licence and opt-in policy for third-party regimes",
    "what Ask is / whether to tell Knowledge Pixels"
   ]
+ },
+ "convergence_pass_2": {
+  "added": "diffusion_requirement (exact required inhibitor/activator diffusivity ratio bracket, 'no ratio suffices', Stokes-Einstein mass-ratio consequence, optional caller-declared protein masses) in falsify/engine.py; recorded in the nanopub draft; tests: exact threshold vs independent band code, numpy dense-q scan, swapped activator, no-ratio cases (36 tests pass)",
+  "textbook_example_result": "required ratio exactly 9 (S^2 = 4 Du Dv detJ at ratio 9); supplied 10; bare globular mass ratio needed > 729:1; 40 kDa vs 41 kDa gives bare ratio 0.99",
+  "not_in_this_lane": "factor graph, basin posterior, H100 dual-solver sweep, ESMFold/Boltz-2 (GPU worker only), three-arm Lean experiment",
+  "conflicts_raised": [
+   "Lean hash in nanopub vs SPEC-007 rule 21",
+   "solver score/probability fields have no real data yet and will not accept invented values",
+   "'first machine-checked formalization of Turing instability' overreaches: Routh-Hurwitz is a Lean definition; PDE/eigenvalue equivalence not formalized; novelty search not done here"
+  ],
+  "unverified": "no literature value for Nodal/Lefty or other real diffusivities was checked; Stokes-Einstein is stated as bare-diffusion scaling only"
  }
 }

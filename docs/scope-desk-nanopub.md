@@ -33,7 +33,7 @@ Evidence typing is unchanged: every number is model-derived; observed = none; li
 **Decentralization claim, scoped.** Once published, anyone can mirror, query and verify these records without our server; ours is then one signer among many. Today there is **no commons**: zero records published. Do not describe it as one.
 
 ## 3. Commands that were run (all local or read-only)
-Build + conformance + local signing with a throwaway key kept outside the repo: `python3 -m falsify np-build artifacts/falsify_np/requests/neumann_L2pi.json --commit bb9d6a45d5c0355b79441e655566bf371347442d --created 2026-10-31T14:15:00Z --out-dir <dir> --sign-local-key ~/.nanopub/collab-throwaway/rsa.pem`. The signed copies are **verification only** (throwaway key, filename says NOT-FOR-PUBLICATION) and are not committed. Prepared drafts: `artifacts/falsify_np/prepared/L{1,2}pi/unsigned.trig`.
+Build + conformance + local signing with a throwaway key kept outside the repo: `python3 -m falsify np-build artifacts/falsify_np/requests/neumann_L2pi.json --commit 09b895f62f230edb39cd433e19f10fda3275a60b --created 2026-10-31T14:15:00Z --out-dir <dir> --sign-local-key ~/.nanopub/collab-throwaway/rsa.pem`. The signed copies are **verification only** (throwaway key, filename says NOT-FOR-PUBLICATION) and are not committed. Prepared drafts: `artifacts/falsify_np/prepared/L{1,2}pi/unsigned.trig`.
 
 ## 4. Gates and decisions for the owner (nothing below was done)
 1. **Signing identity** (morphoswarm ADR-0005 is OPEN; same-key supersession makes the choice irreversible): ORCID vs a bot introduced per Knowledge Pixels' pattern. Required before any publish.
@@ -45,3 +45,14 @@ Build + conformance + local signing with a throwaway key kept outside the repo: 
 
 ## 5. Interface to the Scope Desk
 `falsify.nanopub.record_from_response` is the only coupling: it takes a verdict dict and raises `NotPublishable` unless it is decided, pin-verified and tied to a pushed commit. When the director hands over the Scope Desk response shape, add one adapter producing the same record fields; the builder, conformance, signing and query code are interface-independent.
+
+## 6. Convergence pass 2: what it changes here, and three conflicts to resolve (2026-10-31)
+Built (this lane, exact arithmetic, tested): `diffusion_requirement` in every response: the exact bracket of D_inhibitor/D_activator the textbook band needs for the caller's kinetics (the textbook example needs exactly 9, supplied 10), "no ratio suffices" when neither species self-activates, the Stokes-Einstein consequence (bare ratio R needs mass ratio R^3, so 729:1 here), and an optional comparison with caller-declared protein masses. It is recorded in the nanopub as a `PropertyValue`. It makes no claim about real tissue: effective diffusion also depends on binding, hindrance and dimerization, and no literature value (e.g. for Nodal/Lefty) has been checked here; that is the OpenResearch grounding task.
+
+Not built here (other roles / not authorized): the factor graph, the Beta-Binomial basin posterior, the dual-solver H100 sweep, ESMFold/Boltz-2 radii (GPU jobs belong to the gpu worker), the three-arm Lean experiment.
+
+Conflicts for the director/owner:
+1. **Lean proof hash in published nanopubs vs SPEC-007 rule 21.** The spec wants the Lean hash published; rule 21 holds every Lean result until a gate-verdict term exists. Our builder holds it by default. Overriding is a decision, not a default.
+2. **Solver-agreement score and updated pattern probability.** The v0 profile can carry them as `PropertyValue` rows with no new namespace, but only once real solver runs and a real posterior exist. None do today, so none are written; the builder will not accept invented values.
+3. **"First machine-checked formalization of Turing instability."** What the repository's Lean proves is finite-mode determinant/trace algebra and a tail bound, with Routh-Hurwitz taken as a *definition* (`Hurwitz T D := T < 0 ∧ 0 < D`); the eigenvalue equivalence, the PDE and the Neumann spectrum are not formalized (see `turing_scope/lean/TuringScope/Basic.lean`). Whether that is "first" is a prior-art question I have not searched. The claim should be scoped to what is proved.
+Also: a Lean clamp `F=0` is a statement about the linearization at the declared homogeneous state under those definitions; the "subcritical finite-amplitude instability" re-indexing is legitimate only for a pattern found by the solvers at that same state.

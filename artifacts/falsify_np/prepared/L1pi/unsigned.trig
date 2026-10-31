@@ -21,7 +21,7 @@ sub:assertion {
     schema:claimReviewed "Under the declared two-species linearization J, diffusivities D and domain/boundary, at least one admissible Laplacian mode has a strictly growing linear eigenvalue (det(J - qD) < 0)." ;
     schema:itemReviewed <https://w3id.org/np/RAaQ-9SCjYC7GBJ0ZtrPcVNxZBB7z-VNAdWa8ImGAi610> ;
     schema:reviewRating sub:rating ;
-    schema:additionalProperty sub:p0, sub:p1, sub:p2, sub:p3, sub:p4, sub:p5, sub:p6, sub:p7, sub:p8, sub:p9, sub:p10, sub:p11, sub:p12, sub:p13, sub:p14, sub:p15, sub:p16 .
+    schema:additionalProperty sub:p0, sub:p1, sub:p2, sub:p3, sub:p4, sub:p5, sub:p6, sub:p7, sub:p8, sub:p9, sub:p10, sub:p11, sub:p12, sub:p13, sub:p14, sub:p15, sub:p16, sub:p17 .
   sub:rating a schema:Rating ;
     schema:alternateName "refuted" ;
     schema:ratingExplanation "the classical result's instability does NOT occur (no admissible mode grows linearly) in this regime. Classical result cited: Turing diffusion-driven instability: a homogeneous steady state of two reacting chemicals that is stable without diffusion can become unstable to spatial perturbations when the chemicals diffuse at different rates (linearization about a homogeneous steady state, fixed domain, no growth or mechanics)." .
@@ -38,15 +38,16 @@ sub:assertion {
   sub:p10 a schema:PropertyValue ; schema:name "unstable_mode_count" ; schema:value "0" .
   sub:p11 a schema:PropertyValue ; schema:name "unstable_mode_witness_exact" ; schema:value "[]" .
   sub:p12 a schema:PropertyValue ; schema:name "critical_length_over_pi_verified_bracket" ; schema:value "[\"1414213562373/1000000000000\", \"707106781187/500000000000\"]" .
-  sub:p13 a schema:PropertyValue ; schema:name "independent_checks_agree" ; schema:value "{\"finite_difference_eigenvalues\": true, \"turing_scope_adapter\": true}" .
-  sub:p14 a schema:PropertyValue ; schema:name "engine_version" ; schema:value "0.1.0" .
-  sub:p15 a schema:PropertyValue ; schema:name "evidence_type" ; schema:value "model-derived; observed: none" .
-  sub:p16 a schema:PropertyValue ; schema:name "scope_limit" ; schema:value "linear stability of the declared two-species linearization only; no nonlinear pattern, biological, wet-lab or clinical implication" .
+  sub:p13 a schema:PropertyValue ; schema:name "required_inhibitor_over_activator_diffusion_ratio_greater_than_bracket" ; schema:value "[\"9\", \"4500000000001/500000000000\"]" .
+  sub:p14 a schema:PropertyValue ; schema:name "independent_checks_agree" ; schema:value "{\"finite_difference_eigenvalues\": true, \"turing_scope_adapter\": true}" .
+  sub:p15 a schema:PropertyValue ; schema:name "engine_version" ; schema:value "0.1.0" .
+  sub:p16 a schema:PropertyValue ; schema:name "evidence_type" ; schema:value "model-derived; observed: none" .
+  sub:p17 a schema:PropertyValue ; schema:name "scope_limit" ; schema:value "linear stability of the declared two-species linearization only; no nonlinear pattern, biological, wet-lab or clinical implication" .
 }
 
 sub:provenance {
   sub:assertion prov:wasAttributedTo <https://github.com/kganjam/delphi-evolve> ;
-    prov:wasDerivedFrom <https://w3id.org/np/RAaQ-9SCjYC7GBJ0ZtrPcVNxZBB7z-VNAdWa8ImGAi610>, <https://github.com/kganjam/delphi-evolve/tree/bb9d6a45d5c0355b79441e655566bf371347442d/falsify> ;
+    prov:wasDerivedFrom <https://w3id.org/np/RAaQ-9SCjYC7GBJ0ZtrPcVNxZBB7z-VNAdWa8ImGAi610>, <https://github.com/kganjam/delphi-evolve/tree/09b895f62f230edb39cd433e19f10fda3275a60b/falsify> ;
     prov:wasGeneratedBy sub:generation .
   <https://github.com/kganjam/delphi-evolve> a prov:SoftwareAgent ; rdfs:label "delphi-evolve falsify service (software; exact-rational engine, optional Lean checker)" .
   sub:generation a prov:Activity ;
