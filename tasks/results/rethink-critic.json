@@ -1,6 +1,6 @@
 {
  "role": "critic",
- "status": "Scope Desk bench v1 frozen; audits done by the critic of (a) turing_scope.adapter (16/16) and (b) the NCA frozen solver layer rd.py (linear 237/237, spectral nonlinear 240/240, found Euler-FD verdict flips at gamma>=32); scopedesk/oracles wrapper (gate/repair/API) does not exist yet and is NOT audited; different-session audit of my generator/verifier still pending",
+ "status": "v1 on FREEZE-HOLD (director 06:54); v1.1 built in scopedesk/bench/v1_1 (not frozen: needs Codex audit + blinded audit); Thompson repair artifact and AMENDMENT_001 done; leakage audit item 2 NOT yet done",
  "model": "claude-sonnet-5-5 (subscription; metered spend unknown, none inferred)",
  "wall_time_pdt": "2026-10-31 06:00-06:20",
  "artifacts": [
@@ -15,7 +15,11 @@
   "planning/rethink/wildcard/fidelity_probe.json",
   "planning/rethink/wildcard/pde_cost_probe.json",
   "scopedesk/bench/ (generator, key, KEY.sha256, README, baselines, verify_key)",
-  "tests/test_scopedesk_bench.py"
+  "tests/test_scopedesk_bench.py",
+  "scopedesk/bench/AMENDMENT_001.json",
+  "scopedesk/bench/descriptive/thompson_repair.json",
+  "scopedesk/bench/V1_HOLD.md",
+  "scopedesk/bench/v1_1/"
  ],
  "commands_run": [
   {
@@ -111,7 +115,9 @@
   "verifier written by same author as generator",
   "templates A/B same author as B0",
   "formal stratum only",
-  "thresholds are declared operationalisations"
+  "thresholds are declared operationalisations",
+  "v1 Rayleigh pinned-end scope condition was physically wrong (volume constraint); found by Codex audit not by the critic's verifier",
+  "Codex audit read the key beforehand: not blinded"
  ],
  "next_steps": [
   "wait for scopedesk/SPEC.md, then build scopedesk/bench/ in this worktree",
@@ -164,5 +170,15 @@
    "finding": "8 of the 9 Euler/spectral disagreements are gamma=32 or 40 with d=10 (all r): exact key and spectral say unstable/patterned, explicit-Euler finite-difference solver says not patterned (dx=pi/4 discretisation error flips the verdict); the 9th is an exact-marginal case (gamma=2,d=10,r=2, det=0). The FD design-time solver must not be used as an oracle at gamma>=32.",
    "limits": "declared model only, T=300 tau, not a convergence study, grid of 240 cases"
   }
+ },
+ "v1_1": {
+  "path": "scopedesk/bench/v1_1",
+  "n": 136,
+  "families": 8,
+  "change": "rayleigh_plateau dropped (volume-constraint defect); turing_2d_rectangle added; targets/conventions stated in every request; wavelength rule outcome-based",
+  "key_sha256": "d3862d0b3397c8abc4eb3d1f9149ecd261f322055f8c60c1dddd851003b70b4e",
+  "verification": "verify_key.py 136/136 (same author)",
+  "diff": "scopedesk/bench/v1_1/V1_TO_V1_1_DIFF.md",
+  "status": "not frozen: Codex audit of v1.1 and blinded different-session audit pending"
  }
 }
