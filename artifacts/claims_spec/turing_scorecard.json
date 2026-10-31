@@ -1,0 +1,65 @@
+{
+ "scope": "3 Turing claims of the 21 math-domain Delphi claims (the 18 population-genetics claims are NOT evaluated here; claim_runtime has hand-authored adapters for kimura-fixation-probability and fisher-ftns only)",
+ "prepared_seattle": "2026-10-31 06:58 PDT",
+ "status": "DRAFT for the team scorecard; nothing published; no one contacted",
+ "bucket_definitions": ["holds as stated", "holds only with a scope condition we had to supply", "empirical and not formalizable", "unresolved in the time we had"],
+ "claims": [
+  {
+   "claim_id": "turing-ddi",
+   "network_nanopub": "https://w3id.org/np/RAaQ-9SCjYC7GBJ0ZtrPcVNxZBB7z-VNAdWa8ImGAi610",
+   "bucket": "holds only with a scope condition we had to supply",
+   "scope_condition_supplied": "the unstable wavenumber must be ADMISSIBLE on the finite domain (Laplacian eigenmodes of the stated boundary condition). The record states the continuum condition and 'fixed domain' but no finite-size condition: for J=[[1,-2],[2,-3]], Du=1, Dv=10, Neumann, the textbook band is non-empty yet length pi has no unstable mode while 2 pi has exactly mode 1 (trace -19/4, det -1/8). Minimum length to pattern: between 1.41421356 pi and 1.41421357 pi (verified bracket).",
+   "evidence": {
+    "compiled_proof": "turing_scope/lean (TuringScope.Basic/Instance), Lean 4.35.0, lake build exit 0; generic tail theorem neumann_tail_hurwitz + instance short_all_modes_stable / long_unstable_iff / domain_changes_answer",
+    "mutation_tests_that_fail_as_required": "4 numeric mutants (control compiles exit 0; M1 g_v -3->-2, M2 Dv 10->1, M3 L=pi each exit 1) and 2 generic-law mutants (reaction cross term sign, Neumann spectrum) that break Basic.lean",
+    "axiom_audit": "propext, Classical.choice, Quot.sound only; no sorry/admit/native_decide/axiom/unsafe in sources",
+    "receipt": "artifacts/turing_scope/lean_receipt.json (2026-10-31 01:49:10 PDT, not re-run for this file); per-request Lean receipts re-run this session by falsify/lean_receipt.py (accepted true classifications, rejected two false ones)",
+    "independent_numeric_checks": "numpy eigenvalue sweep (turing_scope.crosscheck) and finite-difference full-operator eigenvalues (falsify.engine.fd_crosscheck) agree; service property tests vs numpy over random 1-D/2-D cases"
+   },
+   "limits_that_must_travel_with_the_verdict": ["Routh-Hurwitz (trace<0, det>0) is a Lean DEFINITION, not proved equivalent to eigenvalue real parts", "PDE, Neumann spectrum derivation and nonlinear pattern formation are not formalized", "linear stability of a declared linearization only; nothing observed"],
+   "kavita_7_point": {
+    "1_headline": "Two chemicals that spread at different speeds can make an evenly mixed tissue break up into spots or stripes, but the tissue has to be big enough for the pattern to fit.",
+    "2_sources": ["Turing (1952) The chemical basis of morphogenesis, doi:10.1098/rstb.1952.0012 (as cited in the published nanopub's provenance)", "the Delphi nanopub above"],
+    "3_species_in_claim": "none: the claim is chemistry-generic. (Its proposedTest names no organism.)",
+    "4_datasets_needed": "biochemical kinetics (reaction Jacobian) and diffusivities of a candidate morphogen pair, measured independently; then perturbation/imaging data of pattern change. Which specific datasets: NOT determined here (dataset discovery not run)",
+    "5_species_inventory_mapping": "n/a for this claim (no species); see turing-wavelength for organisms named in its proposed test",
+    "6_species_with_complete_multiscale_record": "NOT determined. Not asserted for any organism.",
+    "7_math_representation": "u_t=f+Du lap u, v_t=g+Dv lap v; with tr J<0, det J>0: unstable mode iff Dv f_u + Du g_v > 2 sqrt(Du Dv det J) at an ADMISSIBLE q; formalized in Lean for the finite-domain mode algebra (see limits)"
+   }
+  },
+  {
+   "claim_id": "turing-wavelength",
+   "network_nanopub": "https://w3id.org/np/RAjJiCpfgPzPI0Oidz7C5KIqYJuGw5iIhz-iukSDtzO08",
+   "bucket": "unresolved in the time we had",
+   "reason": "The record conditions ('near onset', 'domain large compared with the wavelength') have no numeric thresholds, so a verdict needs requester-declared thresholds (turing_scope gates on them: licensed / not_licensed). The formula k_c^2 = sqrt(det J/(Du Dv)), lambda_c = 2 pi/k_c is evaluated in floating point; no compiled proof, no mutation test and no axiom audit exist for it. On a finite domain only mode wavelengths 2L/n are realized, which this claim's text does not address.",
+   "evidence": {"compiled_proof": "none", "mutation_tests": "none", "axiom_audit": "none", "executable_check": "turing_scope adapter (exact for the gating inequality r^4 detJ/(DuDv) >= (4 m^2)^2; float for the wavelength value); source pin matches the NETWORK record (changed_fields [])"},
+   "kavita_7_point": {
+    "1_headline": "How far apart the spots or stripes are is set by how fast the chemicals react and spread, not by how big the tissue is.",
+    "2_sources": ["Turing (1952), same source as turing-ddi", "the Delphi nanopub above"],
+    "3_species_in_claim": "none in the claim; its proposed test names the mouse limb bud (Hox dosage, Bmp/Wnt inhibition) as a place to test digit/element number",
+    "4_datasets_needed": "morphogen production/degradation/diffusion perturbations in a developing tissue plus counts of repeated elements (imaging/morphometry); which datasets: NOT determined",
+    "5_species_inventory_mapping": "mouse (limb bud), from the proposed test only; not asserted by the claim",
+    "6_species_with_complete_multiscale_record": "NOT determined; mouse is named in a proposed test, which is not evidence of a complete record",
+    "7_math_representation": "k_c^2 = sqrt(det J/(Du Dv)), lambda_c = 2 pi/k_c; under uniform rescaling of D, lambda ~ sqrt(D)"
+   }
+  },
+  {
+   "claim_id": "turing-morphogen-hypothesis",
+   "network_nanopub": "https://w3id.org/np/RACK9s48ZO9wtNaYNScBuwNuP9H5IvYKiFHzqYRd6CGtw",
+   "bucket": "empirical and not formalizable",
+   "reason": "The record's own notation field says 'no canonical formalization'; hypothesisType is principle-or-framework; its context says mechanical buckling, prepatterns and cell-cell signalling can produce the same patterns, so a matching pattern does not identify the mechanism. Excluded from theorem evaluation rather than forced into Lean.",
+   "evidence": {"compiled_proof": "n/a", "mutation_tests": "n/a", "axiom_audit": "n/a"},
+   "kavita_7_point": {
+    "1_headline": "Chemicals that react and spread through tissue might be enough to explain how animals get their patterns.",
+    "2_sources": ["Turing (1952)", "Castets et al. (1990) and Kondo & Asai (1995), named in the record's context (citations as named there; DOIs not checked here)", "the Delphi nanopub above"],
+    "3_species_in_claim": "Pomacanthus (angelfish), named in the context via Kondo & Asai (1995); the chemical Turing patterns of Castets et al. are not organisms",
+    "4_datasets_needed": "measured kinetics and diffusion of candidate molecules plus pattern-change data under growth or targeted perturbation (imaging, biochemical); which datasets: NOT determined",
+    "5_species_inventory_mapping": "Pomacanthus -> this claim (from the record's context only)",
+    "6_species_with_complete_multiscale_record": "NOT determined",
+    "7_math_representation": "none: 'no canonical formalization' (a system u_t=F(u)+D lap u with D not proportional to identity is only a schema)"
+   }
+  }
+ ],
+ "tally_for_these_3": {"holds as stated": 0, "holds only with a scope condition we had to supply": 1, "empirical and not formalizable": 1, "unresolved in the time we had": 1},
+ "honest_note": "Of three claims, one has a full proof/mutation/axiom-audit package and that package covers a finite-domain instance and tail bound, not the continuum theorem. The thin number is the finding."
+}
