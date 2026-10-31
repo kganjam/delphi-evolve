@@ -55,7 +55,7 @@ def dev_curve_euler_spec_nca(gamma, d, r, T=60.0, every=2.0):
 
 def main():
     torch.set_num_threads(2)
-    fig, ax = plt.subplots(2, 2, figsize=(11, 8))
+    fig, ax = plt.subplots(2, 2, figsize=(11, 8), constrained_layout=True)
     # A, B
     from . import gate
     gA = gate.formula_gamma(1, 11)
@@ -68,7 +68,7 @@ def main():
     ax[0][1].set_title(f"B: licensed repair Dv/Du=9, gamma={rep['gamma']:.3f}, mode {rep['mode']}\nindependent solver (seed 11): u(x,tau)", fontsize=8)
     for a in (ax[0][0], ax[0][1]):
         a.set_xlabel("x (length units, Du=1)"); a.set_ylabel("tau = gamma t")
-    fig.colorbar(im, ax=ax[0].tolist(), shrink=0.8, label="u (dimensionless, simulated)")
+    fig.colorbar(im, ax=ax[0, :], shrink=0.8, location='right', label="u (dimensionless, simulated)")
     # C
     t, eu, sp, nc = dev_curve_euler_spec_nca(1.0, 20, 10)
     ax[1][0].semilogy(t, eu, label="Euler (training solver)")
@@ -89,7 +89,6 @@ def main():
     ax[1][1].set_ylabel("independent-solver success (32 requests x 3 noise seeds)")
     ax[1][1].set_title("D: arms (C0 formula, D black-box, G claim-gated, Gmis continuum, N NCA, Nshuf control)", fontsize=8)
     fig.suptitle("SIMULATED Schnakenberg model; Euler/NCA/spectral are different solvers of the same declared equations; no biological measurement", fontsize=9)
-    fig.tight_layout()
     fig.savefig(OUT / "diagnostic.png", dpi=130)
     (OUT / "diagnostic_meta.json").write_text(json.dumps({"evidence_kind": "simulated", "panels": "A,B independent spectral solver seed 11; C Euler/spectral/NCA seed 0; D summary.json (+ grid_oracle.json if present)"}, indent=1))
 
