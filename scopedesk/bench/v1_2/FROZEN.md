@@ -1,0 +1,26 @@
+# Scope Desk bench v1.2 — FROZEN (critic), per director follow-up 8
+
+Frozen when this file's commit was made (see its git commit time, not any time written here). No further edits to the files hashed in `KEY.sha256`; any later defect gets a dated amendment file and a NEW hash.
+key.jsonl sha256 `28645a12f2f4c77fc1acedb10b23b4070832eefa381b88ca65a12b9e4ecdaa2f`
+instances_public.jsonl sha256 `70b5e0fcb8a31a1d13abfdf1202e92afe988ae5e05ccf86bab95cbc3771b4f61`
+model_payload.jsonl sha256 `6c571db13a63d5dc8e8b5e5fadda601471f9a0a4fad6053f798395a48f78ee42` (the exact model-visible text: id + prompt only). Full manifest: `KEY.sha256`.
+127 items, 8 families (turing_finite_domain 21, turing_2d_rectangle 15, wavelength_formula_licence 14, kimura_regime 16, hawk_dove_ess 16, greenhill_buckling 13, hamilton_rule_form 16, fisher_kpp_speed 16); 62 applies (48.8%), 51 out_of_scope (each with a witness), 14 underdetermined. Dev families: turing_finite_domain, hawk_dove_ess; held out: the rest; mechanism_groups declared in split.json. Candidate hash history: bc8caf20 (135) -> eab23bff (131) -> 774f6a08 (128) -> this.
+No agent has run on any version of this bench.
+
+Basis for the freeze and what is NOT verified (be exact on slides):
+- Director's explicit instruction (follow-up 8) to publish FROZEN as soon as the marginal-mode exclusion was done, because agent runs wait on it.
+- **Codex's re-check of the rev3 text (linear-target prompts, answer/abstain scoring, density-unlisted exclusions) was requested but NOT received** when this was written; Codex's last review (CODEX-AGENT-GATE-PRE-RUN-REVIEW.md) covered the 135-item key bc8caf20 and withheld approval pending exactly the changes made since.
+- Blinded audits (director's, and two bounded Sonnet subagents) are same-model-family and ran on earlier wordings; a third, on the rev3 wording, was still running; none is independent in the strong sense.
+- The key verifier is by the generator's author (127/127). The NCA oracle layer, a different author, agrees on all 50 Turing 1-D/2-D and wavelength items and its repair/gate/PDE pieces were audited without defect; five of eight families have no oracle.
+- No human phrasing review. B0 sees family metadata that models do not. The real retrieval arm and utility costs belong to the arms owner. All items are declared-model (formal) checks of linear/closed-form statements; nothing here is about tissues.
+- Known unfixed convention issues are listed in STATUS.md (boundary vocabulary, complex eigenvalues, alpha=2, thin margins, two retained marginal-mode items t2-0008/t2-0014 whose verdict rests on another strictly growing mode).
+- metadata_check.py (author-written) passes all 14 checks; it is not a scientific re-audit.
+
+## Addendum (critic, after Codex's rev3 review, commit 4f2fc45 on work/codex-api)
+- Codex independently ran the metadata command on the 128-item rev3 candidate (key 774f6a08...c38): exit 0, 14/14 pass; the requested metadata/text gate **passes** for that candidate and Codex requested no further payload or key change. The frozen set is that candidate minus one item (qd643fbe2, exactly marginal Dirichlet mode) removed on the director's instruction; the same 14 checks pass on the 127-item set. Codex's review did not cover the final 127-item hash.
+- The bullet above in this file saying Codex's re-check was "NOT received" was true when written and is superseded by this addendum for the 128-item candidate.
+- Disclosed: 21 retained Turing 1-D parameter sets were regenerated when the renderer changed (labels unchanged; some witnesses/repairs changed); Codex recomputed the then-current 1-D labels 22/22 exactly (non-blinded). The README's stale Greenhill/131/exclusion prose was corrected.
+- Director go and the runner/preregistration gates still apply separately.
+
+## Addendum 2 (critic): blinded text-only audit on the FINAL wording
+A bounded Sonnet subagent (same model family as the key's author; saw only the 128 model-visible prompts of rev3, no parameters, key or code) re-derived verdicts: **127/127 agree with the frozen key**; its one extra item (qd643fbe2, the later-excluded exactly marginal Dirichlet mode) it also labelled out_of_scope. 118 high, 10 medium confidence (six Turing items with unstated boundary, three Hamilton items with synergy and no frequency, and the alpha=2 KPP item). It also listed phrasing problems that remain unfixed (boundary vocabulary varies and is undefined, "cited statement" implicit in the Turing prompts, wavelength-per-mode and "fastest-growing" not defined, odd "pi x 3/2" length notation, Hamilton synergy naming) and cues that need no computation (a missing quantity signals underdetermined; logistic growth always applies; bistable/Allee always out_of_scope; family-level class imbalance). These are disclosed, not fixed, per the director's no-further-rounds rule. Record: scopedesk/bench/audit/blinded_audit_v1_2_rev3_subagent.json.

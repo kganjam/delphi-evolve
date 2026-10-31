@@ -1,6 +1,6 @@
 {
  "all_ok": true,
- "n_items": 128,
+ "n_items": 127,
  "checks": {
   "manifest_hashes_match": {
    "ok": true,
@@ -28,11 +28,11 @@
   },
   "count_ge_120": {
    "ok": true,
-   "detail": 128
+   "detail": 127
   },
   "benign_ge_30pct": {
    "ok": true,
-   "detail": 0.484
+   "detail": 0.488
   },
   "families_ge_8": {
    "ok": true,
@@ -55,6 +55,7 @@
     "gh-0016",
     "t2-0010",
     "ts-0007",
+    "ts-0016",
     "ts-0017",
     "wl-0001",
     "wl-0010"
@@ -77,5 +78,5 @@
    "detail": ""
   }
  },
- "key_sha256": "774f6a08bf77330b8d46dbcbc0fd7aef52da572921dd600c871228e418974c38"
+ "key_sha256": "28645a12f2f4c77fc1acedb10b23b4070832eefa381b88ca65a12b9e4ecdaa2f"
 }

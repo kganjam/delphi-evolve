@@ -1,8 +1,8 @@
 {
  "per_family": {
   "turing_finite_domain": {
-   "n": 22,
-   "agree": 22
+   "n": 21,
+   "agree": 21
   },
   "fisher_kpp_speed": {
    "n": 16,
