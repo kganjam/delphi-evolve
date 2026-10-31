@@ -1,0 +1,58 @@
+/* Darwin's Bridge / Delphi Evolve deck — cream / ink / orange, aligned with site/style.css tokens. */
+:root{--paper:#f6f3ea;--card:#fdfcf8;--ink:#15202b;--ink2:#44505b;--muted:#5b6670;--rule:#d8d1bf;--orange:#d9480f;--break:#b0145b;--blue:#1864ab;--good:#2b6e3f;--warn:#8a5a00;--violet:#5f3dc4;
+--serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#1b2229}
+body{font:20px/1.4 var(--sans);color:var(--ink)}
+.stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.deck{width:1280px;height:720px;position:relative;transform-origin:center center;flex:none}
+.slide{position:absolute;inset:0;background:var(--paper);padding:34px 56px 0;display:none;overflow:hidden}
+.slide.on{display:block}
+.brand{position:absolute;top:18px;left:56px;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.brand i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--orange);margin-right:8px;vertical-align:-1px}
+.num{position:absolute;top:18px;right:56px;font:600 12px/1 var(--mono);color:var(--muted)}
+h1,h2{font:500 36px/1.12 var(--serif);letter-spacing:-.015em;margin:26px 0 14px;max-width:1110px}
+h1.hero{font-size:70px;line-height:1;margin:118px 0 18px;letter-spacing:-.025em}
+h1.hero em,h2 em{font-style:normal;border-bottom:4px solid var(--orange)}
+.lede{font:italic 400 29px/1.28 var(--serif);max-width:880px;margin:0 0 20px;color:var(--ink)}
+.row{display:flex;gap:30px;align-items:flex-start}
+.col{flex:1;min-width:0}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:14px 18px}
+.card h3{font:700 13px/1.2 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.small{font-size:16px;line-height:1.4;color:var(--ink2)}
+.big{font:500 54px/1 var(--serif);letter-spacing:-.02em}
+.big small{font:600 15px var(--sans);letter-spacing:0;color:var(--muted);display:block;margin-top:6px}
+.fn{position:absolute;left:56px;right:56px;bottom:12px;font:12.5px/1.35 var(--mono);color:var(--muted);border-top:1px solid var(--rule);padding-top:7px}
+.fn b{color:var(--ink2);font-weight:600}
+.scope{border-left:4px solid var(--orange);background:color-mix(in srgb,var(--orange) 7%,var(--card));padding:8px 14px;font-size:16px;line-height:1.38;color:var(--ink);border-radius:0 6px 6px 0}
+.scope b{color:var(--orange)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th{font:700 12px/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:right;padding:4px 6px;border-bottom:2px solid var(--ink)}
+th:first-child,td:first-child{text-align:left}
+td{padding:3px 6px;border-bottom:1px solid var(--rule);text-align:right;font-variant-numeric:tabular-nums}
+tr.sep td{border-top:2px solid var(--ink2)}
+tr.follow td{color:var(--ink2);font-style:italic}
+.sw{display:inline-block;width:22px;height:0;border-top:3px solid;vertical-align:middle;margin-right:7px}
+.mono{font-family:var(--mono)}
+.tag{display:inline-block;font:700 12px/1 var(--mono);padding:3px 7px;border-radius:4px;border:1px solid currentColor;letter-spacing:.04em}
+.tag.ok{color:var(--good)}.tag.no{color:var(--break)}.tag.as{color:var(--warn)}
+svg text{font-family:var(--sans)}
+.notes{display:none}
+body.shownotes .notes{display:block;position:fixed;left:0;right:0;bottom:0;background:#fffbe6;color:#111;padding:12px 24px;font:16px/1.45 var(--sans);max-height:30vh;overflow:auto;z-index:20;border-top:3px solid var(--orange)}
+.hint{position:fixed;right:10px;bottom:6px;font:11px var(--mono);color:#8a949c;z-index:5}
+/* DRAFT stamp: every slide, impossible to miss in screen, print and PDF */
+.draftmark{display:none}
+body.draft .draftmark{display:block;position:absolute;inset:0;pointer-events:none;z-index:9}
+body.draft .draftmark span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-18deg);font:800 120px/1 var(--sans);letter-spacing:.1em;color:rgba(176,20,91,.13);white-space:nowrap}
+body.draft .draftmark em{position:absolute;right:56px;top:36px;font:700 13px var(--mono);font-style:normal;color:var(--break);border:2px solid var(--break);padding:3px 8px;border-radius:4px;background:var(--card)}
+.ghost{background:repeating-linear-gradient(135deg,var(--card),var(--card) 10px,#efe9d8 10px,#efe9d8 20px);border:2px dashed var(--break);color:var(--break);font:700 20px/1.35 var(--sans);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;border-radius:8px}
+@page{size:1280px 720px;margin:0}
+@media print{
+ html,body{background:#fff;height:auto}
+ .stage{position:static;display:block;overflow:visible}
+ .deck{width:1280px;height:auto;transform:none!important}
+ .slide{display:block!important;position:relative;inset:auto;width:1280px;height:720px;break-after:page;page-break-after:always;overflow:hidden}
+ .slide:last-child{break-after:auto;page-break-after:auto}
+ .hint,body.shownotes .notes{display:none!important}
+ *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}

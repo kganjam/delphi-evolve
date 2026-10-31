@@ -1,0 +1,92 @@
+{
+ "role": "presentation",
+ "status": "in_progress",
+ "model": "claude-sonnet-5-5 (existing Claude Max subscription; no metered API charge established; no GPU used)",
+ "started_pdt": "2026-10-31 00:33",
+ "branch": "work/presentation",
+ "commit": "see git log; updated at each commit",
+ "state_summary": "Template, validator, DRAFT deck, PDF export, video harness and company hypothesis are built and tested. The FINAL deck is NOT produced: the integrated 20-seed replay is not available yet (core's re-run in progress; integration worktree currently has no replay or demo.json). Only deck.DRAFT.* exists, with no replay numbers.",
+ "commands_run": [
+  {
+   "cmd": "python3 presentation/build_deck.py --root /data/worktrees/delphi-evolve/integration  (systemd-run scope, caps 4G/128 tasks, OMP threads 2) at integration 4398fad with untracked 5-seed replay",
+   "exit": 2,
+   "result": "REJECTED: summary seeds=5 != 20; 105 of 140 shards zero rows; 25 episodes per policy != 100. No deck.html written."
+  },
+  {
+   "cmd": "same with --allow-draft",
+   "exit": 0,
+   "result": "wrote presentation/deck.DRAFT.html (DRAFT watermark every slide; slide 4 is a placeholder with no replay numbers)"
+  },
+  {
+   "cmd": "python3 presentation/export_pdf.py presentation/deck.DRAFT.html --shots presentation/screenshots",
+   "exit": 0,
+   "result": "deck.DRAFT.pdf pages=6, console errors []"
+  },
+  {
+   "cmd": "python3 -m pytest -q presentation/tests",
+   "exit": 0,
+   "result": "7 passed (empty shards rejected, cardinality mismatch rejected, 5-seed run vs 20-seed protocol rejected, final mode refuses bad data and draft has no replay numbers, final render from a TEST-ONLY synthetic complete fixture, incomplete follow-up arm excluded)"
+  },
+  {
+   "cmd": "python3 presentation/video/record_video.py --site /data/worktrees/delphi-evolve/integration/site --out /data/artifacts/delphi-evolve-presentation/video  (integration 3bedc9c; site lacks data/demo.json)",
+   "exit": 0,
+   "result": "PRELIMINARY 67.4 s MP4, 1.5 MB, 1280x720 silent; manifest status PRELIMINARY"
+  },
+  {
+   "cmd": "same with --require-demo",
+   "exit": 2,
+   "result": "REJECTED: site/data/demo.json missing"
+  }
+ ],
+ "artifacts": {
+  "in_repo": [
+   "presentation/build_deck.py",
+   "presentation/validate.py",
+   "presentation/export_pdf.py",
+   "presentation/deck.css",
+   "presentation/deck.js",
+   "presentation/deck.DRAFT.html",
+   "presentation/deck.DRAFT.pdf",
+   "presentation/deck.DRAFT.provenance.json",
+   "presentation/speaker-notes.DRAFT.md",
+   "presentation/screenshots/",
+   "presentation/video/record_video.py",
+   "presentation/video/storyboard.md",
+   "presentation/video/manifests/preliminary.manifest.json",
+   "presentation/tests/",
+   "docs/company-hypothesis.md"
+  ],
+  "outside_repo": {
+   "video": "/data/artifacts/delphi-evolve-presentation/video/darwins-bridge-walkthrough.mp4",
+   "sha256": "6ed4b070012ca2a51a98b26d3883130d4ff04d930188675e7069a8362683b3f7",
+   "duration_s": 67.4,
+   "bytes": 1572627,
+   "status": "PRELIMINARY (site without demo.json); re-record after final integration"
+  }
+ },
+ "pdf": {
+  "file": "presentation/deck.DRAFT.pdf",
+  "pages": 6,
+  "mode": "DRAFT"
+ },
+ "source_shas": {
+  "deck_artifact_root": "/data/worktrees/delphi-evolve/integration",
+  "deck_artifact_git_head_for_draft": "4398fad (provenance JSON records the exact head and input SHA-256s)",
+  "video_site_git_head": "3bedc9ca63e40d94d69bf6b6e8dd57a73b9d51e1",
+  "dataset_summary_AA_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82"
+ },
+ "limitations": [
+  "FINAL deck not built: needs the integrated 20-seed replay (policies x 20 seeds x 5 episodes, no empty shards) and a demo.json in the integrated tree. The 25-episode / 5-seed summary is never rendered and must not be called 20 seeds / 100 episodes.",
+  "DRAFT deck slide 4 shows no replay result; slides 1-3 and 5 use committed integrated artifacts (landscape.js, core demo.json, proof receipt, Lean bridge receipt).",
+  "Preliminary video recorded from a site build without demo.json: proof and replay tabs show their honest unavailable states. Must be re-recorded from the final integrated site with --require-demo.",
+  "The slide-4 headline and paired table are data-driven; it prints negative or null comparisons as such. Exploratory round-robin follow-up is shown only if complete, labelled exploratory.",
+  "Company hypothesis contains no market size, customer, LOI, price or budget; the pilot is a proposal, no one was contacted.",
+  "Shared-vs-isolated comparison has an arbitration confound (INTEGRATION-FINDINGS F7); slide 4 states this beside the result. Specialists are deterministic software objects.",
+  "No performance claim is made until the integrator has audited the replay; the deck builder trusts only the validated files and records their hashes."
+ ],
+ "next_steps": [
+  "When the integrator has a complete validated replay and a demo.json: python3 presentation/build_deck.py --root <integrated root>; export PDF and screenshots; inspect all six slides; commit deck.html/pdf/provenance (remove DRAFT files).",
+  "Re-record the video with --require-demo from the integrated site; record the SHA-256 and publish via coordinator if > git limit.",
+  "Read the final replay table and check each slide-4 sentence against it; update speaker notes timing to 3:00."
+ ]
+}
