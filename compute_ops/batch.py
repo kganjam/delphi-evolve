@@ -32,8 +32,8 @@ SUBNET = "vpcsubnet-e00tc2metkvjckkqqp"
 GPU_IMAGE = "nvcr.io/nvidia/pytorch:25.12-py3"       # validated on the shared H100 by the gpu worker
 CPU_IMAGE = "python:3.12-slim"
 DEFAULTS = {"gpu": ("gpu-h100-sxm", "1gpu-16vcpu-200gb"), "cpu": ("cpu-d3", "16vcpu-64gb")}
-CHUNK = 60 * 1024            # injected files are capped at 64 KiB each
-MAX_CHUNKS = 12
+CHUNK = 40 * 1024            # injected files: API rejects >64 KiB plaintext AFTER encoding; 61 KB raw chunks failed live (11:30 PDT), so stay at 40 KiB (x4/3 = 54 KiB)
+MAX_CHUNKS = 16
 TERMINAL = {"COMPLETED", "FAILED", "CANCELLED", "CANCELED", "STOPPED", "DELETED", "ERROR", "SUCCEEDED"}
 WAITING = {"PENDING", "QUEUED", "WAITING", "SCHEDULING", "CREATING", "PROVISIONING", "INITIALIZING"}
 OUTDIR = ROOT / "artifacts/gpuops"
@@ -59,7 +59,7 @@ def build_bundle(item: dict, base: Path) -> bytes:
             p = (base / rel)
             if p.is_dir():
                 for q in sorted(p.rglob("*")):
-                    if q.is_file():
+                    if q.is_file() and "__pycache__" not in q.parts and q.suffix != ".pyc":
                         tf.add(q, arcname=str(q.relative_to(base)), recursive=False)
             else:
                 tf.add(p, arcname=str(Path(rel)), recursive=False)
