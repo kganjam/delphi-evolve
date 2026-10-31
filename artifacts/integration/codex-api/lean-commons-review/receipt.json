@@ -1,0 +1,123 @@
+{
+  "reviewed_revision": "feb5dbd3b6b5613f47c73bbed6ff1a95ecc76e87",
+  "source_hashes": {
+    "lean_check.py": "fc503bbe18ead0a8653734e8c5f11b78452f719121c548d57e1b800f0eff83f3",
+    "accounting.py": "f0ab7c30eea27d1220b29cd02d0cf934fd8f2254ff3e805b30988381268b47bf",
+    "agent.py": "6fd6645e1f28074797b7af15a8f4775b141eeea234cda432da7c7f64fec9b4b2",
+    "commons.py": "f8a4dae178778a3fce03138ff1b5135ed6c52a5065d2c456e57a545d79d5f5d2",
+    "experiment.py": "4ff264c6ee55df338c35f6e8f97a1948b45821a7b142a1d8d8c7d517c305a53b",
+    "PREREG.md": "a070eb7e13eee4311712318e4954a012452ab646be4d32e42943e0ae583a8974",
+    "CONTRACT.md": "f788e88ed2a20030d4686c79721b51b1c16aee8cf5b8e9b4d3969c7ce3548272",
+    "FREEZE.sha256": "6ca0037d15c92c10cf83377f65b671ebc70293e1ef1b36d7e409df296f5b0368",
+    "targets/targets.json": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce",
+    "targets/Defs.lean": "0201bbe3a2c022a5ab647b43e9804355a34c6795ba8a78836c9938a88e50ef30",
+    "run_registered.py": "e01eee580277ba8bc8756377d590c053924a1ad6d59c4fc1c41a0c6fe8b44748"
+  },
+  "purpose": "offline verifier and budget review; not a prover arm",
+  "model_calls": 0,
+  "compiler": "/home/ubuntu/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+  "compiler_threads": 2,
+  "checker_change": "only LEAN_BIN replaced by version/thread-pinned wrapper",
+  "cases": [
+    {
+      "case": "true_control",
+      "frozen_statement": "True",
+      "checker": {
+        "ok": true,
+        "errors": "",
+        "axioms": {
+          "review_target": []
+        },
+        "forbidden": [],
+        "seconds": 0.4315345287322998,
+        "sha256": "1731c03d38d5ee862b27ae0947cc719e8ec30358dae0cf426a52fca48ab42a12",
+        "lean_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)"
+      },
+      "compiler_exit": 0,
+      "source": "artifacts/integration/codex-api/lean-commons-review/true_control.lean",
+      "output": "review_target : True\n'review_target' does not depend on any axioms\n"
+    },
+    {
+      "case": "false_control",
+      "frozen_statement": "False",
+      "checker": {
+        "ok": false,
+        "errors": "<tmp>/Check.lean:3:36: error: Tactic `assumption` failed\n\n\u22a2 False\n'review_target' depends on axioms: [sorryAx]\n\nunexpected axioms: {'review_target': ['sorryAx']}",
+        "axioms": {
+          "review_target": [
+            "sorryAx"
+          ]
+        },
+        "forbidden": [],
+        "seconds": 0.4785332679748535,
+        "sha256": "eb26fd1a381397b4f1ca0153ee656938e03b0e66ddcd2ef5efbbb18c01a46166",
+        "lean_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)"
+      },
+      "compiler_exit": 1,
+      "source": "artifacts/integration/codex-api/lean-commons-review/false_control.lean",
+      "output": "/data/worktrees/delphi-evolve/codex-api/artifacts/integration/codex-api/lean-commons-review/false_control.lean:3:36: error: Tactic `assumption` failed\n\n\u22a2 False\nreview_target : False\n'review_target' depends on axioms: [sorryAx]\n"
+    },
+    {
+      "case": "extra_assumption",
+      "frozen_statement": "False",
+      "checker": {
+        "ok": true,
+        "errors": "",
+        "axioms": {
+          "review_helper": [],
+          "review_target": []
+        },
+        "forbidden": [],
+        "seconds": 0.5220434665679932,
+        "sha256": "ab13bbb9f107547c252135aec4bd31da60e726d9885560727792eac90fd04b25",
+        "lean_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)"
+      },
+      "compiler_exit": 0,
+      "source": "artifacts/integration/codex-api/lean-commons-review/extra_assumption.lean",
+      "output": "review_target : False \u2192 False\n'review_helper' does not depend on any axioms\n'review_target' does not depend on any axioms\n"
+    }
+  ],
+  "budget_control": {
+    "cap": 100,
+    "in_flight_upper_bounds": [
+      60,
+      60
+    ],
+    "both_prechecks_passed": true,
+    "spent": 120,
+    "remaining": -20,
+    "model_calls": 0
+  },
+  "freeze_checks": [
+    {
+      "path": "targets/targets.json",
+      "expected": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce",
+      "actual": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce",
+      "matches": true
+    },
+    {
+      "path": "targets/Defs.lean",
+      "expected": "0201bbe3a2c022a5ab647b43e9804355a34c6795ba8a78836c9938a88e50ef30",
+      "actual": "0201bbe3a2c022a5ab647b43e9804355a34c6795ba8a78836c9938a88e50ef30",
+      "matches": true
+    },
+    {
+      "path": "CONTRACT.md",
+      "expected": "f788e88ed2a20030d4686c79721b51b1c16aee8cf5b8e9b4d3969c7ce3548272",
+      "actual": "f788e88ed2a20030d4686c79721b51b1c16aee8cf5b8e9b4d3969c7ce3548272",
+      "matches": true
+    },
+    {
+      "path": "PREREG.md",
+      "expected": "464729f555b87f8410b0cc6694939102ff432ee4559f72d1a455ffc9e7db3b54",
+      "actual": "a070eb7e13eee4311712318e4954a012452ab646be4d32e42943e0ae583a8974",
+      "matches": false
+    },
+    {
+      "path": "reference/proofs.json",
+      "expected": "c7757ae9de2670c1a6e66c8e141fc7dadbab65b979f4b6043429bf6718c7f0f7",
+      "actual": "c7757ae9de2670c1a6e66c8e141fc7dadbab65b979f4b6043429bf6718c7f0f7",
+      "matches": true
+    }
+  ]
+}
