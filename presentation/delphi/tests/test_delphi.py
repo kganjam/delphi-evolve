@@ -218,3 +218,11 @@ def test_bundle_manifest_hashes_match_current_files_when_present():
 def test_rehearsal_sheet_says_no_human_rehearsal_yet():
     t = (D / "REHEARSAL.md").read_text()
     assert "no human rehearsal has been done" in t
+
+
+def test_every_slide_footnote_carries_a_review_status_and_unreviewed_items_say_single_reader():
+    sl = TN.parse_deck(D / "deck.html")
+    for i, s in enumerate(sl, 1):
+        assert "Review" in s["fn"], f"slide {i} footnote has no review status"
+    for i in (2, 4, 5, 6):
+        assert "single-reader" in sl[i - 1]["fn"], f"slide {i} must label its unreviewed items single-reader"

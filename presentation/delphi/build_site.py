@@ -82,6 +82,7 @@ def landing(f, commit, review_exists):
     return f"""
 <p class="status">Draft · built from commit {E(commit[:8])} · items marked pending are not results · owner-private review copy</p>
 <h1>Delphi: from candidate laws to checked theorems</h1>
+<div class="scope"><b>Review status.</b> The independent reviewer that covered earlier receipts is unavailable, so anything without a recorded independent review is labelled <b>single-reader, not Codex-reviewed</b>: the repair demo and nonlinear grid, the checker-versus-key recomputation, the kill ledger rows (Codex corrected only R06), the scorecard statuses, the headroom check and the proof-search pilot. A fresh read-only review of the final materials is planned after the final cut; nothing here has been marked accepted.</div>
 <p class="lede">The textbook inequality is green. A program checks whether it applies to the model in front of you, returns a witness when it does not, and proposes a repair. Below: what runs, then what did not survive.</p>
 <nav><a href="#reveal">Reveal</a><a href="#repair">Check and repair</a><a href="#nodes">Compiled nodes and test set</a><a href="#ledger">Ledger</a><a href="#collective">Collective</a><a href="#close">Close</a><a href="appendix.html">Appendix</a><a href="blog.html">Blog</a></nav>
 <div class="grid3">
