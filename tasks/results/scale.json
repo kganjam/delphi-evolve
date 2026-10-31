@@ -1,0 +1,48 @@
+{
+ "role": "scale",
+ "status": "in_progress",
+ "updated": "2026-10-31T00:32-07:00 PDT",
+ "commit": "see git log work/scale",
+ "summary": "Controller, runner, assembly and policy-replay harness built and fixture-tested. No scale GPU job launched yet: waiting for the gpu worker's first working full-library BioNeMo job (its first main job aijob-e00d27jgpd2n9kwva1 FAILED on np.savez to the bucket mount, EINVAL).",
+ "jobs": {
+  "owned": [],
+  "peers_counted_not_cancellable": [
+   "aijob-e00gqrf19pjdrbyat3 (COMPLETED)",
+   "aijob-e00d27jgpd2n9kwva1 (FAILED)"
+  ],
+  "unexecuted_planned": "see artifacts/scale/launch_queue.json"
+ },
+ "commands_run": [
+  {
+   "cmd": "pytest -q tests (gpu_batch tests)",
+   "exit": 0,
+   "result": "30 passed"
+  },
+  {
+   "cmd": "shard_runner.py --model-key plain8m --units 0,1 --limit-variants 48 --device cpu (systemd-run scope, 4G/600s)",
+   "exit": 0,
+   "result": "2 units emitted; recovered by vendored recover_from_logs with matching sha256; lp_all/lp_un equal an independent tokenizer-based recompute (max abs diff 0.0, 3 variants). CPU smoke only; partial=True; not a result."
+  },
+  {
+   "cmd": "prior_replay run --core-commit 8883518 --policy q2c --tag none --seeds 0",
+   "exit": 0,
+   "result": "5 episodes; assays/status identical to core's saved shard q2c__seed00.json"
+  },
+  {
+   "cmd": "nebius ai job list/endpoint list --format json; job logs paging probes",
+   "exit": 0,
+   "result": "log API limit 1000 lines/query; default 100"
+  }
+ ],
+ "limitations": [
+  "Nebius LLM inference: only a cloud IAM token is configured (variable names inspected, values never read); no AI Studio API key, so no LLM job was attempted.",
+  "Job state enum not documented to us; waiting-state set is a conservative reading.",
+  "Pool total of 16 H100s is from the shared doc; tenant quota unreadable.",
+  "No actual metered GPU charge known (unknown, not zero)."
+ ],
+ "next_steps": [
+  "Launch pilot 3B shard after gpu worker's main job shows shard_done; size batches from measured throughput.",
+  "Run monitor with --launch during all jobs.",
+  "Assemble libraries, descriptive Spearman, policy replay with shuffled control."
+ ]
+}
