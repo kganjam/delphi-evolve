@@ -1,0 +1,41 @@
+{
+ "kind": "lazysp-preregistration/v1",
+ "registered_before_any_panel_episode": true,
+ "doc": "docs/lazysp.md#preregistration",
+ "panel_sha256": "bb6c144e8f0eba1079d6353d9c7f612a02df30afa7770ce94a064a47ad9b9bcf",
+ "seeds": 20,
+ "episodes_per_seed": 5,
+ "kappa": 2.0,
+ "bmax": 1000,
+ "primary_policy": "lazysp_alternate",
+ "secondary_policies": [
+  "lazysp_forward",
+  "lazysp_reverse"
+ ],
+ "comparator_artifact": "artifacts/recovery/episodes.csv",
+ "primary_comparator": "q2c",
+ "metrics": [
+  "resolved@{100,250,500,750,1000}",
+  "rmst_assays@tau=1000 (unresolved=tau)",
+  "false_certificates",
+  "full_data_verification_failures",
+  "abstentions_by_reason"
+ ],
+ "paired": {
+  "statistic": "LazySP - q2c",
+  "bootstrap": "paired seed-cluster, 20 clusters, 10000 draws, numpy default_rng(20261031), 95% percentile",
+  "descriptive_only": true
+ },
+ "search": {
+  "algorithm": "A* unit weights, Hamming lower bound",
+  "tiebreak": "heap (f,h,node index); neighbours ascending; strict-improvement parent",
+  "expansion_cap": null
+ },
+ "post_smoke_adjustable_resource_only": [
+  "runtime_cap_s<=450",
+  "parallelism<=2",
+  "which secondary variants fit 2h"
+ ],
+ "baselines_sha256_at_registration": "348e6835babfa9aa69f38d0e96a988766adc1483f286f89ed27c50767bc9d049",
+ "note": "baselines_sha256 hashes baselines/**/*.py by name+bytes at registration; the git commit that adds this file is the code SHA"
+}

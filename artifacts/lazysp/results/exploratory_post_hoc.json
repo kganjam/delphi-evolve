@@ -1,0 +1,381 @@
+{
+ "label": "POST HOC / exploratory; not preregistered",
+ "problem_clusters": 24,
+ "variants": {
+  "alternate": {
+   "problem_cluster_bootstrap_resolved_at_1000_diff": {
+    "diff": 0.17999999999999994,
+    "lo95": 0.0,
+    "hi95": 0.51
+   },
+   "problem_cluster_bootstrap_rmst_diff": {
+    "diff": -6.510000000000048,
+    "lo95": -183.22552173913044,
+    "hi95": 208.83085493827153
+   },
+   "paired_resolved_at_B": {
+    "100": [
+     0.27,
+     0.24
+    ],
+    "250": [
+     0.5,
+     0.43
+    ],
+    "500": [
+     0.55,
+     0.48
+    ],
+    "750": [
+     0.56,
+     0.7
+    ],
+    "800": [
+     0.56,
+     0.73
+    ],
+    "850": [
+     0.76,
+     0.77
+    ],
+    "900": [
+     0.77,
+     0.78
+    ],
+    "950": [
+     0.96,
+     0.78
+    ],
+    "1000": [
+     0.96,
+     0.78
+    ]
+   },
+   "per_problem": {
+    "A:all20": {
+     "n": 20,
+     "lazysp_resolved": 16,
+     "comparator_resolved": 16,
+     "lazysp_assays_median_resolved": 151.0,
+     "lazysp_assays_min_max": [
+      1,
+      637
+     ],
+     "comparator_assays_median_resolved": 76.0,
+     "comparator_assays_min_max": [
+      1,
+      844
+     ]
+    },
+    "B:AIKG": {
+     "n": 20,
+     "lazysp_resolved": 20,
+     "comparator_resolved": 19,
+     "lazysp_assays_median_resolved": 905.0,
+     "lazysp_assays_min_max": [
+      899,
+      905
+     ],
+     "comparator_assays_median_resolved": 557.0,
+     "comparator_assays_min_max": [
+      50,
+      698
+     ]
+    },
+    "B:ALKG": {
+     "n": 20,
+     "lazysp_resolved": 20,
+     "comparator_resolved": 3,
+     "lazysp_assays_median_resolved": 820.0,
+     "lazysp_assays_min_max": [
+      816,
+      820
+     ],
+     "comparator_assays_median_resolved": 675.0,
+     "comparator_assays_min_max": [
+      50,
+      851
+     ]
+    },
+    "B:CLKG": {
+     "n": 20,
+     "lazysp_resolved": 20,
+     "comparator_resolved": 20,
+     "lazysp_assays_median_resolved": 219.0,
+     "lazysp_assays_min_max": [
+      219,
+      219
+     ],
+     "comparator_assays_median_resolved": 660.5,
+     "comparator_assays_min_max": [
+      14,
+      810
+     ]
+    },
+    "B:VLKG": {
+     "n": 20,
+     "lazysp_resolved": 20,
+     "comparator_resolved": 20,
+     "lazysp_assays_median_resolved": 94.0,
+     "lazysp_assays_min_max": [
+      92,
+      94
+     ],
+     "comparator_assays_median_resolved": 147.5,
+     "comparator_assays_min_max": [
+      10,
+      249
+     ]
+    }
+   }
+  },
+  "forward": {
+   "problem_cluster_bootstrap_resolved_at_1000_diff": {
+    "diff": 0.17999999999999994,
+    "lo95": 0.0,
+    "hi95": 0.51
+   },
+   "problem_cluster_bootstrap_rmst_diff": {
+    "diff": -113.48000000000002,
+    "lo95": -265.8418395061728,
+    "hi95": 70.99142045454542
+   },
+   "paired_resolved_at_B": {
+    "100": [
+     0.29,
+     0.24
+    ],
+    "250": [
+     0.54,
+     0.43
+    ],
+    "500": [
+     0.55,
+     0.48
+    ],
+    "750": [
+     0.96,
+     0.7
+    ],
+    "800": [
+     0.96,
+     0.73
+    ],
+    "850": [
+     0.96,
+     0.77
+    ],
+    "900": [
+     0.96,
+     0.78
+    ],
+    "950": [
+     0.96,
+     0.78
+    ],
+    "1000": [
+     0.96,
+     0.78
+    ]
+   },
+   "per_problem": {
+    "A:all20": {
+     "n": 20,
+     "lazysp_resolved": 16,
+     "comparator_resolved": 16,
+     "lazysp_assays_median_resolved": 77.5,
+     "lazysp_assays_min_max": [
+      1,
+      519
+     ],
+     "comparator_assays_median_resolved": 76.0,
+     "comparator_assays_min_max": [
+      1,
+      844
+     ]
+    },
+    "B:AIKG": {
+     "n": 20,
+     "lazysp_resolved": 20,
+     "comparator_resolved": 19,
+     "lazysp_assays_median_resolved": 687.0,
+     "lazysp_assays_min_max": [
+      684,
+      687
+     ],
+     "comparator_assays_median_resolved": 557.0,
+     "comparator_assays_min_max": [
+      50,
+      698
+     ]
+    },
+    "B:ALKG": {
+     "n": 20,
+     "lazysp_resolved": 20,
+     "comparator_resolved": 3,
+     "lazysp_assays_median_resolved": 649.0,
+     "lazysp_assays_min_max": [
+      646,
+      649
+     ],
+     "comparator_assays_median_resolved": 675.0,
+     "comparator_assays_min_max": [
+      50,
+      851
+     ]
+    },
+    "B:CLKG": {
+     "n": 20,
+     "lazysp_resolved": 20,
+     "comparator_resolved": 20,
+     "lazysp_assays_median_resolved": 152.0,
+     "lazysp_assays_min_max": [
+      151,
+      152
+     ],
+     "comparator_assays_median_resolved": 660.5,
+     "comparator_assays_min_max": [
+      14,
+      810
+     ]
+    },
+    "B:VLKG": {
+     "n": 20,
+     "lazysp_resolved": 20,
+     "comparator_resolved": 20,
+     "lazysp_assays_median_resolved": 58.0,
+     "lazysp_assays_min_max": [
+      57,
+      58
+     ],
+     "comparator_assays_median_resolved": 147.5,
+     "comparator_assays_min_max": [
+      10,
+      249
+     ]
+    }
+   }
+  },
+  "reverse": {
+   "problem_cluster_bootstrap_resolved_at_1000_diff": {
+    "diff": -0.29000000000000004,
+    "lo95": -0.6511627906976744,
+    "hi95": -0.06451612903225801
+   },
+   "problem_cluster_bootstrap_rmst_diff": {
+    "diff": 110.77999999999997,
+    "lo95": -80.47518155410314,
+    "hi95": 359.612160493827
+   },
+   "paired_resolved_at_B": {
+    "100": [
+     0.26,
+     0.24
+    ],
+    "250": [
+     0.27,
+     0.43
+    ],
+    "500": [
+     0.49,
+     0.48
+    ],
+    "750": [
+     0.49,
+     0.7
+    ],
+    "800": [
+     0.49,
+     0.73
+    ],
+    "850": [
+     0.49,
+     0.77
+    ],
+    "900": [
+     0.49,
+     0.78
+    ],
+    "950": [
+     0.49,
+     0.78
+    ],
+    "1000": [
+     0.49,
+     0.78
+    ]
+   },
+   "per_problem": {
+    "A:all20": {
+     "n": 20,
+     "lazysp_resolved": 9,
+     "comparator_resolved": 16,
+     "lazysp_assays_median_resolved": 11.0,
+     "lazysp_assays_min_max": [
+      1,
+      315
+     ],
+     "comparator_assays_median_resolved": 76.0,
+     "comparator_assays_min_max": [
+      1,
+      844
+     ]
+    },
+    "B:AIKG": {
+     "n": 20,
+     "lazysp_resolved": 0,
+     "comparator_resolved": 19,
+     "lazysp_assays_median_resolved": null,
+     "lazysp_assays_min_max": null,
+     "comparator_assays_median_resolved": 557.0,
+     "comparator_assays_min_max": [
+      50,
+      698
+     ]
+    },
+    "B:ALKG": {
+     "n": 20,
+     "lazysp_resolved": 0,
+     "comparator_resolved": 3,
+     "lazysp_assays_median_resolved": null,
+     "lazysp_assays_min_max": null,
+     "comparator_assays_median_resolved": 675.0,
+     "comparator_assays_min_max": [
+      50,
+      851
+     ]
+    },
+    "B:CLKG": {
+     "n": 20,
+     "lazysp_resolved": 20,
+     "comparator_resolved": 20,
+     "lazysp_assays_median_resolved": 276.0,
+     "lazysp_assays_min_max": [
+      275,
+      276
+     ],
+     "comparator_assays_median_resolved": 660.5,
+     "comparator_assays_min_max": [
+      14,
+      810
+     ]
+    },
+    "B:VLKG": {
+     "n": 20,
+     "lazysp_resolved": 20,
+     "comparator_resolved": 20,
+     "lazysp_assays_median_resolved": 99.0,
+     "lazysp_assays_min_max": [
+      97,
+      99
+     ],
+     "comparator_assays_median_resolved": 147.5,
+     "comparator_assays_min_max": [
+      10,
+      249
+     ]
+    }
+   }
+  }
+ }
+}
