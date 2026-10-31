@@ -173,7 +173,10 @@
       "doi": "10.64898/2025.12.15.25341924",
       "read": "BODY",
       "licence": "CC-BY-4.0 (preprint)",
-      "note": "13,403 variants, four assays; data in supplement, MaveDB deposit pending; code github.com/GlazerLab/KCNQ1_MAVE; Europe PMC supplement archive truncated, only methods docx (media-1.docx) recovered, NO variant-level rows"
+      "note": "13,403 variants, four assays; MaveDB deposit pending; code github.com/GlazerLab/KCNQ1_MAVE; Europe PMC supplement (second attempt) read: media-2.xlsx File S1 13,403 variant scores, File S2 378 literature patch-clamp rows (V1/2act, 281 mutations, 49 papers), File S3 121 patient rows",
+      "files": {
+        "media-2.xlsx": "sha256 ed94af00799638019a7193488503ebe6f536f9f5053a1c161a92c05ba2c73e45"
+      }
     },
     {
       "id": "kcnq1-pnas2026",
@@ -285,6 +288,21 @@
         "W3": 0.604
       },
       "limits": "descriptive; MaveDB categories as supplied; KCNE1 only 129 residues; spread is position bootstrap, not a formal confidence level"
+    },
+    {
+      "what": "KCNQ1 MAVE vs literature V1/2act",
+      "script": "artifacts/research/research-electric-kcnq1-pilot.py",
+      "output": "artifacts/research/research-electric-kcnq1-pilot.json",
+      "n_S1": 13403,
+      "n_S2_rows": 378,
+      "n_overlap_mutations": 178,
+      "spearman_deltaV12_vs_function": -0.1765,
+      "n": 165,
+      "spearman_deltaV12_vs_trafficking": -0.0093,
+      "abs_shift_vs_function": -0.0871,
+      "shifted_ge10mV": 51,
+      "of_which_function_ge_0.75": 26,
+      "limits": "literature heterogeneous; arbitrary illustration thresholds; descriptive; no held-out evaluation"
     }
   ],
   "ideas": [
@@ -292,7 +310,7 @@
       "rank": 1,
       "id": "channel-bridge",
       "title": "Channel function-beyond-expression held-out-position benchmark and conditional certificate",
-      "data": "KCNE1 (MaveDB CC0), KCNJ2 (eLife, MIT), KCNH2 and SCN5A fragments (ProteinGym)",
+      "data": "KCNQ1 (CC BY preprint supplement; S1 MAVE + S2 literature V1/2 shifts) primary; KCNE1 (MaveDB CC0), KCNJ2 (MIT) replication",
       "novelty": "low; ProteinGym lists the assays and KCNQ1 work already separates function from trafficking (PNAS paper unread)",
       "feasibility_24h": "high",
       "evidence_confidence": "high on data, low on novelty",
@@ -350,10 +368,10 @@
   "failures": [
     "Springer journal PDF auth redirect and r.jina.ai reference-only copy",
     "PNAS KCNQ1 paper 403 then Cloudflare challenge",
-    "KCNQ1 supplement archive truncated; only methods docx recovered; no variant-level rows",
     "bioRxiv direct 429, worked via r.jina.ai",
     "SHREAD unresolved",
     "Allen and ProteinGym-data licences unverified",
-    "only two of four electrotaxis CSVs opened"
+    "only two of four electrotaxis CSVs opened",
+    "KCNQ1 supplement first download truncated; retry succeeded"
   ]
 }

@@ -1,0 +1,46 @@
+{
+ "S1_mut_type_counts": {
+  "early_nonsense": 511,
+  "late_nonsense": 64,
+  "mid_nonsense": 61,
+  "missense": 12223,
+  "synon": 544
+ },
+ "S1_rows": 13403,
+ "S2_cell_types": {
+  "CHO": 160,
+  "COS7": 2,
+  "Guinea Pig Ventricular Myocytes": 1,
+  "HEK (TRAF) &amp; CHO (FUNC)": 61,
+  "HEK293": 115,
+  "HL1": 1,
+  "Xenopus": 34,
+  "mouse": 4
+ },
+ "S2_distinct_mutations": 281,
+ "S2_distinct_papers": 49,
+ "S2_rows": 378,
+ "among_shifted_function_scores_ge_0.75_of_WT_like": 26,
+ "caveats": "literature rows are heterogeneous (cell type, protocol, KCNE1 co-expression not tracked here); one median per mutation; descriptive only; thresholds 10 mV and 0.75 are arbitrary illustration, not validated; no held-out evaluation",
+ "n_mutations_with_deltaV12_and_MAVE": 178,
+ "n_with_abs_deltaV12_ge_10mV": 51,
+ "spearman_abs_deltaV12act_vs_function_score": {
+  "n": 165,
+  "note": "absolute shift removes the sign ambiguity (activation can shift either way)",
+  "rho": -0.08707680392311772
+ },
+ "spearman_abs_deltaV12act_vs_trafficking_score": {
+  "n": 174,
+  "note": "absolute shift removes the sign ambiguity (activation can shift either way)",
+  "rho": -0.08645072613305882
+ },
+ "spearman_deltaV12act_vs_function_score": {
+  "n": 165,
+  "rho": -0.1765035112079791
+ },
+ "spearman_deltaV12act_vs_trafficking_score": {
+  "n": 174,
+  "rho": -0.009316083947380135
+ },
+ "xlsx_sha256": "ed94af00799638019a7193488503ebe6f536f9f5053a1c161a92c05ba2c73e45"
+}

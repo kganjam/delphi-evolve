@@ -4,53 +4,96 @@
   "commit": "1e45453",
   "model": "Claude Sonnet 5.5 (subscription)",
   "metered_spend": "unknown; not inferred from CLI",
-  "wall_time_seattle": {"start": "2026-10-31 00:56 PDT", "end": "2026-10-31 01:14 PDT (clock-read)"},
+  "wall_time_seattle": {
+    "start": "2026-10-31 00:56 PDT",
+    "end": "2026-10-31 01:25 PDT (clock-read)"
+  },
   "deliverables": [
     "docs/research/research-electric.md",
     "artifacts/research/research-electric.json",
     "tasks/results/research-electric.json",
     "artifacts/research/research-electric-kcne1-pilot.py",
-    "artifacts/research/research-electric-kcne1-pilot.json"
+    "artifacts/research/research-electric-kcne1-pilot.json",
+    "artifacts/research/research-electric-kcnq1-pilot.py",
+    "artifacts/research/research-electric-kcnq1-pilot.json"
   ],
   "deliverables_note": "last two files are a reproducible pilot added in the second pass, named under research-electric; they go beyond the three paths originally named",
   "commands_run": [
-    {"cmd": "curl JSON-RPC to https://delphisci-mcp.fly.dev/mcp: initialize, tools/list, tools/call delphi_overview, delphi_search_claims (local; network once), delphi_get_claim", "exit": 0},
-    {"cmd": "curl Zenodo API record 4749429 and Ctrl-1.csv, 200mV-1.csv; python3 -I track counts", "exit": 0},
-    {"cmd": "curl VT thesis PDF; pdftotext; pdftoppm page 29 (viewed Fig 13)", "exit": 0},
-    {"cmd": "curl MaveDB score sets urn:mavedb:00000674-a-2 and -b-1", "exit": 0},
-    {"cmd": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 python3 -I artifacts/research/research-electric-kcne1-pilot.py <traf.csv> <func.csv> artifacts/research/research-electric-kcne1-pilot.json (run twice: before and after adding the window baseline)", "exit": 0},
-    {"cmd": "curl ProteinGym reference_files/DMS_substitutions.csv; GitHub API licence checks", "exit": 0},
-    {"cmd": "curl r.jina.ai bioRxiv Prescott v2 (ok); Springer page (reference list only); PNAS KCNQ1 (Cloudflare challenge)", "exit": 0, "note": "fetch succeeded at HTTP level; content failures recorded under limitations"},
-    {"cmd": "curl Europe PMC supplementaryFiles PMC12724399; python3 -I stream-split of truncated zip to recover media-1.docx", "exit": 0},
-    {"cmd": "WebFetch/WebSearch calls", "exit": "n/a", "note": "Springer PDF redirect; PNAS 403; bioRxiv 429 on direct fetch"}
+    {
+      "cmd": "curl JSON-RPC to https://delphisci-mcp.fly.dev/mcp: initialize, tools/list, tools/call delphi_overview, delphi_search_claims (local; network once), delphi_get_claim",
+      "exit": 0
+    },
+    {
+      "cmd": "curl Zenodo API record 4749429 and Ctrl-1.csv, 200mV-1.csv; python3 -I track counts",
+      "exit": 0
+    },
+    {
+      "cmd": "curl VT thesis PDF; pdftotext; pdftoppm page 29 (viewed Fig 13)",
+      "exit": 0
+    },
+    {
+      "cmd": "curl MaveDB score sets urn:mavedb:00000674-a-2 and -b-1",
+      "exit": 0
+    },
+    {
+      "cmd": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 python3 -I artifacts/research/research-electric-kcne1-pilot.py <traf.csv> <func.csv> artifacts/research/research-electric-kcne1-pilot.json (run twice: before and after adding the window baseline)",
+      "exit": 0
+    },
+    {
+      "cmd": "curl ProteinGym reference_files/DMS_substitutions.csv; GitHub API licence checks",
+      "exit": 0
+    },
+    {
+      "cmd": "curl r.jina.ai bioRxiv Prescott v2 (ok); Springer page (reference list only); PNAS KCNQ1 (Cloudflare challenge)",
+      "exit": 0,
+      "note": "fetch succeeded at HTTP level; content failures recorded under limitations"
+    },
+    {
+      "cmd": "curl Europe PMC supplementaryFiles PMC12724399; python3 -I stream-split of truncated zip to recover media-1.docx",
+      "exit": 0
+    },
+    {
+      "cmd": "WebFetch/WebSearch calls",
+      "exit": "n/a",
+      "note": "Springer PDF redirect; PNAS 403; bioRxiv 429 on direct fetch"
+    },
+    {
+      "cmd": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 python3 -I artifacts/research/research-electric-kcnq1-pilot.py media-2.xlsx artifacts/research/research-electric-kcnq1-pilot.json (twice)",
+      "exit": 0
+    }
   ],
   "tests": "no test suite applies to a research report; checks run: json.load on both JSON deliverables (ok); pilot script re-run reproduced n=2415 and Spearman 0.0617 and 0.695 from the sha256-listed CSVs",
-  "artifacts": ["artifacts/research/research-electric.json", "artifacts/research/research-electric-kcne1-pilot.json"],
+  "artifacts": [
+    "artifacts/research/research-electric.json",
+    "artifacts/research/research-electric-kcne1-pilot.json",
+    "artifacts/research/research-electric-kcnq1-pilot.json"
+  ],
   "key_findings": [
     "Sano 2010 is externally powered electrokinetic cell steering plus electrolysis; alignment evidence qualitative SEM; thesis text quotes calculated drift about 40x above its own measured mobility (unreconciled)",
     "Baddam 2025 (AC fields, same bacterium family) did not measure fibril alignment; data on request only",
     "Electrotaxis public data: one nonzero field (200 mV/mm), 2 replicates, CC BY-NC-ND; Prescott 2021 already did held-out field-reversal prediction",
     "KCNE1 MaveDB (CC0): 2415 paired missense; Spearman(trafficking, function)=0.062; cheap held-out-position neighbour-window baseline Spearman 0.58 to 0.60 (position-bootstrap spread about 0.51 to 0.65); AlphaMissense reported by authors at |rho|=0.62",
     "KCNQ1 landscape (13,403 variants, four assays, CC BY preprint) and an unread PNAS KCNQ1 classifier paper are close prior art for function-versus-trafficking prediction",
-    "SHREAD could not be found under that name"
+    "SHREAD could not be found under that name",
+    "KCNQ1 supplement read: 13,403 variant MAVE scores and 378 literature patch-clamp rows; 178 mutations overlap; Spearman(delta V1/2act, MAVE function)=-0.18 (n=165), vs trafficking -0.01; 26 of 51 mutations with |shift|>=10 mV have function score >=0.75 (illustrative cut). Descriptive: MAVE function is a weak proxy for gating shift"
   ],
-  "recommendation": "Channel Bridge held-out-position benchmark is feasible and falsifiable but low-novelty with a likely null; proceed only after reading the PNAS KCNQ1 paper and obtaining KCNQ1 variant-level data. Not a voltage-gating or nanoscale-patterning claim.",
+  "recommendation": "Channel Bridge on KCNQ1 (S1 plus S2 V1/2 shifts) as primary with KCNE1/Kir2.1 replication is feasible and falsifiable but low-novelty with a likely null; proceed only after reading the PNAS KCNQ1 paper. Not a voltage-gating-prediction or nanoscale-patterning claim.",
   "limitations": [
     "journal version of Sano 2010 not read; thesis used",
     "PNAS KCNQ1 classifier paper not read (403 and Cloudflare)",
-    "KCNQ1 variant-level data not obtained; supplement archive truncated, methods docx only",
     "many sources read at abstract or snippet level only; the manifest marks each one",
     "Allen Cell Types and ProteinGym data licences unverified; AlphaMissense CC BY 4.0 only via README relayed by search",
     "KCNE1 pilot is descriptive on 129 residues; MaveDB categories as supplied; bootstrap spread is empirical, not a formal confidence level",
     "no GPU experiment run; Channel Bridge model results do not exist",
     "only two of four electrotaxis CSVs opened; Daul ciliate dataset record not opened",
-    "research-synthesis branch claims (bioelectrics package) not re-verified"
+    "research-synthesis branch claims (bioelectrics package) not re-verified",
+    "KCNQ1 pilot: heterogeneous literature rows, n=178 overlap, arbitrary illustration thresholds, descriptive only; supplement licence line not checked"
   ],
   "next_steps": [
     "Read the PNAS KCNQ1 classifier paper via an author or institutional copy; if it already does position-held-out function-vs-trafficking prediction, kill Channel Bridge novelty",
-    "Obtain KCNQ1 variant-level scores (MaveDB after publication, or the medRxiv supplement table)",
     "Open the journal version of Sano 2010 to resolve the velocity inconsistency",
-    "If the coordinator approves: freeze splits and falsifier, then the gpu worker runs the 2 GPU-hour plan; this worker launches no GPU jobs"
+    "If the coordinator approves: freeze splits and falsifier, then the gpu worker runs the 2 GPU-hour plan; this worker launches no GPU jobs",
+    "Freeze KCNQ1 position-held-out splits and the falsifier before any model run"
   ],
   "blockers": "none for the report; data and paper access limits above are recorded, not blocking"
 }
