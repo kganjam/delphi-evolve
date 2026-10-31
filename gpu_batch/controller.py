@@ -105,7 +105,7 @@ def launch_next(cloud, manifest, queue, dry_run=False):
     q = pending[0]
     name = f"{OWN_PREFIX}{q['model_key']}-u{q['units'].replace(',', '_')}-{dt.datetime.now(dt.timezone.utc).strftime('%H%M%S')}"
     args = ["--model-key", q["model_key"], "--units", q["units"], "--batch", str(q.get("batch", 64)),
-            "--rp-dim", str(q.get("rp_dim", 32)), "--max-minutes", str(q.get("max_minutes", 95)), "--out", "/output/scale"]
+            "--rp-dim", str(q.get("rp_dim", 32)), "--max-minutes", str(q.get("max_minutes", 95)), "--out", "/tmp/scale_out"]
     rec = {"name": name, "id": None, "model_key": q["model_key"], "units": q["units"], "priority": q["priority"],
            "checkpointed": True, "timeout": q.get("timeout", "2h"), "intent_at": now(), "runner_args": args,
            "purpose": q.get("purpose", "")}

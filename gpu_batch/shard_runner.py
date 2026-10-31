@@ -137,7 +137,7 @@ def main():
     ap.add_argument("--batch", type=int, default=64)
     ap.add_argument("--rp-dim", type=int, default=32, help="random-projection dims per site and for mean-pool")
     ap.add_argument("--max-minutes", type=float, default=95.0, help="do not START a unit after this many minutes")
-    ap.add_argument("--out", default="/output/scale")
+    ap.add_argument("--out", default="/tmp/scale_out")   # NOT a bucket mount: np.savez needs a seekable file (the FUSE mount raised EINVAL for the gpu worker)
     ap.add_argument("--no-emit-logs", action="store_true")
     ap.add_argument("--limit-variants", type=int, default=0, help="smoke tests only; marks output as partial")
     ap.add_argument("--device", default="cuda")

@@ -186,3 +186,23 @@ def test_monitor_polls_at_most_every_60s_and_exits_when_idle(tmp_path, monkeypat
     rc = C.monitor(cloud, 60, 30, False, False, CFG, sleep=sleep, clock=lambda: t[0])
     assert rc == 0 and sleeps == [60, 60] and max(sleeps) <= 60
     assert len(Path(C.QLOG).read_text().splitlines()) == 3
+
+
+def test_blind_drain_releases_lowest_priority_owned_by_id_down_to_floor(tmp_path, monkeypatch):
+    m = manifest(owned=[("aijob-a", 1), ("aijob-b", 2), ("aijob-c", 3)])
+    for j in m["owned"]:
+        j["created_at"] = "x"
+    isolate(tmp_path, monkeypatch, m, [])
+    good = snap(wl("aijob-a", "delphi-evolve-scale-aijob-a", "RUNNING"), wl("aijob-b", "delphi-evolve-scale-aijob-b", "RUNNING"),
+                wl("aijob-c", "delphi-evolve-scale-aijob-c", "RUNNING"))
+
+    class Blind(FakeCloud):
+        def snapshot(self):
+            return snap(ok=False)
+
+        def get(self, jid):                      # per-ID get still works while the listing does not
+            return {"metadata": {"id": jid, "name": f"delphi-evolve-scale-{jid}"}}
+    cloud = Blind([good])
+    C.cycle(cloud, m, [], CFG, CFG.blind_poll_limit - 1, do_launch=True)
+    # floor 2 minus 1 peer => keep 1 owned (the highest priority); cancel the other two, lowest priority first
+    assert cloud.cancelled == ["aijob-c", "aijob-b"] and not cloud.created
