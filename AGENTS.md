@@ -1,6 +1,6 @@
 # Working contract
 
-Read planning/PLAN.md, specs/CONTRACT.md, STATUS.md and your task brief first. This is a new project, not the MorphoSwarm backlog. planning/legacy-reference is explanatory history, not governing scope. Scouts are attributed leads until independently checked.
+Read planning/PLAN.md, specs/CONTRACT.md, STATUS.md, tasks/semantics-review.md (when present) and your task brief first. This is a new project, not the MorphoSwarm backlog. planning/legacy-reference is explanatory history, not governing scope. Scouts are attributed leads until independently checked.
 
 - Work in your assigned git worktree/task branch. One writer per checkout. Do not edit another worker's tree or main. Commit explicit paths, inspect staged diff, push verified commits. No git add -A, hard reset, clean or forced push. The integrator merges branches after reading both changes.
 - Keep scope narrow. No universal biology framework, no toy generated data masquerading as measurements, no fake proof receipts or claims of solving biology. Observed / predicted / simulated / unknown stay separate. No invented statistics or confidence bounds. Cite real source rows and files.
