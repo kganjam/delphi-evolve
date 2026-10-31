@@ -32,7 +32,7 @@ from . import data
 from .collective import Collective
 from .graph import Ledger, path_to, truth_bfs, verify_cut, verify_route
 from .oracle import EventLog, Oracle
-from .policies import Directed, Greedy, Q2C, RandomFrontier, Uncertainty
+from .policies import Directed, Greedy, Q2C, Q2CNoModel, RandomFrontier, Uncertainty
 
 BMAX = 1000
 N_INIT = 96
@@ -41,9 +41,12 @@ PUBLISHED_START = "VFVS"
 PUBLISHED_TARGETS = ("AIKG", "CLKG", "VLKG", "ALKG")
 POLICIES = {
     "random": RandomFrontier, "greedy": Greedy, "uncertainty": Uncertainty,
-    "directed": Directed, "q2c": Q2C,
+    "directed": Directed, "q2c": Q2C, "q2c_nomodel": Q2CNoModel,
     "collective_shared": lambda c, r: Collective(c, r, True),
     "collective_isolated": lambda c, r: Collective(c, r, False),
+    "collective_shared_rr": lambda c, r: Collective(c, r, True, "rr"),
+    "collective_shared_c": lambda c, r: Collective(c, r, True, "cost", "const"),
+    "collective_isolated_c": lambda c, r: Collective(c, r, False, "cost", "const"),
 }
 
 

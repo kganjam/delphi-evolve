@@ -20,7 +20,7 @@ The data are real: Johnston et al. (PNAS 2024) measured bacterial growth for ess
 | Core worker's audited loader, measured-graph truth, replay protocol | not integrated into this checkout | `tasks/results/core.json` |
 | Lean conditional certificate (proof worker) | completed | `tasks/results/proof.json` |
 | GPU foundation-model prior (BioNeMo / ESM2) | no result integrated; do not assume it ran | `tasks/results/gpu.json` |
-| Retrospective assay-budget replay | benchmark status in demo.json: no demo.json integrated | `artifacts/core/replay/` |
+| Retrospective assay-budget replay | benchmark status in demo.json: completed | `artifacts/core/replay/` |
 
 Rows that say "not integrated" were not available to the experience worker when this page was rendered; they may exist on other branches. The integrator re-renders this file.
 
@@ -39,11 +39,11 @@ Related work already analyses route accessibility on this table (Johnston et al.
 
 ## Query-to-certify, and what is not yet shown
 
-The proposed contribution is not the regressor. It is to pose the engineering decision (is a route open, or cut?) as the object to certify, to choose assays that settle *that* decision, and to attach the decision to its evidence and scope. Evidence that this saves assays comes only from the retrospective replay, where each policy starts from the same observations and pays for measurements from an oracle. As of rendering: replay status = not available in saved artifacts. We report the replay's primary table and its negative outcomes from `artifacts/core/replay/table_primary.csv`; none are quoted here unless present in the saved artifacts above. A negative or null replay would be reported the same way.
+The proposed contribution is not the regressor. It is to pose the engineering decision (is a route open, or cut?) as the object to certify, to choose assays that settle *that* decision, and to attach the decision to its evidence and scope. Evidence that this saves assays comes only from the retrospective replay, where each policy starts from the same observations and pays for measurements from an oracle: 20 fixed seeds, 100 episodes per policy, budget 1000 assays beyond the initial observations, unresolved episodes kept in the denominator. Fraction of episodes with a sound certificate at 1000 assays: random frontier 0.21, greedy walk 0.08, GP uncertainty 0.13, our single deterministic best-first policy 0.32, query-to-certify (GP-priced) 0.78, collective with shared evidence 0.78, collective with isolated evidence 0.77. Paired against the best-first policy, query-to-certify differs by 0.46 (seed-cluster bootstrap 0.4 to 0.53). The collective with shared evidence differs from the single query-to-certify policy by 0 at 1000 assays: no collective advantage was found. A no-model variant added after the first results certifies 0.96 and is exploratory. The specialists are deterministic software objects in one process, not live language-model agents, and the shared and isolated arms differ in arbitration as well as evidence (a round-robin control for the shared arm matches it). False certificates are zero by construction, so that is a check, not a finding. All comparators are this repository's own policies; ALDE was not implemented or run. A closed (blocked) answer here means no route can be certified from the measurements and the assumed bound — not that no true route exists.
 
 ## Machine-checked certificate
 
-The proof worker's Lean work is meant to state interval-path soundness and a cut theorem and to check dataset-linked certificates, rejecting a mutated one. Whether it compiled is a fact about its receipt, not about this text. Status as rendered: completed. The in-browser check on the site is *not* the Lean-checked object; the Proof tab shows nothing green unless `demo.json` carries a receipt with kernel exit 0 and a non-zero mutant exit.
+The proof worker's Lean work is meant to state interval-path soundness and a cut theorem and to check dataset-linked certificates, rejecting a mutated one. Whether it compiled is a fact about its receipt, not about this text. Status as rendered: completed; the original compiles, the axioms used are only propext and Quot.sound, and mutants that break the dominance inequality or open a cut edge are rejected by the kernel. The in-browser check on the site is *not* the Lean-checked object; the Proof tab shows nothing green unless `demo.json` carries a receipt with kernel exit 0 and a non-zero mutant exit.
 
 ## Delphi and Darwin
 
@@ -68,4 +68,4 @@ python -m venv .venv && .venv/bin/pip install pandas numpy rdflib pytest
 
 
 ---
-*Rendered 2026-10-31 01:11:49 PDT by `python -m evolve.evidence docs` from: delphi, evsite, experience, integrator, landscape, nano, proof, route. Edit `docs/blog.template.md`, not this file.*
+*Rendered 2026-10-31 01:23:58 PDT by `python -m evolve.evidence docs` from: delphi, demo, evsite, experience, integrator, landscape, nano, proof, results, route. Edit `docs/blog.template.md`, not this file.*

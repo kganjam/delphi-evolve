@@ -64,9 +64,18 @@ for r in demo.get("routes", []):
 adm = J("artifacts/proof/core_kappa2_adm_cut_htgr_gtvn.json")
 cut_files = sorted((R / "artifacts/core/certificates").glob("cut_*_kappa2.json"))
 core_cut = json.load(open(cut_files[0])) if cut_files else None
-adm_ok = bool(core_cut) and adm.get("theorem") == "DarwinBridge.admCert_sound" and \
-    core_cut.get("body_sha256") in json.dumps(adm.get("bridged_from")) and \
-    (core_cut["start"], core_cut["target"]) == (adm["start"], adm["target"]) and adm.get("unlisted_neighbours") == []
+def cut_content_matches(core_cut, adm):
+    """Tie by CONTENT (body_sha256 includes the software-version block, so it is environment dependent)."""
+    if not core_cut or adm.get("theorem") != "DarwinBridge.admCert_sound":
+        return False
+    if (core_cut["start"], core_cut["target"]) != (adm["start"], adm["target"]) or adm.get("unlisted_neighbours") != []:
+        return False
+    if sorted(core_cut["closed_set"]) != sorted(adm["closed_set"]) or adm.get("scale_exponent") != 6 or adm.get("delta_scaled") != 0:
+        return False
+    rows = {e["genotype"]: (e["r1"], e["r2"]) for e in adm["table"]}
+    measured = {g: (v["lower"], v["upper"]) for g, v in core_cut["nodes"].items() if v["measured"]}
+    return rows == {g: (min(v), max(v)) for g, v in measured.items()}
+adm_ok = cut_content_matches(core_cut, adm)
 checks = {c["check"]: c["ok"] for c in rc.get("checks", [])}
 if not adm_ok:
     print("note: core cut is not the one Lean-checked by proof (regenerated?); blocked route stays lean_checked=false")
@@ -80,6 +89,17 @@ for r in demo.get("routes", []):
         if r["lean_checked"]:
             r["lean_theorem"] = "DarwinBridge.admCert_sound (no certifiable route; weaker than blocked_cut_sound)"
             r["lean_certificate_path"] = "artifacts/proof/core_kappa2_adm_cut_htgr_gtvn.json"
+
+# --- make every route endpoint a real node (core lists the blocked example's endpoints without nodes) ---
+sys.path.insert(0, str(R))
+have = {n["id"] for n in demo["nodes"]}
+missing = sorted({g for r in demo.get("routes", []) for g in r.get("nodes", [])} - have)
+if missing:
+    from evolve import data as _data
+    from evolve.demo import _node
+    _L = _data.load(); _Lo, _Hi = _L.intervals()
+    for g in missing:
+        demo["nodes"].append(_node(_L, _data.encode(g), _Lo, _Hi))
 
 # --- claims -----------------------------------------------------------------------------------
 cl = J("artifacts/evidence/demo_claims.json")["claims"]

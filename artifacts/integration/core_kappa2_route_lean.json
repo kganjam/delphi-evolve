@@ -1,6 +1,6 @@
 {
  "core_certificate": "artifacts/core/certificates/route_VFVS_AIKG_kappa2.json",
- "core_body_sha256": "cc7c0cc2d045d2c0fb614a7a19591aefa70e7d71cadac9aeaf0f85a7dd75ad52",
+ "core_body_sha256": "7523e36108a982f44ce7d4ec68b33a828a83b332044e93075e6ac631579a5794",
  "route": [
   "VFVS",
   "VFMS",

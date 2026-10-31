@@ -11,7 +11,7 @@ All frames are screen recordings of the real static site (`site/index.html`, ser
 | 32–48 | **Climax.** Press "Challenge the assumption" | κ slider sweeps; route turns dashed crimson with ✕ at the failing step; rerouting; finally BLOCKED banner | "Distrust the measurements a little more… and the route breaks." | break near κ ≈ {{route:break_points.readnoise_kappa}} (`route_summary.json`) |
 | 48–56 | Evidence tab | click step 3: raw replicate values, margin, read counts, SHA-256 prefix | "Every step opens its evidence." | page / `landscape.meta.json` |
 | 56–64 | Claims tab | scroll Delphi claim IDs with *local* and *network* labels; note "motivation only" chip | "Linked to Delphi — as motivation, not as a test of Darwin." | `delphi_queries.json` |
-| 64–72 | Proof tab and Replay tab | show whichever state exists: receipt exit codes, or the empty state "No proof receipt loaded" | "Nothing is green unless a compiled receipt says so." | `demo.json` if integrated (proof status: {{proof:status|none}}; replay: {{demo:benchmark.status|none}}) |
+| 64–72 | Results section (scroll to the 1000-assay bars), then Proof tab | click "1000 assays"; hover the best-first, query-to-certify and collective bars; then open Proof (receipt exit codes) | "Same labels, same budget: {{demo:benchmark.metrics.primary_at_1000_family_all.directed.cert_rate}} certified by best-first, {{demo:benchmark.metrics.primary_at_1000_family_all.q2c.cert_rate}} by query-to-certify; the collective adds nothing. Proof status: {{proof:status|none}}." | `site/data/results.json` (copied from `table_primary.csv`), `demo.json` |
 | 72–75 | End card | none | "From claims to experiments we can justify." | – |
 
 ## Recording instructions (fallback if the live demo fails)

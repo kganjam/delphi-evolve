@@ -29,7 +29,7 @@ def cmd_replay(a):
 
 def cmd_summarize(a):
     from . import summarize
-    summarize.run(Path(a.dir), OUT)
+    summarize.run(Path(a.dir), OUT, logs=not a.no_logs)
 
 
 def cmd_demo(a):
@@ -47,7 +47,7 @@ def main(argv=None):
     r.add_argument("--seed-start", type=int, default=0); r.add_argument("--seed-end", type=int, default=20)
     r.add_argument("--kappa", type=float, default=2.0); r.add_argument("--budget", type=int, default=1000)
     r.add_argument("--procs", type=int, default=2); r.set_defaults(f=cmd_replay)
-    s = sub.add_parser("summarize"); s.add_argument("--dir", default=str(OUT / "replay")); s.set_defaults(f=cmd_summarize)
+    s = sub.add_parser("summarize"); s.add_argument("--dir", default=str(OUT / "replay")); s.add_argument("--no-logs", action="store_true"); s.set_defaults(f=cmd_summarize)
     d = sub.add_parser("demo"); d.add_argument("--output", default="artifacts/demo.json")
     d.add_argument("--replay-dir", default=str(OUT / "replay")); d.set_defaults(f=cmd_demo)
     a = ap.parse_args(argv)

@@ -27,20 +27,25 @@ from __future__ import annotations
 import numpy as np
 
 from .graph import Ledger
-from .model import GPModel, LocalModel
+from .model import ConstModel, GPModel, LocalModel
 from .policies import Base, Planner
 
 
 class Collective(Base):
-    def __init__(self, ctx, rng, shared=True):
+    def __init__(self, ctx, rng, shared=True, arbiter="cost", route_model="gp"):
         super().__init__(ctx, rng)
-        self.shared = shared
-        self.name = "collective_shared" if shared else "collective_isolated"
+        self.shared, self.arbiter, self.route_model = shared, arbiter, route_model
+        self.name = ("collective_shared" if arbiter == "cost" else "collective_shared_rr") if shared else "collective_isolated"
+        if route_model == "const":
+            self.name += "_c"
         self.pl = {}
         self.turn = 0
         self.priv = None
 
     # -- helpers
+    def _route_model(self):
+        return ConstModel() if self.route_model == "const" else GPModel(prior=self.ctx.prior)
+
     def _planner(self, role, ledger, model):
         if role not in self.pl:
             self.pl[role] = Planner(self.ctx, ledger, model)
@@ -65,7 +70,7 @@ class Collective(Base):
         return self._shared_step(oracle, ledger) if self.shared else self._isolated_step(oracle, ledger)
 
     def _shared_step(self, oracle, ledger):
-        plA = self._planner("route", ledger, GPModel(prior=self.ctx.prior))
+        plA = self._planner("route", ledger, self._route_model())
         plB = self._planner("cut", ledger, LocalModel(prior=self.ctx.prior))
         plA.sync(); plB.sync()
         routes, _ = plA.open_routes()
@@ -91,6 +96,9 @@ class Collective(Base):
                            demoted=r0["nodes"], preferred=best[1]["nodes"], p_route_model=r0["p"], p_cut_model=best[2])
         self._post(oracle, "proposal", "cut", "all", hyp="blocked", frontier=len(ledger.frontier), cost=bcB, query=int(selB[int(np.argmax(PB))]))
         use_open = route_pick is not None and route_pick[0] <= bc
+        if self.arbiter == "rr":      # control: same shared evidence, but alternate hypotheses instead of comparing costs
+            use_open = route_pick is not None and self.turn % 2 == 0
+            self.turn += 1
         if use_open:
             v = plA.next_on_route(route_pick[1], ledger)
         else:
@@ -99,7 +107,7 @@ class Collective(Base):
             comb = PA[: len(selA)]
             v = int(selA[int(np.argmax(comb))]) if selA.size else int(selB[int(np.argmax(PB))])
             use_open = False
-        self._post(oracle, "decision", "arbiter", "all", chose="open-route" if use_open else "cut", open_score=None if route_pick is None else route_pick[0], cut_cost=bc, query=int(v))
+        self._post(oracle, "decision", "arbiter", "all", rule=self.arbiter, chose="open-route" if use_open else "cut", open_score=None if route_pick is None else route_pick[0], cut_cost=bc, query=int(v))
         self.ask(oracle, ledger, v, "shared: " + ("open route" if use_open else "cut completion"))
         return True
 
@@ -112,7 +120,7 @@ class Collective(Base):
             role = "cut" if role == "route" else "route"; mine = self.priv[role]
             if not mine.frontier:
                 return False
-        model = GPModel(prior=self.ctx.prior) if role == "route" else LocalModel(prior=self.ctx.prior)
+        model = self._route_model() if role == "route" else LocalModel(prior=self.ctx.prior)
         pl = self._planner(role, mine, model); pl.sync()
         v = None
         if role == "route":

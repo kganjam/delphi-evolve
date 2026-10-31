@@ -93,3 +93,22 @@ class LocalModel:
                 self.cache[v] = (float(a), float(b))
         r = np.array([self.cache[int(v)] for v in nodes])
         return r[:, 0], r[:, 1]
+
+
+class ConstModel:
+    """Ablation: no learned surrogate.  Every unrevealed genotype is predicted with the pooled
+    mean/sd of the revealed scores, so the planner can only use revealed facts and route/cut
+    structure (number of unknown nodes, Hamming geometry)."""
+    name = "const"
+
+    def __init__(self, prior=None):
+        self.prior = prior
+        self.m, self.sd = 0.0, 0.02
+
+    def fit(self, nodes, scores):
+        y = np.asarray(scores, float) / UNITS
+        self.m, self.sd = float(np.median(y)), max(float(np.std(y)), 1e-3)
+
+    def predict(self, nodes):
+        n = len(np.atleast_1d(nodes))
+        return np.full(n, self.m), np.full(n, self.sd)

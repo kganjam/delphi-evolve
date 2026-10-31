@@ -182,6 +182,24 @@ def build(output: Path, replay_dir: Path = ROOT / "artifacts" / "core" / "replay
                                  "open certificates are sound by construction (only revealed labels), so false_certificates=0 is a check, not a finding",
                                  "family-B pairs reuse one start/4 targets across seeds; seeds vary only the 96 initial observations and tie-breaks",
                                  "isolated vs shared collective compares evidence boundaries inside one software process; scheduling is fixed code"]}
+    if summ_path.exists():
+        import pandas as pd
+        pr = pd.read_csv(replay_dir / "table_primary.csv"); pa = pd.read_csv(replay_dir / "table_paired.csv")
+        rate = lambda pol, b, fam="all": float(pr[(pr.policy == pol) & (pr.budget == b) & (pr.family == fam)].cert_rate.iloc[0])
+        def pd_(a, b, bud):
+            r = pa[(pa.a == a) & (pa.b == b) & (pa.budget == bud) & (pa.family == "all") & pa.metric.str.startswith("cert")].iloc[0]
+            return {"mean_cert_rate_diff": float(r.mean_diff), "seed_cluster_bootstrap_95": [float(r["seed_cluster_bootstrap_2.5"]), float(r["seed_cluster_bootstrap_97.5"])], "a_better": int(r.a_better), "b_better": int(r.b_better), "tied": int(r.tied)}
+        bench["key_numbers_derived_from_tables"] = {
+            "episodes_per_policy": 100, "seeds": 20, "budget_assays": 1000,
+            "cert_rate_at_1000": {k: rate(k, 1000) for k in ("random", "greedy", "uncertainty", "directed", "q2c", "q2c_nomodel", "collective_shared", "collective_isolated", "collective_shared_c", "collective_isolated_c")},
+            "cert_rate_at_250": {k: rate(k, 250) for k in ("random", "directed", "q2c", "q2c_nomodel", "collective_shared", "collective_isolated")},
+            "paired_q2c_vs_directed_at_1000": pd_("q2c", "directed", 1000),
+            "paired_q2c_nomodel_vs_q2c_at_1000": pd_("q2c_nomodel", "q2c", 1000),
+            "paired_collective_shared_vs_q2c_at_1000": pd_("collective_shared", "q2c", 1000),
+            "paired_collective_shared_c_vs_isolated_c_at_1000": pd_("collective_shared_c", "collective_isolated_c", 1000),
+            "false_certificates_all_policies": int(pr.false_certificates.sum()),
+            "post_hoc_variants": ["q2c_nomodel", "collective_shared_rr", "collective_shared_c", "collective_isolated_c"]}
+        bench["limitations"].append("q2c_nomodel, collective_shared_rr and the *_c collectives were added AFTER inspecting the 7-policy results (not in the frozen protocol); treat as exploratory")
     counts = dict(L.counts)
     demo = {
         "schema_version": "delphi-evolve/demo/1", "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),

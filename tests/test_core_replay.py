@@ -73,3 +73,11 @@ def test_demo_json_contract(tmp_path):
             assert n["observed_score"] is None
     assert all({"source", "target", "status"} <= set(e) for e in d["edges"])
     assert all({"id", "nodes", "status", "assumptions", "certificate_path"} <= set(r) for r in d["routes"])
+
+
+def test_run_shard_writes_all_five_episodes(tmp_path, land):
+    """Regression: a shard must contain one family-A and four family-B episodes (an earlier edit silently emptied shards)."""
+    path, cached = replay.run_shard((str(tmp_path), "random", 2, 2.0, 30))
+    j = json.loads(Path(path).read_text())
+    assert len(j["rows"]) == 5 and {r["family"] for r in j["rows"]} == {"A", "B"} and all(r["seed"] == 2 for r in j["rows"])
+    assert len(j["qlogs"]) == 5
