@@ -1,0 +1,149 @@
+{
+  "name": "scope-desk-evaluation",
+  "version": 1,
+  "note": "Fixed before any agent answer is scored. desk.py records this file's sha256 in every report.",
+  "verdicts": [
+    "applies",
+    "out_of_scope",
+    "underdetermined"
+  ],
+  "log_eps": 1e-06,
+  "prob_sum_tolerance": 1e-06,
+  "headline_strata": [
+    "formal",
+    "simulated"
+  ],
+  "separate_strata_not_in_headline": [
+    "descriptive"
+  ],
+  "headline_metric_order": [
+    "false_alarm_rate",
+    "false_reassurance_rate",
+    "accuracy",
+    "brier3",
+    "log_loss3"
+  ],
+  "metric_definitions": {
+    "accuracy": "verdict == key verdict, over all items; unanswered counts as wrong",
+    "false_alarm_rate": "among items whose KEY verdict is applies: share whose verdict is not applies (out_of_scope, underdetermined, or UNANSWERED). A desk that refuses everything scores 1.0 here.",
+    "false_reassurance_rate": "among items whose KEY verdict is out_of_scope: share answered applies",
+    "right_flag_rate": "among KEY out_of_scope items: share answered out_of_scope",
+    "brier3": "sum over the three verdicts of (p_k - 1[k = key])^2, range [0,2]; items with invalid or missing p excluded and counted",
+    "log_loss3": "-ln p(key verdict) with p clipped to [log_eps, 1-log_eps]; same exclusions",
+    "diagnosis_exact": "among KEY out_of_scope items answered out_of_scope: set(condition_ids) equals the key's set",
+    "repair_success": "oracle verdict on the proposed repair (supplied by the oracle layer, never by this code); denominator is all KEY out_of_scope items"
+  },
+  "arms": {
+    "B0": {
+      "description": "deterministic Delphi-scoped gate",
+      "budget_exempt": true
+    },
+    "R": {
+      "description": "retrieval-only one pass"
+    },
+    "S": {
+      "description": "sequential single agent with tools and checker feedback"
+    },
+    "PL": {
+      "description": "pooled single agent: union of all tools and evidence (the honest control for information asymmetry)"
+    },
+    "P": {
+      "description": "N parallel independent samples"
+    },
+    "C": {
+      "description": "guild collective WITH the shared verified lemma/witness commons"
+    },
+    "C0": {
+      "description": "same agents and tools as C WITHOUT access to the commons (differs only in accumulated verified artifacts)"
+    },
+    "ST": {
+      "description": "non-agent stacker on the same features",
+      "budget_exempt": true
+    },
+    "TXT": {
+      "description": "textbook linear criterion applied naively (deterministic baseline). Its error and false-reassurance rates against the key ARE the audit's 'how often does the textbook criterion mispredict' number.",
+      "budget_exempt": true
+    }
+  },
+  "primary_comparison": [
+    "C",
+    "C0"
+  ],
+  "comparisons": [
+    [
+      "C",
+      "C0"
+    ],
+    [
+      "C",
+      "PL"
+    ],
+    [
+      "C",
+      "S"
+    ],
+    [
+      "C",
+      "P"
+    ],
+    [
+      "PL",
+      "S"
+    ],
+    [
+      "P",
+      "S"
+    ],
+    [
+      "C",
+      "B0"
+    ],
+    [
+      "PL",
+      "B0"
+    ],
+    [
+      "C",
+      "TXT"
+    ],
+    [
+      "PL",
+      "TXT"
+    ]
+  ],
+  "budget_tolerance": 0.05,
+  "budget_rule": "for two non-exempt arms: max(total_tokens)/min(total_tokens) - 1 <= tolerance, else REFUSED. Totals come from the runner ledger (input+output+tool tokens). Exempt arms (deterministic, no tokens) are compared but labelled unmatched.",
+  "bootstrap": {
+    "resamples": 5000,
+    "seed": 20261031,
+    "ci": 0.95,
+    "resampling_unit": "family",
+    "method": "percentile"
+  },
+  "operating_thresholds_flag_if_p_applies_below": [
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9
+  ],
+  "calibration_bins": 10,
+  "verdict_rule": "For a paired per-item difference d = metric(X) - metric(Y), the 95% family-cluster bootstrap interval decides: for lower-is-better metrics (false_alarm_rate, false_reassurance_rate, brier3, log_loss3) X is better if the interval is entirely below 0 and Y better if entirely above; for accuracy the signs flip; otherwise NO DETECTABLE DIFFERENCE. Exact McNemar p is shown but never overrides the clustered interval. Metrics that disagree are reported as disagreeing; no single metric is chosen after the fact. Collective superiority is claimed only for the primary comparison and only if its clustered interval supports it on BOTH accuracy and false_alarm_rate AND false_reassurance_rate is not detectably worse (either error rate alone is gameable by answering one verdict everywhere).",
+  "evidence_labels": {
+    "formal": "PROVED (Lean / exact arithmetic) - about the model",
+    "simulated": "SIMULATED (agreement of two independently discretized solvers) - about the discretization",
+    "descriptive": "OBSERVED/descriptive - kept out of every accuracy figure"
+  },
+  "headline_pooled_label": "mixed evidence (formal+simulated); shown only beside the per-stratum rows, never instead of them",
+  "excluded_source_claims": [
+    "turing-morphogen-hypothesis",
+    "kimura-neutral-theory",
+    "thompson1917-ch02-02"
+  ],
+  "excluded_source_claims_note": "Delphi claims the director/scouts flagged as unprovable or not both-assessor-agree. A key row citing one of them (fields source_claim_id or claim_id) aborts scoring.",
+  "min_families_warning": 10,
+  "novelty_statement": "Not claimed as ours: finite-domain mode quantization (established literature); ensemble-beats-single at matched budget in provers (published; the closest replication, Berlot-Attwell et al. arXiv 2504.03048, was negative after compute adjustment); the shared-commons architecture (Prove2Me, arXiv 2608.28433); formalized biology (Rashid et al. 2017, Lean-Bio, crnt-lean). This evaluation only measures whether THIS desk is right and whether THIS commons helped on THIS instance set.",
+  "independence_note": "'family' in the key must be the unit of independence (e.g. the kinetic model), not the individual run: domains, amplitudes and seeds nested inside a model are not independent samples.",
+  "min_families_for_verdict": 6,
+  "min_families_for_verdict_note": "Below this many independent families a percentile cluster bootstrap can collapse to a zero-width interval (e.g. 3 families with identical per-family differences); the comparison then reports INSUFFICIENT FAMILIES instead of a verdict."
+}

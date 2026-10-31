@@ -1,0 +1,68 @@
+{
+  "name": "lean-commons-coverage-evaluation",
+  "version": 1,
+  "note": "Fixed before any prover run. lean.py records this file's sha256 in every report.",
+  "outcome": "theorem coverage over the frozen model catalogue: a statement counts as covered only if proved AND axioms_clean (Lean kernel accepted, #print axioms shows no sorry/unexpected axiom). Statements not attempted in an arm are NOT covered (denominator is the whole catalogue).",
+  "arms": {
+    "L0": {
+      "description": "ordinary deterministic tactics (simp/omega/nlinarith/aesop-style) on the frozen initial library; measures whether agents add anything at all",
+      "budget_exempt": true
+    },
+    "L1": {
+      "description": "ONE sequential agent with a persistent verified library, at the same total compiler-call budget (the adequate single-agent control)"
+    },
+    "L2": {
+      "description": "the same parallel agents/families with PRIVATE evolving libraries (isolates sharing)"
+    },
+    "L3": {
+      "description": "parallel agents/families with a SHARED evolving library"
+    }
+  },
+  "budget_unit": "compiler_calls",
+  "budget_tolerance": 0.05,
+  "budget_rule": "total Lean compiler calls (failed and successful, all agents) per arm; for two non-exempt arms max/min - 1 <= tolerance, else REFUSED. The exempt deterministic arm L0 is compared but labelled unmatched. Tokens are reported, not matched.",
+  "primary_hypothesis": "L3 (shared library) covers more of the catalogue than BOTH L2 (private libraries) and L1 (sequential agent with persistent library) at matched compiler calls. This is a hypothesis; the closest published replication (Berlot-Attwell et al., arXiv 2504.03048, re-evaluating LEGO-Prover) found no direct reuse in final proofs and the advantage disappearing after compute adjustment, so a null is the prior-informed expectation.",
+  "comparisons": [
+    [
+      "L3",
+      "L2"
+    ],
+    [
+      "L3",
+      "L1"
+    ],
+    [
+      "L2",
+      "L1"
+    ],
+    [
+      "L1",
+      "L0"
+    ],
+    [
+      "L2",
+      "L0"
+    ],
+    [
+      "L3",
+      "L0"
+    ]
+  ],
+  "min_families_for_verdict": 6,
+  "excluded_source_claims": [
+    "turing-morphogen-hypothesis",
+    "kimura-neutral-theory",
+    "thompson1917-ch02-02"
+  ],
+  "bootstrap": {
+    "resamples": 5000,
+    "seed": 20261031,
+    "ci": 0.95,
+    "resampling_unit": "catalogue family (the model, not the statement)",
+    "method": "percentile"
+  },
+  "verdict_rule": "Paired per-statement coverage difference d = covered(X) - covered(Y); X is better if the 95% family-cluster bootstrap interval is entirely above 0, Y better if entirely below, else NO DETECTABLE DIFFERENCE; fewer than min_families_for_verdict families => INSUFFICIENT FAMILIES. Exact McNemar p shown but never overrides the clustered interval. SHARING is supported only if L3 is better than BOTH L2 and L1. Whether agents add anything is read from L1/L2/L3 versus L0. Anything else is reported as a null or partial result with the same prominence.",
+  "novelty_statement": "Not claimed as ours: ensemble/commons advantage at matched budget in provers (LEGO-Prover, LeanAgent, Prove Together predate this; the closest replication, Berlot-Attwell et al. arXiv 2504.03048, was negative after compute adjustment); the shared-commons architecture (Prove2Me, arXiv 2608.28433); formalized biology (Rashid et al. 2017, Lean-Bio, crnt-lean, Ripple v2). We measure whether sharing helps on THIS catalogue.",
+  "within_arm_dependence_note": "In L3, statements share lemmas by design, so coverage of different statements within an arm is not independent; pairing is across arms by statement and clustering is by family, which reduces but does not remove this.",
+  "reuse_diagnostic": "Among covered statements, cross_family_lemma_uses counts lemmas written by a DIFFERENT agent that appear in the final checked proof. If L3 beats L2 and L1 but reuse among its final proofs is zero or absent, the report says the gain is NOT attributed to reuse."
+}

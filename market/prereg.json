@@ -1,0 +1,25 @@
+{
+  "name": "settled-science-market-measurement",
+  "version": 1,
+  "note": "Fixed before any agent forecast exists. report.py records this file's sha256 in every report. Changing any value after forecasts exist makes the report say the prereg hash differs from the committed one.",
+  "log_eps": 1e-06,
+  "scores": ["brier", "log_loss"],
+  "primary_score": "brier",
+  "aggregators": {
+    "reported_all": ["mean", "median", "log_pool", "extremised", "recalibrated_cv"],
+    "extremised": {"a": 1.5, "note": "a fixed in advance, not fitted; a>1 extremises"},
+    "recalibrated_cv": {"folds": 10, "ridge": 1.0, "note": "out-of-fold Platt scaling of the log-pool logit; ridge toward identity"}
+  },
+  "arms": {
+    "A": {"description": "one agent, N sequential attempts", "output": "final_attempt"},
+    "B": {"description": "N independent samples of ONE model family", "output": "aggregate", "aggregator": "mean"},
+    "C": {"description": "N heterogeneous guilds: different model families and evidence modalities", "output": "aggregate", "aggregator": "mean"}
+  },
+  "comparisons": [["C", "A"], ["C", "B"], ["B", "A"]],
+  "budget_tolerance": 0.05,
+  "budget_rule": "max(total_tokens)/min(total_tokens) - 1 <= tolerance across the arms being compared, else the comparison is refused",
+  "bootstrap": {"resamples": 2000, "seed": 20261031, "ci": 0.95, "resampling_unit": "claim", "method": "percentile"},
+  "calibration_bins": 10,
+  "best_individual": {"ex_post": "best unit by mean Brier on the same claims (optimistic for the individual); bootstrap re-selects the best in every resample", "cross_validated": "best unit chosen on 9 of 10 claim folds and scored on the held-out fold"},
+  "verdict_rule": "For a paired per-claim loss difference d = loss(X) - loss(Y) (negative favours X): 'X better' if the 95% bootstrap CI is entirely below 0; 'Y better' if entirely above 0; otherwise 'no detectable difference'. Brier is primary; log loss is reported with the same rule and a disagreement is stated, not resolved by picking one."
+}
