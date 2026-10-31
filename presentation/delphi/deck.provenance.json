@@ -1,0 +1,77 @@
+{
+ "built": "2026-10-31 07:38 PDT",
+ "root": "/data/worktrees/delphi-evolve/submit",
+ "git": {
+  "head": "47590e9530d42a8e79033f4c618853cb0625eec3",
+  "branch": "work/submit",
+  "inputs_untracked_or_modified": [
+   "presentation/delphi/sources.md"
+  ]
+ },
+ "sha256": {
+  "planning/rethink/CLAIM-LEDGER.md": "cebdc32d10a522b9b9398ae49b0eb6c6e102369bb2d8b53af5387e034afe490f",
+  "presentation/delphi/sources.md": "d1a8beddf1d7e64b08b9d342bb11c286c0e30003fa42b971336b7773174da324",
+  "artifacts/integration/codex-api/price-probe.json": "513bc9173014f4effdbd76e9b30f52c7dcdc8924d69e1d9692974b2d826eb5da",
+  "experiments/price_probe/Price.lean": "a5d38f136fb214367203dfe5974155ab894dbf3a861412c084d39c389cf8fd0a",
+  "experiments/price_probe/Witnesses.lean.inc": "7e29341d65ea9968d192c7c0ead754984126ad288926eb547ca228c3d43d1715",
+  "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50",
+  "artifacts/turing_scope/lean_receipt.json": "d9961d8662748c3eb347accf9c103ffe5db1f988e7d74cf8183564f0b743d021",
+  "artifacts/rethink_director/MathlibProbe_host.lean": "39b9199d77298b4991099129c0d6bd16b9c00ffafbd7930e7708e04da32cb8a0",
+  "tasks/results/rethink-director.json": "7aff1c4f5d68a6f129af0f38efd500489d1ee62843155036a37df69a2775fbc6",
+  "artifacts/integration/codex-api/admissible-review/Admissible.lean": "c51b98a8c4218c5e272223c5d710de0d765804d78beace544850f9749cf07236",
+  "artifacts/integration/codex-api/admissible-review/committed-freeze.json": "dbf233d1ebe7156576e8e24bb4f7b7f3f6c3c75d4552efde198798eeb482ba0e",
+  "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md": "1f74952718505d1e5dcae1ac898ab2c0f1cbfc5684ee6469853b479fc413e2f7",
+  "artifacts/integration/codex-api/benchmark-semantic-audit.json": "d88daf0b11284476e3fcef447566c08d642289246660db5c1c552d76e4ee7fd0",
+  "artifacts/integration/codex-api/benchmark-v1-1-review.json": "840755b0c36a50164321ab2a2d9a229f758d73d8b05188b71d5f0f190d0134ae",
+  "artifacts/integration/codex-api/admissible-review/469874b/compile-review.json": "5cb952befeba82b45b0d46f463cbc8e6712c6080704b0f5b104d8fdb7ae0a8fb",
+  "artifacts/integration/codex-api/admissible-review/469874b/Admissible.lean": "d63c4d60e63e81d45bec7bd68d70caee6e0a83f4f4a51566eb6983d29c42fbce",
+  "artifacts/integration/codex-api/service-fixed-review.json": "12a67d4903d4057985781b46d7dec653913b45eacde61ef8f4719b0a76d53a1d",
+  "artifacts/rethink_director/thompson_tallo_probe.json": "afad6a103f6caab4f51bc70f4931ccafc473effb9a8fbd9b635c9874c0794b4e",
+  "artifacts/gpuops/robustness_tax_check.json": "5a522db25e92fb632dc7c2e6ba07fff1b6b7004ffb3b327da372dc21d4b3ecef",
+  "artifacts/core/replay/table_primary.csv": "530aca14ec7503a6b58c19b2b6ead9eda12db22a956325921849452ea19d41e6",
+  "artifacts/lazysp/results/table_primary.csv": "2e1cd0ac54af789755c23aa2b75aa6ed145d9e6eb6bf638f826c6c3138ebd94f",
+  "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+ },
+ "ledger_ids": [
+  "A01",
+  "A02",
+  "B01",
+  "B02",
+  "B03",
+  "B04",
+  "B05",
+  "F01",
+  "F02",
+  "F03",
+  "F04",
+  "F05",
+  "F06",
+  "F07",
+  "F08",
+  "F09",
+  "F10",
+  "P01",
+  "P02",
+  "P03",
+  "P04",
+  "P05",
+  "P06",
+  "P07",
+  "P08",
+  "P09",
+  "P10",
+  "R01",
+  "R02"
+ ],
+ "spoken_words": {
+  "total": 397,
+  "per_slide": [
+   59,
+   75,
+   57,
+   71,
+   65,
+   70
+  ]
+ }
+}

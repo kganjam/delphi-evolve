@@ -1,0 +1,136 @@
+{
+ "N": 3000000,
+ "K": 32,
+ "margin": 1.2,
+ "noise": 0.1,
+ "E1": {
+  "n_stable_AI": 3000000,
+  "min_rstar": 1.075978205982337,
+  "rstar_le_1": 0,
+  "uniform": {
+   "1.0-1.5": {
+    "n": 70916,
+    "mean_survival_pct": 6.0
+   },
+   "1.5-2": {
+    "n": 44485,
+    "mean_survival_pct": 17.3
+   },
+   "2-3": {
+    "n": 49210,
+    "mean_survival_pct": 31.0
+   },
+   "3-5": {
+    "n": 52407,
+    "mean_survival_pct": 41.9
+   },
+   "5-10": {
+    "n": 63695,
+    "mean_survival_pct": 47.8
+   },
+   "10-30": {
+    "n": 72563,
+    "mean_survival_pct": 64.8
+   },
+   "30-inf": {
+    "n": 46724,
+    "mean_survival_pct": 82.6
+   }
+  },
+  "gaussian": {
+   "1.0-1.5": {
+    "n": 70916,
+    "mean_survival_pct": 3.0
+   },
+   "1.5-2": {
+    "n": 44485,
+    "mean_survival_pct": 9.5
+   },
+   "2-3": {
+    "n": 49210,
+    "mean_survival_pct": 18.7
+   },
+   "3-5": {
+    "n": 52407,
+    "mean_survival_pct": 29.2
+   },
+   "5-10": {
+    "n": 63695,
+    "mean_survival_pct": 36.0
+   },
+   "10-30": {
+    "n": 72563,
+    "mean_survival_pct": 51.0
+   },
+   "30-inf": {
+    "n": 46724,
+    "mean_survival_pct": 69.9
+   }
+  }
+ },
+ "E2": {
+  "n_stable_AI": 375946,
+  "min_rstar": 1.0710890087401106,
+  "rstar_le_1": 0,
+  "uniform": {
+   "1.0-1.5": {
+    "n": 221,
+    "mean_survival_pct": 8.9
+   },
+   "1.5-2": {
+    "n": 758,
+    "mean_survival_pct": 21.6
+   },
+   "2-3": {
+    "n": 2873,
+    "mean_survival_pct": 40.8
+   },
+   "3-5": {
+    "n": 7787,
+    "mean_survival_pct": 58.7
+   },
+   "5-10": {
+    "n": 19577,
+    "mean_survival_pct": 70.0
+   },
+   "10-30": {
+    "n": 54761,
+    "mean_survival_pct": 77.8
+   },
+   "30-inf": {
+    "n": 289969,
+    "mean_survival_pct": 85.7
+   }
+  },
+  "gaussian": {
+   "1.0-1.5": {
+    "n": 221,
+    "mean_survival_pct": 4.3
+   },
+   "1.5-2": {
+    "n": 758,
+    "mean_survival_pct": 11.8
+   },
+   "2-3": {
+    "n": 2873,
+    "mean_survival_pct": 24.7
+   },
+   "3-5": {
+    "n": 7787,
+    "mean_survival_pct": 41.5
+   },
+   "5-10": {
+    "n": 19577,
+    "mean_survival_pct": 55.2
+   },
+   "10-30": {
+    "n": 54761,
+    "mean_survival_pct": 64.5
+   },
+   "30-inf": {
+    "n": 289969,
+    "mean_survival_pct": 73.5
+   }
+  }
+ }
+}

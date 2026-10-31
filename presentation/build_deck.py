@@ -497,7 +497,7 @@ def build_slides(D: dict, R: dict | None, draft_reasons: list[str], prov: dict) 
   <table style="font-size:14px"><tr><th>policy</th><th style="text-align:left">basis</th><th>@250</th><th>@{B}</th><th>assays†</th></tr>{"".join(rows)}</table>
   <div class="scope" style="margin-top:16px;font-size:17px;line-height:1.4"><b>Keep the evidence layer. Choose the simpler planner.</b> No collective uplift. No superiority claim for Q2C. The LazySP adaptation is established work, not an invention.</div>
   <p class="small" style="font-size:16px;margin-top:16px">One enzyme; retrospective; assumed intervals. The gain concentrates in one repeated endpoint pair, and the assay-count interval includes 0. About 24 distinct problems, not 100 independent targets.</p>
-  <p class="small" style="font-size:14px">The follow-up was declared before its runs, after the original study. {false_tot} false certificates among {cert_tot} issued checks structural consistency, not biology. † Unresolved counted at budget. All arms and limits are in the appendix.</p>
+  <p class="small" style="font-size:14px">The follow-up was declared before its runs, after the original study. {false_tot} false certificates among {cert_tot} issued checks: structural consistency, not biology. † Unresolved counted at budget. All arms and limits are in the appendix.</p>
  </div>
 </div>"""
         fn4 = fn(f'<b>Source</b> artifacts/lazysp/results/ (3 variants × {nep} episodes; {Lz["audit_shards"]} shards audited, 0 errors) · artifacts/core/replay/ ({R["seeds"]} seeds × 5 pairs × {len(pols)} arms)',

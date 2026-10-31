@@ -1,0 +1,418 @@
+{
+ "price": {
+  "ledger": "F07",
+  "artifact": "artifacts/integration/codex-api/price-probe.json",
+  "source_sha256": "a5d38f136fb214367203dfe5974155ab894dbf3a861412c084d39c389cf8fd0a",
+  "recorded_at": "2026-10-31T07:04:46.587546-07:00",
+  "original_exit": 0,
+  "wall_seconds": 13.155,
+  "theorems": [
+   "price",
+   "selection_only",
+   "fitness_selection",
+   "population_price",
+   "hamilton_regression"
+  ],
+  "axioms": {
+   "hamilton_regression": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "population_price": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "price": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "selection_only": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "fitness_selection": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ]
+  },
+  "axiom_set": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "depends_on": {
+   "price": [],
+   "selection_only": [
+    "price"
+   ],
+   "fitness_selection": [
+    "selection_only"
+   ],
+   "population_price": [
+    "price"
+   ],
+   "hamilton_regression": [
+    "selection_only"
+   ]
+  },
+  "witnesses": {
+   "transmission_is_needed": {
+    "drops": "perfect transmission",
+    "mean_fitness_times_change": "1",
+    "selection_covariance": "0",
+    "reading": "descendant trait mean changes although selection covariance is 0, so the transmission term cannot be dropped"
+   },
+   "regression_premises_nonvacuous": {
+    "drops": "nothing (non-vacuity of the premises)",
+    "var_z": "1/4",
+    "mean_fitness": "3/2",
+    "change": "-1/6",
+    "reading": "the theorem's hypotheses are satisfiable; with r=1, b=0, c=1 the criterion r*b-c=-1 predicts decrease and the change is -1/6"
+   },
+   "reversed_cost_is_false": {
+    "drops": "correct sign of the cost term",
+    "reading": "the sign-reversed criterion is false on the same population"
+   },
+   "residual_assumption_is_needed": {
+    "drops": "residual orthogonality",
+    "cov_residual_z": "1/2",
+    "change_positive": true,
+    "criterion_value": -1,
+    "reading": "with a residual correlated with the trait the trait mean RISES although r*b-c=-1 < 0"
+   }
+  },
+  "witness_exit": 0,
+  "mutants": [
+   {
+    "name": "transmission_sign_reversed",
+    "exit": 1,
+    "rejected": true
+   },
+   {
+    "name": "hamilton_cost_sign_reversed",
+    "exit": 1,
+    "rejected": true
+   }
+  ],
+  "limitations": [
+   "No additive-genetic Fisher FTNS projection proved.",
+   "Regression corollary assumes orthogonal residual and positive focal variance and mean fitness; it does not establish causal benefit/cost.",
+   "Population interpretation requires normalized nonnegative weights; general algebra theorems allow broader inputs.",
+   "Author implemented and tested feasibility; not an independent statement-fidelity review.",
+   "Price/Hamilton relation is established mathematics; machine-checking priority not established."
+  ],
+  "fisher_additive_genetic": "PENDING"
+ },
+ "turing": {
+  "windows": {
+   "unstable_first": [
+    "sqrt(2)",
+    "sqrt(5)"
+   ],
+   "stable_gap": [
+    "sqrt(5)",
+    "2*sqrt(2)"
+   ],
+   "unstable_beyond": "2*sqrt(2)",
+   "c_lo": 2,
+   "c_hi": 5
+  },
+  "ledger": "F01/F02",
+  "artifact": "artifacts/turing_scope/results.json",
+  "lean_receipt": "artifacts/turing_scope/lean_receipt.json",
+  "J": [
+   [
+    "1",
+    "-2"
+   ],
+   [
+    "2",
+    "-3"
+   ]
+  ],
+  "D": [
+   "1",
+   "10"
+  ],
+  "det_factored": "(5q-1)(2q-1)",
+  "continuum_band": [
+   "1/5",
+   "1/2"
+  ],
+  "scan": [
+   {
+    "L_over_pi": "1/2",
+    "verdict": "stable",
+    "unstable_modes": [],
+    "q": []
+   },
+   {
+    "L_over_pi": "3/4",
+    "verdict": "stable",
+    "unstable_modes": [],
+    "q": []
+   },
+   {
+    "L_over_pi": "1",
+    "verdict": "stable",
+    "unstable_modes": [],
+    "q": []
+   },
+   {
+    "L_over_pi": "3/2",
+    "verdict": "linearly_unstable",
+    "unstable_modes": [
+     1
+    ],
+    "q": [
+     "4/9"
+    ]
+   },
+   {
+    "L_over_pi": "2",
+    "verdict": "linearly_unstable",
+    "unstable_modes": [
+     1
+    ],
+    "q": [
+     "1/4"
+    ]
+   },
+   {
+    "L_over_pi": "5/2",
+    "verdict": "stable",
+    "unstable_modes": [],
+    "q": []
+   },
+   {
+    "L_over_pi": "3",
+    "verdict": "linearly_unstable",
+    "unstable_modes": [
+     2
+    ],
+    "q": [
+     "4/9"
+    ]
+   },
+   {
+    "L_over_pi": "4",
+    "verdict": "linearly_unstable",
+    "unstable_modes": [
+     2
+    ],
+    "q": [
+     "1/4"
+    ]
+   },
+   {
+    "L_over_pi": "5",
+    "verdict": "linearly_unstable",
+    "unstable_modes": [
+     3
+    ],
+    "q": [
+     "9/25"
+    ]
+   },
+   {
+    "L_over_pi": "6",
+    "verdict": "linearly_unstable",
+    "unstable_modes": [
+     3,
+     4
+    ],
+    "q": [
+     "1/4",
+     "4/9"
+    ]
+   }
+  ],
+  "scan_non_monotone_in_size": true,
+  "pi": {
+   "verdict": "stable",
+   "unstable_modes": []
+  },
+  "two_pi": {
+   "verdict": "linearly_unstable",
+   "unstable_modes": [
+    1
+   ],
+   "n1_q": "1/4",
+   "n1_det": "-1/8"
+  },
+  "lean": {
+   "version": "4.35.0",
+   "build_exit": 0,
+   "axiom_audit_exit": 0,
+   "axioms": [
+    "propext, Classical.choice, Quot.sound"
+   ],
+   "mutants": [
+    {
+     "file": "Control_unmutated.lean",
+     "description": "unmutated claim (L=2π, original law): must compile",
+     "exit": 0,
+     "as_expected": true
+    },
+    {
+     "file": "M1_law_reaction_d.lean",
+     "description": "source-law mutation: g_v -3 -> -2",
+     "exit": 1,
+     "as_expected": true
+    },
+    {
+     "file": "M2_law_diffusion_ratio.lean",
+     "description": "source-law mutation: Dv 10 -> 1 (equal diffusivities)",
+     "exit": 1,
+     "as_expected": true
+    },
+    {
+     "file": "M3_domain_short.lean",
+     "description": "domain mutation: L=π, claim mode 1 unstable",
+     "exit": 1,
+     "as_expected": true
+    }
+   ],
+   "n_generic_law_mutants": 2,
+   "ok": true
+  },
+  "mathlib_real_probe": {
+   "ledger": "unledgered",
+   "artifact": "artifacts/rethink_director/MathlibProbe_host.lean",
+   "receipt": "tasks/results/rethink-director.json",
+   "exit": 0,
+   "sha256": "39b9199d77298b4991099129c0d6bd16b9c00ffafbd7930e7708e04da32cb8a0",
+   "statement": "no_unstable_mode_on_pi: over the reals, no admissible Neumann mode q=n^2 (n>=1) lies in (1/5, 1/2)",
+   "limit": "small, one band, no eigenvalue or PDE correspondence (director receipt)"
+  }
+ },
+ "errors": {
+  "vacuous_theorem": {
+   "ledger": "P01 (note: existing stability theorem names overstate some statements)",
+   "file": "artifacts/integration/codex-api/admissible-review/Admissible.lean",
+   "name": "finite_domain_stable",
+   "assumed": "for every admissible mode n, NOT(det(J - qD) < 0)",
+   "concluded": "for every n, det(J - qD) >= 0",
+   "hL_unused": true,
+   "reviewer": "independent review by the Codex API worker (CODEX-21-CLAIM-FREEZE-REVIEW.md, 'Existing Lean file: specific fidelity failures')",
+   "reviewer_text": "a logical restatement; the conclusion is not linear asymptotic stability",
+   "compiled_and_axiom_audited": "the review states a clean axiom audit certifies dependencies, not statement fidelity",
+   "replacement": {
+    "ledger": "F10",
+    "artifact": "artifacts/integration/codex-api/admissible-review/469874b/compile-review.json",
+    "source_commit": "469874b2e5da8a5d503416be8bd071a6919e08a3",
+    "compile_exit": 0,
+    "theorem": "finite_domain_linearly_stable",
+    "predicate": "ModeStable: trace < 0 and determinant > 0",
+    "assumes": "well-mixed stability and strictly positive determinant at every admissible mode",
+    "derives": "trace negativity at every mode",
+    "axioms": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "audited_declarations": 7,
+    "limits": "does not establish the full eigenvalue or PDE correspondence; no new mutants run; compile review is not a target-fidelity approval"
+   }
+  },
+  "five": [
+   {
+    "n": 1,
+    "what": "Thompson: pooled regression read against a buckling envelope",
+    "caught_by": "independent critic review",
+    "witness": "descriptive Tallo probe: OLS 0.588 vs SMA 0.780 vs q99-bin 0.632 on the same rows",
+    "ledger": "P05 (pending)",
+    "artifact": "artifacts/rethink_director/thompson_tallo_probe.json"
+   },
+   {
+    "n": 2,
+    "what": "A diffusion-ratio threshold generalized beyond the model it came from",
+    "caught_by": "independent review; Lean-checked classification and exact determinant",
+    "witness": "a linear counterexample at diffusion ratio 1.1",
+    "ledger": "F04",
+    "artifact": "artifacts/integration/codex-api/service-fixed-review.json"
+   },
+   {
+    "n": 3,
+    "what": "Pinned liquid-bridge key used an inadmissible volume-changing mode",
+    "caught_by": "independent Codex API review (not blinded)",
+    "witness": "fixed-volume constraint needs integral of the n=1 sine to vanish; it is 2L/pi, nonzero; 8 v1 labels affected (rp-0012 to rp-0014)",
+    "ledger": "F05",
+    "artifact": "artifacts/integration/codex-api/benchmark-semantic-audit.json",
+    "affected": 8
+   },
+   {
+    "n": 4,
+    "what": "Benchmark requests left out declared tolerances and conventions",
+    "caught_by": "independent Codex API review",
+    "witness": "v1.1 adds linear-only task definition, wavelength and Kimura tolerances; its own freeze was then withheld for answer information in public IDs",
+    "ledger": "F08",
+    "artifact": "artifacts/integration/codex-api/benchmark-v1-1-review.json"
+   },
+   {
+    "n": 5,
+    "what": "Turing scorecard line missing the requirement that det(J - qD) < 0 at an actual admissible q",
+    "caught_by": "independent Codex API review",
+    "witness": "review of the 21-record freeze, row turing-ddi",
+    "ledger": "P01 (pending freeze)",
+    "artifact": "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md"
+   }
+  ],
+  "f04_artifact_kind": "independent software/model review; no biological measurements"
+ },
+ "scorecard": {
+  "ledger": "P01 (pending: freeze not approved)",
+  "records": 21,
+  "freeze_file": "artifacts/integration/codex-api/admissible-review/committed-freeze.json",
+  "freeze_sha256": "dbf233d1ebe7156576e8e24bb4f7b7f3f6c3c75d4552efde198798eeb482ba0e",
+  "compiled": "PENDING",
+  "excluded": "PENDING",
+  "scores": "PENDING"
+ },
+ "robustness": {
+  "ledger": "unledgered (appendix only; prior art unchecked)",
+  "artifact": "artifacts/gpuops/robustness_tax_check.json",
+  "samples_per_ensemble": 3000000,
+  "noise_fraction": 0.1,
+  "rows": {
+   "E1_uniform": {
+    "1.5-2": 17.3,
+    "30-inf": 82.6,
+    "monotone": true
+   },
+   "E1_gaussian": {
+    "1.5-2": 9.5,
+    "30-inf": 69.9,
+    "monotone": true
+   },
+   "E2_uniform": {
+    "1.5-2": 21.6,
+    "30-inf": 85.7,
+    "monotone": true
+   },
+   "E2_gaussian": {
+    "1.5-2": 11.8,
+    "30-inf": 73.5,
+    "monotone": true
+   }
+  },
+  "all_monotone": true,
+  "scope": "one two-species linear family, ensembles E1/E2 and the noise definition chosen by us; absolute values move by about 10 to 20 points with the noise model; not a property of any organism",
+  "literature_point": "Nodal/Lefty effective ratio (Muller et al. 2012): NOT verified against the source in this tree (critic-diffusion-ratio.md says the numbers still need a direct reading); not plotted; no claim about where it sits"
+ },
+ "baseline": {
+  "ledger": "B01/B02/B03",
+  "measured_nonstop": 159129,
+  "imputed_excluded": 871,
+  "q2c_1000": 78,
+  "shared_1000": 78,
+  "lazysp_1000": 96,
+  "budget": 1000,
+  "scale": "five ESM2 sizes, 1,100 follow-up episodes: no clear assay-saving benefit (B03)"
+ }
+}

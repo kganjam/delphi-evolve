@@ -1,9 +1,9 @@
 {
- "built": "2026-10-31 02:24 PDT",
- "root": "/data/worktrees/delphi-evolve/release",
+ "built": "2026-10-31 06:26 PDT",
+ "root": "/data/worktrees/delphi-evolve/submit",
  "git": {
-  "head": "a64c72106523e1367bbd9393b05f21e0f76cda58",
-  "branch": "work/release",
+  "head": "78b8228a995fa8d1b53eb8f1479a3c00d7344310",
+  "branch": "work/submit",
   "inputs_untracked_or_modified": []
  },
  "sha256": {

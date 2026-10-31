@@ -1,0 +1,763 @@
+{
+ "deck": "presentation/deck.html",
+ "inputs_hash_checked": 45,
+ "pdf_pages_checked": 6,
+ "claims_checked": 67,
+ "errors": [],
+ "ok": true,
+ "provenance_head": "78b8228a995fa8d1b53eb8f1479a3c00d7344310",
+ "trace": [
+  {
+   "slide": 1,
+   "shown": "so there are 24 orders",
+   "where": "html",
+   "files": [
+    "artifacts/evidence/route_summary.json"
+   ],
+   "sha256": {
+    "artifacts/evidence/route_summary.json": "d4fc21d06dc4c4e7571b7e1b71465013de11905f636971a499bf29994e15fe34"
+   }
+  },
+  {
+   "slide": 1,
+   "shown": "every one of the 24 steps down at least once",
+   "where": "html",
+   "files": [
+    "artifacts/evidence/route_summary.json"
+   ],
+   "sha256": {
+    "artifacts/evidence/route_summary.json": "d4fc21d06dc4c4e7571b7e1b71465013de11905f636971a499bf29994e15fe34"
+   }
+  },
+  {
+   "slide": 1,
+   "shown": "the 6-step detour",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 1,
+   "shown": "assumed κ=2 interval",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 1,
+   "shown": "VIVS→VIVG: a step down",
+   "where": "svg",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "159,129 of 160,000 variants",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "159,129 measured genotypes",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "871 never measured",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "(incl. stop codons) 193,170",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "stop-codon rows, excluded 34,041",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "measured, no stop 159,129",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "imputed in the authors’ separate file 871",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "imputed rows used as observations here 0",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "The 871 unmeasured cells",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "rows = residues 1×2, columns = residues 3×4",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "a631d8cf6c5b",
+   "where": "fn",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 1,
+   "shown": "a631d8cf6c5b",
+   "where": "fn",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 1,
+   "shown": "10.22002/h5rah-5z170",
+   "where": "fn",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 1,
+   "shown": "10.1073/pnas.2400439121",
+   "where": "fn",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 1,
+   "shown": "Johnston et al., PNAS 2024",
+   "where": "fn",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   },
+   "note": "bibliographic year of a cited paper; not derivable from a committed artifact"
+  },
+  {
+   "slide": 3,
+   "shown": "5 steps → 6 → 7 , then no route can be certified",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "5 0 577 5 0.5 381 5 1 278 5 1.5 230 6 2 137 7 3 77 7 4 56 no route certifiable 6 25",
+   "where": "svg",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "clears the bar by only 0.0013 growth units",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "κ≈ 2.45",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "577 at κ=0 → 137 at κ=2 → 25 at κ=6",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "at κ=6 the tool says",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "(25 variants reachable by certified steps)",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "κ=4 is the last bound in the sweep with a certified route",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "The weakest step of the κ=2 route",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "all 8 κ",
+   "where": "fn",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "measured 4-site subgraph",
+   "where": "fn",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "871 unmeasured genotypes outside",
+   "where": "fn",
+   "files": [
+    "artifacts/demo.json"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "established search certifies 96/100; our model-assisted planner 78/100",
+   "where": "html",
+   "files": [
+    "artifacts/lazysp/results/summary.json",
+    "artifacts/core/replay/table_primary.csv"
+   ],
+   "sha256": {
+    "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c",
+    "artifacts/core/replay/table_primary.csv": "530aca14ec7503a6b58c19b2b6ead9eda12db22a956325921849452ea19d41e6"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "50% 96% 477",
+   "where": "html",
+   "files": [
+    "artifacts/lazysp/results/summary.json"
+   ],
+   "sha256": {
+    "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "43% 78% 483",
+   "where": "html",
+   "files": [
+    "artifacts/core/replay/table_primary.csv"
+   ],
+   "sha256": {
+    "artifacts/core/replay/table_primary.csv": "530aca14ec7503a6b58c19b2b6ead9eda12db22a956325921849452ea19d41e6"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "47% 78% 467",
+   "where": "html",
+   "files": [
+    "artifacts/core/replay/table_primary.csv"
+   ],
+   "sha256": {
+    "artifacts/core/replay/table_primary.csv": "530aca14ec7503a6b58c19b2b6ead9eda12db22a956325921849452ea19d41e6"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "16% 96% 378",
+   "where": "html",
+   "files": [
+    "artifacts/core/replay/table_primary.csv"
+   ],
+   "sha256": {
+    "artifacts/core/replay/table_primary.csv": "530aca14ec7503a6b58c19b2b6ead9eda12db22a956325921849452ea19d41e6"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "+18 [+14, +22]",
+   "where": "html",
+   "files": [
+    "artifacts/lazysp/results/summary.json"
+   ],
+   "sha256": {
+    "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "+18 [+0, +51]",
+   "where": "html",
+   "files": [
+    "artifacts/lazysp/results/exploratory_post_hoc.json"
+   ],
+   "sha256": {
+    "artifacts/lazysp/results/exploratory_post_hoc.json": "7d86b2b32cbbb3242eeb958a05fe31b11bcf3719bfbfa144169b7c9fb4dba2c1"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "same, post hoc, 24 problem clusters",
+   "where": "html",
+   "files": [
+    "artifacts/lazysp/results/exploratory_post_hoc.json"
+   ],
+   "sha256": {
+    "artifacts/lazysp/results/exploratory_post_hoc.json": "7d86b2b32cbbb3242eeb958a05fe31b11bcf3719bfbfa144169b7c9fb4dba2c1"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "-6.5 [-53, +49]",
+   "where": "html",
+   "files": [
+    "artifacts/lazysp/results/summary.json"
+   ],
+   "sha256": {
+    "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "@250 @1000 assays†",
+   "where": "html",
+   "files": [
+    "artifacts/lazysp/results/summary.json"
+   ],
+   "sha256": {
+    "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "certified @1000, preregistered seed bootstrap",
+   "where": "html",
+   "files": [
+    "artifacts/lazysp/results/summary.json"
+   ],
+   "sha256": {
+    "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "the assay-count interval includes 0",
+   "where": "html",
+   "files": [
+    "artifacts/lazysp/results/summary.json"
+   ],
+   "sha256": {
+    "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "(percentage points; 95% interval; descriptive)",
+   "where": "html",
+   "files": [
+    "artifacts/lazysp/results/summary.json"
+   ],
+   "sha256": {
+    "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "18 / 0 , 17 of 18 at VFVS→ALKG",
+   "where": "html",
+   "files": [
+    "artifacts/lazysp/results/episodes_with_original.csv",
+    "artifacts/lazysp/results/summary.json"
+   ],
+   "sha256": {
+    "artifacts/lazysp/results/episodes_with_original.csv": "25d9b21d81a8128e14c51adbb9d6f33fd558ffd4db63a62fd33782e44eb0b7e7",
+    "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "About 24 distinct problems, not 100 independent targets",
+   "where": "html",
+   "files": [
+    "artifacts/lazysp/results/exploratory_post_hoc.json",
+    "artifacts/lazysp/results/summary.json"
+   ],
+   "sha256": {
+    "artifacts/lazysp/results/exploratory_post_hoc.json": "7d86b2b32cbbb3242eeb958a05fe31b11bcf3719bfbfa144169b7c9fb4dba2c1",
+    "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "0 false certificates among 883 issued checks",
+   "where": "html",
+   "files": [
+    "artifacts/core/replay/table_primary.csv",
+    "artifacts/lazysp/results/table_primary.csv"
+   ],
+   "sha256": {
+    "artifacts/core/replay/table_primary.csv": "530aca14ec7503a6b58c19b2b6ead9eda12db22a956325921849452ea19d41e6",
+    "artifacts/lazysp/results/table_primary.csv": "2e1cd0ac54af789755c23aa2b75aa6ed145d9e6eb6bf638f826c6c3138ebd94f"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "3 variants × 100 episodes; 300 shards audited, 0 errors",
+   "where": "fn",
+   "files": [
+    "artifacts/lazysp/results/summary.json",
+    "artifacts/lazysp/results/audit.json"
+   ],
+   "sha256": {
+    "artifacts/lazysp/results/summary.json": "4e6cf9723c76d3461e63f78b4cef7d5d18406e5b2f3296ada3836bcee405109c",
+    "artifacts/lazysp/results/audit.json": "dc6c3edab0d9f394047dd1d12052cfd574bc8bf32d3424b410786fac0f460dbb"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "20 seeds × 5 pairs × 11 arms",
+   "where": "fn",
+   "files": [
+    "artifacts/core/protocol.json",
+    "artifacts/core/replay/table_primary.csv"
+   ],
+   "sha256": {
+    "artifacts/core/protocol.json": "cc40ddfbcc327d0f547cae3a62016572350a613d9d0a411be64f6b9c22e6ef4f",
+    "artifacts/core/replay/table_primary.csv": "530aca14ec7503a6b58c19b2b6ead9eda12db22a956325921849452ea19d41e6"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "content sha bbfd686b…",
+   "where": "html",
+   "files": [
+    "artifacts/claim_reuse/verification_receipt.json"
+   ],
+   "sha256": {
+    "artifacts/claim_reuse/verification_receipt.json": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "src sha f371ae67…",
+   "where": "html",
+   "files": [
+    "artifacts/claim_reuse/verification_receipt.json"
+   ],
+   "sha256": {
+    "artifacts/claim_reuse/verification_receipt.json": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "v1.0.0",
+   "where": "html",
+   "files": [
+    "artifacts/claim_reuse/verification_receipt.json"
+   ],
+   "sha256": {
+    "artifacts/claim_reuse/verification_receipt.json": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "no admissible unstable mode at L=π but one (n=1, determinant -1/8) at L=2π",
+   "where": "html",
+   "files": [
+    "artifacts/turing_scope/results.json"
+   ],
+   "sha256": {
+    "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "Of 488,601 recorded paid requests, 95.3% repeat an earlier one",
+   "where": "html",
+   "files": [
+    "artifacts/claim_reuse/reuse_benchmark.json"
+   ],
+   "sha256": {
+    "artifacts/claim_reuse/reuse_benchmark.json": "7f846be79c97113a708b2caf994707912df70365b683fed8a9b908f1c7ec2711"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "avoid exactly the same 465,564",
+   "where": "html",
+   "files": [
+    "artifacts/claim_reuse/reuse_benchmark.json"
+   ],
+   "sha256": {
+    "artifacts/claim_reuse/reuse_benchmark.json": "7f846be79c97113a708b2caf994707912df70365b683fed8a9b908f1c7ec2711"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "(4 injected fault types)",
+   "where": "html",
+   "files": [
+    "artifacts/claim_reuse/reuse_benchmark.json"
+   ],
+   "sha256": {
+    "artifacts/claim_reuse/reuse_benchmark.json": "7f846be79c97113a708b2caf994707912df70365b683fed8a9b908f1c7ec2711"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "reused 2,564 invalid facts; typed reuse 0",
+   "where": "html",
+   "files": [
+    "artifacts/claim_reuse/reuse_benchmark.json"
+   ],
+   "sha256": {
+    "artifacts/claim_reuse/reuse_benchmark.json": "7f846be79c97113a708b2caf994707912df70365b683fed8a9b908f1c7ec2711"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "87 passed, 4 skipped in 2.27s",
+   "where": "html",
+   "files": [
+    "artifacts/claim_reuse/verification_receipt.json"
+   ],
+   "sha256": {
+    "artifacts/claim_reuse/verification_receipt.json": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "guard mutants 9/9, source mutants 7/7 killed",
+   "where": "html",
+   "files": [
+    "artifacts/claim_reuse/verification_receipt.json"
+   ],
+   "sha256": {
+    "artifacts/claim_reuse/verification_receipt.json": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "Lean 4.35.0 compiled",
+   "where": "html",
+   "files": [
+    "artifacts/proof/receipt.json"
+   ],
+   "sha256": {
+    "artifacts/proof/receipt.json": "92af8686bf84dbc03f1c0143e08b3fa85cf786118318750be71dbc903b9c9347"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "one 7-node VFVS → AIKG route recomputed exactly from raw CSV intervals (7/7); swapped-route mutant rejected (exit 1)",
+   "where": "html",
+   "files": [
+    "artifacts/integration/core_kappa2_route_lean.json"
+   ],
+   "sha256": {
+    "artifacts/integration/core_kappa2_route_lean.json": "3186e2821f313cc4ab473a9daf8537a276f732ec823a4dcf0c0c9ff95b23c510"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "The 1,400 core and LazySP replay decisions",
+   "where": "html",
+   "files": [
+    "artifacts/core/replay/episodes.csv",
+    "artifacts/lazysp/results/episodes.csv"
+   ],
+   "sha256": {
+    "artifacts/core/replay/episodes.csv": "cea6294ec2c14425f693c72d7cfe2d8f0019023504e6a5438149b6ddf1db899b",
+    "artifacts/lazysp/results/episodes.csv": "a8d78cca2469e5f8ad8159ca297a5257dec6a2350f8ea2f6f5bde93e969a8b7f"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "Five BioNeMo ESM2 sizes, 8M–3B",
+   "where": "html",
+   "files": [
+    "artifacts/scale/library_receipts.json"
+   ],
+   "sha256": {
+    "artifacts/scale/library_receipts.json": "da3f98517fc25c041d516fff70e4933938ff51d29460c87178ea48072fabf3f6"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "each scored all 160,000 variants",
+   "where": "html",
+   "files": [
+    "artifacts/scale/library_receipts.json"
+   ],
+   "sha256": {
+    "artifacts/scale/library_receipts.json": "da3f98517fc25c041d516fff70e4933938ff51d29460c87178ea48072fabf3f6"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "1,100 follow-up episodes: no clear assay-saving benefit; all descriptive RMST intervals include zero",
+   "where": "html",
+   "files": [
+    "artifacts/scale/replay_summary.csv"
+   ],
+   "sha256": {
+    "artifacts/scale/replay_summary.csv": "c6306a5796bf3a0d674720a17746e1309793ea390256fd2744c1f0126697a369"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "(120 days)",
+   "where": "html",
+   "files": [
+    "docs/company-hypothesis.md"
+   ],
+   "sha256": {
+    "docs/company-hypothesis.md": "a141351354a9fc5d5c06e2ff730699ad74df5166f13d644410459dfe7c7de6f0"
+   }
+  }
+ ]
+}

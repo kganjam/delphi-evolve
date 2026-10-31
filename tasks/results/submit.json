@@ -1,0 +1,193 @@
+{
+ "role": "submit",
+ "status": "partial: deck pipeline, timing and checklist complete; submission channel NOT found; no upload performed; no receipt exists",
+ "model": "claude-sonnet-5-5 (existing Claude subscription). No metered API charge established; no GPU; no subagents; no emails sent; no external contact.",
+ "branch": "work/submit",
+ "base_commit": "78b8228",
+ "commit": "see git log of work/submit (the commit that adds this file)",
+ "written_pdt": "2026-10-31 ~06:40",
+ "submission_receipt": null,
+ "submission_channel_found": false,
+ "findings": {
+  "deadline": {
+   "official_text": "Sunday Nov 1, 1:00 PM \"End of hacking - final slides due\" (scienceclawhack.ai; Luma: \"Hacking Ends: Final Slides Due & Lunch\")",
+   "timezone_evidence": "Luma event record (api.lu.ma/event/get?event_api_id=evt-lrhAXSeA3Dq8uSI, retrieved 2026-10-31T13:11Z): timezone=America/New_York, start_at=2026-10-30T21:00Z (=5:00 PM EDT, matching the published Friday 5 PM check-in), end_at=2026-11-01T22:00Z",
+   "instant_utc": "2026-11-01T18:00:00Z",
+   "seattle": "Sun Nov 1 10:00 AM PST",
+   "boston": "Sun Nov 1 1:00 PM EST",
+   "confidence": "event timezone confirmed from machine-readable data; that the 1 PM deadline uses the event clock is inferred (no separate organizer statement)"
+  },
+  "upload_location": "NOT FOUND in scienceclawhack.ai (text, FAQ, all links), the Luma page/API record, lamm-mit/scienceclaw README, infinite-lamm.vercel.app, a web search, or /home/ubuntu/git/scienceclaw-hackathon-ideas (emails are Drive/Docs notifications only; chat exports Oct 4-17 have nothing). OUTREACH.md drafts a question to scienceclaw@mit.edu about submission format; no evidence it was sent, no reply on file.",
+  "not_checkable_by_me": [
+   "Gmail inboxes of the team",
+   "Luma guest portal",
+   "ScienceClaw Discord (link not public; members added after approval)",
+   "organizers' Drive"
+  ],
+  "presentation_format": "slide count, time limit, live-demo rule, file format, hardware: NOT PUBLISHED",
+  "in_person": "required (FAQ: no remote or hybrid; every member should attend in person; Luma registration requires agreeing)",
+  "who_is_in_boston": "UNCONFIRMED. Only evidence: Kavita booked travel Oct 29-Nov 2 (chat Oct 9); Joel Dietz is MIT Media Lab fellow; goals.md lists five members. Needs a human answer.",
+  "contacts_public": "scienceclaw@mit.edu (site FAQ); host E14 Fund / Habib Haddad (Luma)"
+ },
+ "commands_run": [
+  {
+   "cmd": "curl https://scienceclawhack.ai/ ; WebFetch scienceclawhack.ai and luma.com/event/evt-lrhAXSeA3Dq8uSI ; curl api.lu.ma/event/get?event_api_id=evt-lrhAXSeA3Dq8uSI",
+   "exit": 0,
+   "result": "schedule and Eastern timezone confirmed; no upload location"
+  },
+  {
+   "cmd": "WebFetch github.com/lamm-mit/scienceclaw ; infinite-lamm.vercel.app ; WebSearch",
+   "exit": 0,
+   "result": "nothing about hackathon submission"
+  },
+  {
+   "cmd": "CHECK_ONLY=1 bash presentation/rebuild.sh (systemd-run 4G/swap0/128 tasks/600s)",
+   "exit": 0,
+   "result": "scratch rebuild from current commit; 67/67 claims traced"
+  },
+  {
+   "cmd": "bash presentation/rebuild.sh",
+   "exit": 0,
+   "result": "deck.html/pdf/pptx rebuilt; 6 pages, no console errors, layout ok on 6 slides; 67/67 claims traced, 0 errors, 0 stale inputs; 24 presentation tests passed"
+  },
+  {
+   "cmd": "python3 -m pytest -q presentation/tests",
+   "exit": 0,
+   "result": "24 passed (incl. 5 new gate tests: changed number, unclaimed number, changed artifact value, changed input file all FAIL the gate)"
+  },
+  {
+   "cmd": "python3 presentation/time_script.py --piper-python <venv> --voice en_US-lessac-medium.onnx (5 runs, systemd-run bounded, OMP_NUM_THREADS=2)",
+   "exit": 0,
+   "result": "2:43-2:45 total incl. 1.5 s/slide assumed gaps; speech 158 s; synthetic voice, not a human"
+  },
+  {
+   "cmd": "python3 scripts/submission_countdown.py",
+   "exit": 0,
+   "result": "28h36m to deadline at 06:23 PDT"
+  }
+ ],
+ "artifacts": {
+  "presentation/deck.pdf": "627cc3f69faf9d5b4d25ed117fac4cf0db69669859296ba32351c4e8ce92c305",
+  "presentation/deck.pptx": "0d938880c5fb58c71f05523ea3591890fbda2e5291ee511eeba4081710226ffa",
+  "presentation/deck.html": "17e491c7162318c86134e3ce060a708fa6fd99efce2b335b84e84da80560d5a7",
+  "presentation/speaker-notes.md": "068e16c88240568e46c815d9daf926ed1137f4461512ae469d1cd886c65b9301",
+  "presentation/timing.json": "f5f76bc27c3ae19797afb2a1d18a09b326d8000d38801b3d920de406b1f90b5a",
+  "presentation/number_trace.json": "37dd937d9cb48215266e8a20a5796e003e19dbbbf764f36573c9bad167f6040b"
+ },
+ "new_files": [
+  "presentation/rebuild.sh",
+  "presentation/trace_numbers.py",
+  "presentation/export_pptx.py",
+  "presentation/time_script.py",
+  "presentation/tests/test_trace_numbers.py",
+  "scripts/submission_countdown.py",
+  "planning/rethink/SUBMISSION.md"
+ ],
+ "edited_files": [
+  "presentation/build_deck.py (one punctuation fix on slide 4: 'issued checks: structural consistency')"
+ ],
+ "limitations": [
+  "No submission channel, no receipt, no upload. Human action required (see planning/rethink/SUBMISSION.md).",
+  "Timing is a synthetic-voice read-through; no human stopwatch rehearsal has been done. 15 s margin only.",
+  "The 3:00 limit is the team's own; the organizers publish none.",
+  "Trace check proves numbers are re-derived from committed files, not that they are scientifically right; one bibliographic year is flagged; chart curves are not individually traced.",
+  "PPTX is image-only; accepted format unknown.",
+  "GitHub release v0.1.0-hackathon still carries the earlier PDF (stamp a64c7210); not republished (outward-facing).",
+  "Deck is bound to the TrpB entry; if the director selects another spine the deck content must be rebuilt.",
+  "docs/company-hypothesis.md says both 'one' and 'two' prospective rounds; unchanged."
+ ],
+ "next_steps": [
+  "Human: ask an organizer at the Media Lab / read email and Discord / send the drafted email to scienceclaw@mit.edu; record receipt.",
+  "Human: confirm who is physically in Boston.",
+  "Presenter: stopwatch rehearsal; use cuts in timing.json if the real limit is shorter.",
+  "Director: tell submit worker if the entry changes; rebuild deck and claim registry.",
+  "Before upload: rerun bash presentation/rebuild.sh and confirm exit 0 on the final commit."
+ ],
+ "delphi_phase": {
+  "written_pdt": "2026-10-31 ~07:45",
+  "spine": "Delphi: from candidate laws to checked theorems (director FINAL SHAPE)",
+  "owns": [
+   "site/delphi/",
+   "presentation/delphi/"
+  ],
+  "does_not_touch": [
+   "site/review/ (Codex API worker)",
+   "presentation/deck.* baseline",
+   "site/index.html baseline"
+  ],
+  "inputs_merged": [
+   "origin/main",
+   "origin/work/codex-api @21c7fd8 (CLAIM-LEDGER F01-F10, P01-P10)",
+   "origin/work/rethink-director"
+  ],
+  "pulled_single_file": "artifacts/gpuops/robustness_tax_check.json from origin/work/gpuops (appendix only, unledgered)",
+  "commands_run": [
+   {
+    "cmd": "bash presentation/delphi/rebuild.sh (systemd-run 4G/swap0/128/600s)",
+    "exit": 0,
+    "result": "deck.html/pdf (6 pages, layout ok, no console errors), site/delphi built, trace 23/23 claims 0 errors, 9 tests passed"
+   },
+   {
+    "cmd": "python3 -m pytest -q presentation/delphi/tests",
+    "exit": 0,
+    "result": "9 passed: gate fails on changed number, pending-replaced-by-number, unclaimed number, fake ledger ID, changed artifact; forbidden-phrase scan; links; assets equal sources; every site number accounted for"
+   },
+   {
+    "cmd": "python3 presentation/time_script.py ... --notes presentation/delphi/speaker-notes.md (4 runs)",
+    "exit": 0,
+    "result": "2:33-2:36 total, synthetic voice"
+   },
+   {
+    "cmd": "playwright desktop 1280 and mobile 390 of site/delphi/index.html",
+    "exit": 0,
+    "result": "scrollWidth equals viewport, 0 console errors, 0 failed requests"
+   }
+  ],
+  "ledger_status_of_what_is_shown": {
+   "Turing strip, Lean instance": "F01 F02",
+   "Mathlib-over-reals probe": "unledgered, director receipt only",
+   "Price/Hamilton": "F07",
+   "own errors": "F04 F05 F08 P01 P05; replacement theorem F10",
+   "scorecard and agent evaluation": "P01 P02 P03 pending (no numbers)",
+   "robustness sweep": "unledgered, appendix only, four ensemble x noise rows shown, no universal-cliff claim, Nodal/Lefty ratio not plotted",
+   "baseline": "B01 B02 B03"
+  },
+  "not_done": [
+   "no tooling/claim added for the 'ten dead headlines' ledger or 'median about an hour' (no committed artifact or ledger row)",
+   "no benchmark/scorecard numbers",
+   "no human rehearsal",
+   "no video recorded",
+   "Delphi PPTX not exported",
+   "no submission receipt"
+  ],
+  "artifacts": {
+   "presentation/delphi/deck.pdf": "eae9700e2b3c0e0d005576b812aeda1649d8bd6e4c23f5d60aa38850fbc2e172",
+   "presentation/delphi/deck.html": "5eb23a3a4e24dde45573db9c9a8c9e92801369f521fb48408b5be6f7f0d310d2",
+   "presentation/delphi/speaker-notes.md": "3a99bfb3ca8eb2592072d5ad147407fcc560223d0be9e7a2b3269706920d81c6",
+   "presentation/delphi/timing.json": "154e23889e4fb4972d9c90a5d61d3002e2cd8f4e3bacb15602ec2039a4a6c26b",
+   "presentation/delphi/number_trace.json": "ee0b171529868ed16ba5fd6aaa5f1c4aa6f2389995581577c2b9847cd58039a5",
+   "presentation/delphi/sources.md": "d1a8beddf1d7e64b08b9d342bb11c286c0e30003fa42b971336b7773174da324",
+   "site/delphi/index.html": "5a8336e53526d143d65532bd98719c7373a9b3a0b343311aa7551b1f64a7e8c0",
+   "site/delphi/appendix.html": "bed13954892c587f5b028865bd3df22a8170c4d4c4f33b056901aacb5993638b",
+   "site/delphi/blog.html": "0fd44e0036e8dc48c87fb1de8e0560ddbf8331b238453060111e58daf222e540"
+  },
+  "corrections_0940": {
+   "trigger": "messages/2026-10-31-ATLAS-and-the-surviving-claim.md (pasted by user)",
+   "done": [
+    "ATLAS credited (deck, site, blog); Price 'bounded search' sentence removed; no 'no machine-checked library' claim anywhere (hard-banned by test)",
+    "limitation first + exact stable window added and exactly recomputed in trace.py (26 claims, 0 errors)",
+    "misprediction map added as a pending row; toy-ensemble numbers not shown",
+    "Arcuri/PMC9884266/Villar-Sepulveda absent from Delphi outputs (test); three other-owner files still cite them and were not edited",
+    "arXiv 1407.7114 and 2509.15829 verified to exist but their abstracts do not discuss domain size, so they are not cited as support",
+    "presentation/delphi/sources.md records what was verified; prove2.me not visited"
+   ],
+   "not_done": [
+    "no contribution to ATLAS WantedExt (pending, shown as pending)",
+    "no mispredication-map run (GPU worker/scale owns compute; no committed artifact)",
+    "no spine change adopted: the memo's build proposal (certified checker + GPU map) is not mine to adopt; deck frames it as the pending pairing"
+   ],
+   "tests": "pytest presentation/delphi/tests: 11 passed",
+   "timing": "2:33-2:34 (synthetic voice)"
+  }
+ }
+}

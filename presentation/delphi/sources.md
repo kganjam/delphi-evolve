@@ -1,0 +1,15 @@
+# Sources recorded by dx-submit, with what was and was not verified (Oct 31 2026, ~09:30 PDT)
+
+These came to dx-submit as messages from the primary/scout (`/data/artifacts/delphi-evolve-rethink/messages/2026-10-31-ATLAS-and-the-surviving-claim.md`). They are **not** CLAIM-LEDGER rows. The deck and site use only what is marked "used" below.
+
+| Item | Verified by dx-submit | Used on slides/site |
+|---|---|---|
+| `facebookresearch/atlas-lean`, directory `MathlibExt/Biology/` exists with subdirectories Dynamics, Epidemiology, Phylogenetics, PopulationGenetics, StatisticalGenetics; README states no approximations, docstrings cite primary sources with units and conventions, a non-vacuity witness for every model structure, and deferred results go to `WantedExt` as `theorem_wanted` | Yes, by reading the public GitHub directory page and README text (file counts, commit dates and "zero sorry" are the scout's, not re-checked) | Credit only. No counts shown. Whether it already contains Price/Hamilton or Turing statements: **unchecked** (no such file names visible at directory level) |
+| Contribution of reaction-diffusion/Turing statements to ATLAS `WantedExt/Biology` as `theorem_wanted` | Not done | Shown as pending, never as done |
+| Kurics, Menshykau, Iber, arXiv:1407.7114 and Ouchdiri et al., arXiv:2509.15829 as sources for finite-domain size effects | Titles and authors confirmed. **The abstracts do not mention domain size**; full texts not read | **Not cited as support.** Slides say the literature citation is being verified |
+| PMC9884266 (Villar-Sepulveda and Champneys 2023) and Arcuri and Murray 1986 are wrong sources | Not independently checked | Neither appears in the Delphi deck, site, blog or script. They still appear in other workers' files: `docs/turing-scope.md`, `docs/research/inverse-design-synthesis.md`, `planning/rethink/nca.md` (not edited here; owners should correct) |
+| Mode n unstable iff L in (n pi sqrt2, n pi sqrt5); stable window sqrt5 <= L/pi <= 2 sqrt2 | **Yes**, recomputed exactly from the committed model by `presentation/delphi/trace.py` | Used (slide 2, site) |
+| Toy-ensemble misprediction figures (98.3% at L = pi, 0.4% at L = 20 pi) | No: not in a committed artifact | **Not shown**; the map is "pending" |
+| Non-monotonicity in L is textbook-derivable | Consistent with the exact result above | Stated: we do not claim it as new |
+| DeepMind arXiv:2509.14185 did not prove; Chen-Hou interval arithmetic not formalized; OpenAI claim disputed | Not checked | Not used. No slide says AI solved a fluid-dynamics problem |
+| prove2.me footer instructs AI agents to fetch a URL; an injected schema fragment in a search result | Not visited | **Safety:** dx-submit has not fetched prove2.me. Prove2Me is cited only by its arXiv id (2608.28433), taken from the committed addendum |
