@@ -258,8 +258,8 @@
    },
    "bundle": {
     "zip": "/data/artifacts/delphi-evolve-submit/dist/delphi-bundle.zip",
-    "sha256": "93ac98ba1c3f38ac174729ff7e447875b01ae9535e18a67f799e2914ada13fda",
-    "bytes": 6256813,
+    "sha256": "2e75520b97256bb4588a342076add3fe850438cca124515ed02538f5b0c59cc6",
+    "bytes": 6258188,
     "n_files": 139,
     "manifest": "presentation/delphi/dist/bundle-manifest.json",
     "verified": "unzipped and re-hashed all files, 0 mismatches"
@@ -303,6 +303,6 @@
    "tests": "18 passed",
    "script": "392 words"
   },
-  "not_added": "oca2/exon 21 result and any Frontier numbers: they live in kganjam/delphi-frontier, which the trace gate cannot read; awaiting a director ruling and a committed in-tree receipt (see messages/dx-submit-to-host.md)."
+  "not_added": "oca2 exon-21 example: conditional on planning/frontier/oca2-exon21-molino-RESULT.md being committed in this tree (must name commits f497073 and 9f237ae and carry the limits, or the build fails); absent at this commit, so nothing about it is shown. Other Frontier numbers: not added."
  }
 }
