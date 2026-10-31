@@ -1,0 +1,32 @@
+33 brusselator 30 pattern False 26
+34 brusselator 30 pattern True 34
+35 brusselator 30 pattern False 58
+42 brusselator 30 pattern True 66
+43 brusselator 30 pattern True 87
+44 brusselator 30 pattern False 113
+51 brusselator 30 pattern True 124
+52 brusselator 30 pattern False 183
+53 brusselator 30 pattern False 225
+57 schnakenberg 20 not_settled True 233
+66 schnakenberg 20 pattern True 246
+67 schnakenberg 20 pattern True 267
+68 schnakenberg 20 pattern False 283
+69 brusselator 16 pattern True 317
+70 brusselator 16 pattern True 378
+71 brusselator 16 pattern False 428
+74 brusselator 20 pattern False 439
+76 brusselator 20 pattern False 447
+80 brusselator 13 not_settled None 456
+{
+ "n_configs": 82,
+ "pde_categories": {
+  "no_pattern": 19,
+  "pattern": 61,
+  "not_settled": 2
+ },
+ "scored_for_linear_agreement": 80,
+ "linear_nonlinear_disagreements": 0,
+ "disagreement_ids": [],
+ "dominant_mode_equals_fastest_linear_mode": "43/61",
+ "wall_s": 455.6339476108551
+}

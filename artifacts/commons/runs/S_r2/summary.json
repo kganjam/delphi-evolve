@@ -1,0 +1,246 @@
+{
+ "run_id": "S_r2",
+ "arm": "shared",
+ "family": "claude",
+ "model_requested": "sonnet",
+ "agents": 3,
+ "families": [
+  "claude"
+ ],
+ "budget_tokens": 400000,
+ "max_calls": 30,
+ "calls_used": 21,
+ "tokens_spent": 79784,
+ "n_targets": 19,
+ "n_proved": 19,
+ "proved": [
+  {
+   "task": "T01",
+   "t_s": 5.7,
+   "tokens_cum": 2543,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": []
+  },
+  {
+   "task": "T02",
+   "t_s": 9.0,
+   "tokens_cum": 8439,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": []
+  },
+  {
+   "task": "Q01",
+   "t_s": 9.7,
+   "tokens_cum": 8439,
+   "tries": 1,
+   "agent": "shared-a2",
+   "used_commons": []
+  },
+  {
+   "task": "T03",
+   "t_s": 13.3,
+   "tokens_cum": 11494,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": [
+    {
+     "author": "shared-a0",
+     "name": "T01"
+    }
+   ]
+  },
+  {
+   "task": "T05",
+   "t_s": 32.4,
+   "tokens_cum": 18570,
+   "tries": 1,
+   "agent": "shared-a2",
+   "used_commons": [
+    {
+     "author": "shared-a1",
+     "name": "T02"
+    }
+   ]
+  },
+  {
+   "task": "T04",
+   "t_s": 34.2,
+   "tokens_cum": 22558,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": [
+    {
+     "author": "shared-a1",
+     "name": "T02"
+    }
+   ]
+  },
+  {
+   "task": "T08",
+   "t_s": 44.1,
+   "tokens_cum": 26381,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": [
+    {
+     "author": "shared-a1",
+     "name": "T02"
+    },
+    {
+     "author": "shared-a2",
+     "name": "Q01"
+    }
+   ]
+  },
+  {
+   "task": "T06",
+   "t_s": 46.6,
+   "tokens_cum": 31499,
+   "tries": 2,
+   "agent": "shared-a0",
+   "used_commons": [
+    {
+     "author": "shared-a1",
+     "name": "T02"
+    }
+   ]
+  },
+  {
+   "task": "H02",
+   "t_s": 52.8,
+   "tokens_cum": 43261,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": []
+  },
+  {
+   "task": "H01",
+   "t_s": 53.2,
+   "tokens_cum": 43261,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": []
+  },
+  {
+   "task": "H04",
+   "t_s": 57.5,
+   "tokens_cum": 46630,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": []
+  },
+  {
+   "task": "H03",
+   "t_s": 60.5,
+   "tokens_cum": 53366,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": [
+    {
+     "author": "shared-a0",
+     "name": "H02"
+    }
+   ]
+  },
+  {
+   "task": "D01",
+   "t_s": 61.8,
+   "tokens_cum": 53366,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": []
+  },
+  {
+   "task": "T07",
+   "t_s": 64.0,
+   "tokens_cum": 58618,
+   "tries": 2,
+   "agent": "shared-a2",
+   "used_commons": [
+    {
+     "author": "shared-a2",
+     "name": "T05"
+    }
+   ]
+  },
+  {
+   "task": "D02",
+   "t_s": 68.6,
+   "tokens_cum": 66121,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": []
+  },
+  {
+   "task": "T09",
+   "t_s": 70.1,
+   "tokens_cum": 66121,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": [
+    {
+     "author": "shared-a1",
+     "name": "T04"
+    },
+    {
+     "author": "shared-a1",
+     "name": "T08"
+    }
+   ]
+  },
+  {
+   "task": "T10",
+   "t_s": 73.1,
+   "tokens_cum": 70443,
+   "tries": 1,
+   "agent": "shared-a2",
+   "used_commons": [
+    {
+     "author": "shared-a1",
+     "name": "T02"
+    }
+   ]
+  },
+  {
+   "task": "T12",
+   "t_s": 76.0,
+   "tokens_cum": 74529,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": [
+    {
+     "author": "shared-a0",
+     "name": "T03"
+    },
+    {
+     "author": "shared-a2",
+     "name": "T05"
+    }
+   ]
+  },
+  {
+   "task": "T11",
+   "t_s": 90.4,
+   "tokens_cum": 79784,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": [
+    {
+     "author": "shared-a0",
+     "name": "T06"
+    }
+   ]
+  }
+ ],
+ "reuse": {
+  "certified_with_library_lemma": 11,
+  "cross_agent_uses": 6,
+  "total_lemma_uses": 14
+ },
+ "failed_tasks": [],
+ "wall_s": 93.2,
+ "contract_sha256": "f788e88ed2a20030d4686c79721b51b1c16aee8cf5b8e9b4d3969c7ce3548272",
+ "targets_sha256": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce"
+}

@@ -127,6 +127,12 @@ def _core(J, Du, Dv, dim, r1, r2, bc):
     return unstable, modes, qcut
 
 
+def marginal_modes(J, Du, Dv, modes):
+    """Admissible modes with det(J - qD) == 0 exactly (a zero eigenvalue; trace < 0 here): linearization is inconclusive for them.
+    The verdict convention (bench key, turing_scope) is STRICT growth, so these do not make a mode 'unstable'; they are reported."""
+    return [(q, idx, det_q(J, Du, Dv, q)) for q, idx in modes if det_q(J, Du, Dv, q) == 0]
+
+
 def _brief(rows, k=12):
     return [{"index": list(idx), "q": fs(q), "det": fs(dt), "q_float": float(q)} for q, idx, dt in rows[:k]]
 
@@ -201,7 +207,11 @@ def _decide(J, Du, Dv, dim, r1, r2, bc):
         if v[0] == "wellmixed_unstable":
             return _wm(J)
     verdict, um, modes, qcut = v
-    out = {"bc_used": bc_used, "continuum_band": cont, "tail_cutoff_q": fs(qcut), "n_modes_checked": len(modes)}
+    mg = marginal_modes(J, Du, Dv, modes)
+    out = {"bc_used": bc_used, "continuum_band": cont, "tail_cutoff_q": fs(qcut), "n_modes_checked": len(modes),
+           "n_marginal_modes": len(mg), "marginal_modes": _brief(mg, 5),
+           "marginal_note": ("exactly marginal mode(s) present: strict-growth convention gives the verdict above, but linearization is "
+                             "inconclusive for them (the reviewed falsification service labels such cases 'unresolved')") if mg else None}
     if verdict == "linearly_unstable":
         top = max(um, key=lambda t: _eig_max(J, Du, Dv, t[0]))
         out.update(verdict="linearly_unstable", scope_verdict="applies", condition_ids=[],

@@ -1,0 +1,124 @@
+{
+ "arm": "deterministic",
+ "n_targets": 19,
+ "n_proved": 4,
+ "tokens": 0,
+ "wall_s": 161.2,
+ "rows": [
+  {
+   "id": "T01",
+   "proved": true,
+   "script": "by intros; (try unfold Scope.Model.modeTr); (try unfold Scope.Model.modeDet); (try unfold Scope.Model.trJ); (try unfold Scope.Model.detJ); (try unfold Scope.Model.S); (try unfold Scope.modeN); (try unfold Scope.modeM); (try unfold Scope.Hurwitz); (try unfold Scope.hamGain); (try unfold Scope.Favoured); (try unfold Scope.hdHH); (try unfold Scope.hdHD); (try unfold Scope.hdDH); (try unfold Scope.hdDD); grind",
+   "tactic_attempts": 5
+  },
+  {
+   "id": "T02",
+   "proved": true,
+   "script": "by intros; (try unfold Scope.Model.modeTr); (try unfold Scope.Model.modeDet); (try unfold Scope.Model.trJ); (try unfold Scope.Model.detJ); (try unfold Scope.Model.S); (try unfold Scope.modeN); (try unfold Scope.modeM); (try unfold Scope.Hurwitz); (try unfold Scope.hamGain); (try unfold Scope.Favoured); (try unfold Scope.hdHH); (try unfold Scope.hdHD); (try unfold Scope.hdDH); (try unfold Scope.hdDD); grind",
+   "tactic_attempts": 5
+  },
+  {
+   "id": "Q01",
+   "proved": false,
+   "script": null,
+   "tactic_attempts": 9
+  },
+  {
+   "id": "T03",
+   "proved": false,
+   "script": null,
+   "tactic_attempts": 9
+  },
+  {
+   "id": "T04",
+   "proved": false,
+   "script": null,
+   "tactic_attempts": 9
+  },
+  {
+   "id": "T05",
+   "proved": false,
+   "script": null,
+   "tactic_attempts": 9
+  },
+  {
+   "id": "T06",
+   "proved": false,
+   "script": null,
+   "tactic_attempts": 9
+  },
+  {
+   "id": "T07",
+   "proved": false,
+   "script": null,
+   "tactic_attempts": 9
+  },
+  {
+   "id": "T08",
+   "proved": false,
+   "script": null,
+   "tactic_attempts": 9
+  },
+  {
+   "id": "H01",
+   "proved": false,
+   "script": null,
+   "tactic_attempts": 9
+  },
+  {
+   "id": "H02",
+   "proved": false,
+   "script": null,
+   "tactic_attempts": 9
+  },
+  {
+   "id": "H03",
+   "proved": false,
+   "script": null,
+   "tactic_attempts": 9
+  },
+  {
+   "id": "H04",
+   "proved": false,
+   "script": null,
+   "tactic_attempts": 9
+  },
+  {
+   "id": "D01",
+   "proved": true,
+   "script": "by intros; (try unfold Scope.Model.modeTr); (try unfold Scope.Model.modeDet); (try unfold Scope.Model.trJ); (try unfold Scope.Model.detJ); (try unfold Scope.Model.S); (try unfold Scope.modeN); (try unfold Scope.modeM); (try unfold Scope.Hurwitz); (try unfold Scope.hamGain); (try unfold Scope.Favoured); (try unfold Scope.hdHH); (try unfold Scope.hdHD); (try unfold Scope.hdDH); (try unfold Scope.hdDD); grind",
+   "tactic_attempts": 5
+  },
+  {
+   "id": "D02",
+   "proved": true,
+   "script": "by intros; (try unfold Scope.Model.modeTr); (try unfold Scope.Model.modeDet); (try unfold Scope.Model.trJ); (try unfold Scope.Model.detJ); (try unfold Scope.Model.S); (try unfold Scope.modeN); (try unfold Scope.modeM); (try unfold Scope.Hurwitz); (try unfold Scope.hamGain); (try unfold Scope.Favoured); (try unfold Scope.hdHH); (try unfold Scope.hdHD); (try unfold Scope.hdDH); (try unfold Scope.hdDD); grind",
+   "tactic_attempts": 5
+  },
+  {
+   "id": "T09",
+   "proved": false,
+   "script": null,
+   "tactic_attempts": 9
+  },
+  {
+   "id": "T10",
+   "proved": false,
+   "script": null,
+   "tactic_attempts": 9
+  },
+  {
+   "id": "T11",
+   "proved": false,
+   "script": null,
+   "tactic_attempts": 9
+  },
+  {
+   "id": "T12",
+   "proved": false,
+   "script": null,
+   "tactic_attempts": 9
+  }
+ ],
+ "targets_sha256": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce"
+}

@@ -1,0 +1,96 @@
+0 schnakenberg 5 no_pattern None 8
+1 schnakenberg 5 no_pattern None 16
+2 schnakenberg 5 no_pattern None 25
+3 schnakenberg 10 no_pattern None 33
+4 schnakenberg 10 pattern True 48
+5 schnakenberg 10 pattern True 65
+6 schnakenberg 20 pattern False 76
+7 schnakenberg 20 pattern True 88
+8 schnakenberg 20 pattern False 99
+9 schnakenberg 5 no_pattern None 110
+10 schnakenberg 5 no_pattern None 121
+11 schnakenberg 5 no_pattern None 134
+12 schnakenberg 10 pattern True 159
+13 schnakenberg 10 pattern True 182
+14 schnakenberg 10 pattern True 206
+15 schnakenberg 20 pattern True 218
+16 schnakenberg 20 pattern True 233
+17 schnakenberg 20 pattern True 245
+18 schnakenberg 5 no_pattern None 256
+19 schnakenberg 5 no_pattern None 266
+20 schnakenberg 5 no_pattern None 277
+21 schnakenberg 10 pattern True 300
+22 schnakenberg 10 pattern True 320
+23 schnakenberg 10 pattern True 340
+24 schnakenberg 20 pattern True 352
+25 schnakenberg 20 pattern False 373
+26 schnakenberg 20 pattern False 397
+27 brusselator 10 no_pattern None 420
+28 brusselator 10 no_pattern None 431
+29 brusselator 10 no_pattern None 441
+30 brusselator 16 pattern True 456
+31 brusselator 16 pattern False 470
+32 brusselator 16 pattern True 481
+33 brusselator 30 nonconverged False 490
+34 brusselator 30 nonconverged True 501
+35 brusselator 30 nonconverged False 511
+36 brusselator 10 no_pattern None 519
+37 brusselator 10 no_pattern None 528
+38 brusselator 10 no_pattern None 538
+39 brusselator 16 pattern False 562
+40 brusselator 16 pattern True 573
+41 brusselator 16 pattern True 585
+42 brusselator 30 nonconverged True 594
+43 brusselator 30 nonconverged True 603
+44 brusselator 30 nonconverged False 612
+45 brusselator 10 no_pattern None 621
+46 brusselator 10 no_pattern None 629
+47 brusselator 10 no_pattern None 637
+48 brusselator 16 pattern False 649
+49 brusselator 16 pattern True 659
+50 brusselator 16 pattern True 672
+51 brusselator 30 nonconverged True 680
+52 brusselator 30 nonconverged False 688
+53 brusselator 30 nonconverged False 698
+54 schnakenberg 20 pattern True 705
+55 schnakenberg 20 pattern True 711
+56 schnakenberg 20 pattern True 718
+57 schnakenberg 20 not_settled True 726
+58 schnakenberg 20 pattern True 734
+59 schnakenberg 20 pattern True 741
+60 brusselator 16 pattern True 762
+61 brusselator 16 pattern False 780
+62 brusselator 16 pattern True 789
+63 brusselator 16 pattern True 801
+64 brusselator 16 pattern False 813
+65 brusselator 16 pattern True 824
+66 schnakenberg 20 nonconverged True 835
+67 schnakenberg 20 nonconverged True 850
+68 schnakenberg 20 nonconverged False 866
+69 brusselator 16 nonconverged True 879
+70 brusselator 16 nonconverged True 904
+71 brusselator 16 nonconverged False 921
+72 brusselator 20 pattern True 929
+73 schnakenberg 20 pattern True 936
+74 brusselator 20 nonconverged False 945
+75 schnakenberg 20 pattern True 953
+76 brusselator 20 nonconverged False 962
+77 schnakenberg 20 pattern True 972
+78 schnakenberg 9 pattern True 1021
+79 schnakenberg 10 pattern True 1040
+80 brusselator 13 not_settled None 1049
+81 brusselator 14 pattern True 1084
+{
+ "n_configs": 82,
+ "pde_categories": {
+  "no_pattern": 19,
+  "pattern": 44,
+  "nonconverged": 17,
+  "not_settled": 2
+ },
+ "scored_for_linear_agreement": 63,
+ "linear_nonlinear_disagreements": 0,
+ "disagreement_ids": [],
+ "dominant_mode_equals_fastest_linear_mode": "35/44",
+ "wall_s": 1084.3799715042114
+}

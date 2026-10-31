@@ -1,0 +1,223 @@
+{
+ "run_id": "P_r2",
+ "arm": "private",
+ "family": "claude",
+ "model_requested": "sonnet",
+ "agents": 3,
+ "families": [
+  "claude"
+ ],
+ "budget_tokens": 400000,
+ "max_calls": 30,
+ "calls_used": 22,
+ "tokens_spent": 80149,
+ "n_targets": 19,
+ "n_proved": 19,
+ "proved": [
+  {
+   "task": "T01",
+   "t_s": 13.5,
+   "tokens_cum": 2544,
+   "tries": 1,
+   "agent": "private-a1",
+   "used_commons": []
+  },
+  {
+   "task": "T02",
+   "t_s": 18.4,
+   "tokens_cum": 8574,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": []
+  },
+  {
+   "task": "Q01",
+   "t_s": 20.4,
+   "tokens_cum": 8574,
+   "tries": 1,
+   "agent": "private-a2",
+   "used_commons": []
+  },
+  {
+   "task": "T03",
+   "t_s": 25.3,
+   "tokens_cum": 11347,
+   "tries": 1,
+   "agent": "private-a1",
+   "used_commons": [
+    {
+     "author": "private-a1",
+     "name": "T01"
+    }
+   ]
+  },
+  {
+   "task": "T05",
+   "t_s": 35.8,
+   "tokens_cum": 18713,
+   "tries": 1,
+   "agent": "private-a2",
+   "used_commons": []
+  },
+  {
+   "task": "T06",
+   "t_s": 38.2,
+   "tokens_cum": 22355,
+   "tries": 1,
+   "agent": "private-a1",
+   "used_commons": []
+  },
+  {
+   "task": "T04",
+   "t_s": 52.7,
+   "tokens_cum": 26463,
+   "tries": 2,
+   "agent": "private-a0",
+   "used_commons": [
+    {
+     "author": "private-a0",
+     "name": "T02"
+    }
+   ]
+  },
+  {
+   "task": "T08",
+   "t_s": 61.5,
+   "tokens_cum": 38026,
+   "tries": 1,
+   "agent": "private-a1",
+   "used_commons": []
+  },
+  {
+   "task": "H01",
+   "t_s": 64.5,
+   "tokens_cum": 38026,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": []
+  },
+  {
+   "task": "H02",
+   "t_s": 69.6,
+   "tokens_cum": 43731,
+   "tries": 1,
+   "agent": "private-a1",
+   "used_commons": []
+  },
+  {
+   "task": "H03",
+   "t_s": 71.8,
+   "tokens_cum": 43731,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": [
+    {
+     "author": "private-a0",
+     "name": "H01"
+    }
+   ]
+  },
+  {
+   "task": "T07",
+   "t_s": 76.0,
+   "tokens_cum": 51682,
+   "tries": 2,
+   "agent": "private-a2",
+   "used_commons": [
+    {
+     "author": "private-a2",
+     "name": "T05"
+    }
+   ]
+  },
+  {
+   "task": "D01",
+   "t_s": 76.9,
+   "tokens_cum": 51682,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": []
+  },
+  {
+   "task": "H04",
+   "t_s": 79.8,
+   "tokens_cum": 54639,
+   "tries": 1,
+   "agent": "private-a1",
+   "used_commons": [
+    {
+     "author": "private-a1",
+     "name": "H02"
+    }
+   ]
+  },
+  {
+   "task": "D02",
+   "t_s": 82.3,
+   "tokens_cum": 57495,
+   "tries": 1,
+   "agent": "private-a2",
+   "used_commons": []
+  },
+  {
+   "task": "T11",
+   "t_s": 90.3,
+   "tokens_cum": 64802,
+   "tries": 1,
+   "agent": "private-a2",
+   "used_commons": [
+    {
+     "author": "private-a2",
+     "name": "T07"
+    }
+   ]
+  },
+  {
+   "task": "T10",
+   "t_s": 91.1,
+   "tokens_cum": 64802,
+   "tries": 1,
+   "agent": "private-a1",
+   "used_commons": []
+  },
+  {
+   "task": "T12",
+   "t_s": 103.3,
+   "tokens_cum": 73862,
+   "tries": 1,
+   "agent": "private-a2",
+   "used_commons": [
+    {
+     "author": "private-a2",
+     "name": "T05"
+    }
+   ]
+  },
+  {
+   "task": "T09",
+   "t_s": 114.7,
+   "tokens_cum": 80149,
+   "tries": 2,
+   "agent": "private-a0",
+   "used_commons": [
+    {
+     "author": "private-a0",
+     "name": "T02"
+    },
+    {
+     "author": "private-a0",
+     "name": "T04"
+    }
+   ]
+  }
+ ],
+ "reuse": {
+  "certified_with_library_lemma": 8,
+  "cross_agent_uses": 0,
+  "total_lemma_uses": 9
+ },
+ "failed_tasks": [],
+ "wall_s": 115.3,
+ "contract_sha256": "f788e88ed2a20030d4686c79721b51b1c16aee8cf5b8e9b4d3969c7ce3548272",
+ "targets_sha256": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce"
+}

@@ -1,6 +1,6 @@
 {
  "role": "nca",
- "status": "first_go_no_go_pushed; v2 post-hoc NCA variant pending (see next_steps)",
+ "status": "oracle layer + follow-up 2 delivered (AT5, service cross-check, acceptance runner executed from a fresh clone)",
  "goal": "NCA/amorphous inverse-design proposal + decisive feasibility experiment (see planning/rethink/nca.md)",
  "model": "Claude Sonnet 5.5 (subscription; metered charge not known; no GPU used)",
  "branch": "work/rethink-nca",
@@ -40,7 +40,10 @@
   "python3 -m experiments.rethink_nca.grid_oracle (post hoc; exit 0)",
   "python3 -m experiments.rethink_nca.viz (exit 0)",
   "python3 -m pytest tests/test_rethink_nca.py -q (6 passed)",
-  "curl Dryad API files 18559-18563 download -> HTTP 401 bearer token required (no credentials sought)"
+  "curl Dryad API files 18559-18563 download -> HTTP 401 bearer token required (no credentials sought)",
+  "python3 -m scopedesk.oracles.at5 BENCH OUT (x2, exit 0)",
+  "python3 -m scopedesk.oracles.crosscheck_service SNAPSHOT BENCH OUT (exit 0)",
+  "git clone --branch work/rethink-director + merge + python3 scopedesk/accept.py (exit 0)"
  ],
  "artifacts": [
   "planning/rethink/nca.md",
@@ -56,10 +59,187 @@
   "NCA recipe short (1000 iters, K=16, hidden channels); v1 models diverge",
   "G refusals partly caused by declared gamma>=0.5 bound",
   "post-hoc controls (grid_oracle, noise_baseline, nca_v2) are not frozen decision rules",
-  "no GPU, no outside contact, no multi-agent contribution claimed"
+  "no GPU, no outside contact, no multi-agent contribution claimed",
+  "oracle agreement with critic key shares the bench's conventions (same author semantics)",
+  "linear-vs-nonlinear sweep: 82 configs, one noise-function seed (11), small perturbations only",
+  "C0 differs from the gate on only 1 of 80 scored PDE configs, so the finite-domain scope rarely changes a decision on this grid",
+  "pure-Jacobian bench items cannot be PDE-checked (no nonlinear equation); pde.solve refuses them"
  ],
  "next_steps": [
-  "finish post-hoc NCA v2 (no hidden channels, K=32) and report",
-  "if director selects this line: test NCA only where no closed form exists (growing or irregular domain) with an independent target"
- ]
+  "critic/director to wire scope_verdict into audit runner; map wellmixed_unstable",
+  "if wanted: extend PDE to Dirichlet and a third kinetics model; GPU not needed (CPU sweep 18 min under load)"
+ ],
+ "wall_time_seattle": "2026-10-31 05:58 PDT start; memo pushed 07:01; oracle layer pushed 07:37 (from `date`)",
+ "nca_post_hoc_v2": {
+  "description": "no hidden channels, 32-step windows, 2 seeds, 1000 iters",
+  "independent_success": [
+   0.25,
+   0.24
+  ],
+  "random_gamma_baseline": 0.229,
+  "verdict": "still at random baseline; amplitude 570x-14,000,000x Euler",
+  "file": "artifacts/rethink_nca/nca_v2_results.json"
+ },
+ "oracle_layer": {
+  "dir": "scopedesk/oracles/",
+  "readme": "scopedesk/oracles/README.md",
+  "api": [
+   "linear.check",
+   "linear.plain_formula (C0)",
+   "pde.solve",
+   "repair.enumerate",
+   "gate.decide(record_removed|record_hash_changed|continuum_only)",
+   "gate.wavelength_licence"
+  ],
+  "kinetics": [
+   "schnakenberg",
+   "brusselator"
+  ],
+  "domains": "1-D Neumann/Dirichlet/periodic; 2-D rectangle Neumann/Dirichlet/torus (PDE: Neumann and periodic)",
+  "audit_vs_critic_v1_1_bench": {
+   "turing_finite_domain": "24/24",
+   "turing_2d_rectangle": "16/16",
+   "wavelength_formula_licence": "16/16",
+   "C0_plain_formula": "16/24 and 11/16",
+   "record_hash_changed": "refuses all",
+   "turing_scope_crosscheck_1d_neumann": "7/7",
+   "file": "scopedesk/oracles/results/audit_v1_1.json"
+  },
+  "linear_vs_nonlinear": {
+   "configs": 82,
+   "categories": {
+    "pattern": 61,
+    "no_pattern": 19,
+    "not_settled": 2,
+    "nonconverged": 0
+   },
+   "pattern_flag_agreement_linear_vs_pde": "80/80",
+   "C0_vs_pde": "79/80",
+   "dominant_mode_equals_fastest_linear": "43/61",
+   "first_run_nonconverged_due_to_crude_cfl": 17,
+   "files": [
+    "scopedesk/oracles/results/linear_vs_nonlinear.json",
+    "scopedesk/oracles/results/linear_vs_nonlinear_v1_crude_cfl.json"
+   ]
+  },
+  "validity_limits": "README section 'Explicit validity limits'; Euler-FD not used; rd.euler_dt capped (critic gamma>=32 flips)",
+  "tests": "tests/test_scopedesk_oracles.py + tests/test_rethink_nca.py: 16 passed under systemd-run caps",
+  "commands_run": [
+   "python3 -m scopedesk.oracles.audit_v1_1 BENCH OUT (exit 0)",
+   "python3 -m scopedesk.oracles.study_linear_vs_nonlinear (exit 0, 1084 s; first run 17 nonconverged)",
+   "same --rerun-unscored after CFL fix (exit 0, 456 s)",
+   "python3 -m scopedesk.oracles.study_summary (exit 0)",
+   "python3 -m pytest tests/test_scopedesk_oracles.py tests/test_rethink_nca.py (16 passed)"
+  ]
+ },
+ "followup2": {
+  "at5": {
+   "files": [
+    "scopedesk/oracles/results/at5_v1_2_critic.json (key 774f6a08..., 128 items, rev3, NOT frozen when run)",
+    "scopedesk/oracles/results/at5_v1_2_director.json (key eab23bff..., 131 items)"
+   ],
+   "agreement_with_key_rev3_128": {
+    "turing_finite_domain": {
+     "C0": "14/22",
+     "full": "22/22",
+     "record_removed": "14/22",
+     "record_hash_changed": "0/22",
+     "continuum_only": "14/22"
+    },
+    "turing_2d_rectangle": {
+     "C0": "10/15",
+     "full": "15/15",
+     "record_removed": "10/15",
+     "record_hash_changed": "0/15",
+     "continuum_only": "10/15"
+    },
+    "wavelength_formula_licence": {
+     "C0": "5/14",
+     "full": "14/14",
+     "record_removed": "5/14",
+     "record_hash_changed": "0/14",
+     "continuum_only": "10/14"
+    },
+    "ALL": {
+     "C0": "29/51",
+     "full": "51/51",
+     "record_removed": "29/51",
+     "record_hash_changed": "0/51",
+     "continuum_only": "34/51"
+    }
+   },
+   "agreement_with_key_131": {
+    "turing_finite_domain": {
+     "C0": "14/22",
+     "full": "22/22",
+     "record_removed": "14/22",
+     "record_hash_changed": "0/22",
+     "continuum_only": "14/22"
+    },
+    "turing_2d_rectangle": {
+     "C0": "10/15",
+     "full": "15/15",
+     "record_removed": "10/15",
+     "record_hash_changed": "0/15",
+     "continuum_only": "10/15"
+    },
+    "wavelength_formula_licence": {
+     "C0": "5/14",
+     "full": "14/14",
+     "record_removed": "5/14",
+     "record_hash_changed": "0/14",
+     "continuum_only": "10/14"
+    },
+    "ALL": {
+     "C0": "29/51",
+     "full": "51/51",
+     "record_removed": "29/51",
+     "record_hash_changed": "0/51",
+     "continuum_only": "34/51"
+    }
+   },
+   "reading": "full gate 51/51 on both; plain formula C0 29/51; record_removed = C0 by construction; continuum_only 34/51 (only the wavelength family changes: 10/14 vs 5/14); record_hash_changed refuses all 51 (provenance only). Bench families are enriched with scope traps, so these gaps are larger than on the 80-config nonlinear grid (C0 wrong in 1)."
+  },
+  "service_crosscheck": {
+   "service_ref": "origin/work/collab 80287e7 (falsify 0.1.0), snapshot via git archive, run in subprocess, read-only",
+   "rev3_128": {
+    "n": 37,
+    "oracle_equals_service": 36,
+    "oracle_agrees_key": 37,
+    "service_agrees_key": 36,
+    "unstable_count_compared": 21,
+    "unstable_count_equal": 21,
+    "disagreements": 1,
+    "unexplained_disagreements": 0,
+    "service_versions": [
+     "0.1.0"
+    ],
+    "bc_unstated_composition": "two service calls (neumann, periodic) composed by the bench rule"
+   },
+   "v131": {
+    "n": 37,
+    "oracle_equals_service": 37,
+    "oracle_agrees_key": 37,
+    "service_agrees_key": 37,
+    "unstable_count_compared": 21,
+    "unstable_count_equal": 21,
+    "disagreements": 0,
+    "unexplained_disagreements": 0,
+    "service_versions": [
+     "0.1.0"
+    ],
+    "bc_unstated_composition": "two service calls (neumann, periodic) composed by the bench rule"
+   },
+   "finding": "one disagreement (qd643fbe2, dirichlet, exactly marginal mode det=0 at q=1/4): service says unresolved, oracle said out_of_scope silently; oracle now reports n_marginal_modes and the strict-growth convention; also a bench item sitting exactly on the threshold. 36/37 equal (rev3), 37/37 (131 variant); unstable-mode counts equal on all 21 compared."
+  },
+  "accept_runner": {
+   "file": "scopedesk/accept.py",
+   "fresh_clone": "git clone --branch work/rethink-director (da4440d) + local merge of origin/work/rethink-nca 8524360 (merge commit 29a5c47, NOT pushed, because accept.py is not yet on the director branch)",
+   "exit": 0,
+   "receipt": "scopedesk/oracles/results/accept_receipt_fresh_clone.json",
+   "steps": "a hashes 51 files ok; b1 AT5 full gate 51/51; b2 v1.1 audit 0 disagreements; c 34 tests passed (none skipped); d Lean receipts hash/exit consistency ok (Lean not rebuilt)",
+   "seconds": 56.6,
+   "started": "2026-10-31 07:46 PDT"
+  }
+ }
 }

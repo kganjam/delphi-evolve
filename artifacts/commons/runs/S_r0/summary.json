@@ -1,0 +1,241 @@
+{
+ "run_id": "S_r0",
+ "arm": "shared",
+ "family": "claude",
+ "model_requested": "sonnet",
+ "agents": 3,
+ "families": [
+  "claude"
+ ],
+ "budget_tokens": 400000,
+ "max_calls": 30,
+ "calls_used": 21,
+ "tokens_spent": 75858,
+ "n_targets": 19,
+ "n_proved": 19,
+ "proved": [
+  {
+   "task": "T02",
+   "t_s": 4.7,
+   "tokens_cum": 2712,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": []
+  },
+  {
+   "task": "T01",
+   "t_s": 6.1,
+   "tokens_cum": 5257,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": []
+  },
+  {
+   "task": "T03",
+   "t_s": 11.5,
+   "tokens_cum": 8407,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": []
+  },
+  {
+   "task": "T05",
+   "t_s": 20.0,
+   "tokens_cum": 19000,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": [
+    {
+     "author": "shared-a0",
+     "name": "T02"
+    }
+   ]
+  },
+  {
+   "task": "Q01",
+   "t_s": 22.0,
+   "tokens_cum": 22991,
+   "tries": 2,
+   "agent": "shared-a2",
+   "used_commons": []
+  },
+  {
+   "task": "T06",
+   "t_s": 27.2,
+   "tokens_cum": 30062,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": [
+    {
+     "author": "shared-a0",
+     "name": "T05"
+    }
+   ]
+  },
+  {
+   "task": "T04",
+   "t_s": 27.3,
+   "tokens_cum": 30062,
+   "tries": 2,
+   "agent": "shared-a1",
+   "used_commons": [
+    {
+     "author": "shared-a0",
+     "name": "T02"
+    }
+   ]
+  },
+  {
+   "task": "T08",
+   "t_s": 35.5,
+   "tokens_cum": 33869,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": [
+    {
+     "author": "shared-a0",
+     "name": "T02"
+    },
+    {
+     "author": "shared-a2",
+     "name": "Q01"
+    }
+   ]
+  },
+  {
+   "task": "H01",
+   "t_s": 37.1,
+   "tokens_cum": 37049,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": []
+  },
+  {
+   "task": "T07",
+   "t_s": 40.5,
+   "tokens_cum": 44992,
+   "tries": 1,
+   "agent": "shared-a2",
+   "used_commons": [
+    {
+     "author": "shared-a0",
+     "name": "T05"
+    }
+   ]
+  },
+  {
+   "task": "H02",
+   "t_s": 40.7,
+   "tokens_cum": 48346,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": []
+  },
+  {
+   "task": "H03",
+   "t_s": 41.4,
+   "tokens_cum": 48346,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": [
+    {
+     "author": "shared-a1",
+     "name": "H01"
+    }
+   ]
+  },
+  {
+   "task": "H04",
+   "t_s": 44.2,
+   "tokens_cum": 55302,
+   "tries": 1,
+   "agent": "shared-a2",
+   "used_commons": []
+  },
+  {
+   "task": "D01",
+   "t_s": 44.7,
+   "tokens_cum": 55302,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": []
+  },
+  {
+   "task": "D02",
+   "t_s": 47.4,
+   "tokens_cum": 58865,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": []
+  },
+  {
+   "task": "T09",
+   "t_s": 52.0,
+   "tokens_cum": 63086,
+   "tries": 1,
+   "agent": "shared-a2",
+   "used_commons": [
+    {
+     "author": "shared-a1",
+     "name": "T04"
+    },
+    {
+     "author": "shared-a0",
+     "name": "T08"
+    }
+   ]
+  },
+  {
+   "task": "T11",
+   "t_s": 54.5,
+   "tokens_cum": 71835,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": [
+    {
+     "author": "shared-a2",
+     "name": "T07"
+    }
+   ]
+  },
+  {
+   "task": "T10",
+   "t_s": 54.6,
+   "tokens_cum": 71835,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": [
+    {
+     "author": "shared-a0",
+     "name": "T02"
+    }
+   ]
+  },
+  {
+   "task": "T12",
+   "t_s": 57.4,
+   "tokens_cum": 75858,
+   "tries": 1,
+   "agent": "shared-a2",
+   "used_commons": [
+    {
+     "author": "shared-a0",
+     "name": "T03"
+    },
+    {
+     "author": "shared-a0",
+     "name": "T05"
+    }
+   ]
+  }
+ ],
+ "reuse": {
+  "certified_with_library_lemma": 10,
+  "cross_agent_uses": 8,
+  "total_lemma_uses": 13
+ },
+ "failed_tasks": [],
+ "wall_s": 58.6,
+ "contract_sha256": "f788e88ed2a20030d4686c79721b51b1c16aee8cf5b8e9b4d3969c7ce3548272",
+ "targets_sha256": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce"
+}

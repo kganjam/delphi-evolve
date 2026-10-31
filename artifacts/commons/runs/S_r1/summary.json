@@ -1,0 +1,241 @@
+{
+ "run_id": "S_r1",
+ "arm": "shared",
+ "family": "claude",
+ "model_requested": "sonnet",
+ "agents": 3,
+ "families": [
+  "claude"
+ ],
+ "budget_tokens": 400000,
+ "max_calls": 30,
+ "calls_used": 22,
+ "tokens_spent": 84090,
+ "n_targets": 19,
+ "n_proved": 19,
+ "proved": [
+  {
+   "task": "T02",
+   "t_s": 5.3,
+   "tokens_cum": 2721,
+   "tries": 1,
+   "agent": "shared-a2",
+   "used_commons": []
+  },
+  {
+   "task": "T01",
+   "t_s": 6.3,
+   "tokens_cum": 5264,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": []
+  },
+  {
+   "task": "Q01",
+   "t_s": 8.9,
+   "tokens_cum": 8375,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": []
+  },
+  {
+   "task": "T03",
+   "t_s": 16.0,
+   "tokens_cum": 11571,
+   "tries": 1,
+   "agent": "shared-a2",
+   "used_commons": []
+  },
+  {
+   "task": "T05",
+   "t_s": 17.8,
+   "tokens_cum": 19130,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": [
+    {
+     "author": "shared-a2",
+     "name": "T02"
+    }
+   ]
+  },
+  {
+   "task": "T06",
+   "t_s": 28.4,
+   "tokens_cum": 23196,
+   "tries": 1,
+   "agent": "shared-a2",
+   "used_commons": [
+    {
+     "author": "shared-a2",
+     "name": "T02"
+    }
+   ]
+  },
+  {
+   "task": "T04",
+   "t_s": 30.9,
+   "tokens_cum": 32096,
+   "tries": 2,
+   "agent": "shared-a0",
+   "used_commons": [
+    {
+     "author": "shared-a2",
+     "name": "T02"
+    }
+   ]
+  },
+  {
+   "task": "H01",
+   "t_s": 35.5,
+   "tokens_cum": 35277,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": []
+  },
+  {
+   "task": "H02",
+   "t_s": 39.7,
+   "tokens_cum": 42559,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": []
+  },
+  {
+   "task": "T08",
+   "t_s": 40.0,
+   "tokens_cum": 42559,
+   "tries": 1,
+   "agent": "shared-a2",
+   "used_commons": [
+    {
+     "author": "shared-a2",
+     "name": "T02"
+    },
+    {
+     "author": "shared-a1",
+     "name": "Q01"
+    }
+   ]
+  },
+  {
+   "task": "H04",
+   "t_s": 43.2,
+   "tokens_cum": 49225,
+   "tries": 1,
+   "agent": "shared-a2",
+   "used_commons": []
+  },
+  {
+   "task": "H03",
+   "t_s": 44.0,
+   "tokens_cum": 49225,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": [
+    {
+     "author": "shared-a0",
+     "name": "H01"
+    }
+   ]
+  },
+  {
+   "task": "T07",
+   "t_s": 46.4,
+   "tokens_cum": 54724,
+   "tries": 2,
+   "agent": "shared-a1",
+   "used_commons": [
+    {
+     "author": "shared-a1",
+     "name": "T05"
+    }
+   ]
+  },
+  {
+   "task": "D01",
+   "t_s": 48.6,
+   "tokens_cum": 61611,
+   "tries": 1,
+   "agent": "shared-a2",
+   "used_commons": []
+  },
+  {
+   "task": "D02",
+   "t_s": 48.9,
+   "tokens_cum": 61611,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": []
+  },
+  {
+   "task": "T09",
+   "t_s": 53.4,
+   "tokens_cum": 65739,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": [
+    {
+     "author": "shared-a0",
+     "name": "T04"
+    },
+    {
+     "author": "shared-a2",
+     "name": "T08"
+    }
+   ]
+  },
+  {
+   "task": "T12",
+   "t_s": 58.6,
+   "tokens_cum": 78632,
+   "tries": 1,
+   "agent": "shared-a1",
+   "used_commons": [
+    {
+     "author": "shared-a2",
+     "name": "T03"
+    },
+    {
+     "author": "shared-a1",
+     "name": "T05"
+    }
+   ]
+  },
+  {
+   "task": "T11",
+   "t_s": 59.9,
+   "tokens_cum": 78632,
+   "tries": 1,
+   "agent": "shared-a0",
+   "used_commons": [
+    {
+     "author": "shared-a1",
+     "name": "T07"
+    }
+   ]
+  },
+  {
+   "task": "T10",
+   "t_s": 70.0,
+   "tokens_cum": 84090,
+   "tries": 2,
+   "agent": "shared-a2",
+   "used_commons": [
+    {
+     "author": "shared-a2",
+     "name": "T02"
+    }
+   ]
+  }
+ ],
+ "reuse": {
+  "certified_with_library_lemma": 10,
+  "cross_agent_uses": 7,
+  "total_lemma_uses": 13
+ },
+ "failed_tasks": [],
+ "wall_s": 71.9,
+ "contract_sha256": "f788e88ed2a20030d4686c79721b51b1c16aee8cf5b8e9b4d3969c7ce3548272",
+ "targets_sha256": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce"
+}

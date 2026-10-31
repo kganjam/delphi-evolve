@@ -37,10 +37,14 @@ def configs():
     return cs
 
 
-def main():
+def main(rerun_unscored=False):
     rows, t0 = [], time.time()
+    prev = json.loads(OUT.read_text())["rows"] if rerun_unscored else None
     for i, c in enumerate(configs()):
         lin = linear.check(c)
+        if prev is not None and prev[i]["pde_category"] in ("pattern", "no_pattern"):
+            rows.append(prev[i])      # unchanged by the CFL fix (those runs had CFL <= 0.5 under the cruder bound)
+            continue
         res = pde.solve(c)
         row = {"config": c, "linear_scope_verdict": lin["scope_verdict"], "linear_condition_ids": lin["condition_ids"],
                "linear_fastest_mode": (lin.get("witness") or {}).get("fastest_growing_mode", {}).get("index"),
@@ -49,6 +53,9 @@ def main():
                "disagrees_with_linear": res.get("disagrees_with_linear"), "refusal": res.get("refusal"), "why_nonconverged": res.get("why")}
         if row["linear_fastest_mode"] and row["pde_m_dom"] and len(row["linear_fastest_mode"]) == len(row["pde_m_dom"]):
             row["mode_matches_fastest_linear"] = list(row["linear_fastest_mode"]) == list(row["pde_m_dom"])
+        if prev is not None:
+            row["previous_category"] = prev[i]["pde_category"]
+            row["previous_why_nonconverged"] = prev[i].get("why_nonconverged")
         rows.append(row)
         print(i, c.get("model"), c["Dv"], res["category"], row.get("mode_matches_fastest_linear"), round(time.time() - t0), flush=True)
     cats = Counter(r["pde_category"] for r in rows)
@@ -64,4 +71,4 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(main(rerun_unscored="--rerun-unscored" in sys.argv))

@@ -92,6 +92,8 @@ The last row shows provenance dependence only, not scientific dependence. The sc
 - This is a failure of **this** short-window, hidden-channel training recipe on a stiff reaction–diffusion system, not evidence that no NCA can do the task. Richardson et al. trained successfully on Gray–Scott with different settings. A post-hoc fair-chance variant is reported below.
 - Throughput measured under load: explicit-Euler-equivalent NCA rollouts cost about 23 ms per step for a 144-row r=40 batch (40,000 steps ≈ 15 minutes), 7 ms for r=10. A fused implementation (`nca.fast_rollout`, verified equal to the module to 1.9e-6) roughly halved this. A CPU bound is why the scan was cut; it is not a result.
 
+**Post-hoc fair-chance variant (v2, not a frozen decision rule).** Same training budget (1000 iterations, 2 seeds) but no hidden channels and 32-step windows, otherwise identical selection rule and independent evaluator. Independent success 0.250 and 0.240 (held-out 0.181 and 0.250), again at the random-γ baseline (0.229). Their own world formed the target wavelength on 18.8% and 0% of accepted requests. Against the Euler training solver on the same noise the NCA's final amplitude was 570–14,000,000 times larger (median per domain size) and the dominant mode matched in 0–3% of rows. So removing hidden channels and doubling the window did not rescue it at this budget. Files: `artifacts/rethink_nca/nca_v2_results.json`.
+
 ### Evaluator trust
 
 - Time step halved: success flag and dominant mode agreed on 33 of 33 (subset: every 6th accepted D/G design, 11 designs × 3 seeds).

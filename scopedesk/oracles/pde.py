@@ -16,7 +16,7 @@ onset yields category 'not_settled'.
 EXPLICIT VALIDITY LIMITS (also returned in `validity`):
   * Not valid, and never used here: explicit Euler finite differences with a diffusion-only step bound. The critic found it flips the verdict
     at large gamma because the reaction time scale is ignored (rd.euler_dt now caps dt, scored probe unaffected).
-  * dt_tau * (reaction Jacobian 1-norm at the largest |u|,|v| seen) <= 0.5, checked on the base run; otherwise nonconverged ('dt_cfl').
+  * dt_tau * (largest pointwise reaction-Jacobian 1-norm sampled along the base run) <= 0.5; if violated dt is reduced ONCE (0.25/rho, floor 0.004) and all three runs repeat; still violated => nonconverged ('dt_cfl'). (v1 of this check used a crude amplitude bound and wrongly rejected 17 of 82 sweep configs whose three runs agreed.)
   * >= 16 cells per wavelength of the largest unstable wavenumber (grid refined automatically; refuses above 256 cells per side / 2-D 128x128).
   * Horizon T_tau = clip(30 / sigma_max, 300, T_max); if 30/sigma_max > T_max the run is flagged horizon_limited.
   * Positivity is NOT enforced; non-finite or |u|>1e3 => category 'diverged'.
@@ -37,6 +37,7 @@ EVIDENCE = "simulated"
 AMP_REL = 0.1          # pattern threshold: std(u) >= 0.1 * |u*|
 DT = 0.02
 T_MIN, T_MAX = 300.0, 3000.0
+DT_MIN = 0.004          # below this the adaptive step is refused as too costly (category nonconverged, why dt_cfl)
 MAX_CELLS_1D, MAX_CELLS_2D = 256, 128
 EPS = 1e-2
 
@@ -131,6 +132,7 @@ def _run(model, p, gamma, Dv, dim, bc, Ls, Ns, Ks, T, dt, seed, checkpoint_frac=
     chk = int(round(checkpoint_frac * n))
     snap = None
     maxabs = 0.0
+    rho = 0.0
     for k in range(n):
         u, v = diff(u, mu), diff(v, mv)
         u, v = rk4(u, v)
@@ -140,10 +142,12 @@ def _run(model, p, gamma, Dv, dim, bc, Ls, Ns, Ks, T, dt, seed, checkpoint_frac=
         if k % 200 == 0:
             m = float(max(np.abs(u).max(), np.abs(v).max()))
             maxabs = max(maxabs, m)
+            rho = max(rho, float(kinetics.jac_norm(model, p, u, v).max()))
             if not np.isfinite(m) or m > 1e3:
                 return {"diverged": True}
     maxabs = max(maxabs, float(np.abs(u).max()), float(np.abs(v).max()))
-    return {"diverged": False, "u": u, "snap": snap, "ust": ust, "maxabs": maxabs}
+    rho = max(rho, float(kinetics.jac_norm(model, p, u, v).max()))
+    return {"diverged": False, "u": u, "snap": snap, "ust": ust, "maxabs": maxabs, "rho": rho}
 
 
 def _mode(u, dim, bc):
@@ -240,14 +244,21 @@ def _solve(structured, gamma, seed, T_max, quick):
     res = {"model": model, "dim": dim, "bc": bc, "gamma": float(g), "Dv": float(Dv), "horizon_tau": T, "horizon_limited": horizon_limited,
            "grid_cells": Ns, "dt_tau": DT, "linear": {"verdict": lin["verdict"], "scope_verdict": lin["scope_verdict"],
            "fastest_unstable_sigma": sig}, "evidence": EVIDENCE}
-    base = _run(model, p, g, Dv, dim, bc, Ls, Ns, Ks, T, DT, seed)
+    dt = DT
+    base = _run(model, p, g, Dv, dim, bc, Ls, Ns, Ks, T, dt, seed)
+    if not base["diverged"] and dt * base["rho"] > 0.5:
+        dt_new = max(DT_MIN, 0.25 / base["rho"])           # one adaptation: the sampled reaction stiffness was too large for dt
+        res["dt_adapted_from"] = dt
+        dt = float(round(dt_new, 6))
+        base = _run(model, p, g, Dv, dim, bc, Ls, Ns, Ks, T, dt, seed)
+    res["dt_tau"] = dt
     if base["diverged"]:
         res.update(category="diverged", converged=False, pattern=None)
         return res
     runs = {"base": base}
     if not quick:
-        runs["dt_half"] = _run(model, p, g, Dv, dim, bc, Ls, Ns, Ks, T, DT / 2, seed)
-        runs["grid_double"] = _run(model, p, g, Dv, dim, bc, Ls, [2 * n for n in Ns], Ks, T, DT, seed)
+        runs["dt_half"] = _run(model, p, g, Dv, dim, bc, Ls, Ns, Ks, T, dt / 2, seed)
+        runs["grid_double"] = _run(model, p, g, Dv, dim, bc, Ls, [2 * n for n in Ns], Ks, T, dt, seed)
     if any(r["diverged"] for r in runs.values()):
         res.update(category="diverged", converged=False, pattern=None)
         return res
@@ -259,9 +270,8 @@ def _solve(structured, gamma, seed, T_max, quick):
     mode_settled = _mode(base["snap"], dim, bc) == b["mode"]
     amp_settled = abs(float(base["snap"].std()) - b["amp"]) <= 0.05 * max(b["amp"], 1e-12)
     # reaction CFL on the base run's largest state
-    umax = base["maxabs"]
-    rho = kinetics_jac_norm(model, p, umax)
-    cfl = DT * rho
+    rho = base["rho"]
+    cfl = dt * rho
     res.update(runs=sumr, validity={"reaction_cfl": cfl, "reaction_cfl_ok": cfl <= 0.5, "cells_per_min_wavelength": min(
         lam_min / (L / n) for L, n in zip(Ls, Ns)), "T_max": T_max, "euler_fd_not_used": True,
         "amplitude_threshold": amp_min})

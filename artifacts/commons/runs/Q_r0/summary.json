@@ -1,0 +1,246 @@
+{
+ "run_id": "Q_r0",
+ "arm": "private",
+ "family": "claude",
+ "model_requested": "sonnet",
+ "agents": 1,
+ "families": [
+  "claude"
+ ],
+ "budget_tokens": 400000,
+ "max_calls": 30,
+ "calls_used": 19,
+ "tokens_spent": 71861,
+ "n_targets": 19,
+ "n_proved": 19,
+ "proved": [
+  {
+   "task": "T01",
+   "t_s": 4.5,
+   "tokens_cum": 2545,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": []
+  },
+  {
+   "task": "T02",
+   "t_s": 9.1,
+   "tokens_cum": 5296,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": []
+  },
+  {
+   "task": "Q01",
+   "t_s": 17.5,
+   "tokens_cum": 8602,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": []
+  },
+  {
+   "task": "T03",
+   "t_s": 24.5,
+   "tokens_cum": 11802,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": [
+    {
+     "author": "private-a0",
+     "name": "T01"
+    }
+   ]
+  },
+  {
+   "task": "T04",
+   "t_s": 35.4,
+   "tokens_cum": 15680,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": [
+    {
+     "author": "private-a0",
+     "name": "T02"
+    }
+   ]
+  },
+  {
+   "task": "T05",
+   "t_s": 44.0,
+   "tokens_cum": 19251,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": [
+    {
+     "author": "private-a0",
+     "name": "T02"
+    }
+   ]
+  },
+  {
+   "task": "T06",
+   "t_s": 49.9,
+   "tokens_cum": 22465,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": [
+    {
+     "author": "private-a0",
+     "name": "T05"
+    }
+   ]
+  },
+  {
+   "task": "T07",
+   "t_s": 63.4,
+   "tokens_cum": 27259,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": [
+    {
+     "author": "private-a0",
+     "name": "T05"
+    }
+   ]
+  },
+  {
+   "task": "T08",
+   "t_s": 72.0,
+   "tokens_cum": 31318,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": [
+    {
+     "author": "private-a0",
+     "name": "T02"
+    },
+    {
+     "author": "private-a0",
+     "name": "Q01"
+    }
+   ]
+  },
+  {
+   "task": "H01",
+   "t_s": 77.3,
+   "tokens_cum": 34752,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": []
+  },
+  {
+   "task": "H02",
+   "t_s": 81.4,
+   "tokens_cum": 38191,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": []
+  },
+  {
+   "task": "H03",
+   "t_s": 86.6,
+   "tokens_cum": 41737,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": [
+    {
+     "author": "private-a0",
+     "name": "H01"
+    }
+   ]
+  },
+  {
+   "task": "H04",
+   "t_s": 91.3,
+   "tokens_cum": 45333,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": []
+  },
+  {
+   "task": "D01",
+   "t_s": 96.1,
+   "tokens_cum": 48967,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": []
+  },
+  {
+   "task": "D02",
+   "t_s": 100.7,
+   "tokens_cum": 52648,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": []
+  },
+  {
+   "task": "T09",
+   "t_s": 107.9,
+   "tokens_cum": 56898,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": [
+    {
+     "author": "private-a0",
+     "name": "T04"
+    },
+    {
+     "author": "private-a0",
+     "name": "T08"
+    }
+   ]
+  },
+  {
+   "task": "T10",
+   "t_s": 119.5,
+   "tokens_cum": 61831,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": [
+    {
+     "author": "private-a0",
+     "name": "T02"
+    }
+   ]
+  },
+  {
+   "task": "T11",
+   "t_s": 135.2,
+   "tokens_cum": 67555,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": [
+    {
+     "author": "private-a0",
+     "name": "T06"
+    }
+   ]
+  },
+  {
+   "task": "T12",
+   "t_s": 141.5,
+   "tokens_cum": 71861,
+   "tries": 1,
+   "agent": "private-a0",
+   "used_commons": [
+    {
+     "author": "private-a0",
+     "name": "T03"
+    },
+    {
+     "author": "private-a0",
+     "name": "T05"
+    }
+   ]
+  }
+ ],
+ "reuse": {
+  "certified_with_library_lemma": 11,
+  "cross_agent_uses": 0,
+  "total_lemma_uses": 14
+ },
+ "failed_tasks": [],
+ "wall_s": 141.5,
+ "contract_sha256": "f788e88ed2a20030d4686c79721b51b1c16aee8cf5b8e9b4d3969c7ce3548272",
+ "targets_sha256": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce"
+}
