@@ -1,0 +1,8 @@
+{
+  "name": "falsify-np-sign",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Local sign/verify wrappers around @nanopub/sign (pinned). Contains NO publish call by design.",
+  "dependencies": { "@nanopub/sign": "0.2.0" }
+}

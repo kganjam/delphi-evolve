@@ -1,7 +1,7 @@
 {
  "role": "collab",
- "status": "in_progress: service built, tested and committed; NOT yet publicly hosted; NO external use recorded",
- "updated_seattle": "2026-10-31 06:25 PDT",
+ "status": "in_progress: service built and tested; nanopub publication PREPARED (unsigned drafts, local-only signing check), NOTHING published; service not yet publicly hosted; no external use recorded",
+ "updated_seattle": "2026-10-31 07:25 PDT",
  "model": "Claude Sonnet 5.5 (existing Max subscription via Claude Code); no metered API spend, no GPU job, no subagents, no cloud resources created",
  "branch": "work/collab",
  "code_commit": "bb9d6a4 (falsify/, tests/test_falsify.py); docs + this receipt committed on top",
@@ -9,7 +9,11 @@
   "available": "A bounded instance runs on the build host loopback only (127.0.0.1:18770, systemd user unit delphi-falsify-local, TasksMax=64 MemoryMax=1G). It is NOT reachable by other teams.",
   "public_url": null,
   "used_by_others": 0,
-  "ledger_totals_at_write": {"all_calls": 2, "self_test_calls": 2, "external_unverified_calls": 0},
+  "ledger_totals_at_write": {
+   "all_calls": 2,
+   "self_test_calls": 2,
+   "external_unverified_calls": 0
+  },
   "note": "The 2 recorded calls are this worker's own MCP protocol tests (origin self-test). They show the service works, not that anyone else uses it. Ledger: /data/artifacts/delphi-evolve-collab/falsify-data/usage.jsonl (append-only; salt file kept private)."
  },
  "deliverables": {
@@ -20,16 +24,57 @@
   "howto": "falsify/static/howto.html (served at / and /howto) and docs/falsify-howto.md",
   "outreach_packet": "docs/falsify-outreach-DRAFT.md - prepared, NOT SENT. Sending requires the user's explicit instruction (director sign-off is insufficient)."
  },
- "evidence_typing": {"observed": "none", "model_derived": "all service outputs", "simulated": "only the optional float finite-difference cross-check", "not_established": ["nonlinear pattern formation", "any biology", "any wet-lab or clinical implication", "that a caller's declared Jacobian describes a real system"]},
+ "evidence_typing": {
+  "observed": "none",
+  "model_derived": "all service outputs",
+  "simulated": "only the optional float finite-difference cross-check",
+  "not_established": [
+   "nonlinear pattern formation",
+   "any biology",
+   "any wet-lab or clinical implication",
+   "that a caller's declared Jacobian describes a real system"
+  ]
+ },
  "commands_run": [
-  {"cmd": "python3 -m http.server 18765 --bind 0.0.0.0; curl http://34.223.78.181:18765/ (self-probe of the public IP)", "exit": 0, "result": "HTTP 000: not reachable even from the host itself; inbound assumed closed"},
-  {"cmd": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 lake build (turing_scope/lean)", "exit": 0},
-  {"cmd": "python run of falsify.lean_receipt.run on 4 generated Lean files", "exit": 0, "result": "2 true classifications checked (axioms propext/Classical.choice/Quot.sound only); 2 deliberately false classifications rejected (sorryAx/'is false')"},
-  {"cmd": "systemd-run --user --scope ... env OMP_NUM_THREADS=2 FALSIFY_TEST_LEAN=1 python3 -m pytest tests/test_falsify.py -q -rs", "exit": 0, "result": "21 passed, 0 skipped (includes Lean accept/reject and the primary-review regressions)"},
-  {"cmd": "systemd-run --user --scope ... pytest tests/test_turing_scope.py tests/test_falsify.py -q", "exit": 1, "result": "63 passed, 2 skipped, 1 failed: tests/test_turing_scope.py::test_recorded_results_match_a_fresh_run. The same test fails on a clean checkout of base 94f848f (worktree 'corpus'), so it predates this work; unrelated to falsify/ and not modified here."},
-  {"cmd": "systemd-run --user --unit=delphi-falsify-local ... python3 -m falsify.server --port 8765", "exit": 1, "result": "port 8765 already held by another process (not touched); relaunched on 18770 with exit 0"},
-  {"cmd": "mcp python client: streamablehttp_client(http://127.0.0.1:18770/mcp) list_tools+call_tool; stdio_client(python -m falsify mcp-stdio ...) call_tool", "exit": 0, "result": "tools [falsify_turing_pattern, get_receipt]; L=pi -> domain_blocks_pattern; L=2pi -> pattern_possible; both calls appear in the ledger as self-test"},
-  {"cmd": "SendMessage to dx-gpuops (hosting request)", "exit": "failed: no reachable agent named dx-gpuops", "result": "request left as file /data/artifacts/delphi-evolve-rethink/messages/collab-to-primary-and-gpuops.md for the director to relay"}
+  {
+   "cmd": "python3 -m http.server 18765 --bind 0.0.0.0; curl http://34.223.78.181:18765/ (self-probe of the public IP)",
+   "exit": 0,
+   "result": "HTTP 000: not reachable even from the host itself; inbound assumed closed"
+  },
+  {
+   "cmd": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 lake build (turing_scope/lean)",
+   "exit": 0
+  },
+  {
+   "cmd": "python run of falsify.lean_receipt.run on 4 generated Lean files",
+   "exit": 0,
+   "result": "2 true classifications checked (axioms propext/Classical.choice/Quot.sound only); 2 deliberately false classifications rejected (sorryAx/'is false')"
+  },
+  {
+   "cmd": "systemd-run --user --scope ... env OMP_NUM_THREADS=2 FALSIFY_TEST_LEAN=1 python3 -m pytest tests/test_falsify.py -q -rs",
+   "exit": 0,
+   "result": "21 passed, 0 skipped (includes Lean accept/reject and the primary-review regressions)"
+  },
+  {
+   "cmd": "systemd-run --user --scope ... pytest tests/test_turing_scope.py tests/test_falsify.py -q",
+   "exit": 1,
+   "result": "63 passed, 2 skipped, 1 failed: tests/test_turing_scope.py::test_recorded_results_match_a_fresh_run. The same test fails on a clean checkout of base 94f848f (worktree 'corpus'), so it predates this work; unrelated to falsify/ and not modified here."
+  },
+  {
+   "cmd": "systemd-run --user --unit=delphi-falsify-local ... python3 -m falsify.server --port 8765",
+   "exit": 1,
+   "result": "port 8765 already held by another process (not touched); relaunched on 18770 with exit 0"
+  },
+  {
+   "cmd": "mcp python client: streamablehttp_client(http://127.0.0.1:18770/mcp) list_tools+call_tool; stdio_client(python -m falsify mcp-stdio ...) call_tool",
+   "exit": 0,
+   "result": "tools [falsify_turing_pattern, get_receipt]; L=pi -> domain_blocks_pattern; L=2pi -> pattern_possible; both calls appear in the ledger as self-test"
+  },
+  {
+   "cmd": "SendMessage to dx-gpuops (hosting request)",
+   "exit": "failed: no reachable agent named dx-gpuops",
+   "result": "request left as file /data/artifacts/delphi-evolve-rethink/messages/collab-to-primary-and-gpuops.md for the director to relay"
+  }
  ],
  "primary_review_findings_addressed": {
   "1_claim_text": "adjudication.proposition is a fixed formal sentence; caller text returned only as requested_claim_text marked uninterpreted/not adjudicated (test_review1)",
@@ -50,6 +95,83 @@
   "dx-gpuops/director: provide a public URL and persistent data dir; run `python3 -m falsify.server --host 0.0.0.0 --port 8765 --data-dir <persistent> [--trust-forwarded]`",
   "Primary: independent retest of work/collab (tests/test_falsify.py::test_review*)",
   "User: decide whether and to whom the outreach draft is sent (nothing sent)",
-  "At handoff: copy /usage.json of the public instance into this file unmodified; report external calls only if origin=external-unverified entries exist"
- ]
+  "At handoff: copy /usage.json of the public instance into this file unmodified; report external calls only if origin=external-unverified entries exist",
+  "Owner: decide items in nanopub_commons.decisions_needed; nothing is published until then",
+  "Director: hand over the Scope Desk response shape so one adapter can feed record_from_response",
+  "Hosting remains with dx-gpuops (no reply recorded; request file in messages/collab-to-primary-and-gpuops.md)"
+ ],
+ "nanopub_commons": {
+  "status": "prepared_not_published",
+  "director_ruling_applied": "Scope Desk endpoint is the +10 service; no separate API built. falsify/ is the first concrete verdict source; falsify.nanopub.record_from_response is the single coupling point for the Scope Desk response.",
+  "findings": {
+   "existing_delphi_evolve_nanopubs": "unsigned local drafts using urn:x-delphi-evolve vocabulary; unpublishable under SPEC-007 rules 5/7; untouched",
+   "delphi_turing_ddi_on_network": "https://w3id.org/np/RAaQ-9SCjYC7GBJ0ZtrPcVNxZBB7z-VNAdWa8ImGAi610 (HTTP 200 from production registry, signed by Delphi's author ORCID); @nanopub/sign 0.2.0 verifies it; one-character tamper fails; network record passes our adapter's source pin (changed_fields [])",
+   "ask": "NOT VERIFIED: no product named Ask found at knowledgepixels.com, query.knowledgepixels.com or by web search; ask.knowledgepixels.com does not resolve. Verified query surface is Nanopub Query SPARQL. No contact made.",
+   "our_nanopubs_on_network": "0 (read-only SPARQL for our profile and for both prepared regimes returned 0 rows)"
+  },
+  "artifacts": [
+   "docs/scope-desk-nanopub.md",
+   "falsify/nanopub.py",
+   "falsify/np_sign/ (pinned @nanopub/sign 0.2.0 sign/check wrappers; no publish call)",
+   "artifacts/falsify_np/prepared/L1pi/unsigned.trig",
+   "artifacts/falsify_np/prepared/L2pi/unsigned.trig",
+   "artifacts/falsify_np/delphi-turing-ddi.network.{trig,mcp.json}",
+   "tests/test_falsify_nanopub.py"
+  ],
+  "commands_run": [
+   {
+    "cmd": "curl -H 'Accept: application/trig' https://registry.knowledgepixels.com/np/RAaQ-9SC... (read-only GET)",
+    "exit": 0,
+    "result": "HTTP 200; sha256 ee590eac..."
+   },
+   {
+    "cmd": "curl same registry /np/<nonexistent code>",
+    "exit": 0,
+    "result": "HTTP 400 (negative control)"
+   },
+   {
+    "cmd": "POST delphisci-mcp.fly.dev/mcp tools/call delphi_get_claim id=turing-ddi source=network (read-only)",
+    "exit": 0,
+    "result": "nanopubs [RAaQ-9SC...]; pin check accepted"
+   },
+   {
+    "cmd": "npm install --ignore-scripts @nanopub/sign@0.2.0 (falsify/np_sign)",
+    "exit": 0
+   },
+   {
+    "cmd": "node check.mjs on the Delphi nanopub / on a tampered copy",
+    "exit": "0 / 1",
+    "result": "valid / 'hash of the nanopublication is different'"
+   },
+   {
+    "cmd": "python3 -m falsify np-build artifacts/falsify_np/requests/neumann_L{1,2}pi.json --commit bb9d6a4... --created 2026-10-31T14:15:00Z --sign-local-key ~/.nanopub/collab-throwaway/rsa.pem (throwaway key generated by openssl outside the repo, mode 600)",
+    "exit": 0,
+    "result": "conformance [] ; local sign + independent check ok:true for both; rebuild byte-identical; signed copies NOT committed"
+   },
+   {
+    "cmd": "python3 -m falsify np-lookup <both requests> (read-only SPARQL to query.knowledgepixels.com/repo/full)",
+    "exit": 0,
+    "result": "0 published verdicts for each regime (negative control); introduces-query for turing-ddi returns the Delphi nanopub (positive control)"
+   },
+   {
+    "cmd": "systemd-run --user --scope ... FALSIFY_TEST_LEAN=1 python3 -m pytest tests/test_falsify.py tests/test_falsify_nanopub.py -q",
+    "exit": 0,
+    "result": "33 passed"
+   }
+  ],
+  "not_done_by_design": [
+   "no publish to test or production registry (no publish code exists in the repo)",
+   "no OpenTimestamps anchor (ots client not installed)",
+   "no outreach or contact with Knowledge Pixels, Ashley Caselli or any team",
+   "Lean witness held per SPEC-007 rule 21"
+  ],
+  "decisions_needed": [
+   "signing identity (ADR-0005)",
+   "test-registry publish with throwaway identity?",
+   "production publish authorization + time anchor",
+   "Lean witness override",
+   "licence and opt-in policy for third-party regimes",
+   "what Ask is / whether to tell Knowledge Pixels"
+  ]
+ }
 }
