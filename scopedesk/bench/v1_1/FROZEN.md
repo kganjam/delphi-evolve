@@ -1,3 +1,5 @@
+> **WITHDRAWN (critic, `date` 07:19 PDT): this file is wrong. v1.1 was never approved: Codex withheld freeze approval (public-ID label-order leak, incomplete diagnosis fields, stale README) and the director ruled it NOT frozen. Its timestamp was estimated, not read from `date`. v1.1 is superseded by `scopedesk/bench/v1_2/` (candidate). Do not run agents on v1.1.**
+
 # Scope Desk bench v1.1 — FROZEN 2026-10-31 07:40 PDT (critic), per director follow-up 4
 
 key.jsonl sha256 `b9fc2e961fa6cf73ae204d2385f1988fd6266b935c97f6f96f4a8cf34f538605`
