@@ -1,0 +1,110 @@
+{
+ "guard_mutants": [
+  {
+   "mutant": "disable guard ploidy_diploid",
+   "original": "refused",
+   "mutant_result": "computed",
+   "killed": true
+  },
+  {
+   "mutant": "disable guard s_source_not_assay",
+   "original": "refused",
+   "mutant_result": "computed",
+   "killed": true
+  },
+  {
+   "mutant": "disable guard genic_selection",
+   "original": "refused",
+   "mutant_result": "computed",
+   "killed": true
+  },
+  {
+   "mutant": "disable guard constant_ne",
+   "original": "refused",
+   "mutant_result": "computed",
+   "killed": true
+  },
+  {
+   "mutant": "disable guard no_linkage",
+   "original": "refused",
+   "mutant_result": "computed",
+   "killed": true
+  },
+  {
+   "mutant": "disable guard inference_partial_only",
+   "original": "refused",
+   "mutant_result": "computed",
+   "killed": true
+  },
+  {
+   "mutant": "disable guard variance_additive",
+   "original": "refused",
+   "mutant_result": "computed",
+   "killed": true
+  },
+  {
+   "mutant": "disable guard conditions_hold",
+   "original": "refused",
+   "mutant_result": "computed",
+   "killed": true
+  },
+  {
+   "mutant": "disable guard pin",
+   "original": "refused",
+   "mutant_result": "computed",
+   "killed": true
+  }
+ ],
+ "source_mutants": [
+  {
+   "mutant": "kimura.py: 'x = 4.0 * Ne * s' -> 'x = 2.0 * Ne * s'",
+   "test_file": "tests/test_claim_runtime_kimura.py",
+   "pytest_exit": 1,
+   "killed": true,
+   "tail": "1 failed, 1 passed in 0.24s"
+  },
+  {
+   "mutant": "kimura.py: 'return p * (1.0 + x * (1.0 - p) / 2.0)' -> 'return p * (1.0 - x * (1.0 - p) / 2.0)'",
+   "test_file": "tests/test_claim_runtime_kimura.py",
+   "pytest_exit": 1,
+   "killed": true,
+   "tail": "1 failed, 2 passed in 0.24s"
+  },
+  {
+   "mutant": "kimura.py: 'return math.exp(-y * (1.0 - p)) * (-math.expm1(-y * p)) / (-math.expm1(-y))' -> 'return (-math.expm1(-y * p)) / (-math.expm1(-y))'",
+   "test_file": "tests/test_claim_runtime_kimura.py",
+   "pytest_exit": 1,
+   "killed": true,
+   "tail": "1 failed, 1 passed in 0.25s"
+  },
+  {
+   "mutant": "fisher.py: 'return V_A / _num(\"mean_fitness\", wbar, positive=True)' -> 'return V_A'",
+   "test_file": "tests/test_claim_runtime_service.py",
+   "pytest_exit": 1,
+   "killed": true,
+   "tail": "1 failed, 18 passed in 0.37s"
+  },
+  {
+   "mutant": "service.py: 'pin[\"content_sha256\"] != rec.content_sha256()' -> 'False'",
+   "test_file": "tests/test_claim_runtime_service.py",
+   "pytest_exit": 1,
+   "killed": true,
+   "tail": "1 failed, 15 passed in 0.31s"
+  },
+  {
+   "mutant": "evidence.py: 'c.get(\"assay_context_id\") != req.assay_context_id' -> 'False'",
+   "test_file": "tests/test_claim_runtime_evidence.py",
+   "pytest_exit": 1,
+   "killed": true,
+   "tail": "1 failed, 3 passed in 0.22s"
+  },
+  {
+   "mutant": "evidence.py: 'c.get(\"kind\") != req.kind' -> 'False'",
+   "test_file": "tests/test_claim_runtime_evidence.py",
+   "pytest_exit": 1,
+   "killed": true,
+   "tail": "1 failed, 7 passed in 0.23s"
+  }
+ ],
+ "all_killed": true
+}

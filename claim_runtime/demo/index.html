@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Claim reuse trace — claim → applicability → calculation → decision</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --fg:#1b1f23; --mut:#57606a; --bg:#fff; --card:#f6f8fa; --line:#d0d7de; --ok:#1a7f37; --no:#b42318; --warn:#9a6700; --acc:#0969da; }
+  @media (prefers-color-scheme: dark) { :root { --fg:#e6edf3; --mut:#9da7b3; --bg:#0d1117; --card:#161b22; --line:#30363d; --ok:#3fb950; --no:#ff7b72; --warn:#d29922; --acc:#58a6ff; } }
+  body { box-sizing:border-box; overflow-wrap:anywhere; font:15px/1.5 system-ui,sans-serif; color:var(--fg); background:var(--bg); margin:0; padding:20px; max-width:1080px; margin:auto; }
+  h1 { font-size:1.35rem; margin:0 0 4px } h2 { font-size:1.05rem; margin:22px 0 8px }
+  .sub { color:var(--mut); margin-bottom:12px }
+  .banner { border:1px solid var(--warn); border-left-width:5px; padding:8px 12px; border-radius:6px; background:var(--card); margin:10px 0 }
+  .flow { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:12px 0 }
+  @media (max-width:800px){ .flow{grid-template-columns:1fr} }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px 12px; min-width:0; overflow-wrap:anywhere }
+  .card h3 { margin:0 0 6px; font-size:.85rem; text-transform:uppercase; letter-spacing:.04em; color:var(--mut) }
+  .pill { display:inline-block; padding:1px 8px; border-radius:99px; font-size:.8rem; font-weight:600; border:1px solid currentColor }
+  .ok { color:var(--ok) } .no { color:var(--no) } .warn { color:var(--warn) }
+  select { width:100%; font:inherit; padding:4px; max-width:100%; background:var(--bg); color:var(--fg); border:1px solid var(--line); border-radius:6px }
+  code, pre { font:12px/1.4 ui-monospace,monospace } pre { background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:8px; overflow:auto; max-height:260px }
+  table { border-collapse:collapse; width:100%; font-size:.88rem; display:block; overflow-x:auto; max-width:100% } th,td { border-bottom:1px solid var(--line); padding:4px 6px; text-align:left; vertical-align:top }
+  .bar { height:8px; background:var(--acc); border-radius:4px; min-width:1px }
+  .mut { color:var(--mut) }
+</style>
+</head>
+<body>
+<h1>Claim reuse trace</h1>
+<div class="sub">An existing Delphi claim, an executable applicability check, a calculation or refusal, and the evidence behind it. Static page; data comes from <code>receipt.js</code> / <code>bench.js</code>.</div>
+<div class="banner" id="banner"></div>
+
+<h2>1. Pick a scenario</h2>
+<select id="sel" aria-label="scenario"></select>
+<div class="flow">
+  <div class="card" id="c1"></div><div class="card" id="c2"></div><div class="card" id="c3"></div><div class="card" id="c4"></div>
+</div>
+<details><summary>Request and response JSON (hashes recomputable with <code>claim_runtime.common.sha</code>)</summary><pre id="raw"></pre></details>
+
+<h2>2. Does the claim actually change the decision?</h2>
+<div class="mut">Same request, different claim or guard state.</div>
+<table id="chg"></table>
+
+<h2>3. Observed TrpB evidence reused across campaigns</h2>
+<div id="ev"></div>
+
+<h2>4. Recorded-request accounting (no policy rerun)</h2>
+<div id="bench"></div>
+
+<h2>5. Exact-chain check of the Kimura formula (SIMULATED hypothetical populations)</h2>
+<div id="pg"></div>
+
+<h2>6. Verification</h2>
+<div id="ver"></div>
+
+<p class="mut">Limits: established theorems are reused, not discovered. The Kimura calculation is a diploid Wright–Fisher diffusion result; a TrpB growth score is not a selection coefficient and E. coli is haploid, so the default TrpB request is refused. Avoided assays count recorded requests only; they are not an adaptive-policy uplift or a wet-lab saving. No market traction is claimed. Drafts are unsigned and unpublished.</p>
+
+<script src="receipt.js"></script><script src="bench.js"></script>
+<script>
+const R = window.CLAIM_RECEIPT, B = window.CLAIM_BENCH || {};
+const $ = id => document.getElementById(id);
+function el(tag, attrs, ...kids) { const e = document.createElement(tag); for (const [k,v] of Object.entries(attrs||{})) { if (k==='class') e.className=v; else e.setAttribute(k,v);} for (const k of kids) e.append(k && k.nodeType ? k : document.createTextNode(k ?? '')); return e; }
+const short = h => h ? h.slice(0,12)+'…' : '—';
+const pill = (ok, t) => el('span', {class:'pill '+(ok?'ok':'no')}, t);
+const fmt = x => typeof x === 'number' ? (Math.abs(x) < 1e-3 || Math.abs(x) >= 1e5 ? x.toExponential(3) : +x.toPrecision(5)) : String(x);
+$('banner').textContent = R.labels;
+
+const S = R.claim_scenarios;
+S.forEach((s,i)=> $('sel').append(el('option',{value:i}, s.scenario + ' — ' + s.role)));
+function show(i) {
+  const s = S[i], r = s.response, cu = r.claim_use || {};
+  const c1=$('c1'), c2=$('c2'), c3=$('c3'), c4=$('c4'); [c1,c2,c3,c4].forEach(c=>c.replaceChildren());
+  c1.append(el('h3',{},'Claim card'), el('div',{}, cu.iri||'—'), el('div',{class:'mut'}, 'source: '+(cu.delphi_source||'—')+'; record hash '+short(cu.record_response_sha256)),
+    el('div',{class:'mut'}, 'nanopub: '+((cu.nanopubs||[])[0]||'—')), el('div',{class:'mut'}, 'adapter '+(r.adapter?r.adapter.id+' v'+r.adapter.version:'—')+' (hand-authored)'));
+  c2.append(el('h3',{},'Applicability'));
+  const rec = (r.assumptions||{}).recorded_by_delphi||[], add=(r.assumptions||{}).added_by_adapter||[];
+  c2.append(el('div',{class:'mut'},'recorded by Delphi:'), el('ul',{}, ...rec.map(x=>el('li',{},x))), el('div',{class:'mut'},'added by adapter:'), el('ul',{}, ...add.map(x=>el('li',{},x))));
+  c2.append(pill(r.status==='computed', r.status==='computed'?'guards passed':'guard failed: '+r.reason_code));
+  c3.append(el('h3',{},'Calculation / refusal'));
+  if (r.result) c3.append(el('pre',{}, JSON.stringify(r.result,(k,v)=>k==='steps'?v.map(x=>`${x.from}→${x.to} s=${x.declared_s} u=${fmt(x.fixation_probability)}`):v,1)), el('div',{class:'mut'}, r.epistemic_status||''));
+  else c3.append(el('div',{class:'no'}, r.reason), r.missing_mapping ? el('ul',{}, ...r.missing_mapping.map(x=>el('li',{},x))) : '');
+  c4.append(el('h3',{},'Decision'), pill(r.decision==='compute', r.decision), el('div',{}, r.reason), el('div',{class:'mut'},'verification: '+((r.verification||{}).status||'—')), el('div',{class:'mut'},'request '+short(r.request_sha256)+' → response '+short(r.response_sha256)));
+  $('raw').textContent = JSON.stringify({request:s.request, response:r}, null, 1);
+}
+$('sel').onchange = e => show(+e.target.value); show(0);
+
+const chg = $('chg'); chg.append(el('tr',{}, ...['change','before','after','decision changed'].map(h=>el('th',{},h))));
+R.decision_changes.forEach(d => chg.append(el('tr',{}, el('td',{}, d.scenario+': '+d.change), el('td',{}, d.before.decision+' ('+d.before.reason_code+')'), el('td',{}, d.after.decision+' ('+d.after.reason_code+')'), el('td',{}, pill(d.decision_changed, d.decision_changed?'yes':'no')))));
+
+const E = R.evidence_scenarios;
+if (E) {
+  const f = E.first_cross_campaign_repeat, ev = E.same_context_reuse.evidence;
+  const rows = [['same context observed', E.same_context_reuse.decision], ['changed assay context (SYNTHETIC label)', E.changed_assay_context.decision], ['wrong coordinates', E.wrong_coordinates.decision],
+                ['prediction formatted as observation (SYNTHETIC fixture)', E.prediction_masquerading.decision], ['withdrawn', E.withdrawn.decision], ['evidence deleted', E.deleted.decision]];
+  $('ev').append(el('p',{}, `Real recorded repeat: campaign ${f.requesting_campaign} (request #${f.request_number}) asked for ${f.genotype}, already assayed by ${f.first_assayed_by} (request #${f.first_request_number}). Evidence ${short(ev.id)}, score ${ev.value.score_micro} micro-units, replicates ${ev.value.replicate_micro.join(', ')}, dataset ${short(ev.dataset_sha256)}.`));
+  const t = el('table',{}, el('tr',{}, ...['case','decision','failed guards'].map(h=>el('th',{},h))));
+  rows.forEach(([n,d]) => t.append(el('tr',{}, el('td',{},n), el('td',{}, pill(d.decision==='reuse', d.decision)), el('td',{}, d.rejected.map(x=>x.failed_guards.join(',')).join('; ')||'—'))));
+  const cs = E.certificate_support;
+  t.append(el('tr',{}, el('td',{},'certificate support: 6 observed same-context items'), el('td',{}, pill(cs.all_observed_same_context.supported, String(cs.all_observed_same_context.supported))), el('td',{},'—')));
+  t.append(el('tr',{}, el('td',{},'… after one item is a prediction'), el('td',{}, pill(cs.after_one_item_becomes_predicted.supported, String(cs.after_one_item_becomes_predicted.supported))), el('td',{}, cs.after_one_item_becomes_predicted.problems.map(x=>x.failed_guards.join(',')).join('; '))));
+  t.append(el('tr',{}, el('td',{},'… empty evidence set'), el('td',{}, pill(cs.empty_set.supported, String(cs.empty_set.supported))), el('td',{}, cs.empty_set.reason)));
+  $('ev').append(t);
+}
+const rb = B.reuse_benchmark;
+if (rb) {
+  const t = el('table',{}, el('tr',{}, ...['scope','recorded requests','avoided: ordinary cache','avoided: typed claim reuse','difference','fraction'].map(h=>el('th',{},h))));
+  for (const [sc,b] of Object.entries(rb.baseline)) t.append(el('tr',{}, el('td',{},sc), el('td',{},b.fresh_assays.toLocaleString()), el('td',{},b.cache_avoided.toLocaleString()), el('td',{},b.claim_avoided.toLocaleString()), el('td',{},String(b.claim_gain_over_cache)), el('td',{}, (100*b.avoided_fraction).toFixed(1)+'%')));
+  $('bench').append(t, el('p',{class:'mut'}, 'Identical contexts: plain caching and claim reuse save exactly the same requests. The gain is from re-using overlapping recorded requests across 700 campaigns, not from the claim graph.'));
+  const t2 = el('table',{}, el('tr',{}, ...['SYNTHETIC fault injection (software fixture)','cache: invalid facts reused','typed reuse: invalid facts reused','forced re-assays'].map(h=>el('th',{},h))));
+  for (const [sc,f] of Object.entries(rb.fault_injection)) t2.append(el('tr',{}, el('td',{},sc), el('td',{class:'no'}, f.cache.invalid_reuse_events.toLocaleString()+' events, '+f.cache.campaigns_touching_invalid_fact+' campaigns'), el('td',{class:'ok'}, String(f.typed_claim_reuse.invalid_reuse_events)), el('td',{}, f.typed_claim_reuse.forced_reassays.toLocaleString())));
+  $('bench').append(t2, el('p',{class:'mut'}, 'Negative controls (disable the matching guard → invalid reuse appears): '+Object.entries(rb.negative_controls).map(([a,v])=>a+' '+(v.passed?'✓':'✗')).join(', ')));
+}
+const pg = B.popgen_benchmark;
+if (pg) {
+  const t = el('table',{}, el('tr',{}, ...['s','|relative error| of diffusion formula vs exact chain, new mutant (N=10…90)'].map(h=>el('th',{},h))));
+  Object.entries(pg.diploid_new_mutant_rel_err_by_s).sort((a,b)=>+a[0]-+b[0]).forEach(([s,v]) => t.append(el('tr',{}, el('td',{},s), el('td',{}, `${(100*v.min_abs_rel_err_new_mutant).toFixed(3)}% … ${(100*v.max_abs_rel_err_new_mutant).toFixed(1)}%`, el('div',{class:'bar',style:`width:${Math.min(100,100*v.max_abs_rel_err_new_mutant/1.5)}%`})))));
+  $('pg').append(t, el('p',{class:'mut'}, pg.label + '. Applying the diploid formula to a haploid chain with Ne=N: relative error up to '+(100*Math.max(...pg.haploid_conflation_demo.map(x=>Math.abs(x.rel_err_naive)))).toFixed(0)+'%.'));
+}
+const v = B.verification_receipt;
+if (v) $('ver').append(el('p',{}, `Tests exit ${v.tests.exit} (${v.tests.tail}); mutation exit ${v.mutation.exit} — guard mutants killed ${v.mutation.guard_mutants_killed}/${v.mutation.guard_mutants_total}, source mutants killed ${v.mutation.source_mutants_killed}/${v.mutation.source_mutants_total}. Seattle time ${v.seattle_time}.`));
+</script>
+</body>
+</html>

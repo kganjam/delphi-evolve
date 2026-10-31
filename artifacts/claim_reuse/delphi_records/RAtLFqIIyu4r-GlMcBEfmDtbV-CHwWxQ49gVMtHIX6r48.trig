@@ -1,0 +1,71 @@
+@prefix this: <https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48> .
+@prefix sub: <https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sub:Head {
+  this: a np:Nanopublication;
+    np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  <https://w3id.org/delphi/resource/claim/fisher-ftns> a <https://w3id.org/delphi/ontology/Claim>,
+      <https://w3id.org/delphi/ontology/TestableHypothesis>;
+    dc:description "The rate of increase in mean fitness of a population due to natural selection equals its additive genetic variance in fitness at that time.";
+    dc:source "Ronald A. Fisher (1930) The Genetical Theory of Natural Selection";
+    <http://www.w3.org/2000/01/rdf-schema#label> "Fisher's fundamental theorem of natural selection (partial-change form)";
+    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://doi.org/10.1016/0040-5809(89)90028-2>,
+      <https://doi.org/10.1111/j.1469-1809.1972.tb00764.x>;
+    <http://www.w3.org/2004/02/skos/core#notation> "\\Delta_{NS}\\bar{w} = V_A(w)/\\bar{w} (discrete generations); \\left.\\frac{d\\bar{m}}{dt}\\right|_{NS} = V_A(m) for Malthusian fitness m";
+    <https://w3id.org/delphi/ontology/context> "Assumptions: the 'partial change' holds average effects of alleles and the environment fixed (Price 1972, Ewens 1989); V_A is the additive genetic variance in fitness. Formal status: proved in this partial-change reading. Read as a claim about the total change in mean fitness it is false under dominance, epistasis, frequency dependence or a changing environment.";
+    <https://w3id.org/delphi/ontology/hypothesisType> "model-theorem";
+    <https://w3id.org/delphi/ontology/proposedTest> "In a pedigreed wild population or an experimental-evolution line, estimate the additive genetic variance in relative fitness (animal model) and compare it with the observed per-generation response of breeding values for fitness, separating the selection term from environmental deterioration." .
+}
+
+sub:provenance {
+  <https://w3id.org/delphi/resource/agent/cursor-claude-opus-5-5-extractor> a prov:SoftwareAgent;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Cursor agent (Claude Opus 5.5) extracting key claims from source papers";
+    prov:actedOnBehalfOf <https://orcid.org/0009-0007-4948-9192>;
+    <https://w3id.org/delphi/ontology/usesModel> <https://w3id.org/delphi/resource/model/claude-opus-5-5> .
+  
+  <https://w3id.org/delphi/resource/model/claude-opus-5-5> a <https://w3id.org/delphi/ontology/LanguageModel>;
+    dc:identifier "claude-opus-5-5";
+    <http://www.w3.org/2000/01/rdf-schema#label> "Claude Opus 5.5" .
+  
+  <https://w3id.org/delphi/resource/paper/fisher-1930-the-genetical-theory-of-natural-selection>
+    dc:date "1930"^^xsd:gYear;
+    dc:title "The Genetical Theory of Natural Selection" .
+  
+  sub:assertion prov:wasAttributedTo <https://w3id.org/delphi/resource/agent/cursor-claude-opus-5-5-extractor>;
+    prov:wasDerivedFrom <https://w3id.org/delphi/resource/paper/fisher-1930-the-genetical-theory-of-natural-selection> .
+}
+
+sub:pubinfo {
+  <https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory>
+    <http://www.w3.org/2000/01/rdf-schema#label> "math-population-genetics-and-evolutionary-theory" .
+  
+  this: dc:created "2026-10-30T23:24:18.876Z"^^xsd:dateTime;
+    dc:creator <https://orcid.org/0009-0007-4948-9192>;
+    dc:license <https://creativecommons.org/licenses/by/4.0/>;
+    npx:hasNanopubType <https://w3id.org/delphi/ontology/Claim>;
+    npx:introduces <https://w3id.org/delphi/resource/claim/fisher-ftns>;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Fisher's fundamental theorem of natural selection (partial-change form)";
+    <https://w3id.org/delphi/ontology/domain> <https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory>;
+    <https://w3id.org/np/o/ntemplate/wasCreatedFromProvenanceTemplate> <https://w3id.org/np/RAaYeFYF-Cz2bM5S1wPQsnvs5X6BBxsphL03UkbVZ1lcA>;
+    <https://w3id.org/np/o/ntemplate/wasCreatedFromPubinfoTemplate> <https://w3id.org/np/RACJ58Gvyn91LqCKIO9zu1eijDQIeEff28iyDrJgjSJF8>,
+      <https://w3id.org/np/RAtKj9bCnB4gUe0E9k-WhffQFSEWd9Ve2hrVllYoLuOB0>, <https://w3id.org/np/RAukAcWHRDlkqxk7H2XNSegc1WnHI569INvNr-xdptDGI>;
+    <https://w3id.org/np/o/ntemplate/wasCreatedFromTemplate> <https://w3id.org/np/RApE-nGpCMigXqZjeHuYuMJEVTGmTlNTlZl7IcHi_fhdQ/template> .
+  
+  sub:sig npx:hasAlgorithm "RSA";
+    npx:hasPublicKey "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyFHtPB6p0mCjDozxlOY9CmO3nBm7Te3jFbXyLmM+G1tGe47Da0jYIbhkl9Oo1ZjxmCa3LCwlEqK8gj6hEIcL4ahW30JXh9HycfKVk1bugkzMEV15tJdTzAU3sGMFnbNsn43xY2LFLy45tApkRm5byEiM7oRRrooIdwoQKnP4Wzq/bfAoJ9qvW+MGkelyOTd1jbSt+KfmT7xKmDfWzAHddUlWwMX2QJOLxDaffOteTop6ZRgPiNmPJKA/S62Gac9XtSYT3oDkZ6/nr5cxxNLpOyxTf5FPISiCe11xYO/unYjY+mwnOfA8yhJIyx1l0O9I0vpOpn+E5TvyHJV+oSTrvwIDAQAB";
+    npx:hasSignature "KV9OsAAZO4NnpiDmFWPSrX6TdkbhDApmeXEYjlQptt9Dm3lEN+fOu7BfSe8vdjNKtvKygx5MV+yhV3eCnObNFtYQRdIg55pylt0Gr9eHeJEByt4utMb+hz5bPSCDSv/Ee4C2MJiT0VahNoo6p97c3yMBaE4Fqu4dY8j2+dMLUNTlf4TN1TTvynV/CEUr4b1q6+L4spASWBoL2VlxSyTQOEosv7BDmbZph/54rTnypHqlVZ0RBVpqk2edpDcTohSyYKxkSGrW+8PAdCk2DRSCvDlWT1ek1SPu92s+DMwmhUTPJFDH86EqcxQKExFqSoAcV6sxsnXm/ZwTaCb5PxXD/A==";
+    npx:hasSignatureTarget this:;
+    npx:signedBy <https://orcid.org/0009-0007-4948-9192> .
+}
+

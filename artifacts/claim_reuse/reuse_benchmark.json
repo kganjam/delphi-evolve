@@ -1,0 +1,348 @@
+{
+ "baseline": {
+  "per_policy": {
+   "avoided_fraction": 0.8743637446505431,
+   "by_policy": {
+    "collective_isolated": {
+     "cache_hits": 39958,
+     "claim_hits": 39958,
+     "requests": 48479
+    },
+    "collective_shared": {
+     "cache_hits": 39761,
+     "claim_hits": 39761,
+     "requests": 46694
+    },
+    "directed": {
+     "cache_hits": 63897,
+     "claim_hits": 63897,
+     "requests": 70917
+    },
+    "greedy": {
+     "cache_hits": 88284,
+     "claim_hits": 88284,
+     "requests": 93374
+    },
+    "q2c": {
+     "cache_hits": 40936,
+     "claim_hits": 40936,
+     "requests": 48310
+    },
+    "random": {
+     "cache_hits": 74808,
+     "claim_hits": 74808,
+     "requests": 87740
+    },
+    "uncertainty": {
+     "cache_hits": 79571,
+     "claim_hits": 79571,
+     "requests": 93087
+    }
+   },
+   "cache_avoided": 427215,
+   "cache_equals_claim": true,
+   "claim_avoided": 427215,
+   "claim_gain_over_cache": 0,
+   "curve": [
+    {
+     "campaigns": 50,
+     "cumulative_claim_hits": 21663,
+     "cumulative_requests": 36576
+    },
+    {
+     "campaigns": 100,
+     "cumulative_claim_hits": 52480,
+     "cumulative_requests": 71861
+    },
+    {
+     "campaigns": 150,
+     "cumulative_claim_hits": 84401,
+     "cumulative_requests": 111294
+    },
+    {
+     "campaigns": 200,
+     "cumulative_claim_hits": 117138,
+     "cumulative_requests": 146753
+    },
+    {
+     "campaigns": 250,
+     "cumulative_claim_hits": 142371,
+     "cumulative_requests": 177378
+    },
+    {
+     "campaigns": 300,
+     "cumulative_claim_hits": 171866,
+     "cumulative_requests": 209125
+    },
+    {
+     "campaigns": 350,
+     "cumulative_claim_hits": 200454,
+     "cumulative_requests": 240223
+    },
+    {
+     "campaigns": 400,
+     "cumulative_claim_hits": 232234,
+     "cumulative_requests": 272976
+    },
+    {
+     "campaigns": 450,
+     "cumulative_claim_hits": 265608,
+     "cumulative_requests": 308348
+    },
+    {
+     "campaigns": 500,
+     "cumulative_claim_hits": 298046,
+     "cumulative_requests": 343533
+    },
+    {
+     "campaigns": 550,
+     "cumulative_claim_hits": 332228,
+     "cumulative_requests": 378981
+    },
+    {
+     "campaigns": 600,
+     "cumulative_claim_hits": 364038,
+     "cumulative_requests": 416183
+    },
+    {
+     "campaigns": 650,
+     "cumulative_claim_hits": 392566,
+     "cumulative_requests": 446275
+    },
+    {
+     "campaigns": 700,
+     "cumulative_claim_hits": 427215,
+     "cumulative_requests": 488601
+    }
+   ],
+   "fresh_assays": 488601,
+   "unique_genotypes_assayed_with_reuse": 61386
+  },
+  "pooled": {
+   "avoided_fraction": 0.9528510993632842,
+   "by_policy": {
+    "collective_isolated": {
+     "cache_hits": 47303,
+     "claim_hits": 47303,
+     "requests": 48479
+    },
+    "collective_shared": {
+     "cache_hits": 46458,
+     "claim_hits": 46458,
+     "requests": 46694
+    },
+    "directed": {
+     "cache_hits": 68625,
+     "claim_hits": 68625,
+     "requests": 70917
+    },
+    "greedy": {
+     "cache_hits": 91223,
+     "claim_hits": 91223,
+     "requests": 93374
+    },
+    "q2c": {
+     "cache_hits": 46843,
+     "claim_hits": 46843,
+     "requests": 48310
+    },
+    "random": {
+     "cache_hits": 78962,
+     "claim_hits": 78962,
+     "requests": 87740
+    },
+    "uncertainty": {
+     "cache_hits": 86150,
+     "claim_hits": 86150,
+     "requests": 93087
+    }
+   },
+   "cache_avoided": 465564,
+   "cache_equals_claim": true,
+   "claim_avoided": 465564,
+   "claim_gain_over_cache": 0,
+   "curve": [
+    {
+     "campaigns": 50,
+     "cumulative_claim_hits": 30395,
+     "cumulative_requests": 36576
+    },
+    {
+     "campaigns": 100,
+     "cumulative_claim_hits": 64530,
+     "cumulative_requests": 71861
+    },
+    {
+     "campaigns": 150,
+     "cumulative_claim_hits": 101058,
+     "cumulative_requests": 111294
+    },
+    {
+     "campaigns": 200,
+     "cumulative_claim_hits": 135265,
+     "cumulative_requests": 146753
+    },
+    {
+     "campaigns": 250,
+     "cumulative_claim_hits": 163992,
+     "cumulative_requests": 177378
+    },
+    {
+     "campaigns": 300,
+     "cumulative_claim_hits": 194816,
+     "cumulative_requests": 209125
+    },
+    {
+     "campaigns": 350,
+     "cumulative_claim_hits": 225294,
+     "cumulative_requests": 240223
+    },
+    {
+     "campaigns": 400,
+     "cumulative_claim_hits": 257550,
+     "cumulative_requests": 272976
+    },
+    {
+     "campaigns": 450,
+     "cumulative_claim_hits": 291877,
+     "cumulative_requests": 308348
+    },
+    {
+     "campaigns": 500,
+     "cumulative_claim_hits": 326478,
+     "cumulative_requests": 343533
+    },
+    {
+     "campaigns": 550,
+     "cumulative_claim_hits": 361217,
+     "cumulative_requests": 378981
+    },
+    {
+     "campaigns": 600,
+     "cumulative_claim_hits": 396562,
+     "cumulative_requests": 416183
+    },
+    {
+     "campaigns": 650,
+     "cumulative_claim_hits": 425672,
+     "cumulative_requests": 446275
+    },
+    {
+     "campaigns": 700,
+     "cumulative_claim_hits": 465564,
+     "cumulative_requests": 488601
+    }
+   ],
+   "fresh_assays": 488601,
+   "unique_genotypes_assayed_with_reuse": 23037
+  }
+ },
+ "fault_injection": {
+  "per_policy": {
+   "avoided_lost_by_failing_closed_vs_clean_baseline": 4808,
+   "cache": {
+    "avoided": 427215,
+    "campaigns_touching_invalid_fact": 637,
+    "distinct_invalid_facts_reused": 1533,
+    "events_by_attack": {
+     "context_drift": 23398,
+     "coordinate_shift": 22486,
+     "prediction_as_observation": 17139,
+     "withdrawn": 21809
+    },
+    "invalid_reuse_events": 84832,
+    "of_which_with_recorded_open_or_blocked_certificate": 248
+   },
+   "label": "SYNTHETIC SOFTWARE VALIDATION FIXTURES, not biological measurements",
+   "rate_per_mille": {
+    "context_drift": 50,
+    "coordinate_shift": 50,
+    "prediction_as_observation": 50,
+    "withdrawn": 50
+   },
+   "typed_claim_reuse": {
+    "avoided": 422407,
+    "campaigns_touching_invalid_fact": 0,
+    "forced_reassays": 4808,
+    "invalid_reuse_events": 0
+   }
+  },
+  "pooled": {
+   "avoided_lost_by_failing_closed_vs_clean_baseline": 2564,
+   "cache": {
+    "avoided": 465564,
+    "campaigns_touching_invalid_fact": 681,
+    "distinct_invalid_facts_reused": 2564,
+    "events_by_attack": {
+     "context_drift": 25448,
+     "coordinate_shift": 24332,
+     "prediction_as_observation": 18878,
+     "withdrawn": 23581
+    },
+    "invalid_reuse_events": 92239,
+    "of_which_with_recorded_open_or_blocked_certificate": 289
+   },
+   "label": "SYNTHETIC SOFTWARE VALIDATION FIXTURES, not biological measurements",
+   "rate_per_mille": {
+    "context_drift": 50,
+    "coordinate_shift": 50,
+    "prediction_as_observation": 50,
+    "withdrawn": 50
+   },
+   "typed_claim_reuse": {
+    "avoided": 463000,
+    "campaigns_touching_invalid_fact": 0,
+    "forced_reassays": 2564,
+    "invalid_reuse_events": 0
+   }
+  }
+ },
+ "inputs": {
+  "dataset_summary_AA_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+  "episodes": 700,
+  "episodes_csv_sha256": "9616411d67a0ffab8477bac8b556e14ec01c73e34639c8ef67850b6abe884fce",
+  "paid_requests": 488601,
+  "shard_files": 140,
+  "shard_tar_sha256": "626a775a7d028b5b971ac2bd29d1fa5acce742cbc36c276b3a64b7839c40d2ae"
+ },
+ "kind": "claim-reuse-benchmark/v1",
+ "negative_controls": {
+  "context_drift": {
+   "claim_invalid_reuse_events": 25448,
+   "disabled_guard": "assay_context",
+   "expect": "> 0 (guard removal must let the matching attack through)",
+   "passed": true,
+   "with_guard_enabled_invalid_reuse_events": 0
+  },
+  "coordinate_shift": {
+   "claim_invalid_reuse_events": 25441,
+   "disabled_guard": "reference_coordinates",
+   "expect": "> 0 (guard removal must let the matching attack through)",
+   "passed": true,
+   "with_guard_enabled_invalid_reuse_events": 0
+  },
+  "prediction_as_observation": {
+   "claim_invalid_reuse_events": 21210,
+   "disabled_guard": "kind_observed",
+   "expect": "> 0 (guard removal must let the matching attack through)",
+   "passed": true,
+   "with_guard_enabled_invalid_reuse_events": 0
+  },
+  "withdrawn": {
+   "claim_invalid_reuse_events": 26956,
+   "disabled_guard": "status_active",
+   "expect": "> 0 (guard removal must let the matching attack through)",
+   "passed": true,
+   "with_guard_enabled_invalid_reuse_events": 0
+  }
+ },
+ "negative_controls_all_passed": true,
+ "protocol_sha256": "91921d5f10e818da9bad1f0ced9576ff5db4b327e68817b0e890980452344af5",
+ "scope_notes": "recorded requests only; no policy was rerun; no wet-lab cost; the 'assay' is a lookup in already-measured data",
+ "source_verification": {
+  "mismatches": 0,
+  "queries_checked": 488601,
+  "queries_of_unmeasured_genotypes": 85
+ },
+ "wall_seconds": 115.4
+}

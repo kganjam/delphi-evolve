@@ -1,0 +1,35 @@
+{
+ "kind": "claim-adapter-verification/v1",
+ "seattle_time": "2026-10-31 01:04:50 PDT",
+ "runtime_version": "0.1.0",
+ "adapters": {
+  "kimura-fixation-probability/diploid-genic-diffusion": {
+   "claim": "kimura-fixation-probability",
+   "adapter_version": "1.0.0",
+   "adapter_source_sha256": "f371ae67fbc8bb8ed9ea20cde93580dcfc8fe5befb4e5558e9b67fd816f01dab",
+   "claim_content_sha256": "bbfd686bfa66ce8324586a3c5601965711666e669668b19e65464f7643267c34"
+  },
+  "fisher-ftns/partial-change": {
+   "claim": "fisher-ftns",
+   "adapter_version": "1.0.0",
+   "adapter_source_sha256": "e9cebe8be5c0a8cee73ee739886c870c65e846f4ab6b223402f2f97db0e1ebe2",
+   "claim_content_sha256": "ecb994996b1f311cba82d9c021b1e2a13909b78fb4c27c687c25036c0ece1709"
+  }
+ },
+ "tests": {
+  "cmd": "/home/ubuntu/miniconda3/bin/python3 -m pytest -q -p no:cacheprovider tests/test_claim_runtime_kimura.py tests/test_claim_runtime_service.py tests/test_claim_runtime_evidence.py tests/test_claim_runtime_reuse.py",
+  "exit": 0,
+  "tail": "87 passed, 4 skipped in 2.27s"
+ },
+ "mutation": {
+  "cmd": "/home/ubuntu/miniconda3/bin/python3 -m claim_runtime.mutation /data/worktrees/delphi-evolve/claim-reuse/artifacts/claim_reuse/mutation_receipt.json",
+  "exit": 0,
+  "guard_mutants_killed": 9,
+  "guard_mutants_total": 9,
+  "source_mutants_killed": 7,
+  "source_mutants_total": 7
+ },
+ "parent_commit": "5ed9543fb05c4ea4b4f9e07ad469c405bdfbfeae",
+ "python": "3.13.12",
+ "note": "Verification binds THESE adapter source hashes to THESE claim content hashes. Changing either invalidates the receipt (service refuses)."
+}

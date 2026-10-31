@@ -1,0 +1,21 @@
+{
+ "claim": "kimura-fixation-probability",
+ "task": "fixation_probability",
+ "model": {
+  "ploidy": "haploid",
+  "selection": "genic_additive",
+  "ne": "constant",
+  "linkage": "none"
+ },
+ "s_source": {
+  "kind": "declared_hypothetical",
+  "label": "HYPOTHETICAL SCENARIO",
+  "declared_by": "demo author; not derived from any measurement"
+ },
+ "params": {
+  "Ne": 500,
+  "s": 0.01,
+  "N_census_diploids": 500
+ },
+ "note": "E. coli-like haploid population"
+}
