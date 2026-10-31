@@ -1,0 +1,8 @@
+{
+ "git_head": "cb27cf24521b7eb77f784bc266d2f3f584f049ff",
+ "cells_total": 2520,
+ "cells_done": 2520,
+ "wall_seconds_this_invocation": 10055.106434822083,
+ "budget_seconds": 12600.0,
+ "stopped_by": "completion"
+}

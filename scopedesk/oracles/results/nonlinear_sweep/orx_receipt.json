@@ -1,0 +1,18 @@
+{
+ "tool": "orx 0.2.23 (installed at ~/.cargo/bin/orx), --no-telemetry, no login, no feedback sent",
+ "project_id": "fef9055a-d88a-48a7-a2ec-70d18389e700",
+ "experiment_id": "38dd9923-0602-4723-8493-37b867e41c6e",
+ "run_id": "f81c0b68-ad0c-4ebe-b809-96977ad1c0f3",
+ "backend": "local (this CPU host; NOT hosted OpenResearch compute, NOT Nebius, no GPU)",
+ "status": "done",
+ "exit_code": 0,
+ "duration": "6s",
+ "orx_experiment_commit": "d29c18c95901127f2f334d0a089bbe68ffb3fc3f",
+ "run_command": "OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 /home/ubuntu/miniconda3/bin/python3 -I run_experiment.py",
+ "what_was_logged": "the preregistered ANALYSIS of the finished sweep (scopedesk/oracles/nonlinear_sweep/analyze.py copied as analyze_sweep.py) over rows.jsonl; the 2.8 h sweep itself ran outside orx under systemd-run scope",
+ "rows_sha256": "a32c2bf7dd3c10162317974ae6a0ecbefa06c1c180a6886dea1bcb8ea4d4c882",
+ "result": "scopedesk/oracles/results/nonlinear_sweep/report.json",
+ "log_path_on_host": "/home/ubuntu/.local/share/openresearch/run-logs/f81c0b68-ad0c-4ebe-b809-96977ad1c0f3.log",
+ "how_project_was_created": "orx up --no-browser --no-agent (local dashboard on 127.0.0.1:4799) then POST /api/projects with a scratch git repo; experiment via `orx create-experiment`; run via `orx exp run --backend local` inside systemd-run caps",
+ "limitations": "The orx project is a scratch repo under the session scratchpad; the local store is on this host only, so these receipt files are the durable record. An orx run was NOT used to execute the sweep; reported as used for logging the analysis, never as scored."
+}
