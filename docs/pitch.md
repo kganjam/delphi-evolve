@@ -25,8 +25,8 @@ Target length 3:00 at about 140 words per minute (about 420 spoken words). Numbe
 * *Is this new?* Route accessibility on this table is in Johnston et al.; ALDE simulates active learning on it. The proposal is the decision-and-evidence framing; the replay is what could support it. See `docs/novelty.md`.
 * *Is ε/κ a confidence level?* No. It is an assumed sensitivity; the slider exists so the audience sees the decision depend on it.
 * *Did you design or test an enzyme?* No. Retrospective, already-assayed variants; no wet-lab work.
-* *Did a GPU model help?* GPU status in saved artifacts: none integrated.
+* *Did a GPU model help?* GPU status in saved artifacts: completed.
 
 
 ---
-*Rendered 2026-10-31 01:22:28 PDT by `python -m evolve.evidence docs` from: delphi, demo, evsite, experience, integrator, landscape, nano, proof, results, route. Edit `docs/pitch.template.md`, not this file.*
+*Rendered 2026-10-31 01:27:34 PDT by `python -m evolve.evidence docs` from: delphi, demo, evsite, experience, gpu, integrator, landscape, nano, proof, results, route. Edit `docs/pitch.template.md`, not this file.*

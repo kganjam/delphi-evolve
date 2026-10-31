@@ -19,7 +19,7 @@ The data are real: Johnston et al. (PNAS 2024) measured bacterial growth for ess
 | Interactive site; browser logic cross-checked against a Python mirror | ran | `tests/test_evidence.py`; experience result: completed |
 | Core worker's audited loader, measured-graph truth, replay protocol | not integrated into this checkout | `tasks/results/core.json` |
 | Lean conditional certificate (proof worker) | completed | `tasks/results/proof.json` |
-| GPU foundation-model prior (BioNeMo / ESM2) | no result integrated; do not assume it ran | `tasks/results/gpu.json` |
+| GPU foundation-model prior (BioNeMo / ESM2) | completed | `tasks/results/gpu.json` |
 | Retrospective assay-budget replay | benchmark status in demo.json: completed | `artifacts/core/replay/` |
 
 Rows that say "not integrated" were not available to the experience worker when this page was rendered; they may exist on other branches. The integrator re-renders this file.
@@ -68,4 +68,4 @@ python -m venv .venv && .venv/bin/pip install pandas numpy rdflib pytest
 
 
 ---
-*Rendered 2026-10-31 01:22:28 PDT by `python -m evolve.evidence docs` from: delphi, demo, evsite, experience, integrator, landscape, nano, proof, results, route. Edit `docs/blog.template.md`, not this file.*
+*Rendered 2026-10-31 01:27:34 PDT by `python -m evolve.evidence docs` from: delphi, demo, evsite, experience, gpu, integrator, landscape, nano, proof, results, route. Edit `docs/blog.template.md`, not this file.*
