@@ -64,3 +64,11 @@ read + cache creation + output); cost basis is subscription (CLI list-price figu
 ## Stopping
 Runs stop at the call budget, token cap, all targets certified, or no claimable target. No run is discarded after
 seeing its result; infrastructure failures are logged and rerun with the failure kept in the record.
+
+## Addendum A (2026-10-31; written after seeing only the aborted run's partial per-family call success counts, before any completed heterogeneous result)
+The five-family heterogeneous run `MP_r1` was started and ABORTED after ~90 s: the managed `codex_outlook`
+allocation became unavailable (`orchestra auth` shows "available: NO"), so every GPT call failed with
+"no managed allocation available for 'codex'" and consumed budgeted calls. The aborted run is kept unaltered in
+`artifacts/commons/aborted/`. Deviation: the heterogeneous arms (MS, MP) are rerun with the four families that
+have a live allocation — claude, gemini, glm, minimax — and the same 30-call budget; GPT and Grok are recorded as
+unavailable. The GPT adapter itself was verified live earlier (served model `gpt-5.6-sol` read from the codex rollout file).
