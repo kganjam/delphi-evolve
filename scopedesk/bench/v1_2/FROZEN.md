@@ -15,3 +15,9 @@ Basis for the freeze and what is NOT verified (be exact on slides):
 - No human phrasing review. B0 sees family metadata that models do not. The real retrieval arm and utility costs belong to the arms owner. All items are declared-model (formal) checks of linear/closed-form statements; nothing here is about tissues.
 - Known unfixed convention issues are listed in STATUS.md (boundary vocabulary, complex eigenvalues, alpha=2, thin margins, two retained marginal-mode items t2-0008/t2-0014 whose verdict rests on another strictly growing mode).
 - metadata_check.py (author-written) passes all 14 checks; it is not a scientific re-audit.
+
+## Addendum (critic, after Codex's rev3 review, commit 4f2fc45 on work/codex-api)
+- Codex independently ran the metadata command on the 128-item rev3 candidate (key 774f6a08...c38): exit 0, 14/14 pass; the requested metadata/text gate **passes** for that candidate and Codex requested no further payload or key change. The frozen set is that candidate minus one item (qd643fbe2, exactly marginal Dirichlet mode) removed on the director's instruction; the same 14 checks pass on the 127-item set. Codex's review did not cover the final 127-item hash.
+- The bullet above in this file saying Codex's re-check was "NOT received" was true when written and is superseded by this addendum for the 128-item candidate.
+- Disclosed: 21 retained Turing 1-D parameter sets were regenerated when the renderer changed (labels unchanged; some witnesses/repairs changed); Codex recomputed the then-current 1-D labels 22/22 exactly (non-blinded). The README's stale Greenhill/131/exclusion prose was corrected.
+- Director go and the runner/preregistration gates still apply separately.

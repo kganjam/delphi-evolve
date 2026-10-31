@@ -152,25 +152,27 @@
   },
   {
    "id": "R06",
-   "claim": "`finite_domain_stable` Lean theorem certifies finite-domain stability",
+   "claim": "`finite_domain_stable` Lean theorem advertised as finite-domain STABILITY (its premise was determinant non-negativity)",
    "stated_by": "host (lean worker)",
-   "kind": "convention defect (vacuous statement)",
+   "kind": "mis-operationalised (determinant nonnegativity advertised as stability; NOT vacuous premises)",
    "claim_ref": null,
    "kill_ref": [
-    "file",
-    "codex-price-probe-progress.md"
+    "commit",
+    "b4e60db",
+    "codex-api"
    ],
-   "witness": "reported in messages/2026-10-31-THE-REFRAME-zero-for-ten.md row 6 as an independent Codex review; critic could not locate the Codex witness file (kill time uses a nearby Codex progress file as a proxy: INFERRED, verify with Codex)",
+   "witness": "Codex commit b4e60db: planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md (original theorem paragraph) and the exact source snapshot artifacts/integration/codex-api/admissible-review/Admissible.lean (sha256 c51b98a8c4218c5e272223c5d710de0d765804d78beace544850f9749cf07236); messages/codex-price-probe-progress.md states the finding. Analytic witness J=diag(2,2), Du=Dv=1, L=pi: D(q)=(2-q)^2>=0 for all q satisfies the premise, yet mode n=1 (q=1) has both growth eigenvalues +1 (no new Lean compile of this witness is claimed). A stronger theorem `finite_domain_linearly_stable` was added later (commit 469874b; compiled by Codex at 7f9035a), so the historical defect was partly repaired. Earlier ledger text describing it as 'not_lt / saying nothing' came from THE-REFRAME and is NOT the accurate description.",
    "caught_by": "independent reviewer (Codex)",
-   "allowed": "A theorem that compiles and passes an axiom audit can still be vacuous; every node needs a non-vacuity witness and a mutant that fails.",
+   "allowed": "A theorem whose premise is determinant non-negativity was advertised as stability; the premise holds for unstable systems. It compiled and passed an axiom audit, which shows those checks do not establish that a statement means what its name says.",
    "claim_stated_pdt": "not derivable",
-   "kill_recorded_pdt": "2026-10-31T07:04:42-07:00",
+   "kill_recorded_pdt": "2026-10-31T07:05:34-07:00",
    "duration_min": "not derivable",
    "time_source": {
     "claim": null,
     "kill": [
-     "file",
-     "codex-price-probe-progress.md"
+     "commit",
+     "b4e60db",
+     "codex-api"
     ]
    }
   },
@@ -657,8 +659,8 @@
    "prior art": 7,
    "counterexample": 1,
    "measured": 4,
-   "mis-operationalised": 2,
-   "convention defect": 5,
+   "mis-operationalised": 3,
+   "convention defect": 4,
    "process defect": 1
   },
   "caught_by_independent_vs_author": {
@@ -668,6 +670,6 @@
  },
  "notes": [
   "Message files have only mtimes; THE-REFRAME's own text labels itself '09:05 PDT' but its mtime is 07:27; use mtimes/commit times, not labels inside files.",
-  "claim_stated for R06 is not derivable (no dated statement located). R17: the acceptance rule was written in the script before the first run and the result was committed together with it, so a claim-to-kill duration is not meaningful (left not derivable). R01/R02 use the earliest kill-recording file (primary-prior-art-verdict.md); later files (POST-AUDIT, ATLAS) add further witnesses."
+  "claim_stated for R06 is not derivable (no dated statement located); its kill time is the recorded-review commit time of b4e60db (Codex), not a first-utterance time. R17: the acceptance rule was written in the script before the first run and the result was committed together with it, so a claim-to-kill duration is not meaningful (left not derivable). R01/R02 use the earliest kill-recording file (primary-prior-art-verdict.md); later files (POST-AUDIT, ATLAS) add further witnesses."
  ]
 }
