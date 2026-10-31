@@ -696,12 +696,22 @@
    "measured": 4,
    "mis-operationalised": 3,
    "convention defect": 4,
-   "process defect": 1
+   "process defect": 1,
+   "design defect": 1
   },
-  "caught_by_independent_vs_author": {
-   "independent": 18,
-   "author_only": 3
-  }
+  "caught_by_class": {
+   "independent": 16,
+   "mixed": 2,
+   "author": 3
+  },
+  "caught_by_class_rows": {
+   "R09": "mixed",
+   "R15": "mixed",
+   "R17": "author",
+   "R18": "author",
+   "R20": "author"
+  },
+  "caught_by_class_note": "explicit per-row classification (v2): substring matching on caught_by text was wrong (R18 'not independently confirmed' matched 'independent'). author = caught only by the author's own measurement or rule (all three are measurements/rules, not reviews); mixed = author found it and an independent hold/review also applied"
  },
  "notes": [
   "Message files have only mtimes; THE-REFRAME's own text labels itself '09:05 PDT' but its mtime is 07:27; use mtimes/commit times, not labels inside files.",

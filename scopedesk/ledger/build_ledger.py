@@ -120,6 +120,7 @@ controlled = [
       witness="docs/novelty.md; artifacts/core/replay/table_primary.csv", record_ref=(A, "docs/novelty.md"),
       allowed="No collective completion advantage was demonstrated in this replay."),
 ]
+CLASS = {"R09": "mixed", "R15": "mixed", "R17": "author", "R18": "author", "R20": "author"}   # every other row: independent reviewer / validator / scout
 def iso(x): return x.isoformat(timespec="seconds") if x else "not derivable"
 out_rows, durs = [], []
 for r in rows:
@@ -134,8 +135,10 @@ vals = [d for _, d in durs]
 summary = {"n_rows": len(rows), "n_with_both_times": len(vals), "method": "kill_recorded - claim_stated in minutes, only where both times are derivable and ordered; times are file mtimes (messages) or git commit times; mtime = last modification, commit time = commit not utterance, so durations are rough, may be inflated or deflated, and rows differ in kind (prior-art lookups, audits, measurements)",
            "durations_min_by_row": dict(durs), "median_min": (statistics.median(vals) if vals else "not derivable"), "min_min": (min(vals) if vals else None), "max_min": (max(vals) if vals else None),
            "reading": "descriptive of THIS team on THIS day; not a rate, not generalisable; do not put the median on a slide without n and method and without the not-derivable rows",
-           "kind_counts": {k: sum(r["kind"].startswith(k) for r in rows) for k in ("prior art", "counterexample", "measured", "mis-operationalised", "convention defect", "process defect")},
-           "caught_by_independent_vs_author": {"independent": sum("independent" in r["caught_by"] for r in rows), "author_only": sum("independent" not in r["caught_by"] for r in rows)}}
+           "kind_counts": {k: sum(r["kind"].startswith(k) for r in rows) for k in ("prior art", "counterexample", "measured", "mis-operationalised", "convention defect", "process defect", "design defect")},
+           "caught_by_class": {c: sum(CLASS.get(r["id"], "independent") == c for r in rows) for c in ("independent", "mixed", "author")},
+           "caught_by_class_rows": CLASS,
+           "caught_by_class_note": "explicit per-row classification (v2): substring matching on caught_by text was wrong (R18 'not independently confirmed' matched 'independent'). author = caught only by the author's own measurement or rule (all three are measurements/rules, not reviews); mixed = author found it and an independent hold/review also applied"}
 os.makedirs(sys.argv[1], exist_ok=True)
 json.dump({"rows": out_rows, "measured_matched_control": ctrl, "summary": summary,
            "notes": ["Message files have only mtimes; THE-REFRAME's own text labels itself '09:05 PDT' but its mtime is 07:27; use mtimes/commit times, not labels inside files.",
@@ -152,5 +155,5 @@ with open(os.path.join(sys.argv[1], "KILL-LEDGER.md"), "w") as f:
     f.write("\n" + "\n".join(f"- {m['id']} witness: {m['witness']}" for m in ctrl) + "\n")
     s = summary
     f.write(f"\n## Timing summary (descriptive)\nn rows = {s['n_rows']}; rows with both times derivable = {s['n_with_both_times']}; method: {s['method']}.\nDurations (min): {s['durations_min_by_row']}. Median over these {s['n_with_both_times']} rows = {s['median_min']} min (min {s['min_min']}, max {s['max_min']}). {s['reading']}.\n")
-    f.write(f"Kill-type counts (prefix match): {s['kind_counts']}. Caught by an independent reviewer: {s['caught_by_independent_vs_author']['independent']} rows; by the author's own check only: {s['caught_by_independent_vs_author']['author_only']} rows (no control arm; this supports 'independent audit caught what authors missed', not a collective-vs-single comparison).\n\n## Notes\n" + "\n".join("- " + n for n in json.load(open(os.path.join(sys.argv[1], 'kill_ledger.json')))["notes"]) + "\n")
+    f.write(f"Kill-type counts (prefix match): {s['kind_counts']}. Caught by an independent reviewer/validator/scout: {s['caught_by_class']['independent']} rows; mixed (author found it, independent hold also applied; R09, R15): {s['caught_by_class']['mixed']} rows; by the author's own measurement or rule only (R17, R18, R20; all three are measurements, not reviews): {s['caught_by_class']['author']} rows (no control arm; this supports 'independent audit caught what authors missed', not a collective-vs-single comparison).\n\n## Notes\n" + "\n".join("- " + n for n in json.load(open(os.path.join(sys.argv[1], 'kill_ledger.json')))["notes"]) + "\n")
 print(json.dumps(summary)[:1500])
