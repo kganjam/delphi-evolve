@@ -1,0 +1,1466 @@
+{
+ "bundles": {
+  "accepted_imported": {
+   "assessment": {
+    "created_at": "2026-10-31T16:45:40.892365+00:00",
+    "id": "06c03382-f145-446f-9fce-0506b058e0a9",
+    "issuer": "bob",
+    "kind": "Assessment",
+    "namespace": "node-a",
+    "payload": {
+     "decision": "accepted",
+     "dimensions": {
+      "applicability": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for applicability; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "computational_replay_formal_check": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for computational_replay_formal_check; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "empirical_relevance": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for empirical_relevance; not a scientific review.",
+       "reviewer": "bob",
+       "status": "not_applicable"
+      },
+      "independent_replication": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for independent_replication; not a scientific review.",
+       "reviewer": "bob",
+       "status": "not_applicable"
+      },
+      "source_fidelity": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for source_fidelity; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "statistical_adequacy": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for statistical_adequacy; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "target_fidelity": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for target_fidelity; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      }
+     },
+     "independence_rationale": "Separate configured operator in a throwaway fixture node.",
+     "limitations": [
+      "Exercises the publication workflow only."
+     ],
+     "policy_version": "frontier-independent-review-0.1",
+     "target": {
+      "id": "imported-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-b",
+      "version": "902c18946647196f0aaf40798c3bf3b8dffe037a776d51123ee6149058013da3"
+     }
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-review",
+    "version": "1b84ba98a5969bbf19247b0bb2f29da78f3c20433575d34d3759eb87b3ee9055",
+    "visibility": "public"
+   },
+   "evidence": [],
+   "local_review": {
+    "policy_version": "frontier-independent-review-0.1",
+    "status": "accepted"
+   },
+   "proposal_event": {
+    "created_at": "2026-10-31T16:45:40.872006+00:00",
+    "id": "ace0b620-044f-4e82-a1c8-7946830c1331",
+    "issuer": "alice",
+    "kind": "Event",
+    "namespace": "node-a",
+    "payload": {
+     "actor": "alice",
+     "details": {
+      "bundle_sha256": "c4f0fa368b7d9d26ca720538c5fd2fce8b00de8483d7644a48ce258bdc5071ab",
+      "issuer_authenticated": false
+     },
+     "event_type": "record_imported",
+     "operator": "operator-a",
+     "target": {
+      "id": "imported-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-b",
+      "version": "902c18946647196f0aaf40798c3bf3b8dffe037a776d51123ee6149058013da3"
+     },
+     "witnessed_at": "2026-10-31T16:45:40.871799+00:00"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-transaction",
+    "version": "35b93cd7c7bd372a2ba1e09762a0aaee708932c7de153634639e8379fa578d76",
+    "visibility": "public"
+   },
+   "review_event": {
+    "created_at": "2026-10-31T16:45:40.897758+00:00",
+    "id": "657107b5-1108-4e1a-baad-79e8149ba401",
+    "issuer": "bob",
+    "kind": "Event",
+    "namespace": "node-a",
+    "payload": {
+     "actor": "bob",
+     "details": {
+      "assessment": {
+       "id": "06c03382-f145-446f-9fce-0506b058e0a9",
+       "kind": "Assessment",
+       "namespace": "node-a",
+       "version": "1b84ba98a5969bbf19247b0bb2f29da78f3c20433575d34d3759eb87b3ee9055"
+      }
+     },
+     "event_type": "review_recorded",
+     "operator": "operator-b",
+     "target": {
+      "id": "imported-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-b",
+      "version": "902c18946647196f0aaf40798c3bf3b8dffe037a776d51123ee6149058013da3"
+     },
+     "witnessed_at": "2026-10-31T16:45:40.897640+00:00"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-transaction",
+    "version": "05be9a1b6a272d9afa3afa583195aa8d64312779e597decc29ec4b5f1a9e4e32",
+    "visibility": "public"
+   },
+   "target": {
+    "created_at": "2026-10-31T16:45:40.813332+00:00",
+    "id": "imported-fixture-claim",
+    "issuer": "erin",
+    "kind": "Claim",
+    "namespace": "node-b",
+    "payload": {
+     "assumptions": [
+      "The fixture is a stand-in for a real claim."
+     ],
+     "context": "Software protocol test of the Frontier publication layer; no empirical content.",
+     "limitations": [
+      "Not measured evidence.",
+      "Reviews on it are workflow controls."
+     ],
+     "source": {
+      "access": "public reference; bytes not verified by Frontier",
+      "content_available": false,
+      "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "license": "CC-BY-4.0",
+      "locator": "section: Fixtures",
+      "source_version": "fixture-v1",
+      "uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md"
+     },
+     "statement": "FIXTURE IMPORTED STATEMENT.",
+     "title": "Protocol fixture, not scientific data"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
+    "version": "902c18946647196f0aaf40798c3bf3b8dffe037a776d51123ee6149058013da3",
+    "visibility": "public"
+   },
+   "target_is_head": true
+  },
+  "accepted_problem_unsourced": {
+   "assessment": {
+    "created_at": "2026-10-31T16:45:41.008436+00:00",
+    "id": "7dc35585-e3db-4db4-b5b2-2c7a3f228b50",
+    "issuer": "bob",
+    "kind": "Assessment",
+    "namespace": "node-a",
+    "payload": {
+     "decision": "accepted",
+     "dimensions": {
+      "applicability": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for applicability; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "computational_replay_formal_check": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for computational_replay_formal_check; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "empirical_relevance": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for empirical_relevance; not a scientific review.",
+       "reviewer": "bob",
+       "status": "not_applicable"
+      },
+      "independent_replication": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for independent_replication; not a scientific review.",
+       "reviewer": "bob",
+       "status": "not_applicable"
+      },
+      "source_fidelity": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for source_fidelity; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "statistical_adequacy": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for statistical_adequacy; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "target_fidelity": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for target_fidelity; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      }
+     },
+     "independence_rationale": "Separate configured operator in a throwaway fixture node.",
+     "limitations": [
+      "Exercises the publication workflow only."
+     ],
+     "policy_version": "frontier-independent-review-0.1",
+     "target": {
+      "id": "pub-fixture-problem",
+      "kind": "Problem",
+      "namespace": "node-a",
+      "version": "7d63014087423681164fd7f679ca91831649072d1b172430625e505082e7e178"
+     }
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-review",
+    "version": "6ade305ebe39e750137b6ed312b0edd698951a903808ebc2f02f4476ccdcc323",
+    "visibility": "public"
+   },
+   "evidence": [],
+   "local_review": {
+    "policy_version": "frontier-independent-review-0.1",
+    "status": "accepted"
+   },
+   "proposal_event": {
+    "created_at": "2026-10-31T16:45:40.980445+00:00",
+    "id": "2eedf41b-6a1f-4e62-9bb6-91389cea726f",
+    "issuer": "alice",
+    "kind": "Event",
+    "namespace": "node-a",
+    "payload": {
+     "actor": "alice",
+     "details": {},
+     "event_type": "record_proposed",
+     "operator": "operator-a",
+     "target": {
+      "id": "pub-fixture-problem",
+      "kind": "Problem",
+      "namespace": "node-a",
+      "version": "7d63014087423681164fd7f679ca91831649072d1b172430625e505082e7e178"
+     },
+     "witnessed_at": "2026-10-31T16:45:40.980365+00:00"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-transaction",
+    "version": "82d522c634dd584a03eb2719864200f8fe8b98d1ed7fbca957e03b4af664a1c0",
+    "visibility": "public"
+   },
+   "review_event": {
+    "created_at": "2026-10-31T16:45:41.013388+00:00",
+    "id": "a4d8dfe4-ae3a-4203-9b67-bea69d4061c6",
+    "issuer": "bob",
+    "kind": "Event",
+    "namespace": "node-a",
+    "payload": {
+     "actor": "bob",
+     "details": {
+      "assessment": {
+       "id": "7dc35585-e3db-4db4-b5b2-2c7a3f228b50",
+       "kind": "Assessment",
+       "namespace": "node-a",
+       "version": "6ade305ebe39e750137b6ed312b0edd698951a903808ebc2f02f4476ccdcc323"
+      }
+     },
+     "event_type": "review_recorded",
+     "operator": "operator-b",
+     "target": {
+      "id": "pub-fixture-problem",
+      "kind": "Problem",
+      "namespace": "node-a",
+      "version": "7d63014087423681164fd7f679ca91831649072d1b172430625e505082e7e178"
+     },
+     "witnessed_at": "2026-10-31T16:45:41.013263+00:00"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-transaction",
+    "version": "0c294b40f54f671b4967372a99705986807fd12dce180351bbf1309aada5c5d5",
+    "visibility": "public"
+   },
+   "target": {
+    "created_at": "2026-10-31T16:45:40.977806+00:00",
+    "id": "pub-fixture-problem",
+    "issuer": "alice",
+    "kind": "Problem",
+    "namespace": "node-a",
+    "payload": {
+     "acceptance_criteria": [],
+     "completeness": "recorded",
+     "cost_stop_bounds": null,
+     "data_access": "None.",
+     "dependencies": [],
+     "downstream_uses": [],
+     "falsifiers": [],
+     "known_state": "Fixture state.",
+     "next_action": null,
+     "novelty_status": "Fixture; no novelty claim.",
+     "problem_kind": "project_gap",
+     "question": "Fixture question?",
+     "required_capabilities": [],
+     "source": {
+      "access": "No source recorded: curator statement.",
+      "content_available": false,
+      "content_sha256": null,
+      "license": null,
+      "locator": null,
+      "source_version": null,
+      "uri": null
+     },
+     "title": "Protocol fixture problem"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
+    "version": "7d63014087423681164fd7f679ca91831649072d1b172430625e505082e7e178",
+    "visibility": "public"
+   },
+   "target_is_head": true
+  },
+  "accepted_v1": {
+   "assessment": {
+    "created_at": "2026-10-31T16:45:39.615665+00:00",
+    "id": "175339c7-6585-4647-b172-21dc157e177e",
+    "issuer": "bob",
+    "kind": "Assessment",
+    "namespace": "node-a",
+    "payload": {
+     "decision": "accepted",
+     "dimensions": {
+      "applicability": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for applicability; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "computational_replay_formal_check": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for computational_replay_formal_check; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "empirical_relevance": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for empirical_relevance; not a scientific review.",
+       "reviewer": "bob",
+       "status": "not_applicable"
+      },
+      "independent_replication": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for independent_replication; not a scientific review.",
+       "reviewer": "bob",
+       "status": "not_applicable"
+      },
+      "source_fidelity": {
+       "evidence_links": [
+        {
+         "id": "fixture-evidence-pub-fixture-claim",
+         "kind": "Evidence",
+         "namespace": "node-a",
+         "version": "d5f46e4bbf13cbb7c7777578f95a4663a78fdf5e0b6c23c8e4f722f7ec93f915"
+        }
+       ],
+       "rationale": "Workflow-control rationale for source_fidelity; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "statistical_adequacy": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for statistical_adequacy; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "target_fidelity": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for target_fidelity; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      }
+     },
+     "independence_rationale": "Separate configured operator in a throwaway fixture node.",
+     "limitations": [
+      "Exercises the publication workflow only."
+     ],
+     "policy_version": "frontier-independent-review-0.1",
+     "target": {
+      "id": "pub-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+     }
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-review",
+    "version": "ad0e6a3ef7a0659211585d45f63956dc9abed6a6df652f6ed05048ad0bd04361",
+    "visibility": "public"
+   },
+   "evidence": [
+    {
+     "created_at": "2026-10-31T16:45:39.541319+00:00",
+     "id": "fixture-evidence-pub-fixture-claim",
+     "issuer": "alice",
+     "kind": "Evidence",
+     "namespace": "node-a",
+     "payload": {
+      "assumptions": [
+       "A fixture"
+      ],
+      "context": "No empirical claim",
+      "created_time": {
+       "basis": "unknown",
+       "value": null
+      },
+      "evidence_kind": "source_assessment",
+      "limitations": [
+       "Declared digest only."
+      ],
+      "method": "Software protocol fixture",
+      "provenance": {
+       "provider": "fixture"
+      },
+      "retrieved_time": {
+       "basis": "declared",
+       "value": "2026-10-31T15:00:00+00:00"
+      },
+      "source": {
+       "access": "public reference; bytes not verified by Frontier",
+       "content_available": false,
+       "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+       "license": "CC-BY-4.0",
+       "locator": "section: Fixtures",
+       "source_version": "fixture-v1",
+       "uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md"
+      },
+      "source_dependence": {
+       "group": "single-fixture-source",
+       "independence": "unknown"
+      },
+      "target": {
+       "id": "pub-fixture-claim",
+       "kind": "Claim",
+       "namespace": "node-a",
+       "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+      },
+      "uncertainty": "Unknown"
+     },
+     "predecessor": null,
+     "schema_version": "frontier-record-0.1",
+     "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
+     "version": "d5f46e4bbf13cbb7c7777578f95a4663a78fdf5e0b6c23c8e4f722f7ec93f915",
+     "visibility": "public"
+    }
+   ],
+   "local_review": {
+    "policy_version": "frontier-independent-review-0.1",
+    "status": "accepted"
+   },
+   "proposal_event": {
+    "created_at": "2026-10-31T16:45:39.427133+00:00",
+    "id": "e06e743f-ce98-45be-aa18-688cf959d691",
+    "issuer": "alice",
+    "kind": "Event",
+    "namespace": "node-a",
+    "payload": {
+     "actor": "alice",
+     "details": {},
+     "event_type": "record_proposed",
+     "operator": "operator-a",
+     "target": {
+      "id": "pub-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+     },
+     "witnessed_at": "2026-10-31T16:45:39.426962+00:00"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-transaction",
+    "version": "c08adced2942968b032b6f7f4e172869da305d9829e6a5a70183b3ffba10d3ee",
+    "visibility": "public"
+   },
+   "review_event": {
+    "created_at": "2026-10-31T16:45:39.620467+00:00",
+    "id": "a36cc4ce-a35f-49ad-a34a-a46d41e5c110",
+    "issuer": "bob",
+    "kind": "Event",
+    "namespace": "node-a",
+    "payload": {
+     "actor": "bob",
+     "details": {
+      "assessment": {
+       "id": "175339c7-6585-4647-b172-21dc157e177e",
+       "kind": "Assessment",
+       "namespace": "node-a",
+       "version": "ad0e6a3ef7a0659211585d45f63956dc9abed6a6df652f6ed05048ad0bd04361"
+      }
+     },
+     "event_type": "review_recorded",
+     "operator": "operator-b",
+     "target": {
+      "id": "pub-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+     },
+     "witnessed_at": "2026-10-31T16:45:39.620374+00:00"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-transaction",
+    "version": "55710cbcb63c32f372c22b04a350b7466635b56b6f87bf909e4e84bd4618ebad",
+    "visibility": "public"
+   },
+   "target": {
+    "created_at": "2026-10-31T16:45:39.418088+00:00",
+    "id": "pub-fixture-claim",
+    "issuer": "alice",
+    "kind": "Claim",
+    "namespace": "node-a",
+    "payload": {
+     "assumptions": [
+      "The fixture is a stand-in for a real claim."
+     ],
+     "context": "Software protocol test of the Frontier publication layer; no empirical content.",
+     "limitations": [
+      "Not measured evidence.",
+      "Reviews on it are workflow controls."
+     ],
+     "source": {
+      "access": "public reference; bytes not verified by Frontier",
+      "content_available": false,
+      "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "license": "CC-BY-4.0",
+      "locator": "section: Fixtures",
+      "source_version": "fixture-v1",
+      "uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md"
+     },
+     "statement": "FIXTURE STATEMENT v1.",
+     "title": "Protocol fixture, not scientific data"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
+    "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd",
+    "visibility": "public"
+   },
+   "target_is_head": true
+  },
+  "accepted_v1_via_http": {
+   "assessment": {
+    "created_at": "2026-10-31T16:45:39.615665+00:00",
+    "id": "175339c7-6585-4647-b172-21dc157e177e",
+    "issuer": "bob",
+    "kind": "Assessment",
+    "namespace": "node-a",
+    "payload": {
+     "decision": "accepted",
+     "dimensions": {
+      "applicability": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for applicability; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "computational_replay_formal_check": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for computational_replay_formal_check; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "empirical_relevance": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for empirical_relevance; not a scientific review.",
+       "reviewer": "bob",
+       "status": "not_applicable"
+      },
+      "independent_replication": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for independent_replication; not a scientific review.",
+       "reviewer": "bob",
+       "status": "not_applicable"
+      },
+      "source_fidelity": {
+       "evidence_links": [
+        {
+         "id": "fixture-evidence-pub-fixture-claim",
+         "kind": "Evidence",
+         "namespace": "node-a",
+         "version": "d5f46e4bbf13cbb7c7777578f95a4663a78fdf5e0b6c23c8e4f722f7ec93f915"
+        }
+       ],
+       "rationale": "Workflow-control rationale for source_fidelity; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "statistical_adequacy": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for statistical_adequacy; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      },
+      "target_fidelity": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for target_fidelity; not a scientific review.",
+       "reviewer": "bob",
+       "status": "passed"
+      }
+     },
+     "independence_rationale": "Separate configured operator in a throwaway fixture node.",
+     "limitations": [
+      "Exercises the publication workflow only."
+     ],
+     "policy_version": "frontier-independent-review-0.1",
+     "target": {
+      "id": "pub-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+     }
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-review",
+    "version": "ad0e6a3ef7a0659211585d45f63956dc9abed6a6df652f6ed05048ad0bd04361",
+    "visibility": "public"
+   },
+   "evidence": [
+    {
+     "created_at": "2026-10-31T16:45:39.541319+00:00",
+     "id": "fixture-evidence-pub-fixture-claim",
+     "issuer": "alice",
+     "kind": "Evidence",
+     "namespace": "node-a",
+     "payload": {
+      "assumptions": [
+       "A fixture"
+      ],
+      "context": "No empirical claim",
+      "created_time": {
+       "basis": "unknown",
+       "value": null
+      },
+      "evidence_kind": "source_assessment",
+      "limitations": [
+       "Declared digest only."
+      ],
+      "method": "Software protocol fixture",
+      "provenance": {
+       "provider": "fixture"
+      },
+      "retrieved_time": {
+       "basis": "declared",
+       "value": "2026-10-31T15:00:00+00:00"
+      },
+      "source": {
+       "access": "public reference; bytes not verified by Frontier",
+       "content_available": false,
+       "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+       "license": "CC-BY-4.0",
+       "locator": "section: Fixtures",
+       "source_version": "fixture-v1",
+       "uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md"
+      },
+      "source_dependence": {
+       "group": "single-fixture-source",
+       "independence": "unknown"
+      },
+      "target": {
+       "id": "pub-fixture-claim",
+       "kind": "Claim",
+       "namespace": "node-a",
+       "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+      },
+      "uncertainty": "Unknown"
+     },
+     "predecessor": null,
+     "schema_version": "frontier-record-0.1",
+     "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
+     "version": "d5f46e4bbf13cbb7c7777578f95a4663a78fdf5e0b6c23c8e4f722f7ec93f915",
+     "visibility": "public"
+    }
+   ],
+   "local_review": {
+    "policy_version": "frontier-independent-review-0.1",
+    "status": "accepted"
+   },
+   "proposal_event": {
+    "created_at": "2026-10-31T16:45:39.427133+00:00",
+    "id": "e06e743f-ce98-45be-aa18-688cf959d691",
+    "issuer": "alice",
+    "kind": "Event",
+    "namespace": "node-a",
+    "payload": {
+     "actor": "alice",
+     "details": {},
+     "event_type": "record_proposed",
+     "operator": "operator-a",
+     "target": {
+      "id": "pub-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+     },
+     "witnessed_at": "2026-10-31T16:45:39.426962+00:00"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-transaction",
+    "version": "c08adced2942968b032b6f7f4e172869da305d9829e6a5a70183b3ffba10d3ee",
+    "visibility": "public"
+   },
+   "review_event": {
+    "created_at": "2026-10-31T16:45:39.620467+00:00",
+    "id": "a36cc4ce-a35f-49ad-a34a-a46d41e5c110",
+    "issuer": "bob",
+    "kind": "Event",
+    "namespace": "node-a",
+    "payload": {
+     "actor": "bob",
+     "details": {
+      "assessment": {
+       "id": "175339c7-6585-4647-b172-21dc157e177e",
+       "kind": "Assessment",
+       "namespace": "node-a",
+       "version": "ad0e6a3ef7a0659211585d45f63956dc9abed6a6df652f6ed05048ad0bd04361"
+      }
+     },
+     "event_type": "review_recorded",
+     "operator": "operator-b",
+     "target": {
+      "id": "pub-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+     },
+     "witnessed_at": "2026-10-31T16:45:39.620374+00:00"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-transaction",
+    "version": "55710cbcb63c32f372c22b04a350b7466635b56b6f87bf909e4e84bd4618ebad",
+    "visibility": "public"
+   },
+   "target": {
+    "created_at": "2026-10-31T16:45:39.418088+00:00",
+    "id": "pub-fixture-claim",
+    "issuer": "alice",
+    "kind": "Claim",
+    "namespace": "node-a",
+    "payload": {
+     "assumptions": [
+      "The fixture is a stand-in for a real claim."
+     ],
+     "context": "Software protocol test of the Frontier publication layer; no empirical content.",
+     "limitations": [
+      "Not measured evidence.",
+      "Reviews on it are workflow controls."
+     ],
+     "source": {
+      "access": "public reference; bytes not verified by Frontier",
+      "content_available": false,
+      "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "license": "CC-BY-4.0",
+      "locator": "section: Fixtures",
+      "source_version": "fixture-v1",
+      "uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md"
+     },
+     "statement": "FIXTURE STATEMENT v1.",
+     "title": "Protocol fixture, not scientific data"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
+    "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd",
+    "visibility": "public"
+   },
+   "target_is_head": true
+  },
+  "accepted_v2": {
+   "assessment": {
+    "created_at": "2026-10-31T16:45:39.787580+00:00",
+    "id": "c102b27d-ef06-41d6-b343-0e5ed0c22259",
+    "issuer": "dana",
+    "kind": "Assessment",
+    "namespace": "node-a",
+    "payload": {
+     "decision": "accepted",
+     "dimensions": {
+      "applicability": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for applicability; not a scientific review.",
+       "reviewer": "dana",
+       "status": "passed"
+      },
+      "computational_replay_formal_check": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for computational_replay_formal_check; not a scientific review.",
+       "reviewer": "dana",
+       "status": "passed"
+      },
+      "empirical_relevance": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for empirical_relevance; not a scientific review.",
+       "reviewer": "dana",
+       "status": "not_applicable"
+      },
+      "independent_replication": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for independent_replication; not a scientific review.",
+       "reviewer": "dana",
+       "status": "not_applicable"
+      },
+      "source_fidelity": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for source_fidelity; not a scientific review.",
+       "reviewer": "dana",
+       "status": "passed"
+      },
+      "statistical_adequacy": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for statistical_adequacy; not a scientific review.",
+       "reviewer": "dana",
+       "status": "passed"
+      },
+      "target_fidelity": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for target_fidelity; not a scientific review.",
+       "reviewer": "dana",
+       "status": "passed"
+      }
+     },
+     "independence_rationale": "Separate configured operator in a throwaway fixture node.",
+     "limitations": [
+      "Exercises the publication workflow only."
+     ],
+     "policy_version": "frontier-independent-review-0.1",
+     "target": {
+      "id": "pub-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+     }
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-review",
+    "version": "4e785bb5c78b9135f83dc2394c5f688c188740878344da587d9cfa7290377027",
+    "visibility": "public"
+   },
+   "evidence": [],
+   "local_review": {
+    "policy_version": "frontier-independent-review-0.1",
+    "status": "accepted"
+   },
+   "proposal_event": {
+    "created_at": "2026-10-31T16:45:39.760299+00:00",
+    "id": "3b79f873-1d11-4870-8539-93188e3febf0",
+    "issuer": "alice",
+    "kind": "Event",
+    "namespace": "node-a",
+    "payload": {
+     "actor": "alice",
+     "details": {},
+     "event_type": "record_proposed",
+     "operator": "operator-a",
+     "target": {
+      "id": "pub-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+     },
+     "witnessed_at": "2026-10-31T16:45:39.760173+00:00"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-transaction",
+    "version": "89640155d8372a61b327e3b400974cc29cd0f23360dec236075052ed0be1f874",
+    "visibility": "public"
+   },
+   "review_event": {
+    "created_at": "2026-10-31T16:45:39.791208+00:00",
+    "id": "62910861-5d58-45ef-9c51-7b203f45350e",
+    "issuer": "dana",
+    "kind": "Event",
+    "namespace": "node-a",
+    "payload": {
+     "actor": "dana",
+     "details": {
+      "assessment": {
+       "id": "c102b27d-ef06-41d6-b343-0e5ed0c22259",
+       "kind": "Assessment",
+       "namespace": "node-a",
+       "version": "4e785bb5c78b9135f83dc2394c5f688c188740878344da587d9cfa7290377027"
+      }
+     },
+     "event_type": "review_recorded",
+     "operator": "operator-d",
+     "target": {
+      "id": "pub-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+     },
+     "witnessed_at": "2026-10-31T16:45:39.791108+00:00"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-transaction",
+    "version": "9cf6e8e1ab66e3afaf474d0dcbb82ff4ed867f9a6669aa0389f2a45fa66f500f",
+    "visibility": "public"
+   },
+   "target": {
+    "created_at": "2026-10-31T16:45:39.757067+00:00",
+    "id": "pub-fixture-claim",
+    "issuer": "alice",
+    "kind": "Claim",
+    "namespace": "node-a",
+    "payload": {
+     "assumptions": [
+      "The fixture is a stand-in for a real claim."
+     ],
+     "context": "Software protocol test of the Frontier publication layer; no empirical content.",
+     "limitations": [
+      "Not measured evidence.",
+      "Reviews on it are workflow controls."
+     ],
+     "source": {
+      "access": "public reference; bytes not verified by Frontier",
+      "content_available": false,
+      "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "license": "CC-BY-4.0",
+      "locator": "section: Fixtures",
+      "source_version": "fixture-v1",
+      "uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md"
+     },
+     "statement": "FIXTURE STATEMENT v2.",
+     "title": "Protocol fixture, not scientific data"
+    },
+    "predecessor": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd",
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
+    "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f",
+    "visibility": "public"
+   },
+   "target_is_head": true
+  },
+  "accepted_v2_after_dispute_state": {
+   "assessment": {
+    "created_at": "2026-10-31T16:45:39.787580+00:00",
+    "id": "c102b27d-ef06-41d6-b343-0e5ed0c22259",
+    "issuer": "dana",
+    "kind": "Assessment",
+    "namespace": "node-a",
+    "payload": {
+     "decision": "accepted",
+     "dimensions": {
+      "applicability": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for applicability; not a scientific review.",
+       "reviewer": "dana",
+       "status": "passed"
+      },
+      "computational_replay_formal_check": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for computational_replay_formal_check; not a scientific review.",
+       "reviewer": "dana",
+       "status": "passed"
+      },
+      "empirical_relevance": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for empirical_relevance; not a scientific review.",
+       "reviewer": "dana",
+       "status": "not_applicable"
+      },
+      "independent_replication": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for independent_replication; not a scientific review.",
+       "reviewer": "dana",
+       "status": "not_applicable"
+      },
+      "source_fidelity": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for source_fidelity; not a scientific review.",
+       "reviewer": "dana",
+       "status": "passed"
+      },
+      "statistical_adequacy": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for statistical_adequacy; not a scientific review.",
+       "reviewer": "dana",
+       "status": "passed"
+      },
+      "target_fidelity": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for target_fidelity; not a scientific review.",
+       "reviewer": "dana",
+       "status": "passed"
+      }
+     },
+     "independence_rationale": "Separate configured operator in a throwaway fixture node.",
+     "limitations": [
+      "Exercises the publication workflow only."
+     ],
+     "policy_version": "frontier-independent-review-0.1",
+     "target": {
+      "id": "pub-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+     }
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-review",
+    "version": "4e785bb5c78b9135f83dc2394c5f688c188740878344da587d9cfa7290377027",
+    "visibility": "public"
+   },
+   "evidence": [],
+   "local_review": {
+    "policy_version": "frontier-independent-review-0.1",
+    "status": "disputed"
+   },
+   "proposal_event": {
+    "created_at": "2026-10-31T16:45:39.760299+00:00",
+    "id": "3b79f873-1d11-4870-8539-93188e3febf0",
+    "issuer": "alice",
+    "kind": "Event",
+    "namespace": "node-a",
+    "payload": {
+     "actor": "alice",
+     "details": {},
+     "event_type": "record_proposed",
+     "operator": "operator-a",
+     "target": {
+      "id": "pub-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+     },
+     "witnessed_at": "2026-10-31T16:45:39.760173+00:00"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-transaction",
+    "version": "89640155d8372a61b327e3b400974cc29cd0f23360dec236075052ed0be1f874",
+    "visibility": "public"
+   },
+   "review_event": {
+    "created_at": "2026-10-31T16:45:39.791208+00:00",
+    "id": "62910861-5d58-45ef-9c51-7b203f45350e",
+    "issuer": "dana",
+    "kind": "Event",
+    "namespace": "node-a",
+    "payload": {
+     "actor": "dana",
+     "details": {
+      "assessment": {
+       "id": "c102b27d-ef06-41d6-b343-0e5ed0c22259",
+       "kind": "Assessment",
+       "namespace": "node-a",
+       "version": "4e785bb5c78b9135f83dc2394c5f688c188740878344da587d9cfa7290377027"
+      }
+     },
+     "event_type": "review_recorded",
+     "operator": "operator-d",
+     "target": {
+      "id": "pub-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+     },
+     "witnessed_at": "2026-10-31T16:45:39.791108+00:00"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-transaction",
+    "version": "9cf6e8e1ab66e3afaf474d0dcbb82ff4ed867f9a6669aa0389f2a45fa66f500f",
+    "visibility": "public"
+   },
+   "target": {
+    "created_at": "2026-10-31T16:45:39.757067+00:00",
+    "id": "pub-fixture-claim",
+    "issuer": "alice",
+    "kind": "Claim",
+    "namespace": "node-a",
+    "payload": {
+     "assumptions": [
+      "The fixture is a stand-in for a real claim."
+     ],
+     "context": "Software protocol test of the Frontier publication layer; no empirical content.",
+     "limitations": [
+      "Not measured evidence.",
+      "Reviews on it are workflow controls."
+     ],
+     "source": {
+      "access": "public reference; bytes not verified by Frontier",
+      "content_available": false,
+      "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "license": "CC-BY-4.0",
+      "locator": "section: Fixtures",
+      "source_version": "fixture-v1",
+      "uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md"
+     },
+     "statement": "FIXTURE STATEMENT v2.",
+     "title": "Protocol fixture, not scientific data"
+    },
+    "predecessor": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd",
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
+    "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f",
+    "visibility": "public"
+   },
+   "target_is_head": true
+  },
+  "disputed_v2": {
+   "assessment": {
+    "created_at": "2026-10-31T16:45:39.837854+00:00",
+    "id": "c9b357e3-013e-49b0-9633-838ea692dab1",
+    "issuer": "frank",
+    "kind": "Assessment",
+    "namespace": "node-a",
+    "payload": {
+     "decision": "disputed",
+     "dimensions": {
+      "applicability": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for applicability; not a scientific review.",
+       "reviewer": "frank",
+       "status": "insufficient"
+      },
+      "computational_replay_formal_check": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for computational_replay_formal_check; not a scientific review.",
+       "reviewer": "frank",
+       "status": "passed"
+      },
+      "empirical_relevance": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for empirical_relevance; not a scientific review.",
+       "reviewer": "frank",
+       "status": "not_applicable"
+      },
+      "independent_replication": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for independent_replication; not a scientific review.",
+       "reviewer": "frank",
+       "status": "not_applicable"
+      },
+      "source_fidelity": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for source_fidelity; not a scientific review.",
+       "reviewer": "frank",
+       "status": "passed"
+      },
+      "statistical_adequacy": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for statistical_adequacy; not a scientific review.",
+       "reviewer": "frank",
+       "status": "passed"
+      },
+      "target_fidelity": {
+       "evidence_links": [],
+       "rationale": "Workflow-control rationale for target_fidelity; not a scientific review.",
+       "reviewer": "frank",
+       "status": "passed"
+      }
+     },
+     "independence_rationale": "Separate configured operator in a throwaway fixture node.",
+     "limitations": [
+      "Exercises the publication workflow only."
+     ],
+     "policy_version": "frontier-independent-review-0.1",
+     "target": {
+      "id": "pub-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+     }
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-review",
+    "version": "b2252605d0b1c8badb12d1609b81d01e7cbf01674182dcc4541638c2568a8b32",
+    "visibility": "public"
+   },
+   "evidence": [],
+   "local_review": {
+    "policy_version": "frontier-independent-review-0.1",
+    "status": "disputed"
+   },
+   "proposal_event": {
+    "created_at": "2026-10-31T16:45:39.760299+00:00",
+    "id": "3b79f873-1d11-4870-8539-93188e3febf0",
+    "issuer": "alice",
+    "kind": "Event",
+    "namespace": "node-a",
+    "payload": {
+     "actor": "alice",
+     "details": {},
+     "event_type": "record_proposed",
+     "operator": "operator-a",
+     "target": {
+      "id": "pub-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+     },
+     "witnessed_at": "2026-10-31T16:45:39.760173+00:00"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-transaction",
+    "version": "89640155d8372a61b327e3b400974cc29cd0f23360dec236075052ed0be1f874",
+    "visibility": "public"
+   },
+   "review_event": {
+    "created_at": "2026-10-31T16:45:39.843268+00:00",
+    "id": "0eb7089b-a96a-4669-8d2c-f032b5a20b6f",
+    "issuer": "frank",
+    "kind": "Event",
+    "namespace": "node-a",
+    "payload": {
+     "actor": "frank",
+     "details": {
+      "assessment": {
+       "id": "c9b357e3-013e-49b0-9633-838ea692dab1",
+       "kind": "Assessment",
+       "namespace": "node-a",
+       "version": "b2252605d0b1c8badb12d1609b81d01e7cbf01674182dcc4541638c2568a8b32"
+      }
+     },
+     "event_type": "review_recorded",
+     "operator": "operator-f",
+     "target": {
+      "id": "pub-fixture-claim",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+     },
+     "witnessed_at": "2026-10-31T16:45:39.843119+00:00"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:local-transaction",
+    "version": "312cc48293a5b8e08f0eaa2a94225834f8e01aa811929d0e29e19764a86ab8df",
+    "visibility": "public"
+   },
+   "target": {
+    "created_at": "2026-10-31T16:45:39.757067+00:00",
+    "id": "pub-fixture-claim",
+    "issuer": "alice",
+    "kind": "Claim",
+    "namespace": "node-a",
+    "payload": {
+     "assumptions": [
+      "The fixture is a stand-in for a real claim."
+     ],
+     "context": "Software protocol test of the Frontier publication layer; no empirical content.",
+     "limitations": [
+      "Not measured evidence.",
+      "Reviews on it are workflow controls."
+     ],
+     "source": {
+      "access": "public reference; bytes not verified by Frontier",
+      "content_available": false,
+      "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "license": "CC-BY-4.0",
+      "locator": "section: Fixtures",
+      "source_version": "fixture-v1",
+      "uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md"
+     },
+     "statement": "FIXTURE STATEMENT v2.",
+     "title": "Protocol fixture, not scientific data"
+    },
+    "predecessor": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd",
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
+    "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f",
+    "visibility": "public"
+   },
+   "target_is_head": true
+  },
+  "private_public_read": "Missing: Exact record version unavailable"
+ },
+ "meta": {
+  "frontier_commit": "42cd967a97becefbb1ce67f43ce4be953ce1ec09",
+  "generated_at": "2026-10-31T16:45:41Z",
+  "note": "All reviews in these fixtures are software workflow controls on a throwaway database; none is a scientific review.",
+  "refs": {
+   "c1": {
+    "id": "pub-fixture-claim",
+    "kind": "Claim",
+    "namespace": "node-a",
+    "version": "01ee3403cf4af29f88ee82feeac04e1dd41d52206dccc20d680832463631b2cd"
+   },
+   "c2": {
+    "id": "pub-fixture-claim",
+    "kind": "Claim",
+    "namespace": "node-a",
+    "version": "f45d3bca7a9e9946f011c617866d09342f3076be27ab80f0ccf9ebb4e02b6a9f"
+   },
+   "cb": {
+    "id": "imported-fixture-claim",
+    "kind": "Claim",
+    "namespace": "node-b",
+    "version": "902c18946647196f0aaf40798c3bf3b8dffe037a776d51123ee6149058013da3"
+   },
+   "r1": {
+    "id": "175339c7-6585-4647-b172-21dc157e177e",
+    "kind": "Assessment",
+    "namespace": "node-a",
+    "version": "ad0e6a3ef7a0659211585d45f63956dc9abed6a6df652f6ed05048ad0bd04361"
+   },
+   "r2": {
+    "id": "c102b27d-ef06-41d6-b343-0e5ed0c22259",
+    "kind": "Assessment",
+    "namespace": "node-a",
+    "version": "4e785bb5c78b9135f83dc2394c5f688c188740878344da587d9cfa7290377027"
+   },
+   "r3": {
+    "id": "c9b357e3-013e-49b0-9633-838ea692dab1",
+    "kind": "Assessment",
+    "namespace": "node-a",
+    "version": "b2252605d0b1c8badb12d1609b81d01e7cbf01674182dcc4541638c2568a8b32"
+   },
+   "ri": {
+    "id": "06c03382-f145-446f-9fce-0506b058e0a9",
+    "kind": "Assessment",
+    "namespace": "node-a",
+    "version": "1b84ba98a5969bbf19247b0bb2f29da78f3c20433575d34d3759eb87b3ee9055"
+   }
+  }
+ },
+ "private_records": {
+  "assessment": {
+   "created_at": "2026-10-31T16:45:41.119945+00:00",
+   "id": "6fb6b884-cf5f-4f6f-822e-c92353018c34",
+   "issuer": "bob",
+   "kind": "Assessment",
+   "namespace": "node-a",
+   "payload": {
+    "decision": "accepted",
+    "dimensions": {
+     "applicability": {
+      "evidence_links": [],
+      "rationale": "Workflow-control rationale for applicability; not a scientific review.",
+      "reviewer": "bob",
+      "status": "passed"
+     },
+     "computational_replay_formal_check": {
+      "evidence_links": [],
+      "rationale": "Workflow-control rationale for computational_replay_formal_check; not a scientific review.",
+      "reviewer": "bob",
+      "status": "passed"
+     },
+     "empirical_relevance": {
+      "evidence_links": [],
+      "rationale": "Workflow-control rationale for empirical_relevance; not a scientific review.",
+      "reviewer": "bob",
+      "status": "not_applicable"
+     },
+     "independent_replication": {
+      "evidence_links": [],
+      "rationale": "Workflow-control rationale for independent_replication; not a scientific review.",
+      "reviewer": "bob",
+      "status": "not_applicable"
+     },
+     "source_fidelity": {
+      "evidence_links": [],
+      "rationale": "Workflow-control rationale for source_fidelity; not a scientific review.",
+      "reviewer": "bob",
+      "status": "passed"
+     },
+     "statistical_adequacy": {
+      "evidence_links": [],
+      "rationale": "Workflow-control rationale for statistical_adequacy; not a scientific review.",
+      "reviewer": "bob",
+      "status": "passed"
+     },
+     "target_fidelity": {
+      "evidence_links": [],
+      "rationale": "Workflow-control rationale for target_fidelity; not a scientific review.",
+      "reviewer": "bob",
+      "status": "passed"
+     }
+    },
+    "independence_rationale": "Separate configured operator in a throwaway fixture node.",
+    "limitations": [
+     "Exercises the publication workflow only."
+    ],
+    "policy_version": "frontier-independent-review-0.1",
+    "target": {
+     "id": "pub-fixture-private",
+     "kind": "Claim",
+     "namespace": "node-a",
+     "version": "0dc9e88f28f33d82b2d00bc39df80e2e2d197084a22fb9227d1fc878629bbfec"
+    }
+   },
+   "predecessor": null,
+   "schema_version": "frontier-record-0.1",
+   "source_uri": "urn:frontier:local-review",
+   "version": "fdfbd76d2a1128ab2c9a262adfd8a8ee99e96429fa35b971be823e19c114907e",
+   "visibility": "private"
+  },
+  "target": {
+   "created_at": "2026-10-31T16:45:41.088682+00:00",
+   "id": "pub-fixture-private",
+   "issuer": "alice",
+   "kind": "Claim",
+   "namespace": "node-a",
+   "payload": {
+    "assumptions": [
+     "The fixture is a stand-in for a real claim."
+    ],
+    "context": "Software protocol test of the Frontier publication layer; no empirical content.",
+    "limitations": [
+     "Not measured evidence.",
+     "Reviews on it are workflow controls."
+    ],
+    "source": {
+     "access": "public reference; bytes not verified by Frontier",
+     "content_available": false,
+     "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+     "license": "CC-BY-4.0",
+     "locator": "section: Fixtures",
+     "source_version": "fixture-v1",
+     "uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md"
+    },
+    "statement": "PRIVATE FIXTURE.",
+    "title": "Protocol fixture, not scientific data"
+   },
+   "predecessor": null,
+   "schema_version": "frontier-record-0.1",
+   "source_uri": "https://github.com/kganjam/delphi-evolve/blob/main/docs/frontier-publication-layer.md",
+   "version": "0dc9e88f28f33d82b2d00bc39df80e2e2d197084a22fb9227d1fc878629bbfec",
+   "visibility": "private"
+  }
+ }
+}

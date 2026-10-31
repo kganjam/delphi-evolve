@@ -1,7 +1,7 @@
 {
  "role": "collab",
  "status": "in_progress: service built and tested; nanopub publication PREPARED (unsigned drafts, local-only signing check), NOTHING published; service not yet publicly hosted; no external use recorded",
- "updated_seattle": "2026-10-31 07:45 PDT",
+ "updated_seattle": "2026-10-31 09:55 PDT",
  "model": "Claude Sonnet 5.5 (existing Max subscription via Claude Code); no metered API spend, no GPU job, no subagents, no cloud resources created",
  "branch": "work/collab",
  "code_commit": "bb9d6a4 (falsify/, tests/test_falsify.py); docs + this receipt committed on top",
@@ -217,5 +217,70 @@
    "Lean receipts not available from a pip-installed copy"
   ],
   "not_checked": "Mueller 2012 / Kuhn 2022 figures cited by the director are not verified here"
+ },
+ "frontier_publication_layer": {
+  "assignment": "HOST (claude-15) 2026-10-31: publication layer for the Frontier store (design binding, ASK passages, build against TEST registry only, implemented vs designed). HOST later withdrew acceptance authority; this is single-reader, not Codex-reviewed.",
+  "status": "prepared_not_published",
+  "frontier_pin": "kganjam/delphi-frontier 42cd967a97becefbb1ce67f43ce4be953ce1ec09 (read via git archive; nothing written there)",
+  "files": [
+   "frontier_pub/",
+   "tests/test_frontier_pub.py",
+   "tests/fixtures/frontier_pub/bundles.json",
+   "scripts/frontier_pub_pg.sh",
+   "scripts/frontier_pub_make_fixtures.py",
+   "docs/frontier-publication-layer.md",
+   "pyproject.toml (additive: package list)"
+  ],
+  "commands_run": [
+   {
+    "cmd": "bash scripts/frontier_pub_pg.sh python3 scripts/frontier_pub_make_fixtures.py tests/fixtures/frontier_pub 42cd967a97be… (bounded systemd scope, private throwaway PostgreSQL 16)",
+    "exit": 0,
+    "note": "first run mistakenly passed a made-up commit string into fixture metadata; caught, rerun with the real full hash from git rev-parse; fixtures regenerated"
+   },
+   {
+    "cmd": "FRONTIER_SRC=<extract of 42cd967> python3 -m pytest tests/test_frontier_pub.py -q -p no:cacheprovider (bounded)",
+    "exit": 0,
+    "result": "59 passed"
+   },
+   {
+    "cmd": "six guard-removal mutations of binding/registry/ledger, each followed by the suite",
+    "result": "each made at least one test fail; baseline 58 passed 1 skipped without FRONTIER_SRC"
+   },
+   {
+    "cmd": "python3 -m pytest tests/test_falsify_nanopub.py -q (bounded)",
+    "exit": 0,
+    "result": "12 passed"
+   }
+  ],
+  "implemented": [
+   "Claim/Problem accepted-assessment -> TriG draft with seven separate dimension reviews, no composite, issuer/operator/node namespace/version digests preserved",
+   "independent re-verification of Frontier record digests and the node's own review rules",
+   "local signing (key outside repo) + independent verification + tamper control",
+   "ledger with supersession chain and no-fork guard; status-change (dispute) correction",
+   "test-registry publisher behind a user-authorization record, exercised only on a loopback fake",
+   "read-only collector over Store and loopback HTTP read endpoints"
+  ],
+  "designed_not_built": [
+   "Action/Evidence/other kinds",
+   "retraction trigger from Frontier events",
+   "propagation to dependents (ASK p.5)",
+   "remote chain-head check via Nanopub Query",
+   "time anchoring",
+   "signing identity",
+   "MCP reader"
+  ],
+  "limitations": [
+   "No real registry was contacted; POST content type and status-document flag name are not verified against a real registry",
+   "fixtures are fake claims with workflow-control reviews",
+   "ASK paper text could not be matched to its PDF hash (LFS pointer)",
+   "profile IRI points at a doc that is not yet on main"
+  ],
+  "needs_user": [
+   "authorize (or not) any test-registry publication, with the user's own words",
+   "signing identity ADR-0005",
+   "licence and third-party policy",
+   "merge docs/frontier-publication-layer.md to main before any publish",
+   "time anchor"
+  ]
  }
 }
