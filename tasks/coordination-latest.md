@@ -7,7 +7,7 @@
 - [x] Resources: GPU, OpenResearch, Gemini and structure calls have receipts; low-confidence structures are not functional designs.
 - [x] Presentation: final deck, PDF, notes, video and provenance exist.
 - [x] Turing and five-size prior follow-ups complete and separately checked.
-- [ ] Final Site deployment and downloadable submission bundle. Actual competition upload requires organizer access; no submission receipt exists.
+- [x] Final Site deployment and downloadable submission bundle published; receipts in artifacts/integration/publication.json. Actual competition upload requires organizer access; no submission receipt exists.
 
 Current handoff is `HANDOFF.md`; historical intermediate failures remain below for provenance, not as current blockers.
 

@@ -1,0 +1,41 @@
+{
+  "status": "published",
+  "site": {
+    "project_id": "appgprj_6ae59218f46881919bfa1a9b98b7d1a5",
+    "deployment_id": "appgdep_6ae5b44e615c81918e745ef2208a5560",
+    "version_id": "appgprj_6ae59218f46881919bfa1a9b98b7d1a5~appgver_becefe304fe08191bb515b33a6a6143e",
+    "url": "https://delphi-evolve.lefthill1.chatgpt.site",
+    "status": "succeeded",
+    "updated_at": "2026-10-31T09:26:43.743879+00:00",
+    "source_commit": "d169346e7ac1dcb36b02a531cb8ede65a710827b"
+  },
+  "github_release": "https://github.com/kganjam/delphi-evolve/releases/tag/v0.1.0-hackathon",
+  "github_release_id": 429838368,
+  "package": {
+    "source_commit": "3b93163b0f5f8549725f65d9a140b5e07dfb25b5",
+    "bytes": 3742799,
+    "sha256": "59e79b448e8c6c72c9c69763b941db5eebc224328e7098ad81497448ebf9650b",
+    "files": 71,
+    "integrity_checked": true
+  },
+  "assets": [
+    {
+      "name": "deck.pdf",
+      "sha256": "c73f064da4d95da73bf9a3fb48e2115771a45450dc90ddbe8236af79c358743a"
+    },
+    {
+      "name": "darwins-bridge-walkthrough.mp4",
+      "sha256": "465c577c7feea656a62f43a4f3cab4bc410bb5101c9c78818a71bcfa1c5ad394"
+    }
+  ],
+  "verification": "Site tool returned succeeded. GitHub release API reported all three uploaded assets with sizes and SHA-256 digests matching local artifacts. Bundle integrity checked after creation. Main release tree matched packaged source tree.",
+  "audience": {
+    "site": "owner-private",
+    "github": "public"
+  },
+  "competition_submission": "not performed; no organizer upload credentials or submission receipt",
+  "limitations": [
+    "Publication proves artifact availability, not scientific validity.",
+    "The static bundle retains the handoff at packaging time; current repository STATUS.md records subsequent publication."
+  ]
+}

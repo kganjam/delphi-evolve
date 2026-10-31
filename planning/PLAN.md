@@ -120,7 +120,7 @@ These were planned hour allocations, not measured durations. Checkmarks below re
 - [x] H10–14: complete ablations, uncertainty/sensitivity results, mutation proof checks; no new product scope.
 - [x] H14–18: results integrated into site, draft nanopubs validated, CLI/API another team can run, replay video and slides.
 - [x] H18–22: fresh checkout reproduction; leakage and claims audit; factual blog, 3-minute pitch rehearsal, fallback recording.
-- [ ] H22–24: freeze scientific results, verify links and artifacts, package submission. Leave actual human presentation/submission steps explicit if no submission credentials exist.
+- [x] H22–24: freeze scientific results, verify links and artifacts, package submission. Leave actual human presentation/submission steps explicit if no submission credentials exist.
 
 ## Pitch and venture
 

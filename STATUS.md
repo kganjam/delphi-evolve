@@ -12,7 +12,7 @@
 - [x] Log an actual OpenResearch experiment.
 - [x] Build interactive site, blog, three-minute pitch and video storyboard from measured outputs.
 - [x] Complete fresh-checkout reproduction and final six-slide deck / 90-second video.
-- [ ] Publish the final Site and downloadable submission bundle (packaging in progress).
+- [x] Final Site published; public downloadable submission bundle released.
 - [x] Complete and audit the stronger LazySP baseline and five-size/prior ablation; negative findings retained.
 - [x] Complete the bounded Turing domain/applicability example; generic-law mutations rejected.
 - [x] Produce reusable evidence/nanopub bundle. Public-network publication remains distinct from a local draft.
@@ -54,8 +54,18 @@ Initial owner-private Site deployed: https://delphi-evolve.lefthill1.chatgpt.sit
 - [x] Six PDF pages, 385 spoken words, no slide overflow; desktop/mobile site smoke has no console/page/request errors or horizontal overflow.
 - [x] Actual claim adapters and Turing example integrated; public nanopub publication and external team reuse are unperformed.
 - [x] Requested GitHub write invitations issued; five invitations remain pending acceptance.
-- [ ] Final publication receipt and download bundle.
+- [x] Final publication receipt and download bundle. See artifacts/integration/publication.json.
 
 Known scientific limit: independently held-out biological validation called for by the original contract was not achieved. Both replicates inform the sensitivity calibration. We disclose this unmet condition; we do not replace it with descriptive replicate agreement. No wet-lab or broad biological-validity claim is released.
 
 Handoff: `HANDOFF.md`. The original timestamped integration log above is historical; its remaining-work statements are superseded by this checkpoint.
+
+## Publication completed — 2026-10-31 02:28 PDT
+
+- [x] Final owner-private Site deployment succeeded: https://delphi-evolve.lefthill1.chatgpt.site .
+- [x] Public release: https://github.com/kganjam/delphi-evolve/releases/tag/v0.1.0-hackathon . Includes 71-file static ZIP, six-slide PDF, and 90-second MP4. GitHub asset digests match local files.
+- [x] The canonical checkout at /home/ubuntu/git/delphi-evolve was fast-forwarded to the integrated main tree while retaining its task branch.
+- [x] All ten owned scale jobs were COMPLETED; the scale worker scope is inactive. No GPU job or autonomous follow-up is left running by this release.
+- [ ] Organizer submission and live presentation remain external actions; see HANDOFF.md.
+
+The prototype deliverables are complete. The scientific limits above remain unresolved findings, not quietly waived acceptance criteria. The original integrator and presentation reports are retained with explicit coordinator supersession.

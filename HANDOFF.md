@@ -6,7 +6,7 @@
 
 - [x] Six-slide [PDF](presentation/deck.pdf) and [HTML deck](presentation/deck.html), with [385-word speaker notes](presentation/speaker-notes.md).
 - [x] [90-second captioned walkthrough](presentation/video/darwins-bridge-walkthrough.mp4). It is silent; use it as a fallback demonstration, not an additional three-minute talk. Its manifest pins the earlier recording source; the latest PDF includes the later GPU comparison.
-- [x] [Interactive Site](https://delphi-evolve.lefthill1.chatgpt.site) retains owner-private access. The [public repository](https://github.com/kganjam/delphi-evolve) and downloadable release do not require Site access.
+- [x] [Interactive Site](https://delphi-evolve.lefthill1.chatgpt.site) retains owner-private access. The [public repository](https://github.com/kganjam/delphi-evolve) and [downloadable release](https://github.com/kganjam/delphi-evolve/releases/tag/v0.1.0-hackathon) do not require Site access.
 - [x] [Blog](docs/blog.md), [company hypothesis and pilot](docs/company-hypothesis.md), [20 → 10 → 3 → 1 plan](planning/PLAN.md), and [scientific appendix](presentation/appendix.md).
 - [ ] Actual competition upload and live presentation: no submission receipt or organizer upload credentials were available. The public schedule says slides due November 1 at 1pm Boston time, which is **10am PST (UTC−8)** in Seattle; presentations start **11:30am PST**. Confirm organizer instructions before presenting. [Official schedule](https://scienceclawhack.ai/).
 
