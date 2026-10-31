@@ -180,5 +180,11 @@
   "verification": "verify_key.py 136/136 (same author)",
   "diff": "scopedesk/bench/v1_1/V1_TO_V1_1_DIFF.md",
   "status": "not frozen: Codex audit of v1.1 and blinded different-session audit pending"
+ },
+ "leakage_audit_v1_1": {
+  "script": "scopedesk/bench/v1_1/leakage_audit.py",
+  "output": "scopedesk/bench/v1_1/leakage_audit.json",
+  "result": "TF-IDF word 1-2gram and char 3-5gram logistic, leave-one-family-out: full text 0.463/0.456, stem-only 0.412/0.412 vs within-family majority 0.515 -> wording does not transfer across families as a label cue",
+  "limits": "within-family cues exist by construction (e.g. 'logistic' -> applies, 'bistable' -> out_of_scope in the KPP family are the semantic input; 'what' for the missing-cost Hawk-Dove items); 16 items per family too few for within-family leakage CV; second-reader phrasing review NOT done (needs a reviewer)"
  }
 }
