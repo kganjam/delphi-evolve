@@ -63,6 +63,21 @@ def emit_blob(name, raw: bytes):
     print("RESULT_END " + name, flush=True)
 
 
+def backup_to_bucket(src, dst_dir):
+    """Sequential copy to the mounted bucket (the mount rejects seek-back writes such as np.savez).
+    A failure here is logged, never fatal: the log channel carries the compact results."""
+    import shutil
+    try:
+        os.makedirs(dst_dir, exist_ok=True)
+        dst = os.path.join(dst_dir, os.path.basename(src))
+        with open(src, "rb") as f, open(dst, "wb") as g:
+            shutil.copyfileobj(f, g, 1 << 22)
+        return True
+    except Exception as e:  # noqa: BLE001
+        log("bucket_backup_failed", src=src, error=repr(e))
+        return False
+
+
 def npz_bytes(**arrays):
     buf = io.BytesIO()
     np.savez_compressed(buf, **arrays)
@@ -283,9 +298,12 @@ def parity(tk, n, bs, n_thr, out_dir):
            "throughput_single_pass": thr,
            "note": "Differences are numerical (bf16/TE kernels); the bf16-vs-fp32 plain row is the noise floor."}
     log("parity_result", **rec)
-    os.makedirs(out_dir, exist_ok=True)
-    json.dump(rec, open(os.path.join(out_dir, "parity.json"), "w"), indent=1)
     print("RESULT_JSON parity " + json.dumps(rec), flush=True)
+    try:
+        os.makedirs(out_dir, exist_ok=True)
+        json.dump(rec, open(os.path.join(out_dir, "parity.json"), "w"), indent=1)
+    except Exception as e:  # noqa: BLE001
+        log("bucket_write_failed", name="parity.json", error=repr(e))
     return rec
 
 
@@ -326,7 +344,8 @@ def main_stage(tk, out_dir, shard, bs, max_variants, max_minutes, pca_k, emit_lo
     import torch
     model = load_model("te_bf16")
     perm = R.permuted_order()[:max_variants]
-    shard_dir = os.path.join(out_dir, "shards")
+    shard_dir = "/tmp/shards_local"                      # local disk: np.savez needs seekable files
+    bucket_shards = os.path.join(out_dir, "shards")
     os.makedirs(shard_dir, exist_ok=True)
     with torch.inference_mode():
         wt_tab = wt_masked_table(model, tk)
@@ -350,6 +369,7 @@ def main_stage(tk, out_dir, shard, bs, max_variants, max_minutes, pca_k, emit_lo
         tmp = path + ".tmp.npz"
         np.savez(tmp, variant_index=lin.astype(np.int32), **r)
         os.replace(tmp, path)
+        backup_to_bucket(path, bucket_shards)
         completed.append(k)
         done_v += len(lin)
         el = time.time() - t_start
@@ -386,13 +406,19 @@ def main_stage(tk, out_dir, shard, bs, max_variants, max_minutes, pca_k, emit_lo
     summary["unique_variants"] = int(len(np.unique(vi)))
     summary["genotype_first5"] = [str(geno[i]) for i in vi[:5]]
     pub = os.path.join(out_dir, "compact")
-    os.makedirs(pub, exist_ok=True)
     manifest = {}
     for name, raw in arts.items():
-        open(os.path.join(pub, name), "wb").write(raw)
+        try:
+            os.makedirs(pub, exist_ok=True)
+            open(os.path.join(pub, name), "wb").write(raw)        # sequential write; fine on the bucket mount
+        except Exception as e:  # noqa: BLE001
+            log("bucket_write_failed", name=name, error=repr(e))
         manifest[name] = {"bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest()}
     summary["compact_artifacts"] = manifest
-    json.dump(summary, open(os.path.join(out_dir, "summary.json"), "w"), indent=1)
+    try:
+        json.dump(summary, open(os.path.join(out_dir, "summary.json"), "w"), indent=1)
+    except Exception as e:  # noqa: BLE001
+        log("bucket_write_failed", name="summary.json", error=repr(e))
     print("RESULT_JSON main_summary " + json.dumps(summary), flush=True)
     if emit_logs:
         for name, raw in arts.items():

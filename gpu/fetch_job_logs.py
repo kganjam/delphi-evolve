@@ -22,6 +22,8 @@ def q(job, a, b):
                           "--until", b.isoformat(), "--tail", str(LIMIT), "--timestamps"],
                          capture_output=True, text=True, timeout=300)
     if out.returncode:
+        if "in the future" in out.stderr:
+            return []
         raise RuntimeError(out.stderr[:300])
     return out.stdout.splitlines()
 
@@ -41,7 +43,8 @@ def fetch(job, a, b, sink, depth=0):
 if __name__ == "__main__":
     job, s, e, out = sys.argv[1:5]
     sink = []
-    fetch(job, dt.datetime.fromisoformat(s), dt.datetime.fromisoformat(e), sink)
+    end = min(dt.datetime.fromisoformat(e), dt.datetime.now(dt.timezone.utc))   # never query the future
+    fetch(job, dt.datetime.fromisoformat(s), end, sink)
     seen, uniq = set(), []
     for line in sink:
         if line not in seen:
