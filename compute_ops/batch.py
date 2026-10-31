@@ -80,7 +80,7 @@ def create_argv(item: dict, name: str, base: Path, tmpdir: Path) -> list[str]:
     platform, preset = item.get("platform", platform), item.get("preset", preset)
     image = item.get("image", GPU_IMAGE if kind == "gpu" else CPU_IMAGE)
     timeout = item.get("timeout", "10m")
-    inner = max(30, parse_dur(timeout) - 120)
+    inner = int(item.get("inner_timeout_s") or max(30, parse_dur(timeout) - 120))    # item may shorten it (e.g. when the image pull eats the server timeout)
     py = item.get("python", "python3")
     argv_in = [py, item["script"], *map(str, item.get("args", []))]
     spec = {"item": item["id"], "argv": argv_in, "inner_timeout": inner,
