@@ -1,6 +1,6 @@
 {
  "role": "critic",
- "status": "memo-1, candidate-E red-team, fidelity probe and settled-science response delivered; awaiting director follow-up goal",
+ "status": "selection confirmed by director (DECISION.md commit 8ae62fc, 06:24 PDT: Scope Desk = candidate E narrowed, critic rank 1); critic assigned scopedesk/bench/ then independent oracle audit; awaiting scopedesk/SPEC.md interface contract",
  "model": "claude-sonnet-5-5 (subscription; metered spend unknown, none inferred)",
  "wall_time_pdt": "2026-10-31 06:00-06:20",
  "artifacts": [
@@ -85,8 +85,19 @@
   "prior-art statements mostly from search snippets; not exhaustive"
  ],
  "next_steps": [
-  "await director follow-up goal",
-  "independent second labeller for the 92-claim triage",
-  "red-team implementation headline once selected"
- ]
+  "wait for scopedesk/SPEC.md, then build scopedesk/bench/ in this worktree",
+  "reuse fidelity_probe refusal-as-verdict and mutant machinery",
+  "commit key+generator hash before any agent run"
+ ],
+ "director_confirmation": {
+  "commit": "8ae62fc on work/rethink-director",
+  "time_pdt": "2026-10-31 06:24",
+  "critic_assignment": "own scopedesk/bench/: instance generator, NL request renderer, answer-key hash, benign controls, B0 + retrieval baselines; then independent audit of oracle (not its own)",
+  "kill_times_pdt": {
+   "K-A": "12:30",
+   "K-B": "14:00",
+   "K-C": "14:00",
+   "K-D": "16:00"
+  }
+ }
 }
