@@ -1,0 +1,15 @@
+grid_double schnakenberg N=80 cells=2 steps<=58518 14.0s
+grid_double schnakenberg N=162 cells=2 steps<=40000 11.2s
+grid_double schnakenberg N=320 cells=3 steps<=75000 51.7s
+grid_double schnakenberg N=82 cells=3 steps<=40000 7.8s
+grid_double schnakenberg N=160 cells=2 steps<=40000 10.6s
+grid_double schnakenberg N=322 cells=1 steps<=75000 34.0s
+grid_double brusselator N=90 cells=2 steps<=40000 28.2s
+grid_double brusselator N=320 cells=2 steps<=40000 47.8s
+grid_double brusselator N=160 cells=2 steps<=40000 13.6s
+grid_double brusselator N=334 cells=1 steps<=75000 30.6s
+grid_double brusselator N=162 cells=1 steps<=53066 14.8s
+grid_double brusselator N=82 cells=2 steps<=47209 11.2s
+grid_double brusselator N=180 cells=1 steps<=40000 12.8s
+grid_double brusselator N=322 cells=2 steps<=40000 27.0s
+{"cells": 26, "arm": "grid_double", "device": "cpu", "seconds": 315.07506585121155, "torch": "2.11.0+cu130", "cuda": null}

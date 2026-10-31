@@ -1,0 +1,15 @@
+base schnakenberg N=40 cells=2 steps<=58518 12.9s
+base schnakenberg N=81 cells=2 steps<=40000 9.2s
+base schnakenberg N=160 cells=3 steps<=75000 20.6s
+base schnakenberg N=41 cells=3 steps<=40000 7.0s
+base schnakenberg N=80 cells=2 steps<=40000 8.4s
+base schnakenberg N=161 cells=1 steps<=75000 14.0s
+base brusselator N=45 cells=2 steps<=40000 8.9s
+base brusselator N=160 cells=2 steps<=40000 12.1s
+base brusselator N=80 cells=2 steps<=40000 10.4s
+base brusselator N=167 cells=1 steps<=75000 18.2s
+base brusselator N=81 cells=1 steps<=53066 10.7s
+base brusselator N=41 cells=2 steps<=47209 10.4s
+base brusselator N=90 cells=1 steps<=40000 7.1s
+base brusselator N=161 cells=2 steps<=40000 12.3s
+{"cells": 26, "arm": "base", "device": "cpu", "seconds": 162.1719789505005, "torch": "2.11.0+cu130", "cuda": null}

@@ -1,0 +1,15 @@
+dt_half schnakenberg N=40 cells=2 steps<=117036 22.8s
+dt_half schnakenberg N=81 cells=2 steps<=80000 13.4s
+dt_half schnakenberg N=160 cells=3 steps<=150000 44.6s
+dt_half schnakenberg N=41 cells=3 steps<=80000 13.9s
+dt_half schnakenberg N=80 cells=2 steps<=80000 18.5s
+dt_half schnakenberg N=161 cells=1 steps<=150000 70.1s
+dt_half brusselator N=45 cells=2 steps<=80000 28.3s
+dt_half brusselator N=160 cells=2 steps<=80000 24.9s
+dt_half brusselator N=80 cells=2 steps<=80000 18.5s
+dt_half brusselator N=167 cells=1 steps<=150000 42.5s
+dt_half brusselator N=81 cells=1 steps<=106132 24.9s
+dt_half brusselator N=41 cells=2 steps<=94418 17.7s
+dt_half brusselator N=90 cells=1 steps<=80000 17.6s
+dt_half brusselator N=161 cells=2 steps<=80000 36.5s
+{"cells": 26, "arm": "dt_half", "device": "cpu", "seconds": 394.28917121887207, "torch": "2.11.0+cu130", "cuda": null}
