@@ -1,5 +1,5 @@
 {
-  "status": "checks_completed_publication_in_progress",
+  "status": "completed",
   "scope": "Original integration runs retained; final scoped checks added below.",
   "recorded_at_seattle": "2026-10-31T01:15:57.710355-07:00",
   "code_head": "af9721efe9ca062646dbb3b222c65207d72da9f2",
@@ -66,5 +66,7 @@
       "Final source has targeted follow-up checks, not a second full clean-host rerun.",
       "No independent held-out biological validation or prospective measurement."
     ]
-  }
+  },
+  "publication_receipt": "artifacts/integration/publication.json",
+  "unperformed_external_action": "Competition upload/presentation; no organizer submission credentials or receipt"
 }
