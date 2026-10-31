@@ -599,6 +599,40 @@
      "5586efc"
     ]
    }
+  },
+  {
+   "id": "R21",
+   "claim": "Our Frontier seed questions and the morphoswarm open-problems register are actionable research content",
+   "stated_by": "codex-api (the seeds); host (the register framing)",
+   "kind": "design defect (measured against our own schema; single-reader, NOT Codex-reviewed)",
+   "claim_ref": [
+    "commit",
+    "5165177",
+    "rethink-critic"
+   ],
+   "kill_ref": [
+    "commit",
+    "4e10ce0",
+    "../delphi-frontier/foundation"
+   ],
+   "witness": "repo kganjam/delphi-frontier (local /data/worktrees/delphi-frontier/foundation), commit 4e10ce0: seeds/frontier-problems.json, git blob eeb8ccb033c4322a9a10e777363421c49f416c54, sha256 3bf14a9cfafcf44b348508914f00ff932254d3825be8c2f6a809cc26cc4e12ee (critic re-hashed both from the commit); ledger/README.md row 16 carries the reproduction command (dx-market validator, work/market). Reported by the host, not re-run by the critic: validator returns 0 of 7 bounded, 0 ready, 0 with a consequence estimate, 105 issues (missing 49, bad_enum 14, untyped_edge 14, bad_ref 14, unpinned 7, bad_estimate 7); 0 of 250 morphoswarm register problems can enter the Problem model (requires acceptance_criteria, falsifiers, next_action, cost_stop_bounds with no source field; extra=forbid; no unlocks field). Claim time = seeds authored 5165177 (work/codex-api, 08:20:56); kill time = commit 4e10ce0 (row recorded 09:30:48), i.e. when the finding was recorded, not when the validator first ran.",
+   "caught_by": "independent worker's validator (dx-market), re-run by host",
+   "allowed": "Says nothing about whether the 250 problems are good problems and nothing about any model's accuracy; a schema/curation defect in our own artifact, not a scientific finding.",
+   "claim_stated_pdt": "2026-10-31T08:20:56-07:00",
+   "kill_recorded_pdt": "2026-10-31T09:30:48-07:00",
+   "duration_min": 69.9,
+   "time_source": {
+    "claim": [
+     "commit",
+     "5165177",
+     "rethink-critic"
+    ],
+    "kill": [
+     "commit",
+     "4e10ce0",
+     "../delphi-frontier/foundation"
+    ]
+   }
   }
  ],
  "measured_matched_control": [
@@ -628,8 +662,8 @@
   }
  ],
  "summary": {
-  "n_rows": 20,
-  "n_with_both_times": 18,
+  "n_rows": 21,
+  "n_with_both_times": 19,
   "method": "kill_recorded - claim_stated in minutes, only where both times are derivable and ordered; times are file mtimes (messages) or git commit times; mtime = last modification, commit time = commit not utterance, so durations are rough, may be inflated or deflated, and rows differ in kind (prior-art lookups, audits, measurements)",
   "durations_min_by_row": {
    "R01": 10.7,
@@ -649,11 +683,12 @@
    "R16": 30.9,
    "R18": 13.7,
    "R19": 2.4,
-   "R20": 3.2
+   "R20": 3.2,
+   "R21": 69.9
   },
-  "median_min": 11.899999999999999,
+  "median_min": 13.1,
   "min_min": 2.4,
-  "max_min": 33.2,
+  "max_min": 69.9,
   "reading": "descriptive of THIS team on THIS day; not a rate, not generalisable; do not put the median on a slide without n and method and without the not-derivable rows",
   "kind_counts": {
    "prior art": 7,
@@ -664,7 +699,7 @@
    "process defect": 1
   },
   "caught_by_independent_vs_author": {
-   "independent": 17,
+   "independent": 18,
    "author_only": 3
   }
  },
