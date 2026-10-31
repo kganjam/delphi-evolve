@@ -1,0 +1,112 @@
+{
+ "accept_version": "1.0",
+ "overall_pass": true,
+ "bench": "scopedesk/bench/v1_2",
+ "head_sha": "29a5c478b1ba54c806e402809bab2283cde0e567",
+ "branch": "work/rethink-director",
+ "tracked_tree_clean_at_start": true,
+ "python": "3.13.12",
+ "caps_used": true,
+ "started_wall_clock": "2026-10-31 07:46:08 PDT",
+ "total_seconds": 56.6,
+ "steps": [
+  {
+   "step": "a_bench_hashes",
+   "command": "internal sha256 re-computation of every scopedesk/bench/**/KEY.sha256",
+   "exit": 0,
+   "files_checked": 51,
+   "problems": [],
+   "required": true
+  },
+  {
+   "step": "b1_oracle_at5",
+   "command": "/home/ubuntu/miniconda3/bin/python3 -m scopedesk.oracles.at5 /tmp/claude-1000/-data-worktrees-delphi-evolve-rethink-nca/8356204c-797c-429c-a54a-d27845355b52/scratchpad/fresh/repo/scopedesk/bench/v1_2 /tmp/tmp57pa8ssc/at5.json acceptance run",
+   "capped_with": "systemd-run scope (TasksMax=128, MemoryMax=4G, MemorySwapMax=0, RuntimeMaxSec=600)",
+   "exit": 0,
+   "seconds": 1.5,
+   "output_tail": [
+    "turing_finite_domain 22 {'C0': '14/22', 'full': '22/22', 'record_removed': '14/22', 'record_hash_changed': '0/22', 'continuum_only': '14/22'} C0 wrong/full right: 8",
+    "turing_2d_rectangle 15 {'C0': '10/15', 'full': '15/15', 'record_removed': '10/15', 'record_hash_changed': '0/15', 'continuum_only': '10/15'} C0 wrong/full right: 5",
+    "wavelength_formula_licence 14 {'C0': '5/14', 'full': '14/14', 'record_removed': '5/14', 'record_hash_changed': '0/14', 'continuum_only': '10/14'} C0 wrong/full right: 9",
+    "ALL 51 {'C0': '29/51', 'full': '51/51', 'record_removed': '29/51', 'record_hash_changed': '0/51', 'continuum_only': '34/51'} C0 wrong/full right: 22"
+   ],
+   "required": true,
+   "summary": {
+    "n": 51,
+    "full_gate_agrees_with_key": 51,
+    "C0_agrees": 29,
+    "record_removed": 29,
+    "continuum_only": 34,
+    "record_hash_changed_refusals": 51,
+    "bench_files_sha256": {
+     "key.jsonl": "774f6a08bf77330b8d46dbcbc0fd7aef52da572921dd600c871228e418974c38",
+     "instances_full.jsonl": "fcfc0ae6db0a284f954fb254c275ded83112f048b909673324ccf157bd651a56"
+    }
+   }
+  },
+  {
+   "step": "b2_oracle_audit_v1_1",
+   "command": "/home/ubuntu/miniconda3/bin/python3 -m scopedesk.oracles.audit_v1_1 /tmp/claude-1000/-data-worktrees-delphi-evolve-rethink-nca/8356204c-797c-429c-a54a-d27845355b52/scratchpad/fresh/repo/scopedesk/bench/v1_1 /tmp/tmp57pa8ssc/audit_v1_1.json",
+   "capped_with": "systemd-run scope (TasksMax=128, MemoryMax=4G, MemorySwapMax=0, RuntimeMaxSec=600)",
+   "exit": 0,
+   "seconds": 0.3,
+   "output_tail": [
+    "   \"applies\": 9,",
+    "   \"out_of_scope\": 5,",
+    "   \"underdetermined\": 2",
+    "  }",
+    " },",
+    " \"wavelength_formula_licence\": {",
+    "  \"n\": 15,",
+    "  \"oracle_agree\": 15,",
+    "  \"conditions_agree\": 15",
+    " }",
+    "}",
+    "disagreements: []"
+   ],
+   "required": true,
+   "disagreements": 0
+  },
+  {
+   "step": "c_tests",
+   "command": "/home/ubuntu/miniconda3/bin/python3 -m pytest -q -W ignore::pytest.PytestUnknownMarkWarning -p no:cacheprovider tests/test_scopedesk_bench.py tests/test_scopedesk_bench_v1_1.py tests/test_scopedesk_bench_v1_2.py tests/test_scopedesk_oracles.py tests/test_rethink_nca.py tests/test_scopedesk_service_crosscheck.py",
+   "capped_with": "systemd-run scope (TasksMax=128, MemoryMax=4G, MemorySwapMax=0, RuntimeMaxSec=600)",
+   "exit": 0,
+   "seconds": 54.7,
+   "output_tail": [
+    "..................................                                       [100%]",
+    "34 passed in 52.18s"
+   ],
+   "required": true,
+   "tests_run": [
+    "tests/test_scopedesk_bench.py",
+    "tests/test_scopedesk_bench_v1_1.py",
+    "tests/test_scopedesk_bench_v1_2.py",
+    "tests/test_scopedesk_oracles.py",
+    "tests/test_rethink_nca.py",
+    "tests/test_scopedesk_service_crosscheck.py"
+   ]
+  },
+  {
+   "step": "d_lean_receipts",
+   "command": "internal consistency/hash verification of recorded receipts (Lean and Mathlib are NOT rebuilt)",
+   "exit": 0,
+   "notes": [
+    "turing_scope receipt ok=True build_exit=0 lean=Lean (version 4.35.0, x86_64-u",
+    "proof receipt status=completed compile_exit=0",
+    "certificate json present: core_kappa2_adm_cut_htgr_gtvn",
+    "certificate json present: trpb_blocked_delta005",
+    "certificate json present: trpb_blocked_multi_delta005",
+    "certificate json present: trpb_route_delta0",
+    "certificate json present: trpb_route_delta005"
+   ],
+   "problems": [],
+   "required": true
+  }
+ ],
+ "not_checked": [
+  "Lean/Mathlib not rebuilt (receipt hashes and exit codes only)",
+  "agent arms are not run by this script",
+  "oracle-vs-key agreement shares the bench convention document"
+ ]
+}
