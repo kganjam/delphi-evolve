@@ -1,0 +1,442 @@
+{
+ "summary_AA_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+ "kappa": 2.0,
+ "edge_checks": {
+  "directed_measured_pairs": 12032866,
+  "admissible_directed_edges_kappa2": 1612145,
+  "admissible_edges_where_at_least_one_replicate_decreases": 2748,
+  "admissible_edges_where_both_replicates_decrease": 0,
+  "admissible_edges_where_mean_decreases (should be 0)": 0,
+  "frac_admissible_with_replicate_reversal": 0.0017
+ },
+ "pair_base_rates": {
+  "closure_size_from_VFVS": 137,
+  "frac_of_measured_reachable_from_VFVS": 0.0009,
+  "top1pct_measured_by_mean_score_reachable_frac": 0.0861,
+  "published_targets_reachable": {
+   "AIKG": true,
+   "CLKG": true,
+   "VLKG": true,
+   "ALKG": true
+  },
+  "random_start_frac_of_better_genotypes_reachable_summary": {
+   "n_starts": 40,
+   "median": 0.0221,
+   "min": 0.0,
+   "max": 0.1517
+  }
+ },
+ "noise_from_96_sample": {
+  "sd_from_all_159129 (what the benchmark hardcodes, recomputed)": [
+   0.01495,
+   0.01,
+   0.00585,
+   0.00299
+  ],
+  "hardcoded": [
+   0.014953,
+   0.009995,
+   0.005851,
+   0.002992
+  ],
+  "per_seed_96_sample_bin_n_and_sd": [
+   [
+    {
+     "n": 5,
+     "sd": 0.00918
+    },
+    {
+     "n": 6,
+     "sd": 0.01534
+    },
+    {
+     "n": 41,
+     "sd": 0.00512
+    },
+    {
+     "n": 44,
+     "sd": 0.00244
+    }
+   ],
+   [
+    {
+     "n": 4,
+     "sd": 0.00542
+    },
+    {
+     "n": 10,
+     "sd": 0.01133
+    },
+    {
+     "n": 52,
+     "sd": 0.00533
+    },
+    {
+     "n": 30,
+     "sd": 0.00234
+    }
+   ],
+   [
+    {
+     "n": 0,
+     "sd": null
+    },
+    {
+     "n": 11,
+     "sd": 0.00684
+    },
+    {
+     "n": 39,
+     "sd": 0.00508
+    },
+    {
+     "n": 46,
+     "sd": 0.00348
+    }
+   ],
+   [
+    {
+     "n": 3,
+     "sd": 0.01923
+    },
+    {
+     "n": 11,
+     "sd": 0.00815
+    },
+    {
+     "n": 49,
+     "sd": 0.00545
+    },
+    {
+     "n": 33,
+     "sd": 0.00231
+    }
+   ],
+   [
+    {
+     "n": 5,
+     "sd": 0.0053
+    },
+    {
+     "n": 11,
+     "sd": 0.00884
+    },
+    {
+     "n": 41,
+     "sd": 0.00659
+    },
+    {
+     "n": 39,
+     "sd": 0.00258
+    }
+   ],
+   [
+    {
+     "n": 2,
+     "sd": null
+    },
+    {
+     "n": 9,
+     "sd": 0.00775
+    },
+    {
+     "n": 53,
+     "sd": 0.00639
+    },
+    {
+     "n": 32,
+     "sd": 0.00275
+    }
+   ],
+   [
+    {
+     "n": 1,
+     "sd": null
+    },
+    {
+     "n": 11,
+     "sd": 0.01122
+    },
+    {
+     "n": 43,
+     "sd": 0.00631
+    },
+    {
+     "n": 41,
+     "sd": 0.00347
+    }
+   ],
+   [
+    {
+     "n": 2,
+     "sd": null
+    },
+    {
+     "n": 10,
+     "sd": 0.0134
+    },
+    {
+     "n": 40,
+     "sd": 0.00509
+    },
+    {
+     "n": 44,
+     "sd": 0.00263
+    }
+   ],
+   [
+    {
+     "n": 4,
+     "sd": 0.01901
+    },
+    {
+     "n": 17,
+     "sd": 0.00931
+    },
+    {
+     "n": 43,
+     "sd": 0.00555
+    },
+    {
+     "n": 32,
+     "sd": 0.00227
+    }
+   ],
+   [
+    {
+     "n": 3,
+     "sd": 0.00649
+    },
+    {
+     "n": 14,
+     "sd": 0.01006
+    },
+    {
+     "n": 40,
+     "sd": 0.00647
+    },
+    {
+     "n": 39,
+     "sd": 0.00264
+    }
+   ],
+   [
+    {
+     "n": 2,
+     "sd": null
+    },
+    {
+     "n": 20,
+     "sd": 0.01163
+    },
+    {
+     "n": 33,
+     "sd": 0.0063
+    },
+    {
+     "n": 41,
+     "sd": 0.00303
+    }
+   ],
+   [
+    {
+     "n": 1,
+     "sd": null
+    },
+    {
+     "n": 12,
+     "sd": 0.00915
+    },
+    {
+     "n": 43,
+     "sd": 0.00604
+    },
+    {
+     "n": 40,
+     "sd": 0.00345
+    }
+   ],
+   [
+    {
+     "n": 5,
+     "sd": 0.01098
+    },
+    {
+     "n": 19,
+     "sd": 0.00986
+    },
+    {
+     "n": 39,
+     "sd": 0.00556
+    },
+    {
+     "n": 33,
+     "sd": 0.00275
+    }
+   ],
+   [
+    {
+     "n": 3,
+     "sd": 0.01313
+    },
+    {
+     "n": 10,
+     "sd": 0.00651
+    },
+    {
+     "n": 43,
+     "sd": 0.00464
+    },
+    {
+     "n": 40,
+     "sd": 0.00244
+    }
+   ],
+   [
+    {
+     "n": 4,
+     "sd": 0.01942
+    },
+    {
+     "n": 12,
+     "sd": 0.01057
+    },
+    {
+     "n": 51,
+     "sd": 0.00629
+    },
+    {
+     "n": 29,
+     "sd": 0.00354
+    }
+   ],
+   [
+    {
+     "n": 2,
+     "sd": null
+    },
+    {
+     "n": 15,
+     "sd": 0.0084
+    },
+    {
+     "n": 50,
+     "sd": 0.00693
+    },
+    {
+     "n": 29,
+     "sd": 0.00299
+    }
+   ],
+   [
+    {
+     "n": 5,
+     "sd": 0.01463
+    },
+    {
+     "n": 17,
+     "sd": 0.01044
+    },
+    {
+     "n": 40,
+     "sd": 0.00567
+    },
+    {
+     "n": 34,
+     "sd": 0.00334
+    }
+   ],
+   [
+    {
+     "n": 1,
+     "sd": null
+    },
+    {
+     "n": 15,
+     "sd": 0.00999
+    },
+    {
+     "n": 40,
+     "sd": 0.00619
+    },
+    {
+     "n": 40,
+     "sd": 0.00321
+    }
+   ],
+   [
+    {
+     "n": 6,
+     "sd": 0.00871
+    },
+    {
+     "n": 9,
+     "sd": 0.00734
+    },
+    {
+     "n": 45,
+     "sd": 0.00527
+    },
+    {
+     "n": 36,
+     "sd": 0.0024
+    }
+   ],
+   [
+    {
+     "n": 1,
+     "sd": null
+    },
+    {
+     "n": 16,
+     "sd": 0.00957
+    },
+    {
+     "n": 47,
+     "sd": 0.00564
+    },
+    {
+     "n": 32,
+     "sd": 0.00374
+    }
+   ]
+  ],
+  "bins_with_fewer_than_5_obs_in_96_sample_frac_of_seed_bins": 0.188
+ },
+ "shard_checks": {
+  "empty_rows_shards": 0,
+  "populated_shards": 59,
+  "q2c_truth_open_episodes_seeds_with_rows": 31,
+  "truth_shortest_route_len_minus_hamming_counts": {
+   "1": 16,
+   "2": 15
+  },
+  "greedy_seed00_B_VFVS>AIKG_first_25_queried_genotypes": [
+   "AFVS",
+   "CFVS",
+   "DFVS",
+   "EFVS",
+   "FFVS",
+   "GFVS",
+   "HFVS",
+   "IFVS",
+   "KFVS",
+   "LFVS",
+   "MFVS",
+   "NFVS",
+   "PFVS",
+   "QFVS",
+   "RFVS",
+   "SFVS",
+   "IAVS",
+   "ICVS",
+   "IDVS",
+   "IEVS",
+   "IFAS",
+   "IFCS",
+   "IFDS",
+   "IFES",
+   "IFFS"
+  ]
+ }
+}

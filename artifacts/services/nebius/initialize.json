@@ -1,0 +1,25 @@
+{
+ "t_utc": "2026-10-31T07:29:16Z",
+ "t_seattle": "2026-10-31 00:29:16 PDT",
+ "result": {
+  "capabilities": {
+   "experimental": {},
+   "prompts": {
+    "listChanged": false
+   },
+   "resources": {
+    "listChanged": false,
+    "subscribe": false
+   },
+   "tools": {
+    "listChanged": false
+   }
+  },
+  "instructions": "Nebius Scientific AI. GROMACS: upload immutable inputs, submit once with an idempotency key, poll the returned operation ID, then retrieve validated artifacts. Never put large file contents into tool arguments. Status is not a scientific result. Each native App advertises its execution mode. Durable tools return an operation ID; poll it, and reuse the identical idempotency key after a lost admission response. Synchronous tools have no durable retry guarantee. Never retry inference with a new key after a timeout. Tools are filtered by current S2 availability.",
+  "protocolVersion": "2025-03-26",
+  "serverInfo": {
+   "name": "Nebius Scientific AI",
+   "version": "0.1.0"
+  }
+ }
+}

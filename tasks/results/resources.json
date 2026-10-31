@@ -1,0 +1,120 @@
+{
+ "role": "resources",
+ "branch": "work/resources",
+ "model": "Claude Sonnet 5.5 (subscription; no metered charge known)",
+ "updated_seattle": "2026-10-31 ~00:47 PDT",
+ "status": "completed",
+ "commit": "see git log on origin/work/resources",
+ "tasks": {
+  "gemini_client": {
+   "status": "done",
+   "path": "scientific_services/gemini_client.py"
+  },
+  "gemini_review": {
+   "status": "done",
+   "calls": 4,
+   "input_tokens": 82481,
+   "output_tokens_incl_thinking": 19108,
+   "models": [
+    "gemini-3.8-flash",
+    "gemini-3.1-pro-preview"
+   ],
+   "artifacts": "artifacts/services/gemini/",
+   "findings_doc": "docs/services.md section 2",
+   "verdict_summary": "confirmed: R1,R2,R2b(small),R4,R6,R7,R8,R12; confirmed-mechanism: R3; refuted-or-narrowed: R5(budget leak),R9(core),R15; unresolved: R3 conclusion,R10 effect,R14"
+  },
+  "gemini_shortlist_optional": {
+   "status": "done, unvalidated, one sample",
+   "artifact": "artifacts/services/gemini/shortlist_result.json"
+  },
+  "nebius_mcp_discovery": {
+   "status": "done",
+   "tools": 69,
+   "artifact": "artifacts/services/nebius/tools_list.json"
+  },
+  "structure_VFVS": {
+   "status": "succeeded, low confidence",
+   "operation_id": "op-5e3d2111a651d8dd",
+   "tool": "infer_openfold2_native",
+   "mean_plddt": 40.84,
+   "ptm": 0.263,
+   "ca_rmsd_to_crystal_A": 28.47,
+   "pdb": "artifacts/services/nebius/trpb_VFVS_openfold2.pdb"
+  },
+  "structure_AIKG": {
+   "status": "succeeded, low confidence",
+   "operation_id": "op-c03164a04e76c310",
+   "mean_plddt": 41.53,
+   "pdb": "artifacts/services/nebius/trpb_AIKG_openfold2.pdb"
+  },
+  "esmfold2": {
+   "status": "blocked",
+   "error": "INVALID_REQUEST: the scientific manifest requires verified inner artifacts",
+   "artifact": "artifacts/services/nebius/esmfold2fast_attempt_v0.json",
+   "note": "manifest content contract undocumented; not guessed further"
+  },
+  "structure_panel": {
+   "status": "built",
+   "path": "scientific_services/demo/structure.html",
+   "rendered_check": "headless chromium screenshot viewed; not copied into site/"
+  }
+ },
+ "commands_run": [
+  {
+   "cmd": "python3 -m scientific_services.discover_nebius",
+   "exit": 0
+  },
+  {
+   "cmd": "python3 -m scientific_services.probe_nebius esmfold2-fast esmfold2",
+   "exit": 0
+  },
+  {
+   "cmd": "python3 -m scientific_services.predict_structure --genotype VFVS",
+   "exit": 0
+  },
+  {
+   "cmd": "python3 -m scientific_services.predict_structure --genotype AIKG [first run missed operation.id], then --resume-op op-c03164a04e76c310",
+   "exit": 0
+  },
+  {
+   "cmd": "python3 -m scientific_services.run_review flash / flash _run2 / pro",
+   "exit": 0
+  },
+  {
+   "cmd": "python3 -m scientific_services.gemini_shortlist",
+   "exit": 0
+  },
+  {
+   "cmd": "python3 -m scientific_services.verify_review",
+   "exit": 0
+  },
+  {
+   "cmd": "python3 -m pytest tests/test_services.py -q",
+   "exit": 0,
+   "result": "14 passed"
+  },
+  {
+   "cmd": "python3 -m scientific_services.leak_scan",
+   "exit": 0,
+   "result": "clean"
+  }
+ ],
+ "limits": [
+  "structure is a low-confidence single-sequence OpenFold2 prediction and does not reproduce the crystal fold",
+  "Gemini output is model opinion; verdicts are the worker's checks against code/data",
+  "review saw core 8883518 and replay seeds 0-4; replay/code have since changed",
+  "billing for Gemini/Nebius not visible; no price invented",
+  "external reuse not observed"
+ ],
+ "next_steps": [
+  "integrator applies/decides proposed fixes in docs/services.md section 2",
+  "if Nebius documents the ESMFold2 manifest, retry esmfold2-fast with key delphi-evolve-structure-<hash>-esmfold2fast"
+ ],
+ "credentials": "read programmatically into headers only; leak_scan clean on artifacts/services, docs, scientific_services, tasks/results",
+ "status_detail": "All assigned deliverables produced; ESMFold2/ESMFold2-Fast blocked by an undocumented input manifest (optional, did not block the core); proposed core fixes are recommendations, none applied here",
+ "checks": {
+  "tests": "python3 -m pytest tests/test_services.py -q -> 14 passed (offline)",
+  "leak_scan": "clean on artifacts/services, docs, scientific_services, tasks/results",
+  "r1_empty_rows_bug": "fixed on work/integration 4398fad; core working tree fix observed uncommitted; replay regeneration in progress at last snapshot"
+ }
+}
