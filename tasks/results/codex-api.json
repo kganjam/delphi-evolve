@@ -1,10 +1,10 @@
 {
   "role": "codex-api",
-  "status": "Site ownership and component hashes coordinated; submit contains walkthrough unchanged; director final integration SHA pending; scientific evaluation gates retained",
-  "updated_at": "2026-10-31T07:33:58.971638-07:00",
+  "status": "New 21-record Lean arms held after pre-run review; offline verifier and budget defects reproduced; active-frontier pitch proposal ready for director and dx-submit",
+  "updated_at": "2026-10-31T07:46:35.971527-07:00",
   "branch": "work/codex-api",
-  "commit": "74120e3f24c323e7a0cb387953138a453678272e",
-  "goal": "Broader native goal stays paused. Targeted pre-run review completed without reopening selection; director retains integration/run authorization and primary retains native Sites.",
+  "commit": "491fdd285dcc490f3f66540aea96bdde9f80e0dc",
+  "goal": "Broader native goal remains paused. Completed the specifically assigned Lean pre-run review and user-requested open-problem/active-knowledge pitch proposal; director retains run/integration authority.",
   "checklist": [
     {
       "item": "Read complete handoff and governing files; establish persistent goal; notify coordinators",
@@ -73,6 +73,22 @@
     {
       "item": "Confirm Codex walkthrough/science and dx-submit presentation ownership; pin pushed component SHAs and director-only canonical publication handoff",
       "done": true
+    },
+    {
+      "item": "Review reassigned Lean experiment statements/preregistration against independently frozen 21-record Mathlib brief",
+      "done": true
+    },
+    {
+      "item": "Run bounded offline target-fidelity and token-reservation controls with pinned runner source; notify director and existing runner owner",
+      "done": true
+    },
+    {
+      "item": "Develop sourced active-frontier and community-coordination pitch around selected demonstration, preserving dx-submit ownership",
+      "done": true
+    },
+    {
+      "item": "Review a repaired runner plus independently frozen full Mathlib targets before any new prover arm",
+      "done": false
     }
   ],
   "commands_run": [
@@ -248,6 +264,26 @@
       "command": "Capped Python component hash/identity/link check against original browser receipt; git diff of protected walkthrough paths and root entry",
       "exit": 0,
       "result": "All four walkthrough files match original browser hashes across implementation, Codex, director and submit snapshots; script/receipt byte-identical; landing links to walkthrough; site/index.html remains baseline. No build/browser/deployment repeated."
+    },
+    {
+      "command": "git fetch origin work/guilds work/rethink-director work/rethink-critic; separate git fetch https://github.com/kganjam/admissible.git main:refs/remotes/admissible-review/main",
+      "exit": 0,
+      "result": "Pinned guilds feb5dbd and Admissible da88175. Admissible bench/module diff versus reviewed 469874b is empty."
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python scripts/review_lean_commons.py",
+      "exit": 0,
+      "result": "Lean 4.35.0 -j2: True control accepted; bare False rejected; frozen False plus global False premise accepted as False -> False without axioms. Ledger 60+60 accepted under 100 cap and records 120. Only PREREG hash mismatches freeze at feb5dbd. No model calls."
+    },
+    {
+      "command": "tmux send-keys literal message and Enter to existing director %51 and guilds %59",
+      "exit": 0,
+      "result": "Sent path to codex-lean-review-blocker.md with reproduced findings. Delivery into panes succeeds; acknowledgement not independently established."
+    },
+    {
+      "command": "Primary-source web search/open for ASK, OpenEvidence and SciDEX",
+      "exit": 0,
+      "result": "ASK primary abstract via indexed result; direct SSRN open403. Read OpenEvidence announcement and SciDEX project/quest descriptions; no independent audit of their execution or novelty claim."
     }
   ],
   "artifacts": [
@@ -292,7 +328,11 @@
     "planning/rethink/CODEX-AGENT-GATE-PRE-RUN-REVIEW.md",
     "artifacts/integration/codex-api/audit_benchmark_v1_2_changes.py",
     "artifacts/integration/codex-api/benchmark-v1-2-changes-review.json",
-    "artifacts/integration/codex-api/site-component-integrity.json"
+    "artifacts/integration/codex-api/site-component-integrity.json",
+    "scripts/review_lean_commons.py",
+    "artifacts/integration/codex-api/lean-commons-review/receipt.json",
+    "planning/rethink/CODEX-LEAN-EXPERIMENT-PRE-RUN-REVIEW.md",
+    "planning/rethink/ACTIVE-FRONTIER-PITCH-PROPOSAL.md"
   ],
   "limitations": [
     "Fresh Price/Hamilton Lean compile and witness controls exit0 with standard axioms; no additive-genetic Fisher FTNS or independent biological correspondence review.",
@@ -304,7 +344,10 @@
     "Price prior-art search is bounded; AFP check covers catalogue text, Rocq landing page is not all package source. Fisher projection remains a proposed statement, not compiled FTNS.",
     "v1.2 review is nonblinded and limited to changes; it is not a fresh full numerical/blinded audit. Greenhill density witnesses reuse a numerical root whose refinement delta is not a certified error bound.",
     "Inspected scoring conflates parser failure with underdetermined; no committed arms/preregistration at inspected electric revision. Old host 24/24 agreements have mismatched prompt/target and do not establish valid accuracy or a ceiling.",
-    "Ownership/component identity check does not approve new presentation science or visuals. Final integrated source SHA is not yet selected; the existing director publication request is provisional."
+    "Ownership/component identity check does not approve new presentation science or visuals. Final integrated source SHA is not yet selected; the existing director publication request is provisional.",
+    "Verifier controls apply to guilds feb5dbd git objects; no claim that historical model outputs used the added-assumption hole. Those outputs need replay under repaired acceptance criteria.",
+    "New 21-record Mathlib target freeze/preregistration remains unavailable/unapproved; existing 19-target integer experiment is a separate historical study.",
+    "Active-frontier design is a product proposal, not a deployed federation or proof of collective advantage; SciDEX/ASK already describe adjacent architecture."
   ],
   "next_steps": [
     "Keep broader native goal paused; preserve completed targeted work.",
@@ -313,7 +356,9 @@
     "Director reviews/integrates site/review at7f9035a and prepares exactSHA site-publish-request.json for primary; existingownerprivateSite only.",
     "Independent reader reviews Price/Hamilton correspondence before headline integration; Price staysappendixperFINALSHAPE.",
     "Host changes B0a to no single theorem target specified here and freezes full Fisher genetic-projection/partial-change semantics before a Fisher prover attempt; existing Price/Hamilton probe is not a blinded benchmark score.",
-    "Electric/director freeze independent answer-status schema, coverage/risk/utility and always-abstain/exact-checker/same-information controls plus actual prompt/tool boundary; preserve selected pitch and conditional robustness wording.",
-    "Director integrates dx-submit candidate 47590e9 with latest Codex reviews/ledger, obtains science/presentation and integrated-navigation checks, then supersedes the one canonical publication request with that exact pushed SHA. Package site/ and name the intended landing route; primary publishes existing Site."
+    "Director integrates dx-submit candidate 47590e9 with latest Codex reviews/ledger, obtains science/presentation and integrated-navigation checks, then supersedes the one canonical publication request with that exact pushed SHA. Package site/ and name the intended landing route; primary publishes existing Site.",
+    "Host-confirmed existing runner owner repairs exact-target verification, helper restrictions, clean replay, proof-term dependency extraction and atomic reservations; director freezes full Mathlib targets and matched-resource preregistration before a three-target pilot.",
+    "Director and dx-submit review ACTIVE-FRONTIER-PITCH-PROPOSAL.md as a narrative extension around the existing demonstration; show proposed actions and actual receipts with distinct statuses, preserving current file ownership.",
+    "Runner owner/director freeze the independent answer-status schema, coverage/risk/utility, always-abstain/exact-checker/same-information controls and actual prompt/tool boundary for the separate Scope Desk headroom check."
   ]
 }

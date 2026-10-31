@@ -1,0 +1,5 @@
+/data/worktrees/delphi-evolve/codex-api/artifacts/integration/codex-api/lean-commons-review/false_control.lean:3:36: error: Tactic `assumption` failed
+
+⊢ False
+review_target : False
+'review_target' depends on axioms: [sorryAx]
