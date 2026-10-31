@@ -1,0 +1,4272 @@
+{
+ "register_sha256": "a0155552a2bcda40688d38e95c4069828922d21042c87c9c6cf96311de94f7d7",
+ "n": 250,
+ "results": [
+  {
+   "slug": "morphogen-transport-mode",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "gradient-formation"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "ligand"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "dpp-wing-disc-gradient-formation",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "gradient-formation"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "binding",
+     "receptor"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "glypican-role-in-gradients",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "gradient-formation"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "binding",
+     "ligand",
+     "receptor"
+    ],
+    "sequence LM (esm2-650m/3b)": [
+     "stability"
+    ],
+    "stability (stab-ddg)": [
+     "stability"
+    ],
+    "dynamics/MD (gromacs/openmm/amber/namd/lammps/bioemu2)": [
+     "membrane"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "bicoid-gradient-formation",
+   "levels": [
+    "molecular",
+    "subcellular",
+    "developmental"
+   ],
+   "tags": [
+    "gradient-formation",
+    "precision-robustness"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "threshold-vs-temporal-readout",
+   "levels": [
+    "molecular",
+    "cellular",
+    "developmental"
+   ],
+   "tags": [
+    "positional-information",
+    "precision-robustness"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "neural-tube-gradient-precision",
+   "levels": [
+    "molecular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "precision-robustness",
+    "positional-information"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "domain"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "gradient-operating-distance",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "positional-information",
+    "precision-robustness"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "fold",
+     "ligand",
+     "receptor"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "scale-sensing-for-gradients",
+   "levels": [
+    "molecular",
+    "tissue",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "scaling",
+    "gradient-formation"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "expansion-repression-scaling",
+   "levels": [
+    "molecular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "scaling",
+    "gradient-formation"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "receptor"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "shh-source-contributions-neural-tube",
+   "levels": [
+    "molecular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "gradient-formation",
+    "positional-information"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "domain"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "organ-growth-termination",
+   "levels": [
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "growth-control"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "dpp-instructive-vs-permissive",
+   "levels": [
+    "molecular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "growth-control",
+    "positional-information"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "domain"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "dpp-growth-patterning-coordination",
+   "levels": [
+    "molecular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "growth-control",
+    "cell-fate-timing"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "domain"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "fat-polarity-in-growth-control",
+   "levels": [
+    "molecular",
+    "subcellular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "growth-control"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "binding"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "mechanical-feedback-wing-growth",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "growth-control",
+    "tissue-mechanics"
+   ],
+   "hits": {
+    "dynamics/MD (gromacs/openmm/amber/namd/lammps/bioemu2)": [
+     "membrane"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "epithelial-mechanosensors-for-size",
+   "levels": [
+    "molecular",
+    "subcellular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "growth-control",
+    "tissue-mechanics"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "mammalian-body-size-control",
+   "levels": [
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "growth-control"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "axolotl-limb-allometric-regeneration",
+   "levels": [
+    "tissue",
+    "organ",
+    "neural",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "regeneration",
+    "growth-control",
+    "scaling"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "axolotl-blastema-pattern-scaling",
+   "levels": [
+    "molecular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "regeneration",
+    "scaling",
+    "positional-information"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "domain"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "fin-growth-positional-integration",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "regeneration",
+    "growth-control",
+    "positional-information"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "organ-proportion-allometry",
+   "levels": [
+    "tissue",
+    "organ",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "growth-control",
+    "scaling"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "conservation-of-tissue-mechanics",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "evolution-of-form"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "fold"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "embryonic-phase-transitions",
+   "levels": [
+    "cellular",
+    "tissue",
+    "collective",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "self-organization"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "mechanics-and-fate-in-gastrulation",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "gastrulation"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "actin-array-stability-and-remodelling",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "tissue-mechanics"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "mechanical-symmetry-breaking",
+   "levels": [
+    "cellular",
+    "tissue",
+    "collective",
+    "developmental"
+   ],
+   "tags": [
+    "symmetry-breaking",
+    "tissue-mechanics",
+    "self-organization"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "collective-migration-guidance-integration",
+   "levels": [
+    "cellular",
+    "collective",
+    "developmental"
+   ],
+   "tags": [
+    "collective-migration"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "cadherin-switch-migratory-modes",
+   "levels": [
+    "molecular",
+    "cellular",
+    "collective"
+   ],
+   "tags": [
+    "collective-migration"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression",
+     "single-cell"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "limb-bud-initiation-mechanism",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "growth-control"
+   ],
+   "hits": {
+    "dynamics/MD (gromacs/openmm/amber/namd/lammps/bioemu2)": [
+     "phase separation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "interkinetic-nuclear-migration-wedging",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "cardioblast-migration-heart-tube",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "collective-migration",
+    "tissue-mechanics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "segmentation-clock-decoding",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "segmentation",
+    "positional-information"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "fold"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "single-cell"
+    ],
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "segmentation-clock-kinematic-waves",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "segmentation",
+    "cell-fate-timing"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression",
+     "single-cell"
+    ],
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "somite-number-control",
+   "levels": [
+    "tissue",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "segmentation",
+    "evolution-of-form"
+   ],
+   "hits": {
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-stripes-turing",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organism"
+   ],
+   "tags": [
+    "periodic-patterns",
+    "self-organization"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "feather-tract-boundaries",
+   "levels": [
+    "tissue",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "periodic-patterns"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "skin-competence-for-symmetry-breaking",
+   "levels": [
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "periodic-patterns",
+    "symmetry-breaking",
+    "cell-fate-timing"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "feather-gap-junction-inhibitor",
+   "levels": [
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "periodic-patterns"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "auxin-pin1-feedback-phyllotaxis",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "plant-morphogenesis",
+    "periodic-patterns"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "lung-kidney-branch-point-selection",
+   "levels": [
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "branching",
+    "periodic-patterns"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "ligand",
+     "receptor"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "branch-angle-determination",
+   "levels": [
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "branching"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "domain",
+     "ligand",
+     "receptor"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "bsw-network-generality",
+   "levels": [
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "periodic-patterns",
+    "evolution-of-form"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "digit-joint-patterning",
+   "levels": [
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "periodic-patterns",
+    "segmentation"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ],
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "log-spiral-growth-molecules",
+   "levels": [
+    "molecular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "growth-control",
+    "evolution-of-form"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "bioelectric-fin-size",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "bioelectric",
+    "growth-control"
+   ],
+   "hits": {
+    "dynamics/MD (gromacs/openmm/amber/namd/lammps/bioemu2)": [
+     "channel",
+     "membrane",
+     "transporter"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "turing-vs-competing-models",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "periodic-patterns",
+    "modelling-methods"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "growth-pattern-feedback-in-rd",
+   "levels": [
+    "molecular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "modelling-methods",
+    "growth-control",
+    "periodic-patterns"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "domain"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "noise-propagation-in-patterning",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "precision-robustness",
+    "modelling-methods"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression",
+     "single-cell"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "inferring-cell-interaction-rules",
+   "levels": [
+    "cellular",
+    "tissue",
+    "collective"
+   ],
+   "tags": [
+    "modelling-methods",
+    "data-and-measurement"
+   ],
+   "hits": {
+    "imaging/medical (monai/holoscan/isaac)": [
+     "imaging data",
+     "segmentation"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "species-developmental-tempo",
+   "levels": [
+    "molecular",
+    "cellular",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "evolution-of-form"
+   ],
+   "hits": {
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "timing-growth-coupling",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "growth-control"
+   ],
+   "hits": {
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "limb-bud-shh-timer",
+   "levels": [
+    "molecular",
+    "cellular",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "vertebral-number-evolution",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental",
+    "organism"
+   ],
+   "tags": [
+    "segmentation",
+    "evolution-of-form",
+    "cell-fate-timing"
+   ],
+   "hits": {
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "canalization-definitions",
+   "levels": [
+    "molecular",
+    "developmental"
+   ],
+   "tags": [
+    "precision-robustness",
+    "modelling-methods"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "stability"
+    ],
+    "stability (stab-ddg)": [
+     "stability"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "morphological-novelty-origin",
+   "levels": [
+    "developmental",
+    "organism",
+    "ecological"
+   ],
+   "tags": [
+    "evolution-of-form"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "core-pcp-global-cue-drosophila-wing",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "symmetry-breaking",
+    "positional-information",
+    "self-organization"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "fat-dachsous-core-pcp-pathway-interaction",
+   "levels": [
+    "molecular",
+    "subcellular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "symmetry-breaking",
+    "positional-information"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "egg-chamber-rotation-handedness",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "symmetry-breaking",
+    "collective-migration",
+    "tissue-mechanics"
+   ],
+   "hits": {
+    "dynamics/MD (gromacs/openmm/amber/namd/lammps/bioemu2)": [
+     "membrane"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "egg-chamber-stress-fibre-prealignment",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "symmetry-breaking",
+    "tissue-mechanics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "ventral-furrow-ectodermal-compression",
+   "levels": [
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "gastrulation"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "folding"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "apical-constriction-invagination-vs-ingression",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "gastrulation"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "folding"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "eye-furrow-cell-flow-signalling",
+   "levels": [
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "periodic-patterns",
+    "self-organization",
+    "tissue-mechanics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "tracheal-terminal-cell-branch-placement-and-scaling",
+   "levels": [
+    "subcellular",
+    "cellular"
+   ],
+   "tags": [
+    "branching",
+    "scaling",
+    "growth-control"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "ligand"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "drosophila-pigmentation-selective-agents",
+   "levels": [
+    "organism",
+    "ecological"
+   ],
+   "tags": [
+    "evolution-of-form"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "genital-left-right-asymmetry-evolution",
+   "levels": [
+    "organ",
+    "organism",
+    "ecological"
+   ],
+   "tags": [
+    "evolution-of-form",
+    "symmetry-breaking"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "gap-gene-scaling-network-vs-bicoid",
+   "levels": [
+    "molecular",
+    "cellular",
+    "developmental"
+   ],
+   "tags": [
+    "scaling",
+    "positional-information",
+    "precision-robustness",
+    "segmentation"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ],
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "ubx-naked-valley-trichome-targets",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "evolution-of-form"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "binding"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "transcriptomes"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "kupffers-vesicle-flow-sensing",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "symmetry-breaking",
+    "precision-robustness",
+    "tissue-mechanics",
+    "modelling-methods"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "left-right-symmetry-breaking-before-organizer",
+   "levels": [
+    "molecular",
+    "cellular",
+    "developmental"
+   ],
+   "tags": [
+    "symmetry-breaking",
+    "cell-fate-timing"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "single-cell",
+     "transcriptomic"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-heart-looping-chirality",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "symmetry-breaking",
+    "tissue-mechanics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "notochord-sheath-segmentation",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "segmentation",
+    "periodic-patterns",
+    "evolution-of-form"
+   ],
+   "hits": {
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-axis-elongation-intertissue-forces",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "growth-control",
+    "scaling",
+    "multiscale"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "medaka-clock-elongation-thermal-coupling",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "precision-robustness",
+    "segmentation",
+    "cell-fate-timing",
+    "scaling"
+   ],
+   "hits": {
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "cichlid-jaw-integration-vs-modularity",
+   "levels": [
+    "molecular",
+    "tissue",
+    "organ",
+    "organism"
+   ],
+   "tags": [
+    "evolution-of-form"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "cavefish-supernumerary-neuromast-origin",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "evolution-of-form",
+    "collective-migration",
+    "periodic-patterns"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "iridophore-dense-loose-state",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organism"
+   ],
+   "tags": [
+    "self-organization",
+    "periodic-patterns",
+    "cell-fate-timing",
+    "modelling-methods"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "single-cell"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "danio-stripe-dominance-in-hybrids",
+   "levels": [
+    "molecular",
+    "cellular",
+    "organism"
+   ],
+   "tags": [
+    "evolution-of-form",
+    "periodic-patterns",
+    "self-organization"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "ancestral"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "fish-scale-shape-diversity",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "organism"
+   ],
+   "tags": [
+    "evolution-of-form",
+    "growth-control"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "spiny-fin-ray-origin",
+   "levels": [
+    "molecular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "evolution-of-form",
+    "positional-information"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-bmp-gradient-formation-mechanism",
+   "levels": [
+    "molecular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "gradient-formation",
+    "positional-information"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-bmp-level-to-target-gene-readout",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "positional-information",
+    "gradient-formation"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-dv-pattern-scaling-with-embryo-size",
+   "levels": [
+    "molecular",
+    "tissue",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "scaling",
+    "gradient-formation"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-nodal-gradient-range",
+   "levels": [
+    "molecular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "gradient-formation",
+    "tissue-mechanics"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "binding",
+     "domain",
+     "ligand",
+     "receptor"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-nodal-signal-to-fate",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "positional-information",
+    "cell-fate-timing",
+    "precision-robustness"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-epiboly-force-generation",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue",
+    "organism"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "gastrulation"
+   ],
+   "hits": {
+    "dynamics/MD (gromacs/openmm/amber/namd/lammps/bioemu2)": [
+     "membrane"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-evl-spreading-mechanics",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "gastrulation"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-deep-cell-radial-intercalation",
+   "levels": [
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "gastrulation"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-zga-onset-heterogeneity",
+   "levels": [
+    "molecular",
+    "cellular",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "precision-robustness"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-cleavage-cycle-variability",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "precision-robustness",
+    "tissue-mechanics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-explant-axis-self-organization",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "self-organization",
+    "symmetry-breaking",
+    "gastrulation"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "domain"
+    ],
+    "stability (stab-ddg)": [
+     "unfolding"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-dorsal-organizer-size-control",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "symmetry-breaking",
+    "scaling",
+    "precision-robustness"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-convergence-extension-signal-integration",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "gastrulation",
+    "collective-migration",
+    "symmetry-breaking"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-mesendoderm-fate-to-behaviour",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "gastrulation",
+    "collective-migration",
+    "cell-fate-timing"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-blastoderm-rigidity-control-parameter",
+   "levels": [
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "multiscale"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-gastrula-patterning-error-correction",
+   "levels": [
+    "molecular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "precision-robustness",
+    "gradient-formation"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-embryonic-axis-straightening-downstream-of-reissner-fibre",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "symmetry-breaking",
+    "tissue-mechanics",
+    "multiscale"
+   ],
+   "hits": {
+    "dynamics/MD (gromacs/openmm/amber/namd/lammps/bioemu2)": [
+     "channel"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "expression",
+     "transcriptomes"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-idiopathic-scoliosis-pathomechanism",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "multiscale",
+    "data-and-measurement"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-adult-spine-urotensin-target-tissue",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "organism"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "growth-control",
+    "multiscale"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "receptor"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "cell type",
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-somite-boundary-execution-network",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "segmentation",
+    "periodic-patterns",
+    "cell-fate-timing",
+    "precision-robustness"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "domain"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ],
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-segmentation-clock-psm-morphogenesis-modularity",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "segmentation",
+    "precision-robustness",
+    "tissue-mechanics",
+    "evolution-of-form"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "domain"
+    ],
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-segmentation-clock-resynchronisation-vortices",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "segmentation",
+    "self-organization",
+    "precision-robustness",
+    "periodic-patterns"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "single-cell"
+    ],
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-paraxial-mesoderm-bilateral-symmetry",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "symmetry-breaking",
+    "precision-robustness",
+    "segmentation",
+    "scaling"
+   ],
+   "hits": {
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-somite-shape-adjustment-mechanics",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "precision-robustness",
+    "segmentation"
+   ],
+   "hits": {
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-tailbud-neuromesodermal-progenitor-role",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "evolution-of-form",
+    "growth-control"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "single-cell",
+     "transcriptomes"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-myocyte-fusion-versus-fibre-initiation",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "growth-control",
+    "precision-robustness"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-fast-muscle-fibre-boundary-capture",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "growth-control",
+    "segmentation"
+   ],
+   "hits": {
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-nodal-asymmetric-cardiac-cell-behaviour",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "symmetry-breaking",
+    "tissue-mechanics",
+    "collective-migration"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "vertebral-segmentation-ancestral-mode",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "segmentation",
+    "evolution-of-form",
+    "periodic-patterns"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "ancestral"
+    ],
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-paraxial-mesoderm-integrin-activation",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "segmentation"
+   ],
+   "hits": {
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "somitogenesis-heat-shock-periodic-defects",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "segmentation",
+    "periodic-patterns",
+    "modelling-methods"
+   ],
+   "hits": {
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-second-heart-field-pole-progenitors",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "positional-information",
+    "cell-fate-timing",
+    "growth-control"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-cardiac-progenitor-induction-without-mesp1",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "positional-information",
+    "evolution-of-form",
+    "cell-fate-timing"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "single-cell",
+     "transcriptomes"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-inflow-tract-size-control",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "positional-information",
+    "cell-fate-timing",
+    "growth-control"
+   ],
+   "hits": {
+    "dynamics/MD (gromacs/openmm/amber/namd/lammps/bioemu2)": [
+     "channel"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "transcriptomes"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-cardiomyocyte-chamber-commitment",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "positional-information",
+    "cell-fate-timing"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "single-cell",
+     "transcriptome"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-trabeculation-flow-sensing",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "multiscale",
+    "self-organization",
+    "mechanosensing"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-endocardial-sprouting-control",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "branching",
+    "self-organization",
+    "collective-migration"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-cardiac-valve-mechanosensor-identity",
+   "levels": [
+    "molecular",
+    "subcellular",
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "multiscale",
+    "precision-robustness",
+    "mechanosensing"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-av-valve-delamination-forces",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "multiscale"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-proepicardium-heartbeat-requirement",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "collective-migration",
+    "self-organization"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-axial-vessel-separation",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "positional-information",
+    "collective-migration",
+    "self-organization"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "single-cell"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-intersegmental-artery-vein-balance",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "positional-information",
+    "self-organization",
+    "tissue-mechanics",
+    "precision-robustness"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-endothelial-calcium-oscillation-function",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "precision-robustness",
+    "self-organization",
+    "data-and-measurement"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "receptor"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-vascular-lumen-formation-mode",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "self-organization",
+    "modelling-methods"
+   ],
+   "hits": {
+    "dynamics/MD (gromacs/openmm/amber/namd/lammps/bioemu2)": [
+     "membrane"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-vessel-pruning-selection",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "self-organization",
+    "branching",
+    "modelling-methods"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-lymphatic-progenitor-asymmetry",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "positional-information",
+    "cell-fate-timing",
+    "self-organization"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "single-cell"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-mulec-non-lumenized-fate",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "self-organization",
+    "positional-information"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "single-cell",
+     "transcriptomes"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-hemogenic-endothelium-lineage-origin",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "positional-information",
+    "evolution-of-form"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "transcriptomes"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-eht-force-sensing-and-extrusion",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "multiscale",
+    "collective-migration",
+    "mechanosensing"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-mural-cell-arterial-restriction",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "positional-information",
+    "tissue-mechanics",
+    "self-organization"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "ligand"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-blood-brain-barrier-pericyte-requirement",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "evolution-of-form",
+    "precision-robustness"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-neural-plate-convergence-forces",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "gastrulation",
+    "collective-migration"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-mhb-lineage-restriction-mechanism",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "self-organization",
+    "tissue-mechanics",
+    "positional-information"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-mhb-basal-fold-mechanism",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "positional-information",
+    "multiscale"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "fold"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-rhombomere-emergence-and-size-precision",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "segmentation",
+    "precision-robustness",
+    "positional-information",
+    "modelling-methods"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "domain"
+    ],
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-optic-fissure-fusion-mechanism",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "data-and-measurement"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "cell-type",
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-optic-cup-rim-flow-guidance",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "collective-migration",
+    "tissue-mechanics",
+    "self-organization"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-cone-mosaic-lattice-formation",
+   "levels": [
+    "cellular",
+    "tissue",
+    "neural"
+   ],
+   "tags": [
+    "periodic-patterns",
+    "tissue-mechanics",
+    "self-organization",
+    "modelling-methods"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-retinal-horizontal-cell-layer-guidance",
+   "levels": [
+    "cellular",
+    "tissue",
+    "neural"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "collective-migration",
+    "data-and-measurement"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-ear-projection-matrix-anisotropy",
+   "levels": [
+    "macromolecular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "growth-control",
+    "data-and-measurement"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-otic-neuroblast-delamination-mode",
+   "levels": [
+    "cellular",
+    "tissue",
+    "neural"
+   ],
+   "tags": [
+    "collective-migration",
+    "tissue-mechanics"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-lateral-line-primordium-skin-dependence",
+   "levels": [
+    "cellular",
+    "tissue",
+    "collective"
+   ],
+   "tags": [
+    "collective-migration",
+    "tissue-mechanics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-neural-crest-collective-directionality",
+   "levels": [
+    "cellular",
+    "collective",
+    "developmental"
+   ],
+   "tags": [
+    "collective-migration",
+    "self-organization"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-jaw-joint-mechanoregulated-growth",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "growth-control",
+    "modelling-methods",
+    "mechanosensing"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-spinal-progenitor-shh-heterogeneity-precision",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "precision-robustness",
+    "positional-information",
+    "gradient-formation"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "domain"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "single-cell"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-telencephalon-eversion-morphogenesis",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "neural"
+   ],
+   "tags": [
+    "evolution-of-form",
+    "tissue-mechanics",
+    "data-and-measurement"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "folding"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-parapineal-habenular-asymmetry-signal",
+   "levels": [
+    "molecular",
+    "cellular",
+    "neural"
+   ],
+   "tags": [
+    "symmetry-breaking",
+    "cell-fate-timing"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "transcriptome"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-cns-myelination-pattern-axon-selection",
+   "levels": [
+    "cellular",
+    "neural",
+    "developmental"
+   ],
+   "tags": [
+    "self-organization",
+    "data-and-measurement"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-olfactory-orifice-expansion-force-balance",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "growth-control"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-fin-ray-regrowth-memory-locus",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "regeneration",
+    "positional-information",
+    "growth-control",
+    "scaling"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-fin-ray-regeneration-polarity",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "regeneration",
+    "positional-information",
+    "symmetry-breaking"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "transcriptomes"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-fin-regenerate-osteoblast-sources",
+   "levels": [
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "regeneration",
+    "cell-fate-timing"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-fin-regeneration-ageing-decline",
+   "levels": [
+    "tissue",
+    "organ",
+    "organism"
+   ],
+   "tags": [
+    "regeneration",
+    "growth-control"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-fin-ray-joint-patterning",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "regeneration",
+    "periodic-patterns",
+    "segmentation",
+    "growth-control"
+   ],
+   "hits": {
+    "imaging/medical (monai/holoscan/isaac)": [
+     "segmentation"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-heart-scar-resolution",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "regeneration",
+    "tissue-mechanics"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "cell-type",
+     "expression"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "zebrafish-heart-regenerating-cardiomyocyte-identity",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "regeneration",
+    "cell-fate-timing",
+    "positional-information"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "heart-regeneration-loss-polyploidy-thyroid",
+   "levels": [
+    "cellular",
+    "organ",
+    "organism"
+   ],
+   "tags": [
+    "regeneration",
+    "evolution-of-form",
+    "growth-control"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-heart-proregenerative-macrophage-subsets",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "regeneration"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "ligand",
+     "receptor"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-spinal-cord-glial-bridge-requirement",
+   "levels": [
+    "cellular",
+    "tissue",
+    "neural"
+   ],
+   "tags": [
+    "regeneration",
+    "tissue-mechanics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "medaka-vs-zebrafish-regenerative-capacity",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "organism"
+   ],
+   "tags": [
+    "regeneration",
+    "evolution-of-form"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-retina-progenitor-amplification-matching",
+   "levels": [
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "regeneration",
+    "precision-robustness",
+    "growth-control"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "retina-inflammation-role-zebrafish-vs-mammal",
+   "levels": [
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "regeneration"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-neuromast-hair-cell-progenitor-identity",
+   "levels": [
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "regeneration",
+    "cell-fate-timing"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-liver-biliary-transdifferentiation-trigger",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "regeneration",
+    "cell-fate-timing"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-regeneration-enhancer-activation",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "regeneration"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-airineme-signalling-specificity",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue"
+   ],
+   "tags": [
+    "self-organization",
+    "periodic-patterns",
+    "gradient-formation"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "ligand"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "cell-type"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-thyroid-hormone-skin-targets",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "organism"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "growth-control"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "cell-type",
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-pigment-pattern-skin-microenvironment",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organism"
+   ],
+   "tags": [
+    "self-organization",
+    "periodic-patterns",
+    "modelling-methods"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "ligand"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-countershading-mechanism",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "organism"
+   ],
+   "tags": [
+    "positional-information",
+    "periodic-patterns",
+    "cell-fate-timing"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "receptor"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-adult-pigment-stem-cell-establishment",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "growth-control"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "teleost-metamorphosis-central-timing",
+   "levels": [
+    "molecular",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "growth-control"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-tooth-replacement-wnt-control",
+   "levels": [
+    "molecular",
+    "cellular",
+    "organ"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "evolution-of-form"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "fish-tooth-formation-competency",
+   "levels": [
+    "molecular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "evolution-of-form",
+    "positional-information",
+    "cell-fate-timing"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "domain",
+     "receptor"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "epithelial-appendage-homology",
+   "levels": [
+    "molecular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "evolution-of-form",
+    "periodic-patterns"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "ancestral"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "single-cell"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-actinotrichia-organization",
+   "levels": [
+    "macromolecular",
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "self-organization",
+    "evolution-of-form"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "fold"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-median-fin-primordium-formation",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "positional-information",
+    "evolution-of-form"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "fold"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "paired-fin-origin-lateral-fin-folds",
+   "levels": [
+    "tissue",
+    "organ",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "evolution-of-form",
+    "symmetry-breaking"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "fold"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "fin-distal-skeleton-digit-homology",
+   "levels": [
+    "tissue",
+    "organ",
+    "organism"
+   ],
+   "tags": [
+    "evolution-of-form",
+    "positional-information"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "domain"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "fin-ray-loss-at-fin-to-limb-transition",
+   "levels": [
+    "macromolecular",
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "evolution-of-form",
+    "tissue-mechanics"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "fold"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-caudal-fin-shape-imprinting",
+   "levels": [
+    "molecular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "positional-information",
+    "growth-control",
+    "evolution-of-form"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-postembryonic-growth-coordination",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "growth-control",
+    "scaling",
+    "multiscale"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-pgc-polarity-termination",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "developmental"
+   ],
+   "tags": [
+    "germline-and-sex",
+    "collective-migration",
+    "self-organization",
+    "tissue-mechanics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-pgc-front-initiation-by-chemokine",
+   "levels": [
+    "molecular",
+    "subcellular",
+    "cellular"
+   ],
+   "tags": [
+    "germline-and-sex",
+    "collective-migration",
+    "self-organization",
+    "precision-robustness"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "receptor"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "zebrafish-sex-determination-trigger-domesticated",
+   "levels": [
+    "molecular",
+    "cellular",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "germline-and-sex",
+    "positional-information",
+    "precision-robustness"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "single-cell",
+     "transcriptomes"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-w-factor-versus-z-dosage",
+   "levels": [
+    "molecular",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "germline-and-sex",
+    "evolution-of-form",
+    "data-and-measurement"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-juvenile-oocyte-survival-decision",
+   "levels": [
+    "cellular",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "germline-and-sex",
+    "growth-control",
+    "precision-robustness"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "cell type",
+     "transcriptomes"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "zebrafish-meiotic-entry-instructs-ovary",
+   "levels": [
+    "molecular",
+    "cellular",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "germline-and-sex",
+    "positional-information"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression",
+     "transcriptomes"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-germ-plasm-dose-variation",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "developmental"
+   ],
+   "tags": [
+    "germline-and-sex",
+    "precision-robustness",
+    "data-and-measurement"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-balbiani-precursor-transport",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "developmental"
+   ],
+   "tags": [
+    "germline-and-sex",
+    "symmetry-breaking",
+    "self-organization",
+    "tissue-mechanics"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "zebrafish-oocyte-polarity-prepattern",
+   "levels": [
+    "subcellular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "germline-and-sex",
+    "symmetry-breaking",
+    "self-organization",
+    "positional-information"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-ovarian-germline-stem-cell-niche",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "germline-and-sex",
+    "positional-information",
+    "growth-control"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "atlas",
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-nephron-flow-sensing",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "collective-migration",
+    "multiscale",
+    "mechanosensing"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "ligand"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-tubule-stretch-proliferation-coupling",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "growth-control",
+    "multiscale",
+    "mechanosensing"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "zebrafish-mesonephric-progenitor-origin",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "evolution-of-form",
+    "positional-information"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "transcriptomes"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-liver-bud-laterality-mechanism",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "symmetry-breaking",
+    "collective-migration",
+    "tissue-mechanics"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "single-cell"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-hepatoblast-fate-proportions",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "growth-control",
+    "precision-robustness"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "variant"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-postembryonic-liver-lobe-growth",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "organism"
+   ],
+   "tags": [
+    "growth-control",
+    "scaling",
+    "multiscale"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "zebrafish-thyroid-progenitor-competence",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "organ"
+   ],
+   "tags": [
+    "positional-information",
+    "gradient-formation",
+    "cell-fate-timing"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "ligand"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "zebrafish-pharyngeal-pouch-progenitor-signals",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "positional-information",
+    "cell-fate-timing",
+    "gradient-formation"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-hepatopancreatic-duct-morphogenesis",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "branching",
+    "tissue-mechanics",
+    "positional-information"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-transcriptional-adaptation-mechanism",
+   "levels": [
+    "molecular",
+    "cellular",
+    "organism"
+   ],
+   "tags": [
+    "precision-robustness",
+    "multiscale"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-mutant-morphant-discrepancy-attribution",
+   "levels": [
+    "molecular",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "precision-robustness",
+    "data-and-measurement"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "paralog"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-incomplete-penetrance-mechanism",
+   "levels": [
+    "molecular",
+    "cellular",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "precision-robustness"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "mutation",
+     "paralog"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-maternal-products-persist-after-mzt",
+   "levels": [
+    "molecular",
+    "cellular",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "precision-robustness"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "cell type"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-egg-maternal-transcriptome-individuality",
+   "levels": [
+    "molecular",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "precision-robustness",
+    "data-and-measurement"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "transcriptomes"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-lineage-convergence-frequency",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "modelling-methods",
+    "data-and-measurement"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "atlas",
+     "cell type",
+     "single-cell",
+     "transcriptomes"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-in-vivo-tissue-stress-measurement",
+   "levels": [
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "tissue-mechanics",
+    "modelling-methods",
+    "data-and-measurement"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-embryonic-bioelectric-pattern-function",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "bioelectric",
+    "data-and-measurement"
+   ],
+   "hits": {
+    "dynamics/MD (gromacs/openmm/amber/namd/lammps/bioemu2)": [
+     "channel",
+     "membrane"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "zebrafish-circadian-clock-ontogeny-light",
+   "levels": [
+    "molecular",
+    "cellular",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "single-cell"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "astyanax-cavefish-lens-apoptosis-trigger",
+   "levels": [
+    "molecular",
+    "cellular",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "evolution-of-form",
+    "multiscale"
+   ],
+   "hits": {
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "locator+quote"
+  },
+  {
+   "slug": "killifish-diapause-ageing-suspension",
+   "levels": [
+    "molecular",
+    "cellular",
+    "organism",
+    "developmental"
+   ],
+   "tags": [
+    "cell-fate-timing",
+    "evolution-of-form"
+   ],
+   "hits": {
+    "structure (alphafold3/openfold3/protenix/esmfold2)": [
+     "complex"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "cichlid-craniofacial-divergence-developmental-mechanism",
+   "levels": [
+    "cellular",
+    "tissue",
+    "organ",
+    "developmental"
+   ],
+   "tags": [
+    "evolution-of-form",
+    "cell-fate-timing"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "teleost-genome-duplication-diversification-causality",
+   "levels": [
+    "molecular",
+    "organism",
+    "developmental",
+    "ecological"
+   ],
+   "tags": [
+    "evolution-of-form",
+    "data-and-measurement"
+   ],
+   "hits": {},
+   "source": "locator+quote"
+  },
+  {
+   "slug": "teleost-ohnolog-lineage-specific-functional-partitioning",
+   "levels": [
+    "molecular",
+    "cellular",
+    "tissue",
+    "developmental"
+   ],
+   "tags": [
+    "evolution-of-form",
+    "multiscale"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "ancestral",
+     "paralog"
+    ],
+    "single-cell (scvi-scanvi)": [
+     "expression"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "ptw-larger-amplitude-stability",
+   "levels": [
+    "ecological"
+   ],
+   "tags": [
+    "periodic-patterns"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "stability"
+    ],
+    "stability (stab-ddg)": [
+     "stability"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "ptw-wavelength-selection",
+   "levels": [
+    "ecological"
+   ],
+   "tags": [
+    "periodic-patterns"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "cubic-weakly-reversible-algebraic-limit-cycles",
+   "levels": [
+    "molecular"
+   ],
+   "tags": [
+    "modelling-methods"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "motif-avoidant-attractors-rarity",
+   "levels": [
+    "molecular"
+   ],
+   "tags": [
+    "modelling-methods"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "moment-closure-diverging-optima",
+   "levels": [
+    "collective"
+   ],
+   "tags": [
+    "modelling-methods"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "intraspecific-competition-scaling",
+   "levels": [
+    "ecological"
+   ],
+   "tags": [
+    "ecological-stability"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "stability"
+    ],
+    "stability (stab-ddg)": [
+     "stability"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "neutral-niche-transition-high-diversity",
+   "levels": [
+    "ecological"
+   ],
+   "tags": [
+    "ecological-stability"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "stability"
+    ],
+    "stability (stab-ddg)": [
+     "stability"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "energy-supply-capture-rates",
+   "levels": [
+    "ecological"
+   ],
+   "tags": [
+    "ecosystem-dynamics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "cross-diffusion-metacommunity-patterns",
+   "levels": [
+    "ecological"
+   ],
+   "tags": [
+    "spatial-ecology"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "invasion-graph-matrix-classes",
+   "levels": [
+    "ecological"
+   ],
+   "tags": [
+    "ecological-stability"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "stability"
+    ],
+    "stability (stab-ddg)": [
+     "stability"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "triangle-prevalence-interaction-types",
+   "levels": [
+    "ecological"
+   ],
+   "tags": [
+    "species-interactions"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "stability"
+    ],
+    "stability (stab-ddg)": [
+     "stability"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "autocatalysis-stoichiometry-dynamics",
+   "levels": [
+    "molecular"
+   ],
+   "tags": [
+    "chemical-reaction-networks"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "autocatalytic-core-stationary-uniqueness",
+   "levels": [
+    "molecular"
+   ],
+   "tags": [
+    "chemical-reaction-networks"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "multistate-canalization-definition",
+   "levels": [
+    "molecular"
+   ],
+   "tags": [
+    "canalization"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "continuous-canalization-analogue",
+   "levels": [
+    "molecular"
+   ],
+   "tags": [
+    "canalization"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "evolution-exploits-or-avoids-edge-of-stability",
+   "levels": [
+    "molecular"
+   ],
+   "tags": [
+    "canalization"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "stability"
+    ],
+    "stability (stab-ddg)": [
+     "stability"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "selection-information-rates-grn",
+   "levels": [
+    "molecular"
+   ],
+   "tags": [
+    "gene-regulatory-networks"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "interactions-multicellularity-emergence",
+   "levels": [
+    "collective"
+   ],
+   "tags": [
+    "evolution-of-form"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "fragmentation-mode-evolution-drivers",
+   "levels": [
+    "organism",
+    "collective"
+   ],
+   "tags": [
+    "evolution-of-form"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "time-tree-distance-complexity",
+   "levels": [
+    "collective"
+   ],
+   "tags": [
+    "phylogenetics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "beta-splitting-generalized-asymptotics",
+   "levels": [
+    "collective"
+   ],
+   "tags": [
+    "phylogenetics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "a-3blob-display-trees",
+   "levels": [
+    "collective"
+   ],
+   "tags": [
+    "phylogenetics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "multi-strain-sis-periodic-stability",
+   "levels": [
+    "collective"
+   ],
+   "tags": [
+    "epidemic-models"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "stability"
+    ],
+    "stability (stab-ddg)": [
+     "stability"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "petri-net-ode-inverse-efficiency",
+   "levels": [
+    "collective"
+   ],
+   "tags": [
+    "modelling-methods"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "immunological-heterogeneity-epidemic-frameworks",
+   "levels": [
+    "collective"
+   ],
+   "tags": [
+    "epidemic-models"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "nnlif-longtime-behavior",
+   "levels": [
+    "neural"
+   ],
+   "tags": [
+    "neural-dynamics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "sequence-replay-sample-complexity",
+   "levels": [
+    "neural"
+   ],
+   "tags": [
+    "memory-and-replay"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "selective-memory-consolidation",
+   "levels": [
+    "neural"
+   ],
+   "tags": [
+    "memory-and-replay"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "glial-ensheathment-synaptic-tuning",
+   "levels": [
+    "neural"
+   ],
+   "tags": [
+    "neural-dynamics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "higher-order-statistics-implications",
+   "levels": [
+    "neural"
+   ],
+   "tags": [
+    "neural-dynamics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "cortical-traveling-wave-propagation",
+   "levels": [
+    "neural"
+   ],
+   "tags": [
+    "neural-dynamics"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "replay-feedback-inhibition-necessity",
+   "levels": [
+    "neural"
+   ],
+   "tags": [
+    "memory-and-replay"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "impulsive-lv-invasion-graphs-under-disturbance",
+   "levels": [
+    "collective"
+   ],
+   "tags": [
+    "coexistence-and-invasion"
+   ],
+   "hits": {
+    "sequence LM (esm2-650m/3b)": [
+     "stability"
+    ],
+    "stability (stab-ddg)": [
+     "stability"
+    ]
+   },
+   "source": "topic-ref"
+  },
+  {
+   "slug": "serial-passage-exclusion-basins",
+   "levels": [
+    "collective"
+   ],
+   "tags": [
+    "coexistence-and-invasion"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "rule30-center-column-periodicity",
+   "levels": null,
+   "tags": [
+    "computational-irreducibility"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "rule30-center-column-frequency",
+   "levels": null,
+   "tags": [
+    "computational-irreducibility"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  },
+  {
+   "slug": "rule30-center-column-complexity",
+   "levels": null,
+   "tags": [
+    "computational-irreducibility"
+   ],
+   "hits": {},
+   "source": "topic-ref"
+  }
+ ]
+}

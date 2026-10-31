@@ -1,0 +1,45 @@
+# BioNeMo / Nebius-model matching against the Frontier register (gpuops, Oct 31, ~10:10 PDT)
+
+Status: **single-reader, not Codex-reviewed, not accepted by anyone.** Deterministic matching plus my hand reading of the register text. No job, no inference, no token use, no network call to any model. Register read only.
+
+## Reproduce
+* Register: `/home/ubuntu/git/morphoswarm/data/problems/register.yaml`, sha256 `a0155552a2bcda40688d38e95c4069828922d21042c87c9c6cf96311de94f7d7` (matches the Frontier commit 42cd967).
+* `python3 scripts/import_register.py <register> --out drafts.jsonl` in `/data/worktrees/delphi-frontier/foundation`: 250 importable, 0 actionable, provenance 34 locator+quote / 68 topic-only / 148 none, `out_sha256 5808c2bd…f6f7`. I got the same counts as the commit message.
+* Matcher: `python3 -I bionemo_match/match.py <register> artifacts/gpuops/bionemo_match_raw.json` (branch `work/gpuops`). It is a vocabulary filter, not a judgement; its hits are noisy (132 of 250 fire on words like "complex" or "expression") and I did not use the hit count as a result.
+* Model list: the 26 hosted models from my 08:29 PDT catalog read (`artifacts/gpuops/nebius_scientific_ai_inventory.json`; 19 `configured-native-dag-awaiting-exact-release-qualification`, 6 `source-adapter-awaiting-live-qualification`, 1 `isolated-pilot` = gromacs). **None is qualified for release use.** The catalog also lists non-model tools (e.g. ADMET-AI, which I called once earlier); no register problem concerns small-molecule properties.
+
+## The headline, stated plainly
+**I found no register problem for which a hosted model's output would settle the question.** The register is overwhelmingly developmental, tissue-mechanical and organismal (levels: tissue 174, cellular 170, developmental 128, molecular 95, organ 81; tags led by tissue-mechanics, positional-information, cell-fate-timing). Only 1 of 250 problems mentions a structure/sequence-model term in `data_needed` or `model_handles`, and that hit (astyanax lens) is a false positive for this purpose. Where a register problem names a computation (`model_handles`), it is almost always a reaction-diffusion, mechanics or liability-threshold model, which is the territory of our own solvers, not of a hosted protein/MD/single-cell model. 37 of 250 records have no `data_needed` field at all.
+
+## Candidates read by hand, with failures named
+Source column = what the register states (not re-checked against PMC by me).
+
+| # | slug | model | would COMPUTE | would settle | would NOT settle | input data public/legal? | acceptance + baseline | verdict |
+|---|---|---|---|---|---|---|---|---|
+| 1 | zebrafish-tailbud-neuromesodermal-progenitor-role (attest. only, 2 quoted) | scvi-scanvi (source-adapter, unqualified) | latent embedding + label transfer on stage-registered single-cell data | whether a learned classifier separates a tailbud bipotent-like state from neural/mesodermal states at held-out stages (model-specific) | whether bipotency is used or why it is retained; needs lineage tracing. Embedding structure is not fate | Register says single-cell transcriptomes of tailbud exist; **I did not verify which public set, its licence, or its size.** Needs upload to the S3 bucket (10 GB) | held-out label-transfer accuracy vs PCA+kNN / logistic regression on CPU; thresholds must be preregistered by the director, not me | **Survives only as a method benchmark.** CPU baselines likely suffice, so the GPU is not needed on current evidence |
+| 2 | zebrafish-lineage-convergence-frequency | scvi-scanvi | embedding for a convergence metric | nothing without lineage-resolved data | convergence frequency depends on the embedding chosen, so it would be model-defined | dense lineage trees plus matched transcriptomes are named as needed; availability unverified | none definable without a metric chosen first | Fails (metric is model-dependent, no acceptance) |
+| 3 | zebrafish-cardiac-progenitor-induction-without-mesp1 | scvi-scanvi | cross-species integration | alignment quality | whether induction happens without Mesp1 | needs matched scRNA+ATAC across zebrafish, mouse, tunicate "aligned on stage"; I do not know that this exists | none | Fails (data) |
+| 4 | teleost-ohnolog-lineage-specific-functional-partitioning | esm2-650m / 3b (scores only) | log-likelihood scores for ohnolog proteins | at most a sequence-plausibility difference between paralogs | functional partitioning, which is mostly regulatory and lineage-specific, not protein-sequence | genomes public, but no variant set is named | none | Fails (a number, not the answer) |
+| 5 | zebrafish-paraxial-mesoderm-integrin-activation | alphafold3 / bioemu2 | complex structure or conformational ensemble of integrin α5 | nothing: the register's unknown is the activator's identity | structure is not activation; AF-type predictions do not reliably resolve bent vs extended integrin states (my background knowledge, not tested here) | n/a | none | Fails |
+| 6 | glypican-role-in-gradients | alphafold3 / openfold3 | glypican-ligand complex | nothing | transport vs stabilisation vs cytoneme support; heparan sulfate is a long polysaccharide that these tools are not shown here to handle | n/a | none | Fails; register itself asks for mobility measured in mutants |
+| 7 | astyanax-cavefish-lens-apoptosis-trigger (has quoted why_source) | esm2 | variant-effect scores | nothing | the defect is the unknown; no candidate variant list exists in the register | cave/surface genomes exist, but variant calling is a separate pipeline | none | Fails |
+| 8 | zebrafish-nephron-flow-sensing, bioelectric-fin-size | gromacs/openmm on channels | channel MD | nothing | structure/MD is not a flow-sensing or fin-size mechanism; MD runs are weeks, not a window | n/a | none | Fails |
+| 9 | zebrafish-transcriptional-adaptation-mechanism, zebrafish-w-factor-versus-z-dosage, zebrafish-incomplete-penetrance-mechanism, zebrafish-thyroid-hormone-skin-targets | none applies | sequence complementarity / genome mapping / variance components | n/a | n/a | n/a | n/a | Fails: sequence-alignment, mapping or statistics work with no hosted model, mostly CPU |
+
+## What the register does contain that a computation could bear on (NOT a hosted-model match)
+Three problems state reaction-diffusion or SDD model comparison as their `model_handles`; our own verified solver (`pde_oracle`, validated against the NCA solver at 3e-14) is the matching tool, not BioNeMo:
+* `morphogen-transport-mode` (quoted why_source): do the three transport models (hindered diffusion, transcytosis relay, cytoneme delivery) predict **distinguishable** gradient shape and FRAP recovery under stated noise? That is a model-identifiability computation. It settles **which experiment discriminates**, not which mode is true. No external data needed, so the acceptance can be decided inside the window. Baseline: the null that all three are indistinguishable at the stated measurement noise.
+* `zebrafish-nodal-gradient-range`: fit of competing range-limiting mechanisms to a published profile. Needs a published quantitative profile; reuse terms and the digitisation step are unverified. Fits of several models to one profile are often non-discriminating, so a non-result is likely.
+* `bicoid-gradient-formation`: same shape (SDD vs pre-formed mRNA gradient).
+
+## Rank by whether acceptance could finish in the window (no hosted-model survivor is strong)
+1. **morphogen-transport-mode identifiability** (our solver, no data dependency, CPU-scale by my measured rates). Not a hosted-model problem.
+2. **zebrafish-tailbud-neuromesodermal-progenitor-role** as a scvi-scanvi vs CPU-baseline benchmark. Blocked by: unqualified hosted adapter, Nebius token, unverified dataset, preregistered threshold. A method benchmark, not a biological answer.
+3. **zebrafish-nodal-gradient-range** fit (our solver). Blocked by: finding a legal quantitative profile.
+Everything else above fails the "number vs answered question" test. Rows 4-9 are named failures, not deferred work.
+
+## What I did NOT verify
+Dataset availability and licences (none checked); the 66 records I did not read individually beyond the filters (I read all 46 statement-level molecular hits, the 21 single-cell mentions and the genomic-vocabulary hits, not every one of the 250 in full); whether any hosted model runs at all (all unqualified; I have never run any of them except ADMET-AI and OpenFold2 earlier); CPU rates for ESM2 or scVI (none measured).
+
+## Binding conditions kept
+No job, no inference, no token workaround. Gate for any run: frozen data AND source-linked frozen protocol AND acceptance method AND baseline. Pool statement: shared sixteen-H100 pool, up to ten while yielding; the official page lists no sponsor bonus points.
