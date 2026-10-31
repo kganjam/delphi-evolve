@@ -22,12 +22,14 @@ def main():
         if (OUT / f"{name}.pt").exists():
             continue
         t = time.time()
-        model, hist = nca.train(seed=seed, iters=3000, K=16, batch=192, shuffle_cond=shuf, log=lambda s: print(name, s, flush=True))
+        model, hist = nca.train(seed=seed, iters=1000, K=16, batch=192, shuffle_cond=shuf, log=lambda s: print(name, s, flush=True))
         torch.save(model.state_dict(), OUT / f"{name}.pt")
         hist_all[name] = {"final_loss_mean_last50": sum(hist[-50:]) / 50, "first_loss_mean_first50": sum(hist[:50]) / 50,
                           "wall_s": time.time() - t}
         print(name, hist_all[name], flush=True)
-        (OUT / "train_log.json").write_text(json.dumps({**json.loads((OUT / "train_log.json").read_text()) if (OUT / "train_log.json").exists() else {}, **hist_all}, indent=1))
+        lp = OUT / "train_log.json"
+        prev = json.loads(lp.read_text()) if lp.exists() else {}
+        lp.write_text(json.dumps({**prev, **hist_all}, indent=1))
 
 
 if __name__ == "__main__":

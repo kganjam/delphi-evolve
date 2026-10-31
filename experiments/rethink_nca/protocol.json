@@ -29,7 +29,8 @@
     "N_nca": "NCA (see nca.py) trained on Euler windows; scan 48 log-spaced gamma in [0.5,3] by rolling the NCA to tau=200 from the same noise state; same selection rule",
     "Nshuf_control": "identical NCA training with the (log gamma, log d) conditioning shuffled across windows; same scan and selection rule"
   },
-  "nca_training": {"hidden_channels": 6, "mlp_hidden": 128, "dt_nca_tau": 0.005, "window_K": 16, "iters": 3000, "batch": 192, "lr": 0.002, "train_r": [10, 20], "train_gamma": [0.7, 2.0], "train_d": [10, 20], "trajectories_per_r": 48, "seeds": [0, 1, 2]},
+  "nca_training_change_note": "iters reduced 3000 -> 1000 before any scored output because measured speed was ~4 it/s (probe wall budget); no scored result existed when this was changed",
+  "nca_training": {"hidden_channels": 6, "mlp_hidden": 128, "dt_nca_tau": 0.005, "window_K": 16, "iters": 1000, "batch": 192, "lr": 0.002, "train_r": [10, 20], "train_gamma": [0.7, 2.0], "train_d": [10, 20], "trajectories_per_r": 48, "seeds": [0, 1, 2]},
   "claim_ablations": {
     "removed": "C0 and D arms use no Delphi record",
     "misapplied": "Gmis arm (continuum band without admissible-mode check)",
