@@ -4,7 +4,7 @@
  "model": "Claude Sonnet 5.5 (subscription; no metered charge known)",
  "updated_seattle": "2026-10-31 ~00:50 PDT",
  "status": "core deliverables complete; ESMFold2 blocked by undocumented manifest",
- "commit": "see git log (final commit recorded after push)",
+ "commit": "3f9c399 (pushed to origin work/resources)",
  "tasks": {
   "gemini_client": {
    "status": "done",
