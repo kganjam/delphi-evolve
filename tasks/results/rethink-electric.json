@@ -1,0 +1,49 @@
+{
+  "role": "rethink-electric",
+  "status": "first memo complete; recommendation NO-GO as headline entry",
+  "model": "Claude Sonnet 5.5 (subscription); metered spend unknown, not inferred from CLI",
+  "wall_time_seattle": "2026-10-31 about 05:55 PDT start; memo written 06:3x PDT (clock times from `date`, not a measured active duration)",
+  "commit": "FILLED_AFTER_COMMIT",
+  "commands_run": [
+    {"cmd": "curl Allen Institute api.brain-map.org ApiCellTypesSpecimenDetail (2333 rows), NWB well_known_file_download for 102 mouse cells, NeuronalModel LIF zips", "exit": 0},
+    {"cmd": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 python3 -m experiments.rethink_electric.collect --workdir <scratch>/work  (final run, pipeline-version rule)", "exit": 0, "earlier_runs": "three earlier runs were superseded by protocol amendments A1-A3 and the NWB version rule; two were stopped/killed before writing output"},
+    {"cmd": "python3 -m experiments.rethink_electric.glif_baseline (bounded scope)", "exit": 0, "note": "first attempt failed on a malformed RMA query (exit 1), fixed"},
+    {"cmd": "python3 -m experiments.rethink_electric.run_strength_duration (bounded scope)", "exit": 0},
+    {"cmd": "python3 -m experiments.rethink_electric.run_turing_gate (bounded scope)", "exit": 0, "requests": 2829},
+    {"cmd": "python3 -m experiments.rethink_electric.run_cello_probe <UCF> (bounded scope)", "exit": 0},
+    {"cmd": "python3 -m experiments.rethink_electric.make_figure", "exit": 0},
+    {"cmd": "python3 -m pytest tests/test_rethink_electric.py (bounded scope)", "exit": 0, "result": "6 passed (before final analysis edits; rerun listed in notes)"},
+    {"cmd": "Delphi MCP delphi_search_claims x18 (local)", "exit": 0}
+  ],
+  "artifacts": [
+    "planning/rethink/electric.md",
+    "experiments/rethink_electric/results/strength_duration_results.json",
+    "experiments/rethink_electric/results/strength_duration.png",
+    "experiments/rethink_electric/results/cell_features.json",
+    "experiments/rethink_electric/results/glif_lif_configs.json",
+    "experiments/rethink_electric/results/turing_gate.json",
+    "experiments/rethink_electric/results/cello_gate_probe.json",
+    "experiments/rethink_electric/results/delphi_search_log.json"
+  ],
+  "key_findings": [
+    "101 Allen mouse cells: Lapicque strength-duration from long-square data predicts the same cell's 3 ms short-square threshold with mean |log2| 0.43 vs 0.74 for a leave-one-out rheobase-ratio rule (paired -0.31, CI -0.39..-0.23); released GLIF LIF (n=49, training sweeps unverified) 0.82",
+    "cross-fit 90%-coverage amplitude costs median energy 2.0-2.3x (mechanistic) vs 4.8x (ratio rule) vs observed firing amplitude",
+    "threshold ladders: 62/101 cells have repeat disagreement at the threshold amplitude, 18 non-monotone",
+    "turing-ddi adapter: 2727/2727 measured-rest requests stable; regenerative ablation 101/101 unstable; D_w=0 refused",
+    "Delphi has no claims on membrane potential, channels or excitability (18 searches)",
+    "Cello gate interpolation across input levels is trivial (0.066 log2); published Hill comparator unit mismatch unresolved"
+  ],
+  "limitations": [
+    "classical Lapicque law, intracellular current injection only; no field, tissue or fabrication result",
+    "released GLIF training sweeps unverified; P5 not held-out",
+    "per-sweep QC flags not applied; all 102 files pipeline v1.0 so the >=1.1 conversion branch is untested; no SDK cross-check",
+    "my tau is ~0.84x the Allen API tau",
+    "Allen data licence/terms not retrieved; derived tables committed pending review",
+    "Delphi reuse is a scope gate, not a decision that depends on Delphi",
+    "Cello circuit-level data not retrieved"
+  ],
+  "next_steps": [
+    "director: choose; electric available for independent validation of the selected candidate",
+    "optional: ramp/noise classes, SDK cross-check, QC flags, seeded-defect reviewer experiment"
+  ]
+}

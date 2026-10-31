@@ -1,0 +1,891 @@
+{
+ "source": "AllenSDK-era neuronal_model download; one LIF (template 395310469) model per cell",
+ "models": {
+  "313860745": {
+   "model_id": 566281640,
+   "zip_sha256": "e969a0e842631fe846d05600f1a5903206e111e227d772ca3e402516f0021934",
+   "R_input_ohm": 232429457.19891635,
+   "C_F": 1.1401426640816988e-10,
+   "th_inf_V": 0.024594603753019972,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 0.8637301757933356
+   },
+   "El_reference_V": -0.06904382069905596,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "314804042": null,
+  "320466871": null,
+  "322197160": {
+   "model_id": 566283065,
+   "zip_sha256": "70e648d6a957d947e1c6347c4c6f4136b77322ac9f0c5a59a85ed4d8b97e9d32",
+   "R_input_ohm": 128773489.0561163,
+   "C_F": 1.0315501874029615e-10,
+   "th_inf_V": 0.02331405767167903,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 2.5669385914194307
+   },
+   "El_reference_V": -0.0743747584025065,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "323523338": null,
+  "324466858": {
+   "model_id": 566284194,
+   "zip_sha256": "7286147bcd340118f260e96dd4e713dce95e76d001bdb425f1d50b30b2ee9bb7",
+   "R_input_ohm": 190687899.8348495,
+   "C_F": 1.0110277830367432e-10,
+   "th_inf_V": 0.025041949944373046,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.5222024988628995
+   },
+   "El_reference_V": -0.07800178909301761,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "326774520": {
+   "model_id": 566284300,
+   "zip_sha256": "85063ed6351ecb42149d0d847aff87d83f79e71d7361ecf3728f9de92fb9b02b",
+   "R_input_ohm": 645564465.2827808,
+   "C_F": 4.315668254363757e-11,
+   "th_inf_V": 0.014363351928659944,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.607008203710576
+   },
+   "El_reference_V": -0.05463626766204832,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "329254830": {
+   "model_id": 566286932,
+   "zip_sha256": "e820c9c30cc741ec851c0b537404339517ad0bf74940d2f0774aa043bc82123a",
+   "R_input_ohm": 163487020.8563459,
+   "C_F": 6.301242633082568e-11,
+   "th_inf_V": 0.02431098361553098,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.4675782050647852
+   },
+   "El_reference_V": -0.07442842864990235,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "349621141": null,
+  "396608557": null,
+  "422738880": {
+   "model_id": 566293982,
+   "zip_sha256": "fe6337f6056038f2aefcd69a50083c7d57d3051d707e2ee12a51e4f45fb64196",
+   "R_input_ohm": 204657208.9288877,
+   "C_F": 9.224553294250608e-11,
+   "th_inf_V": 0.028562945594572176,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.4207738465831778
+   },
+   "El_reference_V": -0.07871061197916672,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "466431949": null,
+  "469734859": {
+   "model_id": 566298408,
+   "zip_sha256": "93a75bf78526bcefc52c1ae5a9f6aaf37aec7f2f23b2e8bf2fb0bacc1b13f42d",
+   "R_input_ohm": 168541015.81260476,
+   "C_F": 8.18962674304675e-11,
+   "th_inf_V": 0.032000789587479955,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.3003611174488268
+   },
+   "El_reference_V": -0.07768249893188481,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "471085676": null,
+  "473543792": null,
+  "475049291": null,
+  "475580568": {
+   "model_id": 566306172,
+   "zip_sha256": "1bb338ab3980ac99c59b7c8459f9fe9b7230120dc2773b608aaf40d3263ada46",
+   "R_input_ohm": 275218201.7372211,
+   "C_F": 6.524988790746473e-11,
+   "th_inf_V": 0.035071996745693605,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 0.8359192160006923
+   },
+   "El_reference_V": -0.07344501304626465,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "476048909": {
+   "model_id": 566309071,
+   "zip_sha256": "2b4ddd9288daa88559956823f21ac05cf2f3d78bace27795a6cf05f5cbc13f41",
+   "R_input_ohm": 77764221.86063159,
+   "C_F": 2.3825076539844646e-10,
+   "th_inf_V": 0.015874543495178937,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.662733197903187
+   },
+   "El_reference_V": -0.06630189514160155,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "476198393": null,
+  "476751360": {
+   "model_id": 566316239,
+   "zip_sha256": "8c625d8d22e094e8eb1ac6a2259295a7d0600ca8f5a2e90b17ab895e7df07a1c",
+   "R_input_ohm": 257467529.0053653,
+   "C_F": 5.121726728265252e-11,
+   "th_inf_V": 0.03100583286170735,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 2.118035439469847
+   },
+   "El_reference_V": -0.07413258171081544,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "478111731": {
+   "model_id": 566360661,
+   "zip_sha256": "85d0d83d175be74413f5f0b1880715f0ab79f33c029a2b7734582bb82cef7561",
+   "R_input_ohm": 504885065.8155134,
+   "C_F": 4.0824783469816166e-11,
+   "th_inf_V": 0.02114153297533683,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 0.7890985100636199
+   },
+   "El_reference_V": -0.06735148366292316,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "478892782": null,
+  "479298854": {
+   "model_id": 491767152,
+   "zip_sha256": "dbdd4e210b7adcc313c2eb8435636df0b1a84306eb64337b50d4f12f37911148",
+   "R_input_ohm": 67548188.275716,
+   "C_F": 7.634064546058605e-11,
+   "th_inf_V": 0.031008007694416292,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.053874876962078
+   },
+   "El_reference_V": -0.07785106086730958,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "479905853": null,
+  "480187546": null,
+  "480952106": {
+   "model_id": 491766454,
+   "zip_sha256": "0e23f4514062960995c3628a4f9f9b8125478902518f9b15659c01532043accc",
+   "R_input_ohm": 139944662.54507253,
+   "C_F": 4.336908373852346e-11,
+   "th_inf_V": 0.024510552491721974,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.0239166249211524
+   },
+   "El_reference_V": -0.0723152313232422,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "481136214": {
+   "model_id": 483151556,
+   "zip_sha256": "e4a98eb2ef743257ba0cdf0a7602877895cb846429cd592777c3ef0e276c9dfd",
+   "R_input_ohm": 88874273.61211553,
+   "C_F": 7.525285634446576e-11,
+   "th_inf_V": 0.034921337890498574,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.2880493325356523
+   },
+   "El_reference_V": -0.07621061515808104,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "482726749": null,
+  "483083617": {
+   "model_id": 491766942,
+   "zip_sha256": "0c0cbfab43fe7a0a30f76bfbb2f8b7547c978bb932c03954fd3fea2f88ff5cf0",
+   "R_input_ohm": 481564631.30258346,
+   "C_F": 7.91597808511828e-11,
+   "th_inf_V": 0.025290549102196032,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 0.8101737583373219
+   },
+   "El_reference_V": -0.06970983123779295,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "484742372": {
+   "model_id": 485611899,
+   "zip_sha256": "e03e355f6192c13838f4d47368dd6a2fe3e1e4fd46c4e43fa136f64bd0114e01",
+   "R_input_ohm": 156630384.91504258,
+   "C_F": 4.543982273041997e-11,
+   "th_inf_V": 0.029502102359032487,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 0.8988783603248452
+   },
+   "El_reference_V": -0.07572870635986328,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "485288679": null,
+  "485640247": null,
+  "485934207": {
+   "model_id": 566406860,
+   "zip_sha256": "8ebb1ae55f1b6128757f95db27edd495b5376934d5b5914c0cefcf724a4ec70a",
+   "R_input_ohm": 109830442.05710617,
+   "C_F": 1.3997992322061854e-10,
+   "th_inf_V": 0.031541599771613936,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.2006052631058948
+   },
+   "El_reference_V": -0.08312200927734377,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "486175203": {
+   "model_id": 486557295,
+   "zip_sha256": "0bdfed14d39cfb85ab8f83c0e4f99e7519a514575b3e7424a94eaed7b8a7c6fa",
+   "R_input_ohm": 183830008.9173523,
+   "C_F": 1.1567297624103276e-10,
+   "th_inf_V": 0.03244059175514351,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 0.7535493304160996
+   },
+   "El_reference_V": -0.0733360595703125,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "486510127": {
+   "model_id": 486909637,
+   "zip_sha256": "b24d6ca87a882154232fe70deaceb714c407904a0e74cc3c67436dc021c0aa1d",
+   "R_input_ohm": 109215721.53614289,
+   "C_F": 9.493758654107317e-11,
+   "th_inf_V": 0.027937068679873632,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.2486524417246465
+   },
+   "El_reference_V": -0.07992234547932943,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "487155664": null,
+  "487659462": null,
+  "488438177": null,
+  "488543754": null,
+  "488688374": {
+   "model_id": 489908952,
+   "zip_sha256": "33d687bea0b170451b2cc75e88eca0f05f08e80489f2c6ee58bfe79c2d3a8f8d",
+   "R_input_ohm": 257040275.05912742,
+   "C_F": 9.551913583214523e-11,
+   "th_inf_V": 0.03006780449891725,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.1574942677486872
+   },
+   "El_reference_V": -0.0783669662475586,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "489752610": null,
+  "490264167": {
+   "model_id": 491765789,
+   "zip_sha256": "2ca58c1545c9d882fd5dcc79aad4bd84486dd384344808f6f18d8156352adeae",
+   "R_input_ohm": 184114908.67934442,
+   "C_F": 1.0558117553110899e-10,
+   "th_inf_V": 0.023958146209143015,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.432394828512468
+   },
+   "El_reference_V": -0.06929877090454103,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "490626718": {
+   "model_id": 491634858,
+   "zip_sha256": "7aded8518aaf860f8802b4a56886a359513403a9b8220dfbf88bff1e56bc393b",
+   "R_input_ohm": 109688304.67733657,
+   "C_F": 5.872100585460524e-11,
+   "th_inf_V": 0.03185670047392382,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.2857698474676726
+   },
+   "El_reference_V": -0.07884503555297853,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "491029832": {
+   "model_id": 491762262,
+   "zip_sha256": "1b9d619e6fcfbd4c8c392040249095550a48dee6f59872a55fe3b5dc11eed5a9",
+   "R_input_ohm": 175239565.86713615,
+   "C_F": 4.512365901854253e-11,
+   "th_inf_V": 0.025325083342037112,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.0032821509712657
+   },
+   "El_reference_V": -0.07155166053771973,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "500964358": {
+   "model_id": 512189331,
+   "zip_sha256": "88ff0724ad4b028a54fb3029eed6a5937db0c4aee283c9dd2f5c98cc4b8d4d2f",
+   "R_input_ohm": 213124249.48134327,
+   "C_F": 1.1584450324291122e-10,
+   "th_inf_V": 0.03476806381021474,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.192223722184945
+   },
+   "El_reference_V": -0.081435791015625,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "501845152": null,
+  "502245101": {
+   "model_id": 511852745,
+   "zip_sha256": "c3f54dd9486baa0e072c5de01440d47bcf39093fe824c5648aa1d5a9bb31b442",
+   "R_input_ohm": 145088473.04734662,
+   "C_F": 1.1073883138719747e-10,
+   "th_inf_V": 0.026755093696180274,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.518159490056686
+   },
+   "El_reference_V": -0.07761719512939452,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "502887600": {
+   "model_id": 511853822,
+   "zip_sha256": "0f237dae6c30fc43c18e581496205e1e00e38ace5260f3874473269a301fee55",
+   "R_input_ohm": 224449003.77028847,
+   "C_F": 1.3911307890447865e-10,
+   "th_inf_V": 0.029265839387913925,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.0195341714286412
+   },
+   "El_reference_V": -0.07656130027770996,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "504615116": {
+   "model_id": 511600985,
+   "zip_sha256": "b0acaf63c16da97a35406b59b41cef2d669225ceab7cac344a0622575c34f7ca",
+   "R_input_ohm": 194687114.73632458,
+   "C_F": 1.4908530278299696e-10,
+   "th_inf_V": 0.022694165949725613,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 0.9720901484780918
+   },
+   "El_reference_V": -0.06947121620178223,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "507101551": null,
+  "509522358": null,
+  "510706277": null,
+  "514530024": {
+   "model_id": 515807099,
+   "zip_sha256": "c66c3b8d91d64e8f2dd6655501eceab82629226e9f0b33febb4b1e808a6e7b92",
+   "R_input_ohm": 388514676.13286823,
+   "C_F": 9.158727652551191e-11,
+   "th_inf_V": 0.028608388342347038,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.2075320674517036
+   },
+   "El_reference_V": -0.07637524032592773,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "515464483": null,
+  "517353438": null,
+  "519749342": {
+   "model_id": 520598274,
+   "zip_sha256": "e2bc78f243c0cccffcf958a00683b1ad2e2bfe0bad06796d66ed7ec21d6a88ee",
+   "R_input_ohm": 290824268.1063776,
+   "C_F": 1.5063904787588613e-10,
+   "th_inf_V": 0.02719403855438119,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.0475281756074204
+   },
+   "El_reference_V": -0.0750981979370117,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "522696638": null,
+  "526545261": null,
+  "527579814": {
+   "model_id": 529818513,
+   "zip_sha256": "07209600bddcb4b382b706ae2a7000df5bfa708146cd4a6d1a4f26d540218fc6",
+   "R_input_ohm": 140337285.49490476,
+   "C_F": 8.484435504152692e-11,
+   "th_inf_V": 0.033419273124411515,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.1688460419626994
+   },
+   "El_reference_V": -0.0778145751953125,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "534141324": {
+   "model_id": 538758821,
+   "zip_sha256": "16c9cfca91d0f696e4c40127acd66f4362454674447e7593ffe9ff91c6040afe",
+   "R_input_ohm": 112384167.53474054,
+   "C_F": 1.2111601115854924e-10,
+   "th_inf_V": 0.027395776838467223,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.284470885656624
+   },
+   "El_reference_V": -0.07391916084289549,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "547344442": {
+   "model_id": 550252136,
+   "zip_sha256": "9bbf0b438c2ff6a940f891d0e6309e8f910b8e7ba8192ac9e7db5c001b5a30d4",
+   "R_input_ohm": 225923867.09099758,
+   "C_F": 1.0011986775575961e-10,
+   "th_inf_V": 0.023354459027493536,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.1160250845959028
+   },
+   "El_reference_V": -0.06570034980773927,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "555060623": {
+   "model_id": 558555002,
+   "zip_sha256": "10520932ce173a47f78a3da4fb174a1a61377137d6a94d920a61267669062a91",
+   "R_input_ohm": 349062839.81344026,
+   "C_F": 7.031134845935379e-11,
+   "th_inf_V": 0.0215207914698112,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.380920644166414
+   },
+   "El_reference_V": -0.06162208366394045,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "556357336": null,
+  "557261437": {
+   "model_id": 558559715,
+   "zip_sha256": "0d1ad0adaa476898ce393bff6bcd14994b2fa6776cc5f7c36f0749bbcc51b6c6",
+   "R_input_ohm": 285275712.93782914,
+   "C_F": 5.450297019502389e-11,
+   "th_inf_V": 0.023611243844520832,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.4905637301874088
+   },
+   "El_reference_V": -0.07013335609436035,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "558612809": {
+   "model_id": 559192937,
+   "zip_sha256": "0783e8d6400fd358175b982490db9969f2bbfb812d648ac400e33b74659d38d7",
+   "R_input_ohm": 138399685.60798267,
+   "C_F": 1.1246895004019065e-10,
+   "th_inf_V": 0.01791587632273646,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.4695543701915912
+   },
+   "El_reference_V": -0.06108587392171224,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "560684168": null,
+  "561330525": null,
+  "562003142": null,
+  "562630201": null,
+  "563353582": {
+   "model_id": 565422008,
+   "zip_sha256": "ae65b6d2df10567c30aad5dcf8c2e569a57a4687d84c4cd1c4902906a1e9632a",
+   "R_input_ohm": 262523067.49308413,
+   "C_F": 1.8060270430801889e-10,
+   "th_inf_V": 0.022766367221247724,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 0.8983994258331599
+   },
+   "El_reference_V": -0.0653764533996582,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "564677541": null,
+  "565448436": {
+   "model_id": 566729339,
+   "zip_sha256": "d068560497890e95821d802cdbd2b9a30faf22dec69dab6341343ddc8094adba",
+   "R_input_ohm": 228120247.12693426,
+   "C_F": 6.053269265126326e-11,
+   "th_inf_V": 0.028375866964041888,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.4546391137654604
+   },
+   "El_reference_V": -0.0720647315979004,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "566305266": {
+   "model_id": 568103786,
+   "zip_sha256": "b26cc84890916dda2c514b7530258bb3ba9b5a26abf2f5b25b2e65a63ea7b7e2",
+   "R_input_ohm": 232068230.09160522,
+   "C_F": 6.52637872242065e-11,
+   "th_inf_V": 0.02155260840690297,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 0.8758553894436458
+   },
+   "El_reference_V": -0.06611057281494144,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "566719750": null,
+  "567431416": {
+   "model_id": 569825608,
+   "zip_sha256": "77295179d2e4b502d71d2c93a5c6a389eb6d4a81f5cd3946a91507c4c0b8f2ae",
+   "R_input_ohm": 192739154.99161643,
+   "C_F": 1.0305081890392491e-10,
+   "th_inf_V": 0.036739645228040796,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.1043473107079587
+   },
+   "El_reference_V": -0.07904047012329103,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "569074571": null,
+  "569492761": null,
+  "569794458": null,
+  "570091111": null,
+  "571233863": null,
+  "572410577": {
+   "model_id": 574390034,
+   "zip_sha256": "5d37403405cd568af7b023830aef473248d1ccb35a30c2006335ce180f4b76db",
+   "R_input_ohm": 491805515.66327167,
+   "C_F": 9.711360302646033e-11,
+   "th_inf_V": 0.02012719667998647,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.1922284278348843
+   },
+   "El_reference_V": -0.06738285255432129,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "573323612": null,
+  "574377603": null,
+  "575772040": null,
+  "577854506": null,
+  "579414994": {
+   "model_id": 587863402,
+   "zip_sha256": "86d51ab5b0b55a229d1926d8a84d93672c2e3b2dd4607df61198c5d2cd9ad07c",
+   "R_input_ohm": 115978910.39498453,
+   "C_F": 8.332701003039689e-11,
+   "th_inf_V": 0.016811321000822554,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.2641466724850536
+   },
+   "El_reference_V": -0.06401213582356773,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "580138266": null,
+  "580639899": null,
+  "582647492": null,
+  "583434059": null,
+  "584280397": null,
+  "584872371": {
+   "model_id": 591539302,
+   "zip_sha256": "d197166e24d6aab18ea18a13f83e31dfef264d50b4fc8a94117c778b32aa7c8d",
+   "R_input_ohm": 628244184.1882136,
+   "C_F": 4.324680543812137e-11,
+   "th_inf_V": 0.032649498807021476,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.0648436578360099
+   },
+   "El_reference_V": -0.074943172454834,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "585951863": {
+   "model_id": 591774799,
+   "zip_sha256": "2d919f9133cb678cb352b54835a5067b73fdf2d994e0f6c345ad43c8e6973a1f",
+   "R_input_ohm": 270993472.03185374,
+   "C_F": 5.859138593485038e-11,
+   "th_inf_V": 0.02940124118976957,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 0.7947443363495448
+   },
+   "El_reference_V": -0.06998359934488929,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "586517633": {
+   "model_id": 591785449,
+   "zip_sha256": "5f30a7d10612bb9d1ffb6d116ccaa0779528b19ab8d705ff20f5c90d48e7a19c",
+   "R_input_ohm": 271001089.8042688,
+   "C_F": 9.809221510320215e-11,
+   "th_inf_V": 0.024522068635908126,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.0758452050995682
+   },
+   "El_reference_V": -0.061033245086669935,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "588712191": null,
+  "590876255": {
+   "model_id": 592919686,
+   "zip_sha256": "a61d0503752a78b4a6b3727981755f092ae177e0e77340eb5f89a13fdcf35bb0",
+   "R_input_ohm": 247545191.4062961,
+   "C_F": 4.2906595946447535e-11,
+   "th_inf_V": 0.02685602409467637,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.0657988625039845
+   },
+   "El_reference_V": -0.0755068817138672,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "592577385": null,
+  "593453795": {
+   "model_id": 597605667,
+   "zip_sha256": "379227c2a833ac8ca8fd14eed643c8f90fb08676d60b8fdb6248e51b1c3e3517",
+   "R_input_ohm": 133722018.03665465,
+   "C_F": 6.89266743741226e-11,
+   "th_inf_V": 0.030335838362499395,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.067530631967454
+   },
+   "El_reference_V": -0.07062721824645996,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "596808392": {
+   "model_id": 599372759,
+   "zip_sha256": "a453503a5b60df8260f94f14bad23aa2e6ac8b936b4f455605d224b6bf763101",
+   "R_input_ohm": 297137719.50112826,
+   "C_F": 5.618059368652231e-11,
+   "th_inf_V": 0.030154323736299248,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 0.9968464640568839
+   },
+   "El_reference_V": -0.0748913777669271,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "604130772": null,
+  "609485897": {
+   "model_id": 617215438,
+   "zip_sha256": "63ffc31e71e42bad4e07ace72195cb26bed010f3831a54ec90de18717ce50608",
+   "R_input_ohm": 220253543.22191307,
+   "C_F": 1.1569215901590884e-10,
+   "th_inf_V": 0.02065295933455437,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.050978053365176
+   },
+   "El_reference_V": -0.06483097839355467,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  },
+  "628700262": {
+   "model_id": 637930669,
+   "zip_sha256": "37ba42f080f49ecba30a60b15296a49268e6617331ae668365de615d502ca95d",
+   "R_input_ohm": 269390025.97053105,
+   "C_F": 8.587009771685807e-11,
+   "th_inf_V": 0.023089253057717987,
+   "coeffs": {
+    "C": 1,
+    "G": 1,
+    "th_inf": 1.0212937371199788
+   },
+   "El_reference_V": -0.07139990234375,
+   "threshold_dynamics_method": {
+    "params": {},
+    "name": "inf"
+   }
+  }
+ }
+}

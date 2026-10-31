@@ -1,0 +1,49 @@
+{
+ "claim": "turing-ddi (Delphi record pinned in turing_scope/sources/pins.json)",
+ "adapter": "turing_scope.adapter.analyze",
+ "n_cells": 101,
+ "n_requests": 2828,
+ "verdict_counts": {
+  "stable": 2727,
+  "ablation_regenerative_linearly_unstable": 101
+ },
+ "refusals": {},
+ "reading": "If every measured-rest request is 'stable', the claim+measurement excludes Turing-type voltage patterning from a passive-at-rest voltage variable for all swept partner/ coupling/ diffusivity choices on these cells; the regenerative ablation shows the verdict changes only when the declared (unmeasured) self-activation sign is changed.",
+ "voltage_only_D_w_zero_request": {
+  "verdict": "refused",
+  "refusal": {
+   "code": "invalid_input",
+   "detail": "two diffusivities, both > 0 required"
+  }
+ },
+ "sample_pair": {
+  "measured_rest_request": {
+   "request_id": "c313860745-rho100-k4-dw1000",
+   "verdict": "stable",
+   "reasons": [
+    "every admissible Neumann mode (n=0 and all n>=1) has trace<0 and det>0: linearly stable"
+   ],
+   "unstable_modes": []
+  },
+  "ablation_request": {
+   "request_id": "fault-313860745",
+   "verdict": "linearly_unstable",
+   "reasons": [
+    "5 admissible Neumann mode(s) have det(J - q D) < 0: n = [3, 4, 5, 6, 7]"
+   ],
+   "unstable_modes": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
+  }
+ },
+ "not_established": [
+  "any biological pattern",
+  "nonlinear/excitable dynamics",
+  "gap-junction conductance of any tissue",
+  "the counterfactual that a claim-free pipeline would have mislabeled patterns"
+ ]
+}
