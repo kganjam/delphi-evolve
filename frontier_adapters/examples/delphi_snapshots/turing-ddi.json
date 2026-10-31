@@ -1,0 +1,66 @@
+{
+  "snapshot": {
+    "assessments": {
+      "count": 0,
+      "label": "dataset-resolvability ratings by LLM assessors: NOT evidence, NOT truth ratings",
+      "types": []
+    },
+    "claim_id": "turing-ddi",
+    "claim_iri": "https://w3id.org/delphi/resource/claim/turing-ddi",
+    "delphi_graph": {
+      "note": "status/truth/testability are LLM-elicited; carried as labelled, never as evidence",
+      "registry": "production",
+      "status": "partial"
+    },
+    "delphi_source": "local",
+    "domain_dir": "math-bio-claims",
+    "fields": {
+      "dct:description": "A homogeneous steady state of two reacting chemicals that is stable without diffusion can become unstable to spatial perturbations when the chemicals diffuse at different rates, spontaneously producing a pattern.",
+      "dct:source": "Alan Turing (1952) The chemical basis of morphogenesis",
+      "dct:type": null,
+      "delphi:context": "Assumptions: two species, smooth kinetics, linearization about a homogeneous steady state, fixed domain without growth or mechanics. Formal status: the linear instability conditions are proved; existence and stability of nonlinear patterns are proved for many specific models but not in general.",
+      "delphi:hasEvidence": null,
+      "delphi:hypothesisType": "model-theorem",
+      "delphi:proposedTest": "Measure the reaction Jacobian and the diffusivities of a candidate morphogen pair independently, check that the inequality holds, and then confirm that perturbing the diffusivity ratio switches patterning on or off.",
+      "rdfs:label": "Turing diffusion-driven instability",
+      "rdfs:seeAlso": "https://doi.org/10.1103/PhysRevLett.64.2953",
+      "skos:notation": "u_t = f(u,v) + D_u \\nabla^2 u, v_t = g(u,v) + D_v \\nabla^2 v; with tr J < 0 and det J > 0, instability at some wavenumber k iff D_v f_u + D_u g_v > 2\\sqrt{D_u D_v \\det J}, which requires D_u \\ne D_v"
+    },
+    "kind": "math",
+    "mcp_endpoint": "https://delphisci-mcp.fly.dev/mcp",
+    "nanopub_path": "math-bio-claims/nanopubs/unsigned/turing-ddi.trig",
+    "nanopub_uri": "https://w3id.org/np/RAaQ-9SCjYC7GBJ0ZtrPcVNxZBB7z-VNAdWa8ImGAi610",
+    "quote": {
+      "absent_in_record": true,
+      "chars": 0,
+      "sha256": null,
+      "text_stored": false
+    },
+    "record": {
+      "created": "2026-10-30T23:42:15.805Z",
+      "creator": [
+        "https://orcid.org/0009-0007-4948-9192"
+      ],
+      "extractor_agent": [],
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "registry": "production",
+    "retrieved_at": "2026-10-31T18:15:17.781757+00:00",
+    "snapshot_sha256": "1f4c23ab969853310cf96c036ee6adb871a190272c9d77324706f6ef25956107",
+    "source": {
+      "citation": "Alan Turing (1952) The chemical basis of morphogenesis",
+      "hash_scope": null,
+      "locator": null,
+      "recorded_sha256": null,
+      "see_also_related_not_source": [
+        "https://doi.org/10.1103/PhysRevLett.64.2953"
+      ],
+      "unresolved_internal_iri": null,
+      "url": "https://doi.org/10.1098/rstb.1952.0012"
+    }
+  },
+  "verification": {
+    "performed": false,
+    "reason": "no re-fetchable, rights-clear source (math claim or non-Gutenberg)"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "run": {
+    "backend": {
+      "jobId": "<local path withheld>",
+      "kind": "local_job",
+      "sourceDigest": "370497d48b9632ffc7769d72c9ec0c5168347b7439a7d93a57bb7ef4ebba4b18",
+      "sourcePath": "<local path withheld>",
+      "sourceSize": 10240
+    },
+    "cancelRequested": false,
+    "command": "python3 run_modes.py",
+    "commitSha": "6c69c96f556f040da91da0c579a47a43c4e95da7",
+    "createdAt": 1793469885868,
+    "endedAt": 1793469891914,
+    "experimentId": "18a1f961-e6d6-4026-bfaf-eddc8922c73d",
+    "id": "330735e8-d32e-47cd-99ee-fb54845367d7",
+    "projectId": "bda6263c-8184-451e-b978-b93d1cd5e7f9",
+    "status": "done",
+    "updatedAt": 1793469891914
+  }
+}

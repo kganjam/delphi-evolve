@@ -1,0 +1,7 @@
+results.json sha256 b4698e56aed6496cfae6cb32dc3ef50c8b3fdd21d051f000a5de25abc74e2c45
+L = pi    : all modes stable = True  non-stable n = []
+L = 3pi/2 : all modes stable = False  non-stable n = [1]
+L = 2pi   : all modes stable = False  non-stable n = [1]
+L = 5pi/2 : all modes stable = True  non-stable n = []
+L = 3pi   : all modes stable = False  non-stable n = [2]
+L = 4pi   : all modes stable = False  non-stable n = [2]

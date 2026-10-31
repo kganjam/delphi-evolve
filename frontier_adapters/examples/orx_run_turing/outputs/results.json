@@ -1,0 +1,77 @@
+{
+  "domains": {
+    "2pi": {
+      "L_over_pi": "2/1",
+      "all_modes_linearly_stable": false,
+      "non_stable_modes": [
+        {
+          "det": "-1/8",
+          "n": 1,
+          "q": "1/4",
+          "trace": "-19/4"
+        }
+      ]
+    },
+    "3pi": {
+      "L_over_pi": "3/1",
+      "all_modes_linearly_stable": false,
+      "non_stable_modes": [
+        {
+          "det": "-11/81",
+          "n": 2,
+          "q": "4/9",
+          "trace": "-62/9"
+        }
+      ]
+    },
+    "3pi/2": {
+      "L_over_pi": "3/2",
+      "all_modes_linearly_stable": false,
+      "non_stable_modes": [
+        {
+          "det": "-11/81",
+          "n": 1,
+          "q": "4/9",
+          "trace": "-62/9"
+        }
+      ]
+    },
+    "4pi": {
+      "L_over_pi": "4/1",
+      "all_modes_linearly_stable": false,
+      "non_stable_modes": [
+        {
+          "det": "-1/8",
+          "n": 2,
+          "q": "1/4",
+          "trace": "-19/4"
+        }
+      ]
+    },
+    "5pi/2": {
+      "L_over_pi": "5/2",
+      "all_modes_linearly_stable": true,
+      "non_stable_modes": []
+    },
+    "pi": {
+      "L_over_pi": "1/1",
+      "all_modes_linearly_stable": true,
+      "non_stable_modes": []
+    }
+  },
+  "model": {
+    "Du": "1",
+    "Dv": "10",
+    "J": [
+      [
+        "1",
+        "-2"
+      ],
+      [
+        "2",
+        "-3"
+      ]
+    ]
+  },
+  "modes_scanned": 101
+}

@@ -1,0 +1,53 @@
+@prefix this: <http://purl.org/nanopub/temp/delphi-evolve/frontier/claim-turing-ddi-802d37d1b49b> .
+@prefix sub: <http://purl.org/nanopub/temp/delphi-evolve/frontier/claim-turing-ddi-802d37d1b49b/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix npx: <http://purl.org/nanopub/x/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix delphi: <https://w3id.org/delphi/ontology/> .
+@prefix de: <urn:x-delphi-evolve:vocab#> .
+
+sub:Head {
+  this: a np:Nanopublication ;
+    np:hasAssertion sub:assertion ;
+    np:hasProvenance sub:provenance ;
+    np:hasPublicationInfo sub:pubinfo .
+}
+
+sub:assertion {
+  sub:claim a de:FrontierClaim ;
+    rdfs:label "Turing diffusion-driven instability" ;
+    de:statement "A homogeneous steady state of two reacting chemicals that is stable without diffusion can become unstable to spatial perturbations when the chemicals diffuse at different rates, spontaneously producing a pattern." ;
+    de:frontierRecord "node-a/Claim/turing-ddi@802d37d1b49bc1952fb33de351e8e9e8f94fa79fdd6bdf92198dbef30a9d0f7c" ;
+    de:contentAvailable "false"^^xsd:boolean ;
+    de:originalClaim <https://w3id.org/delphi/resource/claim/turing-ddi> ;
+    de:delphiNanopub <https://w3id.org/np/RAaQ-9SCjYC7GBJ0ZtrPcVNxZBB7z-VNAdWa8ImGAi610> ;
+    de:delphiRegistry "production" ;
+    de:sourceUri <https://doi.org/10.1098/rstb.1952.0012> .
+}
+
+sub:provenance {
+  sub:assertion prov:wasAttributedTo sub:softwareAgent ;
+    prov:wasGeneratedBy sub:generation .
+  sub:softwareAgent a prov:SoftwareAgent ;
+    rdfs:label "frontier_adapters (software; model Claude Sonnet 5.5 authored the adapter)" .
+  sub:generation a prov:Activity ;
+    prov:wasAssociatedWith sub:softwareAgent ;
+    rdfs:comment "frontier_adapters.nanopub_draft 0.1.0; record sha256 of canonical payload bcfe94b8bc5cde554482ef1b90e2a54295831ab212de6cfb276487e3371c03fa" .
+  sub:assertion prov:wasDerivedFrom <https://w3id.org/delphi/resource/claim/turing-ddi> .
+  sub:assertion prov:wasDerivedFrom <https://w3id.org/np/RAaQ-9SCjYC7GBJ0ZtrPcVNxZBB7z-VNAdWa8ImGAi610> .
+}
+
+sub:pubinfo {
+  this: dct:created "2026-10-31T18:14:56.564224+00:00"^^xsd:dateTime ;
+    rdfs:label "Draft: Frontier Claim turing-ddi" ;
+    npx:hasNanopubType de:FrontierClaim ;
+    de:publicationLimit "Draft only: unsigned, no trusty URI, not published to any nanopub network, not accepted, not independently reviewed." ;
+    de:publicationLimit "single-reader, not Codex-reviewed." ;
+    de:publicationLimit "Content held: NO. Only a digest and locator are carried; no source bytes or quote text." ;
+    de:publicationLimit "Delphi record licence (https://creativecommons.org/licenses/by/4.0/) applies to the Delphi nanopub only." ;
+    de:publicationLimit "Source-text rights: not stated in the Delphi record" ;
+    de:signatureStatus "UNSIGNED DRAFT: no trusty URI assigned, not published to any nanopub network" .
+}

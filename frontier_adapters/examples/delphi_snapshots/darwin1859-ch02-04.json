@@ -1,0 +1,72 @@
+{
+  "snapshot": {
+    "assessments": {
+      "count": 2,
+      "label": "dataset-resolvability ratings by LLM assessors: NOT evidence, NOT truth ratings",
+      "types": [
+        "dataset-resolvability/0.1.0"
+      ]
+    },
+    "claim_id": "darwin1859-ch02-04",
+    "claim_iri": "https://w3id.org/delphi/resource/claim/darwin1859-ch02-04",
+    "delphi_graph": {
+      "note": "status/truth/testability are LLM-elicited; carried as labelled, never as evidence",
+      "registry": "production",
+      "status": "untested"
+    },
+    "delphi_source": "local",
+    "domain_dir": "books",
+    "fields": {
+      "dct:description": "No clear line of demarcation exists between species and sub-species, between sub-species and well-marked varieties, or between lesser varieties and individual differences; they blend into one another in an insensible series.",
+      "dct:source": null,
+      "dct:type": "empirical-generalization",
+      "delphi:context": "Charles Darwin, On the Origin of Species (1st ed., London: John Murray, 1859), Chapter II, \u201cVariation under Nature\u201d; section \u201cDoubtful species\u201d. Scope: plants and animals in nature",
+      "delphi:hasEvidence": null,
+      "delphi:hypothesisType": null,
+      "delphi:proposedTest": null,
+      "rdfs:label": "No clear line separates species, sub-species, varieties and individual differences",
+      "rdfs:seeAlso": null,
+      "skos:notation": null
+    },
+    "kind": "literature",
+    "mcp_endpoint": "https://delphisci-mcp.fly.dev/mcp",
+    "nanopub_path": "books/darwin-origin/nanopubs/unsigned/darwin1859-ch02-04.trig",
+    "nanopub_uri": "https://w3id.org/np/RAocgPE82Y3ZDouys2Uv9tCVSYthiWKrcERwQ5_p74-_s",
+    "quote": {
+      "chars": 333,
+      "sha256": "767750cb5fd44a2a60305d6b920a63392b5bf53867e6bb0951c101fb3ac8eba7",
+      "text_stored": false
+    },
+    "record": {
+      "created": "2026-10-30T23:25:03.644Z",
+      "creator": [
+        "https://orcid.org/0009-0007-4948-9192"
+      ],
+      "extractor_agent": [
+        "https://w3id.org/delphi/resource/agent/delphisci-darwin-origin-extractor"
+      ],
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "registry": "production",
+    "retrieved_at": "2026-10-31T18:15:19.850647+00:00",
+    "snapshot_sha256": "8d3ee4a2d68f09ec00a6ed53ff3871dabbb27dac644c8ce7e5689fc0790cf40e",
+    "source": {
+      "edition": "1",
+      "hash_scope": "whole_source_file",
+      "isbn": null,
+      "locator": "line=1810,1815",
+      "publisher": null,
+      "recorded_sha256": "362142cb7c6f90850477520cfe2a62fe423ae92ea8eb6d9cd8b30ddb39de60b9",
+      "rights_statement": null,
+      "url": "https://www.gutenberg.org/cache/epub/1228/pg1228.txt",
+      "work": "http://www.wikidata.org/entity/Q20968204"
+    }
+  },
+  "verification": {
+    "fetched_at": "2026-10-31T18:15:20.687978+00:00",
+    "performed": true,
+    "quote_at_locator": "exact",
+    "sha256_fetched": "362142cb7c6f90850477520cfe2a62fe423ae92ea8eb6d9cd8b30ddb39de60b9",
+    "sha256_match": true
+  }
+}

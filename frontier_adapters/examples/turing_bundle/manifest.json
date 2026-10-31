@@ -1,0 +1,63 @@
+{
+  "created_at": "2026-10-31T18:14:56.564224+00:00",
+  "evidence_targets_exact_claim_version": true,
+  "file_sha256": {
+    "claim.draft.trig": "d923bfd401236c1b8d4907fe9c2349ce71bffdf910c8c2b6e7004daeb6fc17d7",
+    "evidence.draft.trig": "a1629f328b00bc0b5c00f01c9ee1a64c3827388a161178a93f436308c4a1a39c",
+    "records.json": "6ed88f542c2b4f51f042bd5abb8fa2c676f23150ae8d2837ecf5caec14c2da88"
+  },
+  "original_delphi": {
+    "claim_iri": "https://w3id.org/delphi/resource/claim/turing-ddi",
+    "nanopub_uri": "https://w3id.org/np/RAaQ-9SCjYC7GBJ0ZtrPcVNxZBB7z-VNAdWa8ImGAi610",
+    "registry": "production"
+  },
+  "publication": "none. nanopub_draft has no publish function; drafts carry de:signatureStatus UNSIGNED DRAFT.",
+  "records": [
+    {
+      "id": "turing-ddi",
+      "kind": "Claim",
+      "namespace": "node-a",
+      "payload_sha256": "bcfe94b8bc5cde554482ef1b90e2a54295831ab212de6cfb276487e3371c03fa",
+      "version": "802d37d1b49bc1952fb33de351e8e9e8f94fa79fdd6bdf92198dbef30a9d0f7c"
+    },
+    {
+      "id": "orx-run-330735e8-d32e-47cd-99ee-fb54845367d7",
+      "kind": "Evidence",
+      "namespace": "node-a",
+      "payload_sha256": "625067b1311efc62bdeee1d8b4e31c6cf4cc15c906b9123476b90fff319aec38",
+      "version": "1e6214a726d00d535b27f559d0f09b4883f05e4d1e7117fd3942f46fa6232e86"
+    }
+  ],
+  "status": "PROPOSED. Not submitted to any store, not accepted, not published. single-reader, not Codex-reviewed.",
+  "trig_structure": {
+    "claim": {
+      "balanced": true,
+      "blank_node_labels": false,
+      "four_graphs": true,
+      "graphs": [
+        "Head",
+        "assertion",
+        "provenance",
+        "pubinfo"
+      ],
+      "top_level_blocks": 4
+    },
+    "evidence": {
+      "balanced": true,
+      "blank_node_labels": false,
+      "four_graphs": true,
+      "graphs": [
+        "Head",
+        "assertion",
+        "provenance",
+        "pubinfo"
+      ],
+      "top_level_blocks": 4
+    }
+  },
+  "validated_with": {
+    "frontier_commit_read": "52a773c638573091eb8a64971355e6db6f847c9a",
+    "frontier_models": "frontier.models.Draft/make_record + store._unlicensed_available_content",
+    "licence_gate_offenders": []
+  }
+}

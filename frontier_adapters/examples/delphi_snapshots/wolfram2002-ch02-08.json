@@ -1,0 +1,69 @@
+{
+  "snapshot": {
+    "assessments": {
+      "count": 2,
+      "label": "dataset-resolvability ratings by LLM assessors: NOT evidence, NOT truth ratings",
+      "types": [
+        "dataset-resolvability/0.2.0"
+      ]
+    },
+    "claim_id": "wolfram2002-ch02-08",
+    "claim_iri": "https://w3id.org/delphi/resource/claim/wolfram2002-ch02-08",
+    "delphi_graph": {
+      "note": "status/truth/testability are LLM-elicited; carried as labelled, never as evidence",
+      "registry": "test",
+      "status": "untested"
+    },
+    "delphi_source": "local",
+    "domain_dir": "books",
+    "fields": {
+      "dct:description": "Rule 110 started from a single black cell resolves after about 2780 steps: one localized structure survives and interacts with periodic stripes from the left to give behavior that repeats every 240 steps.",
+      "dct:source": null,
+      "dct:type": "computational-observation",
+      "delphi:context": "Stephen Wolfram, A New Kind of Science (Champaign, IL: Wolfram Media, 2002), Chapter 2, \u201cThe Crucial Experiment\u201d; section \u201cThe Need for a New Intuition\u201d (from p. 39), p. 39. Scope: elementary cellular automaton rule 110 from a single black cell",
+      "delphi:hasEvidence": null,
+      "delphi:hypothesisType": null,
+      "delphi:proposedTest": null,
+      "rdfs:label": "Rule 110 from one black cell becomes periodic with period 240 after about 2780 steps",
+      "rdfs:seeAlso": null,
+      "skos:notation": null
+    },
+    "kind": "literature",
+    "mcp_endpoint": "https://delphisci-mcp.fly.dev/mcp",
+    "nanopub_path": "books/wolfram-nks/nanopubs/unsigned/wolfram2002-ch02-08.trig",
+    "nanopub_uri": "https://w3id.org/np/RA9wt5KnI_SU9r6FQEU-LUbax5noiq7DmcUSpGQpYRW28",
+    "quote": {
+      "chars": 202,
+      "sha256": "eb00d764d7b088f8df28e974ead6a737b242065b926eddeba8b5a43e404a1b07",
+      "text_stored": false
+    },
+    "record": {
+      "created": "2026-10-31T03:46:54.964Z",
+      "creator": [
+        "https://orcid.org/0009-0007-4948-9192"
+      ],
+      "extractor_agent": [
+        "https://w3id.org/delphi/resource/agent/delphisci-wolfram-nks-extractor"
+      ],
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "registry": "test",
+    "retrieved_at": "2026-10-31T18:15:22.749837+00:00",
+    "snapshot_sha256": "b635c09dd2fd7b14435cb691100468e0af3b0ca966538e8aa2f2e4b29cb2bcb7",
+    "source": {
+      "edition": null,
+      "hash_scope": "pipeline_extracted_page_text_not_reproducible",
+      "isbn": "urn:isbn:978-1-57955-008-0",
+      "locator": "p. 39",
+      "publisher": "Wolfram Media",
+      "recorded_sha256": "55a25d91d70d5656b3ed7cbd36b59aa02b58205e388ed947ba2e28f242b78cd7",
+      "rights_statement": "Verbatim quotation from A New Kind of Science, \u00a9 2002 Stephen Wolfram, LLC, all rights reserved; quoted for scholarly purposes with citation, as the book's copyright notice permits.",
+      "url": "https://www.wolframscience.com/nks/p39--the-need-for-a-new-intuition/",
+      "work": "http://www.wikidata.org/entity/Q60413467"
+    }
+  },
+  "verification": {
+    "performed": false,
+    "reason": "no re-fetchable, rights-clear source (math claim or non-Gutenberg)"
+  }
+}

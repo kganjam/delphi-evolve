@@ -1,0 +1,255 @@
+[
+  {
+    "created_at": "2026-10-31T18:14:56.564224+00:00",
+    "id": "turing-ddi",
+    "issuer": "importer",
+    "kind": "Claim",
+    "namespace": "node-a",
+    "payload": {
+      "assumptions": [],
+      "context": "Assumptions: two species, smooth kinetics, linearization about a homogeneous steady state, fixed domain without growth or mechanics. Formal status: the linear instability conditions are proved; existence and stability of nonlinear patterns are proved for many specific models but not in general.",
+      "limitations": [],
+      "prior_review": {
+        "adapter": {
+          "id": "frontier_adapters.delphi_claim",
+          "retrieved_at": "2026-10-31T18:14:56.564224+00:00",
+          "snapshot_sha256": "1f4c23ab969853310cf96c036ee6adb871a190272c9d77324706f6ef25956107",
+          "version": "0.1.0"
+        },
+        "delphi_original": {
+          "absent_in_record": [
+            "access",
+            "assumptions",
+            "limitations",
+            "source_version",
+            "locator",
+            "quote",
+            "content_sha256"
+          ],
+          "assessments": {
+            "count": 0,
+            "label": "dataset-resolvability ratings by LLM assessors: NOT evidence, NOT truth ratings",
+            "types": []
+          },
+          "claim_id": "turing-ddi",
+          "claim_iri": "https://w3id.org/delphi/resource/claim/turing-ddi",
+          "delphi_graph": {
+            "note": "status/truth/testability are LLM-elicited; carried as labelled, never as evidence",
+            "registry": "production",
+            "status": "partial"
+          },
+          "domain_dir": "math-bio-claims",
+          "kind": "math",
+          "nanopub_path": "math-bio-claims/nanopubs/unsigned/turing-ddi.trig",
+          "nanopub_uri": "https://w3id.org/np/RAaQ-9SCjYC7GBJ0ZtrPcVNxZBB7z-VNAdWa8ImGAi610",
+          "permission": {
+            "adapter_does_not_assert": "public-domain status; a reviewer must supply it with a citation before any quote is stored",
+            "delphi_record_license": "https://creativecommons.org/licenses/by/4.0/",
+            "delphi_record_license_applies_to": "the Delphi nanopub only, NOT to the quoted source text",
+            "quote_text_included_in_output": false,
+            "redistribution": "digest and locator only; no source bytes or quote text",
+            "source_text_rights": "not stated in the Delphi record"
+          },
+          "quote": {
+            "absent_in_record": true,
+            "chars": 0,
+            "sha256": null,
+            "text_stored": false
+          },
+          "record": {
+            "created": "2026-10-30T23:42:15.805Z",
+            "creator": [
+              "https://orcid.org/0009-0007-4948-9192"
+            ],
+            "extractor_agent": [],
+            "license": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "recorded_sha256_unverified": null,
+          "registry": "production",
+          "source_detail": {
+            "citation": "Alan Turing (1952) The chemical basis of morphogenesis",
+            "hash_scope": null,
+            "recorded_sha256": null,
+            "see_also_related_not_source": [
+              "https://doi.org/10.1103/PhysRevLett.64.2953"
+            ],
+            "unresolved_internal_iri": null
+          },
+          "unmapped_fields": {
+            "dct:source": "Alan Turing (1952) The chemical basis of morphogenesis",
+            "delphi:hypothesisType": "model-theorem",
+            "delphi:proposedTest": "Measure the reaction Jacobian and the diffusivities of a candidate morphogen pair independently, check that the inequality holds, and then confirm that perturbing the diffusivity ratio switches patterning on or off.",
+            "rdfs:seeAlso": "https://doi.org/10.1103/PhysRevLett.64.2953",
+            "skos:notation": "u_t = f(u,v) + D_u \\nabla^2 u, v_t = g(u,v) + D_v \\nabla^2 v; with tr J < 0 and det J > 0, instability at some wavenumber k iff D_v f_u + D_u g_v > 2\\sqrt{D_u D_v \\det J}, which requires D_u \\ne D_v"
+          }
+        },
+        "source_verification": {
+          "performed": false,
+          "reason": "no re-fetchable, rights-clear source (math claim or non-Gutenberg)"
+        }
+      },
+      "source": {
+        "access": "A bibliographic citation from the Delphi record with a resolvable DOI. No locator, quote or hash exist in the record; the claim is not span-anchored to its source.",
+        "content_available": false,
+        "content_sha256": null,
+        "license": null,
+        "locator": null,
+        "source_version": null,
+        "uri": "https://doi.org/10.1098/rstb.1952.0012"
+      },
+      "source_record_version": "https://w3id.org/np/RAaQ-9SCjYC7GBJ0ZtrPcVNxZBB7z-VNAdWa8ImGAi610",
+      "statement": "A homogeneous steady state of two reacting chemicals that is stable without diffusion can become unstable to spatial perturbations when the chemicals diffuse at different rates, spontaneously producing a pattern.",
+      "title": "Turing diffusion-driven instability"
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "https://w3id.org/delphi/resource/claim/turing-ddi",
+    "version": "802d37d1b49bc1952fb33de351e8e9e8f94fa79fdd6bdf92198dbef30a9d0f7c",
+    "visibility": "public"
+  },
+  {
+    "created_at": "2026-10-31T18:14:56.564224+00:00",
+    "id": "orx-run-330735e8-d32e-47cd-99ee-fb54845367d7",
+    "issuer": "importer",
+    "kind": "Evidence",
+    "namespace": "node-a",
+    "payload": {
+      "assumptions": [
+        "Declared linearization J=[[1,-2],[2,-3]], Du=1, Dv=10: a worked instance, not fitted to any data.",
+        "Two species, linear stability about a homogeneous steady state, 1-D interval, zero-flux boundaries.",
+        "Neumann mode numbers are DEFINED as q_n=(n*pi/L)^2; they are not derived from the boundary-value problem in this run.",
+        "A mode is stable iff trace<0 and det>0 (Routh-Hurwitz for a 2x2 matrix); modes n=0..100 are scanned."
+      ],
+      "context": "Applicability witness for the Delphi claim turing-ddi. For J=[[1,-2],[2,-3]], Du=1, Dv=10 the continuum inequality Dv*fu+Du*gv > 2*sqrt(Du*Dv*detJ) holds (49 > 40), yet every admissible Neumann mode is stable on L=pi and L=5pi/2, while a non-stable mode exists on 3pi/2, 2pi, 3pi and 4pi. It shows the admissible-mode set decides the outcome; it does not support the claim's headline and carries no stance field because the Evidence schema has none.",
+      "created_time": {
+        "basis": "witnessed",
+        "value": "2026-10-31T18:04:51.914000+00:00"
+      },
+      "evidence_kind": "simulated",
+      "limitations": [
+        "OpenResearch does not record the execution environment (interpreter, OS, packages, hardware); local runs use the host's own environment and container images are mutable tags, so the record alone does not say how to reproduce the environment.",
+        "Inputs outside the committed git snapshot and any random seeds are not recorded; only the command string and the committed code are.",
+        "OpenResearch does not hash or register run outputs; the content digest in this record was computed by the adapter from a mutable local run directory at retrieval time.",
+        "Run, experiment and project ids are random UUIDs local to one machine's store: there is no shared registry, and the run can be deleted by its owner (`orx exp delete`).",
+        "A run reaching status 'done' means the process exited 0. It says nothing about scientific validity and has not been reviewed.",
+        "The database exit_code was NULL for this local run; the exit code was read from the run directory's exit_code file instead.",
+        "Evaluates the target claim's own linear criterion on one declared instance. It says nothing about nonlinear patterning, real morphogens or biology.",
+        "Exact rational arithmetic removes numerical error, but the model and the mode set are declarations.",
+        "Modes above n=100 are not scanned; their stability rests on an algebraic tail argument this run does not re-prove.",
+        "Evidence kind is 'simulated', not 'formal': no proof checker was involved in this record.",
+        "The author of the run also wrote this adapter; no independent party has re-executed it."
+      ],
+      "local_id": "330735e8-d32e-47cd-99ee-fb54845367d7",
+      "method": "Exact-rational scan. For each domain length L=(p/s)*pi in {pi, 3pi/2, 2pi, 5pi/2, 3pi, 4pi} form the Neumann mode numbers q_n=(n*s/p)^2, n=0..100, and compute trace=(a+d)-(Du+Dv)q and det=(Du*q-a)*(Dv*q-d)-b*c with Python Fractions. A mode is non-stable unless trace<0 and det>0. Executed as `python3 run_modes.py` on the OpenResearch local backend.",
+      "provenance": {
+        "adapter": {
+          "id": "frontier_adapters.orx_evidence",
+          "version": "0.1.0"
+        },
+        "backend_kind": "local_job",
+        "command": "python3 run_modes.py",
+        "commit_sha": "6c69c96f556f040da91da0c579a47a43c4e95da7",
+        "db_exit_code": null,
+        "exit_code_file": 0,
+        "experiment_id": "18a1f961-e6d6-4026-bfaf-eddc8922c73d",
+        "field_origin": {
+          "assumptions": "author",
+          "context": "author",
+          "created_time": "orx",
+          "evidence_kind": "author",
+          "limitations": "adapter+author",
+          "local_id": "orx",
+          "method": "author",
+          "provenance": "adapter+orx",
+          "provider_assessment": "absent",
+          "retrieved_time": "adapter",
+          "source": "adapter+orx",
+          "source_dependence": "author",
+          "target": "author",
+          "uncertainty": "author"
+        },
+        "log_sha256": "441a174acc62a9da04b48f485407a88e4b1c8646b5a1531088341e3212f28d5b",
+        "openresearch_source_read": "alphaXiv/OpenResearch@703fd4bba66311625cf7e0b0776a0f949d3f4c73",
+        "orx_version": "0.2.23",
+        "outputs": [
+          {
+            "bytes": 1380,
+            "path": "results.json",
+            "sha256": "b4698e56aed6496cfae6cb32dc3ef50c8b3fdd21d051f000a5de25abc74e2c45"
+          }
+        ],
+        "project_id": "bda6263c-8184-451e-b978-b93d1cd5e7f9",
+        "replay": {
+          "at": "2026-10-31T18:14:56.664964+00:00",
+          "command_run": [
+            "python3",
+            "run_modes.py"
+          ],
+          "control_results": {
+            "python3.12": {
+              "exit": 0,
+              "interpreter_version": "Python 3.12.3",
+              "matches_recorded": false,
+              "result_sha256": "bf4537bd42a10b8ee097f83cf7fed9b852122c78b53fc27bf16a76ec2a75f361"
+            }
+          },
+          "mutation_control": true,
+          "note": "the interpreter and its version are NOT in the OpenResearch record; the replayer chose them",
+          "performed": true,
+          "recorded_sha256": "b4698e56aed6496cfae6cb32dc3ef50c8b3fdd21d051f000a5de25abc74e2c45",
+          "results": {
+            "python3.12": {
+              "exit": 0,
+              "interpreter_version": "Python 3.12.3",
+              "matches_recorded": true,
+              "result_sha256": "b4698e56aed6496cfae6cb32dc3ef50c8b3fdd21d051f000a5de25abc74e2c45"
+            },
+            "python3.13": {
+              "exit": 0,
+              "interpreter_version": "Python 3.13.12",
+              "matches_recorded": true,
+              "result_sha256": "b4698e56aed6496cfae6cb32dc3ef50c8b3fdd21d051f000a5de25abc74e2c45"
+            }
+          }
+        },
+        "run_id": "330735e8-d32e-47cd-99ee-fb54845367d7",
+        "source_tar_sha256": "370497d48b9632ffc7769d72c9ec0c5168347b7439a7d93a57bb7ef4ebba4b18",
+        "status": "done",
+        "system": "alphaXiv/OpenResearch orx",
+        "time_witness": "ended_at is the local orx supervisor's clock on the producing machine; uncorroborated"
+      },
+      "provider_assessment": null,
+      "retrieved_time": {
+        "basis": "witnessed",
+        "value": "2026-10-31T18:14:56.950638+00:00"
+      },
+      "source": {
+        "access": "Local-only: held in the producing machine's OpenResearch store; not published or served. Only the digest of the result file is carried. OpenResearch (MIT) licenses its software, not the content of a user's runs, so no licence for this content is stated.",
+        "content_available": false,
+        "content_sha256": "b4698e56aed6496cfae6cb32dc3ef50c8b3fdd21d051f000a5de25abc74e2c45",
+        "license": null,
+        "locator": "orx-run:330735e8-d32e-47cd-99ee-fb54845367d7/results.json",
+        "source_version": "git:6c69c96f556f040da91da0c579a47a43c4e95da7; source-tar-sha256:370497d48b9632ffc7769d72c9ec0c5168347b7439a7d93a57bb7ef4ebba4b18",
+        "uri": null
+      },
+      "source_dependence": {
+        "independent_of_target_extractor": "unknown: the target was extracted by a Claude Opus 5.5 pipeline, same vendor family",
+        "note": "Evaluates the target claim's own stability criterion; it is not an independent confirmation of the criterion.",
+        "producer": "corpus session (Claude Sonnet 5.5)",
+        "shares_criterion_with_target": true
+      },
+      "target": {
+        "id": "turing-ddi",
+        "kind": "Claim",
+        "namespace": "node-a",
+        "version": "802d37d1b49bc1952fb33de351e8e9e8f94fa79fdd6bdf92198dbef30a9d0f7c"
+      },
+      "uncertainty": "Exact rational arithmetic: the sign tests carry no numerical uncertainty. Model-form uncertainty and relevance to any real system are not quantified."
+    },
+    "predecessor": null,
+    "schema_version": "frontier-record-0.1",
+    "source_uri": "urn:frontier:adapter:openresearch-local-run",
+    "version": "1e6214a726d00d535b27f559d0f09b4883f05e4d1e7117fd3942f46fa6232e86",
+    "visibility": "public"
+  }
+]

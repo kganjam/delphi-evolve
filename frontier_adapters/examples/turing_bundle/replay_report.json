@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-31T18:14:56.664964+00:00",
+  "command_run": [
+    "python3",
+    "run_modes.py"
+  ],
+  "control_results": {
+    "python3.12": {
+      "exit": 0,
+      "interpreter_version": "Python 3.12.3",
+      "matches_recorded": false,
+      "result_sha256": "bf4537bd42a10b8ee097f83cf7fed9b852122c78b53fc27bf16a76ec2a75f361"
+    }
+  },
+  "mutation_control": true,
+  "note": "the interpreter and its version are NOT in the OpenResearch record; the replayer chose them",
+  "performed": true,
+  "recorded_sha256": "b4698e56aed6496cfae6cb32dc3ef50c8b3fdd21d051f000a5de25abc74e2c45",
+  "results": {
+    "python3.12": {
+      "exit": 0,
+      "interpreter_version": "Python 3.12.3",
+      "matches_recorded": true,
+      "result_sha256": "b4698e56aed6496cfae6cb32dc3ef50c8b3fdd21d051f000a5de25abc74e2c45"
+    },
+    "python3.13": {
+      "exit": 0,
+      "interpreter_version": "Python 3.13.12",
+      "matches_recorded": true,
+      "result_sha256": "b4698e56aed6496cfae6cb32dc3ef50c8b3fdd21d051f000a5de25abc74e2c45"
+    }
+  }
+}
