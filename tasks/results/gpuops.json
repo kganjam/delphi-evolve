@@ -220,5 +220,57 @@
   "reading": "monotone in all four ensemble x noise combinations; primary's absolute numbers are matched to ~1-2 points only by E2 + Gaussian sigma=10%, i.e. the ABSOLUTE survival depends on the noise model (up to ~10-20 points) and the sampling box, the monotone trend does not",
   "limits_of_independence": "shares the classical Turing criterion (quadratic condition) with the other implementations, so it checks implementation/sampling, not the criterion itself; sampling boxes are my choices; a two-species LINEAR stability result under a stated noise model, not about any organism; novelty/prior art NOT checked by me",
   "slide_requirement": "any slide must state the noise model (Gaussian vs uniform) and sampling box; 'about 11% at r*=1.5' is Gaussian-sigma-10% specific"
+ },
+ "mispredict_map_0745pdt": {
+  "source": "messages/2026-10-31-ATLAS-and-the-surviving-claim.md (primary)",
+  "code": "turing_ratio/mispredict_map.py -> artifacts/gpuops/mispredict_map.json; tests/test_turing_ratio.py (5 pass)",
+  "measured_cost": "10M stable activator-inhibitor systems x 4 ratio settings x 10 domain lengths + 240,000 exact-rational decisions = 30.3 s wall on CPU (2 threads)",
+  "validation": "exact Fraction decision (rational L/pi => rational q_n, sign of h(q_n) exact, no square roots) vs float64 vectorised: 0 disagreements in 240,000 decisions (120,000 per ensemble). Reproduces the interval fact: band q in (1/5,1/2) => mode n admissible iff L/pi in (n*sqrt2, n*sqrt5).",
+  "result_percent_passing_continuum_test_but_no_admissible_mode (L/pi = 1,1.5,2,3,5,10,20)": {
+   "E2_d=10 (n=51,734)": [
+    79.9,
+    53.8,
+    34.2,
+    15.0,
+    5.8,
+    1.6,
+    0.37
+   ],
+   "E2_d=2 (n=1,603)": [
+    89.3,
+    68.4,
+    48.2,
+    25.3,
+    8.9,
+    2.3,
+    0.62
+   ],
+   "E1_d=10 (n=3.5M)": [
+    100.0,
+    5.2,
+    3.8,
+    0.86,
+    0.6,
+    0.19,
+    0.04
+   ],
+   "E1_d=2 (n=1.4M)": [
+    100.0,
+    57.8,
+    8.6,
+    6.9,
+    2.4,
+    0.37,
+    0.11
+   ]
+  },
+  "gate_conclusion": "The LINEAR mispredication map is CPU work (30 s for 10M systems); statistical error at N=5e6 is ~0.02-0.2 percentage points, so more samples buy nothing; 1e9 systems would be ~25 min of 2-thread CPU by linear scaling (unmeasured extrapolation). It is NOT a GPU workload. GPUs remain relevant only to the nonlinear/subcritical dual-solver piece, not run.",
+  "caveats": [
+   "the headline level depends on the ensemble: at L=1.5*pi the mispredication rate is 5.2% (E1) vs 53.8% (E2) at d=10; shape (steep fall with L, non-monotone wiggles from integer mode counting) is consistent across ensembles; both ensembles are my arbitrary choices, not kinetics from the literature",
+   "L is in units where Du=1; the result is not scale-free: it depends on the absolute rates of the ensemble relative to the diffusion length sqrt(Du/a)",
+   "the primary's quoted 98.3% at L=pi -> 0.4% at L=20pi came from a different toy ensemble I did not see; mine give 80-100% -> 0.04-0.6%, same shape, not the same numbers",
+   "a principled ensemble (published kinetic models with units) is the scientific prerequisite for the map to mean anything about biology; that is not compute-limited",
+   "I did not check prior art (atlas-lean, Payan, Kurics-Menshykau-Iber, Ouchdiri) and did not touch Lean"
+  ]
  }
 }
