@@ -180,7 +180,7 @@ def curves_svg(ep_rows: list[dict], policies: list[str], seeds_n: int, w=640, h=
         out.append(f'<line x1="{ml}" x2="{w - mr}" y1="{Y(g):.1f}" y2="{Y(g):.1f}" stroke="#d8d1bf"/><text x="{ml - 8}" y="{Y(g) + 4:.1f}" font-size="12" fill="#5b6670" text-anchor="end">{int(g * 100)}%</text>')
     for x in (0, 250, 500, 750, 1000):
         out.append(f'<text x="{X(x):.1f}" y="{h - 28}" font-size="12" fill="#5b6670" text-anchor="middle">{x}</text>')
-    out.append(f'<text x="{(ml + w - mr) / 2:.1f}" y="{h - 8}" font-size="12" fill="#5b6670" text-anchor="middle">assays bought beyond the 96 initial observations (matched across policies)</text>')
+    out.append(f'<text x="{(ml + w - mr) / 2:.1f}" y="{h - 8}" font-size="12" fill="#5b6670" text-anchor="middle">additional assays beyond free initial and endpoint observations</text>')
     out.append(f'<text x="14" y="{(mt + h - mb) / 2:.0f}" font-size="12" fill="#5b6670" text-anchor="middle" transform="rotate(-90 14 {(mt + h - mb) / 2:.0f})">episodes with a certificate</text>')
     for p in policies:
         t = sorted(float(r["assays"]) for r in ep_rows if r["policy"] == p and r["certificate"] in ("open", "blocked"))
@@ -605,7 +605,7 @@ def build_slides(D: dict, R: dict | None, draft_reasons: list[str], prov: dict) 
 <div class="row" style="gap:18px">
  <div class="col"><div class="card" style="height:100%"><h3>Checked — conditionally</h3>
   <p class="small" style="margin:0 0 6px;font-size:16.5px">Lean {E(lean_v)} compiled the generic route-soundness theorem, a weak “no certifiable route” cut and a strong cut; plus {bridge_txt}.</p>
-  <p class="small" style="margin:0;font-size:16.5px"><span class="tag as">ASSUMED</span> interval containment. Noise bins were fit on all replicates, so κ is a <b>transductive sensitivity</b>, not held-out validation. Not every one of the {D["protocol"]["seeds"] * 5 * 11 + D["protocol"]["seeds"] * 5 * 3:,} replay-episode certificates (core arms plus LazySP) is kernel-checked.</p></div></div>
+  <p class="small" style="margin:0;font-size:16.5px"><span class="tag as">ASSUMED</span> interval containment. Noise bins were fit on all replicates, so κ is a <b>transductive sensitivity</b>, not held-out validation. The {D["protocol"]["seeds"] * 5 * 11 + D["protocol"]["seeds"] * 5 * 3:,} core and LazySP replay decisions are checked in Python; they are not individually kernel-checked.</p></div></div>
  <div class="col"><div class="card" style="height:100%"><h3>Predicted — not measured</h3>
   <p class="small" style="margin:0 0 6px;font-size:16.5px">{gpu_txt}</p>
   <p class="small" style="margin:0;font-size:16.5px">Replay using this prior: <b>{D["gpu_replay_text"]}</b>. Nothing here says it helps.</p></div></div>

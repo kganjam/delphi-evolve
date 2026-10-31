@@ -1,6 +1,6 @@
 # Inverse design, cellular computation and electrical fabrication
 
-Research checkpoint, October 31, 2026. These are candidate experiments, not claims that a new material or organism has been built. Three subscription workers are independently examining NCA/amorphous computing, electrical fabrication, and FutureHouse challenges. The existing build continues.
+Research checkpoint, October 31, 2026. These are candidate experiments, not claims that a new material or organism has been built. Three subscription workers completed reports on NCA/amorphous computing, electrical fabrication, and FutureHouse challenges. Their research led to the bounded executable Turing example; no NCA or fabrication experiment was run.
 
 ## Checklist and decision rule
 
@@ -27,7 +27,7 @@ A 2025 study measured cellulose-producing bacteria's response to AC fields and s
 
 The public MIT-licensed `bioelectrics` package is closer still: ion-level tissues, intervention optimization, attractor analysis and published-model checks. Its limitations matter: a fixed extracellular bath, phenomenological channels producing bistability, and missing osmotic regulation. Its validation distinguishes matching equations from validating a tissue. I cloned and read README, validation and limitations at commit `7c061c5041c4a75b074f59d94235ff8cb7f24f50`; I have not run its tests. These remain author-reported capabilities. [Repository](https://github.com/tlcdv/bioelectrics).
 
-**FutureHouse supplies validation targets.** Its September 2026 announcement lists twelve Millennium Problems chosen partly for experimentally checkable criteria. The announcement does not state a monetary award. Solving a simulation surrogate does not solve the corresponding biological problem. Exact thresholds are under independent review. [Official announcement](https://www.futurehouse.org/news/millennium-problems-for-biology).
+**FutureHouse supplies validation targets.** Its September 2026 announcement lists twelve Millennium Problems chosen partly for experimentally checkable criteria. The announcement does not state a monetary award. Solving a simulation surrogate does not solve the corresponding biological problem. The separate research-grand report records the scout’s threshold review; none of those biological challenges was solved here. [Official announcement](https://www.futurehouse.org/news/millennium-problems-for-biology).
 
 ## Ten candidates
 

@@ -1,6 +1,6 @@
 {
   "role": "integrator",
-  "status": "in_progress",
+  "status": "superseded_by_coordinator",
   "model": "claude-sonnet-5-5 (subscription; no metered charge established)",
   "started_pdt": "2026-10-31 00:06",
   "commit": "see git log (merge of work/proof 0397c7b + work/experience 18f0164)",
@@ -261,5 +261,17 @@
       ],
       "interpretation": "data fetch from CaltechDATA, venv install, audit, integ_mutants, check_proofs all exit 0. pytest: 103 passed, 1 failed (docs staleness guard: docs/blog.md still renders proof as 'not integrated'; re-render needed after final artifacts). browser_smoke and check_demo fail only because site/data/demo.json is not committed yet (404 / file missing). check_proofs: 10/10 Lean-source mutants rejected. NOT a final reproduction."
     }
-  ]
+  ],
+  "historical_report_status": "in_progress",
+  "coordinator_resolution": {
+    "recorded_at_seattle": "2026-10-31 02:23 PDT",
+    "summary": "Original worker report retained. Coordinator completed integration and presentation; see current handoff and receipts. Original worker was not represented as independently finishing these steps.",
+    "receipts": [
+      "artifacts/integration/fresh-checkout-317203a0.json",
+      "tasks/results/presentation-refresh.json",
+      "artifacts/integration/lazysp-coordinator-audit.json",
+      "artifacts/integration/scale-coordinator-audit.json"
+    ],
+    "integration_notes": "Integrator f86a61b GPU wiring was superseded by the stricter compute_block validation. The useful free-endpoint methodological caveat from e27f6ae was incorporated into scripts/build_results_json.py."
+  }
 }
