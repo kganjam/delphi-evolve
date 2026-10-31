@@ -58,7 +58,7 @@
     {
       "cmd": ".venv/bin/python -m pytest tests/test_evidence.py tests/test_evidence_browser.py -q (capped scope, OMP_NUM_THREADS=2)",
       "exit": 0,
-      "result": "19 passed"
+      "result": "19 passed before the differential test was added; full suite now 20 tests"
     },
     {
       "cmd": "python3 tests/browser_smoke.py (headless Chromium via Playwright, capped scope)",
@@ -69,6 +69,11 @@
       "cmd": "cross-check: core worker demo built from git archive of origin/work/core@bcc0729 in /tmp (not committed) and loaded into a /tmp copy of the site",
       "exit": 0,
       "result": "site's browser recomputation matched core's kappa sweep on all 8 rows (route existence, shortest route edges, reachable-from-start counts, e.g. 577/381/278/230/137/77/56/25) and agreed on the certified route (6 steps at kappa=2) and on core's broken 'tempting-direct' route (step 2 fails)"
+    },
+    {
+      "cmd": "pytest tests/test_evidence.py -k differential (capped scope, ~70 s)",
+      "exit": 0,
+      "result": "site/lib.js decision (status, route length, number of unmeasured genotypes on route) equals the Python BFS mirror on 8 parent->published-top pairs at kappa 2/3, 10 seeded random pairs at kappa 6/8, and 4 unmeasured-adjacent starts; all three statuses (open, undetermined, blocked) were exercised"
     }
   ],
   "key_findings_descriptive_not_benchmark": [

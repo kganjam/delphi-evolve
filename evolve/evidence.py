@@ -697,7 +697,7 @@ def render_template(text: str, sources: dict[str, dict]) -> str:
 DOC_TEMPLATES = ("blog", "pitch", "video-storyboard")
 
 
-def render_docs() -> list[str]:
+def render_docs(out_dir: Path | None = None) -> list[str]:
     """Render docs/<name>.template.md -> docs/<name>.md from saved artifacts only."""
     sources: dict[str, dict] = {}
     for key, rel in (("landscape", "site/data/landscape.meta.json"),
@@ -721,7 +721,8 @@ def render_docs() -> list[str]:
         body = render_template(tp.read_text(), sources)
         footer = (f"\n\n---\n*Rendered {now_seattle()} by `python -m evolve.evidence docs` from: "
                   f"{', '.join(sorted(sources)) or 'no artifacts'}. Edit `docs/{name}.template.md`, not this file.*\n")
-        out = ROOT / "docs" / f"{name}.md"
+        out = (out_dir or ROOT / "docs") / f"{name}.md"
+        out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(body + footer)
         outs.append(str(out))
     return outs

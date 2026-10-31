@@ -29,4 +29,4 @@ Target length 3:00 at about 140 words per minute (about 420 spoken words). Numbe
 
 
 ---
-*Rendered 2026-10-31 00:23:04 PDT by `python -m evolve.evidence docs` from: delphi, evsite, experience, landscape, nano, route. Edit `docs/pitch.template.md`, not this file.*
+*Rendered 2026-10-31 00:28:14 PDT by `python -m evolve.evidence docs` from: delphi, evsite, experience, landscape, nano, route. Edit `docs/pitch.template.md`, not this file.*
