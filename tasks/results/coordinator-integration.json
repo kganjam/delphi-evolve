@@ -1,0 +1,43 @@
+{
+  "status": "in_progress",
+  "scope": "Coordinator integration checks; release still awaits final core/GPU/presentation integration.",
+  "recorded_at_seattle": "2026-10-31T01:15:57.710355-07:00",
+  "code_head": "af9721efe9ca062646dbb3b222c65207d72da9f2",
+  "checks": [
+    {
+      "scope": "services, original replay recovery, proof exactness, Lean, presentation",
+      "code_head": "476ecdc",
+      "result": "84 passed in 59.24s",
+      "exit": 0,
+      "log": "/data/artifacts/delphi-release-test-1.log"
+    },
+    {
+      "scope": "claim-runtime plus evidence",
+      "result": "105 passed, 4 failed, 1 skipped in 81.78s",
+      "exit": 1,
+      "log": "/data/artifacts/delphi-release-claim-check.log",
+      "failures": [
+        "Coordinator supplied parent directory instead of the shards subdirectory",
+        "Test interpreter lacked optional rdflib dependency (two failures and one skip)",
+        "Generated prose was stale after merging the completed proof receipt"
+      ]
+    },
+    {
+      "scope": "The four failed tests plus the rdflib-skipped test",
+      "result": "5 passed, 26 deprecation warnings in 11.34s",
+      "exit": 0,
+      "log": "/data/artifacts/delphi-release-recheck.log",
+      "repairs": [
+        "Pointed CLAIM_REUSE_SHARDS at the 140-shard directory",
+        "Created an isolated venv using the existing Python3 interpreter with rdflib",
+        "Regenerated blog, pitch and storyboard from the merged artifacts"
+      ]
+    }
+  ],
+  "limits": [
+    "No full-suite pass is claimed; these are selected checks across recorded runs",
+    "The first uv venv selected Python3.14 without inherited numerical packages; it was not used for the passing test run",
+    "Corrected an unsupported structural interpretation: low-confidence predicted differences cannot be attributed to mutation effects",
+    "Source-only scout reports and new inverse-design proposals are not completed experiments"
+  ]
+}

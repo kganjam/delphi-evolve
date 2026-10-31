@@ -18,7 +18,7 @@ The data are real: Johnston et al. (PNAS 2024) measured bacterial growth for ess
 | Descriptive full-data route analysis | ran | `artifacts/evidence/route_summary.json` |
 | Interactive site; browser logic cross-checked against a Python mirror | ran | `tests/test_evidence.py`; experience result: completed |
 | Core worker's audited loader, measured-graph truth, replay protocol | not integrated into this checkout | `tasks/results/core.json` |
-| Lean conditional certificate (proof worker) | not integrated into this checkout | `tasks/results/proof.json` |
+| Lean conditional certificate (proof worker) | completed | `tasks/results/proof.json` |
 | GPU foundation-model prior (BioNeMo / ESM2) | no result integrated; do not assume it ran | `tasks/results/gpu.json` |
 | Retrospective assay-budget replay | benchmark status in demo.json: no demo.json integrated | `artifacts/core/replay/` |
 
@@ -43,7 +43,7 @@ The proposed contribution is not the regressor. It is to pose the engineering de
 
 ## Machine-checked certificate
 
-The proof worker's Lean work is meant to state interval-path soundness and a cut theorem and to check dataset-linked certificates, rejecting a mutated one. Whether it compiled is a fact about its receipt, not about this text. Status as rendered: not available in saved artifacts. The in-browser check on the site is *not* the Lean-checked object; the Proof tab shows nothing green unless `demo.json` carries a receipt with kernel exit 0 and a non-zero mutant exit.
+The proof worker's Lean work is meant to state interval-path soundness and a cut theorem and to check dataset-linked certificates, rejecting a mutated one. Whether it compiled is a fact about its receipt, not about this text. Status as rendered: completed. The in-browser check on the site is *not* the Lean-checked object; the Proof tab shows nothing green unless `demo.json` carries a receipt with kernel exit 0 and a non-zero mutant exit.
 
 ## Delphi and Darwin
 
@@ -68,4 +68,4 @@ python -m venv .venv && .venv/bin/pip install pandas numpy rdflib pytest
 
 
 ---
-*Rendered 2026-10-31 00:28:14 PDT by `python -m evolve.evidence docs` from: delphi, evsite, experience, landscape, nano, route. Edit `docs/blog.template.md`, not this file.*
+*Rendered 2026-10-31 01:11:49 PDT by `python -m evolve.evidence docs` from: delphi, evsite, experience, integrator, landscape, nano, proof, route. Edit `docs/blog.template.md`, not this file.*

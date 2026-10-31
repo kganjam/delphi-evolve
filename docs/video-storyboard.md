@@ -11,7 +11,7 @@ All frames are screen recordings of the real static site (`site/index.html`, ser
 | 32–48 | **Climax.** Press "Challenge the assumption" | κ slider sweeps; route turns dashed crimson with ✕ at the failing step; rerouting; finally BLOCKED banner | "Distrust the measurements a little more… and the route breaks." | break near κ ≈ 4.074 (`route_summary.json`) |
 | 48–56 | Evidence tab | click step 3: raw replicate values, margin, read counts, SHA-256 prefix | "Every step opens its evidence." | page / `landscape.meta.json` |
 | 56–64 | Claims tab | scroll Delphi claim IDs with *local* and *network* labels; note "motivation only" chip | "Linked to Delphi — as motivation, not as a test of Darwin." | `delphi_queries.json` |
-| 64–72 | Proof tab and Replay tab | show whichever state exists: receipt exit codes, or the empty state "No proof receipt loaded" | "Nothing is green unless a compiled receipt says so." | `demo.json` if integrated (proof status: none; replay: none) |
+| 64–72 | Proof tab and Replay tab | show whichever state exists: receipt exit codes, or the empty state "No proof receipt loaded" | "Nothing is green unless a compiled receipt says so." | `demo.json` if integrated (proof status: completed; replay: none) |
 | 72–75 | End card | none | "From claims to experiments we can justify." | – |
 
 ## Recording instructions (fallback if the live demo fails)
@@ -24,4 +24,4 @@ All frames are screen recordings of the real static site (`site/index.html`, ser
 
 
 ---
-*Rendered 2026-10-31 00:28:14 PDT by `python -m evolve.evidence docs` from: delphi, evsite, experience, landscape, nano, route. Edit `docs/video-storyboard.template.md`, not this file.*
+*Rendered 2026-10-31 01:11:49 PDT by `python -m evolve.evidence docs` from: delphi, evsite, experience, integrator, landscape, nano, proof, route. Edit `docs/video-storyboard.template.md`, not this file.*

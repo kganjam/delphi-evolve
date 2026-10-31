@@ -12,7 +12,7 @@ Target length 3:00 at about 140 words per minute (about 420 spoken words). Numbe
 "We tested that retrospectively: each policy starts from the same observed variants and pays an oracle for each new measurement; unresolved cases stay in the denominator. Replay status in our artifacts: not available in the saved artifacts — say so, do not quote results. Read the primary table from artifacts/core/replay/table_primary.csv, including where the simple baselines win. ALDE already studies active learning on this landscape; we have not run it, so we make no claim against it."
 
 **1:50–2:20 — certificate and evidence (Proof tab, Claims tab)**
-"A decision should be checkable. The Lean statement is: if every true value lies inside its interval, a route of admitted steps never goes down, and a closed set with no admitted exit rules out a path in the declared graph. Whether it compiled and rejected a mutant is what the receipt says — proof status in our artifacts: none integrated — show the Proof tab's empty state, which is the honest state. The intervals themselves are assumptions; two replicates are not a confidence theorem. The claim links to Delphi: we queried it live, kept local and network sources separate, and tied our narrow question to Darwin's 'numerous, successive, slight modifications' only as motivation."
+"A decision should be checkable. The Lean statement is: if every true value lies inside its interval, a route of admitted steps never goes down, and a closed set with no admitted exit rules out a path in the declared graph. Whether it compiled and rejected a mutant is what the receipt says — proof status in our artifacts: completed. The intervals themselves are assumptions; two replicates are not a confidence theorem. The claim links to Delphi: we queried it live, kept local and network sources separate, and tied our narrow question to Darwin's 'numerous, successive, slight modifications' only as motivation."
 
 **2:20–2:45 — reuse**
 "Everything is an evidence bundle: unsigned nanopublication drafts that parse in rdflib — yes — a JSON demo file, and a static page. We have not published them to any network, and we have not yet seen another team reuse them; that remains to be observed."
@@ -29,4 +29,4 @@ Target length 3:00 at about 140 words per minute (about 420 spoken words). Numbe
 
 
 ---
-*Rendered 2026-10-31 00:28:14 PDT by `python -m evolve.evidence docs` from: delphi, evsite, experience, landscape, nano, route. Edit `docs/pitch.template.md`, not this file.*
+*Rendered 2026-10-31 01:11:49 PDT by `python -m evolve.evidence docs` from: delphi, evsite, experience, integrator, landscape, nano, proof, route. Edit `docs/pitch.template.md`, not this file.*
