@@ -1,0 +1,40 @@
+{
+  "started_at": "2026-10-31T15:25:26.953183+00:00",
+  "decision_point_utc": "2026-11-01T15:25:26.953183+00:00",
+  "decision_point_seattle": "2026-11-01T07:25:26.953183-08:00",
+  "status": "foundation_spec_ready",
+  "checklist": [
+    {
+      "item": "Delegate independent evidence/curation/foundation packages",
+      "done": false
+    },
+    {
+      "item": "Verify live provider catalogs and preserve usage bounds",
+      "done": false
+    },
+    {
+      "item": "Review Paperclip/SciDEX/MorphoSwarm interoperability",
+      "done": false
+    },
+    {
+      "item": "Ship durable versioned evidence/action foundation",
+      "done": false
+    },
+    {
+      "item": "Freeze up to three data-backed scientific protocols",
+      "done": false
+    },
+    {
+      "item": "Run useful bounded jobs through designated owners",
+      "done": false
+    },
+    {
+      "item": "Independently adjudicate results and nulls",
+      "done": false
+    },
+    {
+      "item": "Integrate inspectable map/artifacts and exact publication handoff",
+      "done": false
+    }
+  ]
+}
