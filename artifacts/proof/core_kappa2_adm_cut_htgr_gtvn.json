@@ -1,0 +1,1099 @@
+{
+  "assumptions": [
+    "A1 (interval containment): the true scaled growth value of every LISTED genotype lies in [min(r1,r2)-delta, max(r1,r2)+delta]. This is an assumption about the assay, not proved.",
+    "A2 (scope): genotypes not listed, including imputed or stop-containing ones, are UNKNOWN; the theorem never constrains them and no certificate relies on them except as members of S.",
+    "A3 (graph): only the declared four-site single-substitution graph; absence of a route here is not absence of a biological route."
+  ],
+  "bridged_from": {
+    "body_sha256": "9ad27d692e09f212e9fc950f4af5f090f13170d5abb8e8f9d6fd7a915fbafcd3",
+    "core_kind": "cut",
+    "file": "cut_HTGR_GTVN_kappa2.json"
+  },
+  "certificate_sha256": "a521cb6ae5eb5c4b95aa62143912e778b38ee148541f4cd86c82438a25ef7584",
+  "closed_set": [
+    "HTGR"
+  ],
+  "crossing_edges_checked": 76,
+  "delta_decimal": "0",
+  "delta_scaled": 0,
+  "delta_status": "delta=0: the interval itself is core's ASSUMED kappa-model interval (kappa is a sensitivity multiplier, not a confidence level)",
+  "graph_scope": {
+    "alphabet": "ACDEFGHIKLMNPQRSTVWY",
+    "edges": "two genotypes differing at exactly one of the four positions",
+    "name": "four-site-20^4-single-substitution",
+    "not_claimed": "nothing about sequence space beyond these four sites, nor about biology",
+    "positions": [
+      "AA1",
+      "AA2",
+      "AA3",
+      "AA4"
+    ],
+    "vertices": "all 20^4 = 160000 four-letter genotypes over ACDEFGHIKLMNPQRSTVWY (no stop codon)"
+  },
+  "interval_origin": {
+    "core_body_sha256": "9ad27d692e09f212e9fc950f4af5f090f13170d5abb8e8f9d6fd7a915fbafcd3",
+    "core_file": "cut_HTGR_GTVN_kappa2.json",
+    "interval_model": {
+      "kappa": 2.0,
+      "rule": "lower=round(mean(r1,r2)*1e6)-eps, upper=round(mean(r1,r2)*1e6)+eps, eps=ceil(kappa*sd_bin/2*1e6); r_k = raw mu_k minus mean raw mu of stop-codon rows; all integers (1e-6 growth-rate units)",
+      "sd_bin_edges_min_input_count": [
+        20,
+        50,
+        200
+      ],
+      "sd_bin_values": [
+        0.014953,
+        0.009995,
+        0.005851,
+        0.002992
+      ],
+      "units": "1e-6 growth-rate units, integers"
+    },
+    "kind": "external-intervals",
+    "producer": "delphi-evolve/core-certificate/v1",
+    "recomputation": "evolve.proof.recompute_core_intervals (independent of core code)"
+  },
+  "interval_rule": "[min(r1,r2) - delta, max(r1,r2) + delta] on scaled exact integers",
+  "kind": "adm_blocked",
+  "label": "core_kappa2_adm_cut_htgr_gtvn",
+  "limitations": [
+    "delta is an assumed sensitivity bound, not a statistical confidence bound.",
+    "Python text->integer conversion is checked by evolve.proof.verify_against_source, not by Lean.",
+    "Growth in the E. coli selection assay is a proxy for function, not kcat/KM.",
+    "Fitness values are real measurements only at listed rows; this certificate is descriptive (full-data), not a prediction benchmark."
+  ],
+  "outward_rounded_values": 0,
+  "scale_exponent": 6,
+  "schema": "darwin-bridge-proof-cert/1",
+  "semantics": "NO CERTIFIABLE ROUTE: no route of certified-dominance steps (hi u <= lo v, both intervals listed) exists from start to target in the full 20^4 graph, relative to the LISTED table; unlisted genotypes cannot lie on an admissible route. Does NOT exclude a true non-decreasing path unless the stronger blocked_cut_sound hypotheses are checked separately.",
+  "source": {
+    "doi": "10.22002/h5rah-5z170",
+    "file": "summary_AA.csv",
+    "interval_model": {
+      "kappa": 2.0,
+      "rule": "lower=round(mean(r1,r2)*1e6)-eps, upper=round(mean(r1,r2)*1e6)+eps, eps=ceil(kappa*sd_bin/2*1e6); r_k = raw mu_k minus mean raw mu of stop-codon rows; all integers (1e-6 growth-rate units)",
+      "sd_bin_edges_min_input_count": [
+        20,
+        50,
+        200
+      ],
+      "sd_bin_values": [
+        0.014953,
+        0.009995,
+        0.005851,
+        0.002992
+      ],
+      "units": "1e-6 growth-rate units, integers"
+    },
+    "license": "CC0 1.0",
+    "note": "intervals are core's kappa-model integers; r1=lower, r2=upper, delta=0 reproduces them exactly",
+    "sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82"
+  },
+  "start": "HTGR",
+  "table": [
+    {
+      "genotype": "ATGR",
+      "idx": [
+        0,
+        16,
+        5,
+        14
+      ],
+      "r1": 3158,
+      "r1_text": "0.003158",
+      "r2": 9142,
+      "r2_text": "0.009142"
+    },
+    {
+      "genotype": "CTGR",
+      "idx": [
+        1,
+        16,
+        5,
+        14
+      ],
+      "r1": -2785,
+      "r1_text": "-0.002785",
+      "r2": 3199,
+      "r2_text": "0.003199"
+    },
+    {
+      "genotype": "DTGR",
+      "idx": [
+        2,
+        16,
+        5,
+        14
+      ],
+      "r1": 6196,
+      "r1_text": "0.006196",
+      "r2": 12180,
+      "r2_text": "0.012180"
+    },
+    {
+      "genotype": "ETGR",
+      "idx": [
+        3,
+        16,
+        5,
+        14
+      ],
+      "r1": -3544,
+      "r1_text": "-0.003544",
+      "r2": 2440,
+      "r2_text": "0.002440"
+    },
+    {
+      "genotype": "FTGR",
+      "idx": [
+        4,
+        16,
+        5,
+        14
+      ],
+      "r1": 3683,
+      "r1_text": "0.003683",
+      "r2": 15385,
+      "r2_text": "0.015385"
+    },
+    {
+      "genotype": "GTGR",
+      "idx": [
+        5,
+        16,
+        5,
+        14
+      ],
+      "r1": 1840,
+      "r1_text": "0.001840",
+      "r2": 7824,
+      "r2_text": "0.007824"
+    },
+    {
+      "genotype": "HAGR",
+      "idx": [
+        6,
+        0,
+        5,
+        14
+      ],
+      "r1": 3897,
+      "r1_text": "0.003897",
+      "r2": 9881,
+      "r2_text": "0.009881"
+    },
+    {
+      "genotype": "HCGR",
+      "idx": [
+        6,
+        1,
+        5,
+        14
+      ],
+      "r1": 2267,
+      "r1_text": "0.002267",
+      "r2": 13969,
+      "r2_text": "0.013969"
+    },
+    {
+      "genotype": "HDGR",
+      "idx": [
+        6,
+        2,
+        5,
+        14
+      ],
+      "r1": 2363,
+      "r1_text": "0.002363",
+      "r2": 14065,
+      "r2_text": "0.014065"
+    },
+    {
+      "genotype": "HEGR",
+      "idx": [
+        6,
+        3,
+        5,
+        14
+      ],
+      "r1": -11024,
+      "r1_text": "-0.011024",
+      "r2": 678,
+      "r2_text": "0.000678"
+    },
+    {
+      "genotype": "HFGR",
+      "idx": [
+        6,
+        4,
+        5,
+        14
+      ],
+      "r1": -671,
+      "r1_text": "-0.000671",
+      "r2": 11031,
+      "r2_text": "0.011031"
+    },
+    {
+      "genotype": "HGGR",
+      "idx": [
+        6,
+        5,
+        5,
+        14
+      ],
+      "r1": 499,
+      "r1_text": "0.000499",
+      "r2": 6483,
+      "r2_text": "0.006483"
+    },
+    {
+      "genotype": "HHGR",
+      "idx": [
+        6,
+        6,
+        5,
+        14
+      ],
+      "r1": 438,
+      "r1_text": "0.000438",
+      "r2": 12140,
+      "r2_text": "0.012140"
+    },
+    {
+      "genotype": "HIGR",
+      "idx": [
+        6,
+        7,
+        5,
+        14
+      ],
+      "r1": -9089,
+      "r1_text": "-0.009089",
+      "r2": 2613,
+      "r2_text": "0.002613"
+    },
+    {
+      "genotype": "HKGR",
+      "idx": [
+        6,
+        8,
+        5,
+        14
+      ],
+      "r1": -3719,
+      "r1_text": "-0.003719",
+      "r2": 7983,
+      "r2_text": "0.007983"
+    },
+    {
+      "genotype": "HLGR",
+      "idx": [
+        6,
+        9,
+        5,
+        14
+      ],
+      "r1": 620,
+      "r1_text": "0.000620",
+      "r2": 6604,
+      "r2_text": "0.006604"
+    },
+    {
+      "genotype": "HMGR",
+      "idx": [
+        6,
+        10,
+        5,
+        14
+      ],
+      "r1": -8797,
+      "r1_text": "-0.008797",
+      "r2": 2905,
+      "r2_text": "0.002905"
+    },
+    {
+      "genotype": "HNGR",
+      "idx": [
+        6,
+        11,
+        5,
+        14
+      ],
+      "r1": -1444,
+      "r1_text": "-0.001444",
+      "r2": 10258,
+      "r2_text": "0.010258"
+    },
+    {
+      "genotype": "HPGR",
+      "idx": [
+        6,
+        12,
+        5,
+        14
+      ],
+      "r1": -154,
+      "r1_text": "-0.000154",
+      "r2": 11548,
+      "r2_text": "0.011548"
+    },
+    {
+      "genotype": "HQGR",
+      "idx": [
+        6,
+        13,
+        5,
+        14
+      ],
+      "r1": 2668,
+      "r1_text": "0.002668",
+      "r2": 14370,
+      "r2_text": "0.014370"
+    },
+    {
+      "genotype": "HRGR",
+      "idx": [
+        6,
+        14,
+        5,
+        14
+      ],
+      "r1": 6636,
+      "r1_text": "0.006636",
+      "r2": 12620,
+      "r2_text": "0.012620"
+    },
+    {
+      "genotype": "HSGR",
+      "idx": [
+        6,
+        15,
+        5,
+        14
+      ],
+      "r1": 1963,
+      "r1_text": "0.001963",
+      "r2": 13665,
+      "r2_text": "0.013665"
+    },
+    {
+      "genotype": "HTAR",
+      "idx": [
+        6,
+        16,
+        0,
+        14
+      ],
+      "r1": 3226,
+      "r1_text": "0.003226",
+      "r2": 9210,
+      "r2_text": "0.009210"
+    },
+    {
+      "genotype": "HTCR",
+      "idx": [
+        6,
+        16,
+        1,
+        14
+      ],
+      "r1": 551,
+      "r1_text": "0.000551",
+      "r2": 12253,
+      "r2_text": "0.012253"
+    },
+    {
+      "genotype": "HTDR",
+      "idx": [
+        6,
+        16,
+        2,
+        14
+      ],
+      "r1": 6997,
+      "r1_text": "0.006997",
+      "r2": 18699,
+      "r2_text": "0.018699"
+    },
+    {
+      "genotype": "HTER",
+      "idx": [
+        6,
+        16,
+        3,
+        14
+      ],
+      "r1": -6973,
+      "r1_text": "-0.006973",
+      "r2": 4729,
+      "r2_text": "0.004729"
+    },
+    {
+      "genotype": "HTFR",
+      "idx": [
+        6,
+        16,
+        4,
+        14
+      ],
+      "r1": 987,
+      "r1_text": "0.000987",
+      "r2": 12689,
+      "r2_text": "0.012689"
+    },
+    {
+      "genotype": "HTGA",
+      "idx": [
+        6,
+        16,
+        5,
+        0
+      ],
+      "r1": -2331,
+      "r1_text": "-0.002331",
+      "r2": 9371,
+      "r2_text": "0.009371"
+    },
+    {
+      "genotype": "HTGC",
+      "idx": [
+        6,
+        16,
+        5,
+        1
+      ],
+      "r1": -2675,
+      "r1_text": "-0.002675",
+      "r2": 9027,
+      "r2_text": "0.009027"
+    },
+    {
+      "genotype": "HTGD",
+      "idx": [
+        6,
+        16,
+        5,
+        2
+      ],
+      "r1": -11860,
+      "r1_text": "-0.011860",
+      "r2": -158,
+      "r2_text": "-0.000158"
+    },
+    {
+      "genotype": "HTGE",
+      "idx": [
+        6,
+        16,
+        5,
+        3
+      ],
+      "r1": -7745,
+      "r1_text": "-0.007745",
+      "r2": 12245,
+      "r2_text": "0.012245"
+    },
+    {
+      "genotype": "HTGF",
+      "idx": [
+        6,
+        16,
+        5,
+        4
+      ],
+      "r1": -5816,
+      "r1_text": "-0.005816",
+      "r2": 14174,
+      "r2_text": "0.014174"
+    },
+    {
+      "genotype": "HTGG",
+      "idx": [
+        6,
+        16,
+        5,
+        5
+      ],
+      "r1": -11439,
+      "r1_text": "-0.011439",
+      "r2": 263,
+      "r2_text": "0.000263"
+    },
+    {
+      "genotype": "HTGH",
+      "idx": [
+        6,
+        16,
+        5,
+        6
+      ],
+      "r1": -5991,
+      "r1_text": "-0.005991",
+      "r2": 5711,
+      "r2_text": "0.005711"
+    },
+    {
+      "genotype": "HTGI",
+      "idx": [
+        6,
+        16,
+        5,
+        7
+      ],
+      "r1": -5827,
+      "r1_text": "-0.005827",
+      "r2": 5875,
+      "r2_text": "0.005875"
+    },
+    {
+      "genotype": "HTGK",
+      "idx": [
+        6,
+        16,
+        5,
+        8
+      ],
+      "r1": -14491,
+      "r1_text": "-0.014491",
+      "r2": 5499,
+      "r2_text": "0.005499"
+    },
+    {
+      "genotype": "HTGL",
+      "idx": [
+        6,
+        16,
+        5,
+        9
+      ],
+      "r1": 2070,
+      "r1_text": "0.002070",
+      "r2": 8054,
+      "r2_text": "0.008054"
+    },
+    {
+      "genotype": "HTGM",
+      "idx": [
+        6,
+        16,
+        5,
+        10
+      ],
+      "r1": -3742,
+      "r1_text": "-0.003742",
+      "r2": 7960,
+      "r2_text": "0.007960"
+    },
+    {
+      "genotype": "HTGN",
+      "idx": [
+        6,
+        16,
+        5,
+        11
+      ],
+      "r1": 5467,
+      "r1_text": "0.005467",
+      "r2": 17169,
+      "r2_text": "0.017169"
+    },
+    {
+      "genotype": "HTGP",
+      "idx": [
+        6,
+        16,
+        5,
+        12
+      ],
+      "r1": -443,
+      "r1_text": "-0.000443",
+      "r2": 11259,
+      "r2_text": "0.011259"
+    },
+    {
+      "genotype": "HTGQ",
+      "idx": [
+        6,
+        16,
+        5,
+        13
+      ],
+      "r1": -11240,
+      "r1_text": "-0.011240",
+      "r2": 8750,
+      "r2_text": "0.008750"
+    },
+    {
+      "genotype": "HTGR",
+      "idx": [
+        6,
+        16,
+        5,
+        14
+      ],
+      "r1": 1615,
+      "r1_text": "0.001615",
+      "r2": 13317,
+      "r2_text": "0.013317"
+    },
+    {
+      "genotype": "HTGS",
+      "idx": [
+        6,
+        16,
+        5,
+        15
+      ],
+      "r1": 4903,
+      "r1_text": "0.004903",
+      "r2": 16605,
+      "r2_text": "0.016605"
+    },
+    {
+      "genotype": "HTGT",
+      "idx": [
+        6,
+        16,
+        5,
+        16
+      ],
+      "r1": -4401,
+      "r1_text": "-0.004401",
+      "r2": 7301,
+      "r2_text": "0.007301"
+    },
+    {
+      "genotype": "HTGV",
+      "idx": [
+        6,
+        16,
+        5,
+        17
+      ],
+      "r1": -11429,
+      "r1_text": "-0.011429",
+      "r2": 8561,
+      "r2_text": "0.008561"
+    },
+    {
+      "genotype": "HTGW",
+      "idx": [
+        6,
+        16,
+        5,
+        18
+      ],
+      "r1": -2155,
+      "r1_text": "-0.002155",
+      "r2": 17835,
+      "r2_text": "0.017835"
+    },
+    {
+      "genotype": "HTGY",
+      "idx": [
+        6,
+        16,
+        5,
+        19
+      ],
+      "r1": -1089,
+      "r1_text": "-0.001089",
+      "r2": 10613,
+      "r2_text": "0.010613"
+    },
+    {
+      "genotype": "HTHR",
+      "idx": [
+        6,
+        16,
+        6,
+        14
+      ],
+      "r1": 746,
+      "r1_text": "0.000746",
+      "r2": 6730,
+      "r2_text": "0.006730"
+    },
+    {
+      "genotype": "HTIR",
+      "idx": [
+        6,
+        16,
+        7,
+        14
+      ],
+      "r1": 2756,
+      "r1_text": "0.002756",
+      "r2": 14458,
+      "r2_text": "0.014458"
+    },
+    {
+      "genotype": "HTKR",
+      "idx": [
+        6,
+        16,
+        8,
+        14
+      ],
+      "r1": 3698,
+      "r1_text": "0.003698",
+      "r2": 15400,
+      "r2_text": "0.015400"
+    },
+    {
+      "genotype": "HTLR",
+      "idx": [
+        6,
+        16,
+        9,
+        14
+      ],
+      "r1": 1329,
+      "r1_text": "0.001329",
+      "r2": 7313,
+      "r2_text": "0.007313"
+    },
+    {
+      "genotype": "HTMR",
+      "idx": [
+        6,
+        16,
+        10,
+        14
+      ],
+      "r1": -5707,
+      "r1_text": "-0.005707",
+      "r2": 5995,
+      "r2_text": "0.005995"
+    },
+    {
+      "genotype": "HTNR",
+      "idx": [
+        6,
+        16,
+        11,
+        14
+      ],
+      "r1": -11725,
+      "r1_text": "-0.011725",
+      "r2": -23,
+      "r2_text": "-0.000023"
+    },
+    {
+      "genotype": "HTPR",
+      "idx": [
+        6,
+        16,
+        12,
+        14
+      ],
+      "r1": 468,
+      "r1_text": "0.000468",
+      "r2": 6452,
+      "r2_text": "0.006452"
+    },
+    {
+      "genotype": "HTQR",
+      "idx": [
+        6,
+        16,
+        13,
+        14
+      ],
+      "r1": -5467,
+      "r1_text": "-0.005467",
+      "r2": 6235,
+      "r2_text": "0.006235"
+    },
+    {
+      "genotype": "HTRR",
+      "idx": [
+        6,
+        16,
+        14,
+        14
+      ],
+      "r1": -3322,
+      "r1_text": "-0.003322",
+      "r2": 2662,
+      "r2_text": "0.002662"
+    },
+    {
+      "genotype": "HTSR",
+      "idx": [
+        6,
+        16,
+        15,
+        14
+      ],
+      "r1": 5752,
+      "r1_text": "0.005752",
+      "r2": 11736,
+      "r2_text": "0.011736"
+    },
+    {
+      "genotype": "HTTR",
+      "idx": [
+        6,
+        16,
+        16,
+        14
+      ],
+      "r1": -310,
+      "r1_text": "-0.000310",
+      "r2": 5674,
+      "r2_text": "0.005674"
+    },
+    {
+      "genotype": "HTVR",
+      "idx": [
+        6,
+        16,
+        17,
+        14
+      ],
+      "r1": -4481,
+      "r1_text": "-0.004481",
+      "r2": 7221,
+      "r2_text": "0.007221"
+    },
+    {
+      "genotype": "HTWR",
+      "idx": [
+        6,
+        16,
+        18,
+        14
+      ],
+      "r1": -5519,
+      "r1_text": "-0.005519",
+      "r2": 6183,
+      "r2_text": "0.006183"
+    },
+    {
+      "genotype": "HTYR",
+      "idx": [
+        6,
+        16,
+        19,
+        14
+      ],
+      "r1": 883,
+      "r1_text": "0.000883",
+      "r2": 12585,
+      "r2_text": "0.012585"
+    },
+    {
+      "genotype": "HVGR",
+      "idx": [
+        6,
+        17,
+        5,
+        14
+      ],
+      "r1": -1328,
+      "r1_text": "-0.001328",
+      "r2": 4656,
+      "r2_text": "0.004656"
+    },
+    {
+      "genotype": "HWGR",
+      "idx": [
+        6,
+        18,
+        5,
+        14
+      ],
+      "r1": -4284,
+      "r1_text": "-0.004284",
+      "r2": 7418,
+      "r2_text": "0.007418"
+    },
+    {
+      "genotype": "HYGR",
+      "idx": [
+        6,
+        19,
+        5,
+        14
+      ],
+      "r1": 1517,
+      "r1_text": "0.001517",
+      "r2": 13219,
+      "r2_text": "0.013219"
+    },
+    {
+      "genotype": "ITGR",
+      "idx": [
+        7,
+        16,
+        5,
+        14
+      ],
+      "r1": -3640,
+      "r1_text": "-0.003640",
+      "r2": 2344,
+      "r2_text": "0.002344"
+    },
+    {
+      "genotype": "KTGR",
+      "idx": [
+        8,
+        16,
+        5,
+        14
+      ],
+      "r1": -11128,
+      "r1_text": "-0.011128",
+      "r2": -5144,
+      "r2_text": "-0.005144"
+    },
+    {
+      "genotype": "LTGR",
+      "idx": [
+        9,
+        16,
+        5,
+        14
+      ],
+      "r1": 252,
+      "r1_text": "0.000252",
+      "r2": 6236,
+      "r2_text": "0.006236"
+    },
+    {
+      "genotype": "MTGR",
+      "idx": [
+        10,
+        16,
+        5,
+        14
+      ],
+      "r1": -2740,
+      "r1_text": "-0.002740",
+      "r2": 8962,
+      "r2_text": "0.008962"
+    },
+    {
+      "genotype": "NTGR",
+      "idx": [
+        11,
+        16,
+        5,
+        14
+      ],
+      "r1": -1152,
+      "r1_text": "-0.001152",
+      "r2": 4832,
+      "r2_text": "0.004832"
+    },
+    {
+      "genotype": "PTGR",
+      "idx": [
+        12,
+        16,
+        5,
+        14
+      ],
+      "r1": -3224,
+      "r1_text": "-0.003224",
+      "r2": 2760,
+      "r2_text": "0.002760"
+    },
+    {
+      "genotype": "QTGR",
+      "idx": [
+        13,
+        16,
+        5,
+        14
+      ],
+      "r1": -10977,
+      "r1_text": "-0.010977",
+      "r2": 725,
+      "r2_text": "0.000725"
+    },
+    {
+      "genotype": "RTGR",
+      "idx": [
+        14,
+        16,
+        5,
+        14
+      ],
+      "r1": 2477,
+      "r1_text": "0.002477",
+      "r2": 8461,
+      "r2_text": "0.008461"
+    },
+    {
+      "genotype": "STGR",
+      "idx": [
+        15,
+        16,
+        5,
+        14
+      ],
+      "r1": 4811,
+      "r1_text": "0.004811",
+      "r2": 10795,
+      "r2_text": "0.010795"
+    },
+    {
+      "genotype": "TTGR",
+      "idx": [
+        16,
+        16,
+        5,
+        14
+      ],
+      "r1": -192,
+      "r1_text": "-0.000192",
+      "r2": 5792,
+      "r2_text": "0.005792"
+    },
+    {
+      "genotype": "VTGR",
+      "idx": [
+        17,
+        16,
+        5,
+        14
+      ],
+      "r1": 2457,
+      "r1_text": "0.002457",
+      "r2": 8441,
+      "r2_text": "0.008441"
+    },
+    {
+      "genotype": "WTGR",
+      "idx": [
+        18,
+        16,
+        5,
+        14
+      ],
+      "r1": 2562,
+      "r1_text": "0.002562",
+      "r2": 8546,
+      "r2_text": "0.008546"
+    },
+    {
+      "genotype": "YTGR",
+      "idx": [
+        19,
+        16,
+        5,
+        14
+      ],
+      "r1": 4943,
+      "r1_text": "0.004943",
+      "r2": 16645,
+      "r2_text": "0.016645"
+    }
+  ],
+  "target": "GTVN",
+  "theorem": "DarwinBridge.admCert_sound",
+  "unlisted_neighbours": []
+}
