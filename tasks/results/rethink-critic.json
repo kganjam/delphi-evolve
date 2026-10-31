@@ -254,14 +254,22 @@
   "limit": "expected-claim mapping by the critic; not a model-based RAG"
  },
  "scorecard_v0": {
-  "path": "scopedesk/scorecard/ (SCORECARD.md, scorecard.json, build_scorecard.py, fetch_records.py, records/)",
+  "path": "scopedesk/scorecard/",
   "counts": {
-   "a CHECKED-SCOPE-FOUND": 5,
-   "b CHECKED-HOLDS-AS-DECLARED": 1,
-   "c FORMAL-NODE-ONLY": 1,
-   "d SELF-DECLARED NON-FORMAL/EMPIRICAL": 2,
-   "e NOT ATTEMPTED": 12
+   "BENCHMARK-LINKED": 6,
+   "RELATED FORMAL LEMMA, TARGET NOT ESTABLISHED": 1,
+   "EMPIRICAL / FRAMEWORK": 2,
+   "NO CHECK IN THIS SCORECARD": 12
   },
-  "limits": "single-reader statuses; record-to-paper correspondence not reviewed; Codex has not approved the scorecard"
+  "revision": "v0.1: taxonomy and per-row wording revised per Codex review CODEX-SCORECARD-V0-REVIEW.md (4fe9fb7); legacy a-e labels kept in legacy_status_v0",
+  "limits": "single-reader; record-to-paper correspondence not reviewed; Codex approves the corrected descriptions, not an aggregate success rate"
+ },
+ "different_family_check": {
+  "source": "dx-guilds arm U (no code tool) per-item verdicts on the frozen payload",
+  "gemini-3.8-flash": "110/127 agree with the key (0.866, CP95 [0.794,0.920]); held-out 73/90; misses concentrated in greenhill 7/13, wavelength 7/14, turing_2d 12/15",
+  "claude-sonnet-5-5": "121/127 (0.953)",
+  "both_models_wrong_on": "3 items, recomputed by the critic, no key error found",
+  "files": "scopedesk/bench/audit/headroom_unguarded/ (NOTES.md, critic_scoring.json)",
+  "limits": "judgement without tools, not an independent derivation; scored by the key's author; item-level"
  }
 }
