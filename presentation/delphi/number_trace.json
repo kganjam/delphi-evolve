@@ -3,7 +3,7 @@
  "claims_checked": 41,
  "inputs_hash_checked": 46,
  "pdf_pages_checked": 6,
- "provenance_head": "3dc1c210678dc5ee5dd524cd08fa2a67e9323b10",
+ "provenance_head": "7594fa15b149c58b477035cddc9d261bc5ee6ac4",
  "ok": true,
  "errors": [],
  "trace": [
@@ -304,7 +304,7 @@
   },
   {
    "slide": 4,
-   "shown": "Also in the ledger: our theorem advertised as stability whose premise, determinant non-negativity, also holds for unstable systems (R06); a stronger statement now compiles (F10).",
+   "shown": "Also in the ledger: our theorem advertised as stability whose premise, determinant non-negativity, also holds for unstable systems (R06); a stronger statement now compiles (F10). Row R09, counted as measured, is a mismatched run (nonlinear prompts scored against linear labels), not a measured null.",
    "where": "html",
    "files": [
     "scopedesk/ledger/kill_ledger.json"
