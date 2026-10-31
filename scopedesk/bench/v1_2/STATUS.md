@@ -1,0 +1,3 @@
+# v1.2 status (critic) — CANDIDATE, not approved
+Built from v1.1 with the four Codex requirements and the director's follow-up 5: opaque ids with a private map; `violated_conditions` completed (Hamilton synergy, non-KPP cubic nonlinearity, near-onset wavelength); self-contained README/AUDIT_BRIEF; declared mechanism grouping; the exact model-visible text pinned in `model_payload.jsonl` and hashed.
+Approvals still pending: director's blinded text-only re-audit of this text; Codex metadata/changes check; no second-reader phrasing review; the Scope Desk oracle wrapper was audited only on the Turing/wavelength families. NO agent run is authorised on v1 or v1.1; electric should wait for the director's go on v1.2.

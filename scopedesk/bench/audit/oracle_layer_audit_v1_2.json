@@ -1,0 +1,22 @@
+{
+ "bench_dir": "../v1_2",
+ "n": 55,
+ "agree": 55,
+ "cond_agree": 55,
+ "by_family": {
+  "turing_2d_rectangle": [
+   16,
+   16
+  ],
+  "turing_finite_domain": [
+   24,
+   24
+  ],
+  "wavelength_formula_licence": [
+   15,
+   15
+  ]
+ },
+ "disagreements": [],
+ "cond_disagreements": []
+}
