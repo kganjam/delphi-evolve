@@ -107,7 +107,7 @@ def _trim(lin):
 
 
 # ---- wavelength-formula licence (turing-wavelength record), bench convention --------------------------------------------
-def wavelength_licence(structured, tol=0.10) -> dict:
+def wavelength_licence(structured, tol=0.10, tamper=False) -> dict:
     """licensed iff lambda_c = 2 pi/k_c, k_c^2 = sqrt(det J/(Du Dv)), is within `tol` of the wavelength of the fastest-growing
     ADMISSIBLE no-flux mode (q = (n pi/L)^2, n>=1). Floats decide (sqrt); the margin to the threshold is reported and a margin < 2% is
     flagged `near_threshold`. Linear analysis only. Records are source-checked first (turing-wavelength pin)."""
@@ -118,6 +118,11 @@ def wavelength_licence(structured, tol=0.10) -> dict:
     except (linear.Refuse, KeyError) as ex:
         return {"scope_verdict": "refused", "condition_ids": [], "refusal": repr(ex)}
     store, pins = SourceStore.bundled(), load_pins()
+    if tamper:
+        t = copy.deepcopy(pins)
+        h = t["turing-wavelength"]["content_sha256"]
+        t["turing-wavelength"]["content_sha256"] = ("0" if h[0] != "0" else "1") + h[1:]
+        pins = t
     chk = store.check("turing-wavelength", pins)
     if not chk.ok:
         return {"scope_verdict": "refused", "decision": "refused_source", "condition_ids": [], "source_check": chk.to_dict()}
@@ -155,3 +160,27 @@ def wavelength_licence(structured, tol=0.10) -> dict:
     else:
         res.update(scope_verdict="out_of_scope", condition_ids=["NEAR_ONSET"] if dev_c > tol else ["LARGE_DOMAIN"])
     return res
+
+
+def decide_wavelength(structured, record_removed=False, record_hash_changed=False, continuum_only=False, tol=0.10) -> dict:
+    """Gate for the wavelength-formula family with the same ablation flags as `decide`.
+    full: licence by the fastest-growing ADMISSIBLE mode (needs the pinned turing-wavelength record);
+    record_removed: no scope rule available, the formula is applied as stated -> 'applies' (this is also the plain formula C0);
+    record_hash_changed: pinned hash altered -> refused_source;
+    continuum_only: licence judged on the continuum fastest-growing mode only (domain admissibility ignored)."""
+    c0 = "applies"
+    out = {"baseline_C0": c0, "flags": {"record_removed": record_removed, "record_hash_changed": record_hash_changed, "continuum_only": continuum_only}}
+    if record_removed:
+        return {**out, "decision": c0, "condition_ids": [], "scope_known": False}
+    r = wavelength_licence(structured, tol, tamper=record_hash_changed)
+    if r.get("decision") == "refused_source":
+        return {**out, "decision": "refused_source", "condition_ids": [], "source_check": r["source_check"]}
+    if r["scope_verdict"] == "refused":
+        return {**out, "decision": "refused", "condition_ids": [], "refusal": r.get("refusal")}
+    if continuum_only:
+        if "dev_continuum" in r:
+            v = "applies" if r["dev_continuum"] <= tol else "out_of_scope"
+            return {**out, "decision": v, "condition_ids": [] if v == "applies" else ["NEAR_ONSET"], "scope_known": False,
+                    "note": "admissible-mode discreteness ignored"}
+        return {**out, "decision": r["scope_verdict"], "condition_ids": r["condition_ids"], "scope_known": False}
+    return {**out, "decision": r["scope_verdict"], "condition_ids": r["condition_ids"], "scope_known": True, "licence": {k: r.get(k) for k in ("dev_admissible", "dev_continuum", "margin_to_10pct", "near_threshold")}}

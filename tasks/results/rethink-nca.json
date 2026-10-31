@@ -1,6 +1,6 @@
 {
  "role": "nca",
- "status": "go/no-go memo pushed (NO-GO NCA headline); scopedesk/oracles layer implemented, tested and audited; see oracle_layer",
+ "status": "oracle layer + follow-up 2 delivered (AT5, service cross-check, acceptance runner executed from a fresh clone)",
  "goal": "NCA/amorphous inverse-design proposal + decisive feasibility experiment (see planning/rethink/nca.md)",
  "model": "Claude Sonnet 5.5 (subscription; metered charge not known; no GPU used)",
  "branch": "work/rethink-nca",
@@ -40,7 +40,10 @@
   "python3 -m experiments.rethink_nca.grid_oracle (post hoc; exit 0)",
   "python3 -m experiments.rethink_nca.viz (exit 0)",
   "python3 -m pytest tests/test_rethink_nca.py -q (6 passed)",
-  "curl Dryad API files 18559-18563 download -> HTTP 401 bearer token required (no credentials sought)"
+  "curl Dryad API files 18559-18563 download -> HTTP 401 bearer token required (no credentials sought)",
+  "python3 -m scopedesk.oracles.at5 BENCH OUT (x2, exit 0)",
+  "python3 -m scopedesk.oracles.crosscheck_service SNAPSHOT BENCH OUT (exit 0)",
+  "git clone --branch work/rethink-director + merge + python3 scopedesk/accept.py (exit 0)"
  ],
  "artifacts": [
   "planning/rethink/nca.md",
@@ -128,5 +131,115 @@
    "python3 -m scopedesk.oracles.study_summary (exit 0)",
    "python3 -m pytest tests/test_scopedesk_oracles.py tests/test_rethink_nca.py (16 passed)"
   ]
+ },
+ "followup2": {
+  "at5": {
+   "files": [
+    "scopedesk/oracles/results/at5_v1_2_critic.json (key 774f6a08..., 128 items, rev3, NOT frozen when run)",
+    "scopedesk/oracles/results/at5_v1_2_director.json (key eab23bff..., 131 items)"
+   ],
+   "agreement_with_key_rev3_128": {
+    "turing_finite_domain": {
+     "C0": "14/22",
+     "full": "22/22",
+     "record_removed": "14/22",
+     "record_hash_changed": "0/22",
+     "continuum_only": "14/22"
+    },
+    "turing_2d_rectangle": {
+     "C0": "10/15",
+     "full": "15/15",
+     "record_removed": "10/15",
+     "record_hash_changed": "0/15",
+     "continuum_only": "10/15"
+    },
+    "wavelength_formula_licence": {
+     "C0": "5/14",
+     "full": "14/14",
+     "record_removed": "5/14",
+     "record_hash_changed": "0/14",
+     "continuum_only": "10/14"
+    },
+    "ALL": {
+     "C0": "29/51",
+     "full": "51/51",
+     "record_removed": "29/51",
+     "record_hash_changed": "0/51",
+     "continuum_only": "34/51"
+    }
+   },
+   "agreement_with_key_131": {
+    "turing_finite_domain": {
+     "C0": "14/22",
+     "full": "22/22",
+     "record_removed": "14/22",
+     "record_hash_changed": "0/22",
+     "continuum_only": "14/22"
+    },
+    "turing_2d_rectangle": {
+     "C0": "10/15",
+     "full": "15/15",
+     "record_removed": "10/15",
+     "record_hash_changed": "0/15",
+     "continuum_only": "10/15"
+    },
+    "wavelength_formula_licence": {
+     "C0": "5/14",
+     "full": "14/14",
+     "record_removed": "5/14",
+     "record_hash_changed": "0/14",
+     "continuum_only": "10/14"
+    },
+    "ALL": {
+     "C0": "29/51",
+     "full": "51/51",
+     "record_removed": "29/51",
+     "record_hash_changed": "0/51",
+     "continuum_only": "34/51"
+    }
+   },
+   "reading": "full gate 51/51 on both; plain formula C0 29/51; record_removed = C0 by construction; continuum_only 34/51 (only the wavelength family changes: 10/14 vs 5/14); record_hash_changed refuses all 51 (provenance only). Bench families are enriched with scope traps, so these gaps are larger than on the 80-config nonlinear grid (C0 wrong in 1)."
+  },
+  "service_crosscheck": {
+   "service_ref": "origin/work/collab 80287e7 (falsify 0.1.0), snapshot via git archive, run in subprocess, read-only",
+   "rev3_128": {
+    "n": 37,
+    "oracle_equals_service": 36,
+    "oracle_agrees_key": 37,
+    "service_agrees_key": 36,
+    "unstable_count_compared": 21,
+    "unstable_count_equal": 21,
+    "disagreements": 1,
+    "unexplained_disagreements": 0,
+    "service_versions": [
+     "0.1.0"
+    ],
+    "bc_unstated_composition": "two service calls (neumann, periodic) composed by the bench rule"
+   },
+   "v131": {
+    "n": 37,
+    "oracle_equals_service": 37,
+    "oracle_agrees_key": 37,
+    "service_agrees_key": 37,
+    "unstable_count_compared": 21,
+    "unstable_count_equal": 21,
+    "disagreements": 0,
+    "unexplained_disagreements": 0,
+    "service_versions": [
+     "0.1.0"
+    ],
+    "bc_unstated_composition": "two service calls (neumann, periodic) composed by the bench rule"
+   },
+   "finding": "one disagreement (qd643fbe2, dirichlet, exactly marginal mode det=0 at q=1/4): service says unresolved, oracle said out_of_scope silently; oracle now reports n_marginal_modes and the strict-growth convention; also a bench item sitting exactly on the threshold. 36/37 equal (rev3), 37/37 (131 variant); unstable-mode counts equal on all 21 compared."
+  },
+  "accept_runner": {
+   "file": "scopedesk/accept.py",
+   "fresh_clone": "git clone --branch work/rethink-director (da4440d) + local merge of origin/work/rethink-nca 8524360 (merge commit 29a5c47, NOT pushed, because accept.py is not yet on the director branch)",
+   "exit": 0,
+   "receipt": "scopedesk/oracles/results/accept_receipt_fresh_clone.json",
+   "steps": "a hashes 51 files ok; b1 AT5 full gate 51/51; b2 v1.1 audit 0 disagreements; c 34 tests passed (none skipped); d Lean receipts hash/exit consistency ok (Lean not rebuilt)",
+   "seconds": 56.6,
+   "started": "2026-10-31 07:46 PDT"
+  }
  }
 }
