@@ -1,0 +1,46 @@
+{
+  "validated_utc": "2026-10-31T07:04:29Z",
+  "reports": [
+    {
+      "file": "operational-hypothesis-v1.trig",
+      "rdflib": "7.6.0",
+      "graphs": {
+        "http://purl.org/nanopub/temp/delphi-evolve/operational-hypothesis-v1/pubinfo": 5,
+        "http://purl.org/nanopub/temp/delphi-evolve/operational-hypothesis-v1/assertion": 8,
+        "http://purl.org/nanopub/temp/delphi-evolve/operational-hypothesis-v1/Head": 4,
+        "http://purl.org/nanopub/temp/delphi-evolve/operational-hypothesis-v1/provenance": 19
+      },
+      "triples": 36,
+      "valid": true,
+      "problems": []
+    },
+    {
+      "file": "observed-landscape-counts-v1.trig",
+      "rdflib": "7.6.0",
+      "graphs": {
+        "http://purl.org/nanopub/temp/delphi-evolve/observed-landscape-counts-v1/Head": 4,
+        "http://purl.org/nanopub/temp/delphi-evolve/observed-landscape-counts-v1/pubinfo": 5,
+        "http://purl.org/nanopub/temp/delphi-evolve/observed-landscape-counts-v1/assertion": 8,
+        "http://purl.org/nanopub/temp/delphi-evolve/observed-landscape-counts-v1/provenance": 16
+      },
+      "triples": 33,
+      "valid": true,
+      "problems": []
+    },
+    {
+      "file": "scope-limitation-v1.trig",
+      "rdflib": "7.6.0",
+      "graphs": {
+        "http://purl.org/nanopub/temp/delphi-evolve/scope-limitation-v1/pubinfo": 5,
+        "http://purl.org/nanopub/temp/delphi-evolve/scope-limitation-v1/provenance": 9,
+        "http://purl.org/nanopub/temp/delphi-evolve/scope-limitation-v1/assertion": 6,
+        "http://purl.org/nanopub/temp/delphi-evolve/scope-limitation-v1/Head": 4
+      },
+      "triples": 24,
+      "valid": true,
+      "problems": []
+    }
+  ],
+  "all_valid": true,
+  "note": "Structural validation with rdflib only. Drafts are unsigned; nothing was submitted to any nanopub server."
+}

@@ -1,0 +1,862 @@
+{
+  "endpoint": "https://delphisci-mcp.fly.dev/mcp",
+  "interpretation_limits": [
+    "Absence of a text hit for 'epistasis' or 'fitness landscape' is a limited text-match result over claim title/statement/math, not proof that Delphi lacks related knowledge.",
+    "Local and network sources differ; each record names its source.",
+    "Delphi assessment scores are elicited LLM judgments, not posterior probabilities."
+  ],
+  "n_error": 0,
+  "n_ok": 20,
+  "queries": [
+    {
+      "arguments": {
+        "source": "local"
+      },
+      "at_utc": "2026-10-31T07:04:19Z",
+      "response": {
+        "assessmentTypes": [
+          {
+            "assessments": 1224,
+            "assessors": 2,
+            "claims": 612,
+            "type": "dataset-resolvability/0.2.0"
+          },
+          {
+            "assessments": 494,
+            "assessors": 2,
+            "claims": 247,
+            "type": "dataset-resolvability/0.1.0"
+          }
+        ],
+        "domains": [
+          {
+            "claims": 321,
+            "claimsWithMath": 0,
+            "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002"
+          },
+          {
+            "claims": 291,
+            "claimsWithMath": 71,
+            "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917"
+          },
+          {
+            "claims": 247,
+            "claimsWithMath": 0,
+            "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859"
+          },
+          {
+            "claims": 18,
+            "claimsWithMath": 18,
+            "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory"
+          },
+          {
+            "claims": 3,
+            "claimsWithMath": 3,
+            "domain": "https://w3id.org/delphi/resource/domain/math-reaction-diffusion-equations-and-turing-patte"
+          }
+        ],
+        "files": 2600,
+        "source": "local"
+      },
+      "response_sha256": "9921abb287ec99b873cf4fa74dfbcc2a47e36da26b3e956003686bbde95804fb",
+      "status": "ok",
+      "tool": "delphi_overview"
+    },
+    {
+      "arguments": {
+        "source": "network"
+      },
+      "at_utc": "2026-10-31T07:04:19Z",
+      "response": {
+        "assessmentTypes": [],
+        "domains": [
+          {
+            "claims": 247,
+            "claimsWithMath": 0,
+            "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859"
+          },
+          {
+            "claims": 104,
+            "claimsWithMath": 20,
+            "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917"
+          },
+          {
+            "claims": 18,
+            "claimsWithMath": 18,
+            "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory"
+          },
+          {
+            "claims": 3,
+            "claimsWithMath": 0,
+            "domain": "https://w3id.org/delphi/resource/domain/morphogenesis"
+          },
+          {
+            "claims": 3,
+            "claimsWithMath": 3,
+            "domain": "https://w3id.org/delphi/resource/domain/math-reaction-diffusion-equations-and-turing-patte"
+          }
+        ],
+        "endpoint": "https://query.knowledgepixels.com/repo/full",
+        "source": "network"
+      },
+      "response_sha256": "02fd0fdf6d508e64af365481302fe62bfcb0197639d2082889137b6af98d39ea",
+      "status": "ok",
+      "tool": "delphi_overview"
+    },
+    {
+      "arguments": {
+        "limit": 10,
+        "source": "local",
+        "text": "epistasis"
+      },
+      "at_utc": "2026-10-31T07:04:19Z",
+      "response": [],
+      "response_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "status": "ok",
+      "tool": "delphi_search_claims"
+    },
+    {
+      "arguments": {
+        "limit": 10,
+        "source": "network",
+        "text": "epistasis"
+      },
+      "at_utc": "2026-10-31T07:04:20Z",
+      "response": [],
+      "response_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "status": "ok",
+      "tool": "delphi_search_claims"
+    },
+    {
+      "arguments": {
+        "limit": 10,
+        "source": "local",
+        "text": "fitness landscape"
+      },
+      "at_utc": "2026-10-31T07:04:20Z",
+      "response": [],
+      "response_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "status": "ok",
+      "tool": "delphi_search_claims"
+    },
+    {
+      "arguments": {
+        "limit": 10,
+        "source": "network",
+        "text": "fitness landscape"
+      },
+      "at_utc": "2026-10-31T07:04:20Z",
+      "response": [],
+      "response_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "status": "ok",
+      "tool": "delphi_search_claims"
+    },
+    {
+      "arguments": {
+        "limit": 10,
+        "source": "local",
+        "text": "successive"
+      },
+      "at_utc": "2026-10-31T07:04:20Z",
+      "response": [
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch01-11",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch01-11.trig",
+          "statement": "Domestic breeds were not produced suddenly in their present useful form; their key cause is man's accumulative selection, nature supplying successive variations and man adding them up in directions useful to him.",
+          "title": "Domestic breeds arise mainly by man's accumulation of successive variations"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-08",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch06-08.trig",
+          "statement": "If any complex organ were shown to exist that could not possibly have been formed by numerous, successive, slight modifications, the theory of natural selection would break down; no such case is known.",
+          "title": "Theory fails if a complex organ could not arise by slight steps"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch07-09",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch07-09.trig",
+          "statement": "The cell-making instinct of the hive-bee was acquired through natural selection by slight successive modifications of simpler instincts, of the kind seen in a graded series from humble-bees through Melipona to the hive-bee.",
+          "title": "Hive-bee comb building evolved by gradual modification of simpler bee instincts"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch08-02",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch08-02.trig",
+          "statement": "Close interbreeding lessens fertility, while an occasional cross with a distinct individual or variety increases it; this explains much of the declining fertility of hybrids kept for successive generations.",
+          "title": "Close interbreeding lowers fertility while occasional crossing raises it"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch09-05",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch09-05.trig",
+          "statement": "The chief cause of the imperfection of the geological record is that successive geological formations are separated from each other by wide intervals of time during which no record was left.",
+          "title": "Successive formations are separated by wide intervals of unrecorded time"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch10-01",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch10-01.trig",
+          "statement": "New species have appeared very slowly and one after another, both on land and in the waters, rather than in simultaneous batches.",
+          "title": "New species have appeared slowly and successively on land and in the sea"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch13-14",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch13-14.trig",
+          "statement": "The shared pattern of homologous organs within a class is explained by descent from an ancient progenitor (an archetype) that already had that pattern, which natural selection then modified by slight successive steps for different uses without transposing parts.",
+          "title": "Unity of type reflects a common progenitor's pattern modified by slight steps"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch13-21",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch13-21.trig",
+          "statement": "The leading facts of embryology are explained because, in the descendants of a common progenitor, successive slight modifications generally do not appear at a very early period of life (though they may be caused earlier) and are inherited at a corresponding later age, leaving embryos little modified.",
+          "title": "Embryological facts follow from late-appearing variations inherited at corresponding ages"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch13-25",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch13-25.trig",
+          "statement": "Disuse over successive generations has been the main agency reducing organs to rudiments (as with eyes of cave animals and wings of island birds), aided by natural selection where an organ becomes injurious; because reduction occurs at maturity and is inherited at a corresponding age, rudiments remain relatively larger in the embryo.",
+          "title": "Disuse is the main cause of rudimentary organs"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch04-08",
+          "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+          "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch04-08.trig",
+          "statement": "Differences of electric potential between cell constituents, and between parts of the egg, play a great part in cell division; the potential difference between animal and vegetative poles of a fertilised egg fluctuates or reverses at successive segmentations, and the electrical difference of chromatin is greatest at mitosis.",
+          "title": "Differences of electric potential play a great part in cell division"
+        }
+      ],
+      "response_sha256": "81b8f843f8246879288802e949ad2fed2815e8887ea9c1a6ba4b4a22b75632ff",
+      "status": "ok",
+      "tool": "delphi_search_claims"
+    },
+    {
+      "arguments": {
+        "limit": 10,
+        "source": "network",
+        "text": "successive"
+      },
+      "at_utc": "2026-10-31T07:04:20Z",
+      "response": [
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch01-11",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "math": "",
+          "nanopub": "https://w3id.org/np/RAL1HmsTLvWT_Pyguz3rv8opHWrkdSQk-PPWxz-jXWKEc",
+          "statement": "Domestic breeds were not produced suddenly in their present useful form; their key cause is man's accumulative selection, nature supplying successive variations and man adding them up in directions useful to him.",
+          "title": "Domestic breeds arise mainly by man's accumulation of successive variations"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-08",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "math": "",
+          "nanopub": "https://w3id.org/np/RAJN9-vmRYhQZuloSCaF9rPE2_wnkcoTI4XxbYcVt_uS4",
+          "statement": "If any complex organ were shown to exist that could not possibly have been formed by numerous, successive, slight modifications, the theory of natural selection would break down; no such case is known.",
+          "title": "Theory fails if a complex organ could not arise by slight steps"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch07-09",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "math": "",
+          "nanopub": "https://w3id.org/np/RAnPVCS9MVkNaHsC8dVx4wQx792b5TXGpnVtwKXHPDgBE",
+          "statement": "The cell-making instinct of the hive-bee was acquired through natural selection by slight successive modifications of simpler instincts, of the kind seen in a graded series from humble-bees through Melipona to the hive-bee.",
+          "title": "Hive-bee comb building evolved by gradual modification of simpler bee instincts"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch08-02",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "math": "",
+          "nanopub": "https://w3id.org/np/RAVfmj0gNoQngJr6IGrgWwH55puOZ3YPuhMdEA-phVCI0",
+          "statement": "Close interbreeding lessens fertility, while an occasional cross with a distinct individual or variety increases it; this explains much of the declining fertility of hybrids kept for successive generations.",
+          "title": "Close interbreeding lowers fertility while occasional crossing raises it"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch09-05",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "math": "",
+          "nanopub": "https://w3id.org/np/RApQLOaRt44IUoT2seODUj5OoZy5dCji8mSteceEYonRU",
+          "statement": "The chief cause of the imperfection of the geological record is that successive geological formations are separated from each other by wide intervals of time during which no record was left.",
+          "title": "Successive formations are separated by wide intervals of unrecorded time"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch10-01",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "math": "",
+          "nanopub": "https://w3id.org/np/RA3XO_eUnOYaWqyz_i98aG4ZwlvNsfDBo8d25wigolLms",
+          "statement": "New species have appeared very slowly and one after another, both on land and in the waters, rather than in simultaneous batches.",
+          "title": "New species have appeared slowly and successively on land and in the sea"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch13-14",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "math": "",
+          "nanopub": "https://w3id.org/np/RAjKvJzbiBAS_InfsZbcRHJ_WD-LjqIpLHx6aJfthQ5Xg",
+          "statement": "The shared pattern of homologous organs within a class is explained by descent from an ancient progenitor (an archetype) that already had that pattern, which natural selection then modified by slight successive steps for different uses without transposing parts.",
+          "title": "Unity of type reflects a common progenitor's pattern modified by slight steps"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch13-21",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "math": "",
+          "nanopub": "https://w3id.org/np/RAneSymsnWsmyhwIuIExtrPNvA5AqSWTNaKl-re719zpI",
+          "statement": "The leading facts of embryology are explained because, in the descendants of a common progenitor, successive slight modifications generally do not appear at a very early period of life (though they may be caused earlier) and are inherited at a corresponding later age, leaving embryos little modified.",
+          "title": "Embryological facts follow from late-appearing variations inherited at corresponding ages"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch13-25",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "math": "",
+          "nanopub": "https://w3id.org/np/RAYrdFyGEr0a0U6XrbMzvoPBJ6dXL0S3o_udjMnueCuLY",
+          "statement": "Disuse over successive generations has been the main agency reducing organs to rudiments (as with eyes of cave animals and wings of island birds), aided by natural selection where an organ becomes injurious; because reduction occurs at maturity and is inherited at a corresponding age, rudiments remain relatively larger in the embryo.",
+          "title": "Disuse is the main cause of rudimentary organs"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch04-08",
+          "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+          "math": "",
+          "nanopub": "https://w3id.org/np/RAzD5ViHw2wOKRx7sIAVFidszSqedvK-v9s5K5ckg7Gk4",
+          "statement": "Differences of electric potential between cell constituents, and between parts of the egg, play a great part in cell division; the potential difference between animal and vegetative poles of a fertilised egg fluctuates or reverses at successive segmentations, and the electrical difference of chromatin is greatest at mitosis.",
+          "title": "Differences of electric potential play a great part in cell division"
+        }
+      ],
+      "response_sha256": "192855458b6c71121c9339c4672ada16b25621fea0e14ba3c561e257d3362163",
+      "status": "ok",
+      "tool": "delphi_search_claims"
+    },
+    {
+      "arguments": {
+        "limit": 10,
+        "source": "local",
+        "text": "additive"
+      },
+      "at_utc": "2026-10-31T07:04:21Z",
+      "response": [
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+          "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+          "math": "\\Delta_{NS}\\bar{w} = V_A(w)/\\bar{w} (discrete generations); \\left.\\frac{d\\bar{m}}{dt}\\right|_{NS} = V_A(m) for Malthusian fitness m",
+          "nanopub": "math-bio-theorems/nanopubs/unsigned/fisher-ftns.trig",
+          "statement": "The rate of increase in mean fitness of a population due to natural selection equals its additive genetic variance in fitness at that time.",
+          "title": "Fisher's fundamental theorem of natural selection (partial-change form)"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/fisher-infinitesimal",
+          "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+          "math": "Cov(z_i, z_j) = 2\\Theta_{ij} V_A + \\Delta_{ij} V_D; in the limit of M \\to \\infty loci the offspring trait given parents is Gaussian with mean (z_1+z_2)/2 and segregation variance V_0(1-\\bar{F}), with error O(1/\\sqrt{M}) (Barton, Etheridge and Veber 2017)",
+          "nanopub": "math-bio-theorems/nanopubs/unsigned/fisher-infinitesimal.trig",
+          "statement": "Continuous traits determined by many Mendelian loci of small additive effect produce the observed correlations between relatives, so biometric and Mendelian inheritance are consistent.",
+          "title": "Fisher's infinitesimal model of quantitative inheritance"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch06-15",
+          "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+          "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch06-15.trig",
+          "statement": "Because rule 90 is additive, its patterns are superpositions of the single-cell nested pattern, so it cannot generate randomness intrinsically; any randomness it shows comes from the initial conditions, and deviations such as a low initial density persist forever, unlike in rule 22.",
+          "title": "Additive rule 90 only transmits randomness from its initial conditions"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch06-20",
+          "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+          "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch06-20.trig",
+          "statement": "Every additive cellular automaton rule can emulate itself and therefore yields nested patterns, and among two-color nearest-neighbor rules the only fundamentally different additive rules are rules 90 and 150; self-emulation is otherwise rare, though non-additive examples such as rule 184 exist.",
+          "title": "Additive rules self-emulate; rules 90 and 150 are the only elementary ones"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch07-21",
+          "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+          "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch07-21.trig",
+          "statement": "Nested patterns can arise either from elements splitting or branching into smaller ones or from larger elements being built up from smaller ones (as in additive cellular automata), and the building-up route is probably the more common origin of nesting in nature.",
+          "title": "Nesting in nature mostly arises from building up, not splitting down"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch10-16",
+          "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+          "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch10-16.trig",
+          "statement": "Simple rules with complex behavior, such as the rule 30 cellular automaton sampled sparsely to give an encrypting sequence, can be used to build stream ciphers at least as secure against cryptanalysis as any known system, unlike additive cellular automata or linear feedback shift registers, whose keys are easily recovered.",
+          "title": "Rule 30 can serve as a cryptographic stream cipher as secure as any known"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch11-20",
+          "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+          "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch11-20.trig",
+          "statement": "Cellular automata whose information transmission is highly constrained so that patterns are essentially nested, and additive rules such as rules 90 and 150 whose states after a power-of-two number of steps are simple superpositions of shifted copies of the initial condition, cannot be universal.",
+          "title": "Nested-pattern and additive cellular automata cannot be universal"
+        }
+      ],
+      "response_sha256": "0745550ad23f0a04d656a4adfa98a579dc8c0a0b3248b1059e6972046ce993f1",
+      "status": "ok",
+      "tool": "delphi_search_claims"
+    },
+    {
+      "arguments": {
+        "limit": 10,
+        "source": "network",
+        "text": "additive"
+      },
+      "at_utc": "2026-10-31T07:04:21Z",
+      "response": [
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+          "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+          "math": "\\Delta_{NS}\\bar{w} = V_A(w)/\\bar{w} (discrete generations); \\left.\\frac{d\\bar{m}}{dt}\\right|_{NS} = V_A(m) for Malthusian fitness m",
+          "nanopub": "https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48",
+          "statement": "The rate of increase in mean fitness of a population due to natural selection equals its additive genetic variance in fitness at that time.",
+          "title": "Fisher's fundamental theorem of natural selection (partial-change form)"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/fisher-infinitesimal",
+          "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+          "math": "Cov(z_i, z_j) = 2\\Theta_{ij} V_A + \\Delta_{ij} V_D; in the limit of M \\to \\infty loci the offspring trait given parents is Gaussian with mean (z_1+z_2)/2 and segregation variance V_0(1-\\bar{F}), with error O(1/\\sqrt{M}) (Barton, Etheridge and Veber 2017)",
+          "nanopub": "https://w3id.org/np/RASVH-3kfjv85VmJUYvOFmkWg_y5fZ-_fjfIk2udlcA6A",
+          "statement": "Continuous traits determined by many Mendelian loci of small additive effect produce the observed correlations between relatives, so biometric and Mendelian inheritance are consistent.",
+          "title": "Fisher's infinitesimal model of quantitative inheritance"
+        }
+      ],
+      "response_sha256": "d132b17ff257bb7a242c89e996b6d5fd65afeae5405d669a18a1ae38eba6c216",
+      "status": "ok",
+      "tool": "delphi_search_claims"
+    },
+    {
+      "arguments": {
+        "limit": 10,
+        "source": "local",
+        "text": "intermediate"
+      },
+      "at_utc": "2026-10-31T07:04:21Z",
+      "response": [
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch03-10",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch03-10.trig",
+          "statement": "Very different organisms are linked by chains of interaction, so that the abundance of one species can determine the frequency of another through intermediate species; for example, cats may control the frequency of red clover and heartsease by way of field-mice and humble-bees.",
+          "title": "Chains of interaction link distant species' abundances"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch04-23",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch04-23.trig",
+          "statement": "In a fully stocked country, improved descendants of a species tend to supplant their predecessors, so the intermediate forms between earlier and later states, and the original parent species itself, generally tend to become extinct.",
+          "title": "Intermediate forms and parent species tend to go extinct"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch04-24",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch04-24.trig",
+          "statement": "Extinct species, though generally in the same orders, families or genera as living ones, are often somewhat intermediate in character between existing groups, because they lived when the branching lines of descent had diverged less.",
+          "title": "Extinct species are often intermediate between living groups"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-03",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch06-03.trig",
+          "statement": "Where varieties intermediate between two other forms occur in nature, they are generally much rarer numerically than the forms they connect, because they inhabit narrower intermediate zones.",
+          "title": "Intermediate varieties are numerically rarer than the forms they connect"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-04",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch06-04.trig",
+          "statement": "Forms existing in larger numbers have a better chance in any given period of presenting favourable variations for natural selection, so they are improved faster and supplant the less numerous intermediate varieties between them.",
+          "title": "Common forms improve faster and supplant rare intermediate forms"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch07-14",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch07-14.trig",
+          "statement": "Distinct castes of sterile workers in one nest arose when a graduated series of workers was first formed and then selection on the fertile parents favoured production of the most useful extreme forms until intermediates were no longer produced.",
+          "title": "Discrete worker castes arose by selection eliminating intermediate forms"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch09-01",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch09-01.trig",
+          "statement": "The extinct intermediate forms required by descent with modification link each species to a common, usually unknown, progenitor, and that progenitor will generally have differed in some respects from all of its modified descendants, so forms directly intermediate between two living species should not be expected.",
+          "title": "Extinct intermediates connect each species to a common progenitor, not to each other"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch09-02",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch09-02.trig",
+          "statement": "Because all living species are connected through extinct parent-species back to the common ancestor of each great class by steps no greater than those between varieties, the number of intermediate and transitional forms that have lived on earth must have been inconceivably great.",
+          "title": "The number of past intermediate and transitional links was inconceivably great"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch10-16",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch10-16.trig",
+          "statement": "Fossils from two consecutive formations are far more closely related to each other than fossils from two formations widely separated in time, and the fauna of each period is broadly intermediate between those before and after it.",
+          "title": "Fossils from consecutive formations are more alike than those from remote ones"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch14-05",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch14-05.trig",
+          "statement": "The only distinction between species and well-marked varieties is that varieties are known or believed to be connected by intermediate gradations at present, whereas species were connected by them in the past; species should therefore be treated, like genera, as combinations made for convenience.",
+          "title": "Species differ from varieties only in their intermediates having existed formerly"
+        }
+      ],
+      "response_sha256": "8a2d901dc21bf58805ed4e06d6dcbfd7ace6cc1b54cff3a82347cf77a6c8895a",
+      "status": "ok",
+      "tool": "delphi_search_claims"
+    },
+    {
+      "arguments": {
+        "limit": 10,
+        "source": "local",
+        "text": "leaps"
+      },
+      "at_utc": "2026-10-31T07:04:21Z",
+      "response": [
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-16",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch06-16.trig",
+          "statement": "The rule that nature makes no leaps is not strictly true of living organisms alone, but if all past organisms are included it must be strictly true.",
+          "title": "Nature makes no leaps when past as well as present forms are included"
+        },
+        {
+          "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch07-02",
+          "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+          "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch07-02.trig",
+          "statement": "Complex instincts are built up by slow, gradual steps, so gradations leading to them should be found among the instincts of related species in collateral lines of descent; instincts, like bodily organs, do not change by leaps.",
+          "title": "Complex instincts are reached by gradations visible in related species"
+        }
+      ],
+      "response_sha256": "1588dd912c6e35545de55a70522b8020e159839506e5b5f247d8d9f395a8c7d8",
+      "status": "ok",
+      "tool": "delphi_search_claims"
+    },
+    {
+      "arguments": {
+        "id": "darwin1859-ch06-08",
+        "source": "local"
+      },
+      "at_utc": "2026-10-31T07:04:21Z",
+      "response": {
+        "assessments": [
+          {
+            "assessment": "https://w3id.org/delphi/resource/assessment/darwin1859-ch06-08--grok",
+            "assessor": "https://w3id.org/delphi/resource/agent/delphisci-resolvability-assessor-grok-4.7-high-fast",
+            "confidence": 0.74,
+            "dimensions": {
+              "analysis-feasibility": 0.12,
+              "data-adequacy": 0.1,
+              "data-existence": 0.12,
+              "discriminating-power": 0.1,
+              "operationalizability": 0.15
+            },
+            "nanopub": "darwin-origin/nanopubs/assessments-unsigned/darwin1859-ch06-08--grok.trig",
+            "score": 0.118,
+            "summary": "The empirical clause that no such organ is known reports a state of argument rather than a measurable frequency. Any organ still lacking a known intermediate is compatible with the rule, because the rule demands a demonstration of impossibility, which comparative and fossil data cannot supply. Scores stay near the floor because there is no decision criterion a dataset could meet.",
+            "type": "dataset-resolvability/0.1.0",
+            "verdict": "not-empirically-resolvable"
+          },
+          {
+            "assessment": "https://w3id.org/delphi/resource/assessment/darwin1859-ch06-08--gpt",
+            "assessor": "https://w3id.org/delphi/resource/agent/delphisci-resolvability-assessor-gpt-5.6-sol-medium",
+            "confidence": 0.7,
+            "dimensions": {
+              "analysis-feasibility": 0.25,
+              "data-adequacy": 0.22,
+              "data-existence": 0.62,
+              "discriminating-power": 0.28,
+              "operationalizability": 0.35
+            },
+            "nanopub": "darwin-origin/nanopubs/assessments-unsigned/darwin1859-ch06-08--gpt.trig",
+            "score": 0.362,
+            "summary": "Existing data permit case studies but not an exhaustive test over all complex organs. The word 'possibly' also makes decisive discrimination unusually difficult.",
+            "type": "dataset-resolvability/0.1.0",
+            "verdict": "partially-resolvable"
+          }
+        ],
+        "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-08",
+        "fields": {
+          "dct:description": "If any complex organ were shown to exist that could not possibly have been formed by numerous, successive, slight modifications, the theory of natural selection would break down; no such case is known.",
+          "dct:type": "prediction",
+          "delphi:context": "Charles Darwin, On the Origin of Species (1st ed., London: John Murray, 1859), Chapter VI, \u201cDifficulties on Theory\u201d; section \u201cOrgans of extreme perfection.\u201d. Scope: complex organs of all organisms",
+          "rdf:type": "https://w3id.org/delphi/ontology/Claim",
+          "rdfs:label": "Theory fails if a complex organ could not arise by slight steps"
+        },
+        "nanopubs": [
+          "darwin-origin/nanopubs/unsigned/darwin1859-ch06-08.trig"
+        ],
+        "source": "local"
+      },
+      "response_sha256": "4be2f0fc2c29d4afc87a5928ea6a0a678195cb95e2b0aefe42d2d17fbd6440b4",
+      "status": "ok",
+      "tool": "delphi_get_claim"
+    },
+    {
+      "arguments": {
+        "id": "darwin1859-ch06-08",
+        "source": "network"
+      },
+      "at_utc": "2026-10-31T07:04:22Z",
+      "response": {
+        "assessments": [],
+        "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-08",
+        "fields": {
+          "dct:description": "If any complex organ were shown to exist that could not possibly have been formed by numerous, successive, slight modifications, the theory of natural selection would break down; no such case is known.",
+          "dct:type": "prediction",
+          "delphi:context": "Charles Darwin, On the Origin of Species (1st ed., London: John Murray, 1859), Chapter VI, \u201cDifficulties on Theory\u201d; section \u201cOrgans of extreme perfection.\u201d. Scope: complex organs of all organisms",
+          "rdf:type": "https://w3id.org/delphi/ontology/Claim",
+          "rdfs:label": "Theory fails if a complex organ could not arise by slight steps"
+        },
+        "nanopubs": [
+          "https://w3id.org/np/RAJN9-vmRYhQZuloSCaF9rPE2_wnkcoTI4XxbYcVt_uS4"
+        ],
+        "source": "network"
+      },
+      "response_sha256": "a53f0839a7f9513bf1c0939cfc283083cbb8457bad5c8340edf84dc51b608dee",
+      "status": "ok",
+      "tool": "delphi_get_claim"
+    },
+    {
+      "arguments": {
+        "id": "darwin1859-ch06-16",
+        "source": "local"
+      },
+      "at_utc": "2026-10-31T07:04:22Z",
+      "response": {
+        "assessments": [
+          {
+            "assessment": "https://w3id.org/delphi/resource/assessment/darwin1859-ch06-16--grok",
+            "assessor": "https://w3id.org/delphi/resource/agent/delphisci-resolvability-assessor-grok-4.7-high-fast",
+            "confidence": 0.6,
+            "dimensions": {
+              "analysis-feasibility": 0.5,
+              "data-adequacy": 0.38,
+              "data-existence": 0.72,
+              "discriminating-power": 0.3,
+              "operationalizability": 0.4
+            },
+            "nanopub": "darwin-origin/nanopubs/assessments-unsigned/darwin1859-ch06-16--grok.trig",
+            "score": 0.471,
+            "summary": "Fossil occurrences and character matrices can test a proxy, continuity in well-sampled clades, with standard disparity methods. The stated claim is insulated by whatever is missing from the record, so every remaining gap is compatible both with saltation and with incompleteness. That is why discriminating power is low even though the raw databases are strong.",
+            "type": "dataset-resolvability/0.1.0",
+            "verdict": "partially-resolvable"
+          },
+          {
+            "assessment": "https://w3id.org/delphi/resource/assessment/darwin1859-ch06-16--gpt",
+            "assessor": "https://w3id.org/delphi/resource/agent/delphisci-resolvability-assessor-gpt-5.6-sol-medium",
+            "confidence": 0.64,
+            "dimensions": {
+              "analysis-feasibility": 0.28,
+              "data-adequacy": 0.24,
+              "data-existence": 0.66,
+              "discriminating-power": 0.34,
+              "operationalizability": 0.4
+            },
+            "nanopub": "darwin-origin/nanopubs/assessments-unsigned/darwin1859-ch06-16--gpt.trig",
+            "score": 0.403,
+            "summary": "Selected lineages can test rates and apparent discontinuities. A strict statement covering every past organism cannot be confirmed, and missing intermediates are weak evidence of true leaps.",
+            "type": "dataset-resolvability/0.1.0",
+            "verdict": "partially-resolvable"
+          }
+        ],
+        "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-16",
+        "fields": {
+          "dct:description": "The rule that nature makes no leaps is not strictly true of living organisms alone, but if all past organisms are included it must be strictly true.",
+          "dct:type": "prediction",
+          "delphi:context": "Charles Darwin, On the Origin of Species (1st ed., London: John Murray, 1859), Chapter VI, \u201cDifficulties on Theory\u201d; section \u201cNatura non facit saltum.\u201d. Scope: all organisms, living and extinct",
+          "rdf:type": "https://w3id.org/delphi/ontology/Claim",
+          "rdfs:label": "Nature makes no leaps when past as well as present forms are included"
+        },
+        "nanopubs": [
+          "darwin-origin/nanopubs/unsigned/darwin1859-ch06-16.trig"
+        ],
+        "source": "local"
+      },
+      "response_sha256": "c6ccf78d3a3f86daa25a3f09f348bb6cc9a04c5d351420f23d563a8eb1dcb44a",
+      "status": "ok",
+      "tool": "delphi_get_claim"
+    },
+    {
+      "arguments": {
+        "id": "darwin1859-ch06-16",
+        "source": "network"
+      },
+      "at_utc": "2026-10-31T07:04:22Z",
+      "response": {
+        "assessments": [],
+        "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-16",
+        "fields": {
+          "dct:description": "The rule that nature makes no leaps is not strictly true of living organisms alone, but if all past organisms are included it must be strictly true.",
+          "dct:type": "prediction",
+          "delphi:context": "Charles Darwin, On the Origin of Species (1st ed., London: John Murray, 1859), Chapter VI, \u201cDifficulties on Theory\u201d; section \u201cNatura non facit saltum.\u201d. Scope: all organisms, living and extinct",
+          "rdf:type": "https://w3id.org/delphi/ontology/Claim",
+          "rdfs:label": "Nature makes no leaps when past as well as present forms are included"
+        },
+        "nanopubs": [
+          "https://w3id.org/np/RAovYvW0y_yQKkjjMPr41Vjnzl81xI1rxAqMlF4ogNap4"
+        ],
+        "source": "network"
+      },
+      "response_sha256": "4a59ffb42c85af1f7be8673b2ca7b3c35811fd0b1f1ee25d00d783108e8fa275",
+      "status": "ok",
+      "tool": "delphi_get_claim"
+    },
+    {
+      "arguments": {
+        "id": "darwin1859-ch01-17",
+        "source": "local"
+      },
+      "at_utc": "2026-10-31T07:04:22Z",
+      "response": {
+        "assessments": [
+          {
+            "assessment": "https://w3id.org/delphi/resource/assessment/darwin1859-ch01-17--grok",
+            "assessor": "https://w3id.org/delphi/resource/agent/delphisci-resolvability-assessor-grok-4.7-high-fast",
+            "confidence": 0.52,
+            "dimensions": {
+              "analysis-feasibility": 0.42,
+              "data-adequacy": 0.36,
+              "data-existence": 0.52,
+              "discriminating-power": 0.4,
+              "operationalizability": 0.46
+            },
+            "nanopub": "darwin-origin/nanopubs/assessments-unsigned/darwin1859-ch01-17--grok.trig",
+            "score": 0.437,
+            "summary": "Genomic differentiation and crop evaluation data can show that selection has left a large mark on major domestic races, which addresses only part of a ranking among causes. The other causes are poorly collocated in the same records, so the predominance claim stays under-identified. Several decompositions are possible, and any one of them would take substantial harmonization for a handful of species.",
+            "type": "dataset-resolvability/0.1.0",
+            "verdict": "partially-resolvable"
+          },
+          {
+            "assessment": "https://w3id.org/delphi/resource/assessment/darwin1859-ch01-17--gpt",
+            "assessor": "https://w3id.org/delphi/resource/agent/delphisci-resolvability-assessor-gpt-5.6-sol-medium",
+            "confidence": 0.7,
+            "dimensions": {
+              "analysis-feasibility": 0.48,
+              "data-adequacy": 0.4,
+              "data-existence": 0.7,
+              "discriminating-power": 0.44,
+              "operationalizability": 0.55
+            },
+            "nanopub": "darwin-origin/nanopubs/assessments-unsigned/darwin1859-ch01-17--gpt.trig",
+            "score": 0.525,
+            "summary": "Selection signatures are widespread, but a common causal accounting across all domestic plants and animals is not available. Existing data can evaluate predominance in individual lineages only.",
+            "type": "dataset-resolvability/0.1.0",
+            "verdict": "partially-resolvable"
+          }
+        ],
+        "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch01-17",
+        "fields": {
+          "dct:description": "Among the causes of change in domestic races, including conditions of life, use and disuse, correlation and crossing, the accumulative action of selection, whether methodical or unconscious, is by far the predominant power.",
+          "dct:type": "mechanism",
+          "delphi:context": "Charles Darwin, On the Origin of Species (1st ed., London: John Murray, 1859), Chapter I, \u201cVariation under Domestication\u201d; section \u201cSummary\u201d. Scope: domesticated animals and cultivated plants",
+          "rdf:type": "https://w3id.org/delphi/ontology/Claim",
+          "rdfs:label": "Accumulative selection is the predominant cause of change in domestic races"
+        },
+        "nanopubs": [
+          "darwin-origin/nanopubs/unsigned/darwin1859-ch01-17.trig"
+        ],
+        "source": "local"
+      },
+      "response_sha256": "6af67f9b8893fbeeb486ee853d5351fbd0a7adadcb46ffb982806400eb781175",
+      "status": "ok",
+      "tool": "delphi_get_claim"
+    },
+    {
+      "arguments": {
+        "id": "darwin1859-ch01-17",
+        "source": "network"
+      },
+      "at_utc": "2026-10-31T07:04:23Z",
+      "response": {
+        "assessments": [],
+        "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch01-17",
+        "fields": {
+          "dct:description": "Among the causes of change in domestic races, including conditions of life, use and disuse, correlation and crossing, the accumulative action of selection, whether methodical or unconscious, is by far the predominant power.",
+          "dct:type": "mechanism",
+          "delphi:context": "Charles Darwin, On the Origin of Species (1st ed., London: John Murray, 1859), Chapter I, \u201cVariation under Domestication\u201d; section \u201cSummary\u201d. Scope: domesticated animals and cultivated plants",
+          "rdf:type": "https://w3id.org/delphi/ontology/Claim",
+          "rdfs:label": "Accumulative selection is the predominant cause of change in domestic races"
+        },
+        "nanopubs": [
+          "https://w3id.org/np/RAGG5Y2WGfHtfOj6nZhD18twOU3GNco-Q2EpYx_kavHcg"
+        ],
+        "source": "network"
+      },
+      "response_sha256": "726945a487f61c6012a3a1a36d31df06223725bf50f2a2b4eefb86302cebc2e2",
+      "status": "ok",
+      "tool": "delphi_get_claim"
+    },
+    {
+      "arguments": {
+        "id": "fisher-ftns",
+        "source": "local"
+      },
+      "at_utc": "2026-10-31T07:04:23Z",
+      "response": {
+        "assessments": [],
+        "claim": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+        "fields": {
+          "dct:description": "The rate of increase in mean fitness of a population due to natural selection equals its additive genetic variance in fitness at that time.",
+          "dct:source": "Ronald A. Fisher (1930) The Genetical Theory of Natural Selection",
+          "delphi:context": "Assumptions: the 'partial change' holds average effects of alleles and the environment fixed (Price 1972, Ewens 1989); V_A is the additive genetic variance in fitness. Formal status: proved in this partial-change reading. Read as a claim about the total change in mean fitness it is false under dominance, epistasis, frequency dependence or a changing environment.",
+          "delphi:hypothesisType": "model-theorem",
+          "delphi:proposedTest": "In a pedigreed wild population or an experimental-evolution line, estimate the additive genetic variance in relative fitness (animal model) and compare it with the observed per-generation response of breeding values for fitness, separating the selection term from environmental deterioration.",
+          "rdf:type": [
+            "https://w3id.org/delphi/ontology/TestableHypothesis",
+            "https://w3id.org/delphi/ontology/Claim"
+          ],
+          "rdfs:label": "Fisher's fundamental theorem of natural selection (partial-change form)",
+          "rdfs:seeAlso": [
+            "https://doi.org/10.1016/0040-5809(89)90028-2",
+            "https://doi.org/10.1111/j.1469-1809.1972.tb00764.x"
+          ],
+          "skos:notation": "\\Delta_{NS}\\bar{w} = V_A(w)/\\bar{w} (discrete generations); \\left.\\frac{d\\bar{m}}{dt}\\right|_{NS} = V_A(m) for Malthusian fitness m"
+        },
+        "nanopubs": [
+          "math-bio-theorems/nanopubs/unsigned/fisher-ftns.trig"
+        ],
+        "source": "local"
+      },
+      "response_sha256": "a157079f4df04d93bb3487b9a3b27360d23d5518e12affaf09b4d283f4802e18",
+      "status": "ok",
+      "tool": "delphi_get_claim"
+    },
+    {
+      "arguments": {
+        "id": "fisher-ftns",
+        "source": "network"
+      },
+      "at_utc": "2026-10-31T07:04:23Z",
+      "response": {
+        "assessments": [],
+        "claim": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+        "fields": {
+          "dct:description": "The rate of increase in mean fitness of a population due to natural selection equals its additive genetic variance in fitness at that time.",
+          "dct:source": "Ronald A. Fisher (1930) The Genetical Theory of Natural Selection",
+          "delphi:context": "Assumptions: the 'partial change' holds average effects of alleles and the environment fixed (Price 1972, Ewens 1989); V_A is the additive genetic variance in fitness. Formal status: proved in this partial-change reading. Read as a claim about the total change in mean fitness it is false under dominance, epistasis, frequency dependence or a changing environment.",
+          "delphi:hypothesisType": "model-theorem",
+          "delphi:proposedTest": "In a pedigreed wild population or an experimental-evolution line, estimate the additive genetic variance in relative fitness (animal model) and compare it with the observed per-generation response of breeding values for fitness, separating the selection term from environmental deterioration.",
+          "rdf:type": [
+            "https://w3id.org/delphi/ontology/Claim",
+            "https://w3id.org/delphi/ontology/TestableHypothesis"
+          ],
+          "rdfs:label": "Fisher's fundamental theorem of natural selection (partial-change form)",
+          "rdfs:seeAlso": [
+            "https://doi.org/10.1016/0040-5809(89)90028-2",
+            "https://doi.org/10.1111/j.1469-1809.1972.tb00764.x"
+          ],
+          "skos:notation": "\\Delta_{NS}\\bar{w} = V_A(w)/\\bar{w} (discrete generations); \\left.\\frac{d\\bar{m}}{dt}\\right|_{NS} = V_A(m) for Malthusian fitness m"
+        },
+        "nanopubs": [
+          "https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48"
+        ],
+        "source": "network"
+      },
+      "response_sha256": "e772914b879cbacfe637e8fa5afedad201f230c73ee8a9e13c5c39404ad82cfe",
+      "status": "ok",
+      "tool": "delphi_get_claim"
+    }
+  ],
+  "run_seattle": "2026-10-31 00:04:23 PDT",
+  "run_utc": "2026-10-31T07:04:23Z",
+  "server": "delphisci 0.2.0 (initialize response)"
+}

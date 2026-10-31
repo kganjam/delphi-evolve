@@ -1,0 +1,57 @@
+{
+  "kind": "descriptive full-data analysis; not a predictive benchmark",
+  "start": "VFVS",
+  "target": "AIKG",
+  "score_scale": "mean of replicate mu_k-bg growth columns (see landscape.meta.json)",
+  "rows": [
+    {
+      "mode": "envelope",
+      "assumed_error_bound": 0.0,
+      "measured_only_distance": 5,
+      "optimistic_distance": 5
+    },
+    {
+      "mode": "envelope",
+      "assumed_error_bound": 0.005,
+      "measured_only_distance": 7,
+      "optimistic_distance": 7
+    },
+    {
+      "mode": "envelope",
+      "assumed_error_bound": 0.01,
+      "measured_only_distance": null,
+      "optimistic_distance": null
+    },
+    {
+      "mode": "envelope",
+      "assumed_error_bound": 0.02,
+      "measured_only_distance": null,
+      "optimistic_distance": null
+    },
+    {
+      "mode": "point",
+      "assumed_error_bound": 0.0,
+      "measured_only_distance": 5,
+      "optimistic_distance": 5
+    },
+    {
+      "mode": "point",
+      "assumed_error_bound": 0.005,
+      "measured_only_distance": 7,
+      "optimistic_distance": 7
+    },
+    {
+      "mode": "point",
+      "assumed_error_bound": 0.01,
+      "measured_only_distance": null,
+      "optimistic_distance": null
+    },
+    {
+      "mode": "point",
+      "assumed_error_bound": 0.02,
+      "measured_only_distance": null,
+      "optimistic_distance": null
+    }
+  ],
+  "built_utc": "2026-10-31T07:04:36Z"
+}
