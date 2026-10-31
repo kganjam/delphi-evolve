@@ -115,6 +115,23 @@ def test_review5_truncation_wording():
     assert "may be truncated" in m["completeness"] and "COMPLETE list" not in m["completeness"]
 
 
+def test_periodic_multiplicity_is_explicit():
+    o = run(base("4", "periodic"))
+    m = o["modes"]
+    assert m["unstable_count"] >= 1 and "count_meaning" in m
+    assert m["unstable_eigenfunction_count"] == sum(x["eigenfunction_multiplicity"] for x in m["unstable"])
+    assert all(x["eigenfunction_multiplicity"] == (2 if x["index"] > 0 else 1) for x in m["unstable"])
+    n = run(base("4", "neumann"))["modes"]
+    assert n["unstable_eigenfunction_count"] == n["unstable_count"]
+    d2 = run({"jacobian": [[1, -2], [2, -3]], "diffusivities": [1, 10], "domain": {"dimension": 2, "boundary": "periodic", "lengths_over_pi": ["4", "3"]}})["modes"]
+    assert d2["unstable_eigenfunction_count"] == sum(x["eigenfunction_multiplicity"] for x in d2["unstable"]) and d2["unstable_eigenfunction_count"] > d2["unstable_count"]
+
+
+def test_mcp_tool_description_does_not_promise_complete_list():
+    from falsify import server
+    assert "complete list" not in server.TOOL_SCHEMA["description"] and "capped at 50" in server.TOOL_SCHEMA["description"]
+
+
 def test_review6_dirichlet_semantics_stated():
     o = run(base("5", "dirichlet"))
     txt = " ".join(o["assumptions"])
@@ -244,11 +261,10 @@ def _req(J, ratio_act_inh_den, ratio):
 
 def test_required_ratio_is_the_exact_band_threshold():
     # textbook example: rho_c = 9 exactly (S = 6, S^2 = 36 = 4 Du Dv det J at ratio 9)
-    o = run(base("2", proteins={"activator_mass_da": 40000, "inhibitor_mass_da": 41000}))
+    o = run(base("2"))
     dr = o["diffusion_requirement"]
     assert dr["activator"] == "u" and F(dr["required_inhibitor_over_activator_ratio_greater_than_bracket"][0]) == 9
-    assert F(dr["heuristic_mass_ratio_greater_than_bracket"][0]) == 729
-    assert dr["proteins"]["heuristic_ratio_meets_requirement"] is False and dr["proteins"]["supplied_ratio_over_heuristic_ratio_decimal"] > 10
+    assert "proteins" not in dr and not any("mass" in k for k in dr)
     rng = random.Random(11)
     n = 0
     for _ in range(80):

@@ -9,7 +9,7 @@
 Given a two-species reaction-diffusion linearization (Jacobian at a homogeneous steady state, or a preset: `brusselator`,
 `schnakenberg`, `gierer_meinhardt`), diffusivities `[Du, Dv]` and a finite 1-D interval / 2-D rectangle with
 `neumann`, `dirichlet` or `periodic` boundaries: does **any admissible Laplacian mode grow linearly**? We try to break the claim with
-exact rational arithmetic and return a verdict, the complete unstable-mode enumeration, the smallest domain length that admits any
+exact rational arithmetic and return a verdict, the exact unstable-mode count and enumeration (returned detail capped at 50; periodic counts also given with cos/sin multiplicity), the smallest domain length that admits any
 (1-D, with a re-verified rational bracket or an explicit "unresolved"), a finite-difference eigenvalue cross-check, the
 `turing_scope` adapter cross-check (Delphi record `turing-ddi`, pin verified), and a stored receipt. `"lean": true` adds a Lean 4
 proof of the 1-D classification (~15 s).
@@ -31,8 +31,8 @@ Length `pi` -> `domain_blocks_pattern` (textbook condition holds, no admissible 
 Physical lengths: `"length": 12.5` (pi is bracketed rigorously). 2-D: `"dimension":2,"lengths_over_pi":[3,2]`.
 Preset: `{"model":{"name":"brusselator","params":{"A":1,"B":"3/2"}},"diffusivities":[1,30],"domain":{"dimension":1,"boundary":"dirichlet","length":12.5}}`.
 
-## Diffusion-ratio requirement, for YOUR kinetics
-`diffusion_requirement` gives the exact bracket of D_inhibitor/D_activator the textbook band needs for your Jacobian (9 for the example), or "no ratio suffices". **There is no universal threshold**: the required ratio exceeds |delta|/alpha (> 1) and approaches it only for near-singular, finely tuned kinetics; ratio 1.1 suffices for J=[[1,-1],[1011/1000,-101/100]] (Lean-checked, `tests/test_falsify.py::test_no_universal_threshold_codex_counterexample`). The optional `proteins` field is a crude D ~ M^(-1/3) scaling heuristic, not a validated structure-to-diffusion pipeline (radius of gyration is not hydrodynamic radius; binding/hindrance/dimerization are not modelled). CPU sweep under a stated prior: `artifacts/diffusion_ratio/sweep.json`.
+## Calculator note: `diffusion_requirement`
+For your Jacobian, the exact bracket of D_inhibitor/D_activator the textbook band needs (9 for the example), or "no ratio suffices". It is a property of the kinetics, not a universal threshold (always above |delta|/alpha > 1; ratio 1.1 suffices for J=[[1,-1],[1011/1000,-101/100]], Lean-checked, `test_no_universal_threshold_codex_counterexample`). Well-known background, already measured in vivo (per the director's scout, not independently checked here: Mueller et al. 2012 Science 336:721; Kuhn et al. 2022 Nat Commun). **Not a finding and not part of the pitch.** The earlier protein-mass comparison was removed.
 
 ## MCP
 Remote: `$FALSIFY_URL/mcp` (streamable HTTP), tool `falsify_turing_pattern`. Stdio proxy:

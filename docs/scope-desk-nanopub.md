@@ -59,3 +59,6 @@ Also: a Lean clamp `F=0` is a statement about the linearization at the declared 
 
 ### Retraction note (2026-10-31, from the director)
 The earlier "Turing needs Dv >> Du / bare ratio almost never >= 10" framing is dead; nothing here may be cited as a universal diffusion threshold or a validated structure-to-diffusion pipeline. My `diffusion_requirement` was already kinetics-specific (it returned 1.0756 for the counterexample), but its first wording and the protein-mass fields overstated; both were corrected, fields renamed `heuristic_*`, and the counterexample added as a regression test. The robustness question is addressed only under a stated prior in `artifacts/diffusion_ratio/sweep.json` (fraction of stable kinetics with a band: ~1e-5 at ratio 1.1, 3e-3 at 2, 6e-2 at 10, 0.17 at 100); it is prior-dependent and says nothing about real systems.
+
+### Closure (2026-10-31, from the director): the diffusion audit is dropped
+Well-known and already measured (see docs/falsify-howto.md). The protein-mass comparison was removed from the service, and the diffusion requirement is no longer written into nanopublication drafts. The pitch frame is Delphi ("Finding the fundamental theorems of biology"); this work is the checking half of that headline, not a separate entry or brand.

@@ -43,7 +43,7 @@ TOOL_SCHEMA = {
     "name": "falsify_turing_pattern",
     "description": ("Try to BREAK a pattern-formation claim: does ANY admissible Laplacian mode grow linearly for a two-species "
                     "reaction-diffusion system on a finite 1-D or 2-D domain (neumann / dirichlet / periodic)? Returns an exact-rational "
-                    "verdict (survived / refuted / out_of_scope / unresolvable), the complete list of unstable modes, the smallest domain "
+                    "verdict (survived / refuted / out_of_scope / unresolvable), the unstable-mode count and enumeration (returned detail capped at 50), the smallest domain "
                     "length that admits any, independent cross-checks, and a stored receipt id. lean=true adds a Lean 4 machine-checked "
                     "proof of the 1-D classification (about 15 s). A growing linear mode is a LINEAR-instability prediction under the "
                     "declared assumptions, not proof of nonlinear or biological pattern formation."),

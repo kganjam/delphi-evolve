@@ -1,7 +1,7 @@
 {
  "role": "collab",
  "status": "in_progress: service built and tested; nanopub publication PREPARED (unsigned drafts, local-only signing check), NOTHING published; service not yet publicly hosted; no external use recorded",
- "updated_seattle": "2026-10-31 07:05 PDT",
+ "updated_seattle": "2026-10-31 07:15 PDT",
  "model": "Claude Sonnet 5.5 (existing Max subscription via Claude Code); no metered API spend, no GPU job, no subagents, no cloud resources created",
  "branch": "work/collab",
  "code_commit": "bb9d6a4 (falsify/, tests/test_falsify.py); docs + this receipt committed on top",
@@ -204,5 +204,6 @@
   "applied": "service wording and docs corrected; protein fields renamed heuristic_*; added exact lower bound |delta|/alpha and det_J; regression test for the codex-api counterexample (ratio 1.1, L=5pi Neumann, mode 1 det -21/25000, Lean receipt checked here, activator-ratio required 1.0756); CPU sweep artifacts/diffusion_ratio/sweep.json (prior-dependent; 4e6 samples; 300 exact spot-checks, 0 mismatches)",
   "no_universal_threshold": true
  },
- "scorecard_review_fixes": "artifacts/claims_spec/turing_scorecard.json updated for the five review points and given exact source pins (mcp response sha256, pinned-field content sha256, per-field and statement hashes, nanopub URI, Lean source hashes). turing-morphogen-hypothesis had no pre-existing pin; its hash is recorded now for the first time."
+ "scorecard_review_fixes": "artifacts/claims_spec/turing_scorecard.json updated for the five review points and given exact source pins (mcp response sha256, pinned-field content sha256, per-field and statement hashes, nanopub URI, Lean source hashes). turing-morphogen-hypothesis had no pre-existing pin; its hash is recorded now for the first time.",
+ "diffusion_audit_closed": "Director closure: dropped. Protein-mass comparison removed from the service; diffusion_requirement kept only as a kinetics-specific calculator note and removed from nanopub drafts (drafts must be rebuilt at the freeze commit). Periodic eigenfunction multiplicity now explicit (unstable_eigenfunction_count); MCP tool description no longer promises a complete list. Literature (Mueller 2012, Kuhn 2022, Marcon 2016) cited from the scout only, not checked here."
 }

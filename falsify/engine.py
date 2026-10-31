@@ -183,7 +183,6 @@ def normalize(req: dict) -> dict:
     out["domain"] = {"dimension": dim, "boundary": bc, "exact": exact, "r": R,
                      "length_spec": [fs(x) for x in (vals)], "unit": "multiples of pi" if exact else "physical units (pi bracketed)"}
     out["claim"] = str(req.get("claim", ""))[:500]
-    out["proteins"] = req.get("proteins") if isinstance(req.get("proteins"), dict) else None
     out["wants"] = {"lean": bool(req.get("lean", False)), "crosscheck": req.get("crosscheck", True) is not False}
     return out
 
@@ -199,6 +198,8 @@ def classify_modes(J, D, dom):
     R = dom["r"]
     threshold = S / P if S > 0 else None   # q >= S/P  =>  det >= dJ > 0 (tail theorem); S <= 0: all modes stable
     unstable, ambiguous, marginal, examined = [], [], [], 0
+    mult_total = 0
+    periodic = dom["boundary"] == "periodic"
 
     def visit(idx):
         nonlocal examined
@@ -207,7 +208,14 @@ def classify_modes(J, D, dom):
         qb = c2 * sum(Fraction(n * n) / (r[0] * r[0]) for n, r in zip(idx, R))
         s = det_range_sign(P, S, dJ, qa, qb)
         row = {"index": list(idx) if len(idx) > 1 else idx[0], "q": fs(qa) if qa == qb else [fs(qa), fs(qb)]}
+        mult = 1
+        if periodic:                      # cos and sin eigenfunctions for each nonzero periodic index
+            for n_ in idx:
+                mult *= 2 if n_ > 0 else 1
+        row["eigenfunction_multiplicity"] = mult
         if s == -1:
+            nonlocal mult_total
+            mult_total += mult
             if qa == qb:
                 row.update(trace=fs(trJ - (Du + Dv) * qa), determinant=fs(P * qa * qa - S * qa + dJ))
             unstable.append(row)
@@ -241,7 +249,7 @@ def classify_modes(J, D, dom):
                     visit((n1, n2))
                     n2 += 1
                 n1 += 1
-    return {"trJ": trJ, "detJ": dJ, "S": S, "P": P, "threshold": threshold, "unstable": unstable,
+    return {"trJ": trJ, "detJ": dJ, "S": S, "P": P, "threshold": threshold, "unstable": unstable, "unstable_eigenfunctions": mult_total,
             "ambiguous": ambiguous, "marginal": marginal, "examined": examined}
 
 
@@ -314,7 +322,7 @@ def length_analysis(J, D, boundary, n_show=4):
             "statement": "No verified critical-length bracket was obtained; NO length is advised. The exact per-domain verdict above is unaffected."}
 
 
-def diffusion_requirement(J, D, proteins=None, notes=None):
+def diffusion_requirement(J, D):
     """Exact answer to: how much faster must the INHIBITOR diffuse than the ACTIVATOR for the textbook Turing band to exist at all,
     for THESE kinetics?  With alpha = activator self-feedback > 0, delta = inhibitor self-feedback, det J > 0, b*c < 0:
 
@@ -328,9 +336,7 @@ def diffusion_requirement(J, D, proteins=None, notes=None):
     Lean-checked example: J=[[1,-1],[1011/1000,-101/100]], Du=1, Dv=1.1, L=5pi Neumann, mode 1 det=-21/25000).
     Proof of rho_c > |delta|/alpha: with s=alpha|delta|, beta=-bc>s, rho_c*alpha^2 = 2beta - s + 2 sqrt(beta(beta-s)) is increasing in beta
     and equals s at beta=s.  Figures like '7 to 10' are rules of thumb for particular kinetics.
-    The optional protein-mass comparison is a CRUDE SCALING HEURISTIC (D ~ M^(-1/3) for compact globular proteins), NOT a validated
-    structure-to-diffusion pipeline: radius of gyration is not the hydrodynamic radius, and effective tissue transport
-    (binding, hindrance, dimerization) is not modelled."""
+    This is a kinetics-only calculator note. The service makes no claim about real proteins or tissue transport."""
     (a, b), (c, d) = J
     Du, Dv = D
     dJ = a * d - b * c
@@ -361,31 +367,11 @@ def diffusion_requirement(J, D, proteins=None, notes=None):
                required_ratio_decimal=float(rho_lo),
                exact_form="(2 detJ - alpha*delta + 2*sqrt(detJ*(-b*c))) / alpha^2",
                supplied_inhibitor_over_activator_ratio=fs(ratio_supplied), supplied_ratio_meets_textbook_condition=exceeds,
-               heuristic_mass_ratio_greater_than_bracket=[fs(rho_lo ** 3), fs(rho_hi ** 3)],
                ratio_lower_bound_for_any_b_c=fs(abs(delta) / alpha),
                det_J=fs(dJ),
                no_universal_threshold="rho_c depends on these kinetics; it exceeds |delta|/alpha > 1 and approaches it only as det J -> 0+ (finely tuned). "
                                       "Numbers such as 7-10 are rules of thumb for particular kinetics, not a property of the mechanism.",
-               mass_scaling_heuristic_note="CRUDE heuristic, not validated: D ~ M^(-1/3) for compact globular proteins would make a ratio R need a mass ratio R^3. "
-                                           "Radius of gyration is not the hydrodynamic radius; effective tissue transport (binding, hindrance, dimerization) is not modelled.")
-    if proteins:
-        try:
-            ma = rat("proteins.activator_mass_da", proteins.get("activator_mass_da"), notes)
-            mi = rat("proteins.inhibitor_mass_da", proteins.get("inhibitor_mass_da"), notes)
-            if ma <= 0 or mi <= 0:
-                raise Refuse("invalid_input", "protein masses must be > 0")
-        except Refuse as e:
-            out["proteins"] = {"status": "refused", "detail": e.detail}
-            return out
-        m = ma / mi                                   # bare D_inh/D_act = (M_act/M_inh)^(1/3)
-        meets = bool(m > rho_hi ** 3)
-        unclear = bool(rho_lo ** 3 < m <= rho_hi ** 3)
-        out["proteins"] = {"status": "computed", "declared_masses_da": {"activator": fs(ma), "inhibitor": fs(mi)},
-                           "mass_scaling_heuristic_ratio_decimal": float(m) ** (1 / 3),
-                           "heuristic_ratio_meets_requirement": None if unclear else meets,
-                           "supplied_ratio_over_heuristic_ratio_decimal": float(ratio_supplied) / (float(m) ** (1 / 3)),
-                           "reading": "a crude scaling comparison only (not validated; not a hydrodynamic or structural calculation); masses are caller-declared, "
-                                      "shapes assumed compact, nothing was measured"}
+               background="well-known and already measured in vivo (reported by the director's scout, not independently checked here: Mueller et al. 2012 Science 336:721 by FRAP; Kuhn et al. 2022 Nat Commun at single-molecule resolution, where binding rather than molecular size gave the tissue-scale difference). A calculator note for YOUR kinetics, not a finding.")
     return out
 
 
@@ -490,8 +476,9 @@ def falsify_turing(req: dict) -> dict:
                               "length_unit": dom["unit"]}},
         "derived": {"trace_J": fs(trJ), "det_J": fs(dJ), "S": fs(res["S"]), "DuDv": fs(res["P"])},
         "continuum_band": band,
-        "diffusion_requirement": diffusion_requirement(J, D, n["proteins"], n["notes"]),
-        "modes": {"unstable": res["unstable"][:50], "unstable_count": nu, "unresolved_count": na, "marginal_count": nm,
+        "diffusion_requirement": diffusion_requirement(J, D),
+        "modes": {"unstable": res["unstable"][:50], "unstable_count": nu, "unstable_eigenfunction_count": res["unstable_eigenfunctions"],
+                  "count_meaning": "unstable_count = distinct admissible wavenumber index tuples (canonical non-negative indices); unstable_eigenfunction_count = the same with periodic cos/sin multiplicity (2 per nonzero index)", "unresolved_count": na, "marginal_count": nm,
                   "candidate_modes_examined": res["examined"],
                   "completeness": ("every admissible mode with q < S/(Du Dv) was classified; every mode with q >= S/(Du Dv) has "
                                    "det >= det J > 0 and tr < 0, hence is stable (tail rule, Lean: TuringScope.neumann_tail_hurwitz). "
