@@ -65,10 +65,10 @@ First-ever; any claim that a named law is wrong; that a pattern forms (linear mo
 
 | File | sha256 |
 |---|---|
-| presentation/delphi/deck.pdf | `97f6c71ea72bde1942706172f8b623e67d0af62075dc8468bfc3ec79e6394dea` |
-| presentation/delphi/deck.html | `46755ac404ae0fc8694a541660881ae89ff97480288449ca02193e1fecc595d6` |
-| presentation/delphi/deck.pptx | `62e5c82da7768a74dd0ae08d5df913984ee5b58b8d92f397372d27d420957841` |
-| presentation/delphi/video/delphi-90s-captioned.mp4 (90.72 s, silent) | `141f45efa4a6e3761d5fc57271bae91aedf3b0f5d7195b3c0f3ff01c7974c9fc` |
+| presentation/delphi/deck.pdf | `1b9b8f995ed9767fd5d151f725c05604e9a304e5cfa6fca79793b4e61af33273` |
+| presentation/delphi/deck.html | `e5b61c6c242deb51c14b6567657249b76a92fdc2278efe7302b2757b48009d47` |
+| presentation/delphi/deck.pptx | `3293bfbf4825893c97dcbc6707a2c8e9c00db30d3c4b3641127ef2246f3041e3` |
+| presentation/delphi/video/delphi-90s-captioned.mp4 (89.84 s, silent) | `a1b8e9752a9054a24e9251ed2606c467fc6e89404b80f460dadd2602bd4558cb` |
 
 The bundle zip (site, presentation folder and every cited artifact) is built after this sheet and contains it, so its hash is recorded separately in `presentation/delphi/dist/bundle-manifest.json` and `delphi-bundle.zip.sha256`, not here.
 

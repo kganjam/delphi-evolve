@@ -1,19 +1,19 @@
 {
- "recorded_seattle": "2026-10-31 09:39:13 PDT",
+ "recorded_seattle": "2026-10-31 09:58:52 PDT",
  "kind": "silent captioned screen recording of the built deck and the landing page's ledger section; no audio, no generated imagery",
  "source": {
-  "git_head": "59c774b38e1cb10a7adb44a4e29e2b898ea62da0",
+  "git_head": "f26fab352e150052bb17a586d62f3a4dc5c78a2c",
   "git_branch": "work/submit",
   "git_dirty_paths": [],
-  "deck_html_sha256": "23a1bdac3a38daa4cef452114c184f59a333d3af34f0c4a27561fe0d8f014c79",
-  "site_delphi_tree_sha256": "154191fc93f4b3e53c0b2dbf6423584cb70079abc1b8d0c643fa16a60efcc014",
-  "captions_sha256": "7f20262102c5dd03f1887a50ef0a23d54ff40dda7ee4409c97456c0c4541b3bc"
+  "deck_html_sha256": "e5b61c6c242deb51c14b6567657249b76a92fdc2278efe7302b2757b48009d47",
+  "site_delphi_tree_sha256": "94a4c74dd28285e85ae23d7fc92b49cbc38d6c1371316ef3bb4cf1fd2b2035a6",
+  "captions_sha256": "f8c54d21d7bd14c447f24586e41240c307b4e3d99fdcf7a63eed91071d5c8f08"
  },
  "video": {
   "file": "delphi-90s-captioned.mp4",
-  "sha256": "141f45efa4a6e3761d5fc57271bae91aedf3b0f5d7195b3c0f3ff01c7974c9fc",
-  "bytes": 2307529,
-  "duration_s": 90.72,
+  "sha256": "a1b8e9752a9054a24e9251ed2606c467fc6e89404b80f460dadd2602bd4558cb",
+  "bytes": 2304769,
+  "duration_s": 89.84,
   "resolution": "1280x840",
   "audio": "none"
  },
@@ -41,7 +41,7 @@
   {
    "scene": "deck slide 5",
    "hold_s": 14,
-   "caption": "More agents did not help. A ceiling and a missing arm, stated as such."
+   "caption": "No advantage shown in two small comparisons. A ceiling and a missing arm, stated as such."
   },
   {
    "scene": "deck slide 6",
