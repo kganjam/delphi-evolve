@@ -1,0 +1,54 @@
+{
+ "turing-ddi": {
+  "claim_iri": "https://w3id.org/delphi/resource/claim/turing-ddi",
+  "content_sha256": "43de1d39496e0d2a8df133d0e537bed158bf3c68d23c28a764c2356715aa4f66",
+  "field_sha256": {
+   "dct:description": "d5d37c577155bb047bcf0266e2e3897719915e7d3630096b4dfffd2487c3c5fd",
+   "dct:source": "9d0d82b5bd343ed19ef5ce07787061c53dd612fe9297ad5f621cba79b5a13cd3",
+   "delphi:context": "39c9cb3faf74b590529335a6dab3cbcb0e1690474fa588407fdb28fd6c6d12a8",
+   "delphi:hypothesisType": "1d7654284d8a39d5ce42634d6d9753529a73990db7073483d10bac1bb66b6880",
+   "rdfs:label": "671d5897977e9a4939302bc97e6953a6015f3bdeb1ddf8d5ca0a322a374834c8",
+   "skos:notation": "893903afaec398bc9e4f593e841f133711ae44dd73b22db54c1e519e15936e50"
+  },
+  "nanopub_note": "local UNSIGNED nanopub path as reported by the Delphi MCP; no network nanopub ID exists/claimed",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/turing-ddi.trig"
+  ],
+  "required_context_phrases": [
+   "two species",
+   "linearization about a homogeneous steady state",
+   "fixed domain without growth or mechanics"
+  ],
+  "response_sha256": "2a04297ce4848074b0851707c77fbeeec2832f333108dc66ae54395e0bd06f1f",
+  "retrieved_seattle": "2026-10-31 01:32:10 PDT",
+  "retrieved_utc": "2026-10-31T08:32:10Z",
+  "reviewed_by": "hand-authored and pinned by a Claude Sonnet 5.5 worker; NOT an independent human review",
+  "source": "local"
+ },
+ "turing-wavelength": {
+  "claim_iri": "https://w3id.org/delphi/resource/claim/turing-wavelength",
+  "content_sha256": "e0d541383aa5d6334d794b60753e371dc781b01f0bc1b45e3d0ec337208a7559",
+  "field_sha256": {
+   "dct:description": "629e60c84b587c97f66a4abe91279d127ad501040e0bce504f9f9c87488f4f3b",
+   "dct:source": "9d0d82b5bd343ed19ef5ce07787061c53dd612fe9297ad5f621cba79b5a13cd3",
+   "delphi:context": "175d4f1afc8b2f6f4047a24431d72fdc2a4b89da0f608c07170df0c3e6f58b2e",
+   "delphi:hypothesisType": "1d7654284d8a39d5ce42634d6d9753529a73990db7073483d10bac1bb66b6880",
+   "rdfs:label": "25fd34a24cc4243b75e99586e936d3cf1d998f6ed9c22b7eae5c67887e0d3c13",
+   "skos:notation": "d910107ffe7df06f6c026331ce73226d6335af20851b254e6c8b832380d225c8"
+  },
+  "nanopub_note": "local UNSIGNED nanopub path as reported by the Delphi MCP; no network nanopub ID exists/claimed",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/turing-wavelength.trig"
+  ],
+  "required_context_phrases": [
+   "near onset of instability",
+   "two species",
+   "domain large compared with the wavelength"
+  ],
+  "response_sha256": "83ca44031701766e4b0dc6d42b1b5bcefc03640e4145906333ea335f704bed21",
+  "retrieved_seattle": "2026-10-31 01:32:10 PDT",
+  "retrieved_utc": "2026-10-31T08:32:10Z",
+  "reviewed_by": "hand-authored and pinned by a Claude Sonnet 5.5 worker; NOT an independent human review",
+  "source": "local"
+ }
+}

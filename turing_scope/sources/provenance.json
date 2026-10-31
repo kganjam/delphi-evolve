@@ -1,0 +1,17 @@
+{
+  "endpoint": "https://delphisci-mcp.fly.dev/mcp (keyless; tools/call delphi_get_claim {id, source:'local'})",
+  "retrieved_utc": "2026-10-31T08:32:10Z",
+  "retrieved_seattle": "2026-10-31 01:32:10 PDT",
+  "claims": {
+    "turing-ddi": {"required_context_phrases": ["two species", "linearization about a homogeneous steady state", "fixed domain without growth or mechanics"]},
+    "turing-wavelength": {"required_context_phrases": ["near onset of instability", "two species", "domain large compared with the wavelength"]}
+  },
+  "primary_source": {
+    "citation": "A. M. Turing (1952) The chemical basis of morphogenesis, Phil. Trans. R. Soc. Lond. B 237(641):37-72, doi:10.1098/rstb.1952.0012",
+    "read_copy": "https://www.dna.caltech.edu/courses/cs191/paperscs191/turing.pdf (37-page JSTOR scan, fetched 2026-10-31; not redistributed here)",
+    "read_copy_sha256": "b0441c55faa61fa7b2c03c12d3cf990f6e8a0c25c3c55bd25bd126eff3af4fd5",
+    "passage_used": "Section 'Types of asymptotic behaviour in the ring after a lapse of time' (printed pp. ~51-53): on a ring the wave-lengths 'must be submultiples of the' circumference; the 'chemical wave-length' is 'achieved whenever possible' but a finite ring must 'make do' with a wavelength that divides it exactly.",
+    "scope_note": "Turing's finite-domain discussion is a ring (periodic) of cells/continuous tissue; this adapter uses a 1-D interval with zero-flux (Neumann) ends, which is an ADAPTER-ADDED domain choice using standard separation of variables, not a statement Turing makes."
+  },
+  "raw_response_sha256_note": "turing-wavelength raw bytes differ from the earlier research artifact's response_sha256 (81d6...) although the parsed content is identical; content hash (pinned fields) is the identity gate. Two repeat fetches gave the same bytes as the bundled file."
+}
