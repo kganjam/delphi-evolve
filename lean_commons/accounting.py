@@ -53,6 +53,7 @@ class TokenLedger:
         self.budgets = dict(budgets or {})
         self._lock = threading.Lock()
         self._spent: dict[str, int] = {}
+        self._pending: dict[str, int] = {}
         if self.path.exists():
             for line in self.path.read_text().splitlines():
                 if line.strip():
@@ -66,10 +67,26 @@ class TokenLedger:
         return None if key not in self.budgets else self.budgets[key] - self.spent(key)
 
     def check(self, key: str, reserve: int) -> None:
-        if key in self.budgets and self.spent(key) + reserve > self.budgets[key]:
-            raise BudgetExceeded(f"{key}: spent {self.spent(key)} + reserve {reserve} > cap {self.budgets[key]}")
+        """Advisory pre-check (spent + pending + reserve <= cap). Use `reserve_tokens` to hold budget atomically."""
+        with self._lock:
+            self._check_unlocked(key, reserve)
 
-    def record(self, key: str, record: dict, usage: Usage) -> dict:
+    def _check_unlocked(self, key: str, reserve: int) -> None:
+        if key in self.budgets and self._spent.get(key, 0) + self._pending.get(key, 0) + reserve > self.budgets[key]:
+            raise BudgetExceeded(f"{key}: spent {self._spent.get(key, 0)} + pending {self._pending.get(key, 0)} + reserve {reserve} > cap {self.budgets[key]}")
+
+    def reserve_tokens(self, key: str, n: int) -> int:
+        """Atomically hold `n` tokens of budget for an in-flight call; released by `record`/`release`."""
+        with self._lock:
+            self._check_unlocked(key, n)
+            self._pending[key] = self._pending.get(key, 0) + n
+        return n
+
+    def release(self, key: str, n: int) -> None:
+        with self._lock:
+            self._pending[key] = max(0, self._pending.get(key, 0) - n)
+
+    def record(self, key: str, record: dict, usage: Usage, held: int = 0) -> dict:
         row = dict(record)
         row.update(now_stamps())
         row["budget_key"] = key
@@ -78,4 +95,5 @@ class TokenLedger:
             with self.path.open("a") as f:
                 f.write(json.dumps(row, sort_keys=True) + "\n")
             self._spent[key] = self._spent.get(key, 0) + usage.total
+            self._pending[key] = max(0, self._pending.get(key, 0) - held)
         return row

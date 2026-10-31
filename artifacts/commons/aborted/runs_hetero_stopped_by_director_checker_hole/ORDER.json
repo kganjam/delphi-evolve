@@ -1,0 +1,36 @@
+{
+ "seed": 20261032,
+ "order": [
+  [
+   "MP",
+   1
+  ],
+  [
+   "MS",
+   2
+  ],
+  [
+   "MP",
+   0
+  ],
+  [
+   "MS",
+   0
+  ],
+  [
+   "MS",
+   1
+  ],
+  [
+   "MP",
+   2
+  ]
+ ],
+ "families": [
+  "claude",
+  "gemini",
+  "minimax"
+ ],
+ "calls": 30,
+ "token_cap": 1200000
+}

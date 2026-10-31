@@ -1,0 +1,1036 @@
+{
+ "root": "artifacts/commons/runs",
+ "per_run": {
+  "Q_r0": {
+   "certified": 19,
+   "strict": 19,
+   "unreconstructed": 0,
+   "mutant_accepted": 0,
+   "lib_dep_uses": 14,
+   "cross_agent_dep_uses": 0
+  },
+  "Q_r1": {
+   "certified": 19,
+   "strict": 19,
+   "unreconstructed": 0,
+   "mutant_accepted": 0,
+   "lib_dep_uses": 14,
+   "cross_agent_dep_uses": 0
+  },
+  "Q_r2": {
+   "certified": 19,
+   "strict": 19,
+   "unreconstructed": 0,
+   "mutant_accepted": 0,
+   "lib_dep_uses": 14,
+   "cross_agent_dep_uses": 0
+  }
+ },
+ "rows": [
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T01",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T02",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "Q01",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T03",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T01"
+   ],
+   "library_deps_authors": {
+    "T01": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T04",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T02"
+   ],
+   "library_deps_authors": {
+    "T02": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T05",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T02"
+   ],
+   "library_deps_authors": {
+    "T02": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T06",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T05"
+   ],
+   "library_deps_authors": {
+    "T05": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T07",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T05"
+   ],
+   "library_deps_authors": {
+    "T05": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T08",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "Q01",
+    "T02"
+   ],
+   "library_deps_authors": {
+    "Q01": "private-a0",
+    "T02": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "H01",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "H02",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "H03",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "H01"
+   ],
+   "library_deps_authors": {
+    "H01": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "H04",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "D01",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "D02",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T09",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T04",
+    "T08"
+   ],
+   "library_deps_authors": {
+    "T04": "private-a0",
+    "T08": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T10",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T02"
+   ],
+   "library_deps_authors": {
+    "T02": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T11",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T06"
+   ],
+   "library_deps_authors": {
+    "T06": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r0",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T12",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T03",
+    "T05"
+   ],
+   "library_deps_authors": {
+    "T03": "private-a0",
+    "T05": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T01",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T02",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "Q01",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T03",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T01"
+   ],
+   "library_deps_authors": {
+    "T01": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T04",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T02"
+   ],
+   "library_deps_authors": {
+    "T02": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T05",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T02"
+   ],
+   "library_deps_authors": {
+    "T02": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T06",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T05"
+   ],
+   "library_deps_authors": {
+    "T05": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T07",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T05"
+   ],
+   "library_deps_authors": {
+    "T05": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T08",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "Q01",
+    "T02"
+   ],
+   "library_deps_authors": {
+    "Q01": "private-a0",
+    "T02": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "H01",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "H02",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "H03",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "H01"
+   ],
+   "library_deps_authors": {
+    "H01": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "H04",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "D01",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "D02",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T09",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T04",
+    "T08"
+   ],
+   "library_deps_authors": {
+    "T04": "private-a0",
+    "T08": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T10",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T02"
+   ],
+   "library_deps_authors": {
+    "T02": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T11",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T06"
+   ],
+   "library_deps_authors": {
+    "T06": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r1",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T12",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T03",
+    "T05"
+   ],
+   "library_deps_authors": {
+    "T03": "private-a0",
+    "T05": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T01",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T02",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "Q01",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T03",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T01"
+   ],
+   "library_deps_authors": {
+    "T01": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T04",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T02"
+   ],
+   "library_deps_authors": {
+    "T02": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T05",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T02"
+   ],
+   "library_deps_authors": {
+    "T02": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T06",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T05"
+   ],
+   "library_deps_authors": {
+    "T05": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T07",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T05"
+   ],
+   "library_deps_authors": {
+    "T05": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T08",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "Q01",
+    "T02"
+   ],
+   "library_deps_authors": {
+    "Q01": "private-a0",
+    "T02": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "H01",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "H02",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "H03",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "H01"
+   ],
+   "library_deps_authors": {
+    "H01": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "H04",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "D01",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "D02",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [],
+   "library_deps_authors": {},
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T09",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T04",
+    "T08"
+   ],
+   "library_deps_authors": {
+    "T04": "private-a0",
+    "T08": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T10",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T02"
+   ],
+   "library_deps_authors": {
+    "T02": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T11",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T06"
+   ],
+   "library_deps_authors": {
+    "T06": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  },
+  {
+   "run": "Q_r2",
+   "arm": "private",
+   "agent": "private-a0",
+   "task": "T12",
+   "reconstructed_ok": true,
+   "helper_structure_error": "",
+   "deps_extracted": true,
+   "library_deps": [
+    "T03",
+    "T05"
+   ],
+   "library_deps_authors": {
+    "T03": "private-a0",
+    "T05": "private-a0"
+   },
+   "cross_agent_deps": [],
+   "helper_deps": [],
+   "mutant_rejected": true,
+   "strictly_certified": true
+  }
+ ]
+}

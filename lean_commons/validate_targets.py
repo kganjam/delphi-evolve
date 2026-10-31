@@ -15,7 +15,7 @@ def main():
     lib, rows = [], []
     for t in T:
         src = L.assemble(defs, lib, "", t["id"], t["statement"], ref[t["id"]])
-        r = L.check_source(src, [t["id"]], scan_text="")
+        r = L.check_source(src, [t["id"]], scan_text="", fidelity=(t["id"], t["statement"]))
         msrc = L.assemble(defs, lib, "", t["id"], t["mutant"], ref[t["id"]])
         m = L.check_source(msrc, [t["id"]], scan_text="")
         rows.append({"id": t["id"], "family": t["family"], "reference_compiles": r.ok,

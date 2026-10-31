@@ -4,7 +4,7 @@ import json, random, subprocess, sys, time
 from pathlib import Path
 
 ROOT = Path("artifacts/commons/runs_hetero")
-FAMS = ["claude", "gemini", "glm", "minimax"]
+FAMS = ["claude", "gemini", "minimax"]
 ARMS = {"MS": "shared", "MP": "private"}
 SEED, REPS, CALLS, TOKENS = 20261032, 3, 30, 1200000
 

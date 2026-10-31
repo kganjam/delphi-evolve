@@ -129,7 +129,8 @@ def attempt(ctx: RunCtx, agent: str, tid: str) -> dict:
                 ctx.stop.set()
                 return {"ok": False, "why": "call_budget", "tries": tries}
             res = ctx.adapter_for(agent).complete(CONTRACT, user, tag=f"{agent}:{tid}:{k}", ledger=ctx.ledger, budget_key=ctx.budget_key,
-                                       max_output_tokens=ctx.max_output_tokens, forbidden=forbidden)
+                                       max_output_tokens=ctx.max_output_tokens, forbidden=forbidden,
+                                       reserve_tokens=max(ctx.reserve_tokens, (len(CONTRACT) + len(user)) // 3 + ctx.max_output_tokens + 4000))
             if res.ok:
                 break
             time.sleep(4 * (retry + 1))
@@ -152,11 +153,13 @@ def attempt(ctx: RunCtx, agent: str, tid: str) -> dict:
             clash = [n for n in names if n in taken]
             if clash:
                 err = f"helper name(s) already taken: {clash}"
+            err = err or L.helper_structure_error(helpers)
         cres = None
         if not err:
             src = L.assemble(ctx.defs, library, helpers, tid, target["statement"], proof)
             with LEAN_SEM:
-                cres = L.check_source(src, L.theorem_names(helpers) + [tid], scan_text=helpers + "\n" + proof)
+                cres = L.check_source(src, L.theorem_names(helpers) + [tid], scan_text=helpers + "\n" + proof,
+                                      fidelity=(tid, target["statement"]))
             if not cres.ok:
                 err = cres.errors or "check failed"
         row.update(ok=(not err), error=err[:1500], lean_seconds=(cres.seconds if cres else None),
@@ -176,28 +179,44 @@ def attempt(ctx: RunCtx, agent: str, tid: str) -> dict:
 
 
 def publish(ctx: RunCtx, agent: str, tid: str, out: dict) -> None:
+    """Validate the complete candidate closure BEFORE mutating any store, then publish atomically."""
     target = ctx.target(tid)
     meta_base = {"arm": ctx.arm, "model": ctx.adapter_for(agent).model, "family": ctx.adapter_for(agent).family,
                  "tokens_arm_cum": ctx.ledger.spent(ctx.budget_key)}
     commit = []
     store = ctx.store(agent)
     if store is not None:
-        # helpers first (target may depend on them), then the target theorem itself
-        decls = re.split(r"(?m)^(?=theorem\s)", out["helpers"].strip()) if out["helpers"].strip() else []
+        decls = [d for d in (re.split(r"(?m)^(?=theorem\s)", out["helpers"].strip()) if out["helpers"].strip() else []) if d.strip()]
+        cands = []
         for d in decls:
-            if not d.strip():
-                continue
             nm = L.theorem_names(d)[0]
             stmt_m = re.match(r"\s*theorem\s+\S+\s*:\s*(.*?)\s*:=", d, re.S)
-            stmt = stmt_m.group(1).strip() if stmt_m else d
-            status, _ = store.add(name=nm, statement=stmt, source=d.strip(), author=agent, task=None,
-                                        meta={**meta_base, "role": "helper", "for_task": tid})
-            commit.append((nm, status))
+            cands.append({"name": nm, "statement": (stmt_m.group(1).strip() if stmt_m else d), "source": d.strip(),
+                          "author": agent, "task": None, "meta": {**meta_base, "role": "helper", "for_task": tid}})
         src = f"theorem {tid} : {target['statement']} := {out['proof'].strip()}"
-        status, _ = store.add(name=tid, statement=target["statement"], source=src, author=agent, task=tid,
-                                    meta={**meta_base, "role": "target", "check_sha256": out["check_sha256"],
-                                          "axioms": out["axioms"].get(tid), "used_commons": out["used_commons"]})
-        commit.append((tid, status))
+        cands.append({"name": tid, "statement": target["statement"], "source": src, "author": agent, "task": tid,
+                      "meta": {**meta_base, "role": "target", "check_sha256": out["check_sha256"],
+                               "axioms": out["axioms"].get(tid), "used_commons": out["used_commons"]}})
+        existing = store.entries()
+        have = {e["name"]: e["statement"] for e in existing}
+        fresh = [c for c in cands if have.get(c["name"]) != c["statement"]]
+        clash = [c["name"] for c in cands if c["name"] in have and have[c["name"]] != c["statement"]]
+        rep = None
+        if not clash:
+            with LEAN_SEM:   # clean replay of existing library + candidate closure, fidelity-checked target
+                rep = L.check_source(L.assemble(ctx.defs, existing + fresh, "", None, None, None), [c["name"] for c in fresh],
+                                     scan_text="", fidelity=(tid, target["statement"]) if any(c["name"] == tid for c in fresh) else None)
+        if clash or not rep.ok:
+            why = f"name clash {clash}" if clash else rep.errors[:500]
+            ctx.board.append({"kind": "failed", "task": tid, "agent": agent, "why": "publish_replay_failed", "detail": why,
+                              "tries": out["tries"], "t_since_start_s": round(time.time() - ctx.t0, 1),
+                              "tokens_arm_cum": ctx.ledger.spent(ctx.budget_key), "arm": ctx.arm})
+            return
+        ok, commit = store.add_many(cands)
+        if not ok:
+            ctx.board.append({"kind": "failed", "task": tid, "agent": agent, "why": "publish_conflict", "detail": str(commit),
+                              "tries": out["tries"], "arm": ctx.arm})
+            return
     ctx.board.append({"kind": "proved", "task": tid, "agent": agent, "tries": out["tries"],
                       "t_since_start_s": round(time.time() - ctx.t0, 1), "tokens_arm_cum": ctx.ledger.spent(ctx.budget_key),
                       "used_commons": out["used_commons"], "library_size_seen": out["library_size"],
@@ -205,6 +224,13 @@ def publish(ctx: RunCtx, agent: str, tid: str, out: dict) -> None:
 
 
 def run_agent(ctx: RunCtx, agent: str) -> None:
+    try:
+        _run_agent(ctx, agent)
+    except Exception as e:  # noqa: BLE001 - a dying worker must leave a visible record, not a normal-looking summary
+        ctx.board.append({"kind": "agent_exception", "agent": agent, "error": f"{type(e).__name__}: {str(e)[:300]}", "arm": ctx.arm})
+
+
+def _run_agent(ctx: RunCtx, agent: str) -> None:
     idle = 0
     while not ctx.stop.is_set():
         try:

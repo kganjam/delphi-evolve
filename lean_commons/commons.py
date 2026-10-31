@@ -78,6 +78,30 @@ class Commons(AppendOnlyLog):
             return "added", row
 
 
+    def add_many(self, items: list[dict]) -> tuple[bool, list[tuple[str, str]]]:
+        """All-or-nothing publish under ONE lock. Each item: name, statement, source, author, task, meta.
+        An existing entry with the same name and statement is skipped (dedup); the same name with a different
+        statement aborts the whole batch and writes nothing."""
+        with self.locked():
+            existing = {e["name"]: e for e in self.entries()}
+            plan = []
+            for it in items:
+                e = existing.get(it["name"])
+                if e is not None and e["statement"] != it["statement"]:
+                    return False, [(it["name"], "name_taken")]
+                plan.append((it, e is not None))
+            status = []
+            for it, dup in plan:
+                if dup:
+                    status.append((it["name"], "duplicate"))
+                    continue
+                eid = hashlib.sha256(f"{it['name']}\n{it['statement']}".encode()).hexdigest()[:16]
+                self._append_unlocked({"kind": "lemma", "entry_id": eid, "name": it["name"], "statement": it["statement"],
+                                       "source": it["source"], "author": it["author"], "task": it.get("task"), **it.get("meta", {})})
+                status.append((it["name"], "added"))
+            return True, status
+
+
 class Board(AppendOnlyLog):
     """Pull-based claiming. A task is available if not proved, not live-claimed, and under the try cap."""
 

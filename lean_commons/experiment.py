@@ -43,7 +43,11 @@ def run_arm(arm: str, family: str, model: str | None, agents: int, budget: int, 
         t.join()
     board = ctx.board.read()
     proved = [r for r in board if r["kind"] == "proved"]
-    summary = {"run_id": run_id, "arm": arm, "family": family, "model_requested": ctx.adapter.model, "agents": len(names), "families": families or [family],
+    att_rows = AppendOnlyLog(out_dir / "attempts.jsonl").read()
+    infra = [r for r in att_rows if not r["ok"] and str(r.get("error", "")).startswith(("AdapterError", "TimeoutExpired", "model call failed", "unparseable"))]
+    incidents = [r for r in board if r["kind"] in ("agent_exception", "publish_replay_failed")]
+    summary = {"run_id": run_id, "status": ("infrastructure_incident" if (infra or incidents) else "clean"),
+               "infra_failed_calls": len(infra), "incidents": incidents, "n_unique_certified": len({r["task"] for r in proved}), "arm": arm, "family": family, "model_requested": ctx.adapter.model, "agents": len(names), "families": families or [family],
                "budget_tokens": budget, "max_calls": max_calls, "calls_used": ctx.calls_used, "tokens_spent": ledger.spent(key), "n_targets": len(targets),
                "n_proved": len(proved), "proved": [{"task": r["task"], "t_s": r["t_since_start_s"], "tokens_cum": r["tokens_arm_cum"],
                                                        "tries": r["tries"], "agent": r["agent"], "used_commons": r["used_commons"]} for r in proved],
