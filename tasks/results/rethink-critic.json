@@ -1,6 +1,6 @@
 {
  "role": "critic",
- "status": "v1 on FREEZE-HOLD (director 06:54); v1.1 built in scopedesk/bench/v1_1 (not frozen: needs Codex audit + blinded audit); Thompson repair artifact and AMENDMENT_001 done; leakage audit item 2 NOT yet done",
+ "status": "bench v1.2 candidate built (opaque ids, pinned model payload, complete diagnosis fields, self-contained README); v1.1 NOT approved (Codex withheld); approvals pending; NCA oracle layer audited 55/55 on Turing1D/2D/wavelength (verdict+conditions)",
  "model": "claude-sonnet-5-5 (subscription; metered spend unknown, none inferred)",
  "wall_time_pdt": "2026-10-31 06:00-06:20",
  "artifacts": [
@@ -169,22 +169,61 @@
    },
    "finding": "8 of the 9 Euler/spectral disagreements are gamma=32 or 40 with d=10 (all r): exact key and spectral say unstable/patterned, explicit-Euler finite-difference solver says not patterned (dx=pi/4 discretisation error flips the verdict); the 9th is an exact-marginal case (gamma=2,d=10,r=2, det=0). The FD design-time solver must not be used as an oracle at gamma>=32.",
    "limits": "declared model only, T=300 tau, not a convergence study, grid of 240 cases"
+  },
+  "scopedesk_oracles_layer": {
+   "audited": "scopedesk/oracles (rethink-nca cb59f0d) linear.check and gate.wavelength_licence",
+   "script": "scopedesk/bench/audit/audit_oracle_layer.py",
+   "outputs": [
+    "scopedesk/bench/audit/oracle_layer_audit_v1_1.json",
+    "scopedesk/bench/audit/oracle_layer_audit_v1_2.json"
+   ],
+   "result": "55/55 agree with the key on turing_finite_domain (24), turing_2d_rectangle (16), wavelength_formula_licence (15); condition ids 55/55",
+   "not_covered": "gate ablations, repair enumerator, pde.solve, and the five non-Turing families (no oracle exists for them)"
+  },
+  "scopedesk_oracles_full": {
+   "script": "scopedesk/bench/audit/audit_oracle_full.py",
+   "output": "scopedesk/bench/audit/oracle_full_audit_v1_2.json",
+   "audited": "scopedesk/oracles repair.enumerate, gate.decide + three ablations, pde.solve (rethink-nca cb59f0d)",
+   "results": {
+    "repair_domain_length": "21 repairs on the 1-D/2-D DOMAIN_ADMISSIBLE_MODE items all valid by an independent exact check; sorted by relative change; no closer valid scale on the k/4 grid missed; value = scale factor, relative_change = |s-1| (my first run misread this, corrected)",
+    "gate": "default decision agrees with key 20/20 (1-D items with stated bc); record_hash_changed -> refused_source 20/20; record_removed and continuum_only equal the textbook condition 20/20",
+    "pde": "12 cases on the two declared kinetics: 9 settled all agree with an independently derived exact linear key; 2 nonconverged and 1 not_settled are reported and not scored"
+   },
+   "not_covered": "reaction_scale and diffusion_ratio repair knobs; 2-D PDE; subcritical/nonlinear behaviour of linearly stable states (oracle declares it unprobed); only 12 PDE cases; five bench families have no oracle"
   }
  },
  "v1_1": {
   "path": "scopedesk/bench/v1_1",
-  "n": 136,
+  "n": 135,
   "families": 8,
   "change": "rayleigh_plateau dropped (volume-constraint defect); turing_2d_rectangle added; targets/conventions stated in every request; wavelength rule outcome-based",
-  "key_sha256": "d3862d0b3397c8abc4eb3d1f9149ecd261f322055f8c60c1dddd851003b70b4e",
+  "key_sha256": "b9fc2e961fa6cf73ae204d2385f1988fd6266b935c97f6f96f4a8cf34f538605",
   "verification": "verify_key.py 136/136 (same author)",
   "diff": "scopedesk/bench/v1_1/V1_TO_V1_1_DIFF.md",
-  "status": "not frozen: Codex audit of v1.1 and blinded different-session audit pending"
+  "status": "FROZEN (see scopedesk/bench/v1_1/FROZEN.md); adjudication in V1_1_ADJUDICATION.md",
+  "blind_audits": {
+   "director_text_only": "135/136 on draft (ts-0008)",
+   "critic_subagent_sonnet": "132/136 on draft (gh-0004/0012/0016 relabelled applies after amendment; ts-0008 resolved by pinned convention); both saw pre-amendment text"
+  }
  },
  "leakage_audit_v1_1": {
   "script": "scopedesk/bench/v1_1/leakage_audit.py",
   "output": "scopedesk/bench/v1_1/leakage_audit.json",
   "result": "TF-IDF word 1-2gram and char 3-5gram logistic, leave-one-family-out: full text 0.463/0.456, stem-only 0.412/0.412 vs within-family majority 0.515 -> wording does not transfer across families as a label cue",
   "limits": "within-family cues exist by construction (e.g. 'logistic' -> applies, 'bistable' -> out_of_scope in the KPP family are the semantic input; 'what' for the missing-cost Hawk-Dove items); 16 items per family too few for within-family leakage CV; second-reader phrasing review NOT done (needs a reviewer)"
- }
+ },
+ "v1_2": {
+  "path": "scopedesk/bench/v1_2",
+  "n": 135,
+  "key_sha256": "bc8caf20db7ec56d5075b550af0a03cbb85363bc1501e1434c3b5a83dd1eb046",
+  "changes": [
+   "opaque public ids (q+8hex) with private legacy map",
+   "model_payload.jsonl pinned and hashed",
+   "violated_conditions completed for Hamilton synergy, non-KPP cubic, near-onset wavelength",
+   "self-contained README and AUDIT_BRIEF",
+   "mechanism_groups declared in split.json"
+  ],
+  "status": "candidate; director blinded text re-audit and Codex change check pending; no agent run authorised until director says go"
+ },
+ "timestamp_note": "Some wall-time labels written in messages/critic-to-director.md and FROZEN.md for v1.1 after 06:50 (e.g. 07:35, 07:40, 07:45, 07:50, 08:00) were estimated, not read from `date`; actual `date` readings in that period were about 07:07-07:21 PDT."
 }

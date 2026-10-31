@@ -1,12 +1,12 @@
 {
  "B0_scope_gate": {
   "all": {
-   "correct": 82,
-   "n": 136,
-   "acc": 0.6029,
+   "correct": 79,
+   "n": 135,
+   "acc": 0.5852,
    "cp95": [
-    0.5155,
-    0.6858
+    0.4973,
+    0.6693
    ]
   },
   "template_A": {
@@ -19,12 +19,12 @@
    ]
   },
   "template_B": {
-   "correct": 14,
-   "n": 68,
-   "acc": 0.2059,
+   "correct": 11,
+   "n": 67,
+   "acc": 0.1642,
    "cp95": [
-    0.1174,
-    0.3212
+    0.0849,
+    0.2748
    ]
   },
   "by_family": {
@@ -38,12 +38,12 @@
     ]
    },
    "greenhill_buckling": {
-    "correct": 12,
+    "correct": 9,
     "n": 16,
-    "acc": 0.75,
+    "acc": 0.5625,
     "cp95": [
-     0.4762,
-     0.9273
+     0.2988,
+     0.8025
     ]
    },
    "hamilton_rule_form": {
@@ -93,56 +93,56 @@
    },
    "wavelength_formula_licence": {
     "correct": 8,
-    "n": 16,
-    "acc": 0.5,
+    "n": 15,
+    "acc": 0.5333,
     "cp95": [
-     0.2465,
-     0.7535
+     0.2659,
+     0.7873
     ]
    }
   },
   "by_truth": {
    "applies": {
     "correct": 33,
-    "n": 63,
-    "acc": 0.5238,
+    "n": 66,
+    "acc": 0.5,
     "cp95": [
-     0.3941,
-     0.6512
+     0.3743,
+     0.6257
     ]
    },
    "out_of_scope": {
     "correct": 32,
-    "n": 56,
-    "acc": 0.5714,
+    "n": 55,
+    "acc": 0.5818,
     "cp95": [
-     0.4322,
-     0.7029
+     0.4411,
+     0.7135
     ]
    },
    "underdetermined": {
-    "correct": 17,
-    "n": 17,
+    "correct": 14,
+    "n": 14,
     "acc": 1.0,
     "cp95": [
-     0.8049,
+     0.7684,
      1.0
     ]
    }
   },
   "false_alarm_rate_on_applies": {
-   "false_alarms": 30,
-   "n": 63
+   "false_alarms": 33,
+   "n": 66
   }
  },
  "R_retrieval_always_applies": {
   "all": {
-   "correct": 63,
-   "n": 136,
-   "acc": 0.4632,
+   "correct": 66,
+   "n": 135,
+   "acc": 0.4889,
    "cp95": [
-    0.3774,
-    0.5507
+    0.4019,
+    0.5763
    ]
   },
   "template_A": {
@@ -155,12 +155,12 @@
    ]
   },
   "template_B": {
-   "correct": 32,
-   "n": 68,
-   "acc": 0.4706,
+   "correct": 35,
+   "n": 67,
+   "acc": 0.5224,
    "cp95": [
-    0.3483,
-    0.5955
+    0.3967,
+    0.646
    ]
   },
   "by_family": {
@@ -174,12 +174,12 @@
     ]
    },
    "greenhill_buckling": {
-    "correct": 6,
+    "correct": 9,
     "n": 16,
-    "acc": 0.375,
+    "acc": 0.5625,
     "cp95": [
-     0.152,
-     0.6457
+     0.2988,
+     0.8025
     ]
    },
    "hamilton_rule_form": {
@@ -229,61 +229,61 @@
    },
    "wavelength_formula_licence": {
     "correct": 6,
-    "n": 16,
-    "acc": 0.375,
+    "n": 15,
+    "acc": 0.4,
     "cp95": [
-     0.152,
-     0.6457
+     0.1634,
+     0.6771
     ]
    }
   },
   "by_truth": {
    "applies": {
-    "correct": 63,
-    "n": 63,
+    "correct": 66,
+    "n": 66,
     "acc": 1.0,
     "cp95": [
-     0.9431,
+     0.9456,
      1.0
     ]
    },
    "out_of_scope": {
     "correct": 0,
-    "n": 56,
+    "n": 55,
     "acc": 0.0,
     "cp95": [
      0.0,
-     0.0638
+     0.0649
     ]
    },
    "underdetermined": {
     "correct": 0,
-    "n": 17,
+    "n": 14,
     "acc": 0.0,
     "cp95": [
      0.0,
-     0.1951
+     0.2316
     ]
    }
   },
   "false_alarm_rate_on_applies": {
    "false_alarms": 0,
-   "n": 63
+   "n": 66
   }
  },
  "FMT_format_only_trained_on_dev_tested_heldout": {
   "acc": {
-   "correct": 28,
-   "n": 96,
-   "acc": 0.2917,
+   "correct": 42,
+   "n": 95,
+   "acc": 0.4421,
    "cp95": [
-    0.2033,
-    0.3933
+    0.3402,
+    0.5477
    ]
   },
   "majority_class_rate_heldout": {
-   "class": "out_of_scope",
-   "rate": 0.4479
+   "class": "applies",
+   "rate": 0.4842
   },
   "note": "must not clearly exceed majority rate; interval shown for the classifier accuracy"
  }

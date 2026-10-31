@@ -99,7 +99,7 @@ def herm_lambda(t, ne=60):
     return float(eigh(K[np.ix_(keep, keep)], G[np.ix_(keep, keep)], eigvals_only=True)[0])
 
 def v_greenhill(s):
-    if s["E"] is None or s["rho"] is None: return "underdetermined"
+    if s["E"] is None or s["rho"] is None: return "applies" if s["t"] == 1.0 else "underdetermined"
     E, rho, D, H, t = s["E"], s["rho"], s["D"], s["H"], s["t"]; g = 9.81
     Hc = lambda lam: (E * (D / 2) ** 2 / (4 * rho * g) * lam) ** (1 / 3)
     Hu, Ht = Hc(herm_lambda(1.0)), Hc(herm_lambda(t))

@@ -31,7 +31,12 @@ def Hform(E, rho, D):
     return 0.788 * (E / (rho * G)) ** (1 / 3) * D ** (2 / 3)
 
 def decide(E, rho, D, H, t):
-    if E is None or rho is None: return "underdetermined", ["MECH_INPUTS_MISSING"], {"missing": [k for k, v in (("E", E), ("rho", rho)) if v is None]}, 1.0
+    if E is None or rho is None:
+        miss = [k for k, v in (("E", E), ("rho", rho)) if v is None]
+        # v1.1 pre-freeze fix (blind audit): for a UNIFORM column the formula coincides with the exact analysis (Lambda 7.83735 vs 0.788 coefficient, 0.04%),
+        # so agreement does not depend on the missing property -> applies. For a tapered column agreement depends on E/rho (H_u(rho) sweeps all heights) -> underdetermined.
+        if t == 1: return "applies", [], {"missing_but_irrelevant": miss, "reason": "uniform column: formula equals exact analysis within 0.04% for any E, rho"}, 1.0
+        return "underdetermined", ["MECH_INPUTS_MISSING"], {"missing": miss}, 1.0
     Hu = (E * (D / 2) ** 2 / (4 * rho * G) * Lambda(1.0)) ** (1 / 3); Ht = Hcr(E, rho, D, t)
     margin = min(abs(H / Hu - 1), abs(H / Ht - 1))
     pred = H > Hu; true = H > Ht
@@ -62,7 +67,7 @@ def make(rng, n, start_id):
         Ei, rhoi = (None, rho) if k == "undet" and rng.random() < .5 else (E, None) if k == "undet" else (E, rho)
         v, c, w, m = decide(Ei, rhoi, D, H, t)
         if k != "undet" and m < 0.03: exclude(FAMILY, "within 3% of a critical height", {"E": E, "rho": rho, "D": D, "H": H, "t": t}); continue
-        if {"applies_u": v == "applies", "applies_t": v == "applies", "oos": v == "out_of_scope", "undet": v == "underdetermined"}[k] is False or (Ei, rhoi, D, H, t) in seen: continue
+        if {"applies_u": v == "applies", "applies_t": v == "applies", "oos": v == "out_of_scope", "undet": (v == "underdetermined") or (v == "applies" and (Ei is None or rhoi is None))}[k] is False or (Ei, rhoi, D, H, t) in seen: continue
         seen.add((Ei, rhoi, D, H, t)); tset = "A" if len(out) % 2 == 0 else "B"
         rep = {"knob": "use_tapered_buckling_formula", "valid_grid": ["Rayleigh-Ritz tapered column"]} if v == "out_of_scope" else {}
         out.append(item(f"gh-{start_id+len(out):04d}", FAMILY, "formal", render(rng, Ei, rhoi, D, H, t, tset), {"E": Ei, "rho": rhoi, "D": D, "H": H, "t": t}, v, c, w, rep, tset, k, violated=(['UNIFORM_COLUMN'] if t != 1 else [])))

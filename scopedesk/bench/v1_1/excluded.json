@@ -226,5 +226,12 @@
    "kind": "cubic_pos",
    "par": "7/3"
   }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "near-tie between adjacent admissible modes (n=9 vs n=8, growth rates differ by 0.3%) whose wavelengths fall on opposite sides of the 10% criterion; blinded audit flagged it",
+  "params": {
+   "id": "wl-0010"
+  }
  }
 ]

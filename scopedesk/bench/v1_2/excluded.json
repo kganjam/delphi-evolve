@@ -1,0 +1,265 @@
+[
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(1, 1), Fraction(11, 4), Fraction(-4, 1), Fraction(-15, 4))",
+   "d": "289/4",
+   "r": "8"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(1, 4), Fraction(-13, 4), Fraction(15, 4), Fraction(-9, 4))",
+   "d": "6095/4",
+   "r": "6"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(1, 2), Fraction(-7, 2), Fraction(7, 4), Fraction(-11, 4))",
+   "d": "451/4",
+   "r": "12"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(1, 4), Fraction(-11, 4), Fraction(3, 1), Fraction(-5, 2))",
+   "d": "2031/2",
+   "r": "3"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(1, 2), Fraction(-4, 1), Fraction(1, 4), Fraction(-1, 1))",
+   "d": "49/4",
+   "r": "4"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(1, 1), Fraction(-3, 1), Fraction(9, 4), Fraction(-15, 4))",
+   "d": "75",
+   "r": "64"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(5, 4), Fraction(3, 2), Fraction(-3, 1), Fraction(-9, 4))",
+   "d": "30",
+   "r": "48"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(1, 4), Fraction(7, 4), Fraction(-1, 2), Fraction(-11, 4))",
+   "d": "63/2",
+   "r": "12"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(7, 4), Fraction(3, 1), Fraction(-13, 4), Fraction(-9, 4))",
+   "d": "20",
+   "r": "3"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(3, 2), Fraction(13, 4), Fraction(-5, 2), Fraction(-9, 2))",
+   "d": "29/2",
+   "r": "24"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(1, 2), Fraction(-13, 4), Fraction(13, 4), Fraction(-3, 1))",
+   "d": "815/4",
+   "r": "12"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(5, 4), Fraction(15, 4), Fraction(-3, 2), Fraction(-3, 1))",
+   "d": "143/4",
+   "r": "48"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(1, 1), Fraction(-13, 4), Fraction(3, 1), Fraction(-13, 4))",
+   "d": "257/4",
+   "r": "8"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(1, 1), Fraction(11, 4), Fraction(-3, 2), Fraction(-2, 1))",
+   "d": "97/4",
+   "r": "6"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(1, 4), Fraction(-7, 2), Fraction(5, 2), Fraction(-11, 4))",
+   "d": "1183/2",
+   "r": "8"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(1, 4), Fraction(-3, 2), Fraction(3, 4), Fraction(-3, 1))",
+   "d": "47",
+   "r": "6"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "J": "(Fraction(5, 4), Fraction(-9, 4), Fraction(7, 4), Fraction(-11, 4))",
+   "d": "19/4",
+   "r": "8"
+  }
+ },
+ {
+  "family": "kimura_regime",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "N": "10",
+   "s": "1/100",
+   "kind": "neutral"
+  }
+ },
+ {
+  "family": "kimura_regime",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "N": "12",
+   "s": "1/100",
+   "kind": "neutral"
+  }
+ },
+ {
+  "family": "kimura_regime",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "N": "8",
+   "s": "3/10",
+   "kind": "diffusion"
+  }
+ },
+ {
+  "family": "kimura_regime",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "N": "12",
+   "s": "1/100",
+   "kind": "neutral"
+  }
+ },
+ {
+  "family": "kimura_regime",
+  "reason": "within 2% of the 10% licence threshold",
+  "params": {
+   "N": "8",
+   "s": "3/10",
+   "kind": "diffusion"
+  }
+ },
+ {
+  "family": "greenhill_buckling",
+  "reason": "within 3% of a critical height",
+  "params": {
+   "E": "10000000000.0",
+   "rho": "600.0",
+   "D": "0.2",
+   "H": "35.4",
+   "t": "0.7"
+  }
+ },
+ {
+  "family": "hamilton_rule_form",
+  "reason": "tie at zero",
+  "params": {
+   "b": "2",
+   "c": "2",
+   "r": "1",
+   "d": "3",
+   "p": "None"
+  }
+ },
+ {
+  "family": "fisher_kpp_speed",
+  "reason": "pushed speed within 3% of the KPP speed (not measurable apart)",
+  "params": {
+   "kind": "cubic_pos",
+   "par": "7/3"
+  }
+ },
+ {
+  "family": "turing_finite_domain",
+  "reason": "false-premise Turing item: the requester's claim that the inequality holds is false, no mode grows; the verdict depends on whether the question 'does the condition give the right answer' is read as existence of a mode (out_of_scope) or as correctness of the condition (applies). Blinded payload-only audit read applies, key says out_of_scope: genuine convention ambiguity.",
+  "params": {
+   "id": "ts-0007"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "near-tie between adjacent admissible modes (n=9 vs n=8, growth rates differ by 0.3%) whose wavelengths fall on opposite sides of the 10% criterion; blinded audit flagged it",
+  "params": {
+   "id": "wl-0010"
+  }
+ },
+ {
+  "family": "turing_finite_domain",
+  "reason": "false-premise Turing item (same pattern as qd03269c6).",
+  "params": {
+   "id": "ts-0017"
+  }
+ },
+ {
+  "family": "wavelength_formula_licence",
+  "reason": "wavelength item where 'fastest-growing' read as max real part of the eigenvalues vs most negative determinant flips the verdict (blinded audit flag); convention not pinned in the text.",
+  "params": {
+   "id": "wl-0001"
+  }
+ },
+ {
+  "family": "turing_2d_rectangle",
+  "reason": "false-premise Turing 2-D item (same pattern as qd03269c6).",
+  "params": {
+   "id": "t2-0010"
+  }
+ }
+]

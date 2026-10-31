@@ -1,0 +1,135 @@
+{"id": "qc7bdd4c0", "verdict": "underdetermined", "confidence": "high", "rule": "boundary type not stated; Neumann/Dirichlet grows=True, periodic grows=False differ", "ambiguity": "boundary unstated; verdict would be applies (N/D) or out_of_scope (periodic) so genuinely boundary-dependent"}
+{"id": "q8343e9c9", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on D domain give growth=True", "ambiguity": "none"}
+{"id": "qfae4c381", "verdict": "out_of_scope", "confidence": "high", "rule": "bistable a=2/5 speed factor (1-2a)/sqrt2 vs 2", "ambiguity": "none"}
+{"id": "q5da1b0eb", "verdict": "applies", "confidence": "high", "rule": "exact absorbing-chain fixation prob; relative error 0.0005 vs 0.10", "ambiguity": "none"}
+{"id": "q98a337bc", "verdict": "underdetermined", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value -25/16, exact range lo=-7/16 hi=23/16", "ambiguity": "allele frequency not stated while interaction term d!=0; exact sign depends on p (p in (0,1))"}
+{"id": "q59310210", "verdict": "applies", "confidence": "medium", "rule": "uniform: formula = exact Greenhill, independent of rho (up to rounding)", "ambiguity": "density not listed; uniform formula (coefficient 0.788) vs exact Greenhill 0.78773 differ by 3.6e-4 in H, so a thin density band exists in which they disagree (strictly density can matter); I treated uniform formula as equal to exact => settled"}
+{"id": "qc600c322", "verdict": "out_of_scope", "confidence": "high", "rule": "kappa=16 rho g H^3/(E D^2) vs formula 7.829 and exact eigenvalue (taper r=0.4)", "ambiguity": "none"}
+{"id": "q504b32f4", "verdict": "out_of_scope", "confidence": "high", "rule": "alpha=10/3", "ambiguity": "none"}
+{"id": "q30849d92", "verdict": "out_of_scope", "confidence": "medium", "rule": "exact absorbing-chain fixation prob; relative error 0.1260 vs 0.10", "ambiguity": "none"}
+{"id": "qa20f8997", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on P domain give growth=True", "ambiguity": "none"}
+{"id": "q5d26da56", "verdict": "applies", "confidence": "high", "rule": "V<C", "ambiguity": "none"}
+{"id": "qb21dc7dc", "verdict": "out_of_scope", "confidence": "high", "rule": "alpha=4", "ambiguity": "none"}
+{"id": "q77350570", "verdict": "out_of_scope", "confidence": "high", "rule": "base state not strictly stable (trace<0 and det>0 fails)", "ambiguity": "det J = 0 exactly: marginal, not strictly stable; text rule makes it out_of_scope"}
+{"id": "qc94fbad2", "verdict": "applies", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value -5/4, exact -5/4", "ambiguity": "none"}
+{"id": "qb90da847", "verdict": "out_of_scope", "confidence": "high", "rule": "kappa=16 rho g H^3/(E D^2) vs formula 7.829 and exact eigenvalue (taper r=0.5)", "ambiguity": "none"}
+{"id": "q5a6512d2", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on N domain give growth=True", "ambiguity": "none"}
+{"id": "qa0021105", "verdict": "applies", "confidence": "high", "rule": "kappa=16 rho g H^3/(E D^2) vs formula 7.829 and exact eigenvalue (taper r=1.0)", "ambiguity": "none"}
+{"id": "q6266e99b", "verdict": "out_of_scope", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value -3/8, exact 15/16", "ambiguity": "none"}
+{"id": "q057cbe20", "verdict": "underdetermined", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value 5/2, exact range lo=1 hi=-1/2", "ambiguity": "allele frequency not stated while interaction term d!=0; exact sign depends on p (p in (0,1))"}
+{"id": "q973b2d4f", "verdict": "out_of_scope", "confidence": "high", "rule": "fastest-growing (max Re lambda) admissible mode n=None; rel diff None", "ambiguity": "none"}
+{"id": "q67e0c178", "verdict": "applies", "confidence": "high", "rule": "fastest-growing (max Re lambda) admissible mode n=1; rel diff 0.05344133484911538", "ambiguity": "none"}
+{"id": "q44e7d930", "verdict": "applies", "confidence": "medium", "rule": "uniform: formula = exact Greenhill, independent of rho (up to rounding)", "ambiguity": "density not listed; uniform formula (coefficient 0.788) vs exact Greenhill 0.78773 differ by 3.6e-4 in H, so a thin density band exists in which they disagree (strictly density can matter); I treated uniform formula as equal to exact => settled"}
+{"id": "q34171653", "verdict": "out_of_scope", "confidence": "high", "rule": "condition predicts True; admissible modes on P domain give growth=False", "ambiguity": "none"}
+{"id": "qd7974226", "verdict": "applies", "confidence": "high", "rule": "logistic", "ambiguity": "none"}
+{"id": "q17503050", "verdict": "out_of_scope", "confidence": "high", "rule": "base state not strictly stable (trace<0 and det>0 fails)", "ambiguity": "det J = 0 exactly: marginal, not strictly stable; text rule makes it out_of_scope"}
+{"id": "q6d2d5d20", "verdict": "out_of_scope", "confidence": "high", "rule": "exact absorbing-chain fixation prob; relative error 0.8394 vs 0.10", "ambiguity": "none"}
+{"id": "q00b4e7db", "verdict": "applies", "confidence": "high", "rule": "kappa=16 rho g H^3/(E D^2) vs formula 7.829 and exact eigenvalue (taper r=0.5)", "ambiguity": "none"}
+{"id": "q4c6ee5d9", "verdict": "out_of_scope", "confidence": "high", "rule": "kappa=16 rho g H^3/(E D^2) vs formula 7.829 and exact eigenvalue (taper r=0.5)", "ambiguity": "none"}
+{"id": "q38b9d8a3", "verdict": "underdetermined", "confidence": "high", "rule": "boundary type not stated; Neumann/Dirichlet grows=True, periodic grows=False differ", "ambiguity": "boundary unstated; verdict would be applies (N/D) or out_of_scope (periodic) so genuinely boundary-dependent"}
+{"id": "q9f4c0434", "verdict": "underdetermined", "confidence": "high", "rule": "tapered exact threshold differs from base-diameter formula by factor ~1.155; density unknown can put column between thresholds", "ambiguity": "none"}
+{"id": "q271c7bf7", "verdict": "applies", "confidence": "high", "rule": "exact absorbing-chain fixation prob; relative error 0.0380 vs 0.10", "ambiguity": "none"}
+{"id": "q92f2ccd2", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on D domain give growth=True", "ambiguity": "none"}
+{"id": "qd03269c6", "verdict": "applies", "confidence": "medium", "rule": "condition predicts False; admissible modes on P domain give growth=False", "ambiguity": "requester claims the inequality holds but it is false for these numbers; I judged the true condition (predicts no instability, no mode grows) => applies; a reading that treats the requester's claim/conclusion as the cited statement would give out_of_scope"}
+{"id": "q5b57638f", "verdict": "out_of_scope", "confidence": "high", "rule": "condition predicts True; admissible modes on N domain give growth=False", "ambiguity": "none"}
+{"id": "qe8b087f7", "verdict": "out_of_scope", "confidence": "high", "rule": "alpha=4", "ambiguity": "none"}
+{"id": "q45345f14", "verdict": "out_of_scope", "confidence": "high", "rule": "exact absorbing-chain fixation prob; relative error 0.4886 vs 0.10", "ambiguity": "none"}
+{"id": "q76e41417", "verdict": "out_of_scope", "confidence": "high", "rule": "fastest-growing (max Re lambda) admissible mode n=None; rel diff None", "ambiguity": "none"}
+{"id": "qfa7587ad", "verdict": "applies", "confidence": "high", "rule": "V<C", "ambiguity": "none"}
+{"id": "qb02ba59a", "verdict": "applies", "confidence": "high", "rule": "fastest-growing (max Re lambda) admissible mode n=1; rel diff 0.04444113275306663", "ambiguity": "none"}
+{"id": "qd5e4b6b4", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on D domain give growth=True", "ambiguity": "none"}
+{"id": "q9920d68c", "verdict": "out_of_scope", "confidence": "high", "rule": "fastest-growing (max Re lambda) admissible mode n=None; rel diff None", "ambiguity": "none"}
+{"id": "q482d1195", "verdict": "underdetermined", "confidence": "high", "rule": "boundary type not stated; Neumann/Dirichlet grows=True, periodic grows=False differ", "ambiguity": "boundary unstated; verdict would be applies (N/D) or out_of_scope (periodic) so genuinely boundary-dependent"}
+{"id": "qf9d28316", "verdict": "out_of_scope", "confidence": "high", "rule": "V>=C", "ambiguity": "none"}
+{"id": "qda9a8ada", "verdict": "underdetermined", "confidence": "high", "rule": "boundary type not stated; Neumann/Dirichlet grows=True, periodic grows=False differ", "ambiguity": "boundary unstated; verdict would be applies (N/D) or out_of_scope (periodic) so genuinely boundary-dependent"}
+{"id": "q64834d2d", "verdict": "applies", "confidence": "high", "rule": "exact absorbing-chain fixation prob; relative error 0.0012 vs 0.10", "ambiguity": "none"}
+{"id": "qa047e33a", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on P domain give growth=True", "ambiguity": "none"}
+{"id": "q4ce5f5d7", "verdict": "applies", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value 3/2, exact 3/2", "ambiguity": "none"}
+{"id": "q173c3ae6", "verdict": "applies", "confidence": "medium", "rule": "alpha=2", "ambiguity": "alpha=2 exactly: pulled/pushed transition, speed equals 2sqrt(sD) exactly (c=(a+2)/sqrt(2a)=2)"}
+{"id": "q552dc7a0", "verdict": "applies", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value 7/4, exact 7/4", "ambiguity": "none"}
+{"id": "qb3da2c52", "verdict": "applies", "confidence": "high", "rule": "kappa=16 rho g H^3/(E D^2) vs formula 7.829 and exact eigenvalue (taper r=0.4)", "ambiguity": "none"}
+{"id": "q17fe64c4", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on P domain give growth=True", "ambiguity": "none"}
+{"id": "qf7fd0917", "verdict": "out_of_scope", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value 3/8, exact -33/40", "ambiguity": "none"}
+{"id": "q674cd3d3", "verdict": "applies", "confidence": "high", "rule": "V<C", "ambiguity": "none"}
+{"id": "qc1d68534", "verdict": "out_of_scope", "confidence": "high", "rule": "exact absorbing-chain fixation prob; relative error 0.1713 vs 0.10", "ambiguity": "none"}
+{"id": "q1c636e4f", "verdict": "out_of_scope", "confidence": "high", "rule": "V>=C", "ambiguity": "none"}
+{"id": "q8014d18b", "verdict": "applies", "confidence": "high", "rule": "V<C", "ambiguity": "none"}
+{"id": "qf88e65a0", "verdict": "out_of_scope", "confidence": "medium", "rule": "fastest-growing (max Re lambda) admissible mode n=4; rel diff 0.12530993139491478", "ambiguity": "none"}
+{"id": "q152932ba", "verdict": "applies", "confidence": "high", "rule": "exact absorbing-chain fixation prob; relative error 0.0595 vs 0.10", "ambiguity": "none"}
+{"id": "q6f954506", "verdict": "out_of_scope", "confidence": "high", "rule": "bistable a=3/10 speed factor (1-2a)/sqrt2 vs 2", "ambiguity": "none"}
+{"id": "q0322ba85", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on N domain give growth=True", "ambiguity": "none"}
+{"id": "qf3e46986", "verdict": "applies", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value -1, exact -1", "ambiguity": "none"}
+{"id": "q294b4ea1", "verdict": "applies", "confidence": "high", "rule": "V<C", "ambiguity": "none"}
+{"id": "q6b8f0acf", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on N domain give growth=True", "ambiguity": "none"}
+{"id": "q5ca988d8", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on N domain give growth=True", "ambiguity": "none"}
+{"id": "q84df581b", "verdict": "out_of_scope", "confidence": "medium", "rule": "fastest-growing (max Re lambda) admissible mode n=32; rel diff 0.13397459621556135", "ambiguity": "none"}
+{"id": "q488925ac", "verdict": "out_of_scope", "confidence": "high", "rule": "exact absorbing-chain fixation prob; relative error 0.9200 vs 0.10", "ambiguity": "none"}
+{"id": "q5e8142dd", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on N domain give growth=True", "ambiguity": "none"}
+{"id": "qb4c8565b", "verdict": "out_of_scope", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value -1/2, exact 13/10", "ambiguity": "none"}
+{"id": "q40aff276", "verdict": "applies", "confidence": "high", "rule": "fastest-growing (max Re lambda) admissible mode n=12; rel diff 0.016282738044158585", "ambiguity": "none"}
+{"id": "qd643fbe2", "verdict": "out_of_scope", "confidence": "high", "rule": "condition predicts True; admissible modes on D domain give growth=False", "ambiguity": "none"}
+{"id": "qb3a9a976", "verdict": "applies", "confidence": "medium", "rule": "condition predicts False; admissible modes on D domain give growth=False", "ambiguity": "requester claims the inequality holds but it is false for these numbers; I judged the true condition (predicts no instability, no mode grows) => applies; a reading that treats the requester's claim/conclusion as the cited statement would give out_of_scope"}
+{"id": "q4f9af15e", "verdict": "applies", "confidence": "medium", "rule": "fastest-growing (max Re lambda) admissible mode n=32; rel diff 0.03063025460734211", "ambiguity": "verdict flips if \"fastest-growing\" is read as most negative det(J-qD) (mode 39, rel 0.205 => out_of_scope) instead of max Re eigenvalue (mode 32, rel 0.031 => applies); I used max Re lambda"}
+{"id": "q4883736e", "verdict": "applies", "confidence": "high", "rule": "kappa=16 rho g H^3/(E D^2) vs formula 7.829 and exact eigenvalue (taper r=1.0)", "ambiguity": "none"}
+{"id": "qd1785ff6", "verdict": "underdetermined", "confidence": "high", "rule": "C missing", "ambiguity": "cost C not stated"}
+{"id": "q52c436bf", "verdict": "applies", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value -1, exact -1", "ambiguity": "none"}
+{"id": "q175189fd", "verdict": "out_of_scope", "confidence": "medium", "rule": "fastest-growing (max Re lambda) admissible mode n=1; rel diff 0.12859985055906697", "ambiguity": "none"}
+{"id": "q7f4d606c", "verdict": "underdetermined", "confidence": "high", "rule": "boundary type not stated; Neumann/Dirichlet grows=True, periodic grows=False differ", "ambiguity": "boundary unstated; verdict would be applies (N/D) or out_of_scope (periodic) so genuinely boundary-dependent"}
+{"id": "q2a7d8a44", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on P domain give growth=True", "ambiguity": "none"}
+{"id": "q58b2a4da", "verdict": "underdetermined", "confidence": "high", "rule": "growth term unspecified", "ambiguity": "growth term not given"}
+{"id": "qf7a1c393", "verdict": "applies", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value -13/8, exact -39/40", "ambiguity": "none"}
+{"id": "q82fbdb86", "verdict": "out_of_scope", "confidence": "high", "rule": "fastest-growing (max Re lambda) admissible mode n=26; rel diff 0.2367077767242885", "ambiguity": "none"}
+{"id": "qb4715bf0", "verdict": "out_of_scope", "confidence": "high", "rule": "V>=C", "ambiguity": "none"}
+{"id": "q826d4455", "verdict": "out_of_scope", "confidence": "high", "rule": "exact absorbing-chain fixation prob; relative error 0.3037 vs 0.10", "ambiguity": "none"}
+{"id": "q7cf8687e", "verdict": "out_of_scope", "confidence": "high", "rule": "condition predicts True; admissible modes on D domain give growth=False", "ambiguity": "length \"1/2\u03c0\" parses as pi/2 or 1/(2pi); both give no admissible growing mode so verdict invariant"}
+{"id": "qda5686b7", "verdict": "applies", "confidence": "high", "rule": "kappa=16 rho g H^3/(E D^2) vs formula 7.829 and exact eigenvalue (taper r=1.0)", "ambiguity": "none"}
+{"id": "qc8c2157c", "verdict": "out_of_scope", "confidence": "high", "rule": "base state not strictly stable (trace<0 and det>0 fails)", "ambiguity": "none"}
+{"id": "qe5dc45b1", "verdict": "underdetermined", "confidence": "high", "rule": "C missing", "ambiguity": "cost C not stated"}
+{"id": "qa80033f9", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on N domain give growth=True", "ambiguity": "none"}
+{"id": "q14a0b329", "verdict": "applies", "confidence": "medium", "rule": "condition predicts False; admissible modes on N domain give growth=False", "ambiguity": "requester claims the inequality holds but it is false for these numbers; I judged the true condition (predicts no instability, no mode grows) => applies; a reading that treats the requester's claim/conclusion as the cited statement would give out_of_scope"}
+{"id": "q582b13a9", "verdict": "applies", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value 2, exact 2", "ambiguity": "none"}
+{"id": "q3bdeb1eb", "verdict": "applies", "confidence": "high", "rule": "exact absorbing-chain fixation prob; relative error 0.0331 vs 0.10", "ambiguity": "none"}
+{"id": "q8567b50f", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on N domain give growth=True", "ambiguity": "none"}
+{"id": "q5aa35099", "verdict": "out_of_scope", "confidence": "high", "rule": "exact absorbing-chain fixation prob; relative error 0.7609 vs 0.10", "ambiguity": "none"}
+{"id": "q6da3eabf", "verdict": "out_of_scope", "confidence": "high", "rule": "exact absorbing-chain fixation prob; relative error 0.7031 vs 0.10", "ambiguity": "none"}
+{"id": "qc2593427", "verdict": "out_of_scope", "confidence": "high", "rule": "bistable a=3/10 speed factor (1-2a)/sqrt2 vs 2", "ambiguity": "none"}
+{"id": "q954ef1f8", "verdict": "applies", "confidence": "high", "rule": "logistic", "ambiguity": "none"}
+{"id": "q105938e6", "verdict": "out_of_scope", "confidence": "high", "rule": "bistable a=3/10 speed factor (1-2a)/sqrt2 vs 2", "ambiguity": "none"}
+{"id": "q723697b1", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on N domain give growth=True", "ambiguity": "none"}
+{"id": "qcca31b33", "verdict": "out_of_scope", "confidence": "high", "rule": "condition predicts True; admissible modes on P domain give growth=False", "ambiguity": "none"}
+{"id": "q4c6795a4", "verdict": "out_of_scope", "confidence": "high", "rule": "bistable a=2/5 speed factor (1-2a)/sqrt2 vs 2", "ambiguity": "none"}
+{"id": "q1ccdea35", "verdict": "out_of_scope", "confidence": "medium", "rule": "fastest-growing (max Re lambda) admissible mode n=58; rel diff 0.12802502045704506", "ambiguity": "none"}
+{"id": "qdc6423e2", "verdict": "applies", "confidence": "high", "rule": "logistic", "ambiguity": "none"}
+{"id": "qe7778057", "verdict": "out_of_scope", "confidence": "high", "rule": "kappa=16 rho g H^3/(E D^2) vs formula 7.829 and exact eigenvalue (taper r=0.4)", "ambiguity": "none"}
+{"id": "q4d903fb8", "verdict": "out_of_scope", "confidence": "high", "rule": "condition predicts True; admissible modes on P domain give growth=False", "ambiguity": "none"}
+{"id": "qb8ec2271", "verdict": "underdetermined", "confidence": "high", "rule": "C missing", "ambiguity": "cost C not stated"}
+{"id": "q3831c7fa", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on N domain give growth=True", "ambiguity": "none"}
+{"id": "qcbacae53", "verdict": "out_of_scope", "confidence": "high", "rule": "kappa=16 rho g H^3/(E D^2) vs formula 7.829 and exact eigenvalue (taper r=0.4)", "ambiguity": "none"}
+{"id": "qf261c3f7", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on N domain give growth=True", "ambiguity": "none"}
+{"id": "qadcc64fc", "verdict": "applies", "confidence": "high", "rule": "exact absorbing-chain fixation prob; relative error 0.0002 vs 0.10", "ambiguity": "none"}
+{"id": "qee05f2a9", "verdict": "applies", "confidence": "high", "rule": "V<C", "ambiguity": "none"}
+{"id": "q71805d44", "verdict": "out_of_scope", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value -3/4, exact 39/20", "ambiguity": "none"}
+{"id": "q24044710", "verdict": "applies", "confidence": "high", "rule": "logistic", "ambiguity": "none"}
+{"id": "q78684eca", "verdict": "applies", "confidence": "high", "rule": "fastest-growing (max Re lambda) admissible mode n=51; rel diff 0.015999459870160465", "ambiguity": "none"}
+{"id": "q9e9da3d5", "verdict": "out_of_scope", "confidence": "high", "rule": "fastest-growing (max Re lambda) admissible mode n=1; rel diff 0.22726803049850414", "ambiguity": "none"}
+{"id": "qa5ed7dfd", "verdict": "out_of_scope", "confidence": "high", "rule": "condition predicts True; admissible modes on P domain give growth=False", "ambiguity": "length \"1/2*pi\" read as (1/2)pi; verdict out_of_scope either way"}
+{"id": "qaa536469", "verdict": "applies", "confidence": "high", "rule": "V<C", "ambiguity": "none"}
+{"id": "qe618ae1d", "verdict": "applies", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value 29/8, exact 383/80", "ambiguity": "none"}
+{"id": "q07aed060", "verdict": "out_of_scope", "confidence": "high", "rule": "kappa=16 rho g H^3/(E D^2) vs formula 7.829 and exact eigenvalue (taper r=0.5)", "ambiguity": "none"}
+{"id": "q42875b35", "verdict": "out_of_scope", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value -9/8, exact 5/8", "ambiguity": "none"}
+{"id": "qf5012817", "verdict": "applies", "confidence": "high", "rule": "V<C", "ambiguity": "none"}
+{"id": "q57bc947d", "verdict": "applies", "confidence": "medium", "rule": "uniform: formula = exact Greenhill, independent of rho (up to rounding)", "ambiguity": "density not listed; uniform formula (coefficient 0.788) vs exact Greenhill 0.78773 differ by 3.6e-4 in H, so a thin density band exists in which they disagree (strictly density can matter); I treated uniform formula as equal to exact => settled"}
+{"id": "qadf8fa49", "verdict": "underdetermined", "confidence": "high", "rule": "Cov(g,m)/(p(1-p)) = -c + r b + d (r+(1-r)p); rule value -9/4, exact range lo=-3/4 hi=3/4", "ambiguity": "allele frequency not stated while interaction term d!=0; exact sign depends on p (p in (0,1))"}
+{"id": "q26c103da", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on N domain give growth=True", "ambiguity": "none"}
+{"id": "qa9957691", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on D domain give growth=True", "ambiguity": "none"}
+{"id": "qbad64044", "verdict": "out_of_scope", "confidence": "high", "rule": "V>=C", "ambiguity": "none"}
+{"id": "q38507081", "verdict": "applies", "confidence": "medium", "rule": "fastest-growing (max Re lambda) admissible mode n=1; rel diff 0.0693951408979004", "ambiguity": "none"}
+{"id": "q5ccb664b", "verdict": "applies", "confidence": "high", "rule": "alpha=5/3", "ambiguity": "none"}
+{"id": "q1767d51b", "verdict": "out_of_scope", "confidence": "high", "rule": "exact absorbing-chain fixation prob; relative error 0.7993 vs 0.10", "ambiguity": "none"}
+{"id": "q9a01b7b8", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on N domain give growth=True", "ambiguity": "none"}
+{"id": "q90cbf6c9", "verdict": "applies", "confidence": "high", "rule": "condition predicts True; admissible modes on N domain give growth=True", "ambiguity": "none"}
+{"id": "qac38a27f", "verdict": "applies", "confidence": "high", "rule": "alpha=4/3", "ambiguity": "none"}
+{"id": "q98f3297f", "verdict": "underdetermined", "confidence": "high", "rule": "boundary type not stated; Neumann/Dirichlet grows=True, periodic grows=False differ", "ambiguity": "boundary unstated; verdict would be applies (N/D) or out_of_scope (periodic) so genuinely boundary-dependent"}
+{"id": "q7e935be4", "verdict": "applies", "confidence": "high", "rule": "kappa=16 rho g H^3/(E D^2) vs formula 7.829 and exact eigenvalue (taper r=1.0)", "ambiguity": "none"}
+{"id": "qcf647eb1", "verdict": "applies", "confidence": "high", "rule": "exact absorbing-chain fixation prob; relative error 0.0606 vs 0.10", "ambiguity": "none"}
+{"id": "q212fc121", "verdict": "out_of_scope", "confidence": "high", "rule": "V>=C", "ambiguity": "none"}
