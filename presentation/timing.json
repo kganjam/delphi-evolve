@@ -1,0 +1,107 @@
+{
+ "measured_at": "2026-10-31 06:25 PDT",
+ "method": "Piper neural TTS read-through of presentation/speaker-notes.md, duration from ffprobe on the rendered audio",
+ "voice": "en_US-lessac-medium.onnx",
+ "voice_sha256": "5efe09e69902187827af646e1a6e9d269dee769f9877d17b16b1b46eeaaf019f",
+ "spoken_text_sha256": "2c6becda74591958320b7160e423e403172ad8ad6bdb738f867d93580e5fdd2d",
+ "spoken_text_note": "hash of the six spoken paragraphs only (the build stamp line is excluded so a rebuild alone does not invalidate the timing)",
+ "synthetic_voice": true,
+ "human_rehearsal": null,
+ "limit_s": 180.0,
+ "limit_source": "team's own three-minute budget; the organizers publish no time limit",
+ "transition_s_assumed": 1.5,
+ "per_slide": [
+  {
+   "slide": 1,
+   "words": 42,
+   "seconds": 16.5,
+   "words_per_minute": 152.7,
+   "starts_at_s": 0.0
+  },
+  {
+   "slide": 2,
+   "words": 50,
+   "seconds": 21.9,
+   "words_per_minute": 137.0,
+   "starts_at_s": 18.0
+  },
+  {
+   "slide": 3,
+   "words": 57,
+   "seconds": 20.03,
+   "words_per_minute": 170.8,
+   "starts_at_s": 41.4
+  },
+  {
+   "slide": 4,
+   "words": 84,
+   "seconds": 34.91,
+   "words_per_minute": 144.4,
+   "starts_at_s": 62.9
+  },
+  {
+   "slide": 5,
+   "words": 82,
+   "seconds": 34.4,
+   "words_per_minute": 143.0,
+   "starts_at_s": 99.3
+  },
+  {
+   "slide": 6,
+   "words": 70,
+   "seconds": 29.91,
+   "words_per_minute": 140.4,
+   "starts_at_s": 135.2
+  }
+ ],
+ "speech_seconds": 157.7,
+ "total_with_transitions_s": 165.2,
+ "total_mm_ss": "2:45",
+ "margin_to_limit_s": 14.8,
+ "total_words": 385,
+ "cuts": {
+  "all six slides": {
+   "slides": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "seconds": 165.2,
+   "mm_ss": "2:45"
+  },
+  "drop slide 2 (landscape)": {
+   "slides": [
+    1,
+    3,
+    4,
+    5,
+    6
+   ],
+   "seconds": 141.8,
+   "mm_ss": "2:21"
+  },
+  "drop slides 2 and 5": {
+   "slides": [
+    1,
+    3,
+    4,
+    6
+   ],
+   "seconds": 105.8,
+   "mm_ss": "1:45"
+  },
+  "slides 1, 4, 6 only": {
+   "slides": [
+    1,
+    4,
+    6
+   ],
+   "seconds": 84.3,
+   "mm_ss": "1:24"
+  }
+ },
+ "caveat": "A synthetic voice at its default pace is not the presenter. Demo clicks, applause and questions are not included."
+}
