@@ -1,0 +1,229 @@
+{
+  "built_utc": "2026-10-31T07:05:47Z",
+  "delphi_run_utc": "2026-10-31T07:04:23Z",
+  "delphi_endpoint": "https://delphisci-mcp.fly.dev/mcp",
+  "claims": [
+    {
+      "id": "darwin1859-ch06-08",
+      "iri": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-08",
+      "role": "motivation",
+      "relation_to_trpb_test": "motivation/context only; not equivalent to the TrpB operational hypothesis",
+      "sources": {
+        "local": {
+          "nanopubs": [
+            "darwin-origin/nanopubs/unsigned/darwin1859-ch06-08.trig"
+          ],
+          "assessments": [
+            {
+              "type": "dataset-resolvability/0.1.0",
+              "score": 0.118,
+              "verdict": "not-empirically-resolvable",
+              "assessor": "delphisci-resolvability-assessor-grok-4.7-high-fast"
+            },
+            {
+              "type": "dataset-resolvability/0.1.0",
+              "score": 0.362,
+              "verdict": "partially-resolvable",
+              "assessor": "delphisci-resolvability-assessor-gpt-5.6-sol-medium"
+            }
+          ]
+        },
+        "network": {
+          "nanopubs": [
+            "https://w3id.org/np/RAJN9-vmRYhQZuloSCaF9rPE2_wnkcoTI4XxbYcVt_uS4"
+          ],
+          "assessments": []
+        }
+      },
+      "label": "Theory fails if a complex organ could not arise by slight steps",
+      "statement": "If any complex organ were shown to exist that could not possibly have been formed by numerous, successive, slight modifications, the theory of natural selection would break down; no such case is known."
+    },
+    {
+      "id": "darwin1859-ch06-16",
+      "iri": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-16",
+      "role": "motivation",
+      "relation_to_trpb_test": "motivation/context only; not equivalent to the TrpB operational hypothesis",
+      "sources": {
+        "local": {
+          "nanopubs": [
+            "darwin-origin/nanopubs/unsigned/darwin1859-ch06-16.trig"
+          ],
+          "assessments": [
+            {
+              "type": "dataset-resolvability/0.1.0",
+              "score": 0.471,
+              "verdict": "partially-resolvable",
+              "assessor": "delphisci-resolvability-assessor-grok-4.7-high-fast"
+            },
+            {
+              "type": "dataset-resolvability/0.1.0",
+              "score": 0.403,
+              "verdict": "partially-resolvable",
+              "assessor": "delphisci-resolvability-assessor-gpt-5.6-sol-medium"
+            }
+          ]
+        },
+        "network": {
+          "nanopubs": [
+            "https://w3id.org/np/RAovYvW0y_yQKkjjMPr41Vjnzl81xI1rxAqMlF4ogNap4"
+          ],
+          "assessments": []
+        }
+      },
+      "label": "Nature makes no leaps when past as well as present forms are included",
+      "statement": "The rule that nature makes no leaps is not strictly true of living organisms alone, but if all past organisms are included it must be strictly true."
+    },
+    {
+      "id": "darwin1859-ch01-17",
+      "iri": "https://w3id.org/delphi/resource/claim/darwin1859-ch01-17",
+      "role": "motivation",
+      "relation_to_trpb_test": "motivation/context only; not equivalent to the TrpB operational hypothesis",
+      "sources": {
+        "local": {
+          "nanopubs": [
+            "darwin-origin/nanopubs/unsigned/darwin1859-ch01-17.trig"
+          ],
+          "assessments": [
+            {
+              "type": "dataset-resolvability/0.1.0",
+              "score": 0.437,
+              "verdict": "partially-resolvable",
+              "assessor": "delphisci-resolvability-assessor-grok-4.7-high-fast"
+            },
+            {
+              "type": "dataset-resolvability/0.1.0",
+              "score": 0.525,
+              "verdict": "partially-resolvable",
+              "assessor": "delphisci-resolvability-assessor-gpt-5.6-sol-medium"
+            }
+          ]
+        },
+        "network": {
+          "nanopubs": [
+            "https://w3id.org/np/RAGG5Y2WGfHtfOj6nZhD18twOU3GNco-Q2EpYx_kavHcg"
+          ],
+          "assessments": []
+        }
+      },
+      "label": "Accumulative selection is the predominant cause of change in domestic races",
+      "statement": "Among the causes of change in domestic races, including conditions of life, use and disuse, correlation and crossing, the accumulative action of selection, whether methodical or unconscious, is by far the predominant power."
+    },
+    {
+      "id": "fisher-ftns",
+      "iri": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+      "role": "context",
+      "relation_to_trpb_test": "motivation/context only; not equivalent to the TrpB operational hypothesis",
+      "sources": {
+        "local": {
+          "nanopubs": [
+            "math-bio-theorems/nanopubs/unsigned/fisher-ftns.trig"
+          ],
+          "assessments": []
+        },
+        "network": {
+          "nanopubs": [
+            "https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48"
+          ],
+          "assessments": []
+        }
+      },
+      "label": "Fisher's fundamental theorem of natural selection (partial-change form)",
+      "statement": "The rate of increase in mean fitness of a population due to natural selection equals its additive genetic variance in fitness at that time."
+    }
+  ],
+  "searches": [
+    {
+      "text": "epistasis",
+      "source": "local",
+      "hits": 0,
+      "at_utc": "2026-10-31T07:04:19Z"
+    },
+    {
+      "text": "epistasis",
+      "source": "network",
+      "hits": 0,
+      "at_utc": "2026-10-31T07:04:20Z"
+    },
+    {
+      "text": "fitness landscape",
+      "source": "local",
+      "hits": 0,
+      "at_utc": "2026-10-31T07:04:20Z"
+    },
+    {
+      "text": "fitness landscape",
+      "source": "network",
+      "hits": 0,
+      "at_utc": "2026-10-31T07:04:20Z"
+    },
+    {
+      "text": "successive",
+      "source": "local",
+      "hits": 10,
+      "at_utc": "2026-10-31T07:04:20Z"
+    },
+    {
+      "text": "successive",
+      "source": "network",
+      "hits": 10,
+      "at_utc": "2026-10-31T07:04:20Z"
+    },
+    {
+      "text": "additive",
+      "source": "local",
+      "hits": 7,
+      "at_utc": "2026-10-31T07:04:21Z"
+    },
+    {
+      "text": "additive",
+      "source": "network",
+      "hits": 2,
+      "at_utc": "2026-10-31T07:04:21Z"
+    },
+    {
+      "text": "intermediate",
+      "source": "local",
+      "hits": 10,
+      "at_utc": "2026-10-31T07:04:21Z"
+    },
+    {
+      "text": "leaps",
+      "source": "local",
+      "hits": 2,
+      "at_utc": "2026-10-31T07:04:21Z"
+    }
+  ],
+  "overview": {
+    "local": {
+      "claims_total": 880,
+      "domains": 5
+    },
+    "network": {
+      "claims_total": 375,
+      "domains": 5
+    }
+  },
+  "nanopub_drafts": [
+    {
+      "file": "data/nanopubs/operational-hypothesis-v1.trig",
+      "valid_rdflib": true,
+      "triples": 36
+    },
+    {
+      "file": "data/nanopubs/observed-landscape-counts-v1.trig",
+      "valid_rdflib": true,
+      "triples": 33
+    },
+    {
+      "file": "data/nanopubs/scope-limitation-v1.trig",
+      "valid_rdflib": true,
+      "triples": 24
+    }
+  ],
+  "nanopub_status": "UNSIGNED local drafts; not published to any nanopub network; no trusty URI",
+  "limits": [
+    "Absence of a text hit for 'epistasis' or 'fitness landscape' is a limited text-match result over claim title/statement/math, not proof that Delphi lacks related knowledge.",
+    "Local and network sources differ; each record names its source.",
+    "Delphi assessment scores are elicited LLM judgments, not posterior probabilities."
+  ]
+}
