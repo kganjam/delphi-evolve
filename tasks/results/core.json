@@ -4,7 +4,7 @@
  "branch": "work/core",
  "commit": "7f2ba753a5fb73d3b31fc560ce5dfd13c9565577",
  "model": "Claude Sonnet 5.5 (claude-sonnet-5-5), existing subscription; no metered API charge known; CLI cost estimates are not subscription spend",
- "wall_time_seattle": "2026-10-31 ~00:00 to ~01:35 PDT (before the Nov 1 2026 DST change)",
+ "wall_time_seattle": "2026-10-31 ~00:00 to ~01:15 PDT (before the Nov 1 2026 DST change)",
  "summary": "Audited loader + measured-graph truth + sound query-to-certify ledger + 11-policy matched-budget replay (20 seeds x 5 pairs, 1000 assays, censoring retained), paired analysis, plots, query logs, demo.json, integer-interval certificates. Collective shows NO advantage over a single planner; learned GP surrogate hurts beyond ~250 assays; evidence isolation hurts the better planner.",
  "commands_run": [
   {
