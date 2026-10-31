@@ -1,0 +1,39 @@
+{
+ "claim_id": "turing-wavelength",
+ "retrieved_utc": "2026-10-31T15:03:24.810282+00:00",
+ "source": "local",
+ "raw_text_sha256": "badb3a20436889bb08e45ab49d766fcd29b3985ca355266986345789646e440b",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/turing-wavelength",
+  "title": "Turing wavelength selection",
+  "statement": "The spacing of a Turing pattern at onset is set by the reaction rates and diffusivities, not by the size of the tissue, so changing these parameters predictably changes the number of repeated elements.",
+  "math": "at onset k_c^2 = \\sqrt{\\det J/(D_u D_v)}, \\lambda_c = 2\\pi/k_c; under uniform rescaling of D, \\lambda \\propto \\sqrt{D}",
+  "domain": "https://w3id.org/delphi/resource/domain/math-reaction-diffusion-equations-and-turing-patte",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/turing-wavelength.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/turing-wavelength",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/turing-wavelength.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": [
+    "https://doi.org/10.1126/science.1252960",
+    "https://doi.org/10.1126/science.1226804"
+   ],
+   "dct:source": "Alan Turing (1952) The chemical basis of morphogenesis",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "Alter morphogen production, degradation or diffusion in a developing tissue (e.g. Hox dosage or Bmp/Wnt inhibition in mouse limb buds) and test whether digit or element number changes in the direction and proportion the dispersion relation predicts.",
+   "delphi:context": "Assumptions: near onset of instability, two species, domain large compared with the wavelength. Formal status: proved by linear analysis. Away from onset, the selected wavelength depends on nonlinear terms and history.",
+   "skos:notation": "at onset k_c^2 = \\sqrt{\\det J/(D_u D_v)}, \\lambda_c = 2\\pi/k_c; under uniform rescaling of D, \\lambda \\propto \\sqrt{D}",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "The spacing of a Turing pattern at onset is set by the reaction rates and diffusivities, not by the size of the tissue, so changing these parameters predictably changes the number of repeated elements.",
+   "rdfs:label": "Turing wavelength selection"
+  },
+  "assessments": []
+ }
+}

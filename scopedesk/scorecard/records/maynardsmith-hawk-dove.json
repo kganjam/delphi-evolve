@@ -1,0 +1,36 @@
+{
+ "claim_id": "maynardsmith-hawk-dove",
+ "retrieved_utc": "2026-10-31T15:03:23.612492+00:00",
+ "source": "local",
+ "raw_text_sha256": "1bfce00a1e15c8ed1bae0bb4a540020cf97d92428a6e38e091eaf529356fe917",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/maynardsmith-hawk-dove",
+  "title": "Hawk-Dove mixed ESS",
+  "statement": "When the cost of injury exceeds the value of the contested resource, the stable outcome is a mixture in which animals escalate with probability equal to the ratio of resource value to injury cost.",
+  "math": "payoffs E(H,H) = (V-C)/2, E(H,D) = V, E(D,H) = 0, E(D,D) = V/2; for C > V the unique ESS plays Hawk with probability p^* = V/C",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/maynardsmith-hawk-dove.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/maynardsmith-hawk-dove",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/maynardsmith-hawk-dove.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": "https://doi.org/10.1038/246015a0",
+   "dct:source": "John Maynard Smith (1982) Evolution and the Theory of Games",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "Experimentally vary resource value and the expected cost of fighting in a contest system, and test that escalation frequency tracks V/C.",
+   "delphi:context": "Assumptions: symmetric pairwise contests, fixed V and C, no role asymmetries (asymmetries such as ownership give the Bourgeois ESS instead). Formal status: proved within the game.",
+   "skos:notation": "payoffs E(H,H) = (V-C)/2, E(H,D) = V, E(D,H) = 0, E(D,D) = V/2; for C > V the unique ESS plays Hawk with probability p^* = V/C",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "When the cost of injury exceeds the value of the contested resource, the stable outcome is a mixture in which animals escalate with probability equal to the ratio of resource value to injury cost.",
+   "rdfs:label": "Hawk-Dove mixed ESS"
+  },
+  "assessments": []
+ }
+}

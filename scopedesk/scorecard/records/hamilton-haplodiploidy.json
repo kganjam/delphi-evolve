@@ -1,0 +1,39 @@
+{
+ "claim_id": "hamilton-haplodiploidy",
+ "retrieved_utc": "2026-10-31T15:03:21.467854+00:00",
+ "source": "local",
+ "raw_text_sha256": "2005dafabad0e1dd525125b4645d55ad9a02f81f0298b76e030f3be20c358d20",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/hamilton-haplodiploidy",
+  "title": "Haplodiploidy hypothesis for eusociality",
+  "statement": "Because full sisters in haplodiploid species share three quarters of their genes, more than a mother shares with her offspring, haplodiploid insects are predisposed to evolve sterile worker castes.",
+  "math": "with a singly mated queen, r_{sister,sister} = 3/4 > r_{mother,daughter} = 1/2, but r_{sister,brother} = 1/4",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/hamilton-haplodiploidy.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/hamilton-haplodiploidy",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/hamilton-haplodiploidy.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": [
+    "https://doi.org/10.1038/nature09205",
+    "https://doi.org/10.1126/science.1156108"
+   ],
+   "dct:source": "W. D. Hamilton (1964) The genetical evolution of social behaviour. II",
+   "delphi:hypothesisType": "conjecture",
+   "delphi:proposedTest": "Use phylogenetic comparative analysis to test whether eusociality arises more often in haplodiploid than in diploid lineages after controlling for ancestral mating system.",
+   "delphi:context": "Formal status: the relatedness coefficients are proved. The explanatory claim is largely abandoned: the low sister-brother relatedness offsets the gain unless the sex ratio is biased, diploid termites are eusocial, and comparative work points to ancestral monogamy instead (Hughes et al. 2008).",
+   "skos:notation": "with a singly mated queen, r_{sister,sister} = 3/4 > r_{mother,daughter} = 1/2, but r_{sister,brother} = 1/4",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "Because full sisters in haplodiploid species share three quarters of their genes, more than a mother shares with her offspring, haplodiploid insects are predisposed to evolve sterile worker castes.",
+   "rdfs:label": "Haplodiploidy hypothesis for eusociality"
+  },
+  "assessments": []
+ }
+}

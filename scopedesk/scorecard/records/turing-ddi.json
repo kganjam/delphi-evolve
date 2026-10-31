@@ -1,0 +1,36 @@
+{
+ "claim_id": "turing-ddi",
+ "retrieved_utc": "2026-10-31T15:03:24.401215+00:00",
+ "source": "local",
+ "raw_text_sha256": "fd6bdc006634c42a8f4bf2d1c3575dd64d5fe8999559d7bb6dacd9c8605eea81",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/turing-ddi",
+  "title": "Turing diffusion-driven instability",
+  "statement": "A homogeneous steady state of two reacting chemicals that is stable without diffusion can become unstable to spatial perturbations when the chemicals diffuse at different rates, spontaneously producing a pattern.",
+  "math": "u_t = f(u,v) + D_u \\nabla^2 u, v_t = g(u,v) + D_v \\nabla^2 v; with tr J < 0 and det J > 0, instability at some wavenumber k iff D_v f_u + D_u g_v > 2\\sqrt{D_u D_v \\det J}, which requires D_u \\ne D_v",
+  "domain": "https://w3id.org/delphi/resource/domain/math-reaction-diffusion-equations-and-turing-patte",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/turing-ddi.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/turing-ddi",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/turing-ddi.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": "https://doi.org/10.1103/PhysRevLett.64.2953",
+   "dct:source": "Alan Turing (1952) The chemical basis of morphogenesis",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "Measure the reaction Jacobian and the diffusivities of a candidate morphogen pair independently, check that the inequality holds, and then confirm that perturbing the diffusivity ratio switches patterning on or off.",
+   "delphi:context": "Assumptions: two species, smooth kinetics, linearization about a homogeneous steady state, fixed domain without growth or mechanics. Formal status: the linear instability conditions are proved; existence and stability of nonlinear patterns are proved for many specific models but not in general.",
+   "skos:notation": "u_t = f(u,v) + D_u \\nabla^2 u, v_t = g(u,v) + D_v \\nabla^2 v; with tr J < 0 and det J > 0, instability at some wavenumber k iff D_v f_u + D_u g_v > 2\\sqrt{D_u D_v \\det J}, which requires D_u \\ne D_v",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "A homogeneous steady state of two reacting chemicals that is stable without diffusion can become unstable to spatial perturbations when the chemicals diffuse at different rates, spontaneously producing a pattern.",
+   "rdfs:label": "Turing diffusion-driven instability"
+  },
+  "assessments": []
+ }
+}

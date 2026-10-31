@@ -1,0 +1,36 @@
+{
+ "claim_id": "maynardsmith-ess",
+ "retrieved_utc": "2026-10-31T15:03:23.409395+00:00",
+ "source": "local",
+ "raw_text_sha256": "8d9ed791d6c0a4787bce695e9bd806963c8c6876b47d013ab7c36fda2c5dee7c",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/maynardsmith-ess",
+  "title": "Evolutionarily stable strategy conditions",
+  "statement": "A strategy is evolutionarily stable if, once common, it cannot be invaded by any rare alternative strategy.",
+  "math": "I is an ESS iff for all J \\ne I: E(I,I) > E(J,I), or E(I,I) = E(J,I) and E(I,J) > E(J,J); every ESS is an asymptotically stable rest point of the replicator dynamics (Taylor and Jonker 1978), not conversely",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/maynardsmith-ess.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/maynardsmith-ess",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/maynardsmith-ess.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": "https://doi.org/10.1016/0025-5564(78)90077-9",
+   "dct:source": "John Maynard Smith (1973) The Logic of Animal Conflict",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "In a system with measurable payoffs (microbial public-goods strains, contest behaviour), estimate the payoff matrix and test that the predicted ESS composition resists experimental invasion by rare alternative strategies.",
+   "delphi:context": "Assumptions: an infinite, well-mixed population with pairwise interactions and asexual or clonal inheritance of strategies. Formal status: the definition is exact, and the link to replicator dynamics is proved. Finite populations, mutation and genetic constraints can stop an ESS from being reached.",
+   "skos:notation": "I is an ESS iff for all J \\ne I: E(I,I) > E(J,I), or E(I,I) = E(J,I) and E(I,J) > E(J,J); every ESS is an asymptotically stable rest point of the replicator dynamics (Taylor and Jonker 1978), not conversely",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "A strategy is evolutionarily stable if, once common, it cannot be invaded by any rare alternative strategy.",
+   "rdfs:label": "Evolutionarily stable strategy conditions"
+  },
+  "assessments": []
+ }
+}

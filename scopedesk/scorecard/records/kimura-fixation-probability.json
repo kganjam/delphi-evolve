@@ -1,0 +1,35 @@
+{
+ "claim_id": "kimura-fixation-probability",
+ "retrieved_utc": "2026-10-31T15:03:22.422845+00:00",
+ "source": "local",
+ "raw_text_sha256": "9c29039f2bcf004cd3d354c5d9afe0110d861d4a7ddb74f2b56a74d54ff56322",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/kimura-fixation-probability",
+  "title": "Kimura fixation probability of a mutant allele",
+  "statement": "The probability that a mutant allele eventually fixes in a finite population depends on its initial frequency, its selective advantage and the effective population size, and equals its initial frequency when it is neutral.",
+  "math": "u(p) = \\frac{1-e^{-4N_e s p}}{1-e^{-4N_e s}}; neutral limit u(p) = p, so a new mutant fixes with probability 1/(2N)",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/kimura-fixation-probability.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/kimura-fixation-probability",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/kimura-fixation-probability.trig"
+  ],
+  "fields": {
+   "dct:source": "Motoo Kimura (1962) On the probability of fixation of mutant genes in a population",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "Track the fate of many marked mutations of measured fitness effect in replicate experimental populations of known N_e (e.g. barcoded microbial lineages) and compare fixation frequencies with u(p).",
+   "delphi:context": "Assumptions: diffusion approximation to the Wright-Fisher model, genic (additive) selection with coefficient s, constant effective size N_e, no linkage to other selected sites. Formal status: proved within the diffusion limit.",
+   "skos:notation": "u(p) = \\frac{1-e^{-4N_e s p}}{1-e^{-4N_e s}}; neutral limit u(p) = p, so a new mutant fixes with probability 1/(2N)",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "The probability that a mutant allele eventually fixes in a finite population depends on its initial frequency, its selective advantage and the effective population size, and equals its initial frequency when it is neutral.",
+   "rdfs:label": "Kimura fixation probability of a mutant allele"
+  },
+  "assessments": []
+ }
+}

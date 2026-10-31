@@ -1,0 +1,36 @@
+{
+ "claim_id": "maynardsmith-war-of-attrition",
+ "retrieved_utc": "2026-10-31T15:03:24.210480+00:00",
+ "source": "local",
+ "raw_text_sha256": "bda7053a0e67e4bef7f4f672cf2803aab861d0e0dd3a57fc4422358407e8e63c",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/maynardsmith-war-of-attrition",
+  "title": "War of attrition ESS",
+  "statement": "In contests settled by display, where the animal willing to persist longer wins and costs grow with time, the stable strategy is to choose a persistence time at random from an exponential distribution whose mean equals the resource value.",
+  "math": "with cost linear in time at unit rate and resource value V, the ESS persistence time has density p(x) = \\frac{1}{V} e^{-x/V}",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/maynardsmith-war-of-attrition.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/maynardsmith-war-of-attrition",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/maynardsmith-war-of-attrition.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": "https://doi.org/10.1016/0022-5193(78)90304-1",
+   "dct:source": "John Maynard Smith (1974) The theory of games and the evolution of animal conflicts",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "Record contest durations in a display-based contest system and test for an exponential distribution, with the mean scaling with experimentally varied resource value.",
+   "delphi:context": "Assumptions: symmetric contests, cost linear in display time, no information about the opponent's choice. Formal status: proved (Maynard Smith 1974); existence and uniqueness in the generalized game proved by Bishop and Cannings (1978).",
+   "skos:notation": "with cost linear in time at unit rate and resource value V, the ESS persistence time has density p(x) = \\frac{1}{V} e^{-x/V}",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "In contests settled by display, where the animal willing to persist longer wins and costs grow with time, the stable strategy is to choose a persistence time at random from an exponential distribution whose mean equals the resource value.",
+   "rdfs:label": "War of attrition ESS"
+  },
+  "assessments": []
+ }
+}

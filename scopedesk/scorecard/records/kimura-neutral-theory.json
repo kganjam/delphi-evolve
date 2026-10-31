@@ -1,0 +1,40 @@
+{
+ "claim_id": "kimura-neutral-theory",
+ "retrieved_utc": "2026-10-31T15:03:23.019853+00:00",
+ "source": "local",
+ "raw_text_sha256": "a231df4ed0129fdc5acd24764444e00db740705d3ff864d52c6954a4a6fa911d",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/kimura-neutral-theory",
+  "title": "Neutral theory: most molecular substitutions are neutral",
+  "statement": "Most evolutionary changes at the molecular level are caused by random drift of selectively neutral or nearly neutral mutations, not by positive selection.",
+  "math": "empirical claim: for most sites |N_e s| \\lesssim 1, so the fraction of substitutions driven by positive selection \\alpha is small; tested with d_N/d_S and McDonald-Kreitman \\alpha = 1 - \\frac{D_s P_n}{D_n P_s}",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/kimura-neutral-theory.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/kimura-neutral-theory",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/kimura-neutral-theory.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": [
+    "https://doi.org/10.1093/molbev/msy092",
+    "https://doi.org/10.1038/351652a0",
+    "https://doi.org/10.1126/science.164.3881.788"
+   ],
+   "dct:source": "Motoo Kimura (1968) Evolutionary Rate at the Molecular Level",
+   "delphi:hypothesisType": "empirical-law",
+   "delphi:proposedTest": "Estimate the proportion of adaptive substitutions (alpha) with McDonald-Kreitman-type tests genome-wide across many species, correcting for slightly deleterious polymorphism and demography.",
+   "delphi:context": "Formal status: not a mathematical statement; an empirical claim about the distribution of fitness effects. King and Jukes (1969) proposed it independently. Genomic estimates of alpha and pervasive linked selection are cited against its strong form (Kern and Hahn 2018).",
+   "skos:notation": "empirical claim: for most sites |N_e s| \\lesssim 1, so the fraction of substitutions driven by positive selection \\alpha is small; tested with d_N/d_S and McDonald-Kreitman \\alpha = 1 - \\frac{D_s P_n}{D_n P_s}",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "Most evolutionary changes at the molecular level are caused by random drift of selectively neutral or nearly neutral mutations, not by positive selection.",
+   "rdfs:label": "Neutral theory: most molecular substitutions are neutral"
+  },
+  "assessments": []
+ }
+}

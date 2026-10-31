@@ -1,0 +1,36 @@
+{
+ "claim_id": "hamilton-senescence",
+ "retrieved_utc": "2026-10-31T15:03:22.164880+00:00",
+ "source": "local",
+ "raw_text_sha256": "ad3986c0083b095a2dae1cd1f340b99de1f4d59cbaac25ffa362f0cd03905c5b",
+ "search_row": {
+  "claim": "https://w3id.org/delphi/resource/claim/hamilton-senescence",
+  "title": "Declining force of selection with age",
+  "statement": "The strength of selection on survival falls with age after reproduction begins, so senescence is an inevitable outcome of natural selection.",
+  "math": "s(a) = \\frac{\\partial r}{\\partial \\ln p_a} = \\frac{1}{T}\\sum_{x=a+1}^{\\infty} e^{-rx} l_x m_x, non-increasing in a",
+  "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+  "nanopub": "math-bio-theorems/nanopubs/unsigned/hamilton-senescence.trig"
+ },
+ "record": {
+  "claim": "https://w3id.org/delphi/resource/claim/hamilton-senescence",
+  "source": "local",
+  "nanopubs": [
+   "math-bio-theorems/nanopubs/unsigned/hamilton-senescence.trig"
+  ],
+  "fields": {
+   "rdfs:seeAlso": "https://doi.org/10.1038/nature12789",
+   "dct:source": "W. D. Hamilton (1966) The moulding of senescence by natural selection",
+   "delphi:hypothesisType": "model-theorem",
+   "delphi:proposedTest": "Compare age trajectories of mortality and fertility across many species with the trajectories that s(a) predicts from each species' own life table.",
+   "delphi:context": "Assumptions: an age-structured population with fixed age-specific fertility and no growth or repair after maturity. Formal status: the formula for s(a) is proved. The inevitability claim is refuted as stated: Jones et al. (2013) found species with flat or declining mortality with age, consistent with life histories where fertility rises with size.",
+   "skos:notation": "s(a) = \\frac{\\partial r}{\\partial \\ln p_a} = \\frac{1}{T}\\sum_{x=a+1}^{\\infty} e^{-rx} l_x m_x, non-increasing in a",
+   "rdf:type": [
+    "https://w3id.org/delphi/ontology/TestableHypothesis",
+    "https://w3id.org/delphi/ontology/Claim"
+   ],
+   "dct:description": "The strength of selection on survival falls with age after reproduction begins, so senescence is an inevitable outcome of natural selection.",
+   "rdfs:label": "Declining force of selection with age"
+  },
+  "assessments": []
+ }
+}
