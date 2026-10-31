@@ -1,0 +1,5 @@
+name = "DarwinBridge"
+defaultTargets = ["DarwinBridge"]
+
+[[lean_lib]]
+name = "DarwinBridge"
