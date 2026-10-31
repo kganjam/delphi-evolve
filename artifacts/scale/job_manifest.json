@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "project_id": "project-e00p797qpr0049snsqvf0k",
+ "profile": "hackathon",
+ "own_prefix": "delphi-evolve-scale-",
+ "cap_total_own_h100": 10,
+ "rules": [
+  "Only ids in `owned` whose live name also starts with own_prefix may be cancelled by gpu_batch.controller.",
+  "`peers` are the gpu worker's jobs: counted against our cap, never cancelled by this worker.",
+  "`count_conservatively_prefixes`: unlisted H100 workloads with these name prefixes are COUNTED as ours (so we launch less) but never cancelled.",
+  "Naming such as 'kg-extract' is another team's and is not inferred to be ours."
+ ],
+ "count_conservatively_prefixes": [
+  "kganjam-delphi-"
+ ],
+ "peers": [
+  {
+   "id": "aijob-e00gqrf19pjdrbyat3",
+   "name": "kganjam-delphi-trpb-probe",
+   "owner": "gpu worker",
+   "note": "COMPLETED 2026-10-30 23:3x-ish; probe/parity"
+  },
+  {
+   "id": "aijob-e00d27jgpd2n9kwva1",
+   "name": "kganjam-delphi-trpb-esm2-main",
+   "owner": "gpu worker",
+   "note": "650M TE full-library job; never cancel"
+  }
+ ],
+ "owned": []
+}
