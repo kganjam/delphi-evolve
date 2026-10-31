@@ -1,0 +1,401 @@
+{
+  "review": "Codex API independent input/statement-fidelity audit, not a blinded agent evaluation",
+  "recorded_at": "2026-10-31T06:53:22.476760-07:00",
+  "source_commit": "70845e6a68c18c4861d07021e5daf3de4e50e34d",
+  "source_hashes": {
+    "instances_full.jsonl": "c7e700ce89b1bbb8bee5192e71506685bdbc303140ded6f3d140ea73dcb55e5b",
+    "instances_public.jsonl": "6804079a534b4923d8e3550760ddffcd956c73f69bf9a0d14cffacef000248f6",
+    "key.jsonl": "747ddbae6a37dc00a4a9271b43075c752c203ae24a820d08d9fb0e9db37c4467"
+  },
+  "n": 136,
+  "families": {
+    "turing_finite_domain": 24,
+    "fisher_kpp_speed": 16,
+    "kimura_regime": 16,
+    "hamilton_rule_form": 16,
+    "greenhill_buckling": 16,
+    "rayleigh_plateau": 16,
+    "hawk_dove_ess": 16,
+    "wavelength_formula_licence": 16
+  },
+  "rayleigh_pinned_volume_review": [
+    {
+      "id": "rp-0004",
+      "boundary": "periodic",
+      "length_over_pi_r": "7",
+      "frozen_verdict": "applies",
+      "n1_integral_eta_dz_over_r": "14",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": false
+    },
+    {
+      "id": "rp-0005",
+      "boundary": "periodic",
+      "length_over_pi_r": "21/4",
+      "frozen_verdict": "applies",
+      "n1_integral_eta_dz_over_r": "21/2",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": false
+    },
+    {
+      "id": "rp-0012",
+      "boundary": "pinned",
+      "length_over_pi_r": "3/2",
+      "frozen_verdict": "out_of_scope",
+      "n1_integral_eta_dz_over_r": "3",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": true
+    },
+    {
+      "id": "rp-0006",
+      "boundary": "pinned",
+      "length_over_pi_r": "9/2",
+      "frozen_verdict": "applies",
+      "n1_integral_eta_dz_over_r": "9",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": false
+    },
+    {
+      "id": "rp-0013",
+      "boundary": null,
+      "length_over_pi_r": "5/4",
+      "frozen_verdict": "underdetermined",
+      "n1_integral_eta_dz_over_r": "5/2",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": true
+    },
+    {
+      "id": "rp-0002",
+      "boundary": "pinned",
+      "length_over_pi_r": "19/2",
+      "frozen_verdict": "applies",
+      "n1_integral_eta_dz_over_r": "19",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": false
+    },
+    {
+      "id": "rp-0001",
+      "boundary": "pinned",
+      "length_over_pi_r": "73/8",
+      "frozen_verdict": "applies",
+      "n1_integral_eta_dz_over_r": "73/4",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": false
+    },
+    {
+      "id": "rp-0016",
+      "boundary": "periodic",
+      "length_over_pi_r": "31/8",
+      "frozen_verdict": "applies",
+      "n1_integral_eta_dz_over_r": "31/4",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": false
+    },
+    {
+      "id": "rp-0011",
+      "boundary": "pinned",
+      "length_over_pi_r": "11/8",
+      "frozen_verdict": "out_of_scope",
+      "n1_integral_eta_dz_over_r": "11/4",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": true
+    },
+    {
+      "id": "rp-0008",
+      "boundary": "pinned",
+      "length_over_pi_r": "7/4",
+      "frozen_verdict": "out_of_scope",
+      "n1_integral_eta_dz_over_r": "7/2",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": true
+    },
+    {
+      "id": "rp-0010",
+      "boundary": "pinned",
+      "length_over_pi_r": "2",
+      "frozen_verdict": "out_of_scope",
+      "n1_integral_eta_dz_over_r": "4",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": true
+    },
+    {
+      "id": "rp-0003",
+      "boundary": "pinned",
+      "length_over_pi_r": "5/2",
+      "frozen_verdict": "applies",
+      "n1_integral_eta_dz_over_r": "5",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": false
+    },
+    {
+      "id": "rp-0015",
+      "boundary": null,
+      "length_over_pi_r": "7/4",
+      "frozen_verdict": "underdetermined",
+      "n1_integral_eta_dz_over_r": "7/2",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": true
+    },
+    {
+      "id": "rp-0007",
+      "boundary": "periodic",
+      "length_over_pi_r": "57/8",
+      "frozen_verdict": "applies",
+      "n1_integral_eta_dz_over_r": "57/4",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": false
+    },
+    {
+      "id": "rp-0009",
+      "boundary": "pinned",
+      "length_over_pi_r": "5/4",
+      "frozen_verdict": "out_of_scope",
+      "n1_integral_eta_dz_over_r": "5/2",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": true
+    },
+    {
+      "id": "rp-0014",
+      "boundary": null,
+      "length_over_pi_r": "15/8",
+      "frozen_verdict": "underdetermined",
+      "n1_integral_eta_dz_over_r": "15/4",
+      "n1_satisfies_fixed_volume_linear_constraint": false,
+      "claim_differs_from_fixed_volume_pinned_threshold": true
+    }
+  ],
+  "rayleigh_affected_key_ids": [
+    "rp-0012",
+    "rp-0013",
+    "rp-0011",
+    "rp-0008",
+    "rp-0010",
+    "rp-0015",
+    "rp-0009",
+    "rp-0014"
+  ],
+  "wavelength_tolerance_review": [
+    {
+      "id": "wl-0015",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "out_of_scope"
+    },
+    {
+      "id": "wl-0004",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "applies"
+    },
+    {
+      "id": "wl-0016",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "out_of_scope"
+    },
+    {
+      "id": "wl-0003",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "applies"
+    },
+    {
+      "id": "wl-0014",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "out_of_scope"
+    },
+    {
+      "id": "wl-0012",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "out_of_scope"
+    },
+    {
+      "id": "wl-0010",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "out_of_scope"
+    },
+    {
+      "id": "wl-0008",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "out_of_scope"
+    },
+    {
+      "id": "wl-0002",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "applies"
+    },
+    {
+      "id": "wl-0001",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "applies"
+    },
+    {
+      "id": "wl-0013",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "out_of_scope"
+    },
+    {
+      "id": "wl-0009",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "out_of_scope"
+    },
+    {
+      "id": "wl-0007",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "out_of_scope"
+    },
+    {
+      "id": "wl-0006",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "applies"
+    },
+    {
+      "id": "wl-0011",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "out_of_scope"
+    },
+    {
+      "id": "wl-0005",
+      "ten_percent_tolerance_visible": false,
+      "frozen_verdict": "applies"
+    }
+  ],
+  "kimura_missing_visible_tolerance_ids": [
+    "km-0002",
+    "km-0011",
+    "km-0009",
+    "km-0014",
+    "km-0015",
+    "km-0013",
+    "km-0007",
+    "km-0006"
+  ],
+  "hamilton_absolute_fitness_review": [
+    {
+      "id": "hm-0012",
+      "negative_pair_fitness": {
+        "10": "-3/2"
+      },
+      "relative_payoff_or_weak_selection_reinterpretation_needed": true
+    },
+    {
+      "id": "hm-0002",
+      "negative_pair_fitness": {
+        "10": "-1"
+      },
+      "relative_payoff_or_weak_selection_reinterpretation_needed": true
+    },
+    {
+      "id": "hm-0007",
+      "negative_pair_fitness": {
+        "10": "-7/2"
+      },
+      "relative_payoff_or_weak_selection_reinterpretation_needed": true
+    },
+    {
+      "id": "hm-0006",
+      "negative_pair_fitness": {
+        "10": "-1/2"
+      },
+      "relative_payoff_or_weak_selection_reinterpretation_needed": true
+    },
+    {
+      "id": "hm-0011",
+      "negative_pair_fitness": {
+        "10": "-2"
+      },
+      "relative_payoff_or_weak_selection_reinterpretation_needed": true
+    },
+    {
+      "id": "hm-0004",
+      "negative_pair_fitness": {
+        "10": "-2"
+      },
+      "relative_payoff_or_weak_selection_reinterpretation_needed": true
+    },
+    {
+      "id": "hm-0003",
+      "negative_pair_fitness": {
+        "10": "-3/2"
+      },
+      "relative_payoff_or_weak_selection_reinterpretation_needed": true
+    },
+    {
+      "id": "hm-0005",
+      "negative_pair_fitness": {
+        "10": "-2"
+      },
+      "relative_payoff_or_weak_selection_reinterpretation_needed": true
+    },
+    {
+      "id": "hm-0008",
+      "negative_pair_fitness": {
+        "10": "-7/2"
+      },
+      "relative_payoff_or_weak_selection_reinterpretation_needed": true
+    },
+    {
+      "id": "hm-0013",
+      "negative_pair_fitness": {
+        "10": "-3/2"
+      },
+      "relative_payoff_or_weak_selection_reinterpretation_needed": true
+    }
+  ],
+  "allee_invasion_initial_condition_review": [
+    {
+      "id": "kp-0015",
+      "threshold_m": "2/5",
+      "admissible_compact_patch_maximum": "1/5",
+      "reaction_sign_for_0_u_le_patch_max": "negative",
+      "invasion_not_guaranteed_by_compact_support": true
+    },
+    {
+      "id": "kp-0014",
+      "threshold_m": "3/10",
+      "admissible_compact_patch_maximum": "3/20",
+      "reaction_sign_for_0_u_le_patch_max": "negative",
+      "invasion_not_guaranteed_by_compact_support": true
+    },
+    {
+      "id": "kp-0010",
+      "threshold_m": "3/10",
+      "admissible_compact_patch_maximum": "3/20",
+      "reaction_sign_for_0_u_le_patch_max": "negative",
+      "invasion_not_guaranteed_by_compact_support": true
+    },
+    {
+      "id": "kp-0005",
+      "threshold_m": "3/10",
+      "admissible_compact_patch_maximum": "3/20",
+      "reaction_sign_for_0_u_le_patch_max": "negative",
+      "invasion_not_guaranteed_by_compact_support": true
+    },
+    {
+      "id": "kp-0004",
+      "threshold_m": "2/5",
+      "admissible_compact_patch_maximum": "1/5",
+      "reaction_sign_for_0_u_le_patch_max": "negative",
+      "invasion_not_guaranteed_by_compact_support": true
+    }
+  ],
+  "turing_applies_requires_linear_only_task_definition_ids": [
+    "ts-0002",
+    "ts-0023",
+    "ts-0001",
+    "ts-0004",
+    "ts-0013",
+    "ts-0003",
+    "ts-0012",
+    "ts-0022",
+    "ts-0024",
+    "ts-0014",
+    "ts-0021",
+    "ts-0011"
+  ],
+  "limitations": [
+    "Read frozen key and generator before this audit; not blinded, no model score.",
+    "Rayleigh exact integral rejects the claimed n=1 fixed-volume mode; full bridge threshold also supported by primary literature, not Lean-checked here.",
+    "Review sets are not all demonstrated wrong labels; underspecified questions may admit several reasonable answers.",
+    "No automatic key changes or new pooled accuracy computed.",
+    "Negative Hamilton pair values are allowed as game payoffs/rates; source must specify that interpretation or a valid weak-selection mapping.",
+    "Allee front-speed formula may be correct conditional on invasion; compact support alone does not imply invasion.",
+    "No external claim source pins are wired by this script."
+  ]
+}

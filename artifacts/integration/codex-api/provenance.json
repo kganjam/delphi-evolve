@@ -1,0 +1,15 @@
+{
+  "reporter": "Codex API continuation",
+  "recorded_at": "2026-10-31T06:51:40.398755-07:00",
+  "attribution": "Checks executed by the preceding primary; preserved byte-for-byte, not rerun by this reporter.",
+  "reviewed_source_commit": "91e3243e5e7b375145c0426f73aadc41d598a02f",
+  "files": {
+    "service-fixed-review.json": "12a67d4903d4057985781b46d7dec653913b45eacde61ef8f4719b0a76d53a1d",
+    "service-fixed-review.lean": "0eede9e0427ee4313211444e6cd894b17ba061c9300cd1a4bfdb5d0b99635b05"
+  },
+  "limitations": [
+    "Exact linear mathematical model, no biological measurements.",
+    "Lean compile checks classification and generic mode tail; PDE correspondence and nonlinear pattern are not formalized.",
+    "The broad pytest invocation skipped Lean; a separate explicit-PATH Lean acceptance/rejection test passed."
+  ]
+}
