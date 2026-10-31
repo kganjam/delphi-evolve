@@ -1,6 +1,6 @@
 # Speaker notes
 
-Built 2026-10-31 02:19 PDT from 6cbbd9da0eacfdb0c07c4e8736b95723e2f44a86.
+Built 2026-10-31 02:24 PDT from a64c72106523e1367bbd9393b05f21e0f76cda58.
 
 **Slide 1** (0:00-0:20)
 

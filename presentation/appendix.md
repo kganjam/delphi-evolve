@@ -1,6 +1,6 @@
 # Appendix — limitations, all arms and the LazySP follow-up (not slide material)
 
-Built 2026-10-31 02:19 PDT from artifacts commit `6cbbd9da0eacfdb0c07c4e8736b95723e2f44a86`. Every number below is read from the files named in `deck.provenance.json`.
+Built 2026-10-31 02:24 PDT from artifacts commit `a64c72106523e1367bbd9393b05f21e0f76cda58`. Every number below is read from the files named in `deck.provenance.json`.
 
 ## Strong LazySP-style follow-up (complete, independently audited)
 

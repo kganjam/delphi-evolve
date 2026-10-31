@@ -23,6 +23,8 @@ def package(destination: Path) -> dict:
     if git("status", "--porcelain"):
         raise SystemExit("Refusing to package a dirty source checkout; commit reviewed work first.")
     files = {p.removeprefix("site/"): ROOT / p for p in git("ls-files", "site").splitlines()}
+    for p in git("ls-files", "docs", "planning", "specs", "artifacts/integration", "artifacts/core/README.md").splitlines():
+        files[p] = ROOT / p
     for name in ("deck.html", "deck.pdf", "speaker-notes.md", "appendix.md", "deck.provenance.json",
                  "video/darwins-bridge-walkthrough.mp4", "video/manifests/final.manifest.json"):
         p = ROOT / "presentation" / name

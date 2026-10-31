@@ -1,8 +1,8 @@
 {
- "built": "2026-10-31 02:19 PDT",
+ "built": "2026-10-31 02:24 PDT",
  "root": "/data/worktrees/delphi-evolve/release",
  "git": {
-  "head": "6cbbd9da0eacfdb0c07c4e8736b95723e2f44a86",
+  "head": "a64c72106523e1367bbd9393b05f21e0f76cda58",
   "branch": "work/release",
   "inputs_untracked_or_modified": []
  },
