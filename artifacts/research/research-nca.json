@@ -1,0 +1,121 @@
+{
+  "schema_version": "research-manifest/0.1",
+  "worker": "research-nca",
+  "model": "Claude Sonnet 5.5 (claude-sonnet-5-5), subscription; metered spend unknown, not inferred",
+  "checked_at_seattle": "2026-10-31 00:56 to ~01:15 PDT",
+  "report": "docs/research/research-nca.md",
+  "evidence_levels": {
+    "body_pdftotext": "Downloaded PDF converted with pdftotext; read intro/method and grepped the rest",
+    "body_fetch_summarized": "Page fetched by WebFetch, answer produced by a small summarising model; quotes are the tool's",
+    "abstract_or_metadata": "Abstract page, DataCite/Dryad/GitHub API metadata only",
+    "search_snippet": "Only a web-search result excerpt; not independently read"
+  },
+  "sources": [
+    {"id": "growing-nca-2020", "title": "Growing Neural Cellular Automata", "url": "https://distill.pub/2020/growing-ca/", "level": "body_fetch_summarized", "supports": "architecture, sample-pool training, regeneration incl. unseen damage shapes, authors' own 'toy' caveat", "license": "not checked", "role": "baseline"},
+    {"id": "richardson-2024", "title": "Learning spatio-temporal patterns with Neural Cellular Automata", "doi": "10.1371/journal.pcbi.1011589", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11078362/", "arxiv": "2310.14809", "level": "body_fetch_summarized", "read_extent": "first ~100k of ~140k characters", "supports": "Gray-Scott NCA fit; no damage test; one parameter set; no domain-size variation; parameter perturbation explicitly not addressed; no real biological data; rules non-unique", "code": {"url": "https://github.com/AlexDR1998/NCA", "license": null, "note": "GitHub API license null; do not copy"}, "role": "closest NCA-vs-PDE prior art"},
+    {"id": "mordvintsev-rd-2021", "title": "Differentiable Programming of Reaction-Diffusion Patterns", "url": "https://arxiv.org/abs/2107.06862", "level": "abstract_or_metadata", "supports": "RD as NCA variant, gradient-learned parameters, texture synthesis", "caveat": "'need not obey conservation of mass or mass action' came from a search-result excerpt of the PDF, not re-read", "license": "article CC BY-NC-SA 4.0 per arXiv page", "role": "prior art"},
+    {"id": "mace-2025", "title": "MaCE: General Mass Conserving Dynamics for Cellular Automata", "url": "https://arxiv.org/abs/2507.12306", "level": "body_pdftotext", "supports": "exact mass conservation by affinity-weighted redistribution; not mass-action; no solver comparison", "role": "constraint prior art"},
+    {"id": "difflogic-ca-2025", "title": "Differentiable Logic Cellular Automata: From Game of Life to Pattern Generation", "url": "https://arxiv.org/abs/2506.04912", "level": "search_snippet", "supports": "discrete logic-gate NCA trained by gradient", "role": "prior art for discrete rules"},
+    {"id": "ncatorch-review-2026", "title": "A New Kind of Network? Review and Reference Implementation of Neural Cellular Automata", "url": "https://arxiv.org/abs/2604.24990", "level": "body_pdftotext", "supports": "regeneration metric on emoji/texture; unified framework", "code": {"url": "https://github.com/mspitzna/NCAtorch", "license": "MIT (GitHub API)"}, "role": "baseline implementation, benchmark state"},
+    {"id": "hartl-levin-2025", "title": "Neural cellular automata: applications to biology and beyond classical AI", "url": "https://arxiv.org/abs/2509.11131", "level": "search_snippet", "supports": "review; open problems list", "role": "context, unread"},
+    {"id": "saha-wang-2026", "title": "Learning PDE Time-Stepping with Neural Cellular Automata", "url": "https://arxiv.org/abs/2608.30328", "level": "abstract_or_metadata", "supports": "NCA PDE surrogate vs PDE-Net/PINN/FNO; generalisation in time only", "license": "article CC BY-NC-ND 4.0", "role": "adjacent prior art"},
+    {"id": "dalchau-seelig-phillips", "title": "Computational design of reaction-diffusion patterns using DNA-based chemical reaction networks", "url": "https://www.microsoft.com/en-us/research/?p=166867", "level": "abstract_or_metadata", "supports": "strand-displacement RD design at cm scale, computational", "role": "compile-path prior art"},
+    {"id": "tica-2023", "title": "A three-node Turing gene circuit forms periodic spatial patterns in bacteria", "doi": "10.1101/2023.10.19.563112", "url": "https://www.biorxiv.org/content/10.1101/2023.10.19.563112v1.full", "level": "body_fetch_summarized", "supports": "computational screen >7000 circuits then E. coli build; no data/code statement; no held-out split described; preprint", "role": "wet-lab precedent"},
+    {"id": "shaberi-2024", "title": "Optimal network sizes for most robust Turing patterns", "url": "https://arxiv.org/abs/2410.11513", "level": "abstract_or_metadata", "supports": "random-matrix argument; ~60% topology figure from a search summary only", "role": "theory context"},
+    {"id": "brauns-2021-min", "title": "Bulk-surface coupling identifies the mechanistic connection between Min-protein patterns in vivo and in vitro", "doi": "10.1038/s41467-021-23412-5", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8175580/", "level": "body_fetch_summarized", "supports": "chamber-height geometry experiment; data on request; code on GitHub/Zenodo", "data_access": "upon reasonable request", "code": [{"url": "https://github.com/jacobkers/MinED_patterns", "doi": "10.5281/zenodo.4637889"}, {"url": "https://github.com/f-brauns/Min-bulk-surface-coupling/", "doi": "10.5281/zenodo.4644636"}], "role": "best biology, blocked data"},
+    {"id": "mueller-2012", "title": "Differential diffusivity of Nodal and Lefty underlies a reaction-diffusion patterning system", "doi": "10.1126/science.1221920", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3525670/", "level": "abstract_or_metadata", "supports": "FRAP: Lefty effective diffusion > Nodal; numeric values NOT retrieved", "role": "realizability-box source, numbers still needed"},
+    {"id": "woods-2019", "title": "Diverse and robust molecular algorithms using reprogrammable DNA self-assembly", "doi": "10.1038/s41586-019-1014-9", "level": "search_snippet", "supports": "355 tiles, 21 circuits, per-tile error < 1/3000; data/code availability not confirmed", "role": "DNA tile reference"},
+    {"id": "ndp-2023", "title": "Towards Self-Assembling Artificial Neural Networks through Neural Developmental Programs", "arxiv": "2307.08197", "level": "search_snippet", "supports": "NDP definition", "note": "No 2025/26 paper titled 'Neural Developmental Programs' found in 3 searches; related unread: 2406.09787, 2508.08091, 2605.14998, Warner & Miikkulainen GECCO'25", "role": "context, unread"},
+    {"id": "shen-2018-dnn-ode", "title": "Deciphering gene regulation from gene expression dynamics using deep neural network", "arxiv": "1807.08414", "level": "search_snippet", "supports": "DNN-in-ODE gap-gene model predicting mutant patterns (152 of 166 features across 13 mutants per snippet)", "role": "C2 prior art, unverified"}
+  ],
+  "datasets": [
+    {"id": "liu-gregor-dryad-2j9p4", "doi": "10.5061/dryad.2j9p4", "title": "Dynamic interpretation of maternal inputs by the Drosophila segmentation gene network", "license": "CC0-1.0 (DataCite)", "content": "Bicoid-GFP live gradients for 29 fly lines; Hb/Kr/Gt/Kni/Eve immunofluorescence profiles for 6 lines with manipulated Bicoid; raw two-photon images of 28 embryos", "files": [{"name": "Liu et al. - BcdGFP_embryos_raw_data.zip", "bytes": 22291635}, {"name": "Liu et al. - Immunofluorescence_data_structure.mat", "bytes": 26586016}, {"name": "Liu et al. - LiveImaging_data_structure.mat", "bytes": 1285976}], "access_result": "File download returned Unauthorized/403 from this host; metadata only; per-line dose labels not seen", "interventions_labeled": "maternal Bicoid dose (from DataCite description; unverified in files)", "damage_or_geometry_labeled": false},
+    {"id": "dubuis-gregor-dryad-35h8v", "doi": "10.5061/dryad.35h8v", "title": "Accurate measurements of dynamics and reproducibility in small genetic networks", "license": "CC0 (DataCite 'cc-zero')", "content": "raw dorsal gap-gene profiles, 163 embryos, nuclear cycle 14, furrow-canal depth", "access_result": "metadata only", "interventions_labeled": false},
+    {"id": "flyex", "content": "gap-gene atlas incl. mutants (2008 description: 4716 images, 1579 embryos)", "access_result": "hosts urchin.spbcas.ru/flyex and flyex.ams.sunysb.edu gave no response from this host", "license": "unknown"},
+    {"id": "min-in-vitro", "access_result": "data on reasonable request", "open": false},
+    {"id": "tica-colony", "access_result": "no data statement in preprint", "open": false}
+  ],
+  "code_licenses": [
+    {"repo": "AlexDR1998/NCA", "license": null, "action": "do not copy"},
+    {"repo": "mspitzna/NCAtorch", "license": "MIT"},
+    {"repo": "google-research/self-organising-systems", "license": "Apache-2.0 (repo level)"},
+    {"repo": "zwicker-group/py-pde", "license": "MIT"},
+    {"repo": "kinnala/scikit-fem", "license": "BSD-3-Clause"},
+    {"repo": "usnistgov/fipy", "license": "NOASSERTION per GitHub API", "action": "check before use"},
+    {"repo": "Smoldyn/Smoldyn", "license": "unchecked", "note": "guessed repo path returned Not Found"},
+    {"repo": "fractastical/morpholib", "license": "NOASSERTION", "action": "not used"}
+  ],
+  "delphi": {
+    "endpoint": "https://delphisci-mcp.fly.dev/mcp",
+    "server": "delphisci 0.2.0",
+    "protocol": "2025-03-26",
+    "tools_listed": ["delphi_overview", "delphi_search_claims", "delphi_get_claim", "delphi_rank_claims", "delphi_graph", "delphi_sparql"],
+    "tools_called": ["initialize", "tools/list", "delphi_search_claims", "delphi_get_claim"],
+    "source_used": "local",
+    "claims": [
+      {"iri": "https://w3id.org/delphi/resource/claim/turing-ddi", "change": "Lean target; mandatory D-ratio=1 negative control; damage/growth outside theorem scope so empirical only", "fields_read": ["proposedTest", "context", "skos:notation"], "assessments": []},
+      {"iri": "https://w3id.org/delphi/resource/claim/turing-wavelength", "change": "held-out D-rescale interventions with predicted lambda ~ sqrt(s), stratified by distance from onset, domain >= several wavelengths", "fields_read": ["proposedTest", "context", "skos:notation"], "assessments": []},
+      {"iri": "https://w3id.org/delphi/resource/claim/turing-morphogen-hypothesis", "change": "none beyond 'possible'; not testable here", "fields_read": ["statement", "math (search result)"]},
+      {"iri": "https://w3id.org/delphi/resource/claim/thompson1917-ch03-01", "change": "adds anisotropic domain growth as held-out geometry; marks benchmark chemistry-only", "fields_read": ["description", "context"]},
+      {"iri": "https://w3id.org/delphi/resource/claim/thompson1917-ch01-05", "change": "scope warning: no mechanics", "fields_read": ["description", "context"]},
+      {"iri": "https://w3id.org/delphi/resource/claim/wolfram2002-ch01-11", "change": "supplies the enumerate/random-search null baseline; claim has no proposed test or math", "fields_read": ["description", "context"]},
+      {"iri": "https://w3id.org/delphi/resource/claim/wolfram2002-ch01-13", "change": "none", "fields_read": ["description", "context"]},
+      {"iri": "https://w3id.org/delphi/resource/claim/darwin1859-ch05-08", "change": "none found for this design; not decorated", "fields_read": ["title only"]}
+    ],
+    "repository_code_copied": false
+  },
+  "ideas": [
+    {"id": "C1", "rank": 1, "title": "Cross-solver transfer-gap benchmark for realizable local rules (RuleCert-RD)", "measured_validation": "none for damage/geometry; realizability box needs sourced numbers", "evidence_confidence": "feasibility medium-high; novelty unknown (not found, not proven absent)", "status": "recommended", "gpu_role": "training of many small rules; one GPU sufficient; not 10", "cpu_role": "independent-solver evaluation, <=2 threads", "main_failure_modes": ["triviality (known numerical artifact)", "class B too narrow", "solvers disagree", "near-onset stratum too small", "no biology"]},
+    {"id": "C2", "rank": 2, "title": "Held-out Bicoid-dose prediction for local-rule classes (Liu/Dubuis, CC0)", "measured_validation": "yes, open, intervention-labelled (dose), static snapshots", "evidence_confidence": "feasibility medium; novelty low", "status": "bridge benchmark", "blocker": "files not yet downloaded or read"},
+    {"id": "C3", "rank": 3, "title": "Narrow compiler: spec to mass-action CRN with Turing-margin certificate and DNA-SD-compatible reaction list", "measured_validation": "only published DNA-SD parameters", "evidence_confidence": "feasibility medium; novelty low-medium", "status": "extension of C1"},
+    {"id": "C4", "rank": 4, "title": "Binary/logic-gate NCA to DNA tile set with independent tile simulator and Woods error-rate conditional bound", "measured_validation": "published error rates only", "evidence_confidence": "feasibility high; novelty low", "status": "optional, Lean-friendly"},
+    {"id": "C5", "rank": 5, "title": "Intervention-response audit of published NCA on Gray-Scott (lambda ~ sqrt(D), equal-D control)", "measured_validation": "none", "evidence_confidence": "feasibility high; novelty medium", "status": "H3 slice of C1"},
+    {"id": "C6", "rank": 6, "title": "Mass-conserving NCA vs measured Min geometry sensing", "measured_validation": "blocked: images on request", "evidence_confidence": "low", "status": "do not start in 24h; no data request without user instruction"}
+  ],
+  "lean_sketch": {
+    "compiled": false,
+    "statement_file": "docs/research/research-nca.md section 6",
+    "name": "ddi",
+    "scope": "linear instability of homogeneous steady state only; does not certify pattern formation, solver correctness, damage recovery or biology"
+  },
+  "search_log": {
+    "web_searches": 20,
+    "queries": [
+      "NCA inverse design reaction-diffusion mechanistic solver implementable local rules",
+      "Neural Developmental Programs 2025 (x3 variants)",
+      "Richardson NCA PLoS CB 2024",
+      "Differentiable Logic CA",
+      "inverse design Turing patterns differentiable RD realizable parameters",
+      "NCA mass conservation physical constraints",
+      "NCA gap gene FlyEx",
+      "Min in vitro data Zenodo",
+      "FlyEx data availability",
+      "DNA strand displacement reaction-diffusion Turing",
+      "Lean Mathlib Turing instability",
+      "NCA regeneration benchmark unseen damage",
+      "Hartl Levin NCA review",
+      "synthetic Turing circuit design E. coli",
+      "NCA real biological time-lapse data",
+      "self-repairing Turing patterns held-out geometry",
+      "Muller 2012 Nodal Lefty diffusion",
+      "Woods 2019 data availability"
+    ],
+    "failures": [
+      "arXiv PDFs 2507.12306 and 2604.24990 exceeded fetch 10 MB limit; downloaded to /tmp/nca-dl and converted with pdftotext",
+      "Dryad file downloads Unauthorized/403",
+      "PMC showed Cloudflare-style browser check once; r.jina.ai returned abstract only for Muller 2012",
+      "Springer redirected to idp.springer.com; used PMC copy instead",
+      "Guessed PMC3465640 was an unrelated article; discarded",
+      "FlyEx hosts: no response",
+      "Smoldyn repo path guess returned Not Found",
+      "No 2025/26 'Neural Developmental Programs' paper found"
+    ]
+  },
+  "not_read": ["ALDE (PMC11739421), governing prior art for query-to-certify; this note makes no query-to-certify novelty claim", "Valibeigi 2026 and Wendland 2026 cited in local living-nca.md", "arXiv 2508.08091, 2605.14998, 2605.13630, 2607.15726 (seen only as search hits)"],
+  "limitations": [
+    "No experiments or timings were run; compute allocation is a plan",
+    "WebFetch summaries are model-written",
+    "Short pdftotext/curl commands were not wrapped in systemd-run",
+    "Absence statements are search results, not proofs"
+  ]
+}
