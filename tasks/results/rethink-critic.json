@@ -1,6 +1,6 @@
 {
  "role": "critic",
- "status": "Scope Desk bench v1 frozen; existing exact oracle turing_scope.adapter audited by the critic on the Turing family (16/16 agree on Neumann/Dirichlet items); scopedesk/oracles (NCA) does not exist yet so the Scope Desk oracle layer is NOT audited; different-session audit of the generator/verifier still pending",
+ "status": "Scope Desk bench v1 frozen; audits done by the critic of (a) turing_scope.adapter (16/16) and (b) the NCA frozen solver layer rd.py (linear 237/237, spectral nonlinear 240/240, found Euler-FD verdict flips at gamma>=32); scopedesk/oracles wrapper (gate/repair/API) does not exist yet and is NOT audited; different-session audit of my generator/verifier still pending",
  "model": "claude-sonnet-5-5 (subscription; metered spend unknown, none inferred)",
  "wall_time_pdt": "2026-10-31 06:00-06:20",
  "artifacts": [
@@ -94,6 +94,11 @@
    "cmd": "systemd-run ... pytest tests/test_scopedesk_bench.py tests/test_rethink_wildcard.py",
    "exit": 0,
    "note": "10 passed"
+  },
+  {
+   "cmd": "systemd-run ... python3 -I scopedesk/bench/audit/audit_nca_solvers.py /data/worktrees/delphi-evolve/rethink-nca",
+   "exit": 0,
+   "note": "86.8 s"
   }
  ],
  "limitations": [
@@ -145,6 +150,19 @@
   "pending": [
    "audit of scopedesk/oracles/ (linear.check, pde.solve, repair, gate) once rethink-nca pushes it - rerun the same script against oracles.linear.check",
    "PDE/simulated stratum has no key items yet"
-  ]
+  ],
+  "nca_solver_layer": {
+   "audited": "experiments/rethink_nca/rd.py (rethink-nca worktree, commit 7ee95dc, read-only import): linear_sigma, spectral_strang, euler_fd",
+   "script": "scopedesk/bench/audit/audit_nca_solvers.py",
+   "output": "scopedesk/bench/audit/nca_solver_audit.json",
+   "key": "exact Fraction det(J-qD) over Neumann modes for the declared Schnakenberg model, 240 (gamma,d,r) cases (gamma 1/4..40, d 5..40, r 2..16)",
+   "results": {
+    "linear_sigma_vs_exact_key": "237/237 agree (3 marginal |sigma|<=1e-9 excluded)",
+    "spectral_strang_patterned_vs_exact_linear": "240/240 agree at tau=300 (no subcritical or slow-growth case in this grid)",
+    "euler_fd_vs_spectral_patterned": "231/240 agree"
+   },
+   "finding": "8 of the 9 Euler/spectral disagreements are gamma=32 or 40 with d=10 (all r): exact key and spectral say unstable/patterned, explicit-Euler finite-difference solver says not patterned (dx=pi/4 discretisation error flips the verdict); the 9th is an exact-marginal case (gamma=2,d=10,r=2, det=0). The FD design-time solver must not be used as an oracle at gamma>=32.",
+   "limits": "declared model only, T=300 tau, not a convergence study, grid of 240 cases"
+  }
  }
 }
