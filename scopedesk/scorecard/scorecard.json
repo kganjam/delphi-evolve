@@ -3,17 +3,16 @@
  "n_claims": 21,
  "domains": "18 population-genetics + 3 Turing math-domain Delphi records (Thompson's 71 math-bearing records are NOT included)",
  "counts": {
-  "(a) CHECKED-SCOPE-FOUND": 5,
-  "(b) CHECKED-HOLDS-AS-DECLARED": 1,
-  "(c) FORMAL-NODE-ONLY": 1,
-  "(d) SELF-DECLARED NON-FORMAL / EMPIRICAL": 2,
-  "(e) NOT ATTEMPTED": 12
+  "BENCHMARK-LINKED": 6,
+  "RELATED FORMAL LEMMA, TARGET NOT ESTABLISHED": 1,
+  "EMPIRICAL / FRAMEWORK": 2,
+  "NO CHECK IN THIS SCORECARD": 12
  },
  "evidence_paths_missing_in_checkout": [],
  "global_limits": [
   "Source-correspondence of each record to the original paper is NOT reviewed.",
   "Statuses and 'does not establish' text are the critic's single-reader judgement (not computed).",
-  "Codex has not approved this scorecard; 'Codex-reviewed' refers to the cited artifacts only.",
+  "Codex reviewed v0 (planning/rethink/CODEX-SCORECARD-V0-REVIEW.md @ 4fe9fb7, non-blinded): 21 hashes and 84 copied fields pass; it approves the CORRECTED descriptions in this version, not the original category labels or an aggregate biological success rate.",
   "All checks are of DECLARED models (bench conventions, Lean statements); nothing here validates any biological claim; the host's B0-B3 buckets are not used.",
   "Delphi LLM assessments are not used as evidence (0 assessments present in these records)."
  ],
@@ -31,7 +30,9 @@
    "seeAlso": "https://doi.org/10.1016/0001-8708(78)90130-5",
    "math_point7_skos_notation": "u_t = D u_{xx} + s u(1-u); travelling waves u(x-ct) exist iff c \\ge c^* = 2\\sqrt{sD}; compactly supported initial data spread at asymptotic speed c^*",
    "record_context": "Assumptions: one spatial dimension (extended to R^n), constant diffusion D, logistic (genic) selection with coefficient s, deterministic large-population limit. Formal status: proved; Kolmogorov, Petrovsky and Piskunov (1937) gave the proof independently, and Aronson and Weinberger (1978) proved the asymptotic spreading speed in several dimensions. Finite populations, Allee effects or long-tailed dispersal change the speed.",
-   "status": "(a) CHECKED-SCOPE-FOUND",
+   "status": "BENCHMARK-LINKED",
+   "check_kind": "scope stress test with specified alternative kinetics",
+   "legacy_status_v0": "(a) CHECKED-SCOPE-FOUND [director taxonomy; Codex: overclaims]",
    "status_code": "a",
    "evidence": [
     {
@@ -47,9 +48,9 @@
      }
     }
    ],
-   "scope_finding": "The speed 2*sqrt(sD) is the pulled-front speed for KPP growth; for a strong-Allee (bistable) term the front is pushed and slower, and for u(1-u)(1+alpha u) it holds iff alpha<=2 (Hadeler-Rothe); the exact-KPP inequality f(u)<=f'(0)u fails for 1<alpha<=2 although the speed still holds (benign items).",
-   "does_not_establish": "Declared reaction terms on the line with wide initial data; the minimal-speed theorem was cited (Crooks-Grinfeld 2020), not reproved; PDE speeds are finite-time estimates.",
-   "codex_reviewed": "Bench rows: yes (Codex (different model family) recomputed all bench keys with its own code, non-blinded (planning/rethink/CODEX-BENCH-V1-1-REVIEW.md @ d23663a; frozen-127 metadata check @ 6c96810, work/codex-api); KPP checked by exact front-profile residuals). Status wording: no.",
+   "scope_finding": "The record specifies logistic growth and says Allee effects change the speed; the bench compares it with alternative reaction terms (strong Allee; u(1-u)(1+alpha u), where 2*sqrt(sD) holds iff alpha<=2). These are out-of-model comparisons, not a missing condition and not an erroneous theorem.",
+   "does_not_establish": "Declared reaction terms on the line with wide initial data; exact travelling-profile residuals and PDE speeds do not prove minimal-speed selection or a PDE existence theorem (cited, not reproved).",
+   "codex_reviewed": "Codex v0 review (planning/rethink/CODEX-SCORECARD-V0-REVIEW.md @ 4fe9fb7, non-blinded): record transcription (hash + copied fields) passes; corrected description below is the one Codex approved. Bench rows: Codex (different model family) recomputed all bench keys with its own code, non-blinded (planning/rethink/CODEX-BENCH-V1-1-REVIEW.md @ d23663a; frozen-127 metadata check @ 6c96810, work/codex-api)",
    "assessments_in_record": 0
   },
   {
@@ -68,7 +69,9 @@
    ],
    "math_point7_skos_notation": "\\Delta \\bar{p} > 0 \\iff r b - c > 0, with r, b, c defined as regression coefficients (Queller form via the Price equation)",
    "record_context": "Assumptions: in Hamilton's original derivation, additive fitness effects and weak selection; in the general form, b and c are partial regressions of fitness on the actor's and the partner's genotype. Formal status: proved; exact in the regression form (Gardner, West and Wild 2011). Critics argue that the general form is close to an identity with little predictive content (Nowak, Tarnita and Wilson 2010).",
-   "status": "(a) CHECKED-SCOPE-FOUND",
+   "status": "BENCHMARK-LINKED",
+   "check_kind": "regression-versus-additive-coefficient distinction checked",
+   "legacy_status_v0": "(a) CHECKED-SCOPE-FOUND [director taxonomy; Codex: overclaims]",
    "status_code": "a",
    "evidence": [
     {
@@ -88,9 +91,9 @@
      "path_check": "other branch/repo (not checked here)"
     }
    ],
-   "scope_finding": "The sign of rb-c equals the sign of the selection covariance exactly when w is exactly linear in own and partner genotype with an orthogonal residual (regression form, which the record's context names); with an interaction (synergy) term and the additive b,c the rule can have the wrong sign (bench witnesses). The record states both readings, so this is an ambiguity the textbook form hides, not a fault in the record.",
-   "does_not_establish": "Haploid pairing model with Malthusian payoffs and a stated pairing kernel; the one-way/algebraic statement only; no claim about real populations or about the generality debate (Nowak et al. 2010 vs Gardner et al. 2011). Price/Queller algebra duplicates existing formalization (atlas-lean Selection.lean has Price); our Queller-form corollary was not found there (code search, not exhaustive).",
-   "codex_reviewed": "Bench rows: yes (Codex (different model family) recomputed all bench keys with its own code, non-blinded (planning/rethink/CODEX-BENCH-V1-1-REVIEW.md @ d23663a; frozen-127 metadata check @ 6c96810, work/codex-api)). Lean node: lean_price reviewed by the critic only; Codex's separate price_probe is its own work. Status wording: no.",
+   "scope_finding": "The record defines b, c, r as REGRESSION coefficients and distinguishes this from the original additive assumptions. Our compiled corollary: sign(Cov(w,z)) = sign(r*b - c) under exact linearity in own and partner genotype with an orthogonal residual. A synergy witness with FIXED ADDITIVE payoff coefficients is not a counterexample to the regression identity; it illustrates why the additive reading differs.",
+   "does_not_establish": "No defect in this record and no complete empirical test. The corollary is conditional (sufficient covariance/orthogonality conditions; sign agreement can also occur outside them, so 'exactly when' was overstated in v0). Haploid pairing model with a stated kernel. Price/Queller algebra duplicates existing formalization in part (atlas-lean has Price).",
+   "codex_reviewed": "Codex v0 review (planning/rethink/CODEX-SCORECARD-V0-REVIEW.md @ 4fe9fb7, non-blinded): record transcription (hash + copied fields) passes; corrected description below is the one Codex approved. Bench rows: Codex (different model family) recomputed all bench keys with its own code, non-blinded (planning/rethink/CODEX-BENCH-V1-1-REVIEW.md @ d23663a; frozen-127 metadata check @ 6c96810, work/codex-api)",
    "assessments_in_record": 0
   },
   {
@@ -106,7 +109,9 @@
    "seeAlso": null,
    "math_point7_skos_notation": "u(p) = \\frac{1-e^{-4N_e s p}}{1-e^{-4N_e s}}; neutral limit u(p) = p, so a new mutant fixes with probability 1/(2N)",
    "record_context": "Assumptions: diffusion approximation to the Wright-Fisher model, genic (additive) selection with coefficient s, constant effective size N_e, no linkage to other selected sites. Formal status: proved within the diffusion limit.",
-   "status": "(a) CHECKED-SCOPE-FOUND",
+   "status": "BENCHMARK-LINKED",
+   "check_kind": "approximation/regime check with explicit ploidy and parameter mapping",
+   "legacy_status_v0": "(a) CHECKED-SCOPE-FOUND [director taxonomy; Codex: overclaims]",
    "status_code": "a",
    "evidence": [
     {
@@ -122,9 +127,9 @@
      }
     }
    ],
-   "scope_finding": "The record's diffusion formula and its neutral limit 1/N are approximations: within a 10% criterion against the exact haploid Wright-Fisher one-copy fixation probability, the neutral value fails when Ns is not small and the diffusion formula fails at small N with large s (bench witnesses).",
-   "does_not_establish": "Haploid WF chain with binomial sampling after selection (the record concerns the diploid diffusion setting); 10% is a declared tolerance. facebookresearch/atlas-lean (MathlibExt/Biology/PopulationGenetics/Diffusion/KimuraFixationProcess.lean) formalizes related Kimura material; we did not compare statements.",
-   "codex_reviewed": "Bench rows: yes (Codex (different model family) recomputed all bench keys with its own code, non-blinded (planning/rethink/CODEX-BENCH-V1-1-REVIEW.md @ d23663a; frozen-127 metadata check @ 6c96810, work/codex-api)). Status wording: no.",
+   "scope_finding": "The record states a diffusion approximation (diploid convention). The bench uses a finite HAPLOID Wright-Fisher chain: in a neutral finite chain eventual fixation equals initial frequency EXACTLY (1/N for one copy of N haploid copies; 1/(2N) for N diploid individuals); using that neutral value under nonzero selection is an approximation, and the diffusion formula can be off at small N and large s (bench witnesses, 10% tolerance).",
+   "does_not_establish": "The 10% tolerance is a benchmark choice, not a universal validity boundary; ploidy mapping between the chain and the record is not validated; atlas-lean (MathlibExt/Biology/PopulationGenetics/Diffusion/KimuraFixationProcess.lean) formalizes related material that we did not compare.",
+   "codex_reviewed": "Codex v0 review (planning/rethink/CODEX-SCORECARD-V0-REVIEW.md @ 4fe9fb7, non-blinded): record transcription (hash + copied fields) passes; corrected description below is the one Codex approved. Bench rows: Codex (different model family) recomputed all bench keys with its own code, non-blinded (planning/rethink/CODEX-BENCH-V1-1-REVIEW.md @ d23663a; frozen-127 metadata check @ 6c96810, work/codex-api)",
    "assessments_in_record": 0
   },
   {
@@ -140,7 +145,9 @@
    "seeAlso": "https://doi.org/10.1103/PhysRevLett.64.2953",
    "math_point7_skos_notation": "u_t = f(u,v) + D_u \\nabla^2 u, v_t = g(u,v) + D_v \\nabla^2 v; with tr J < 0 and det J > 0, instability at some wavenumber k iff D_v f_u + D_u g_v > 2\\sqrt{D_u D_v \\det J}, which requires D_u \\ne D_v",
    "record_context": "Assumptions: two species, smooth kinetics, linearization about a homogeneous steady state, fixed domain without growth or mechanics. Formal status: the linear instability conditions are proved; existence and stability of nonlinear patterns are proved for many specific models but not in general.",
-   "status": "(a) CHECKED-SCOPE-FOUND",
+   "status": "BENCHMARK-LINKED",
+   "check_kind": "additional domain/spectrum condition made explicit",
+   "legacy_status_v0": "(a) CHECKED-SCOPE-FOUND [director taxonomy; Codex: overclaims]",
    "status_code": "a",
    "evidence": [
     {
@@ -150,7 +157,7 @@
      }
     },
     {
-     "evidence": "turing_scope/examples/short_L_pi.json (J=[[1,-2],[2,-3]], Du=1, Dv=10: continuum band 1/5<q<1/2 non-empty, no admissible Neumann mode at L=pi; mode appears at L=2pi)",
+     "evidence": "turing_scope/examples/short_L_pi.json (J=[[1,-2],[2,-3]], Du=1, Dv=10: continuum band 1/5<q<1/2 non-empty, no admissible Neumann mode at L=pi; a mode appears at L=2pi)",
      "path_check": {
       "turing_scope/examples/short_L_pi.json": true
      }
@@ -168,9 +175,9 @@
      }
     }
    ],
-   "scope_finding": "The record's textbook inequality is a continuum statement; on a finite domain with a stated boundary type only the admissible modes count, so a system can satisfy the inequality and have no growing mode (witness above), and mode sets differ between Neumann, Dirichlet and periodic boundaries and between 1-D and 2-D domains (bench witnesses).",
-   "does_not_establish": "Linear stability of a DECLARED two-species Jacobian only; no nonlinear pattern, no biology, no PDE theorem (Lean covers the integer algebra, not the equivalence with the PDE). Finite-domain mode quantisation is classical (textbook-derivable), so this is not a discovery. The record's own text names no boundary condition or domain shape (those are additions listed by the oracle's gate).",
-   "codex_reviewed": "Bench rows: yes (Codex (different model family) recomputed all bench keys with its own code, non-blinded (planning/rethink/CODEX-BENCH-V1-1-REVIEW.md @ d23663a; frozen-127 metadata check @ 6c96810, work/codex-api)). Status wording: no. Turing scorecard fidelity: CODEX-SCORECARD-REVIEW.md (work/codex-api) is a separate review.",
+   "scope_finding": "The record gives a continuum instability criterion on a fixed domain without specifying the admissible spectrum; the witness shows that the determinant at an ACTUAL admissible mode is the right target, and that mode sets differ between Neumann, Dirichlet and periodic boundaries and between 1-D and 2-D domains.",
+   "does_not_establish": "Linear stability of a DECLARED two-species Jacobian only; no full PDE theorem, no nonlinear-pattern conclusion, no biology, no historical novelty (finite-domain mode quantisation is classical).",
+   "codex_reviewed": "Codex v0 review (planning/rethink/CODEX-SCORECARD-V0-REVIEW.md @ 4fe9fb7, non-blinded): record transcription (hash + copied fields) passes; corrected description below is the one Codex approved. Bench rows: Codex (different model family) recomputed all bench keys with its own code, non-blinded (planning/rethink/CODEX-BENCH-V1-1-REVIEW.md @ d23663a; frozen-127 metadata check @ 6c96810, work/codex-api)",
    "assessments_in_record": 0
   },
   {
@@ -189,7 +196,9 @@
    ],
    "math_point7_skos_notation": "at onset k_c^2 = \\sqrt{\\det J/(D_u D_v)}, \\lambda_c = 2\\pi/k_c; under uniform rescaling of D, \\lambda \\propto \\sqrt{D}",
    "record_context": "Assumptions: near onset of instability, two species, domain large compared with the wavelength. Formal status: proved by linear analysis. Away from onset, the selected wavelength depends on nonlinear terms and history.",
-   "status": "(a) CHECKED-SCOPE-FOUND",
+   "status": "BENCHMARK-LINKED",
+   "check_kind": "declared scope operationalized in a benchmark",
+   "legacy_status_v0": "(a) CHECKED-SCOPE-FOUND [director taxonomy; Codex: overclaims]",
    "status_code": "a",
    "evidence": [
     {
@@ -199,16 +208,15 @@
      }
     },
     {
-     "evidence": "scopedesk/oracles gate.wavelength_licence audit: scopedesk/bench/audit/oracle_layer_audit_v1_2.json",
+     "evidence": "scopedesk/bench/audit/oracle_layer_audit_v1_2.json (gate.wavelength_licence)",
      "path_check": {
-      "scopedesk/": true,
       "scopedesk/bench/audit/oracle_layer_audit_v1_2.json": true
      }
     }
    ],
-   "scope_finding": "lambda_c = 2*pi/k_c is not the wavelength of the fastest-growing ADMISSIBLE mode on a finite domain: the bench items show cases where the two differ by more than 10% (near-onset and large-domain conditions in the record are qualitative; the 10% tolerance is the benchmark's declared operationalisation).",
-   "does_not_establish": "Linear fastest-growing mode only (no nonlinear selection, which the NCA study found to differ from the linear prediction in many cases); the 10% threshold and the 'fastest-growing = largest real part' convention are ours; five boundary/length-notation wording issues are disclosed in FROZEN.md.",
-   "codex_reviewed": "Bench rows: yes (Codex (different model family) recomputed all bench keys with its own code, non-blinded (planning/rethink/CODEX-BENCH-V1-1-REVIEW.md @ d23663a; frozen-127 metadata check @ 6c96810, work/codex-api)). Status wording: no.",
+   "scope_finding": "The record's context already states near onset and large domain; the benchmark operationalizes them by comparing lambda_c with the fastest ADMISSIBLE finite-domain linear mode at a 10% tolerance. This does not discover that conditions were omitted.",
+   "does_not_establish": "Keeps three things distinct: the onset formula, the linear fastest mode, and a nonlinear selected pattern (the NCA study found the latter often differs from the linear prediction). The 10% tolerance and the 'largest real part' convention are ours.",
+   "codex_reviewed": "Codex v0 review (planning/rethink/CODEX-SCORECARD-V0-REVIEW.md @ 4fe9fb7, non-blinded): record transcription (hash + copied fields) passes; corrected description below is the one Codex approved. Bench rows: Codex (different model family) recomputed all bench keys with its own code, non-blinded (planning/rethink/CODEX-BENCH-V1-1-REVIEW.md @ d23663a; frozen-127 metadata check @ 6c96810, work/codex-api)",
    "assessments_in_record": 0
   },
   {
@@ -224,7 +232,9 @@
    "seeAlso": "https://doi.org/10.1038/246015a0",
    "math_point7_skos_notation": "payoffs E(H,H) = (V-C)/2, E(H,D) = V, E(D,H) = 0, E(D,D) = V/2; for C > V the unique ESS plays Hawk with probability p^* = V/C",
    "record_context": "Assumptions: symmetric pairwise contests, fixed V and C, no role asymmetries (asymmetries such as ownership give the Bourgeois ESS instead). Formal status: proved within the game.",
-   "status": "(b) CHECKED-HOLDS-AS-DECLARED",
+   "status": "BENCHMARK-LINKED",
+   "check_kind": "declared game checked on the tested cases",
+   "legacy_status_v0": "(b) CHECKED-HOLDS-AS-DECLARED",
    "status_code": "b",
    "evidence": [
     {
@@ -241,8 +251,8 @@
     }
    ],
    "scope_finding": null,
-   "does_not_establish": "Exact check (E(p*,q)-E(q,q)=(C/2)(p*-q)^2>0) that for C>V the mixed strategy p*=V/C is an ESS and that for C<V p*>1 is not a probability (the record's own 'C > V' scope); the payoff matrix is the one stated in the convention text. Not established: anything beyond the symmetric two-strategy game, finite populations, or biology.",
-   "codex_reviewed": "Bench rows: yes (Codex (different model family) recomputed all bench keys with its own code, non-blinded (planning/rethink/CODEX-BENCH-V1-1-REVIEW.md @ d23663a; frozen-127 metadata check @ 6c96810, work/codex-api)). Status wording: no.",
+   "does_not_establish": "The matrix and C>V are in the record; the checked algebra (E(p*,q)-E(q,q)=(C/2)(p*-q)^2>0) concerns the symmetric two-strategy model, with the physical-payoff condition 0<V<C retained. Not validation in animal populations, finite populations or asymmetric contests.",
+   "codex_reviewed": "Codex v0 review (planning/rethink/CODEX-SCORECARD-V0-REVIEW.md @ 4fe9fb7, non-blinded): record transcription (hash + copied fields) passes; corrected description below is the one Codex approved. Bench rows: Codex (different model family) recomputed all bench keys with its own code, non-blinded (planning/rethink/CODEX-BENCH-V1-1-REVIEW.md @ d23663a; frozen-127 metadata check @ 6c96810, work/codex-api)",
    "assessments_in_record": 0
   },
   {
@@ -261,7 +271,9 @@
    ],
    "math_point7_skos_notation": "\\Delta_{NS}\\bar{w} = V_A(w)/\\bar{w} (discrete generations); \\left.\\frac{d\\bar{m}}{dt}\\right|_{NS} = V_A(m) for Malthusian fitness m",
    "record_context": "Assumptions: the 'partial change' holds average effects of alleles and the environment fixed (Price 1972, Ewens 1989); V_A is the additive genetic variance in fitness. Formal status: proved in this partial-change reading. Read as a claim about the total change in mean fitness it is false under dominance, epistasis, frequency dependence or a changing environment.",
-   "status": "(c) FORMAL-NODE-ONLY",
+   "status": "RELATED FORMAL LEMMA, TARGET NOT ESTABLISHED",
+   "check_kind": "related formal lemma; target not established",
+   "legacy_status_v0": "(c) FORMAL-NODE-ONLY [Codex: target not established]",
    "status_code": "c",
    "evidence": [
     {
@@ -271,7 +283,7 @@
      }
     },
     {
-     "evidence": "facebookresearch/atlas-lean MathlibExt/Biology/PopulationGenetics/Selection.lean (Price + Fisher FTNS in the exact haploid form) - existing work, not ours",
+     "evidence": "facebookresearch/atlas-lean MathlibExt/Biology/PopulationGenetics/Selection.lean (Price and a haploid total-variance selection identity; its docs exclude the diploid additive-genetic statement) - existing work, not ours",
      "path_check": "other branch/repo (not checked here)"
     },
     {
@@ -280,8 +292,8 @@
     }
    ],
    "scope_finding": null,
-   "does_not_establish": "Only the Price-identity algebra (selection term = covariance with fitness) is machine-checked, with standard axioms and two failing mutants. The record's statement is about ADDITIVE genetic variance and 'partial change'; that partition (and any diploid, multilocus or epistatic setting) is NOT formalized by us. Our Price node duplicates atlas-lean's. No scope-failure was exhibited by a bench family for this record.",
-   "codex_reviewed": "Price probe by Codex is separate; Codex's price-target review: planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md and price_probe README. Status wording: no.",
+   "does_not_establish": "A Price identity and a total-fitness-variance selection identity do NOT establish additive genetic variance or Fisher's partial-change target; the record already states those qualifications. Do not count this as a successful theorem or a faithful target attempt without a target/run receipt; the genetic projection and fixed-average-effect semantics must be frozen before any prover run.",
+   "codex_reviewed": "Codex v0 review: target not established; related formal artifact available (CODEX-SCORECARD-V0-REVIEW.md @ 4fe9fb7). Transcription passes.",
    "assessments_in_record": 0
   },
   {
@@ -301,19 +313,21 @@
    ],
    "math_point7_skos_notation": "empirical claim: for most sites |N_e s| \\lesssim 1, so the fraction of substitutions driven by positive selection \\alpha is small; tested with d_N/d_S and McDonald-Kreitman \\alpha = 1 - \\frac{D_s P_n}{D_n P_s}",
    "record_context": "Formal status: not a mathematical statement; an empirical claim about the distribution of fitness effects. King and Jukes (1969) proposed it independently. Genomic estimates of alpha and pervasive linked selection are cited against its strong form (Kern and Hahn 2018).",
-   "status": "(d) SELF-DECLARED NON-FORMAL / EMPIRICAL",
+   "status": "EMPIRICAL / FRAMEWORK",
+   "check_kind": "empirical claim",
+   "legacy_status_v0": "(d) SELF-DECLARED NON-FORMAL / EMPIRICAL",
    "status_code": "d",
    "evidence": [
     {
-     "evidence": "records/kimura-neutral-theory.json (delphi:hypothesisType empirical-law; context: 'not a mathematical statement; an empirical claim')",
+     "evidence": "records/kimura-neutral-theory.json (delphi:hypothesisType empirical-law; context: 'not a mathematical statement; an empirical claim'; record gives the McDonald-Kreitman estimator)",
      "path_check": {
       "records/kimura-neutral-theory.json": true
      }
     }
    ],
    "scope_finding": null,
-   "does_not_establish": "Nothing is checked; the record declares an empirical claim tested with dN/dS.",
-   "codex_reviewed": "no",
+   "does_not_establish": "An empirical claim about the world can have formalizable estimators, so it is NOT 'not formalizable'; but a model proof alone cannot settle it. It needs a specified population, estimator, denominator conditions and data.",
+   "codex_reviewed": "Codex v0 review: agrees (CODEX-SCORECARD-V0-REVIEW.md @ 4fe9fb7). Transcription passes.",
    "assessments_in_record": 0
   },
   {
@@ -332,7 +346,9 @@
    ],
    "math_point7_skos_notation": "no canonical formalization: the claim asserts that a biological pattern is generated by a system of the form u_t = F(u) + D\\nabla^2 u with D not proportional to the identity",
    "record_context": "Formal status: a framework rather than a mathematical proposition. Kondo and Asai (1995) confirmed the predicted stripe-branching dynamics in Pomacanthus and Castets et al. (1990) produced Turing patterns chemically. Mechanical buckling, prepatterns and cell-cell signalling can produce the same patterns, so a matching pattern alone does not identify the mechanism.",
-   "status": "(d) SELF-DECLARED NON-FORMAL / EMPIRICAL",
+   "status": "EMPIRICAL / FRAMEWORK",
+   "check_kind": "framework",
+   "legacy_status_v0": "(d) SELF-DECLARED NON-FORMAL / EMPIRICAL",
    "status_code": "d",
    "evidence": [
     {
@@ -343,8 +359,8 @@
     }
    ],
    "scope_finding": null,
-   "does_not_establish": "Nothing is checked. The record declares itself a framework with no canonical formalisation.",
-   "codex_reviewed": "no",
+   "does_not_establish": "No single theorem target is specified in this record (that is not a proof that it cannot be formalized). It would have to be narrowed to an identified biological system and discriminating measurements.",
+   "codex_reviewed": "Codex v0 review: agrees (framework; no single theorem target). Transcription passes.",
    "assessments_in_record": 0
   },
   {
@@ -360,11 +376,13 @@
    "seeAlso": "https://doi.org/10.1016/j.tpb.2017.06.001",
    "math_point7_skos_notation": "Cov(z_i, z_j) = 2\\Theta_{ij} V_A + \\Delta_{ij} V_D; in the limit of M \\to \\infty loci the offspring trait given parents is Gaussian with mean (z_1+z_2)/2 and segregation variance V_0(1-\\bar{F}), with error O(1/\\sqrt{M}) (Barton, Etheridge and Veber 2017)",
    "record_context": "Assumptions: many unlinked loci of small additive effect, random mating, environmental effects independent of genotype. Formal status: the covariance decomposition is proved; the infinitesimal limit, including under selection, is proved by Barton, Etheridge and Veber (2017). Large-effect loci and epistasis break the Gaussian limit.",
-   "status": "(e) NOT ATTEMPTED",
+   "status": "NO CHECK IN THIS SCORECARD",
+   "check_kind": "",
+   "legacy_status_v0": "(e) NOT ATTEMPTED",
    "status_code": "e",
    "evidence": [],
    "scope_finding": null,
-   "does_not_establish": "no bench family, oracle or Lean node attempted",
+   "does_not_establish": "no check recorded in this scorecard",
    "codex_reviewed": "no",
    "assessments_in_record": 0
   },
@@ -381,7 +399,9 @@
    "seeAlso": "https://doi.org/10.1086/281794",
    "math_point7_skos_notation": "ESS allocation: N_m c_m = N_f c_f; with c_m = c_f the unbeatable primary sex ratio is 1:1",
    "record_context": "Assumptions: panmixia, autosomal control of the sex ratio, each offspring has one father and one mother, no local mate competition or sex-specific resource competition. Formal status: proved as an invasion (ESS) result (Shaw and Mohler 1953). Its own named exceptions (local mate competition, Hamilton 1967) are predicted deviations, not refutations.",
-   "status": "(e) NOT ATTEMPTED",
+   "status": "NO CHECK IN THIS SCORECARD",
+   "check_kind": "",
+   "legacy_status_v0": "(e) NOT ATTEMPTED",
    "status_code": "e",
    "evidence": [],
    "scope_finding": null,
@@ -405,7 +425,9 @@
    ],
    "math_point7_skos_notation": "with a singly mated queen, r_{sister,sister} = 3/4 > r_{mother,daughter} = 1/2, but r_{sister,brother} = 1/4",
    "record_context": "Formal status: the relatedness coefficients are proved. The explanatory claim is largely abandoned: the low sister-brother relatedness offsets the gain unless the sex ratio is biased, diploid termites are eusocial, and comparative work points to ancestral monogamy instead (Hughes et al. 2008).",
-   "status": "(e) NOT ATTEMPTED",
+   "status": "NO CHECK IN THIS SCORECARD",
+   "check_kind": "",
+   "legacy_status_v0": "(e) NOT ATTEMPTED",
    "status_code": "e",
    "evidence": [],
    "scope_finding": null,
@@ -426,7 +448,9 @@
    "seeAlso": "https://doi.org/10.1126/science.208.4448.1157",
    "math_point7_skos_notation": "unbeatable proportion of males x^* = \\frac{n-1}{2n} for n foundresses per patch (diploid case)",
    "record_context": "Assumptions: n foundresses per patch, mating confined to the natal patch, only females disperse, mothers control the sex ratio. Formal status: proved as an ESS within the model. Haplodiploidy and inbreeding shift x* slightly.",
-   "status": "(e) NOT ATTEMPTED",
+   "status": "NO CHECK IN THIS SCORECARD",
+   "check_kind": "",
+   "legacy_status_v0": "(e) NOT ATTEMPTED",
    "status_code": "e",
    "evidence": [],
    "scope_finding": null,
@@ -447,7 +471,9 @@
    "seeAlso": "https://doi.org/10.1038/nature12789",
    "math_point7_skos_notation": "s(a) = \\frac{\\partial r}{\\partial \\ln p_a} = \\frac{1}{T}\\sum_{x=a+1}^{\\infty} e^{-rx} l_x m_x, non-increasing in a",
    "record_context": "Assumptions: an age-structured population with fixed age-specific fertility and no growth or repair after maturity. Formal status: the formula for s(a) is proved. The inevitability claim is refuted as stated: Jones et al. (2013) found species with flat or declining mortality with age, consistent with life histories where fertility rises with size.",
-   "status": "(e) NOT ATTEMPTED",
+   "status": "NO CHECK IN THIS SCORECARD",
+   "check_kind": "",
+   "legacy_status_v0": "(e) NOT ATTEMPTED",
    "status_code": "e",
    "evidence": [],
    "scope_finding": null,
@@ -468,7 +494,9 @@
    "seeAlso": null,
    "math_point7_skos_notation": "\\bar{t}_1(p) = -\\frac{4N_e(1-p)\\ln(1-p)}{p}; as p = 1/(2N) \\to 0, \\bar{t}_1 \\to 4N_e generations",
    "record_context": "Assumptions: diffusion approximation to the Wright-Fisher model, neutrality, constant N_e. Formal status: proved within the diffusion limit (Kimura and Ohta 1969).",
-   "status": "(e) NOT ATTEMPTED",
+   "status": "NO CHECK IN THIS SCORECARD",
+   "check_kind": "",
+   "legacy_status_v0": "(e) NOT ATTEMPTED",
    "status_code": "e",
    "evidence": [],
    "scope_finding": null,
@@ -489,7 +517,9 @@
    "seeAlso": "https://doi.org/10.1371/journal.pbio.1001388",
    "math_point7_skos_notation": "H = \\frac{\\theta}{1+\\theta}, \\theta = 4N_e\\mu (infinite-alleles model)",
    "record_context": "Assumptions: infinite-alleles mutation, neutrality, constant N_e, equilibrium. Formal status: proved within the model. Observed diversity varies far less across species than census sizes predict (Lewontin's paradox; Leffler et al. 2012), which points to linked selection and demography.",
-   "status": "(e) NOT ATTEMPTED",
+   "status": "NO CHECK IN THIS SCORECARD",
+   "check_kind": "",
+   "legacy_status_v0": "(e) NOT ATTEMPTED",
    "status_code": "e",
    "evidence": [],
    "scope_finding": null,
@@ -510,7 +540,9 @@
    "seeAlso": "https://doi.org/10.1038/351652a0",
    "math_point7_skos_notation": "k = 2N\\mu \\cdot \\frac{1}{2N} = \\mu",
    "record_context": "Assumptions: strictly neutral mutations, mutation rate constant per generation, steady state. Formal status: an exact consequence of the neutral fixation probability. Variation in generation time and weak selection on nearly neutral sites cause departures from strict clock-like rates.",
-   "status": "(e) NOT ATTEMPTED",
+   "status": "NO CHECK IN THIS SCORECARD",
+   "check_kind": "",
+   "legacy_status_v0": "(e) NOT ATTEMPTED",
    "status_code": "e",
    "evidence": [],
    "scope_finding": null,
@@ -531,7 +563,9 @@
    "seeAlso": "https://doi.org/10.1016/0025-5564(78)90077-9",
    "math_point7_skos_notation": "I is an ESS iff for all J \\ne I: E(I,I) > E(J,I), or E(I,I) = E(J,I) and E(I,J) > E(J,J); every ESS is an asymptotically stable rest point of the replicator dynamics (Taylor and Jonker 1978), not conversely",
    "record_context": "Assumptions: an infinite, well-mixed population with pairwise interactions and asexual or clonal inheritance of strategies. Formal status: the definition is exact, and the link to replicator dynamics is proved. Finite populations, mutation and genetic constraints can stop an ESS from being reached.",
-   "status": "(e) NOT ATTEMPTED",
+   "status": "NO CHECK IN THIS SCORECARD",
+   "check_kind": "",
+   "legacy_status_v0": "(e) NOT ATTEMPTED",
    "status_code": "e",
    "evidence": [],
    "scope_finding": null,
@@ -552,7 +586,9 @@
    "seeAlso": "https://doi.org/10.1038/356519a0",
    "math_point7_skos_notation": "the relative heterozygosity H_{after}/H_{before} at a neutral site at recombination fraction c is an increasing function of c/s that tends to 0 as c/s \\to 0; the affected region has a width of order s in recombination units, up to logarithmic factors in N",
    "record_context": "Assumptions: a single sweep from a new mutation, deterministic allele-frequency trajectory, two loci. Formal status: proved under these approximations (later refined in coalescent treatments). Background selection produces a similar correlation between diversity and recombination.",
-   "status": "(e) NOT ATTEMPTED",
+   "status": "NO CHECK IN THIS SCORECARD",
+   "check_kind": "",
+   "legacy_status_v0": "(e) NOT ATTEMPTED",
    "status_code": "e",
    "evidence": [],
    "scope_finding": null,
@@ -573,7 +609,9 @@
    "seeAlso": null,
    "math_point7_skos_notation": "with equal fecundity and a 1:1 sex ratio, the odds of asexual to sexual females double each generation: \\frac{q_{t+1}}{1-q_{t+1}} = 2\\frac{q_t}{1-q_t}",
    "record_context": "Assumptions: anisogamy with males contributing no resources, equal fecundity and viability of sexual and asexual females, a 1:1 sex ratio. Formal status: proved as a population-dynamic identity under these assumptions. Its biological force depends on how often those assumptions hold.",
-   "status": "(e) NOT ATTEMPTED",
+   "status": "NO CHECK IN THIS SCORECARD",
+   "check_kind": "",
+   "legacy_status_v0": "(e) NOT ATTEMPTED",
    "status_code": "e",
    "evidence": [],
    "scope_finding": null,
@@ -594,7 +632,9 @@
    "seeAlso": "https://doi.org/10.1016/0022-5193(78)90304-1",
    "math_point7_skos_notation": "with cost linear in time at unit rate and resource value V, the ESS persistence time has density p(x) = \\frac{1}{V} e^{-x/V}",
    "record_context": "Assumptions: symmetric contests, cost linear in display time, no information about the opponent's choice. Formal status: proved (Maynard Smith 1974); existence and uniqueness in the generalized game proved by Bishop and Cannings (1978).",
-   "status": "(e) NOT ATTEMPTED",
+   "status": "NO CHECK IN THIS SCORECARD",
+   "check_kind": "",
+   "legacy_status_v0": "(e) NOT ATTEMPTED",
    "status_code": "e",
    "evidence": [],
    "scope_finding": null,
