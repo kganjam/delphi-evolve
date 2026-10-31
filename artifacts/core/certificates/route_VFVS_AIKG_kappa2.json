@@ -1,0 +1,126 @@
+{
+ "schema": "delphi-evolve/core-certificate/v1",
+ "kind": "route",
+ "label": "VFVS->AIKG shortest admissible route (full labels)",
+ "graph_scope": {
+  "name": "measured-subgraph-of-four-site-20^4-single-substitution",
+  "vertices": "the 159,129 non-stop genotypes with a measurement in summary_AA.csv",
+  "edges": "two genotypes differing at exactly one of the four positions",
+  "outside_scope": "871 unmeasured library genotypes and all stop-containing genotypes; a certificate says NOTHING about paths through them",
+  "not_claimed": "absence of a route here is not absence of an evolutionary route in biology or in full sequence space"
+ },
+ "dataset": {
+  "summary_AA_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82",
+  "manifest": "data/manifest.json",
+  "doi": "10.22002/h5rah-5z170",
+  "license": "CC0 1.0"
+ },
+ "interval_model": {
+  "rule": "lower=round(mean(r1,r2)*1e6)-eps, upper=round(mean(r1,r2)*1e6)+eps, eps=ceil(kappa*sd_bin/2*1e6); r_k = raw mu_k minus mean raw mu of stop-codon rows; all integers (1e-6 growth-rate units)",
+  "kappa": 2.0,
+  "sd_bin_edges_min_input_count": [
+   20,
+   50,
+   200
+  ],
+  "sd_bin_values": [
+   0.014953,
+   0.009995,
+   0.005851,
+   0.002992
+  ],
+  "units": "1e-6 growth-rate units, integers"
+ },
+ "edge_rule": "u->v admissible iff lower[v] >= upper[u]",
+ "start": "VFVS",
+ "target": "AIKG",
+ "assumptions": [
+  "A1 interval containment (ASSUMED, not proved): each genotype's true assay growth score lies in [lower, upper]",
+  "A2 kappa is an assumed sensitivity multiplier on replicate-difference SD/2 by read-count bin; it is NOT a confidence level and gives no coverage claim",
+  "A3 scores are cellular growth-selection proxies (E. coli Trp auxotrophy), not purified-enzyme kcat/KM",
+  "A4 graph scope is the measured subgraph only (see graph_scope)"
+ ],
+ "software": {
+  "python": "3.13.12",
+  "numpy": "2.4.4"
+ },
+ "route": [
+  "VFVS",
+  "VFMS",
+  "SFMS",
+  "SIMS",
+  "SIMG",
+  "SIKG",
+  "AIKG"
+ ],
+ "edges": [
+  {
+   "from": "VFVS",
+   "to": "VFMS",
+   "margin": 5201
+  },
+  {
+   "from": "VFMS",
+   "to": "SFMS",
+   "margin": 18604
+  },
+  {
+   "from": "SFMS",
+   "to": "SIMS",
+   "margin": 1339
+  },
+  {
+   "from": "SIMS",
+   "to": "SIMG",
+   "margin": 15728
+  },
+  {
+   "from": "SIMG",
+   "to": "SIKG",
+   "margin": 64410
+  },
+  {
+   "from": "SIKG",
+   "to": "AIKG",
+   "margin": 53388
+  }
+ ],
+ "nodes": {
+  "VFVS": {
+   "measured": true,
+   "lower": 141759,
+   "upper": 147743
+  },
+  "VFMS": {
+   "measured": true,
+   "lower": 152944,
+   "upper": 158928
+  },
+  "SFMS": {
+   "measured": true,
+   "lower": 177532,
+   "upper": 183516
+  },
+  "SIMS": {
+   "measured": true,
+   "lower": 184855,
+   "upper": 190839
+  },
+  "SIMG": {
+   "measured": true,
+   "lower": 206567,
+   "upper": 218269
+  },
+  "SIKG": {
+   "measured": true,
+   "lower": 282679,
+   "upper": 294381
+  },
+  "AIKG": {
+   "measured": true,
+   "lower": 347769,
+   "upper": 367759
+  }
+ },
+ "body_sha256": "7523e36108a982f44ce7d4ec68b33a828a83b332044e93075e6ac631579a5794"
+}

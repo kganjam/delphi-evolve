@@ -1,0 +1,193 @@
+a,b,family,budget,metric,mean_diff,seed_cluster_bootstrap_2.5,seed_cluster_bootstrap_97.5,episodes,a_better,b_better,tied
+directed,random,A,100,cert_rate_diff(a-b),0.2,0.0,0.5,10,2,0,8
+directed,random,A,100,rmst_assays_diff(a-b; negative=a better),-13.4,-33.5,0.0,10,2,0,8
+directed,random,A,250,cert_rate_diff(a-b),0.2,0.0,0.5,10,2,0,8
+directed,random,A,250,rmst_assays_diff(a-b; negative=a better),-53.5,-108.5,-10.1,10,3,0,7
+directed,random,A,500,cert_rate_diff(a-b),0.3,0.0,0.6,10,3,0,7
+directed,random,A,500,rmst_assays_diff(a-b; negative=a better),-86.3,-189.9,-5.7,10,5,0,5
+directed,random,A,1000,cert_rate_diff(a-b),0.4,0.1,0.7,10,4,0,6
+directed,random,A,1000,rmst_assays_diff(a-b; negative=a better),-276.4,-472.1,-101.0,10,6,0,4
+directed,random,B,100,cert_rate_diff(a-b),0.25,0.25,0.25,40,10,0,30
+directed,random,B,100,rmst_assays_diff(a-b; negative=a better),-16.5,-16.5,-16.5,40,10,0,30
+directed,random,B,250,cert_rate_diff(a-b),0.25,0.25,0.25,40,10,0,30
+directed,random,B,250,rmst_assays_diff(a-b; negative=a better),-54.0,-54.0,-54.0,40,10,0,30
+directed,random,B,500,cert_rate_diff(a-b),0.15,0.025,0.25,40,8,2,30
+directed,random,B,500,rmst_assays_diff(a-b; negative=a better),-106.85,-115.62249999999999,-93.35,40,10,2,28
+directed,random,B,1000,cert_rate_diff(a-b),-0.15,-0.275,-0.05,40,1,7,32
+directed,random,B,1000,rmst_assays_diff(a-b; negative=a better),-116.3,-189.35,-26.041874999999973,40,10,7,23
+directed,random,all,100,cert_rate_diff(a-b),0.24,0.2,0.30000000000000004,50,12,0,38
+directed,random,all,100,rmst_assays_diff(a-b; negative=a better),-15.88,-19.9,-13.2,50,12,0,38
+directed,random,all,250,cert_rate_diff(a-b),0.24,0.2,0.30000000000000004,50,12,0,38
+directed,random,all,250,rmst_assays_diff(a-b; negative=a better),-53.9,-64.9,-45.22,50,13,0,37
+directed,random,all,500,cert_rate_diff(a-b),0.18,0.08,0.26,50,11,2,37
+directed,random,all,500,rmst_assays_diff(a-b; negative=a better),-102.74,-128.04049999999998,-81.41749999999999,50,15,2,33
+directed,random,all,1000,cert_rate_diff(a-b),-0.04,-0.15999999999999998,0.06000000000000001,50,5,7,38
+directed,random,all,1000,rmst_assays_diff(a-b; negative=a better),-148.32,-220.3415,-61.399499999999996,50,16,7,27
+q2c,random,A,100,cert_rate_diff(a-b),0.7,0.4,1.0,10,7,0,3
+q2c,random,A,100,rmst_assays_diff(a-b; negative=a better),-51.2,-72.2,-28.6,10,7,0,3
+q2c,random,A,250,cert_rate_diff(a-b),0.6,0.3,0.9,10,6,0,4
+q2c,random,A,250,rmst_assays_diff(a-b; negative=a better),-155.8,-218.01,-88.0,10,7,0,3
+q2c,random,A,500,cert_rate_diff(a-b),0.5,0.2,0.8,10,5,0,5
+q2c,random,A,500,rmst_assays_diff(a-b; negative=a better),-286.8,-408.005,-157.39499999999998,10,7,0,3
+q2c,random,A,1000,cert_rate_diff(a-b),0.6,0.3,0.9,10,6,0,4
+q2c,random,A,1000,rmst_assays_diff(a-b; negative=a better),-566.5,-811.6075000000001,-303.085,10,8,0,2
+q2c,random,B,100,cert_rate_diff(a-b),0.275,0.05,0.525,40,11,0,29
+q2c,random,B,100,rmst_assays_diff(a-b; negative=a better),-20.075,-39.925,-2.625,40,11,0,29
+q2c,random,B,250,cert_rate_diff(a-b),0.8,0.675,0.9,40,32,0,8
+q2c,random,B,250,rmst_assays_diff(a-b; negative=a better),-100.45,-148.92875,-60.047499999999985,40,32,0,8
+q2c,random,B,500,cert_rate_diff(a-b),0.775,0.65,0.9,40,31,0,9
+q2c,random,B,500,rmst_assays_diff(a-b; negative=a better),-301.575,-359.4775,-248.796875,40,35,0,5
+q2c,random,B,1000,cert_rate_diff(a-b),0.6,0.475,0.725,40,24,0,16
+q2c,random,B,1000,rmst_assays_diff(a-b; negative=a better),-655.4,-735.0581249999999,-574.14875,40,40,0,0
+q2c,random,all,100,cert_rate_diff(a-b),0.36,0.18,0.56,50,18,0,32
+q2c,random,all,100,rmst_assays_diff(a-b; negative=a better),-26.3,-42.76050000000001,-11.939499999999999,50,18,0,32
+q2c,random,all,250,cert_rate_diff(a-b),0.76,0.6799999999999999,0.86,50,38,0,12
+q2c,random,all,250,rmst_assays_diff(a-b; negative=a better),-111.52,-149.841,-76.76,50,39,0,11
+q2c,random,all,500,cert_rate_diff(a-b),0.72,0.6399999999999999,0.8,50,36,0,14
+q2c,random,all,500,rmst_assays_diff(a-b; negative=a better),-298.62,-350.94149999999996,-250.22000000000003,50,42,0,8
+q2c,random,all,1000,cert_rate_diff(a-b),0.6,0.5000000000000001,0.7,50,30,0,20
+q2c,random,all,1000,rmst_assays_diff(a-b; negative=a better),-637.62,-700.3459999999999,-582.379,50,48,0,2
+q2c,directed,A,100,cert_rate_diff(a-b),0.5,0.2,0.8,10,5,0,5
+q2c,directed,A,100,rmst_assays_diff(a-b; negative=a better),-37.8,-56.1025,-18.7,10,7,0,3
+q2c,directed,A,250,cert_rate_diff(a-b),0.4,0.1,0.7,10,4,0,6
+q2c,directed,A,250,rmst_assays_diff(a-b; negative=a better),-102.3,-165.105,-40.58249999999994,10,7,0,3
+q2c,directed,A,500,cert_rate_diff(a-b),0.2,0.0,0.5,10,2,0,8
+q2c,directed,A,500,rmst_assays_diff(a-b; negative=a better),-200.5,-334.7025,-65.1,10,7,0,3
+q2c,directed,A,1000,cert_rate_diff(a-b),0.2,0.0,0.5,10,2,0,8
+q2c,directed,A,1000,rmst_assays_diff(a-b; negative=a better),-290.1,-487.5025,-114.7,10,8,0,2
+q2c,directed,B,100,cert_rate_diff(a-b),0.025,-0.2,0.275,40,7,6,27
+q2c,directed,B,100,rmst_assays_diff(a-b; negative=a better),-3.575,-24.6,13.875,40,10,7,23
+q2c,directed,B,250,cert_rate_diff(a-b),0.55,0.425,0.675,40,22,0,18
+q2c,directed,B,250,rmst_assays_diff(a-b; negative=a better),-46.45,-96.05125,-6.774374999999998,40,25,7,8
+q2c,directed,B,500,cert_rate_diff(a-b),0.625,0.55,0.7,40,25,0,15
+q2c,directed,B,500,rmst_assays_diff(a-b; negative=a better),-194.725,-257.300625,-137.69499999999996,40,28,7,5
+q2c,directed,B,1000,cert_rate_diff(a-b),0.75,0.75,0.75,40,30,0,10
+q2c,directed,B,1000,rmst_assays_diff(a-b; negative=a better),-539.1,-617.425,-464.89624999999995,40,33,7,0
+q2c,directed,all,100,cert_rate_diff(a-b),0.12,-0.08,0.34,50,12,6,32
+q2c,directed,all,100,rmst_assays_diff(a-b; negative=a better),-10.42,-27.401,4.02,50,17,7,26
+q2c,directed,all,250,cert_rate_diff(a-b),0.52,0.42000000000000004,0.6199999999999999,50,26,0,24
+q2c,directed,all,250,rmst_assays_diff(a-b; negative=a better),-57.62,-97.501,-21.69699999999999,50,32,7,11
+q2c,directed,all,500,cert_rate_diff(a-b),0.54,0.4600000000000001,0.62,50,27,0,23
+q2c,directed,all,500,rmst_assays_diff(a-b; negative=a better),-195.88,-251.70599999999996,-142.7335,50,35,7,8
+q2c,directed,all,1000,cert_rate_diff(a-b),0.64,0.5999999999999999,0.7,50,32,0,18
+q2c,directed,all,1000,rmst_assays_diff(a-b; negative=a better),-489.3,-569.3750000000001,-418.615,50,41,7,2
+collective_shared,directed,A,100,cert_rate_diff(a-b),0.5,0.2,0.8,10,5,0,5
+collective_shared,directed,A,100,rmst_assays_diff(a-b; negative=a better),-33.8,-49.8,-17.4,10,7,0,3
+collective_shared,directed,A,250,cert_rate_diff(a-b),0.4,0.1,0.7,10,4,0,6
+collective_shared,directed,A,250,rmst_assays_diff(a-b; negative=a better),-98.3,-158.1025,-40.6,10,7,0,3
+collective_shared,directed,A,500,cert_rate_diff(a-b),0.2,0.0,0.5,10,2,0,8
+collective_shared,directed,A,500,rmst_assays_diff(a-b; negative=a better),-196.5,-332.0,-66.9,10,7,0,3
+collective_shared,directed,A,1000,cert_rate_diff(a-b),0.2,0.0,0.5,10,2,0,8
+collective_shared,directed,A,1000,rmst_assays_diff(a-b; negative=a better),-288.1,-484.1125,-114.79499999999997,10,8,0,2
+collective_shared,directed,B,100,cert_rate_diff(a-b),0.1,-0.15,0.35,40,11,7,22
+collective_shared,directed,B,100,rmst_assays_diff(a-b; negative=a better),-0.05,-18.55125,14.55,40,13,7,20
+collective_shared,directed,B,250,cert_rate_diff(a-b),0.625,0.55,0.7,40,25,0,15
+collective_shared,directed,B,250,rmst_assays_diff(a-b; negative=a better),-61.85,-100.000625,-28.598749999999995,40,28,7,5
+collective_shared,directed,B,500,cert_rate_diff(a-b),0.675,0.6,0.75,40,27,0,13
+collective_shared,directed,B,500,rmst_assays_diff(a-b; negative=a better),-225.025,-274.528125,-177.69875,40,30,7,3
+collective_shared,directed,B,1000,cert_rate_diff(a-b),0.75,0.75,0.75,40,30,0,10
+collective_shared,directed,B,1000,rmst_assays_diff(a-b; negative=a better),-582.1,-641.125625,-522.920625,40,33,7,0
+collective_shared,directed,all,100,cert_rate_diff(a-b),0.18,-0.04,0.4,50,16,7,27
+collective_shared,directed,all,100,rmst_assays_diff(a-b; negative=a better),-6.8,-22.3,5.640500000000001,50,20,7,23
+collective_shared,directed,all,250,cert_rate_diff(a-b),0.58,0.5,0.6599999999999999,50,29,0,21
+collective_shared,directed,all,250,rmst_assays_diff(a-b; negative=a better),-69.14,-104.92449999999998,-34.4795,50,35,7,8
+collective_shared,directed,all,500,cert_rate_diff(a-b),0.58,0.5199999999999999,0.6399999999999999,50,29,0,21
+collective_shared,directed,all,500,rmst_assays_diff(a-b; negative=a better),-219.32,-271.26050000000004,-169.13899999999998,50,37,7,6
+collective_shared,directed,all,1000,cert_rate_diff(a-b),0.64,0.5999999999999999,0.7,50,32,0,18
+collective_shared,directed,all,1000,rmst_assays_diff(a-b; negative=a better),-523.3,-594.5245,-461.9184999999999,50,41,7,2
+collective_shared,q2c,A,100,cert_rate_diff(a-b),0.0,0.0,0.0,10,0,0,10
+collective_shared,q2c,A,100,rmst_assays_diff(a-b; negative=a better),4.0,-1.4,11.202500000000008,10,4,2,4
+collective_shared,q2c,A,250,cert_rate_diff(a-b),0.0,0.0,0.0,10,0,0,10
+collective_shared,q2c,A,250,rmst_assays_diff(a-b; negative=a better),4.0,-1.4,11.202500000000008,10,4,2,4
+collective_shared,q2c,A,500,cert_rate_diff(a-b),0.0,0.0,0.0,10,0,0,10
+collective_shared,q2c,A,500,rmst_assays_diff(a-b; negative=a better),4.0,-1.4,11.3,10,4,2,4
+collective_shared,q2c,A,1000,cert_rate_diff(a-b),0.0,0.0,0.0,10,0,0,10
+collective_shared,q2c,A,1000,rmst_assays_diff(a-b; negative=a better),2.0,-5.4,10.5,10,5,2,3
+collective_shared,q2c,B,100,cert_rate_diff(a-b),0.075,-0.025,0.2,40,4,1,35
+collective_shared,q2c,B,100,rmst_assays_diff(a-b; negative=a better),3.525,-1.375,9.901250000000005,40,7,7,26
+collective_shared,q2c,B,250,cert_rate_diff(a-b),0.075,0.0,0.15,40,3,0,37
+collective_shared,q2c,B,250,rmst_assays_diff(a-b; negative=a better),-15.4,-33.05,1.8006250000000024,40,20,13,7
+collective_shared,q2c,B,500,cert_rate_diff(a-b),0.05,0.0,0.125,40,2,0,38
+collective_shared,q2c,B,500,rmst_assays_diff(a-b; negative=a better),-30.3,-62.95125,-2.273124999999993,40,22,13,5
+collective_shared,q2c,B,1000,cert_rate_diff(a-b),0.0,0.0,0.0,40,0,0,40
+collective_shared,q2c,B,1000,rmst_assays_diff(a-b; negative=a better),-43.0,-100.75375,-0.07437499999999772,40,23,15,2
+collective_shared,q2c,all,100,cert_rate_diff(a-b),0.06,-0.020499999999999838,0.16,50,4,1,45
+collective_shared,q2c,all,100,rmst_assays_diff(a-b; negative=a better),3.62,-0.45999999999999996,8.880500000000003,50,11,9,30
+collective_shared,q2c,all,250,cert_rate_diff(a-b),0.06,0.0,0.12,50,3,0,47
+collective_shared,q2c,all,250,rmst_assays_diff(a-b; negative=a better),-11.52,-25.681,1.6005000000000018,50,24,15,11
+collective_shared,q2c,all,500,cert_rate_diff(a-b),0.04,0.0,0.1,50,2,0,48
+collective_shared,q2c,all,500,rmst_assays_diff(a-b; negative=a better),-23.44,-50.56,-1.459499999999998,50,26,15,9
+collective_shared,q2c,all,1000,cert_rate_diff(a-b),0.0,0.0,0.0,50,0,0,50
+collective_shared,q2c,all,1000,rmst_assays_diff(a-b; negative=a better),-34.0,-79.6625,1.1015000000000057,50,28,17,5
+collective_shared,collective_isolated,A,100,cert_rate_diff(a-b),0.0,0.0,0.0,10,0,0,10
+collective_shared,collective_isolated,A,100,rmst_assays_diff(a-b; negative=a better),-10.5,-21.902499999999996,0.7,10,6,1,3
+collective_shared,collective_isolated,A,250,cert_rate_diff(a-b),0.0,0.0,0.0,10,0,0,10
+collective_shared,collective_isolated,A,250,rmst_assays_diff(a-b; negative=a better),-10.5,-22.4,0.3,10,6,1,3
+collective_shared,collective_isolated,A,500,cert_rate_diff(a-b),0.0,0.0,0.0,10,0,0,10
+collective_shared,collective_isolated,A,500,rmst_assays_diff(a-b; negative=a better),-10.5,-22.1,-0.2,10,6,1,3
+collective_shared,collective_isolated,A,1000,cert_rate_diff(a-b),0.1,0.0,0.3,10,1,0,9
+collective_shared,collective_isolated,A,1000,rmst_assays_diff(a-b; negative=a better),-42.2,-107.2025,-3.3,10,7,1,2
+collective_shared,collective_isolated,B,100,cert_rate_diff(a-b),0.05,-0.1,0.225,40,5,3,32
+collective_shared,collective_isolated,B,100,rmst_assays_diff(a-b; negative=a better),-0.875,-4.775,2.9506250000000023,40,10,6,24
+collective_shared,collective_isolated,B,250,cert_rate_diff(a-b),0.325,0.2,0.45,40,13,0,27
+collective_shared,collective_isolated,B,250,rmst_assays_diff(a-b; negative=a better),-40.575,-57.40125,-23.025,40,27,8,5
+collective_shared,collective_isolated,B,500,cert_rate_diff(a-b),0.0,-0.075,0.075,40,1,1,38
+collective_shared,collective_isolated,B,500,rmst_assays_diff(a-b; negative=a better),-62.95,-95.454375,-31.198749999999993,40,28,10,2
+collective_shared,collective_isolated,B,1000,cert_rate_diff(a-b),0.0,0.0,0.0,40,0,0,40
+collective_shared,collective_isolated,B,1000,rmst_assays_diff(a-b; negative=a better),-53.625,-94.425625,-17.374374999999997,40,28,12,0
+collective_shared,collective_isolated,all,100,cert_rate_diff(a-b),0.04,-0.08,0.18,50,5,3,42
+collective_shared,collective_isolated,all,100,rmst_assays_diff(a-b; negative=a better),-2.8,-7.180999999999999,1.3,50,16,7,27
+collective_shared,collective_isolated,all,250,cert_rate_diff(a-b),0.26,0.16,0.34,50,13,0,37
+collective_shared,collective_isolated,all,250,rmst_assays_diff(a-b; negative=a better),-34.56,-49.4,-19.9,50,33,9,8
+collective_shared,collective_isolated,all,500,cert_rate_diff(a-b),0.0,-0.06000000000000001,0.06000000000000001,50,1,1,48
+collective_shared,collective_isolated,all,500,rmst_assays_diff(a-b; negative=a better),-52.46,-80.1805,-26.376999999999992,50,34,11,5
+collective_shared,collective_isolated,all,1000,cert_rate_diff(a-b),0.02,0.0,0.06000000000000001,50,1,0,49
+collective_shared,collective_isolated,all,1000,rmst_assays_diff(a-b; negative=a better),-51.34,-83.94100000000002,-21.2,50,35,13,2
+collective_isolated,q2c,A,100,cert_rate_diff(a-b),0.0,0.0,0.0,10,0,0,10
+collective_isolated,q2c,A,100,rmst_assays_diff(a-b; negative=a better),14.5,6.3,24.0,10,0,7,3
+collective_isolated,q2c,A,250,cert_rate_diff(a-b),0.0,0.0,0.0,10,0,0,10
+collective_isolated,q2c,A,250,rmst_assays_diff(a-b; negative=a better),14.5,6.2,23.80250000000001,10,0,7,3
+collective_isolated,q2c,A,500,cert_rate_diff(a-b),0.0,0.0,0.0,10,0,0,10
+collective_isolated,q2c,A,500,rmst_assays_diff(a-b; negative=a better),14.5,6.197500000000001,23.6,10,0,7,3
+collective_isolated,q2c,A,1000,cert_rate_diff(a-b),-0.1,-0.3,0.0,10,0,1,9
+collective_isolated,q2c,A,1000,rmst_assays_diff(a-b; negative=a better),44.2,9.9,103.30250000000001,10,0,8,2
+collective_isolated,q2c,B,100,cert_rate_diff(a-b),0.025,-0.05,0.1,40,2,1,37
+collective_isolated,q2c,B,100,rmst_assays_diff(a-b; negative=a better),4.4,0.475,8.850625000000003,40,2,11,27
+collective_isolated,q2c,B,250,cert_rate_diff(a-b),-0.25,-0.375,-0.125,40,1,11,28
+collective_isolated,q2c,B,250,rmst_assays_diff(a-b; negative=a better),25.175,11.45,40.7,40,5,28,7
+collective_isolated,q2c,B,500,cert_rate_diff(a-b),0.05,0.0,0.125,40,3,1,36
+collective_isolated,q2c,B,500,rmst_assays_diff(a-b; negative=a better),32.65,15.525,54.500625,40,8,30,2
+collective_isolated,q2c,B,1000,cert_rate_diff(a-b),0.0,0.0,0.0,40,0,0,40
+collective_isolated,q2c,B,1000,rmst_assays_diff(a-b; negative=a better),10.625,-14.055625,40.22625000000001,40,9,31,0
+collective_isolated,q2c,all,100,cert_rate_diff(a-b),0.02,-0.04,0.08,50,2,1,47
+collective_isolated,q2c,all,100,rmst_assays_diff(a-b; negative=a better),6.42,3.0,9.98,50,2,18,30
+collective_isolated,q2c,all,250,cert_rate_diff(a-b),-0.2,-0.30000000000000004,-0.1,50,1,11,38
+collective_isolated,q2c,all,250,rmst_assays_diff(a-b; negative=a better),23.04,11.66,34.8,50,5,35,10
+collective_isolated,q2c,all,500,cert_rate_diff(a-b),0.04,0.0,0.1,50,3,1,46
+collective_isolated,q2c,all,500,rmst_assays_diff(a-b; negative=a better),29.02,15.48,46.480500000000006,50,8,37,5
+collective_isolated,q2c,all,1000,cert_rate_diff(a-b),-0.02,-0.06000000000000001,0.0,50,0,1,49
+collective_isolated,q2c,all,1000,rmst_assays_diff(a-b; negative=a better),17.34,-4.160499999999998,40.1815,50,9,39,2
+collective_isolated,directed,A,100,cert_rate_diff(a-b),0.5,0.2,0.8,10,5,0,5
+collective_isolated,directed,A,100,rmst_assays_diff(a-b; negative=a better),-23.3,-38.1,-10.3,10,7,0,3
+collective_isolated,directed,A,250,cert_rate_diff(a-b),0.4,0.1,0.7,10,4,0,6
+collective_isolated,directed,A,250,rmst_assays_diff(a-b; negative=a better),-87.8,-142.805,-34.29249999999997,10,7,0,3
+collective_isolated,directed,A,500,cert_rate_diff(a-b),0.2,0.0,0.5,10,2,0,8
+collective_isolated,directed,A,500,rmst_assays_diff(a-b; negative=a better),-186.0,-315.9,-59.789999999999964,10,7,0,3
+collective_isolated,directed,A,1000,cert_rate_diff(a-b),0.1,0.0,0.3,10,1,0,9
+collective_isolated,directed,A,1000,rmst_assays_diff(a-b; negative=a better),-245.9,-457.1175,-64.18999999999997,10,7,0,3
+collective_isolated,directed,B,100,cert_rate_diff(a-b),0.05,-0.15,0.3,40,6,4,30
+collective_isolated,directed,B,100,rmst_assays_diff(a-b; negative=a better),0.825,-16.075625,14.075,40,9,7,24
+collective_isolated,directed,B,250,cert_rate_diff(a-b),0.3,0.15,0.475,40,12,0,28
+collective_isolated,directed,B,250,rmst_assays_diff(a-b; negative=a better),-21.275,-70.625,21.055000000000017,40,15,7,18
+collective_isolated,directed,B,500,cert_rate_diff(a-b),0.675,0.6,0.75,40,27,0,13
+collective_isolated,directed,B,500,rmst_assays_diff(a-b; negative=a better),-162.075,-229.230625,-104.79875,40,30,7,3
+collective_isolated,directed,B,1000,cert_rate_diff(a-b),0.75,0.75,0.75,40,30,0,10
+collective_isolated,directed,B,1000,rmst_assays_diff(a-b; negative=a better),-528.475,-600.7268750000001,-466.27,40,33,7,0
+collective_isolated,directed,all,100,cert_rate_diff(a-b),0.14,-0.04,0.34,50,11,4,35
+collective_isolated,directed,all,100,rmst_assays_diff(a-b; negative=a better),-4.0,-18.381500000000003,8.061500000000008,50,16,7,27
+collective_isolated,directed,all,250,cert_rate_diff(a-b),0.32,0.15999999999999998,0.4800000000000001,50,16,0,34
+collective_isolated,directed,all,250,rmst_assays_diff(a-b; negative=a better),-34.58,-75.0635,2.479999999999999,50,22,7,21
+collective_isolated,directed,all,500,cert_rate_diff(a-b),0.58,0.5199999999999999,0.6399999999999999,50,29,0,21
+collective_isolated,directed,all,500,rmst_assays_diff(a-b; negative=a better),-166.86,-226.55300000000003,-113.09399999999997,50,37,7,6
+collective_isolated,directed,all,1000,cert_rate_diff(a-b),0.62,0.5999999999999999,0.6599999999999999,50,31,0,19
+collective_isolated,directed,all,1000,rmst_assays_diff(a-b; negative=a better),-471.96,-552.5035,-408.57900000000006,50,40,7,3

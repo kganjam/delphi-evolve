@@ -23,7 +23,7 @@ import numpy as np
 from scipy.special import ndtr
 
 from .data import UNITS, digits, hamming
-from .model import GPModel, LocalModel
+from .model import ConstModel, GPModel, LocalModel
 
 REFIT = 16
 POOL = 400
@@ -265,3 +265,11 @@ class Q2C(Base):
             v = int(sel[int(np.argmax(P))])
         self.ask(oracle, ledger, v, why)
         return True
+
+
+class Q2CNoModel(Q2C):
+    """Ablation of q2c: identical planner/arbitration, constant surrogate instead of the GP."""
+    name = "q2c_nomodel"
+
+    def __init__(self, ctx, rng):
+        super().__init__(ctx, rng, model=ConstModel())

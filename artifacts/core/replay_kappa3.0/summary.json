@@ -1,0 +1,50 @@
+{
+ "episodes": 250,
+ "policies": [
+  "random",
+  "directed",
+  "q2c",
+  "collective_shared",
+  "collective_isolated"
+ ],
+ "seeds": 10,
+ "primary_at_1000_family_all": {
+  "random": {
+   "cert_rate": 0.2,
+   "false_certificates": 0,
+   "abstain": 40,
+   "rmst_assays": 879.14
+  },
+  "directed": {
+   "cert_rate": 0.3,
+   "false_certificates": 0,
+   "abstain": 35,
+   "rmst_assays": 740.54
+  },
+  "q2c": {
+   "cert_rate": 0.78,
+   "false_certificates": 0,
+   "abstain": 11,
+   "rmst_assays": 453.86
+  },
+  "collective_shared": {
+   "cert_rate": 0.78,
+   "false_certificates": 0,
+   "abstain": 11,
+   "rmst_assays": 429.82
+  },
+  "collective_isolated": {
+   "cert_rate": 0.78,
+   "false_certificates": 0,
+   "abstain": 11,
+   "rmst_assays": 480.86
+  }
+ },
+ "any_false_certificate": false,
+ "any_full_data_verification_failure": false,
+ "truth_open_fraction": {
+  "A": 0.4,
+  "B": 1.0
+ },
+ "query_log_bytes": {}
+}
