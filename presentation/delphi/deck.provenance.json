@@ -1,16 +1,17 @@
 {
- "built": "2026-10-31 07:38 PDT",
+ "built": "2026-10-31 07:43 PDT",
  "root": "/data/worktrees/delphi-evolve/submit",
  "git": {
-  "head": "47590e9530d42a8e79033f4c618853cb0625eec3",
+  "head": "40619755dbe63e55783d3b3d474961af187450a0",
   "branch": "work/submit",
   "inputs_untracked_or_modified": [
-   "presentation/delphi/sources.md"
+   "resentation/delphi/sources.md"
   ]
  },
  "sha256": {
-  "planning/rethink/CLAIM-LEDGER.md": "cebdc32d10a522b9b9398ae49b0eb6c6e102369bb2d8b53af5387e034afe490f",
-  "presentation/delphi/sources.md": "d1a8beddf1d7e64b08b9d342bb11c286c0e30003fa42b971336b7773174da324",
+  "planning/rethink/CLAIM-LEDGER.md": "de5841030e9b2c0982484a673accf5314e48906769792948f04f2ec73f0fbd10",
+  "presentation/delphi/sources.md": "b279c564be33513c749700775bbb674dfdb6e0154bb3ebbe309f4a33693933f0",
+  "lean_price/README.md": "a9795524f156c8b711a39cac5b4f03d8f383d6ffc98bece27f9f413c1e6a7f36",
   "artifacts/integration/codex-api/price-probe.json": "513bc9173014f4effdbd76e9b30f52c7dcdc8924d69e1d9692974b2d826eb5da",
   "experiments/price_probe/Price.lean": "a5d38f136fb214367203dfe5974155ab894dbf3a861412c084d39c389cf8fd0a",
   "experiments/price_probe/Witnesses.lean.inc": "7e29341d65ea9968d192c7c0ead754984126ad288926eb547ca228c3d43d1715",
@@ -64,11 +65,11 @@
   "R02"
  ],
  "spoken_words": {
-  "total": 397,
+  "total": 409,
   "per_slide": [
    59,
    75,
-   57,
+   69,
    71,
    65,
    70

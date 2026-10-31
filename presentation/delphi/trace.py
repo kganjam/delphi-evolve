@@ -132,10 +132,12 @@ def register():
     SRC = "presentation/delphi/sources.md"
 
     def atlas3():
-        t = (R / SRC).read_text()
-        assert "facebookresearch/atlas-lean" in t and "unchecked" in t
-        return "Whether the ATLAS biology library (facebookresearch/atlas-lean) already covers Price or Hamilton is unchecked."
-    claim(3, "Whether the ATLAS biology library (facebookresearch/atlas-lean) already covers Price or Hamilton is unchecked.", [SRC], atlas3)
+        t = (R / "lean_price/README.md").read_text()
+        assert "facebookresearch/atlas-lean" in t and "duplicate of existing work" in t and "Selection.lean" in t
+        assert "'Queller' 0 hits" in t  # the Hamilton/Queller form was not found by the critic's (non-exhaustive) code search
+        return ("The Price identity is already formalized in the ATLAS biology library (facebookresearch/atlas-lean), so our version duplicates it. "
+                "A critic's code search found no Hamilton form there; that search is not exhaustive.")
+    claim(3, "The Price identity is already formalized in the ATLAS biology library (facebookresearch/atlas-lean), so our version duplicates it. A critic's code search found no Hamilton form there; that search is not exhaustive.", ["lean_price/README.md"], atlas3)
 
     def biblio_price():
         return "Price 1970; the Price–Fisher–Hamilton link is in Frank 1997." if ("Price 1970" in (R / "planning/rethink/DECISION.md").read_text()

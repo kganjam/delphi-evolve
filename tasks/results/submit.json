@@ -104,7 +104,6 @@
   "Before upload: rerun bash presentation/rebuild.sh and confirm exit 0 on the final commit."
  ],
  "delphi_phase": {
-  "written_pdt": "2026-10-31 ~07:45",
   "spine": "Delphi: from candidate laws to checked theorems (director FINAL SHAPE)",
   "owns": [
    "site/delphi/",
@@ -171,7 +170,7 @@
    "site/delphi/appendix.html": "bed13954892c587f5b028865bd3df22a8170c4d4c4f33b056901aacb5993638b",
    "site/delphi/blog.html": "0fd44e0036e8dc48c87fb1de8e0560ddbf8331b238453060111e58daf222e540"
   },
-  "corrections_0940": {
+  "corrections_atlas": {
    "trigger": "messages/2026-10-31-ATLAS-and-the-surviving-claim.md (pasted by user)",
    "done": [
     "ATLAS credited (deck, site, blog); Price 'bounded search' sentence removed; no 'no machine-checked library' claim anywhere (hard-banned by test)",
@@ -188,6 +187,16 @@
    ],
    "tests": "pytest presentation/delphi/tests: 11 passed",
    "timing": "2:33-2:34 (synthetic voice)"
+  },
+  "note_on_times": "Earlier clock stamps in this record and in the message files were wrong (taken from a memo's clock). Authoritative times come from `date`.",
+  "directors_review": {
+   "applied": [
+    "merged origin/work/rethink-director and origin/work/codex-api",
+    "slide 3, site and blog now say our Price lemma duplicates ATLAS (critic's correction in lean_price/README.md)",
+    "timestamps corrected",
+    "SUBMISSION.md marks presentation/speaker-notes.md as the TrpB baseline script"
+   ],
+   "held": "pitch reorder (survivors first, killed-claims ledger second) is drafted at presentation/delphi/drafts/ but NOT built: the director says to keep the deck as is until critic's scopedesk/ledger/ data arrives"
   }
  }
 }

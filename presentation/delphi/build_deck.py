@@ -24,7 +24,7 @@ import facts as FA  # noqa: E402
 
 E = html.escape
 INPUTS = [
-    "planning/rethink/CLAIM-LEDGER.md", "presentation/delphi/sources.md",
+    "planning/rethink/CLAIM-LEDGER.md", "presentation/delphi/sources.md", "lean_price/README.md",
     "artifacts/integration/codex-api/price-probe.json", "experiments/price_probe/Price.lean", "experiments/price_probe/Witnesses.lean.inc",
     "artifacts/turing_scope/results.json", "artifacts/turing_scope/lean_receipt.json",
     "artifacts/rethink_director/MathlibProbe_host.lean", "tasks/results/rethink-director.json",
@@ -115,7 +115,7 @@ def build_slides(f, led_ids, prov_head):
 <h2 style="font-size:30px;margin:24px 0 10px">Price identity, then a selection-only lemma, then a <em>conditional</em> Hamilton regression theorem: a real proof dependency.</h2>
 <div class="row" style="gap:20px">
  <div class="col" style="flex:.9">
-  <div class="node">price</div><div class="arrow">↓ used by</div>
+  <div class="node pn" style="border-style:solid;color:var(--ink2);background:var(--card)">price · already in ATLAS; ours duplicates it</div><div class="arrow">↓ used by</div>
   <div class="node">selection_only</div><div class="arrow">↓ used by</div>
   <div class="node">hamilton_regression</div>
   <div class="node pn" style="margin-top:12px">Fisher additive-genetic theorem · PENDING</div>
@@ -131,9 +131,9 @@ def build_slides(f, led_ids, prov_head):
   <div class="card" style="padding:8px 12px;margin-top:8px"><h3><span class="pf pr">Proved</span> receipt</h3><p class="small" style="margin:0;font-size:14.5px">Lean exit {P['original_exit']}; axioms: propext, Classical.choice, Quot.sound only. {len(W)} witness controls exit {P['witness_exit']}. {len(P['mutants'])} changed-target mutants rejected (exit {P['mutants'][0]['exit']}). Statement-fidelity review by a second reader: {pend}</p></div>
  </div>
 </div>
-<div class="scope" style="margin-top:10px;font-size:14.5px"><b>Established mathematics.</b> Price 1970; the Price–Fisher–Hamilton link is in Frank 1997. Whether the ATLAS biology library (facebookresearch/atlas-lean) already covers Price or Hamilton is unchecked. This is a statistical regression statement, not a causal cost–benefit rule.</div>
-{fn('<b>Ledger</b> F07 · artifacts/integration/codex-api/price-probe.json (source sha ' + P['source_sha256'][:8] + '…) · experiments/price_probe/ · interactive walkthrough: site/review/ (F09)', stamp)}"""
-    notes.append("Second check. The Price identity, a selection-only lemma, and a conditional Hamilton regression theorem depend on each other in the Lean source. Each assumption has an exact compiled witness showing what breaks without it, and two changed-sign versions are rejected. Fisher's additive genetic theorem is pending. This is established mathematics, a regression statement, not a causal rule.")
+<div class="scope" style="margin-top:10px;font-size:14.5px"><b>Established mathematics.</b> Price 1970; the Price–Fisher–Hamilton link is in Frank 1997. The Price identity is already formalized in the ATLAS biology library (facebookresearch/atlas-lean), so our version duplicates it. A critic's code search found no Hamilton form there; that search is not exhaustive. This is a statistical regression statement, not a causal cost–benefit rule.</div>
+{fn('<b>Ledger</b> F07 · artifacts/integration/codex-api/price-probe.json (source sha ' + P['source_sha256'][:8] + '…) · experiments/price_probe/ · lean_price/README.md · interactive walkthrough: site/review/ (F09)', stamp)}"""
+    notes.append("Second check. The Price identity is already formalized in ATLAS, so our version is a duplicate and we say so. What we add is the selection-only lemma and the conditional Hamilton regression theorem, with each assumption tied to an exact compiled witness. Two changed-sign versions are rejected by the compiler. Whether ATLAS has the Hamilton form is unchecked beyond one code search. A regression statement, not a causal rule.")
 
     # ---------------------------------------------------------------- slide 4
     V = Er["vacuous_theorem"]

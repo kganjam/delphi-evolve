@@ -12,7 +12,7 @@ Take a declared two-species linear model, J = [[1, -2], [2, -3]] with diffusivit
 
 ## Check two: Price to Hamilton, with the assumptions attached
 
-We compiled the finite Price identity, a selection-only lemma that depends on it, and a conditional Hamilton regression theorem that depends on that lemma. Lean exits 0, the axioms are propext, Classical.choice and Quot.sound only, 4 witness controls exit 0, and 2 changed-target mutants are rejected. Each assumption (perfect transmission, residual orthogonality, the sign of the cost term) has an exact witness showing what fails without it. This is established mathematics; Price and Frank did the science, and whether ATLAS already covers it is unchecked. It is a regression statement, not a causal cost-benefit rule. Fisher's additive-genetic theorem is not proved (pending), and a second reader has not yet reviewed the statements (pending).
+We compiled the finite Price identity, a selection-only lemma that depends on it, and a conditional Hamilton regression theorem that depends on that lemma. Lean exits 0, the axioms are propext, Classical.choice and Quot.sound only, 4 witness controls exit 0, and 2 changed-target mutants are rejected. Each assumption (perfect transmission, residual orthogonality, the sign of the cost term) has an exact witness showing what fails without it. This is established mathematics; Price and Frank did the science, and ATLAS already formalizes the Price identity, so our version of that part is a duplicate. It is a regression statement, not a causal cost-benefit rule. Fisher's additive-genetic theorem is not proved (pending), and a second reader has not yet reviewed the statements (pending).
 
 ## Our own near-vacuous theorem
 

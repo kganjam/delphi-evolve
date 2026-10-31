@@ -1,9 +1,9 @@
 {
  "deck": "presentation/delphi/deck.html",
  "claims_checked": 26,
- "inputs_hash_checked": 22,
+ "inputs_hash_checked": 23,
  "pdf_pages_checked": 6,
- "provenance_head": "47590e9530d42a8e79033f4c618853cb0625eec3",
+ "provenance_head": "40619755dbe63e55783d3b3d474961af187450a0",
  "ok": true,
  "errors": [],
  "trace": [
@@ -151,13 +151,13 @@
   },
   {
    "slide": 3,
-   "shown": "Whether the ATLAS biology library (facebookresearch/atlas-lean) already covers Price or Hamilton is unchecked.",
+   "shown": "The Price identity is already formalized in the ATLAS biology library (facebookresearch/atlas-lean), so our version duplicates it. A critic's code search found no Hamilton form there; that search is not exhaustive.",
    "where": "html",
    "files": [
-    "presentation/delphi/sources.md"
+    "lean_price/README.md"
    ],
    "sha256": {
-    "presentation/delphi/sources.md": "d1a8beddf1d7e64b08b9d342bb11c286c0e30003fa42b971336b7773174da324"
+    "lean_price/README.md": "a9795524f156c8b711a39cac5b4f03d8f383d6ffc98bece27f9f413c1e6a7f36"
    }
   },
   {
@@ -170,7 +170,7 @@
    ],
    "sha256": {
     "planning/rethink/DECISION.md": "6a9ac643205ec4524a9c3d5282a001cd1b4e06bb6a6a5aaacc9c7192fbb7e424",
-    "planning/rethink/PRICE-PRIOR-ART-AND-PROBE.md": "76a727e4a3f6374297f26a89f05c292561d7890528630af4b2e1dd5ad684f852"
+    "planning/rethink/PRICE-PRIOR-ART-AND-PROBE.md": "0eb451088ae741b2d046a2a347dec1bf69f12f46172c119a4f8f2d7d89e6eeb6"
    }
   },
   {
@@ -262,7 +262,7 @@
     "presentation/delphi/sources.md"
    ],
    "sha256": {
-    "presentation/delphi/sources.md": "d1a8beddf1d7e64b08b9d342bb11c286c0e30003fa42b971336b7773174da324"
+    "presentation/delphi/sources.md": "b279c564be33513c749700775bbb674dfdb6e0154bb3ebbe309f4a33693933f0"
    }
   },
   {
