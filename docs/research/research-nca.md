@@ -1,8 +1,10 @@
 # Research: neural / amorphous / morphogenetic computing, and what a 24 h falsifiable result could be
 
-Worker: research-nca. Model: Claude Sonnet 5.5 (`claude-sonnet-5-5`) under the repository's subscription arrangement; metered spend unknown and not inferred. Research window: 2026-10-31 00:56 to about 01:15 PDT (Seattle). The clock moves to PST on 2026-11-01 at 02:00.
+Worker: research-nca. Model: Claude Sonnet 5.5 (`claude-sonnet-5-5`) under the repository's subscription arrangement; metered spend unknown and not inferred. Research date: 2026-10-31, Seattle PDT. The original estimated end time was in the future when this report was read and has been removed; it was not a measured duration. The clock moves to PST on 2026-11-01 at 02:00.
 
 No experiments were run, no GPU was touched, nothing was sent to anyone. Everything below is literature, license and data-availability inspection. Machine-readable sources: `artifacts/research/research-nca.json`. Run record: `tasks/results/research-nca.json`.
+
+**Coordinator review:** these are source-only research findings, not independently checked results. The exact finite-domain example in `inverse-design-synthesis.md` adds an applicability condition to the proposed Turing test. Equal diffusion excludes diffusion-driven *linear* instability of an otherwise stable homogeneous state under the specified diagonal-diffusion model; it does not require every nonlinear pattern to disappear. Changing to another fixed domain is compatible with a new domain-specific analysis. Growth, forcing and finite-amplitude recovery require separate arguments. The pipeline and novelty hypotheses below remain proposals.
 
 ## 0. Verdict in six lines
 
@@ -72,7 +74,7 @@ Delphi MCP at `https://delphisci-mcp.fly.dev/mcp`, protocol `2025-03-26`, server
 
 | Claim ID | Statement (abridged) | Fields read | **What it changes in the design** |
 |---|---|---|---|
-| `turing-ddi` | Two-species homogeneous steady state, stable without diffusion, unstable with `D_v f_u + D_u g_v > 2√(D_u D_v det J)`; requires `D_u ≠ D_v` | `proposedTest`: measure Jacobian and diffusivities independently, check the inequality, then confirm that perturbing the diffusivity ratio switches patterning on or off. `context`: two species, smooth kinetics, linearisation, **fixed domain without growth or mechanics**; linear part proved, nonlinear pattern existence not in general | (a) Gives the Lean target (Section 5). (b) **Mandatory negative control**: set the ratio to 1 in the independent solver; a rule that still "patterns" is not using the mechanism. (c) **Scope limit**: damage, growth and domain change are *outside* the theorem, so those results are empirical only and must not be labelled "certified" |
+| `turing-ddi` | Two-species homogeneous steady state, stable without diffusion, unstable with `D_v f_u + D_u g_v > 2√(D_u D_v det J)`; requires `D_u ≠ D_v` | `proposedTest`: measure Jacobian and diffusivities independently, check the inequality, then confirm that perturbing the diffusivity ratio switches patterning on or off. `context`: two species, smooth kinetics, linearisation, **fixed domain without growth or mechanics**; linear part proved, nonlinear pattern existence not in general | (a) Gives the Lean target (Section 5). (b) **Negative control**: with equal diffusivities and an otherwise linearly stable homogeneous state, infinitesimal perturbations must not show diffusion-driven linear growth. (c) **Scope limit**: analyze each fixed domain with its own admissible spectrum; growth, forcing and finite-amplitude recovery need separate arguments. Simulation checks are not empirical biological validation |
 | `turing-wavelength` | At onset `k_c² = √(det J/(D_u D_v))`, `λ ∝ √D` under uniform rescaling; wavelength set by kinetics and diffusion, not tissue size | `proposedTest`: change production, degradation or diffusion and test element-number change. `context`: **near onset, domain large relative to wavelength**; away from onset it depends on nonlinear terms and history | Held-out *parameter interventions* (D rescaled by s) with predicted `λ ∝ √s`, **stratified by distance from onset**, on domains of at least several wavelengths. Outside that stratum, report without a theory prediction. Without this the wavelength test would be decorative |
 | `turing-morphogen-hypothesis` | Morphogens "sufficient to account for the main phenomena" | Read via search | Not testable here. Only "a pattern of this form is *possible*" |
 | `thompson1917-ch03-01` | Except very minute organisms, form follows the ratio of growth rates in different directions | `context` read. No proposed test or math field | Adds **anisotropic domain growth** as a held-out geometry class, since a chemistry-only solver would otherwise be silent about the claim's main variable. Marks the benchmark as chemistry-only |
@@ -129,7 +131,7 @@ Killed or parked on the evidence: a "living NCA" with synNotch cascade steps, be
 - Seeds and noise realisations not used in training.
 
 **Negative controls.**
-- D ratio set to 1 in the independent solver: pattern must vanish for class B and C.
+- Equal diffusivities in the independent solver: test decay of sufficiently small perturbations around an otherwise linearly stable homogeneous state, with compatible boundary conditions and no forcing. For conserved systems, account for neutral conserved modes. Do not require arbitrary nonlinear patterns to vanish or apply a two-species claim to an unrestricted reaction network.
 - Shuffled or wrong-equation target.
 - Random rules from the same class at matched parameter norm.
 - A rule trained on solver X evaluated on solver X after halving the time-step: must not change beyond a stated tolerance, else the result is a numerical artifact.

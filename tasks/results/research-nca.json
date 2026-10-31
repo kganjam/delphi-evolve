@@ -1,14 +1,14 @@
 {
   "role": "research-nca",
-  "status": "complete",
+  "status": "completed",
   "task": "Deep research on NCA / morphogenetic / amorphous computing; deliver ranked candidates and a falsifiable top candidate",
   "branch": "work/research-nca",
   "commit": "98b62ab01dc96dc56cf9a7c75aaef79b04044d3e",
   "model": "Claude Sonnet 5.5 (claude-sonnet-5-5), subscription; metered spend unknown, not inferred from CLI",
   "wall_time_seattle": {
-    "start": "2026-10-31 00:56 PDT",
-    "end": "2026-10-31 01:05:52 PDT",
-    "zone_note": "PST begins 2026-11-01 02:00"
+    "launch_file_mtime": "2026-10-31 00:56:44 PDT",
+    "report_branch_commit_time": "2026-10-31 01:05:52 PDT",
+    "scope": "Filesystem launch record and Git committer time; not a measured active research duration."
   },
   "artifacts": [
     "docs/research/research-nca.md",
@@ -18,7 +18,7 @@
   "commands_actually_run": [
     {
       "command": "date / TZ=America/Los_Angeles date",
-      "outcome": "ok, 2026-10-31 ~00:56-01:15 PDT"
+      "outcome": "Worker reports clock lookup; estimated end-time range removed because it was in the future when reviewed."
     },
     {
       "command": "cat/sed of AGENTS.md, planning/PLAN.md, specs/CONTRACT.md, STATUS.md, tasks/semantics-review.md",
@@ -77,5 +77,13 @@
     "Coordinator decides whether C1 starts; GPU use only via the gpu worker",
     "Freeze thresholds and seed count in a committed file before any run",
     "Run a further literature pass on cross-solver RD inverse design before any novelty wording"
-  ]
+  ],
+  "coordinator_review": {
+    "scope": "Scientific wording and time provenance reviewed; source-only research and unreplicated scout pilot results remain labelled as such.",
+    "corrections": [
+      "Removed future estimated timestamps",
+      "Restricted mathematical applicability statements",
+      "Kept computational validation distinct from empirical validation"
+    ]
+  }
 }
