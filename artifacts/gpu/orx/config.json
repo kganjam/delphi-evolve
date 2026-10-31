@@ -1,0 +1,8 @@
+{
+  "summary": "/data/artifacts/v2-scout/data/caltech/summary_AA.csv",
+  "imputed": "/data/artifacts/v2-scout/data/caltech/KNN_imputed_TrpB.csv",
+  "zeroshot": "/data/worktrees/delphi-evolve/gpu/artifacts/gpu/main/zeroshot_prior.npz",
+  "embed_sites": "/data/worktrees/delphi-evolve/gpu/artifacts/gpu/main/embedding_sites_pca64.npz",
+  "seeds": 10,
+  "boot": 200
+}

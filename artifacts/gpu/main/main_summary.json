@@ -1,0 +1,40 @@
+{
+ "variants_done": 160000,
+ "variants_planned": 160000,
+ "complete_library": true,
+ "seed": 20261031,
+ "order": "seeded permutation prefix; label-free",
+ "wt_masked_table_shape": [
+  4,
+  20
+ ],
+ "te_model": {
+  "repo": "nvidia/esm2_t33_650M_UR50D",
+  "revision": "118f470e7e96ba8741227ab898e54758850e9563"
+ },
+ "pca_k": 64,
+ "pca_meanpool_explained_variance_ratio_sum": 0.9803413152694702,
+ "pca_sites_explained_variance_ratio_sum": 0.934725284576416,
+ "unique_variants": 160000,
+ "genotype_first5": [
+  "PTCT",
+  "KQQA",
+  "LEFL",
+  "IHEV",
+  "SAPP"
+ ],
+ "compact_artifacts": {
+  "zeroshot_prior.npz": {
+   "bytes": 5058812,
+   "sha256": "f4a0a0753c66724faa824dc9276dd03567942ae80b474287a119b5aae688532e"
+  },
+  "embedding_meanpool_pca64.npz": {
+   "bytes": 19977260,
+   "sha256": "777d863b125ac653009ad501a5c188871d1ebc786f19fd6663b1f074c945b596"
+  },
+  "embedding_sites_pca64.npz": {
+   "bytes": 20720927,
+   "sha256": "a9d4aa548c290296b014482b78db9052ee0ac88eac6ab60e624e46a46e574b9a"
+  }
+ }
+}

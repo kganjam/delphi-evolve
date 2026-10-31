@@ -1,0 +1,14 @@
+{
+  "tool": "orx 0.2.23 (installed at ~/.cargo/bin/orx), telemetry off, no login, no feedback sent",
+  "project_id": "f7b1d338-d315-4455-b3e4-6ba990694391",
+  "experiment_id": "7d8e36c9-ccf0-42ba-9a4a-94b165452e47",
+  "run_id": "96594198-8a9e-40dc-a7b4-6b8b615daae1",
+  "backend": "local (this CPU host; NOT hosted compute, NOT Nebius, no GPU in this run)",
+  "orx_repo_commit": "671eaad",
+  "status": "done",
+  "exit_code": 0,
+  "duration": "4m50s",
+  "run_command": "OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 /home/ubuntu/miniconda3/bin/python3 -I run_experiment.py",
+  "result": "artifacts/gpu/orx/analysis.json",
+  "limitations": "The orx project lives in a scratch git repo (/tmp/gpu-orx/trpb-esm2-prior) because orx imports a repo root; its code is a copy of gpu/analyze_prior.py + run_experiment.py. The OpenResearch local store is on this host only; these receipt files are the durable record."
+}

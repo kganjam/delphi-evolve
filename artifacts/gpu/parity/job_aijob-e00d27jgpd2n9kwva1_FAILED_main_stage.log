@@ -1,0 +1,105 @@
+[2026-10-31T00:18:27-07:00] Provisioning resources for the workload
+[2026-10-31T00:19:45-07:00] Workload initialization started
+[2026-10-31T00:19:59-07:00] Downloading container image
+[2026-10-31T00:25:56-07:00] Starting workload container
+[2026-10-31T00:25:57-07:00] ENTRY start 2026-10-31T07:25:57Z host=c370fa7595c5
+[2026-10-31T00:25:57-07:00] Sat Oct 31 07:25:57 2026       
+[2026-10-31T00:25:57-07:00] +-----------------------------------------------------------------------------------------+
+[2026-10-31T00:25:57-07:00] | NVIDIA-SMI 580.173.02             Driver Version: 580.173.02     CUDA Version: 13.1     |
+[2026-10-31T00:25:57-07:00] +-----------------------------------------+------------------------+----------------------+
+[2026-10-31T00:25:57-07:00] | GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+[2026-10-31T00:25:57-07:00] | Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+[2026-10-31T00:25:57-07:00] |                                         |                        |               MIG M. |
+[2026-10-31T00:25:57-07:00] |=========================================+========================+======================|
+[2026-10-31T00:25:57-07:00] |   0  NVIDIA H100 80GB HBM3          On  |   00000000:8D:00.0 Off |                    0 |
+[2026-10-31T00:25:57-07:00] | N/A   29C    P0             76W /  700W |       0MiB /  81559MiB |      0%      Default |
+[2026-10-31T00:25:57-07:00] |                                         |                        |             Disabled |
+[2026-10-31T00:25:57-07:00] 
+[2026-10-31T00:25:57-07:00] | Processes:                                                                              |
+[2026-10-31T00:25:57-07:00] |  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+[2026-10-31T00:25:57-07:00] |        ID   ID                                                               Usage      |
+[2026-10-31T00:25:57-07:00] |=========================================================================================|
+[2026-10-31T00:25:57-07:00] |  No running processes found                                                             |
+[2026-10-31T00:26:05-07:00] WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[2026-10-31T00:26:05-07:00] ENTRY pip_list_begin
+[2026-10-31T00:26:05-07:00] huggingface_hub                  1.33.0
+[2026-10-31T00:26:05-07:00] numpy                            2.1.0
+[2026-10-31T00:26:05-07:00] safetensors                      0.7.0
+[2026-10-31T00:26:05-07:00] tokenizers                       0.22.1
+[2026-10-31T00:26:05-07:00] torch                            2.10.0a0+b4e4ee81d3.nv25.12
+[2026-10-31T00:26:05-07:00] torch_tensorrt                   2.10.0a0
+[2026-10-31T00:26:05-07:00] torchao                          0.15.0+git01374eb5
+[2026-10-31T00:26:05-07:00] torchdata                        0.11.0
+[2026-10-31T00:26:05-07:00] torchprofile                     0.0.4
+[2026-10-31T00:26:05-07:00] torchtitan                       0.2.0
+[2026-10-31T00:26:05-07:00] torchvision                      0.25.0a0+ca221243
+[2026-10-31T00:26:05-07:00] transformer_engine               2.10.0+769ed778
+[2026-10-31T00:26:05-07:00] transformers                     5.5.0
+[2026-10-31T00:26:05-07:00] ENTRY pip_list_end
+[2026-10-31T00:26:05-07:00] GPULOG {"t": 0.0, "event": "reference", "header": "Tm9D8*", "length": 397, "sites": {"183": "V", "184": "F", "227": "V", "228": "S"}, "fasta_sha256": "d56ebe8d8c556d80bf97329ec34c872b737fb84953f0d83dfe015894e54bbc6c"}
+[2026-10-31T00:26:10-07:00] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-10-31T00:26:11-07:00] GPULOG {"t": 5.86, "event": "env", "python": "3.12.3", "platform": "Linux-6.11.0-1016-nvidia-x86_64-with-glibc2.39", "torch": "2.10.0a0+b4e4ee81d3.nv25.12", "torch_cuda": "13.1", "cudnn": 91700, "cuda_available": true, "numpy": "2.1.0", "transformers": "5.5.0", "transformer_engine": "2.10.0+769ed778", "transformer-engine-torch": null, "huggingface_hub": "1.33.0", "safetensors": "0.7.0", "flash-attn": "2.7.4.post1+25.12", "tokenizers": "0.22.1", "gpu": "NVIDIA H100 80GB HBM3", "gpu_capability": [9, 0], "nvidia_smi": "NVIDIA H100 80GB HBM3, 580.173.02, 81559 MiB", "image_ref": "nvcr.io/nvidia/pytorch:25.12-py3", "job_label": "kganjam-delphi-trpb-esm2-main", "cpus": 16}
+[2026-10-31T00:26:11-07:00] GPULOG {"t": 5.92, "event": "output_root_listing", "entries": "/output:\ntotal 4\ndrwxrwxrwx 2 root root    0 Oct 31 07:19 .\ndrwxr-xr-x 1 root root 4096 Oct 31 07:25 ..\ndrwxrwxrwx 2 root root    0 Oct 31 07:19 probe\n\n/output/probe:\ntotal 4\ndrwxrwxrwx 2 root root    0 Oct 31 07:19 .\ndrwxrwxrwx 2 root root    0 Oct 31 07:19 ..\n-rw-rw-rw- 1 root root  666 Oct 31 07:17 env.json\n-rw-rw-rw- 1 root root 2430 Oct 31 07:17 parity.json\n-rw-rw-rw- 1 root root   26 Oct 31 07:15 probe_write_test.txt"}
+[2026-10-31T00:27:01-07:00] 
+Loading weights:   0%|          | 0/571 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 571/571 [00:00<00:00, 10798.07it/s]
+[2026-10-31T00:27:01-07:00] [1mEsmForMaskedLM LOAD REPORT[0m from: facebook/esm2_t33_650M_UR50D
+[2026-10-31T00:27:01-07:00] Key                         | Status     |  | 
+[2026-10-31T00:27:01-07:00] ----------------------------+------------+--+-
+[2026-10-31T00:27:01-07:00] esm.embeddings.position_ids | UNEXPECTED |  | 
+[2026-10-31T00:27:01-07:00] Notes:
+[2026-10-31T00:27:01-07:00] - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[2026-10-31T00:27:01-07:00] GPULOG {"t": 55.94, "event": "model_loaded", "kind": "plain_fp32", "repo": "facebook/esm2_t33_650M_UR50D", "revision": "08e4846e537177426273712802403f7ba8261b6c", "seconds": 50.0, "params": 651043254, "class_name": "EsmForMaskedLM"}
+[2026-10-31T00:27:31-07:00] GPULOG {"t": 85.59, "event": "parity_model_done", "kind": "plain_fp32", "throughput": {"variants": 4096, "batch": 128, "seconds": 17.392, "seq_per_s": 235.5, "tokens_per_s": 93968.0, "peak_mem_gb": 7.95}}
+[2026-10-31T00:27:31-07:00] 
+Loading weights:  84%|████████▍ | 481/571 [00:00<00:00, 4764.00it/s]
+Loading weights: 100%|██████████| 571/571 [00:00<00:00, 4880.07it/s]
+[2026-10-31T00:27:31-07:00] [1mEsmForMaskedLM LOAD REPORT[0m from: facebook/esm2_t33_650M_UR50D
+[2026-10-31T00:27:31-07:00] Key                         | Status     |  | 
+[2026-10-31T00:27:31-07:00] ----------------------------+------------+--+-
+[2026-10-31T00:27:31-07:00] esm.embeddings.position_ids | UNEXPECTED |  | 
+[2026-10-31T00:27:31-07:00] Notes:
+[2026-10-31T00:27:31-07:00] - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[2026-10-31T00:27:31-07:00] GPULOG {"t": 86.22, "event": "model_loaded", "kind": "plain_bf16", "repo": "facebook/esm2_t33_650M_UR50D", "revision": "08e4846e537177426273712802403f7ba8261b6c", "seconds": 0.4, "params": 651043254, "class_name": "EsmForMaskedLM"}
+[2026-10-31T00:27:47-07:00] GPULOG {"t": 102.09, "event": "parity_model_done", "kind": "plain_bf16", "throughput": {"variants": 4096, "batch": 128, "seconds": 9.043, "seq_per_s": 453.0, "tokens_per_s": 180732.0, "peak_mem_gb": 3.96}}
+[2026-10-31T00:27:48-07:00] /usr/local/lib/python3.12/dist-packages/torch/library.py:356: UserWarning: Warning only once for all operators,  other operators may also be overridden.
+[2026-10-31T00:28:35-07:00] 
+Loading weights:   0%|          | 0/404 [00:00<?, ?it/s]
+Loading weights:  95%|█████████▍| 382/404 [00:00<00:00, 3742.02it/s]
+Loading weights: 100%|██████████| 404/404 [00:00<00:00, 3883.94it/s]
+[2026-10-31T00:28:35-07:00] GPULOG {"t": 150.1, "event": "model_loaded", "kind": "te_bf16", "repo": "nvidia/esm2_t33_650M_UR50D", "revision": "118f470e7e96ba8741227ab898e54758850e9563", "seconds": 47.8, "params": 651042593, "class_name": "NVEsmForMaskedLM"}
+[2026-10-31T00:28:49-07:00] GPULOG {"t": 163.35, "event": "parity_model_done", "kind": "te_bf16", "throughput": {"variants": 4096, "batch": 128, "seconds": 5.306, "seq_per_s": 771.9, "tokens_per_s": 307998.0, "peak_mem_gb": 3.07}}
+[2026-10-31T00:28:49-07:00] GPULOG {"t": 163.7, "event": "parity_result", "reference": "plain_fp32", "variants_index_seed": 7, "plain_bf16_vs_plain_fp32": {"n": 512, "meanpool_cosine_min": 0.999985225797354, "meanpool_cosine_mean": 0.9999925837703845, "site_emb_cosine_min": 0.9981139762646859, "site_emb_cosine_mean": 0.9996908648671343, "meanpool_max_abs_diff": 0.02734375, "lp_mask_max_abs_diff": 0.3781137466430664, "lp_mask_mean_abs_diff": 0.056519415229558945, "lp_unmasked_max_abs_diff": 0.6368541717529297, "lp_unmasked_mean_abs_diff": 0.05663193762302399, "summed_lp_mask_pearson": 0.9996919233698159, "wt_table_max_abs_diff": 0.28699159622192383, "wt_table_argmax_agreement": 1.0}, "te_bf16_vs_plain_fp32": {"n": 512, "meanpool_cosine_min": 0.999980907026213, "meanpool_cosine_mean": 0.9999932475306186, "site_emb_cosine_min": 0.9987128030084794, "site_emb_cosine_mean": 0.9997420056850569, "meanpool_max_abs_diff": 0.02734375, "lp_mask_max_abs_diff": 0.3045992851257324, "lp_mask_mean_abs_diff": 0.05099988728761673, "lp_unmasked_max_abs_diff": 0.353468656539917, "lp_unmasked_mean_abs_diff": 0.051323652267456055, "summed_lp_mask_pearson": 0.9997554424735898, "wt_table_max_abs_diff": 0.19724369049072266, "wt_table_argmax_agreement": 1.0}, "te_bf16_vs_plain_bf16": {"n": 512, "meanpool_cosine_min": 0.9999746960941849, "meanpool_cosine_mean": 0.9999916821051339, "site_emb_cosine_min": 0.9977206494227014, "site_emb_cosine_mean": 0.9996015334182364, "meanpool_max_abs_diff": 0.0234375, "lp_mask_max_abs_diff": 0.4582395553588867, "lp_mask_mean_abs_diff": 0.06527885794639587, "lp_unmasked_max_abs_diff": 0.7150993347167969, "lp_unmasked_mean_abs_diff": 0.06519793719053268, "summed_lp_mask_pearson": 0.999560339325108, "wt_table_max_abs_diff": 0.34677743911743164, "wt_table_argmax_agreement": 1.0}, "throughput_single_pass": {"plain_fp32": {"variants": 4096, "batch": 128, "seconds": 17.392, "seq_per_s": 235.5, "tokens_per_s": 93968.0, "peak_mem_gb": 7.95}, "plain_bf16": {"variants": 4096, "batch": 128, "seconds": 9.043, "seq_per_s": 453.0, "tokens_per_s": 180732.0, "peak_mem_gb": 3.96}, "te_bf16": {"variants": 4096, "batch": 128, "seconds": 5.306, "seq_per_s": 771.9, "tokens_per_s": 307998.0, "peak_mem_gb": 3.07}}, "note": "Differences are numerical (bf16/TE kernels); the bf16-vs-fp32 plain row is the noise floor."}
+[2026-10-31T00:28:49-07:00] RESULT_JSON parity {"reference": "plain_fp32", "variants_index_seed": 7, "plain_bf16_vs_plain_fp32": {"n": 512, "meanpool_cosine_min": 0.999985225797354, "meanpool_cosine_mean": 0.9999925837703845, "site_emb_cosine_min": 0.9981139762646859, "site_emb_cosine_mean": 0.9996908648671343, "meanpool_max_abs_diff": 0.02734375, "lp_mask_max_abs_diff": 0.3781137466430664, "lp_mask_mean_abs_diff": 0.056519415229558945, "lp_unmasked_max_abs_diff": 0.6368541717529297, "lp_unmasked_mean_abs_diff": 0.05663193762302399, "summed_lp_mask_pearson": 0.9996919233698159, "wt_table_max_abs_diff": 0.28699159622192383, "wt_table_argmax_agreement": 1.0}, "te_bf16_vs_plain_fp32": {"n": 512, "meanpool_cosine_min": 0.999980907026213, "meanpool_cosine_mean": 0.9999932475306186, "site_emb_cosine_min": 0.9987128030084794, "site_emb_cosine_mean": 0.9997420056850569, "meanpool_max_abs_diff": 0.02734375, "lp_mask_max_abs_diff": 0.3045992851257324, "lp_mask_mean_abs_diff": 0.05099988728761673, "lp_unmasked_max_abs_diff": 0.353468656539917, "lp_unmasked_mean_abs_diff": 0.051323652267456055, "summed_lp_mask_pearson": 0.9997554424735898, "wt_table_max_abs_diff": 0.19724369049072266, "wt_table_argmax_agreement": 1.0}, "te_bf16_vs_plain_bf16": {"n": 512, "meanpool_cosine_min": 0.9999746960941849, "meanpool_cosine_mean": 0.9999916821051339, "site_emb_cosine_min": 0.9977206494227014, "site_emb_cosine_mean": 0.9996015334182364, "meanpool_max_abs_diff": 0.0234375, "lp_mask_max_abs_diff": 0.4582395553588867, "lp_mask_mean_abs_diff": 0.06527885794639587, "lp_unmasked_max_abs_diff": 0.7150993347167969, "lp_unmasked_mean_abs_diff": 0.06519793719053268, "summed_lp_mask_pearson": 0.999560339325108, "wt_table_max_abs_diff": 0.34677743911743164, "wt_table_argmax_agreement": 1.0}, "throughput_single_pass": {"plain_fp32": {"variants": 4096, "batch": 128, "seconds": 17.392, "seq_per_s": 235.5, "tokens_per_s": 93968.0, "peak_mem_gb": 7.95}, "plain_bf16": {"variants": 4096, "batch": 128, "seconds": 9.043, "seq_per_s": 453.0, "tokens_per_s": 180732.0, "peak_mem_gb": 3.96}, "te_bf16": {"variants": 4096, "batch": 128, "seconds": 5.306, "seq_per_s": 771.9, "tokens_per_s": 307998.0, "peak_mem_gb": 3.07}}, "note": "Differences are numerical (bf16/TE kernels); the bf16-vs-fp32 plain row is the noise floor."}
+[2026-10-31T00:28:49-07:00] 
+Loading weights:  95%|█████████▌| 384/404 [00:00<00:00, 3838.98it/s]
+Loading weights: 100%|██████████| 404/404 [00:00<00:00, 3929.25it/s]
+[2026-10-31T00:28:50-07:00] GPULOG {"t": 164.26, "event": "model_loaded", "kind": "te_bf16", "repo": "nvidia/esm2_t33_650M_UR50D", "revision": "118f470e7e96ba8741227ab898e54758850e9563", "seconds": 0.4, "params": 651042593, "class_name": "NVEsmForMaskedLM"}
+[2026-10-31T00:28:50-07:00] GPULOG {"t": 164.82, "event": "main_start", "variants": 160000, "shards": 40, "shard": 4096, "batch": 128, "max_minutes": 80.0, "existing": []}
+[2026-10-31T00:29:17-07:00] Traceback (most recent call last):
+[2026-10-31T00:29:17-07:00]   File "/work/embed_trpb.py", line 436, in <module>
+[2026-10-31T00:29:17-07:00]     main_stage(tk, a.out, a.shard, a.batch, a.max_variants, a.max_minutes, a.pca_k, not a.no_emit_logs)
+[2026-10-31T00:29:17-07:00]   File "/work/embed_trpb.py", line 351, in main_stage
+[2026-10-31T00:29:17-07:00]     np.savez(tmp, variant_index=lin.astype(np.int32), **r)
+[2026-10-31T00:29:17-07:00]   File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 681, in savez
+[2026-10-31T00:29:17-07:00]     _savez(file, args, kwds, False)
+[2026-10-31T00:29:17-07:00]   File "/usr/local/lib/python3.12/dist-packages/numpy/lib/_npyio_impl.py", line 785, in _savez
+[2026-10-31T00:29:17-07:00]     with zipf.open(fname, 'w', force_zip64=True) as fid:
+[2026-10-31T00:29:17-07:00]   File "/usr/lib/python3.12/zipfile/__init__.py", line 1272, in close
+[2026-10-31T00:29:17-07:00]     self._fileobj.seek(self._zipfile.start_dir)
+[2026-10-31T00:29:17-07:00] OSError: [Errno 22] Invalid argument
+[2026-10-31T00:29:18-07:00] Exception ignored in: <function ZipFile.__del__ at 0x76e36d758360>
+[2026-10-31T00:29:18-07:00] Traceback (most recent call last):
+[2026-10-31T00:29:18-07:00]   File "/usr/lib/python3.12/zipfile/__init__.py", line 1953, in __del__
+[2026-10-31T00:29:18-07:00]     self.close()
+[2026-10-31T00:29:18-07:00]   File "/usr/lib/python3.12/zipfile/__init__.py", line 1975, in close
+[2026-10-31T00:29:18-07:00]     self._fpclose(fp)
+[2026-10-31T00:29:18-07:00]   File "/usr/lib/python3.12/zipfile/__init__.py", line 2075, in _fpclose
+[2026-10-31T00:29:18-07:00]     fp.close()
+[2026-10-31T00:29:18-07:00] OSError: [Errno 22] Invalid argument
+[2026-10-31T00:29:19-07:00] ENTRY exit=1 2026-10-31T07:29:19Z
+[2026-10-31T00:29:19-07:00] total 4
+[2026-10-31T00:29:19-07:00] drwxrwxrwx 2 root root    0 Oct 31 07:19 .
+[2026-10-31T00:29:19-07:00] drwxr-xr-x 1 root root 4096 Oct 31 07:25 ..
+[2026-10-31T00:29:19-07:00] drwxrwxrwx 2 root root    0 Oct 31 07:19 main
+[2026-10-31T00:29:19-07:00] drwxrwxrwx 2 root root    0 Oct 31 07:19 probe
