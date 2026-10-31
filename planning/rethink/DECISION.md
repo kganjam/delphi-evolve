@@ -1,6 +1,67 @@
-# Selection decision (DRAFT — criteria frozen before scout reports were read)
+# Selection decision
+
+Criteria and gates below the line "Frozen criteria" were written before the scouts' reports and are unchanged. The selection section directly below was written after reading the critic memo + red-teams, the host's three memos, the primary's reviews, and the NCA frozen protocol (NCA/electric final reports still pending; they can change the *repair/PDE* stage, not the spine, unless a kill condition below fires).
+
 
 Director, Claude Sonnet 5.5, Seattle PDT. Frozen 2026-10-31 06:04 PDT, commit recorded in git history. Scores and selection are filled in only after reading the reports in `planning/rethink/{nca,electric,critic}.md` and the pushed experiments. A candidate's score may not be edited after the selection commit without a dated note.
+
+
+## SELECTION (director, recorded 06:24 Seattle PDT, Sonnet 5.5)
+
+**Selected: "Scope Desk" — a scope-and-repair checker for mechanistic-biology claims, evaluated by a matched-budget agent comparison against deterministic and pooled-information baselines.** It is candidate E narrowed (critic ranking 1), absorbing the host's "market-mini" as the *scoring format* (calibrated verdict probabilities, Brier/log score, settled by non-LLM oracles) but not as a new platform, and absorbing the primary's "end with a repaired test" requirement.
+
+One coherent story (end to end, one domain, one second example):
+1. **Request.** A scientist/agent asks to design or test a classical claim in a stated situation, e.g. "produce a Turing pattern of wavelength lambda* on a 1-D domain of length L with these kinetics" (core domain, finite-domain reaction–diffusion) — plus, as the second worked example, "test Thompson's d~h^3/2".
+2. **Source-linked verdict.** The hash-pinned Delphi record + its declared scope/assumptions decide: `applies` / `out-of-scope (with the violated condition and quoted source)` / `underdetermined (missing information named, e.g. boundary condition)`. Refusal is a graded verdict.
+3. **Repair.** For out-of-scope requests, enumerate minimal declared interventions (domain length, reaction scale, diffusion ratio); accept only those the exact check licenses. For Thompson: a correctly labelled descriptive reanalysis (OLS/SMA/envelope kept separate) plus the list of missing mechanical measurements (modulus, density, taper) that blocks a buckling test.
+4. **Independent settlement.** Exact rational linear-mode check (formal) then an independent nonlinear PDE solve with convergence checks (simulated). Observed (Tallo) stays a separate, descriptive stratum. Each level is labelled formal / simulated / observed / unknown.
+5. **Evaluation (the collective measurement).** Frozen instance set, family-clustered; arms at matched total tokens/tool cost: B0 deterministic scope checker (the Delphi-scoped gate), one-pass retrieval baseline, S sequential single agent with tools and checker feedback, **pooled-information single agent given the union of all tools/evidence**, P N parallel samples, C guild collective with different tools/access coordinating through an append-only commons with pull-based claiming (assignment logged), and a non-agent stacker on the same features. Agents have headroom because instances are given as **natural-language requests** (boundary conditions unstated or ambiguous, kinetics described in prose, scope hidden) so extraction/scoping errors are real and refusal/missing-information is a correct answer.
+
+**Why this over the alternatives**
+- A (hardened TrpB baseline): floor; LazySP-style comparator wins 96/100 vs 78/100, collective null, no repair output. Retained as the Execution evidence and honest-negative opening, not the headline.
+- B (NCA inverse design): its frozen probe is model-only and simulator-vs-simulator; its value here is the *gated claim + repair stage and independent-solver check*, which Scope Desk reuses. NCA-as-tool stands or falls on its own pre-registered rule; no NCA superiority is claimed.
+- C (bioelectric/cellular logic): electric report pending; critic found no measured benchmark path in the time; not selected unless its report shows a settled, data-backed repair story (kill-condition reversal below).
+- D (binder triage): fusion failed its frozen rule (AUROC fused 0.61 vs best single 0.68, CI includes 0); pilot only.
+- Evidence market as specified by the host: **rejected as specified** (critic six objections, primary review): tier-3 DMS thresholding is ProteinGym-style, LLM contamination of the public TrpB paper, the "orthogonal modality ceiling" is untested (ESM rho 0.17–0.21, fusion null), GPU use would be decorative (100 nonlinear PDE solves to T=1000 = 20.4 s on one CPU thread in the critic's unrefined run; 1e7 Turing screens = 15.5 s), formal tier decidable in ms, information asymmetry without a pooled baseline rewards withholding data from the control. Its reusable parts are kept (Brier/log scoring, frozen claims, matched budgets, null reporting).
+- Operationalization-fidelity benchmark as *generic* contribution: rejected as novelty. Primary prior-art review: DriftBench (arXiv 2606.16541), ShadowBench (2608.29270), Benchmarking Agentic Review Systems (2606.19749) already cover drift probes, scope-deletion mutants, bidirectional Lean checks and multi-model complementary detection. Our only claimed gap is narrow: **executable scientific-test repair with checked witnesses tied to a pinned claim's scope**, graded by exact and independent-simulation oracles. Exhaustive novelty search not done; slide text must say so.
+
+**Delphi requirement and the user's revision.** The host reports the user's words verbatim as: *"just use delphi for inspiration and to help with a fraction of the narrative."* Source: quoted in host memo `2026-10-31-DECISION-settled-science.md` (morphoswarm-8c, `claude-15`), time not given; the primary reports not having received that message directly. Reconciliation: (i) the earlier release requirement (`tasks/claim-reuse-correction.md`) stands where it does not conflict; the current `/goal` also keeps "actual Delphi claim reuse unless a directly documented user revision changes it"; (ii) the user revision is honoured by *not making Delphi the headline or spine*: the pitch leads with the scope-and-repair problem and the measured agent comparison; (iii) Delphi `turing-ddi`/`turing-wavelength` (+ pinned Kimura/Fisher adapters already in `claim_runtime/`) remain the scope source for the gate, with the removal/misapplication/changed-hash ablation as a measured line, because that is what makes the checker's decisions source-linked. If the primary obtains the exact user message and it forbids this, drop the Delphi ablation from the headline and keep it as an appendix.
+
+### Headline supported now vs intended
+- Supported now: exact linear check (turing_scope: pi vs 2pi flip, Lean-checked algebra); Tallo descriptive probes (OLS 0.588, SMA 0.780, q99-bin 0.632 — critic); TrpB baseline results; NCA frozen protocol (no scored result yet).
+- Intended (must be measured, otherwise not said): that the Delphi-scoped gate refuses/repairs correctly on a frozen family-clustered set; that every accepted repair passes the independent nonlinear solve at a stated rate; where LLM agents help (NL→contract extraction, missing-information detection) and where deterministic B0 or the pooled agent ties or wins.
+
+### Exact acceptance tests (all must hold to keep Scope Desk as the headline)
+- AT1 Frozen instance set: >= 8 formal/simulated families (Turing finite domain with Neumann vs periodic vs Dirichlet; wavelength-formula licence; Rayleigh–Plateau pinned vs periodic; Kimura regime; Hawk–Dove; Greenhill uniform vs tapered; Hamilton rule form; KPP speed), >= 120 items, >= 30% benign/in-scope controls, ambiguous items excluded and listed, family-held-out prompt tuning, key + generator hashed and committed before any agent run.
+- AT2 Every labelled `out-of-scope` item has a machine-found distinguishing witness; labelled `applies` items have none within the stated search and are not claimed equivalent by finite search.
+- AT3 Independent audit (a session that did not write the generator/oracle) of keys and oracle outputs, results committed.
+- AT4 Repair: for >= 10 refused requests a repair is produced and both the exact check and the independent solver verdicts reported; failures kept.
+- AT5 Delphi ablation on >= 3 decisions: gate with record vs record removed vs record hash changed vs continuum-only misapplication; decision and independent-solver success measured.
+- AT6 Matched-budget arms executed once from a frozen protocol, with the pooled agent and B0 baseline, family-clustered exact intervals; collective superiority claimed only if the interval supports it; otherwise stated as null.
+- AT7 Fresh-checkout reproduction of the whole pipeline under the process caps; public CLI that fails closed on a mutated request.
+- AT8 Pitch/site/blog numbers each trace to a committed artifact.
+
+### Kill conditions (check at the times shown; Seattle PDT)
+- K-A 12:30: fewer than 8 families with witnesses or fewer than 80 items → shrink to the Turing + Thompson pair as a worked case study, keep matched-budget comparison on whatever exists, say so.
+- K-B 14:00: B0 deterministic gate equals or beats every agent arm on all strata AND the NL-extraction stratum shows no headroom → headline becomes "the deterministic Delphi-scoped gate with repair is the product; agents add nothing measured on this task" (honest null on 45% of the rubric; do not add arms until one wins).
+- K-C 14:00: independent solver disagrees with the exact linear check on > 20% of accepted repairs → report the mismatch as the finding (linear theory vs nonlinear outcome), do not hide.
+- K-D 16:00: no repaired test that a scientist could run → fall back to candidate A story with the Scope Desk as an appendix.
+
+### Four-hour build plan (to ~11:00 PDT; then evaluate, then present)
+| Owner (own worktree) | Deliverable |
+|---|---|
+| nca (`rethink-nca`) | Finish current frozen probe; then own `scopedesk/oracles/`: exact linear-mode + nonlinear CPU PDE oracle with convergence, repair enumerator, reuse its gate/ablation arms |
+| electric (`rethink-electric`) | After its memo: own `scopedesk/arms/`: headless-agent runner with token/tool accounting, guild roles, append-only commons, pull-based claiming, sequential/pooled/parallel arms, stacker baseline, analysis |
+| critic (`rethink-critic`) | Own `scopedesk/bench/`: instance generator, NL request renderer, answer key hash, benign controls, B0 + retrieval baselines; then independent audit of the oracle (not its own) |
+| director (`rethink-director`) | Interface contract (`scopedesk/SPEC.md`), integration branch, acceptance runner, site/pitch/blog/video, tasks/results |
+| host `morphoswarm-8c` | Submission channel and +10 service packet only; no worker writes in other trees; outside use observed, not claimed |
+GPU: none until a CPU pilot shows a preregistered workload exceeding it. Zero GPU use is acceptable and will be reported plainly.
+
+### Excluded scope
+New market platform; DMS/fitness regression leaderboards; claims of novelty in fidelity benchmarking; biological validation from simulation; wet-lab claims; any contact with other teams without user instruction; a corpus-wide 880-claim resolution count.
+
+---
+## Frozen criteria (unchanged from before the reports)
 
 ## Judging frame (live page, re-fetched about 06:00 PDT)
 
