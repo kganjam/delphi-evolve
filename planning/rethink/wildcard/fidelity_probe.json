@@ -1,0 +1,177 @@
+{
+ "seed": 0,
+ "n_search": 20000,
+ "families": {
+  "turing_finite_domain": {
+   "n_instances": 20000,
+   "base_refuse_rate": 0.0,
+   "mutants": {
+    "continuum_instead_of_admissible_modes": {
+     "label": "consequential",
+     "witness_instance": {
+      "J": [
+       0.2619413765333713,
+       -1.2326834954976311,
+       0.480415232539788,
+       -0.6638188482734502
+      ],
+      "d": 35.38476392829204,
+      "L": 6.283185307179586
+     },
+     "witness_reverified": true,
+     "witness_inside_base_scope": true,
+     "n_disagree_of_20000": 54,
+     "random_test_exposure_rate_first_2000": 0.0025,
+     "analytic_equivalence_reason": null
+    },
+    "drop_stable_hss_precondition": {
+     "label": "consequential",
+     "witness_instance": {
+      "J": [
+       0.1257302210933933,
+       -0.1321048632913019,
+       0.6404226504432821,
+       0.10490011715303971
+      ],
+      "d": 42.319495174775334,
+      "L": 15.707963267948966
+     },
+     "witness_reverified": true,
+     "witness_inside_base_scope": true,
+     "n_disagree_of_20000": 9211,
+     "random_test_exposure_rate_first_2000": 0.4675,
+     "analytic_equivalence_reason": null
+    },
+    "include_constant_mode_n0": {
+     "label": "equivalent_unrefuted",
+     "witness_instance": null,
+     "witness_reverified": null,
+     "witness_inside_base_scope": null,
+     "n_disagree_of_20000": 0,
+     "random_test_exposure_rate_first_2000": 0.0,
+     "analytic_equivalence_reason": "equivalent given stability: det(J)>0 so q=0 cannot give det<0"
+    },
+    "expanded_quadratic_form": {
+     "label": "equivalent_unrefuted",
+     "witness_instance": null,
+     "witness_reverified": null,
+     "witness_inside_base_scope": null,
+     "n_disagree_of_20000": 0,
+     "random_test_exposure_rate_first_2000": 0.0,
+     "analytic_equivalence_reason": "algebraic expansion of det(J-qD)"
+    }
+   }
+  },
+  "kimura_neutral_limit": {
+   "n_instances": 20000,
+   "base_refuse_rate": 0.5811,
+   "mutants": {
+    "drop_scope_guard": {
+     "label": "consequential",
+     "witness_instance": {
+      "Ne": 11.209413928285786,
+      "s": -0.045678946210015316
+     },
+     "witness_reverified": true,
+     "witness_inside_base_scope": false,
+     "n_disagree_of_20000": 11622,
+     "random_test_exposure_rate_first_2000": 0.585,
+     "analytic_equivalence_reason": null
+    },
+    "tolerance_10pct_to_1pct": {
+     "label": "consequential",
+     "witness_instance": {
+      "Ne": 814.4886973076099,
+      "s": 1.528906255994399e-05
+     },
+     "witness_reverified": true,
+     "witness_inside_base_scope": true,
+     "n_disagree_of_20000": 3219,
+     "random_test_exposure_rate_first_2000": 0.1505,
+     "analytic_equivalence_reason": null
+    },
+    "relative_to_absolute_error": {
+     "label": "consequential",
+     "witness_instance": {
+      "Ne": 12.611209081195614,
+      "s": -0.01920655653394687
+     },
+     "witness_reverified": true,
+     "witness_inside_base_scope": true,
+     "n_disagree_of_20000": 3025,
+     "random_test_exposure_rate_first_2000": 0.156,
+     "analytic_equivalence_reason": null
+    },
+    "rewrite_u_with_expm1_difference": {
+     "label": "equivalent_unrefuted",
+     "witness_instance": null,
+     "witness_reverified": null,
+     "witness_inside_base_scope": null,
+     "n_disagree_of_20000": 0,
+     "random_test_exposure_rate_first_2000": 0.0,
+     "analytic_equivalence_reason": "algebraically identical expression for u(p)"
+    }
+   }
+  },
+  "hawk_dove_ess": {
+   "n_instances": 20000,
+   "base_refuse_rate": 0.4946,
+   "mutants": {
+    "drop_C_gt_V_scope": {
+     "label": "consequential",
+     "witness_instance": {
+      "V": 1.8789852661499484,
+      "C": 0.8945915134385531
+     },
+     "witness_reverified": true,
+     "witness_inside_base_scope": false,
+     "n_disagree_of_20000": 9892,
+     "random_test_exposure_rate_first_2000": 0.511,
+     "analytic_equivalence_reason": null
+    },
+    "payoff_HH_V_minus_C": {
+     "label": "consequential",
+     "witness_instance": {
+      "V": 4.231949517477533,
+      "C": 16.010256381703545
+     },
+     "witness_reverified": true,
+     "witness_inside_base_scope": true,
+     "n_disagree_of_20000": 10108,
+     "random_test_exposure_rate_first_2000": 0.489,
+     "analytic_equivalence_reason": null
+    },
+    "drop_stability_clause": {
+     "label": "equivalent_unrefuted",
+     "witness_instance": null,
+     "witness_reverified": null,
+     "witness_inside_base_scope": null,
+     "n_disagree_of_20000": 0,
+     "random_test_exposure_rate_first_2000": 0.0,
+     "analytic_equivalence_reason": null
+    },
+    "pstar_rewritten_1_minus_C_minus_V_over_C": {
+     "label": "equivalent_unrefuted",
+     "witness_instance": null,
+     "witness_reverified": null,
+     "witness_inside_base_scope": null,
+     "n_disagree_of_20000": 0,
+     "random_test_exposure_rate_first_2000": 0.0,
+     "analytic_equivalence_reason": "algebraic rewrite of V/C"
+    }
+   }
+  }
+ },
+ "label_audit": {
+  "analytic_expectation_equivalent": [
+   "drop_stability_clause",
+   "expanded_quadratic_form",
+   "include_constant_mode_n0",
+   "pstar_rewritten_1_minus_C_minus_V_over_C",
+   "rewrite_u_with_expm1_difference"
+  ],
+  "mismatches": [],
+  "amendment_note": "First run (scope-only comparison) mislabelled the two scope-drop mutants as equivalent: a dropped scope guard can only differ OUTSIDE the declared scope, so refusal must be a verdict. Also my initial expectation that drop_stability_clause is consequential was wrong: for the fully mixed p*=V/C, E(p*,q)-E(q,q)=(C/2)(q-p*)^2>0, so the second ESS clause holds automatically in scope. Both corrections were made after seeing the first output; the first output is summarised in critic-E-redteam.md section 7 (it was not committed).",
+  "caveat": "Base tests authored by one reader, unverified by a second; 'equivalent_unrefuted' is a finite search outcome plus an analytic argument, not a Lean proof (ShadowBench-style bidirectional checking would be stronger); 12 mutants over 3 families = 3 independent families; this is a harness check, not a result about LLM auditors."
+ }
+}

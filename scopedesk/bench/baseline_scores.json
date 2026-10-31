@@ -1,0 +1,290 @@
+{
+ "B0_scope_gate": {
+  "all": {
+   "correct": 82,
+   "n": 136,
+   "acc": 0.6029,
+   "cp95": [
+    0.5155,
+    0.6858
+   ]
+  },
+  "template_A": {
+   "correct": 68,
+   "n": 68,
+   "acc": 1.0,
+   "cp95": [
+    0.9472,
+    1.0
+   ]
+  },
+  "template_B": {
+   "correct": 14,
+   "n": 68,
+   "acc": 0.2059,
+   "cp95": [
+    0.1174,
+    0.3212
+   ]
+  },
+  "by_family": {
+   "fisher_kpp_speed": {
+    "correct": 11,
+    "n": 16,
+    "acc": 0.6875,
+    "cp95": [
+     0.4134,
+     0.8898
+    ]
+   },
+   "greenhill_buckling": {
+    "correct": 12,
+    "n": 16,
+    "acc": 0.75,
+    "cp95": [
+     0.4762,
+     0.9273
+    ]
+   },
+   "hamilton_rule_form": {
+    "correct": 10,
+    "n": 16,
+    "acc": 0.625,
+    "cp95": [
+     0.3543,
+     0.848
+    ]
+   },
+   "hawk_dove_ess": {
+    "correct": 10,
+    "n": 16,
+    "acc": 0.625,
+    "cp95": [
+     0.3543,
+     0.848
+    ]
+   },
+   "kimura_regime": {
+    "correct": 8,
+    "n": 16,
+    "acc": 0.5,
+    "cp95": [
+     0.2465,
+     0.7535
+    ]
+   },
+   "rayleigh_plateau": {
+    "correct": 9,
+    "n": 16,
+    "acc": 0.5625,
+    "cp95": [
+     0.2988,
+     0.8025
+    ]
+   },
+   "turing_finite_domain": {
+    "correct": 14,
+    "n": 24,
+    "acc": 0.5833,
+    "cp95": [
+     0.3664,
+     0.7789
+    ]
+   },
+   "wavelength_formula_licence": {
+    "correct": 8,
+    "n": 16,
+    "acc": 0.5,
+    "cp95": [
+     0.2465,
+     0.7535
+    ]
+   }
+  },
+  "by_truth": {
+   "applies": {
+    "correct": 33,
+    "n": 62,
+    "acc": 0.5323,
+    "cp95": [
+     0.4012,
+     0.6602
+    ]
+   },
+   "out_of_scope": {
+    "correct": 31,
+    "n": 56,
+    "acc": 0.5536,
+    "cp95": [
+     0.4147,
+     0.6866
+    ]
+   },
+   "underdetermined": {
+    "correct": 18,
+    "n": 18,
+    "acc": 1.0,
+    "cp95": [
+     0.8147,
+     1.0
+    ]
+   }
+  },
+  "false_alarm_rate_on_applies": {
+   "false_alarms": 29,
+   "n": 62
+  }
+ },
+ "R_retrieval_always_applies": {
+  "all": {
+   "correct": 62,
+   "n": 136,
+   "acc": 0.4559,
+   "cp95": [
+    0.3703,
+    0.5434
+   ]
+  },
+  "template_A": {
+   "correct": 31,
+   "n": 68,
+   "acc": 0.4559,
+   "cp95": [
+    0.3345,
+    0.5812
+   ]
+  },
+  "template_B": {
+   "correct": 31,
+   "n": 68,
+   "acc": 0.4559,
+   "cp95": [
+    0.3345,
+    0.5812
+   ]
+  },
+  "by_family": {
+   "fisher_kpp_speed": {
+    "correct": 7,
+    "n": 16,
+    "acc": 0.4375,
+    "cp95": [
+     0.1975,
+     0.7012
+    ]
+   },
+   "greenhill_buckling": {
+    "correct": 6,
+    "n": 16,
+    "acc": 0.375,
+    "cp95": [
+     0.152,
+     0.6457
+    ]
+   },
+   "hamilton_rule_form": {
+    "correct": 8,
+    "n": 16,
+    "acc": 0.5,
+    "cp95": [
+     0.2465,
+     0.7535
+    ]
+   },
+   "hawk_dove_ess": {
+    "correct": 8,
+    "n": 16,
+    "acc": 0.5,
+    "cp95": [
+     0.2465,
+     0.7535
+    ]
+   },
+   "kimura_regime": {
+    "correct": 7,
+    "n": 16,
+    "acc": 0.4375,
+    "cp95": [
+     0.1975,
+     0.7012
+    ]
+   },
+   "rayleigh_plateau": {
+    "correct": 8,
+    "n": 16,
+    "acc": 0.5,
+    "cp95": [
+     0.2465,
+     0.7535
+    ]
+   },
+   "turing_finite_domain": {
+    "correct": 12,
+    "n": 24,
+    "acc": 0.5,
+    "cp95": [
+     0.2912,
+     0.7088
+    ]
+   },
+   "wavelength_formula_licence": {
+    "correct": 6,
+    "n": 16,
+    "acc": 0.375,
+    "cp95": [
+     0.152,
+     0.6457
+    ]
+   }
+  },
+  "by_truth": {
+   "applies": {
+    "correct": 62,
+    "n": 62,
+    "acc": 1.0,
+    "cp95": [
+     0.9422,
+     1.0
+    ]
+   },
+   "out_of_scope": {
+    "correct": 0,
+    "n": 56,
+    "acc": 0.0,
+    "cp95": [
+     0.0,
+     0.0638
+    ]
+   },
+   "underdetermined": {
+    "correct": 0,
+    "n": 18,
+    "acc": 0.0,
+    "cp95": [
+     0.0,
+     0.1853
+    ]
+   }
+  },
+  "false_alarm_rate_on_applies": {
+   "false_alarms": 0,
+   "n": 62
+  }
+ },
+ "FMT_format_only_trained_on_dev_tested_heldout": {
+  "acc": {
+   "correct": 36,
+   "n": 96,
+   "acc": 0.375,
+   "cp95": [
+    0.2782,
+    0.4797
+   ]
+  },
+  "majority_class_rate_heldout": {
+   "class": "out_of_scope",
+   "rate": 0.4479
+  },
+  "note": "must not clearly exceed majority rate; interval shown for the classifier accuracy"
+ }
+}

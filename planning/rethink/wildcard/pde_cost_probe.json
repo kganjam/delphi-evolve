@@ -1,0 +1,17 @@
+{
+ "instances": 100,
+ "N": 128,
+ "T": 1000.0,
+ "dt": 0.02,
+ "wall_seconds_one_cpu_thread": 20.4,
+ "finite": true,
+ "frac_amp_gt_0.1": 0.82,
+ "by_L_over_pi": {
+  "1": 0.0,
+  "2": 1.0,
+  "5": 1.0,
+  "10": 1.0,
+  "20": 1.0
+ },
+ "caveat": "no refinement study; threshold 0.1 arbitrary; illustrates cost, not a settled oracle"
+}

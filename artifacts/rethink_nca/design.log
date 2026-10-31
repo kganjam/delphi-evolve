@@ -1,0 +1,22 @@
+gate calls 0.1s; tampered refusals 48/48
+design sims r=10 n=175 5.4s
+design sims r=20 n=145 7.5s
+design sims r=30 n=141 9.4s
+design sims r=40 n=139 11.8s
+nca nca_seed0 r=10 49.7s finite=0/48
+nca nca_seed0 r=20 79.1s finite=0/48
+nca nca_seed0 r=30 90.6s finite=0/48
+nca nca_seed0 r=40 241.8s finite=0/48
+nca nca_seed1 r=10 27.2s finite=32/32
+nca nca_seed1 r=20 56.9s finite=32/32
+nca nca_seed1 r=30 38.3s finite=32/32
+nca nca_seed1 r=40 47.6s finite=32/32
+nca nca_seed2 r=10 16.8s finite=32/32
+nca nca_seed2 r=20 31.9s finite=32/32
+nca nca_seed2 r=30 54.8s finite=32/32
+nca nca_seed2 r=40 54.1s finite=32/32
+nca nshuf_seed0 r=10 22.2s finite=0/48
+nca nshuf_seed0 r=20 42.7s finite=0/48
+nca nshuf_seed0 r=30 56.3s finite=0/48
+nca nshuf_seed0 r=40 172.8s finite=0/48
+designs written

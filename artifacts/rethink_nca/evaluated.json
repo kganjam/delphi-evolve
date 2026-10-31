@@ -1,0 +1,9578 @@
+{
+ "requests": [
+  {
+   "d": 10,
+   "r": 10,
+   "lam": 8,
+   "control": false,
+   "id": 0,
+   "held_out": false
+  },
+  {
+   "d": 10,
+   "r": 10,
+   "lam": 11,
+   "control": false,
+   "id": 1,
+   "held_out": false
+  },
+  {
+   "d": 10,
+   "r": 10,
+   "lam": 15,
+   "control": false,
+   "id": 2,
+   "held_out": true
+  },
+  {
+   "d": 10,
+   "r": 10,
+   "lam": 22,
+   "control": false,
+   "id": 3,
+   "held_out": true
+  },
+  {
+   "d": 10,
+   "r": 20,
+   "lam": 8,
+   "control": false,
+   "id": 4,
+   "held_out": false
+  },
+  {
+   "d": 10,
+   "r": 20,
+   "lam": 11,
+   "control": false,
+   "id": 5,
+   "held_out": false
+  },
+  {
+   "d": 10,
+   "r": 20,
+   "lam": 15,
+   "control": false,
+   "id": 6,
+   "held_out": true
+  },
+  {
+   "d": 10,
+   "r": 20,
+   "lam": 22,
+   "control": false,
+   "id": 7,
+   "held_out": true
+  },
+  {
+   "d": 10,
+   "r": 30,
+   "lam": 8,
+   "control": false,
+   "id": 8,
+   "held_out": true
+  },
+  {
+   "d": 10,
+   "r": 30,
+   "lam": 11,
+   "control": false,
+   "id": 9,
+   "held_out": true
+  },
+  {
+   "d": 10,
+   "r": 30,
+   "lam": 15,
+   "control": false,
+   "id": 10,
+   "held_out": true
+  },
+  {
+   "d": 10,
+   "r": 30,
+   "lam": 22,
+   "control": false,
+   "id": 11,
+   "held_out": true
+  },
+  {
+   "d": 10,
+   "r": 40,
+   "lam": 8,
+   "control": false,
+   "id": 12,
+   "held_out": true
+  },
+  {
+   "d": 10,
+   "r": 40,
+   "lam": 11,
+   "control": false,
+   "id": 13,
+   "held_out": true
+  },
+  {
+   "d": 10,
+   "r": 40,
+   "lam": 15,
+   "control": false,
+   "id": 14,
+   "held_out": true
+  },
+  {
+   "d": 10,
+   "r": 40,
+   "lam": 22,
+   "control": false,
+   "id": 15,
+   "held_out": true
+  },
+  {
+   "d": 20,
+   "r": 10,
+   "lam": 8,
+   "control": false,
+   "id": 16,
+   "held_out": true
+  },
+  {
+   "d": 20,
+   "r": 10,
+   "lam": 11,
+   "control": false,
+   "id": 17,
+   "held_out": false
+  },
+  {
+   "d": 20,
+   "r": 10,
+   "lam": 15,
+   "control": false,
+   "id": 18,
+   "held_out": false
+  },
+  {
+   "d": 20,
+   "r": 10,
+   "lam": 22,
+   "control": false,
+   "id": 19,
+   "held_out": true
+  },
+  {
+   "d": 20,
+   "r": 20,
+   "lam": 8,
+   "control": false,
+   "id": 20,
+   "held_out": true
+  },
+  {
+   "d": 20,
+   "r": 20,
+   "lam": 11,
+   "control": false,
+   "id": 21,
+   "held_out": false
+  },
+  {
+   "d": 20,
+   "r": 20,
+   "lam": 15,
+   "control": false,
+   "id": 22,
+   "held_out": false
+  },
+  {
+   "d": 20,
+   "r": 20,
+   "lam": 22,
+   "control": false,
+   "id": 23,
+   "held_out": true
+  },
+  {
+   "d": 20,
+   "r": 30,
+   "lam": 8,
+   "control": false,
+   "id": 24,
+   "held_out": true
+  },
+  {
+   "d": 20,
+   "r": 30,
+   "lam": 11,
+   "control": false,
+   "id": 25,
+   "held_out": true
+  },
+  {
+   "d": 20,
+   "r": 30,
+   "lam": 15,
+   "control": false,
+   "id": 26,
+   "held_out": true
+  },
+  {
+   "d": 20,
+   "r": 30,
+   "lam": 22,
+   "control": false,
+   "id": 27,
+   "held_out": true
+  },
+  {
+   "d": 20,
+   "r": 40,
+   "lam": 8,
+   "control": false,
+   "id": 28,
+   "held_out": true
+  },
+  {
+   "d": 20,
+   "r": 40,
+   "lam": 11,
+   "control": false,
+   "id": 29,
+   "held_out": true
+  },
+  {
+   "d": 20,
+   "r": 40,
+   "lam": 15,
+   "control": false,
+   "id": 30,
+   "held_out": true
+  },
+  {
+   "d": 20,
+   "r": 40,
+   "lam": 22,
+   "control": false,
+   "id": 31,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 10,
+   "lam": 8,
+   "control": true,
+   "id": 32,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 10,
+   "lam": 11,
+   "control": true,
+   "id": 33,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 10,
+   "lam": 15,
+   "control": true,
+   "id": 34,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 10,
+   "lam": 22,
+   "control": true,
+   "id": 35,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 20,
+   "lam": 8,
+   "control": true,
+   "id": 36,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 20,
+   "lam": 11,
+   "control": true,
+   "id": 37,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 20,
+   "lam": 15,
+   "control": true,
+   "id": 38,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 20,
+   "lam": 22,
+   "control": true,
+   "id": 39,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 30,
+   "lam": 8,
+   "control": true,
+   "id": 40,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 30,
+   "lam": 11,
+   "control": true,
+   "id": 41,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 30,
+   "lam": 15,
+   "control": true,
+   "id": 42,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 30,
+   "lam": 22,
+   "control": true,
+   "id": 43,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 40,
+   "lam": 8,
+   "control": true,
+   "id": 44,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 40,
+   "lam": 11,
+   "control": true,
+   "id": 45,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 40,
+   "lam": 15,
+   "control": true,
+   "id": 46,
+   "held_out": true
+  },
+  {
+   "d": 1,
+   "r": 40,
+   "lam": 22,
+   "control": true,
+   "id": 47,
+   "held_out": true
+  }
+ ],
+ "designs": [
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 0,
+   "decision": "accept",
+   "gamma": 1.9506518445165246,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.30251994805982596,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.30251995884341215,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.30251997310635137,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 0,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 1.563713421137812,
+   "design_world_ok": true,
+   "design_world_lam": 8.975979010256552,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.3076804008484925,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.30768040081526676,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.30768040062357216,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 0,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 1.9484132854792744,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 7.853981633974483,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.30235319027095364,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.30235320459598936,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.30235322053949093,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 0,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 2.003119866490264,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 7.853981633974483,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.30586252999158264,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.3058625083128818,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.30586249855294023,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 1,
+   "decision": "accept",
+   "gamma": 1.0317497359426246,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 5,
+     "lam": 12.566370614359172,
+     "amp": 0.27229203908732075,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.29100525039194786,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.2910052508297261,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 1,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.9592550525713005,
+   "design_world_ok": true,
+   "design_world_lam": 10.471975511965978,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 5,
+     "lam": 12.566370614359172,
+     "amp": 0.29556214013021803,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 5,
+     "lam": 12.566370614359172,
+     "amp": 0.29556213949061083,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 5,
+     "lam": 12.566370614359172,
+     "amp": 0.2955621151054062,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 1,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 1.0406915092523414,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 10.471975511965978,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.2929307402901282,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.2929371941331601,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.29293719433404813,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 1,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.989660380209073,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 10.471975511965978,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 5,
+     "lam": 12.566370614359172,
+     "amp": 0.2872166594303702,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.2801942300330402,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.2801945051982455,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 2,
+   "decision": "accept",
+   "gamma": 0.5548520802180337,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3092030190353294,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3092030190353718,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30920301903535713,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 2,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3056931346377179,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463770853,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463772624,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 2,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3056931346377179,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463770853,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463772624,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 2,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3056931346377179,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463770853,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463772624,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 3,
+   "decision": "accept",
+   "gamma": 0.25793743398565616,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.29100525091705703,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.29100525091709945,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.29100525091705803,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 3,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3056931346377179,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463770853,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463772624,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 3,
+   "sims": 0,
+   "decision": "refuse_no_mode"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 3,
+   "sims": 0,
+   "decision": "refuse_no_mode"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 4,
+   "decision": "accept",
+   "gamma": 1.9506518445165246,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 15,
+     "lam": 8.377580409572781,
+     "amp": 0.3088631971921071,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 7.391982714328925,
+     "amp": 0.2745780211949533,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 16,
+     "lam": 7.853981633974483,
+     "amp": 0.30238252283738937,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 4,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 1.840340511767137,
+   "design_world_ok": true,
+   "design_world_lam": 7.853981633974483,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 15,
+     "lam": 8.377580409572781,
+     "amp": 0.3090730446422748,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 15,
+     "lam": 8.377580409572781,
+     "amp": 0.3081726216138636,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 16,
+     "lam": 7.853981633974483,
+     "amp": 0.29131320719849635,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 4,
+   "sims": 0,
+   "decision": "accept",
+   "gamma": 2.023857702507763,
+   "mode": 16,
+   "design_world_ok": null,
+   "route": "analytic_licensed",
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 16,
+     "lam": 7.853981633974483,
+     "amp": 0.3064902279855695,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 7.391982714328925,
+     "amp": 0.28531172874673943,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 16,
+     "lam": 7.853981633974483,
+     "amp": 0.30680067269704125,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 4,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 1.8476685855516668,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 7.853981633974483,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 15,
+     "lam": 8.377580409572781,
+     "amp": 0.30923103707975225,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 15,
+     "lam": 8.377580409572781,
+     "amp": 0.30832961787938123,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 16,
+     "lam": 7.853981633974483,
+     "amp": 0.29225564880998445,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 5,
+   "decision": "accept",
+   "gamma": 1.0317497359426246,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 12,
+     "lam": 10.471975511965978,
+     "amp": 0.29096351244616675,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.30974262370558797,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.3097209097450565,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 5,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.8150665544821735,
+   "design_world_ok": true,
+   "design_world_lam": 11.423973285781067,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 10,
+     "lam": 12.566370614359172,
+     "amp": 0.30904146134243216,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.273949902755901,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.2731785414797958,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 5,
+   "sims": 0,
+   "decision": "accept",
+   "gamma": 0.9565889922009346,
+   "mode": 11,
+   "design_world_ok": null,
+   "route": "analytic_licensed",
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.3067362814812198,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.30689272138213375,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.3068919687086571,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 5,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.7708273061584708,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 11.423973285781067,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.29733518817579596,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 10,
+     "lam": 12.566370614359172,
+     "amp": 0.3040912831588162,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 10,
+     "lam": 12.566370614359172,
+     "amp": 0.30409462072182053,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 6,
+   "decision": "accept",
+   "gamma": 0.5548520802180337,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.2792314426424277,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.30920290793872535,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.27921676214197694,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 6,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.3056903126155478,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.30569312235041746,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.3056930915179823,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 6,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.3056903126155478,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.30569312235041746,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.3056930915179823,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 6,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.3056903126155478,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.30569312235041746,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.3056930915179823,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 7,
+   "decision": "accept",
+   "gamma": 0.25793743398565616,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 6,
+     "lam": 20.943951023931955,
+     "amp": 0.29100525085676565,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 6,
+     "lam": 20.943951023931955,
+     "amp": 0.2910052509120625,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 6,
+     "lam": 20.943951023931955,
+     "amp": 0.2910052509120715,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 7,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.3056903126155478,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.30569312235041746,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.3056930915179823,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 7,
+   "sims": 0,
+   "decision": "refuse_no_mode"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 7,
+   "sims": 0,
+   "decision": "refuse_no_mode"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 8,
+   "decision": "accept",
+   "gamma": 1.9506518445165246,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.30150636595517905,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 23,
+     "lam": 8.1954590963212,
+     "amp": 0.30957025558175105,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 25,
+     "lam": 7.539822368615503,
+     "amp": 0.28485570624794987,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 8,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 1.840340511767137,
+   "design_world_ok": true,
+   "design_world_lam": 8.1954590963212,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.28954653018554743,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 23,
+     "lam": 8.1954590963212,
+     "amp": 0.3057434981720414,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.2889462739553268,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 8,
+   "sims": 0,
+   "decision": "accept",
+   "gamma": 2.023857702507763,
+   "mode": 24,
+   "design_world_ok": null,
+   "route": "analytic_licensed",
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.3059044644449335,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 23,
+     "lam": 8.1954590963212,
+     "amp": 0.30935962753996993,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 25,
+     "lam": 7.539822368615503,
+     "amp": 0.2935861522737013,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 8,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 1.8476685855516668,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 8.1954590963212,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.29090477872968445,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 23,
+     "lam": 8.1954590963212,
+     "amp": 0.306161762265437,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.26749211202965173,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 9,
+   "decision": "accept",
+   "gamma": 1.0317497359426246,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 17,
+     "lam": 11.087974071493386,
+     "amp": 0.3069562397857705,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 11.087974071493386,
+     "amp": 0.3081906123521428,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 18,
+     "lam": 10.471975511965976,
+     "amp": 0.2898092053828872,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 9,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.8150665544821735,
+   "design_world_ok": true,
+   "design_world_lam": 11.087974071493386,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 15,
+     "lam": 12.56637061435917,
+     "amp": 0.3088544360862228,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 15,
+     "lam": 12.56637061435917,
+     "amp": 0.3078557038218178,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 16,
+     "lam": 11.780972450961723,
+     "amp": 0.2909315002609649,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 9,
+   "sims": 0,
+   "decision": "accept",
+   "gamma": 1.0154424930985133,
+   "mode": 17,
+   "design_world_ok": null,
+   "route": "analytic_licensed",
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 17,
+     "lam": 11.087974071493386,
+     "amp": 0.30552188476932446,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 11.087974071493386,
+     "amp": 0.3068918380416247,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 18,
+     "lam": 10.471975511965976,
+     "amp": 0.2854490086376274,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 9,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.8377866879500304,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 11.087974071493386,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 15,
+     "lam": 12.56637061435917,
+     "amp": 0.30961804923585695,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 15,
+     "lam": 12.56637061435917,
+     "amp": 0.3080155997065857,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 16,
+     "lam": 11.780972450961723,
+     "amp": 0.2967644318703344,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 10,
+   "decision": "accept",
+   "gamma": 0.5548520802180337,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.2973672973387621,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.2973538318520732,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.2973700276086757,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 10,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5884519781214264,
+   "design_world_ok": true,
+   "design_world_lam": 13.463968515384826,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.30598638455081606,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.30598394592227485,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.30595885889020535,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 10,
+   "sims": 0,
+   "decision": "accept",
+   "gamma": 0.5938054717427292,
+   "mode": 13,
+   "design_world_ok": null,
+   "route": "analytic_licensed",
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.3068844168064119,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.3068830261919222,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.30684813232544855,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 10,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5262207064531859,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948964,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.28547317850319764,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.28541788709301485,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.28548233179097415,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 11,
+   "decision": "accept",
+   "gamma": 0.25793743398565616,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 9,
+     "lam": 20.94395102393195,
+     "amp": 0.2910052126171166,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 9,
+     "lam": 20.94395102393195,
+     "amp": 0.29100479909351185,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 9,
+     "lam": 20.94395102393195,
+     "amp": 0.2910010066235799,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 11,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 17.135959928671596,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.27005314373288586,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.26948891221275983,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 12,
+     "lam": 15.707963267948964,
+     "amp": 0.30528108332465986,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 11,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": false,
+   "design_world_lam": 17.135959928671596,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.27005314373288586,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.26948891221275983,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 12,
+     "lam": 15.707963267948964,
+     "amp": 0.30528108332465986,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 11,
+   "sims": 0,
+   "decision": "refuse_empty_continuum_interval"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 12,
+   "decision": "accept",
+   "gamma": 1.9506518445165246,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 31,
+     "lam": 8.107335880231725,
+     "amp": 0.30855593702495354,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 30,
+     "lam": 8.377580409572781,
+     "amp": 0.3086574065651604,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 32,
+     "lam": 7.853981633974483,
+     "amp": 0.3016478377029818,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 12,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 1.840340511767137,
+   "design_world_ok": true,
+   "design_world_lam": 8.377580409572781,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 31,
+     "lam": 8.107335880231725,
+     "amp": 0.3029778429424983,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 30,
+     "lam": 8.377580409572781,
+     "amp": 0.3085698326786648,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 32,
+     "lam": 7.853981633974483,
+     "amp": 0.29081903747969207,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 12,
+   "sims": 0,
+   "decision": "accept",
+   "gamma": 1.8993430196386325,
+   "mode": 31,
+   "design_world_ok": null,
+   "route": "analytic_licensed",
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 31,
+     "lam": 8.107335880231725,
+     "amp": 0.3066158953405323,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 30,
+     "lam": 8.377580409572781,
+     "amp": 0.30927726806799444,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 32,
+     "lam": 7.853981633974483,
+     "amp": 0.2973013124400699,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 12,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 2.003119866490264,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 8.107335880231725,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 31,
+     "lam": 8.107335880231725,
+     "amp": 0.3093667301526871,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 30,
+     "lam": 8.377580409572781,
+     "amp": 0.3068783563497118,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 32,
+     "lam": 7.853981633974483,
+     "amp": 0.3049577933045095,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 13,
+   "decision": "accept",
+   "gamma": 1.0317497359426246,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.3049446205216766,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.3055238061551318,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.3055181214932752,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 13,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 1.1289510664171092,
+   "design_world_ok": true,
+   "design_world_lam": 10.927278795094933,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 25,
+     "lam": 10.053096491487338,
+     "amp": 0.29226066561129904,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.3097051925021799,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.30962796201466614,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 13,
+   "sims": 0,
+   "decision": "accept",
+   "gamma": 1.0455280513931704,
+   "mode": 23,
+   "design_world_ok": null,
+   "route": "analytic_licensed",
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.30640581626494784,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.306880941558197,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.30687783240638716,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 13,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.989660380209073,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 10.927278795094933,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.2986098340280698,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.299655432429548,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.29964057726757454,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 14,
+   "decision": "accept",
+   "gamma": 0.5548520802180337,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.30358235013421053,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.3035889639397082,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 18,
+     "lam": 13.962634015954636,
+     "amp": 0.27886779233212006,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 14,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.30360286033802053,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.28171048624189465,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 15,
+     "lam": 16.755160819145562,
+     "amp": 0.30753551880034286,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 14,
+   "sims": 0,
+   "decision": "accept",
+   "gamma": 0.5711864023679135,
+   "mode": 17,
+   "design_world_ok": null,
+   "route": "analytic_licensed",
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.3067959891380769,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.3068865093157165,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 18,
+     "lam": 13.962634015954636,
+     "amp": 0.2860603796721477,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 14,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.30360286033802053,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.28171048624189465,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 15,
+     "lam": 16.755160819145562,
+     "amp": 0.30753551880034286,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 15,
+   "decision": "accept",
+   "gamma": 0.25793743398565616,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 11,
+     "lam": 22.847946571562133,
+     "amp": 0.30974073804992935,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 11,
+     "lam": 22.847946571562133,
+     "amp": 0.3097212874355834,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 12,
+     "lam": 20.943951023931955,
+     "amp": 0.29100005077073116,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 15,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.30360286033802053,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.28171048624189465,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 15,
+     "lam": 16.755160819145562,
+     "amp": 0.30753551880034286,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 15,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": false,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.30360286033802053,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.28171048624189465,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 15,
+     "lam": 16.755160819145562,
+     "amp": 0.30753551880034286,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 15,
+   "sims": 0,
+   "decision": "refuse_empty_continuum_interval"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 16,
+   "decision": "accept",
+   "gamma": 2.758638293983363,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.6755916739909461,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.6593783409379024,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.6593783170813705,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 16,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 2.1659040291327396,
+   "design_world_ok": true,
+   "design_world_lam": 8.975979010256552,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.66332121945635,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.663321219767728,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.6040126786906239,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 16,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 2.1032789945003754,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 8.975979010256552,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.6587586113854816,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.6587586120360713,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.5952802773171506,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 16,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 2.168426790941393,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 8.975979010256552,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.6634909294491746,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.6634909297505284,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.6043505786558178,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 17,
+   "decision": "accept",
+   "gamma": 1.4591144695449194,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 5,
+     "lam": 12.566370614359172,
+     "amp": 0.6722573058408216,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.648330993597094,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.6483309936256396,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 17,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 1.3286669764708836,
+   "design_world_ok": true,
+   "design_world_lam": 10.471975511965978,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 5,
+     "lam": 12.566370614359172,
+     "amp": 0.6775878394408708,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.6273857730230877,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 5,
+     "lam": 12.566370614359172,
+     "amp": 0.677587839440871,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 17,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 1.4650780257917608,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 10.471975511965978,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 5,
+     "lam": 12.566370614359172,
+     "amp": 0.6717649953314204,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.6491353417013909,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.6491353417280555,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 17,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 1.3286669764708836,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 10.471975511965978,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 5,
+     "lam": 12.566370614359172,
+     "amp": 0.6775878394408708,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.6273857730230877,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 5,
+     "lam": 12.566370614359172,
+     "amp": 0.677587839440871,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 18,
+   "decision": "accept",
+   "gamma": 0.7846793369552677,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 5,
+     "lam": 12.566370614359172,
+     "amp": 0.5807893749812822,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.6747443915890234,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 5,
+     "lam": 12.566370614359172,
+     "amp": 0.5807893749240878,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 18,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.6763946245159705,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.5793555058957467,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.67639462451597,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 18,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.6763946245159705,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.5793555058957467,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.67639462451597,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 18,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.6763946245159705,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.5793555058957467,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.67639462451597,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 19,
+   "decision": "accept",
+   "gamma": 0.36477861738622985,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.6483309947531916,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.6483309947531918,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.6483309947531916,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 19,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.6763946245159705,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.5793555058957467,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.67639462451597,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 19,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": false,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.6763946245159705,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.5793555058957467,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.67639462451597,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 19,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": false,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.6763946245159705,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.5793555058957467,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.67639462451597,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 20,
+   "decision": "accept",
+   "gamma": 2.758638293983363,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 15,
+     "lam": 8.377580409572781,
+     "amp": 0.6746695842677688,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 7.391982714328925,
+     "amp": 0.6354032277752029,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 16,
+     "lam": 7.853981633974483,
+     "amp": 0.6593592804813881,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 20,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 2.549061020728656,
+   "design_world_ok": true,
+   "design_world_lam": 8.377580409572781,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 15,
+     "lam": 8.377580409572781,
+     "amp": 0.6666777719663274,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 7.391982714328925,
+     "amp": 0.61557815754451,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 16,
+     "lam": 7.853981633974483,
+     "amp": 0.6447120131897885,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 20,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 3.0000000000000004,
+   "route": "simulate",
+   "design_world_ok": false,
+   "design_world_lam": 6.283185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 15,
+     "lam": 8.377580409572781,
+     "amp": 0.6774918343395105,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 7.391982714328925,
+     "amp": 0.6528562868476292,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 16,
+     "lam": 7.853981633974483,
+     "amp": 0.6706226901286223,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 20,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 2.692334964397404,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 7.853981633974483,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 15,
+     "lam": 8.377580409572781,
+     "amp": 0.672710023899609,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 7.391982714328925,
+     "amp": 0.6296359897831579,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 16,
+     "lam": 7.853981633974483,
+     "amp": 0.6552406139033485,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 21,
+   "decision": "accept",
+   "gamma": 1.4591144695449194,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 13,
+     "lam": 9.666438934122441,
+     "amp": 0.6096036318004657,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.6734583775734114,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 12,
+     "lam": 10.471975511965978,
+     "amp": 0.6482812496063786,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 21,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.9592550525713005,
+   "design_world_ok": true,
+   "design_world_lam": 11.423973285781067,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6718116312152584,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6718111548574357,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6718108014353864,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 21,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 1.224744871391589,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 11.423973285781067,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6670815675601279,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.6481164254175861,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.6481147646424827,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 21,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.9592550525713005,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 11.423973285781067,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6718116312152584,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6718111548574357,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6718108014353864,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 22,
+   "decision": "accept",
+   "gamma": 0.7846793369552677,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6388596481504296,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6388552121744188,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6388564723702859,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 22,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.6925514611100393,
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6070493768963311,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.6601137716328201,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6070412563859051,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 22,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.702524491569369,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6110821655470261,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.6623300255801021,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6110745997123581,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 22,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.7645233980238777,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6328821048300022,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.6726316362440773,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.6328781861878232,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 23,
+   "decision": "accept",
+   "gamma": 0.36477861738622985,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 7,
+     "lam": 17.951958020513104,
+     "amp": 0.5629530532793326,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 6,
+     "lam": 20.943951023931955,
+     "amp": 0.6483309947525293,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 6,
+     "lam": 20.943951023931955,
+     "amp": 0.6483309947506979,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 23,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 17.951958020513104,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 7,
+     "lam": 17.951958020513104,
+     "amp": 0.6497087725165549,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.5793509119911848,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 6,
+     "lam": 20.943951023931955,
+     "amp": 0.6763946245159433,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 23,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": false,
+   "design_world_lam": 17.951958020513104,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 7,
+     "lam": 17.951958020513104,
+     "amp": 0.6497087725165549,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.5793509119911848,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 6,
+     "lam": 20.943951023931955,
+     "amp": 0.6763946245159433,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 23,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": false,
+   "design_world_lam": 17.951958020513104,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 7,
+     "lam": 17.951958020513104,
+     "amp": 0.6497087725165549,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.5793509119911848,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 6,
+     "lam": 20.943951023931955,
+     "amp": 0.6763946245159433,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 24,
+   "decision": "accept",
+   "gamma": 2.758638293983363,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.6590470036166206,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 23,
+     "lam": 8.1954590963212,
+     "amp": 0.6708532528897911,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 25,
+     "lam": 7.539822368615503,
+     "amp": 0.643859679964968,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 24,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 2.549061020728656,
+   "design_world_ok": true,
+   "design_world_lam": 8.567979964335798,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.644430603820299,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 23,
+     "lam": 8.1954590963212,
+     "amp": 0.660376022469153,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 25,
+     "lam": 7.539822368615503,
+     "amp": 0.6257142556583568,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 24,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 3.0000000000000004,
+   "route": "simulate",
+   "design_world_ok": false,
+   "design_world_lam": 6.731984257692413,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.6702901798386243,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 25,
+     "lam": 7.539822368615503,
+     "amp": 0.6597521709905,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 25,
+     "lam": 7.539822368615503,
+     "amp": 0.6593398709934237,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 24,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 2.692334964397404,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 7.2498292005918294,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.6549372092480652,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 23,
+     "lam": 8.1954590963212,
+     "amp": 0.6680832078268987,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 25,
+     "lam": 7.539822368615503,
+     "amp": 0.6386233065781531,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 25,
+   "decision": "accept",
+   "gamma": 1.4591144695449194,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 19,
+     "lam": 9.92081890607303,
+     "amp": 0.6237046497344387,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 11.087974071493386,
+     "amp": 0.6671049305489027,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 18,
+     "lam": 10.471975511965976,
+     "amp": 0.6481019003573093,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 25,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.9592550525713005,
+   "design_world_ok": true,
+   "design_world_lam": 11.087974071493386,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.6769216436469744,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.6769190952381123,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 14,
+     "lam": 13.463968515384826,
+     "amp": 0.6627004563451399,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 25,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 3.0000000000000004,
+   "route": "simulate",
+   "design_world_ok": false,
+   "design_world_lam": 6.731984257692413,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.6702901798386243,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 25,
+     "lam": 7.539822368615503,
+     "amp": 0.6597521709905,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 25,
+     "lam": 7.539822368615503,
+     "amp": 0.6593398709934237,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 25,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.9592550525713005,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 11.087974071493386,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.6769216436469744,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.6769190952381123,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 14,
+     "lam": 13.463968515384826,
+     "amp": 0.6627004563451399,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 26,
+   "decision": "accept",
+   "gamma": 0.7846793369552677,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.6541169871977466,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.6541093518267659,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 14,
+     "lam": 13.463968515384826,
+     "amp": 0.6211224770352699,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 26,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.8150665544821735,
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948964,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.660553580379488,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.6605473665890881,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 14,
+     "lam": 13.463968515384826,
+     "amp": 0.6306580334959205,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 26,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": false,
+   "design_world_lam": 18.84955592153876,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.6292631069828709,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.629167660880563,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 10,
+     "lam": 18.84955592153876,
+     "amp": 0.66582928059886,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 26,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.7645233980238777,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948964,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.6492153083826582,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.6492065169964545,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 14,
+     "lam": 13.463968515384826,
+     "amp": 0.6141749361459908,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 27,
+   "decision": "accept",
+   "gamma": 0.36477861738622985,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 9,
+     "lam": 20.94395102393195,
+     "amp": 0.6483309837795681,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 9,
+     "lam": 20.94395102393195,
+     "amp": 0.6483308525970707,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 8,
+     "lam": 23.561944901923447,
+     "amp": 0.6770658712324821,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 27,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": true,
+   "design_world_lam": 18.84955592153876,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.6292631069828709,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.629167660880563,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 10,
+     "lam": 18.84955592153876,
+     "amp": 0.66582928059886,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 27,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 18.84955592153876,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.6292631069828709,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.629167660880563,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 10,
+     "lam": 18.84955592153876,
+     "amp": 0.66582928059886,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 27,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 18.84955592153876,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.6292631069828709,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.629167660880563,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 10,
+     "lam": 18.84955592153876,
+     "amp": 0.66582928059886,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 28,
+   "decision": "accept",
+   "gamma": 2.758638293983363,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 32,
+     "lam": 7.853981633974483,
+     "amp": 0.6470821737179401,
+     "patterned": true,
+     "stable_mode": false
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 33,
+     "lam": 7.615982190520711,
+     "amp": 0.6578952680348094,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 33,
+     "lam": 7.615982190520711,
+     "amp": 0.6481864066434093,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 28,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 2.549061020728656,
+   "design_world_ok": true,
+   "design_world_lam": 8.377580409572781,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 31,
+     "lam": 8.107335880231725,
+     "amp": 0.6567974933329748,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 30,
+     "lam": 8.377580409572781,
+     "amp": 0.6662464089411351,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 32,
+     "lam": 7.853981633974483,
+     "amp": 0.6444306367710735,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 28,
+   "sims": 11,
+   "decision": "accept",
+   "gamma": 1.8432427202943793,
+   "route": "simulate",
+   "design_world_ok": false,
+   "design_world_lam": 9.666438934122441,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 25,
+     "lam": 10.053096491487338,
+     "amp": 0.6713202727105446,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 25,
+     "lam": 10.053096491487338,
+     "amp": 0.669206401373714,
+     "patterned": true,
+     "stable_mode": false
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 27,
+     "lam": 9.30842267730309,
+     "amp": 0.6478478650947672,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 28,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 2.692334964397404,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 8.377580409572781,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 32,
+     "lam": 7.853981633974483,
+     "amp": 0.6421564780571734,
+     "patterned": true,
+     "stable_mode": false
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 33,
+     "lam": 7.615982190520711,
+     "amp": 0.6538179559677071,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 32,
+     "lam": 7.853981633974483,
+     "amp": 0.654903018580022,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 29,
+   "decision": "accept",
+   "gamma": 1.4591144695449194,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 25,
+     "lam": 10.053096491487338,
+     "amp": 0.6302054464497926,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.6630783224703558,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 23,
+     "lam": 10.927278795094933,
+     "amp": 0.6629956136735732,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 29,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 1.1289510664171092,
+   "design_world_ok": true,
+   "design_world_lam": 11.423973285781067,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6746264526583602,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 21,
+     "lam": 11.967972013675402,
+     "amp": 0.6503536976456566,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 21,
+     "lam": 11.967972013675402,
+     "amp": 0.6489131307789936,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 29,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 3.0000000000000004,
+   "route": "simulate",
+   "design_world_ok": false,
+   "design_world_lam": 6.283185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 32,
+     "lam": 7.853981633974483,
+     "amp": 0.6613968473094203,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 33,
+     "lam": 7.615982190520711,
+     "amp": 0.6689604388193303,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 33,
+     "lam": 7.615982190520711,
+     "amp": 0.6627081196567871,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 29,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 1.1289510664171092,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 11.423973285781067,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6746264526583602,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 21,
+     "lam": 11.967972013675402,
+     "amp": 0.6503536976456566,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 21,
+     "lam": 11.967972013675402,
+     "amp": 0.6489131307789936,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 30,
+   "decision": "accept",
+   "gamma": 0.7846793369552677,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.6742073304600703,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.6606835503663888,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6117246861819414,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 30,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.8150665544821735,
+   "design_world_ok": true,
+   "design_world_lam": 13.962634015954636,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.676255013088976,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.6661949729656699,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6219119056527931,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 30,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": false,
+   "design_world_lam": 17.951958020513104,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 15,
+     "lam": 16.755160819145562,
+     "amp": 0.6177754997770936,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 14,
+     "lam": 17.951958020513104,
+     "amp": 0.6491985219616038,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 14,
+     "lam": 17.951958020513104,
+     "amp": 0.6495615438815441,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 30,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.7645233980238777,
+   "route": "simulate",
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.6721043101641395,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.6563814571711037,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6043432289468478,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 31,
+   "decision": "accept",
+   "gamma": 0.36477861738622985,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 11,
+     "lam": 22.847946571562133,
+     "amp": 0.6734509701033798,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 12,
+     "lam": 20.943951023931955,
+     "amp": 0.648285595527515,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 12,
+     "lam": 20.943951023931955,
+     "amp": 0.6483306643349854,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 31,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 17.951958020513104,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 15,
+     "lam": 16.755160819145562,
+     "amp": 0.6177754997770936,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 14,
+     "lam": 17.951958020513104,
+     "amp": 0.6491985219616038,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 14,
+     "lam": 17.951958020513104,
+     "amp": 0.6495615438815441,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 31,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": false,
+   "design_world_lam": 17.951958020513104,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 15,
+     "lam": 16.755160819145562,
+     "amp": 0.6177754997770936,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 14,
+     "lam": 17.951958020513104,
+     "amp": 0.6491985219616038,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 14,
+     "lam": 17.951958020513104,
+     "amp": 0.6495615438815441,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 31,
+   "sims": 12,
+   "decision": "accept",
+   "gamma": 0.5,
+   "route": "simulate",
+   "design_world_ok": false,
+   "design_world_lam": 17.951958020513104,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 15,
+     "lam": 16.755160819145562,
+     "amp": 0.6177754997770936,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 14,
+     "lam": 17.951958020513104,
+     "amp": 0.6491985219616038,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 14,
+     "lam": 17.951958020513104,
+     "amp": 0.6495615438815441,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 32,
+   "decision": "accept",
+   "gamma": 0.6168502750680849,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 1.833045121696612e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 1,
+     "lam": 62.83185307179586,
+     "amp": 2.4982485094519825e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 2.8047143061728727e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 32,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 32,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 32,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 33,
+   "decision": "accept",
+   "gamma": 0.32626791408559863,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 2.5775352444066036e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 1,
+     "lam": 62.83185307179586,
+     "amp": 2.977592486823126e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 2.543598242249885e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 33,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 33,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 33,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 34,
+   "decision": "accept",
+   "gamma": 0.17545963379714413,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 2.76911078105971e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 2.1075969310413034e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 5,
+     "lam": 12.566370614359172,
+     "amp": 1.5471586244726194e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 34,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 34,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 34,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 35,
+   "decision": "accept",
+   "gamma": 0.08156697852139966,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 1,
+     "lam": 62.83185307179586,
+     "amp": 1.785268312150179e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 1.4390135079995448e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 1,
+     "lam": 62.83185307179586,
+     "amp": 1.3799853365199569e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 35,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 35,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 35,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 36,
+   "decision": "accept",
+   "gamma": 0.6168502750680849,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 1,
+     "lam": 125.66370614359172,
+     "amp": 9.503826847910226e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 1,
+     "lam": 125.66370614359172,
+     "amp": 4.020785766037916e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 16,
+     "lam": 7.853981633974483,
+     "amp": 3.285115973899972e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 36,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 36,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 36,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 37,
+   "decision": "accept",
+   "gamma": 0.32626791408559863,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 1,
+     "lam": 125.66370614359172,
+     "amp": 5.498462893627207e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 1,
+     "lam": 125.66370614359172,
+     "amp": 2.687680033227931e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 1,
+     "lam": 125.66370614359172,
+     "amp": 2.7292073168809514e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 37,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 37,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 37,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 38,
+   "decision": "accept",
+   "gamma": 0.17545963379714413,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 1,
+     "lam": 125.66370614359172,
+     "amp": 2.146459095850867e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 1,
+     "lam": 125.66370614359172,
+     "amp": 1.708535483421063e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 3,
+     "lam": 41.88790204786391,
+     "amp": 2.254907786934502e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 38,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 38,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 38,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 39,
+   "decision": "accept",
+   "gamma": 0.08156697852139966,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 1,
+     "lam": 125.66370614359172,
+     "amp": 1.920437139378371e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 1,
+     "lam": 125.66370614359172,
+     "amp": 1.9891280697202825e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 1,
+     "lam": 125.66370614359172,
+     "amp": 1.5014714634990313e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 39,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 39,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 39,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 40,
+   "decision": "accept",
+   "gamma": 0.6168502750680849,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 1,
+     "lam": 188.49555921538757,
+     "amp": 4.926063438659409e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 1,
+     "lam": 188.49555921538757,
+     "amp": 4.996209203439403e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 1,
+     "lam": 188.49555921538757,
+     "amp": 5.119721382671847e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 40,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 40,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 40,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 41,
+   "decision": "accept",
+   "gamma": 0.32626791408559863,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 1,
+     "lam": 188.49555921538757,
+     "amp": 5.700430362637864e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 1,
+     "lam": 188.49555921538757,
+     "amp": 7.095793110773135e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 1,
+     "lam": 188.49555921538757,
+     "amp": 3.906554952331806e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 41,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 41,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 41,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 42,
+   "decision": "accept",
+   "gamma": 0.17545963379714413,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 5,
+     "lam": 37.69911184307752,
+     "amp": 3.668946959346499e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 47.12388980384689,
+     "amp": 2.613390480962191e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 4,
+     "lam": 47.12388980384689,
+     "amp": 2.666230893638952e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 42,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 42,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 42,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 43,
+   "decision": "accept",
+   "gamma": 0.08156697852139966,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 4,
+     "lam": 47.12388980384689,
+     "amp": 2.3555747844441817e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 2,
+     "lam": 94.24777960769379,
+     "amp": 1.8524429647660953e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 1,
+     "lam": 188.49555921538757,
+     "amp": 1.8702123439691604e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 43,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 43,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 43,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 44,
+   "decision": "accept",
+   "gamma": 0.6168502750680849,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 3,
+     "lam": 83.77580409572782,
+     "amp": 6.586474704614014e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 1,
+     "lam": 251.32741228718345,
+     "amp": 8.371088047615144e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 6,
+     "lam": 41.88790204786391,
+     "amp": 6.5348320439692295e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 44,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 44,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 44,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 45,
+   "decision": "accept",
+   "gamma": 0.32626791408559863,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 1,
+     "lam": 251.32741228718345,
+     "amp": 7.200632999314395e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 3,
+     "lam": 83.77580409572782,
+     "amp": 6.328697298453665e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 2,
+     "lam": 125.66370614359172,
+     "amp": 4.209304852297047e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 45,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 45,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 45,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 46,
+   "decision": "accept",
+   "gamma": 0.17545963379714413,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 1,
+     "lam": 251.32741228718345,
+     "amp": 6.371818181213324e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 1,
+     "lam": 251.32741228718345,
+     "amp": 5.656202240884555e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 1,
+     "lam": 251.32741228718345,
+     "amp": 3.7523033577570855e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 46,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 46,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 46,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "C0",
+   "seed": null,
+   "req": 47,
+   "decision": "accept",
+   "gamma": 0.08156697852139966,
+   "sims": 0,
+   "design_world_ok": null,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 1,
+     "lam": 251.32741228718345,
+     "amp": 5.436161720613785e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 5,
+     "lam": 50.26548245743669,
+     "amp": 2.4669070666469308e-15,
+     "patterned": false,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 8,
+     "lam": 31.41592653589793,
+     "amp": 3.3389507559225107e-15,
+     "patterned": false,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "D",
+   "seed": null,
+   "req": 47,
+   "sims": 12,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "G",
+   "seed": null,
+   "req": 47,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "Gmis",
+   "seed": null,
+   "req": 47,
+   "sims": 0,
+   "decision": "refuse_no_band"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 0,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 1,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 2,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 3,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 4,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 5,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 6,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 7,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 8,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 9,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 10,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 11,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 12,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 13,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 14,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 15,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 16,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 17,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 18,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 19,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 20,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 21,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 22,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 23,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 24,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 25,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 26,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 27,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 28,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 29,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 30,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 31,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 32,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 33,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 34,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 35,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 36,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 37,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 38,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 39,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 40,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 41,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 42,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 43,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 44,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 45,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 46,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 0,
+   "req": 47,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 0,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5634388050954132,
+   "design_world_ok": true,
+   "design_world_lam": 8.975979010256552,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3083063945921337,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.308306394592305,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.308306394592305,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 1,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5634388050954132,
+   "design_world_ok": false,
+   "design_world_lam": 8.975979010256552,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3083063945921337,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.308306394592305,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.308306394592305,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 2,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 2.096481356314738,
+   "design_world_ok": true,
+   "design_world_lam": 15.707963267948966,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.30927419777433196,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.30927420156877516,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.30927415313307477,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 3,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 1.300121692491222,
+   "design_world_ok": true,
+   "design_world_lam": 20.943951023931955,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.2689814476206745,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.2689806065035199,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 6,
+     "lam": 10.471975511965978,
+     "amp": 0.30596964452070546,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 4,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.6349265741746941,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060506565558059,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.30604990029343104,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060502417854453,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 5,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.6349265741746941,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060506565558059,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.30604990029343104,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060502417854453,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 6,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.6349265741746941,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060506565558059,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.30604990029343104,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060502417854453,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 7,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.6349265741746941,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060506565558059,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.30604990029343104,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060502417854453,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 8,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 1.300121692491222,
+   "design_world_ok": false,
+   "design_world_lam": 62.831853071795855,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 19,
+     "lam": 9.92081890607303,
+     "amp": 0.30842797169819536,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 19,
+     "lam": 9.92081890607303,
+     "amp": 0.3087365550226573,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 19,
+     "lam": 9.92081890607303,
+     "amp": 0.3078485519843604,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 9,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 1.300121692491222,
+   "design_world_ok": false,
+   "design_world_lam": 62.831853071795855,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 19,
+     "lam": 9.92081890607303,
+     "amp": 0.30842797169819536,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 19,
+     "lam": 9.92081890607303,
+     "amp": 0.3087365550226573,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 19,
+     "lam": 9.92081890607303,
+     "amp": 0.3078485519843604,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 10,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 1.300121692491222,
+   "design_world_ok": false,
+   "design_world_lam": 62.831853071795855,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 19,
+     "lam": 9.92081890607303,
+     "amp": 0.30842797169819536,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 19,
+     "lam": 9.92081890607303,
+     "amp": 0.3087365550226573,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 19,
+     "lam": 9.92081890607303,
+     "amp": 0.3078485519843604,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 11,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 1.300121692491222,
+   "design_world_ok": false,
+   "design_world_lam": 62.831853071795855,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 19,
+     "lam": 9.92081890607303,
+     "amp": 0.30842797169819536,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 19,
+     "lam": 9.92081890607303,
+     "amp": 0.3087365550226573,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 19,
+     "lam": 9.92081890607303,
+     "amp": 0.3078485519843604,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 12,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5634388050954132,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.30543615469359386,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.30548256669418916,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 18,
+     "lam": 13.962634015954636,
+     "amp": 0.2828953404585193,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 13,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5634388050954132,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.30543615469359386,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.30548256669418916,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 18,
+     "lam": 13.962634015954636,
+     "amp": 0.2828953404585193,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 14,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5634388050954132,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.30543615469359386,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.30548256669418916,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 18,
+     "lam": 13.962634015954636,
+     "amp": 0.2828953404585193,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 15,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5634388050954132,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.30543615469359386,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.30548256669418916,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 18,
+     "lam": 13.962634015954636,
+     "amp": 0.2828953404585193,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 16,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 2.662223450772065,
+   "design_world_ok": false,
+   "design_world_lam": 2.9919930034188504,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.6772672279840646,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.6532438546416801,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.6532438376298815,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 17,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 2.662223450772065,
+   "design_world_ok": false,
+   "design_world_lam": 2.9919930034188504,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.6772672279840646,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.6532438546416801,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.6532438376298815,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 18,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 2.662223450772065,
+   "design_world_ok": false,
+   "design_world_lam": 2.9919930034188504,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.6772672279840646,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.6532438546416801,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.6532438376298815,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 19,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 2.662223450772065,
+   "design_world_ok": false,
+   "design_world_lam": 2.9919930034188504,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 7,
+     "lam": 8.975979010256552,
+     "amp": 0.6772672279840646,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.6532438546416801,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 8,
+     "lam": 7.853981633974483,
+     "amp": 0.6532438376298815,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 20,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 1.4650780257917608,
+   "design_world_ok": false,
+   "design_world_lam": 25.132741228718345,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 13,
+     "lam": 9.666438934122441,
+     "amp": 0.6107460024591057,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.6737947396483156,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 12,
+     "lam": 10.471975511965978,
+     "amp": 0.6490867716865066,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 21,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 1.4650780257917608,
+   "design_world_ok": false,
+   "design_world_lam": 25.132741228718345,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 13,
+     "lam": 9.666438934122441,
+     "amp": 0.6107460024591057,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.6737947396483156,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 12,
+     "lam": 10.471975511965978,
+     "amp": 0.6490867716865066,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 22,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 1.4650780257917608,
+   "design_world_ok": false,
+   "design_world_lam": 25.132741228718345,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 13,
+     "lam": 9.666438934122441,
+     "amp": 0.6107460024591057,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.6737947396483156,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 12,
+     "lam": 10.471975511965978,
+     "amp": 0.6490867716865066,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 23,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 1.4650780257917608,
+   "design_world_ok": true,
+   "design_world_lam": 25.132741228718345,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 13,
+     "lam": 9.666438934122441,
+     "amp": 0.6107460024591057,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 11,
+     "lam": 11.423973285781067,
+     "amp": 0.6737947396483156,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 12,
+     "lam": 10.471975511965978,
+     "amp": 0.6490867716865066,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 24,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 2.362477900613574,
+   "design_world_ok": false,
+   "design_world_lam": 62.831853071795855,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.6270935659248723,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 22,
+     "lam": 8.567979964335798,
+     "amp": 0.6618003578499694,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 25,
+     "lam": 7.539822368615503,
+     "amp": 0.6052771118413336,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 25,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 2.362477900613574,
+   "design_world_ok": false,
+   "design_world_lam": 62.831853071795855,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.6270935659248723,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 22,
+     "lam": 8.567979964335798,
+     "amp": 0.6618003578499694,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 25,
+     "lam": 7.539822368615503,
+     "amp": 0.6052771118413336,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 26,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 2.362477900613574,
+   "design_world_ok": false,
+   "design_world_lam": 62.831853071795855,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.6270935659248723,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 22,
+     "lam": 8.567979964335798,
+     "amp": 0.6618003578499694,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 25,
+     "lam": 7.539822368615503,
+     "amp": 0.6052771118413336,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 27,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 2.362477900613574,
+   "design_world_ok": false,
+   "design_world_lam": 62.831853071795855,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 24,
+     "lam": 7.853981633974482,
+     "amp": 0.6270935659248723,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 22,
+     "lam": 8.567979964335798,
+     "amp": 0.6618003578499694,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 25,
+     "lam": 7.539822368615503,
+     "amp": 0.6052771118413336,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 28,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.90856029641607,
+   "design_world_ok": false,
+   "design_world_lam": 17.951958020513104,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6458583100930253,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6451947499121535,
+     "patterned": true,
+     "stable_mode": false
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6469899551665588,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 29,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.90856029641607,
+   "design_world_ok": false,
+   "design_world_lam": 17.951958020513104,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6458583100930253,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6451947499121535,
+     "patterned": true,
+     "stable_mode": false
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6469899551665588,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 30,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.90856029641607,
+   "design_world_ok": false,
+   "design_world_lam": 17.951958020513104,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6458583100930253,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6451947499121535,
+     "patterned": true,
+     "stable_mode": false
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6469899551665588,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 1,
+   "req": 31,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.90856029641607,
+   "design_world_ok": false,
+   "design_world_lam": 17.951958020513104,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6458583100930253,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6451947499121535,
+     "patterned": true,
+     "stable_mode": false
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 19,
+     "lam": 13.227758541430708,
+     "amp": 0.6469899551665588,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 0,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 31.41592653589793,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3056931346377179,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463770853,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463772624,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 1,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 31.41592653589793,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3056931346377179,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463770853,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463772624,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 2,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 31.41592653589793,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3056931346377179,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463770853,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463772624,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 3,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 31.41592653589793,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.3056931346377179,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463770853,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.30569313463772624,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 4,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.6349265741746941,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060506565558059,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.30604990029343104,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060502417854453,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 5,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.6349265741746941,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060506565558059,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.30604990029343104,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060502417854453,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 6,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.6349265741746941,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060506565558059,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.30604990029343104,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060502417854453,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 7,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.6349265741746941,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060506565558059,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.30604990029343104,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 9,
+     "lam": 13.962634015954636,
+     "amp": 0.3060502417854453,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 8,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 188.49555921538757,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.27005314373288586,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.26948891221275983,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 12,
+     "lam": 15.707963267948964,
+     "amp": 0.30528108332465986,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 9,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 188.49555921538757,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.27005314373288586,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.26948891221275983,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 12,
+     "lam": 15.707963267948964,
+     "amp": 0.30528108332465986,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 10,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 188.49555921538757,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.27005314373288586,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.26948891221275983,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 12,
+     "lam": 15.707963267948964,
+     "amp": 0.30528108332465986,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 11,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 188.49555921538757,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.27005314373288586,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 13,
+     "lam": 14.499658401183659,
+     "amp": 0.26948891221275983,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 12,
+     "lam": 15.707963267948964,
+     "amp": 0.30528108332465986,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 12,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 251.32741228718345,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.30360286033802053,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.28171048624189465,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 15,
+     "lam": 16.755160819145562,
+     "amp": 0.30753551880034286,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 13,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 251.32741228718345,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.30360286033802053,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.28171048624189465,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 15,
+     "lam": 16.755160819145562,
+     "amp": 0.30753551880034286,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 14,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 251.32741228718345,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.30360286033802053,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.28171048624189465,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 15,
+     "lam": 16.755160819145562,
+     "amp": 0.30753551880034286,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 15,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 251.32741228718345,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.30360286033802053,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.28171048624189465,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 15,
+     "lam": 16.755160819145562,
+     "amp": 0.30753551880034286,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 16,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 31.41592653589793,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.6763946245159705,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.5793555058957467,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.67639462451597,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 17,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 31.41592653589793,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.6763946245159705,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.5793555058957467,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.67639462451597,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 18,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 31.41592653589793,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.6763946245159705,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.5793555058957467,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.67639462451597,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 19,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 31.41592653589793,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.6763946245159705,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 4,
+     "lam": 15.707963267948966,
+     "amp": 0.5793555058957467,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 3,
+     "lam": 20.943951023931955,
+     "amp": 0.67639462451597,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 20,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.6349265741746941,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.6440116433412395,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.6440123018001918,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 7,
+     "lam": 17.951958020513104,
+     "amp": 0.6773441658356079,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 21,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.6349265741746941,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.6440116433412395,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.6440123018001918,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 7,
+     "lam": 17.951958020513104,
+     "amp": 0.6773441658356079,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 22,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.6349265741746941,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.6440116433412395,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.6440123018001918,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 7,
+     "lam": 17.951958020513104,
+     "amp": 0.6773441658356079,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 23,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.6349265741746941,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.6440116433412395,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 8,
+     "lam": 15.707963267948966,
+     "amp": 0.6440123018001918,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 7,
+     "lam": 17.951958020513104,
+     "amp": 0.6773441658356079,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 24,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 188.49555921538757,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.6292631069828709,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.629167660880563,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 10,
+     "lam": 18.84955592153876,
+     "amp": 0.66582928059886,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 25,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 188.49555921538757,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.6292631069828709,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.629167660880563,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 10,
+     "lam": 18.84955592153876,
+     "amp": 0.66582928059886,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 26,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 188.49555921538757,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.6292631069828709,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.629167660880563,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 10,
+     "lam": 18.84955592153876,
+     "amp": 0.66582928059886,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 27,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.5,
+   "design_world_ok": false,
+   "design_world_lam": 188.49555921538757,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.6292631069828709,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 11,
+     "lam": 17.135959928671596,
+     "amp": 0.629167660880563,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 10,
+     "lam": 18.84955592153876,
+     "amp": 0.66582928059886,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 28,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.7154845405526278,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.6644480205143982,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.6436209321304582,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.6428681926429137,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 29,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.7154845405526278,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.6644480205143982,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.6436209321304582,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.6428681926429137,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 30,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.7154845405526278,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": true,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.6644480205143982,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": true,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.6436209321304582,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": true,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.6428681926429137,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "N",
+   "seed": 2,
+   "req": 31,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "accept",
+   "gamma": 0.7154845405526278,
+   "design_world_ok": false,
+   "design_world_lam": 62.83185307179586,
+   "eval": [
+    {
+     "seed": 11,
+     "ok": false,
+     "m": 16,
+     "lam": 15.707963267948966,
+     "amp": 0.6644480205143982,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 12,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.6436209321304582,
+     "patterned": true,
+     "stable_mode": true
+    },
+    {
+     "seed": 13,
+     "ok": false,
+     "m": 17,
+     "lam": 14.78396542865785,
+     "amp": 0.6428681926429137,
+     "patterned": true,
+     "stable_mode": true
+    }
+   ]
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 0,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 1,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 2,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 3,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 4,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 5,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 6,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 7,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 8,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 9,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 10,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 11,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 12,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 13,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 14,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 15,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 16,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 17,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 18,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 19,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 20,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 21,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 22,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 23,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 24,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 25,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 26,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 27,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 28,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 29,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 30,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 31,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 32,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 33,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 34,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 35,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 36,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 37,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 38,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 39,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 40,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 41,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 42,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 43,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 44,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 45,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 46,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  },
+  {
+   "arm": "Nshuf",
+   "seed": 0,
+   "req": 47,
+   "sims": 0,
+   "nca_queries": 16,
+   "decision": "abstain_no_pattern"
+  }
+ ],
+ "tampered_record_refusals": 48,
+ "n_requests": 48,
+ "gate_verdicts": {
+  "0": "candidates",
+  "1": "candidates",
+  "2": "candidates",
+  "3": "refuse_no_mode",
+  "4": "candidates",
+  "5": "candidates",
+  "6": "candidates",
+  "7": "refuse_no_mode",
+  "8": "candidates",
+  "9": "candidates",
+  "10": "candidates",
+  "11": "candidates",
+  "12": "candidates",
+  "13": "candidates",
+  "14": "candidates",
+  "15": "candidates",
+  "16": "candidates",
+  "17": "candidates",
+  "18": "candidates",
+  "19": "candidates",
+  "20": "candidates",
+  "21": "candidates",
+  "22": "candidates",
+  "23": "candidates",
+  "24": "candidates",
+  "25": "candidates",
+  "26": "candidates",
+  "27": "candidates",
+  "28": "candidates",
+  "29": "candidates",
+  "30": "candidates",
+  "31": "candidates",
+  "32": "refuse_no_band",
+  "33": "refuse_no_band",
+  "34": "refuse_no_band",
+  "35": "refuse_no_band",
+  "36": "refuse_no_band",
+  "37": "refuse_no_band",
+  "38": "refuse_no_band",
+  "39": "refuse_no_band",
+  "40": "refuse_no_band",
+  "41": "refuse_no_band",
+  "42": "refuse_no_band",
+  "43": "refuse_no_band",
+  "44": "refuse_no_band",
+  "45": "refuse_no_band",
+  "46": "refuse_no_band",
+  "47": "refuse_no_band"
+ },
+ "gate_source_checks": [
+  {
+   "claim": "turing-ddi",
+   "ok": true,
+   "reason": "accepted",
+   "detail": "",
+   "iri": "https://w3id.org/delphi/resource/claim/turing-ddi",
+   "content_sha256": "43de1d39496e0d2a8df133d0e537bed158bf3c68d23c28a764c2356715aa4f66",
+   "pinned_content_sha256": "43de1d39496e0d2a8df133d0e537bed158bf3c68d23c28a764c2356715aa4f66",
+   "response_sha256": "2a04297ce4848074b0851707c77fbeeec2832f333108dc66ae54395e0bd06f1f",
+   "pinned_response_sha256": "2a04297ce4848074b0851707c77fbeeec2832f333108dc66ae54395e0bd06f1f",
+   "source": "local",
+   "nanopubs": [
+    "math-bio-theorems/nanopubs/unsigned/turing-ddi.trig"
+   ],
+   "changed_fields": [],
+   "status": "active",
+   "path": "/data/worktrees/delphi-evolve/rethink-nca/turing_scope/sources/turing-ddi.local.mcp.json"
+  },
+  {
+   "claim": "turing-wavelength",
+   "ok": true,
+   "reason": "accepted",
+   "detail": "",
+   "iri": "https://w3id.org/delphi/resource/claim/turing-wavelength",
+   "content_sha256": "e0d541383aa5d6334d794b60753e371dc781b01f0bc1b45e3d0ec337208a7559",
+   "pinned_content_sha256": "e0d541383aa5d6334d794b60753e371dc781b01f0bc1b45e3d0ec337208a7559",
+   "response_sha256": "83ca44031701766e4b0dc6d42b1b5bcefc03640e4145906333ea335f704bed21",
+   "pinned_response_sha256": "83ca44031701766e4b0dc6d42b1b5bcefc03640e4145906333ea335f704bed21",
+   "source": "local",
+   "nanopubs": [
+    "math-bio-theorems/nanopubs/unsigned/turing-wavelength.trig"
+   ],
+   "changed_fields": [],
+   "status": "active",
+   "path": "/data/worktrees/delphi-evolve/rethink-nca/turing_scope/sources/turing-wavelength.local.mcp.json"
+  }
+ ]
+}

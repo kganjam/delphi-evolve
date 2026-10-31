@@ -1,0 +1,4 @@
+evaluate r=10 samples=150 8.0s
+evaluate r=20 samples=150 15.8s
+evaluate r=30 samples=153 24.0s
+evaluate r=40 samples=153 64.3s

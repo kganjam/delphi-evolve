@@ -1,0 +1,4 @@
+{
+ "evidence_kind": "simulated",
+ "panels": "A,B independent spectral solver seed 11; C Euler/spectral/NCA seed 0; D summary.json (+ grid_oracle.json if present)"
+}

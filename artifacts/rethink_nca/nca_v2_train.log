@@ -1,0 +1,4 @@
+/data/worktrees/delphi-evolve/rethink-nca/experiments/rethink_nca/nca.py:115: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  hist.append(float(loss))
+nca2_seed0 iter 0 loss 0.00004

@@ -1,0 +1,120 @@
+{
+ "request": "Test Thompson's d ~ h^{3/2} on Tallo.",
+ "diagnosis": {
+  "source": "Thompson, On Growth and Form (1917), ch. II 'On Magnitude', pp. 19-20 (Gutenberg 55264; critic read the first 100,000 characters via a tool summary, primary read the passage directly)",
+  "what_the_source_says": "Greenhill's result that the diameter of a homogeneous body must increase as the 3/2 power of the height, derived under stated assumptions (trunk tapers uniformly; branch cross-section follows a definite law such as Ruskin's constant area), applied to the Kew flagstaff (about 221 ft, 21 in base), which 'could not possibly, by theory, have grown to more than about 300 ft'. It is a limiting-height (self-weight buckling) argument.",
+  "mismatch": "A pooled regression of log height on log diameter over living trees tests a mean allometric relation, a different proposition from an upper limit under uniform taper and a stated branch law."
+ },
+ "evidence_kinds": {
+  "tallo_rows": "observed",
+  "slopes_and_fractions": "observed-derived (descriptive)",
+  "bound_test_inputs_E_rho": "assumed",
+  "Greenhill_constant": "model-derived"
+ },
+ "data": {
+  "file": "Tallo.csv",
+  "sha256": "bcd908a65634a07f1a5cac79affc91e10c80ac832d0243efc2b83c8c4c1668cd",
+  "licence": "CC-BY 4.0 (Zenodo record 6637599)",
+  "rows_used": 496827,
+  "filter": "height_outlier=='N', diameter>0, height>0",
+  "n_studies": 69
+ },
+ "operationalisations": {
+  "1_pooled_OLS": {
+   "quantity": "slope of log10 h on log10 d (claim implies 2/3 = 0.667 if read as mean allometry)",
+   "point": 0.5880655225139046,
+   "study_cluster_bootstrap_95": [
+    0.5016332869240977,
+    0.6949933241605535
+   ],
+   "reading": "tests mean allometry; OLS attenuates when diameter is noisy"
+  },
+  "2_pooled_SMA": {
+   "point": 0.7797952706066897,
+   "study_cluster_bootstrap_95": [
+    0.7229022354900065,
+    0.8463291743557114
+   ],
+   "reading": "errors-in-variables slope; shows the verdict depends on the estimator"
+  },
+  "3_q99_upper_envelope": {
+   "point": 0.632399566496179,
+   "study_cluster_bootstrap_95": [
+    0.5638335265844542,
+    0.6697899134880447
+   ],
+   "reading": "closest observational proxy for an upper limit, but still not a buckling bound"
+  },
+  "4_bound_shaped_conditional": {
+   "statement": "For each tree, height <= Greenhill H_cr = 0.788 (E/(rho g))^(1/3) d^(2/3) (UNIFORM cylinder) given E and rho",
+   "fraction_above_at_E10GPa_rho800": 0.0059638465703353485,
+   "study_cluster_bootstrap_95": [
+    0.003528561706390847,
+    0.009613599706940701
+   ],
+   "sensitivity_grid_assumed_inputs": {
+    "E3GPa_rho600": 0.08053306281663436,
+    "E3GPa_rho800": 0.14369790691729717,
+    "E3GPa_rho1000": 0.2052605836639313,
+    "E6GPa_rho600": 0.011827054487779449,
+    "E6GPa_rho800": 0.027826587524430034,
+    "E6GPa_rho1000": 0.05141024944296506,
+    "E10GPa_rho600": 0.0025984900176520198,
+    "E10GPa_rho800": 0.0059638465703353485,
+    "E10GPa_rho1000": 0.011827054487779449,
+    "E15GPa_rho600": 0.0008836073723851563,
+    "E15GPa_rho800": 0.0018195468442737614,
+    "E15GPa_rho1000": 0.0034559313402854515
+   },
+   "reading": "conditional on ASSUMED E, rho and a uniform cylinder; taper/branch mass change the limit (Thompson's own assumptions); not a refutation or confirmation"
+  }
+ },
+ "by_clade": {
+  "Angiosperm": {
+   "n": 333227,
+   "OLS": 0.563327283576557,
+   "SMA": 0.7562254321594185
+  },
+  "Gymnosperm": {
+   "n": 102765,
+   "OLS": 0.6650450294223262,
+   "SMA": 0.8911063770370048
+  }
+ },
+ "thompson_own_numbers_illustration": {
+  "height_m": 67.3608,
+  "base_diameter_m": 0.5334,
+  "stated_limit_m": 91.44,
+  "implied_E_over_rho_g_m3_uniform_formula": 5491917.150679348,
+  "E_GPa_if_rho_800": 43.10056579853153,
+  "note": "model-derived: with the uniform Greenhill formula, a 300 ft limit at 21 in base diameter implies E/(rho g) of this size; compare green-wood E of order 5-15 GPa; taper and branch law (not modelled here) change this"
+ },
+ "missing_mechanical_inputs": [
+  {
+   "input": "wood density rho (green)",
+   "candidate_source": "Global Wood Density Database v2 (Zanne et al.; Zenodo 10.5281/zenodo.18262736, CC-BY 4.0 per the Zenodo API; v1 at Dryad 10.5061/dryad.234 licence NOT verified)",
+   "caveat": "basic (dry) density, not green density; species-level join to Tallo species is not done here"
+  },
+  {
+   "input": "Young's modulus E (green wood)",
+   "candidate_source": "USDA Forest Products Laboratory Wood Handbook FPL-GTR-190 (2010), species property tables; availability found, licence/public-domain status not verified here",
+   "caveat": "values are for small clear specimens, not living stems"
+  },
+  {
+   "input": "taper profile",
+   "candidate_source": "none identified for Tallo; crown radius is present, taper is not",
+   "caveat": "Thompson's argument assumes uniform taper"
+  },
+  {
+   "input": "branch/crown mass (branch-area law)",
+   "candidate_source": "none identified in Tallo (crown radius only)",
+   "caveat": "changes the loading in the buckling problem"
+  }
+ ],
+ "conditional_statement": "IF E, rho, taper and branch mass for a tree are supplied, THEN the tapered-column Rayleigh-Ritz buckling height (scopedesk/bench/fam_greenhill.py) can be compared with its measured height. WITHOUT those inputs the Tallo data cannot test Thompson's mechanical claim; descriptive slopes are reported separately and do not decide it.",
+ "limitations": [
+  "bootstrap resamples studies (B=300), percentile intervals, descriptive only",
+  "Tallo mixes protocols; heights saturate with diameter so a power law is a local fit",
+  "Tallo's own 2022 paper already compares the H-D exponent with 2/3 using mixed-effects models (primary's read); this is a reproduction"
+ ]
+}

@@ -1,0 +1,619 @@
+[
+ {
+  "text": "threshold",
+  "at_utc": "2026-10-31T13:01:13.976024+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch03-04",
+    "title": "Beyond a threshold, more complex rules do not give more complex behavior",
+    "statement": "At least beyond a certain point, adding complexity to the underlying rules of a system does not lead to more complex overall behavior; in cellular automata, all the ingredients for the most complex behavior already exist in the elementary two-color rules.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch03-04.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch03-19",
+    "title": "The rule-complexity threshold for complex behavior is very low",
+    "statement": "Systems with sufficiently simple rules show only repetition, slightly more complicated rules often add nesting, and complex behavior requires crossing a threshold in rule complexity, but in every kind of system studied this threshold is extremely low.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch03-19.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch11-13",
+    "title": "Past the threshold of universality, more complex rules add no capability",
+    "statement": "As systems of a given type are given progressively greater computational capabilities they eventually pass a threshold of universality, after which the set of computations they can perform is always the same, so more sophisticated rules gain nothing further and a universal system's capabilities are independent of the details of its construction.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch11-13.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch11-16",
+    "title": "Complexity of behavior saturates soon after the simplest rules",
+    "statement": "As rules become progressively more complicated, overall behavior grows more complex only until the threshold of universality is reached, and since that threshold is very low, behavior beyond the very simplest rules of any kind should quickly become as complex as it will ever be\u2014consistent with the Chapter 3 survey.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch11-16.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch12-12",
+    "title": "Complexity arises because observers are computationally equivalent to systems",
+    "statement": "Systems with simple rules appear complex because, once a low threshold is passed, their evolution is as computationally sophisticated as any process of perception or analysis used to study them, and this holds for any method of perception and analysis that can actually be used.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch12-12.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch12-33",
+    "title": "Beyond a low threshold almost every axiom system should be universal",
+    "statement": "The Principle of Computational Equivalence implies that, beyond a low threshold of complexity, almost any axiom system (including very simple ones) should be universal, and so should exhibit undecidability and have no general upper limit on proof length.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch12-33.trig"
+   }
+  ]
+ },
+ {
+  "text": "excitable",
+  "at_utc": "2026-10-31T13:01:14.180944+00:00",
+  "response": []
+ },
+ {
+  "text": "nerve",
+  "at_utc": "2026-10-31T13:01:14.375054+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-07",
+    "title": "Complex eyes can be built by selection through graded useful steps",
+    "statement": "Natural selection could have converted a simple optic nerve coated with pigment and covered by transparent membrane into a highly perfect eye through a series of graded steps, each useful to its possessor, as shown by the graduated diversity of eyes in living crustaceans.",
+    "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+    "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch06-07.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch02-17",
+    "title": "Ganglion-cell size varies little; larger species have ganglia with more cells",
+    "statement": "Across animals large and small, ganglion (nerve) cells vary in size only within narrow limits, and smaller species have simpler ganglia containing fewer cells than larger species.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch02-17.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch10-19",
+    "title": "Human memory works like similarity-preserving hashing by layers of neurons",
+    "statement": "Human memory likely retrieves data by a simple hashing-like mechanism in which successive layers of nerve cells, each responding to patterns in fixed random sets of inputs, produce representations that are the same for inputs differing by small changes, allowing retrieval by similarity.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch10-19.trig"
+   }
+  ]
+ },
+ {
+  "text": "stimulus",
+  "at_utc": "2026-10-31T13:01:14.631334+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch16-08",
+    "title": "Mechanical strain directly stimulates growth",
+    "statement": "A state of strain produced by stress is a direct stimulus to growth, so that tissues under increased load grow stronger or thicker, as when the fibula of a puppy whose tibia was excised grew as thick as or thicker than the normal tibia.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch16-08.trig"
+   }
+  ]
+ },
+ {
+  "text": "membrane",
+  "at_utc": "2026-10-31T13:01:14.837942+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-05",
+    "title": "Bat flight arose from an apparatus for gliding",
+    "statement": "Bats were derived from gliding animals, and the wing membrane extending to the tail and hind legs in some bats is a trace of an apparatus originally built for gliding rather than flight.",
+    "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+    "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch06-05.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-07",
+    "title": "Complex eyes can be built by selection through graded useful steps",
+    "statement": "Natural selection could have converted a simple optic nerve coated with pigment and covered by transparent membrane into a highly perfect eye through a series of graded steps, each useful to its possessor, as shown by the graduated diversity of eyes in living crustaceans.",
+    "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+    "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch06-07.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch05-14",
+    "title": "Freely growing cylindrical cells owe their form to an anisotropic wall",
+    "statement": "A cylindrical cell such as Spirogyra that grows without external restraint takes its form because its developing membrane is anisotropic, extending more easily in one direction; a slight inequality of tension in two directions gives an ellipsoidal cell and a great inequality a cylindrical one.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch05-14.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch05-23",
+    "title": "The trypanosome undulating membrane is a liquid film drawn up along a flagellum",
+    "statement": "The undulating membrane of trypanosomes and related flagellates forms when the flagellum lies near and parallel to the body and the fluid surface protoplasm is drawn up as a film along it, as a soap-film would be; the membrane is thus a liquid film of constant mean curvature whose undulations are produced by molecular tensions, not by its own active mobility.",
+    "math": "1/r_1 + 1/r_2 = \\text{const} (undulating membrane as a liquid film)",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch05-23.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch06-01",
+    "title": "Cell-wall secretion is adsorption of constituents at the surface",
+    "statement": "The so-called secretion of a cell-wall or membrane is the adsorption of certain constituents of the cell, which lower surface tension, to its surface (as formulated by the Gibbs-Thomson law), where they also increase viscosity and rigidity; the formation of a cell membrane is thus a chemico-physical phenomenon.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch06-01.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch06-03",
+    "title": "Membranes and cysts form only after protoplasm rounds up with positive surface tension",
+    "statement": "Because adsorption requires a surface tension greater than zero, films or threads of creeping protoplasm do not form an encysting membrane, and an organism forms its cyst or cell-wall only when its protoplasm has developed a positive surface tension and gathered into a roughly spherical body.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch06-03.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch06-04",
+    "title": "Winter encystment and winter-egg shells relate to temperature effects on adsorption",
+    "statement": "Since a rise of temperature reduces adsorbability (and surface tension), lower temperature favours adsorption and membrane formation, which probably accounts for the encystment of unicellular organisms at the approach of winter and the strong shells or capsules of winter eggs.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch06-04.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch11-20",
+    "title": "Cephalopod septa take the form of minimal surfaces like soap films",
+    "statement": "Because a septum is first laid down as an elastic membrane under uniform pressure, it takes the shape of a soap film with the same boundary, a surface of minimal area: spherical in a straight cone with a perpendicular attachment, ellipsoidal with an oblique attachment, and saddle-shaped where the line of attachment is sinuous.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch11-20.trig"
+   }
+  ]
+ },
+ {
+  "text": "electric",
+  "at_utc": "2026-10-31T13:01:15.046320+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-10",
+    "title": "Selection can independently produce similar organs in distantly related beings",
+    "statement": "Natural selection, acting on analogous variations, has sometimes modified parts in nearly the same way in two distantly related organisms, as with electric organs in unrelated fishes, so that similar organs need not be inherited from a common ancestor.",
+    "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+    "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch06-10.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch04-02",
+    "title": "Mitotic figures require a polarised force like magnetism, not mechanical traction",
+    "statement": "The spindle and asters of dividing cells are lines of force of a bipolar field made visible by more permeable particles, like iron filings between magnet poles, and they cannot be explained by mere mechanical traction on a protoplasmic web but require some polarised and polarising force analogous to magnetism or electricity.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch04-02.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch04-08",
+    "title": "Differences of electric potential play a great part in cell division",
+    "statement": "Differences of electric potential between cell constituents, and between parts of the egg, play a great part in cell division; the potential difference between animal and vegetative poles of a fertilised egg fluctuates or reverses at successive segmentations, and the electrical difference of chromatin is greatest at mitosis.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch04-08.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch09-23",
+    "title": "Fundamental particle masses may still have simple ratios",
+    "statement": "Although observed elementary particle masses are not in simple ratios (unlike electric charges), truly fundamental particle masses may still have simple relations, because observed masses include varying amounts of interaction energy.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch09-23.trig"
+   }
+  ]
+ },
+ {
+  "text": "current",
+  "at_utc": "2026-10-31T13:01:15.251058+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-12",
+    "title": "Most of an organism's structure is due to inheritance, not current use",
+    "statement": "The chief part of each organism's structure is simply inherited, so that many structures, such as the shared bones of monkey arm, horse leg, bat wing and seal flipper, have no direct relation to the species' present habits of life.",
+    "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+    "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch06-12.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch11-09",
+    "title": "About a tenth of a flora's seeds could survive sea-drift across 900 miles",
+    "statement": "Based on flotation and germination experiments, the seeds of roughly 10 per cent of the plants of a flora, after drying, could be floated by sea currents across about 900 miles of sea and still germinate.",
+    "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+    "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch11-09.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch11-10",
+    "title": "Occasional transport bridges hundreds of miles but not distant continents",
+    "statement": "Occasional means of transport (sea currents, birds, drift timber, icebergs) suffice to carry organisms across a few hundred miles of sea, between islands or from a continent to a nearby island, but not between distant continents, so the floras of distant continents remain distinct.",
+    "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+    "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch11-10.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch01-05",
+    "title": "The form of an object is a diagram of the forces acting or that have acted on it",
+    "statement": "The form of any portion of matter, living or dead, can be read as a diagram of forces: from the shape of a solid one can deduce the forces that produced and maintain it, and from the shape of a fluid the forces currently acting on it, so an organism's conformation is explained by a balance of forces.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch01-05.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch06-05",
+    "title": "Chondriosomes and similar fibrils are surface-tension clumps drawn along the cell axis",
+    "statement": "The mitochondria, chondriosomes and similar granules and fibrils of cells are not special entities with specific functions but clumps of heterogeneous cell contents gathered by surface tension and drawn out along the cell axis by osmotic currents arising from surface energy and adsorption, revealing a field of force and dynamical polarity in the cell.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch06-05.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch12-13",
+    "title": "Foraminifera are absent from coarse gravels because of hydraulic sorting by currents",
+    "statement": "Foraminiferal shells are absent from coarse sands and gravels not because they avoid concussion but because light shells are sorted by currents like any other graded sediment, settling where water is still.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch12-13.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch01-10",
+    "title": "Complexity of simple abstract systems imposes fundamental limits on proof",
+    "statement": "The complexity found in simple abstract systems leads to fundamental limitations on mathematical proof, of the kind hinted at by G\u00f6del's Theorem, and these limitations are relevant well beyond the narrow scope of current mathematics.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch01-10.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch10-23",
+    "title": "No method of perception or analysis can recognize all possible regularities",
+    "statement": "No method of perception and analysis, however advanced, can in complete generality recognize all possible regularities and thus tell immediately whether a piece of data can be generated from some simple description, although higher methods could recognize some regularities current methods miss.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch10-23.trig"
+   }
+  ]
+ },
+ {
+  "text": "oscillation",
+  "at_utc": "2026-10-31T13:01:15.449280+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch11-08",
+    "title": "Continents and oceanic islands were not united by land in the recent period",
+    "statement": "Although continents have undergone great oscillations of level, separate continents have not been continuously joined to each other and to the existing oceanic islands within the period of existing species, contrary to the land-bridge hypotheses of Forbes and others.",
+    "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+    "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch11-08.trig"
+   }
+  ]
+ },
+ {
+  "text": "wave",
+  "at_utc": "2026-10-31T13:01:15.666858+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/fisher-kpp-speed",
+    "title": "Fisher-KPP wave of advance of an advantageous gene",
+    "statement": "An advantageous allele spreading through a continuous population advances as a travelling wave whose speed is set by the selection coefficient and the diffusion (dispersal) rate.",
+    "math": "u_t = D u_{xx} + s u(1-u); travelling waves u(x-ct) exist iff c \\ge c^* = 2\\sqrt{sD}; compactly supported initial data spread at asymptotic speed c^*",
+    "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+    "nanopub": "math-bio-theorems/nanopubs/unsigned/fisher-kpp-speed.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/turing-ddi",
+    "title": "Turing diffusion-driven instability",
+    "statement": "A homogeneous steady state of two reacting chemicals that is stable without diffusion can become unstable to spatial perturbations when the chemicals diffuse at different rates, spontaneously producing a pattern.",
+    "math": "u_t = f(u,v) + D_u \\nabla^2 u, v_t = g(u,v) + D_v \\nabla^2 v; with tr J < 0 and det J > 0, instability at some wavenumber k iff D_v f_u + D_u g_v > 2\\sqrt{D_u D_v \\det J}, which requires D_u \\ne D_v",
+    "domain": "https://w3id.org/delphi/resource/domain/math-reaction-diffusion-equations-and-turing-patte",
+    "nanopub": "math-bio-theorems/nanopubs/unsigned/turing-ddi.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/turing-wavelength",
+    "title": "Turing wavelength selection",
+    "statement": "The spacing of a Turing pattern at onset is set by the reaction rates and diffusivities, not by the size of the tissue, so changing these parameters predictably changes the number of repeated elements.",
+    "math": "at onset k_c^2 = \\sqrt{\\det J/(D_u D_v)}, \\lambda_c = 2\\pi/k_c; under uniform rescaling of D, \\lambda \\propto \\sqrt{D}",
+    "domain": "https://w3id.org/delphi/resource/domain/math-reaction-diffusion-equations-and-turing-patte",
+    "nanopub": "math-bio-theorems/nanopubs/unsigned/turing-wavelength.trig"
+   }
+  ]
+ },
+ {
+  "text": "bistable",
+  "at_utc": "2026-10-31T13:01:15.960929+00:00",
+  "response": []
+ },
+ {
+  "text": "scaling",
+  "at_utc": "2026-10-31T13:01:16.163043+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch11-05",
+    "title": "The shell grows in size without changing its shape",
+    "statement": "A spiral shell, like the animal within it, increases in size without changing its shape, even though it grows at one end only; this constant similarity of form under terminal growth is the defining property of the logarithmic spiral and of no other curve.",
+    "math": "r(\\theta + \\phi) = e^{\\phi\\cot\\alpha}\\,r(\\theta): rotation by \\phi equals scaling, so shape is invariant under terminal growth",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch11-05.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/turing-wavelength",
+    "title": "Turing wavelength selection",
+    "statement": "The spacing of a Turing pattern at onset is set by the reaction rates and diffusivities, not by the size of the tissue, so changing these parameters predictably changes the number of repeated elements.",
+    "math": "at onset k_c^2 = \\sqrt{\\det J/(D_u D_v)}, \\lambda_c = 2\\pi/k_c; under uniform rescaling of D, \\lambda \\propto \\sqrt{D}",
+    "domain": "https://w3id.org/delphi/resource/domain/math-reaction-diffusion-equations-and-turing-patte",
+    "nanopub": "math-bio-theorems/nanopubs/unsigned/turing-wavelength.trig"
+   }
+  ]
+ },
+ {
+  "text": "inverse",
+  "at_utc": "2026-10-31T13:01:16.364733+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch03-30",
+    "title": "Velocity of regenerative growth varies inversely as about the square of time",
+    "statement": "After its early maximum, the velocity of regenerative growth (tadpole tails) falls off inversely as some power of the time since injury, approximately as 1/T^2, so that V T^2 is nearly constant.",
+    "math": "V^m T^n = \\text{const}; for regenerating tadpole tails V T^2 \\approx \\text{const}",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch03-30.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch15-11",
+    "title": "Heart wall thickness varies inversely with the mean curvature of the chamber",
+    "statement": "Within each cavity of the heart, where pressure is uniform, wall thickness t varies inversely as the mean curvature, t(1/r + 1/r\u2032) = C, so the highly curved apex of the left ventricle is thinnest.",
+    "math": "t(1/r + 1/r') = C within each cavity of the heart",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch15-11.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch17-18",
+    "title": "Depth expansion and lateral compression vary inversely, conserving fish volume",
+    "statement": "In related fishes, expansion in one transverse dimension tends to be compensated by compression in the other, so that volume at a given length changes less than linear dimensions; the plaice is about twice as deep and half as thick as the haddock and has almost the same length-weight coefficient k = W/L^3.",
+    "math": "plaice vs haddock: depth \\times 2, thickness \\times \\tfrac{1}{2}, k = W/L^3 nearly equal",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch17-18.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch12-27",
+    "title": "Inverse problems for rule 30 are likely NP-complete",
+    "statement": "Even for the rule 30 cellular automaton, deciding whether initial conditions exist that produce a given outcome after t steps (such as a vertical black stripe of a given height in the center column) is expected to be NP-complete, illustrating that simple instances of NP-complete problems are common.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch12-27.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch12-29",
+    "title": "Inverse problems are exponentially harder than forward evolution",
+    "statement": "In almost any system whose behavior seems complex there is, in a fundamental sense, an almost exponential gap between the effort needed to compute behavior from given initial conditions and the effort needed to determine which initial conditions, if any, produce given behavior.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch12-29.trig"
+   }
+  ]
+ },
+ {
+  "text": "gap",
+  "at_utc": "2026-10-31T13:01:16.559042+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch10-14",
+    "title": "Extinct forms fill gaps between existing genera, families and orders",
+    "statement": "All fossils can be classed in existing groups or between them, and extinct forms fill up the wide intervals between existing genera, families and orders, forming with living forms one natural system.",
+    "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+    "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch10-14.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch13-12",
+    "title": "Gaps between groups, even whole classes, are due to extinction of connecting forms",
+    "statement": "Extinction has defined and widened the intervals between groups; even the distinctness of whole classes, such as birds from other vertebrates, results from the loss of many ancient forms that once connected their early progenitors.",
+    "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+    "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch13-12.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch14-01",
+    "title": "Descent with modification embraces all members of each class",
+    "statement": "Because all members of whole classes are linked by chains of affinities, fossils fill wide gaps between orders, rudiments imply fully developed ancestral organs, and structures within a class share one pattern and similar embryos, descent with modification embraces all members of the same class.",
+    "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+    "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch14-01.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch07-04",
+    "title": "Hardware noise-based random generators deviate from perfect randomness",
+    "statement": "Devices that generate randomness by amplifying microscopic environmental noise (spark gaps, vacuum tubes, semiconductor diodes) have consistently been found to produce output with significant deviations from perfect randomness, because the sampling device relaxes only gradually and because the environment itself has correlations.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch07-04.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch12-29",
+    "title": "Inverse problems are exponentially harder than forward evolution",
+    "statement": "In almost any system whose behavior seems complex there is, in a fundamental sense, an almost exponential gap between the effort needed to compute behavior from given initial conditions and the effort needed to determine which initial conditions, if any, produce given behavior.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch12-29.trig"
+   }
+  ]
+ },
+ {
+  "text": "potential",
+  "at_utc": "2026-10-31T13:01:16.752070+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch04-08",
+    "title": "Differences of electric potential play a great part in cell division",
+    "statement": "Differences of electric potential between cell constituents, and between parts of the egg, play a great part in cell division; the potential difference between animal and vegetative poles of a fertilised egg fluctuates or reverses at successive segmentations, and the electrical difference of chromatin is greatest at mitosis.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch04-08.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch05-06",
+    "title": "Resting cells are spherical; the amoeboid phase is one of activity and unequal tensions",
+    "statement": "In naked protoplasmic cells the amoeboid form marks a phase of activity with unequal surface tensions, whereas the spherical form marks a phase of rest when internal homogeneity and minimal potential energy are attained, at which time the cell also becomes encysted.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch05-06.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch12-07",
+    "title": "Minimum potential energy plus proportional growth yields the logarithmic spiral",
+    "statement": "Each new protoplasmic drop settles in a position of minimum potential energy (including minimal area), which makes each chamber similar to the last; proportional growth of size then gives the series the form of a logarithmic spiral. Rhumbler's specific 'law of the constant angle' of contact is too narrow an explanation.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch12-07.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch01-12",
+    "title": "Sophisticated tasks need only extremely simple underlying rules",
+    "statement": "Contrary to engineering experience, performing sophisticated tasks does not require correspondingly complicated basic rules; extremely simple underlying rules, potentially implementable directly at the atomic scale, are often sufficient.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch01-12.trig"
+   }
+  ]
+ },
+ {
+  "text": "cable",
+  "at_utc": "2026-10-31T13:01:16.946365+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch02-14",
+    "title": "Analogies between species of large genera and varieties support descent",
+    "statement": "The analogies between species of large genera and varieties (more varieties, small and unequal differences, restricted ranges) are understandable if species once existed as varieties, and inexplicable if each species was independently created.",
+    "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+    "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch02-14.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch09-18",
+    "title": "The universe's rules likely yield a unique causal network",
+    "statement": "Although the universe has no global clock and its rules may be applicable in arbitrary order, its actual rules most likely have the property of always yielding the same causal network, and so a unique perceived history.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch09-18.trig"
+   }
+  ]
+ },
+ {
+  "text": "boundary",
+  "at_utc": "2026-10-31T13:01:17.170197+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch01-06",
+    "title": "Surface tension at a cell's boundary strongly affects its form",
+    "statement": "Like other fluid bodies, the surface of a cell such as an Amoeba carries a surface tension that depends on the substance it touches, and this surface tension strongly affects the cell's form.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch01-06.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch07-03",
+    "title": "Shape of paired cells depends on relative tensions at outer surface and partition",
+    "statement": "Whether two adjacent cells in a filament (as in Nostoc and its allies) are separated by flat partitions, are hemispherical, or are each more than a hemisphere depends on the relative magnitudes of the tension at the outer cell surface and at the boundary between the cells.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch07-03.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch08-09",
+    "title": "All surface groupings of eight cells belong to one of thirteen types",
+    "statement": "Because n cells sharing a common outer boundary and meeting three at a time need n \u2212 3 intermediate partitions, every possible grouping of eight cells all reaching the surface belongs to one of thirteen topological types, so all drawings of such eight-celled structures represent one of these types.",
+    "math": "n cells meeting three at a time with a common outer boundary need n - 3 partitions; n = 8 gives 13 types",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch08-09.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch08-15",
+    "title": "Outgrowths tend to arise from triangular rather than quadrangular cells",
+    "statement": "Because quadrangular cells subdivide by periclinal walls that strengthen the boundary while triangular cells divide by oblique anticlines, outward growth is greater over triangular cells, so buds and outgrowths tend to arise from triangular rather than quadrangular cells, as is widely seen in cryptogams.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch08-15.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch11-20",
+    "title": "Cephalopod septa take the form of minimal surfaces like soap films",
+    "statement": "Because a septum is first laid down as an elastic membrane under uniform pressure, it takes the shape of a soap film with the same boundary, a surface of minimal area: spherical in a straight cone with a perpendicular attachment, ellipsoidal with an oblique attachment, and saddle-shaped where the line of attachment is sinuous.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch11-20.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch09-06",
+    "title": "Biological order arises from partitioning into separated compartments",
+    "statement": "Biological systems can show increasing order despite the Second Law mainly because they partition into parts (cells, organisms) separated by membrane-like boundaries, within which organized behavior can occur while the boundary survives.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch09-06.trig"
+   }
+  ]
+ },
+ {
+  "text": "diffusion",
+  "at_utc": "2026-10-31T13:01:17.376953+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/fisher-kpp-speed",
+    "title": "Fisher-KPP wave of advance of an advantageous gene",
+    "statement": "An advantageous allele spreading through a continuous population advances as a travelling wave whose speed is set by the selection coefficient and the diffusion (dispersal) rate.",
+    "math": "u_t = D u_{xx} + s u(1-u); travelling waves u(x-ct) exist iff c \\ge c^* = 2\\sqrt{sD}; compactly supported initial data spread at asymptotic speed c^*",
+    "domain": "https://w3id.org/delphi/resource/domain/math-population-genetics-and-evolutionary-theory",
+    "nanopub": "math-bio-theorems/nanopubs/unsigned/fisher-kpp-speed.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch09-05",
+    "title": "Concentric growth rings need not record periodic external conditions such as seasons",
+    "statement": "Because rhythmic Liesegang precipitation arises from diffusion within the system itself, concentric zones in fish scales, otoliths, bones and starch grains cannot be assumed to record periodic external conditions such as seasons or day and night.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch09-05.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/turing-ddi",
+    "title": "Turing diffusion-driven instability",
+    "statement": "A homogeneous steady state of two reacting chemicals that is stable without diffusion can become unstable to spatial perturbations when the chemicals diffuse at different rates, spontaneously producing a pattern.",
+    "math": "u_t = f(u,v) + D_u \\nabla^2 u, v_t = g(u,v) + D_v \\nabla^2 v; with tr J < 0 and det J > 0, instability at some wavenumber k iff D_v f_u + D_u g_v > 2\\sqrt{D_u D_v \\det J}, which requires D_u \\ne D_v",
+    "domain": "https://w3id.org/delphi/resource/domain/math-reaction-diffusion-equations-and-turing-patte",
+    "nanopub": "math-bio-theorems/nanopubs/unsigned/turing-ddi.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/turing-morphogen-hypothesis",
+    "title": "Reaction-diffusion of morphogens accounts for biological pattern",
+    "statement": "Chemical substances that react and diffuse through tissue (morphogens) are sufficient to account for the main phenomena of morphogenesis.",
+    "math": "no canonical formalization: the claim asserts that a biological pattern is generated by a system of the form u_t = F(u) + D\\nabla^2 u with D not proportional to the identity",
+    "domain": "https://w3id.org/delphi/resource/domain/math-reaction-diffusion-equations-and-turing-patte",
+    "nanopub": "math-bio-theorems/nanopubs/unsigned/turing-morphogen-hypothesis.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/wolfram2002-ch09-08",
+    "title": "Continuum behavior emerges from discrete randomizing conserving rules",
+    "statement": "Smooth continuum behavior, such as diffusion of density, emerges from discrete systems whenever small-scale apparent randomness washes out individual details and conserved quantities constrain overall features, as shown by block cellular automata whose average density follows the diffusion equation.",
+    "domain": "https://w3id.org/delphi/resource/domain/wolfram-nks-2002",
+    "nanopub": "wolfram-nks/nanopubs/unsigned/wolfram2002-ch09-08.trig"
+   }
+  ]
+ },
+ {
+  "text": "pattern",
+  "at_utc": "2026-10-31T13:01:17.567503+00:00",
+  "response": [
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch13-14",
+    "title": "Unity of type reflects a common progenitor's pattern modified by slight steps",
+    "statement": "The shared pattern of homologous organs within a class is explained by descent from an ancient progenitor (an archetype) that already had that pattern, which natural selection then modified by slight successive steps for different uses without transposing parts.",
+    "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+    "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch13-14.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/darwin1859-ch14-01",
+    "title": "Descent with modification embraces all members of each class",
+    "statement": "Because all members of whole classes are linked by chains of affinities, fossils fill wide gaps between orders, rudiments imply fully developed ancestral organs, and structures within a class share one pattern and similar embryos, descent with modification embraces all members of the same class.",
+    "domain": "https://w3id.org/delphi/resource/domain/darwin-origin-1859",
+    "nanopub": "darwin-origin/nanopubs/unsigned/darwin1859-ch14-01.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch07-08",
+    "title": "Hexagons are regular only where cells are equal in size and forces uniform",
+    "statement": "Perfectly regular hexagonal cell patterns occur only where the cells are uniform in size and subject to uniform forces, as in the retinal pigment epithelium; where cell sizes vary (intestinal epithelium, parenchyma) or growth adds directional traction, the hexagons become irregular or elongated.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch07-08.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch07-09",
+    "title": "Cylinders or spheres pressed into full surface contact form hexagons",
+    "statement": "Whenever cylinders or spheres of similar size are brought into complete surface contact by any uniform force (surface tension, growth pressure or external pressure), they tend to form a pattern of hexagons in section or surface view, each meeting six neighbours with 120\u00b0 angles.",
+    "math": "uniform pressure on similar cylinders or spheres \\Rightarrow hexagons, 6 neighbours, angles 120^\\circ",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch07-09.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch08-11",
+    "title": "Few partition patterns recur across organisms regardless of classification",
+    "statement": "Because a closed surface divided into a small number of faces admits only a small number of arrangements, the same few configurations of cells (and of parts and organs) recur in all kinds of plants and animals with no relation to biological classification.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch08-11.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch08-17",
+    "title": "Cell division pattern is the result, not the cause, of the form of the growing mass",
+    "statement": "The form of a growing organism regulates the form and number of the cells that compose it: the cell network is the result, not the cause, of the overall configuration, which is caused by whatever processes make growth faster in one direction than another.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch08-17.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch10-03",
+    "title": "Two crossing systems of geodetic spirals are a common source of reticulated patterns",
+    "statement": "In organic structures two opposite systems of geodetic spirals often coexist and interfere, forming a criss-cross arrangement, and this is a very common source of reticulated patterns.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch10-03.trig"
+   },
+   {
+    "claim": "https://w3id.org/delphi/resource/claim/thompson1917-ch11-21",
+    "title": "The fine frilling of ammonite sutures is a surface-tension phenomenon",
+    "statement": "The minutely branched, arborescent outline superposed on the lobes and saddles of some ammonite sutures, with branches ending in rounded arcs, is a surface-tension phenomenon of the same kind as the patterns made by milk on a greasy plate or oil on an alkaline solution.",
+    "domain": "https://w3id.org/delphi/resource/domain/thompson-growth-form-1917",
+    "nanopub": "thompson-growth-form/nanopubs/unsigned/thompson1917-ch11-21.trig"
+   }
+  ]
+ }
+]

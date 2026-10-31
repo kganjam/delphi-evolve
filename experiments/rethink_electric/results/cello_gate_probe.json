@@ -1,0 +1,318 @@
+{
+ "source": "CIDARLAB/cello Eco1C1G1T1.UCF.json (BSD-2-Clause per GitHub API)",
+ "n_gates": 20,
+ "median_over_gates": {
+  "refit_on_even_levels": 0.06641981569210922,
+  "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 1.6257954397754677,
+  "constant_baseline": 1.981545164233924
+ },
+ "gates": [
+  {
+   "gate": "A1_AmtR",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.03542022532478933,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 1.6369642159446993,
+    "constant_baseline": 1.738747165939043
+   },
+   "refit_params": [
+    0.21332799255252888,
+    14.996416296976287,
+    0.03208561826533047,
+    1.1985404239085027
+   ]
+  },
+  {
+   "gate": "B1_BM3R1",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.09968344790395983,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 3.029090398750584,
+    "constant_baseline": 2.0759553446902403
+   },
+   "refit_params": [
+    0.06287353467982887,
+    1.9279953887901702,
+    0.03947238604116882,
+    3.5756592059428516
+   ]
+  },
+  {
+   "gate": "B2_BM3R1",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.06669773711432225,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 2.2938790624240455,
+    "constant_baseline": 1.6477871630605248
+   },
+   "refit_params": [
+    0.06161969743749022,
+    2.102743474077186,
+    0.14753025392752328,
+    3.039359181258602
+   ]
+  },
+  {
+   "gate": "B3_BM3R1",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.0726078645708599,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 1.4049164541661396,
+    "constant_baseline": 1.6713583367524087
+   },
+   "refit_params": [
+    0.09704801130756915,
+    2.1666224171626345,
+    0.11160324024448816,
+    3.057436606423261
+   ]
+  },
+  {
+   "gate": "E1_BetI",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.01945328618973557,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 1.0647638273426459,
+    "constant_baseline": 1.3369095046993862
+   },
+   "refit_params": [
+    0.00010000000000000002,
+    11.911649103458183,
+    0.19751741049422492,
+    2.041153369886238
+   ]
+  },
+  {
+   "gate": "F1_AmeR",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.06504717275327145,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 1.2757393799474201,
+    "constant_baseline": 1.3477992790198925
+   },
+   "refit_params": [
+    0.73637991034479,
+    13.025585945196326,
+    0.04252467158270674,
+    1.3318635177575466
+   ]
+  },
+  {
+   "gate": "H1_HlyIIR",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.03158604631500826,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 1.469218625445265,
+    "constant_baseline": 1.689269137228437
+   },
+   "refit_params": [
+    0.3234042683519584,
+    8.001058786073004,
+    0.11524312078186963,
+    2.9883395374031645
+   ]
+  },
+  {
+   "gate": "I1_IcaRA",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.0651411735145043,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 1.3996229733075451,
+    "constant_baseline": 1.637447652605856
+   },
+   "refit_params": [
+    0.2063031126905472,
+    10.45338845960575,
+    0.03983508461624922,
+    1.2657402230573578
+   ]
+  },
+  {
+   "gate": "L1_LitR",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.07068494501486766,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 0.857852549285026,
+    "constant_baseline": 2.1069470333261187
+   },
+   "refit_params": [
+    0.18821121269342714,
+    16.72934195660665,
+    0.017241634053765265,
+    1.4752399336622484
+   ]
+  },
+  {
+   "gate": "N1_LmrA",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.06535400051969986,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 1.3813658653462564,
+    "constant_baseline": 1.3268936507669375
+   },
+   "refit_params": [
+    0.660420386313102,
+    7.340496036569964,
+    0.09143659933453363,
+    2.240130861551206
+   ]
+  },
+  {
+   "gate": "P1_PhlF",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.06614189426989621,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 2.613539479039435,
+    "constant_baseline": 2.882755951017905
+   },
+   "refit_params": [
+    0.09266035739704846,
+    15.805953308899225,
+    0.024662241646219402,
+    3.6634268624338366
+   ]
+  },
+  {
+   "gate": "P2_PhlF",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.0502239375217762,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 2.233772851443292,
+    "constant_baseline": 2.4507605471808445
+   },
+   "refit_params": [
+    0.1079535386639962,
+    17.19486741727568,
+    0.13252419288763648,
+    4.082781135519245
+   ]
+  },
+  {
+   "gate": "P3_PhlF",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.08284780555517116,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 1.614626663606236,
+    "constant_baseline": 2.7959073018608542
+   },
+   "refit_params": [
+    0.10583075374769214,
+    21.349140764269066,
+    0.11653546871828224,
+    4.5459584236218324
+   ]
+  },
+  {
+   "gate": "Q1_QacR",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.0890165776579901,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 2.35043642478895,
+    "constant_baseline": 2.782931836382933
+   },
+   "refit_params": [
+    0.0815792401574629,
+    10.134021235544328,
+    0.05070034000730106,
+    2.6117002134192773
+   ]
+  },
+  {
+   "gate": "Q2_QacR",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.07919190841506521,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 1.5343163610011934,
+    "constant_baseline": 2.042233557300344
+   },
+   "refit_params": [
+    0.10235405562015763,
+    12.410016030809404,
+    0.10788528451191345,
+    2.3891524504982184
+   ]
+  },
+  {
+   "gate": "R1_PsrA",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.030093109846372992,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 1.3336560741064947,
+    "constant_baseline": 1.5903697943078656
+   },
+   "refit_params": [
+    0.4420642747928088,
+    22.848512405666064,
+    0.08924037752101809,
+    1.6438038567863171
+   ]
+  },
+  {
+   "gate": "S1_SrpR",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.14287223516315808,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 3.9679339962842937,
+    "constant_baseline": 1.9208567711675035
+   },
+   "refit_params": [
+    0.057639845258684846,
+    6.386481419381947,
+    0.009502427482345987,
+    3.0294216099075078
+   ]
+  },
+  {
+   "gate": "S2_SrpR",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.06381520540248517,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 3.084976057425946,
+    "constant_baseline": 2.8686003799679947
+   },
+   "refit_params": [
+    0.06676366056364261,
+    8.48391477318204,
+    0.057203874424256666,
+    2.9704093836233065
+   ]
+  },
+  {
+   "gate": "S3_SrpR",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.08341768791985915,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 2.857104895547452,
+    "constant_baseline": 3.014168106293104
+   },
+   "refit_params": [
+    0.1685258246822224,
+    17.53333570620951,
+    0.039992930345067554,
+    2.7554884903256034
+   ]
+  },
+  {
+   "gate": "S4_SrpR",
+   "n_levels": 12,
+   "heldout_median_abs_log2_err": {
+    "refit_on_even_levels": 0.08342046976789319,
+    "published_hill_UNIT_MISMATCH_UNINTERPRETABLE": 2.101839417179158,
+    "constant_baseline": 2.3625831113504576
+   },
+   "refit_params": [
+    0.07671668788903302,
+    8.516597251511172,
+    0.09812924736315816,
+    2.9458889254214067
+   ]
+  }
+ ],
+ "limits": [
+  "gate transfer only",
+  "geometric-mean summary of histograms; population heterogeneity discarded",
+  "interleaved split of one input ladder: interpolation not extrapolation, not new conditions",
+  "the published Hill parameters (RPU-normalised in the UCF) give ~1.6 log2 error against the raw histogram geometric means; this almost certainly reflects a unit/normalisation mismatch that was NOT resolved, so that comparator is uninterpretable and is not used",
+  "no measured circuit outputs used"
+ ]
+}

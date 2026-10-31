@@ -1,0 +1,1176 @@
+{
+ "n": 56,
+ "by_family": {
+  "turing_finite_domain": {
+   "n": 24,
+   "oracle_agree": 24,
+   "conditions_agree": 24,
+   "C0_plain_formula_agree": 16,
+   "gate_full_agree": 24,
+   "gate_record_removed_agree": 16,
+   "gate_record_hash_changed_agree": 0,
+   "gate_continuum_only_agree": 16,
+   "key_verdict_counts": {
+    "underdetermined": 4,
+    "applies": 12,
+    "out_of_scope": 8
+   }
+  },
+  "turing_2d_rectangle": {
+   "n": 16,
+   "oracle_agree": 16,
+   "conditions_agree": 16,
+   "C0_plain_formula_agree": 11,
+   "gate_full_agree": 16,
+   "gate_record_removed_agree": 11,
+   "gate_record_hash_changed_agree": 0,
+   "gate_continuum_only_agree": 11,
+   "key_verdict_counts": {
+    "applies": 9,
+    "out_of_scope": 5,
+    "underdetermined": 2
+   }
+  },
+  "wavelength_formula_licence": {
+   "n": 16,
+   "oracle_agree": 16,
+   "conditions_agree": 16
+  }
+ },
+ "rows": [
+  {
+   "id": "ts-0020",
+   "family": "turing_finite_domain",
+   "key": "underdetermined",
+   "key_conditions": [
+    "BC_UNSTATED"
+   ],
+   "oracle": "underdetermined",
+   "oracle_conditions": [
+    "BC_UNSTATED"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": false,
+   "gate_full": "underdetermined",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": false,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": false
+  },
+  {
+   "id": "ts-0002",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "t2-0004",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "ts-0018",
+   "family": "turing_finite_domain",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "WELLMIXED_STABLE"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "WELLMIXED_STABLE"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "out_of_scope",
+   "C0_agree": true,
+   "gate_full": "out_of_scope",
+   "gate_record_removed": "out_of_scope",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "out_of_scope",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "ts-0023",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "wl-0015",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "margin": 1.0,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "wl-0004",
+   "family": "wavelength_formula_licence",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "margin": 0.04655866515088465,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "t2-0005",
+   "family": "turing_2d_rectangle",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": false,
+   "gate_full": "out_of_scope",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": false,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": false
+  },
+  {
+   "id": "ts-0008",
+   "family": "turing_finite_domain",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "WELLMIXED_STABLE"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "WELLMIXED_STABLE"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "out_of_scope",
+   "C0_agree": true,
+   "gate_full": "out_of_scope",
+   "gate_record_removed": "out_of_scope",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "out_of_scope",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "t2-0012",
+   "family": "turing_2d_rectangle",
+   "key": "underdetermined",
+   "key_conditions": [
+    "BC_UNSTATED"
+   ],
+   "oracle": "underdetermined",
+   "oracle_conditions": [
+    "BC_UNSTATED"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": false,
+   "gate_full": "underdetermined",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": false,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": false
+  },
+  {
+   "id": "ts-0001",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "ts-0007",
+   "family": "turing_finite_domain",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DIFFUSION_RATIO"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "DIFFUSION_RATIO"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "out_of_scope",
+   "C0_agree": true,
+   "gate_full": "out_of_scope",
+   "gate_record_removed": "out_of_scope",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "out_of_scope",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "t2-0006",
+   "family": "turing_2d_rectangle",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": false,
+   "gate_full": "out_of_scope",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": false,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": false
+  },
+  {
+   "id": "wl-0016",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "margin": 1.0,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "wl-0003",
+   "family": "wavelength_formula_licence",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "margin": 0.055558867246933326,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "ts-0004",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "wl-0014",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "margin": 1.0,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "t2-0013",
+   "family": "turing_2d_rectangle",
+   "key": "underdetermined",
+   "key_conditions": [
+    "BC_UNSTATED"
+   ],
+   "oracle": "underdetermined",
+   "oracle_conditions": [
+    "BC_UNSTATED"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": false,
+   "gate_full": "underdetermined",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": false,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": false
+  },
+  {
+   "id": "ts-0009",
+   "family": "turing_finite_domain",
+   "key": "underdetermined",
+   "key_conditions": [
+    "BC_UNSTATED"
+   ],
+   "oracle": "underdetermined",
+   "oracle_conditions": [
+    "BC_UNSTATED"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": false,
+   "gate_full": "underdetermined",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": false,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": false
+  },
+  {
+   "id": "t2-0002",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "ts-0013",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "wl-0012",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "LARGE_DOMAIN"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "LARGE_DOMAIN"
+   ],
+   "margin": 0.025309931394914886,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "wl-0010",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "NEAR_ONSET"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "NEAR_ONSET"
+   ],
+   "margin": 0.059340791997177095,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "t2-0001",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "ts-0003",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "ts-0012",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "wl-0008",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "NEAR_ONSET"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "NEAR_ONSET"
+   ],
+   "margin": 0.03397459621556145,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "ts-0022",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "wl-0002",
+   "family": "wavelength_formula_licence",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "margin": 0.08371726195584141,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "ts-0016",
+   "family": "turing_finite_domain",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": false,
+   "gate_full": "out_of_scope",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": false,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": false
+  },
+  {
+   "id": "ts-0017",
+   "family": "turing_finite_domain",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DIFFUSION_RATIO"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "DIFFUSION_RATIO"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "out_of_scope",
+   "C0_agree": true,
+   "gate_full": "out_of_scope",
+   "gate_record_removed": "out_of_scope",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "out_of_scope",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "wl-0001",
+   "family": "wavelength_formula_licence",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "margin": 0.06936974539265796,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "wl-0013",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "LARGE_DOMAIN"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "LARGE_DOMAIN"
+   ],
+   "margin": 0.02859985055906697,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "ts-0010",
+   "family": "turing_finite_domain",
+   "key": "underdetermined",
+   "key_conditions": [
+    "BC_UNSTATED"
+   ],
+   "oracle": "underdetermined",
+   "oracle_conditions": [
+    "BC_UNSTATED"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": false,
+   "gate_full": "underdetermined",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": false,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": false
+  },
+  {
+   "id": "t2-0016",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "wl-0009",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "NEAR_ONSET"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "NEAR_ONSET"
+   ],
+   "margin": 0.1367077767242886,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "ts-0015",
+   "family": "turing_finite_domain",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": false,
+   "gate_full": "out_of_scope",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": false,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": false
+  },
+  {
+   "id": "t2-0011",
+   "family": "turing_2d_rectangle",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "WELLMIXED_STABLE"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "WELLMIXED_STABLE"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "out_of_scope",
+   "C0_agree": true,
+   "gate_full": "out_of_scope",
+   "gate_record_removed": "out_of_scope",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "out_of_scope",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "t2-0008",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "t2-0010",
+   "family": "turing_2d_rectangle",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DIFFUSION_RATIO"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "DIFFUSION_RATIO"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "out_of_scope",
+   "C0_agree": true,
+   "gate_full": "out_of_scope",
+   "gate_record_removed": "out_of_scope",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "out_of_scope",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "t2-0003",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "t2-0015",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "ts-0006",
+   "family": "turing_finite_domain",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": false,
+   "gate_full": "out_of_scope",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": false,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": false
+  },
+  {
+   "id": "wl-0007",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "NEAR_ONSET"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "NEAR_ONSET"
+   ],
+   "margin": 0.028025020457045025,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "t2-0007",
+   "family": "turing_2d_rectangle",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": false,
+   "gate_full": "out_of_scope",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": false,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": false
+  },
+  {
+   "id": "t2-0009",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "ts-0024",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "wl-0006",
+   "family": "wavelength_formula_licence",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "margin": 0.08400054012983971,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "wl-0011",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "LARGE_DOMAIN"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "LARGE_DOMAIN"
+   ],
+   "margin": 0.12726803049850405,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "ts-0005",
+   "family": "turing_finite_domain",
+   "key": "out_of_scope",
+   "key_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "oracle": "out_of_scope",
+   "oracle_conditions": [
+    "DOMAIN_ADMISSIBLE_MODE"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": false,
+   "gate_full": "out_of_scope",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": false,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": false
+  },
+  {
+   "id": "ts-0014",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "ts-0021",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "wl-0005",
+   "family": "wavelength_formula_licence",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "margin": 0.030604859102099508,
+   "agree": true,
+   "conditions_agree": true
+  },
+  {
+   "id": "t2-0014",
+   "family": "turing_2d_rectangle",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "ts-0011",
+   "family": "turing_finite_domain",
+   "key": "applies",
+   "key_conditions": [],
+   "oracle": "applies",
+   "oracle_conditions": [],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": true,
+   "gate_full": "applies",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": true,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": true
+  },
+  {
+   "id": "ts-0019",
+   "family": "turing_finite_domain",
+   "key": "underdetermined",
+   "key_conditions": [
+    "BC_UNSTATED"
+   ],
+   "oracle": "underdetermined",
+   "oracle_conditions": [
+    "BC_UNSTATED"
+   ],
+   "agree": true,
+   "conditions_agree": true,
+   "refusal": null,
+   "C0_plain_formula": "applies",
+   "C0_agree": false,
+   "gate_full": "underdetermined",
+   "gate_record_removed": "applies",
+   "gate_record_hash_changed": "refused_source",
+   "gate_continuum_only": "applies",
+   "gate_full_agree": true,
+   "gate_record_removed_agree": false,
+   "gate_record_hash_changed_agree": false,
+   "gate_continuum_only_agree": false
+  }
+ ],
+ "note": "key = critic's frozen bench; gate ablations: record_removed -> falls back to the plain formula (no scope), record_hash_changed -> refuses (provenance), continuum_only -> records valid but admissibility ignored",
+ "disagreements": []
+}
