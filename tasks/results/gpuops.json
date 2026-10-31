@@ -156,5 +156,24 @@
    "artifact": "artifacts/gpuops/gemini_concurrency_16.json",
    "note": "first run: 6/16 returned no content; diagnosed as finishReason MAX_TOKENS (61 thinking tokens vs my 64-token cap), my test parameter, not throttling. Rerun: 12 OK, 4 MAX_TOKENS, 11/12 answers exactly correct (the 12th not inspected)."
   }
+ },
+ "diffusion_ratio_question_0710pdt": {
+  "assigned": "minimum viable diffusion ratio d_c as a function of kinetics; tradeoff vs robustness",
+  "gate_result": "linear question is closed-form: full sweep (4M Jacobians + 3 named models) took 5.9 s on CPU; NO GPU needed. GPU only for the nonlinear follow-up, which I did not run.",
+  "code": "turing_ratio/core.py, turing_ratio/sweep.py; artifacts/gpuops/turing_ratio_sweep.json; tests/test_turing_ratio.py (23 pass overall, 1 CUDA skip)",
+  "verified": [
+   "codex counterexample reproduced with exact fractions: det(J-qD) = -21/25000, stable without diffusion; continuum d_c=1.0756 puts q=0.04 inside the band (0.0133,0.0686)",
+   "d_c = [(ae-2bc)+2sqrt(bc(bc-ae))]/a^2; Schnakenberg(a=.1,b=.9) d_c=8.5676 matches hand value",
+   "Brusselator: code matches closed form d_c=A^2/(sqrt(B)-1)^2 to 1e-9; stable iff B<1+A^2. d_c -> 1 as A grows and B -> 1+A^2: 1.134 / 1.031 / 1.021 at A=100 and 10% / 1% / 0.1% from the Hopf boundary",
+   "named kinetics over a log box [0.01,10]^2: min d_c Schnakenberg 5.92, Gierer-Meinhardt 5.92 (both the a->0 limit 3+2sqrt2=5.83 at trace->0, i.e. the Hopf boundary), Brusselator 1.93 at the box edge; Turing-region fraction of the box at d=1.1 is 0 for all three, at d=10 is 1.5%/2.2%/3.0% (Schn/Brus/GM)"
+  ],
+  "tradeoff_reading": "Supported only in this sense: small d_c is reached only near the Hopf (stability) boundary of the kinetics, and at d=1.5 P(Turing | still stable under 5% entry perturbations) falls 0.38 -> 0.32 -> 0.21 as d_c/d goes 0.5-0.75 -> 0.75-0.9 -> 0.9-1.0 (ensemble E1). At d=10 the control shows P(Turing|stable)=1.0 until d_c/d>0.75.",
+  "NOT_established": [
+   "a general tradeoff law: ensembles E1/E2 and the 5% perturbation are my arbitrary choices (E1 puts 0.7% of systems below d_c=1.1, E2 none)",
+   "finite-domain behaviour (needs L; Lean's job)",
+   "nonlinear/subcritical outcomes (GPU/CPU PDE work not run)",
+   "an uncontrolled first version of the robustness number was confounded by near-marginal stability; the reported numbers use the control P(Turing|still stable)"
+  ],
+  "slide_constraint": "claims no universal diffusion threshold; d_c is kinetics-specific"
  }
 }

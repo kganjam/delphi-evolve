@@ -1,0 +1,273 @@
+{
+ "named_kinetics": {
+  "schnakenberg": {
+   "grid": "1000x1000 log-spaced in [0.01,10]^2",
+   "stable_activator_inhibitor_fraction": 0.319986,
+   "d_c_min": 5.915798734059842,
+   "d_c_at_min_params": [
+    0.010209606623060466,
+    0.9794696670695395
+   ],
+   "d_c_quantiles_over_stable_region": {
+    "0.05": 10.1535419000231,
+    "0.5": 142.2427385452448,
+    "0.95": 8365.679979550025
+   },
+   "turing_area_fraction_of_box_vs_d": {
+    "1.1": 0.0,
+    "1.5": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "5": 0.0,
+    "10": 0.015392,
+    "20": 0.046756,
+    "50": 0.09618
+   }
+  },
+  "brusselator": {
+   "grid": "1000x1000 log-spaced in [0.01,10]^2",
+   "stable_activator_inhibitor_fraction": 0.099136,
+   "d_c_min": 1.9281109995240544,
+   "d_c_at_min_params": [
+    3.002461709085549,
+    10.0
+   ],
+   "d_c_quantiles_over_stable_region": {
+    "0.05": 3.7763073675486085,
+    "0.5": 38.26595070392432,
+    "0.95": 5764.431546061748
+   },
+   "turing_area_fraction_of_box_vs_d": {
+    "1.1": 0.0,
+    "1.5": 0.0,
+    "2": 2.3e-05,
+    "3": 0.002364,
+    "5": 0.008959,
+    "10": 0.021464,
+    "20": 0.036092,
+    "50": 0.05448
+   }
+  },
+  "gierer_meinhardt": {
+   "grid": "1000x1000 log-spaced in [0.01,10]^2",
+   "stable_activator_inhibitor_fraction": 0.490827,
+   "d_c_min": 5.915826531108516,
+   "d_c_at_min_params": [
+    0.010423606739764018,
+    1.0209606623060465
+   ],
+   "d_c_quantiles_over_stable_region": {
+    "0.05": 9.333971623464649,
+    "0.5": 113.52118487183222,
+    "0.95": 4661.733698453369
+   },
+   "turing_area_fraction_of_box_vs_d": {
+    "1.1": 0.0,
+    "1.5": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "5": 0.0,
+    "10": 0.029543,
+    "20": 0.086086,
+    "50": 0.16894
+   }
+  }
+ },
+ "generic": {
+  "E1_a11=1_s,p_loguniform": {
+   "N": 2000000,
+   "fraction_stable_activator_inhibitor": 1.0,
+   "d_c_quantiles": {
+    "0.01": 1.1066405437727898,
+    "0.1": 1.284851924340611,
+    "0.5": 4.18496831600544,
+    "0.9": 34.01556025865168
+   },
+   "fraction_d_c_below": {
+    "1.1": 0.0069385,
+    "1.5": 0.1773555,
+    "2": 0.2890325,
+    "3": 0.4127845,
+    "10": 0.703087
+   },
+   "robustness_5pct_entry_perturbation": {
+    "1.5": {
+     "n_systems": 200000,
+     "median_survival_fraction": 0.125,
+     "median_stability_survival_fraction": 0.46875,
+     "median_turing_given_still_stable": 0.3,
+     "turing_given_stable_by_dc_over_d_bin": {
+      "0-0.25": null,
+      "0.25-0.5": null,
+      "0.5-0.75": 0.38461538461538464,
+      "0.75-0.9": 0.3157894736842105,
+      "0.9-1.0": 0.21052631578947367
+     },
+     "survival_by_dc_over_d_bin": {
+      "0-0.25": null,
+      "0.25-0.5": null,
+      "0.5-0.75": 0.125,
+      "0.75-0.9": 0.125,
+      "0.9-1.0": 0.09375
+     }
+    },
+    "10.0": {
+     "n_systems": 200000,
+     "median_survival_fraction": 0.625,
+     "median_stability_survival_fraction": 0.625,
+     "median_turing_given_still_stable": 1.0,
+     "turing_given_stable_by_dc_over_d_bin": {
+      "0-0.25": 1.0,
+      "0.25-0.5": 1.0,
+      "0.5-0.75": 1.0,
+      "0.75-0.9": 0.9130434782608695,
+      "0.9-1.0": 0.5625
+     },
+     "survival_by_dc_over_d_bin": {
+      "0-0.25": 0.5625,
+      "0.25-0.5": 0.8125,
+      "0.5-0.75": 0.875,
+      "0.75-0.9": 0.78125,
+      "0.9-1.0": 0.5
+     }
+    }
+   }
+  },
+  "E2_all_entries_loguniform_signed": {
+   "N": 2000000,
+   "fraction_stable_activator_inhibitor": 0.125137,
+   "d_c_quantiles": {
+    "0.01": 2.9775153779087007,
+    "0.1": 11.688907211676455,
+    "0.5": 124.81830515835466,
+    "0.9": 1639.039629017299
+   },
+   "fraction_d_c_below": {
+    "1.1": 0.0,
+    "1.5": 0.0005513956703453015,
+    "2": 0.002545210449347515,
+    "3": 0.010232784867784908,
+    "10": 0.08391602803327552
+   },
+   "robustness_5pct_entry_perturbation": {
+    "1.5": {
+     "n_systems": 138,
+     "median_survival_fraction": 0.125,
+     "median_stability_survival_fraction": 0.53125,
+     "median_turing_given_still_stable": 0.2649122807017544,
+     "turing_given_stable_by_dc_over_d_bin": {
+      "0-0.25": null,
+      "0.25-0.5": null,
+      "0.5-0.75": 0.2631578947368421,
+      "0.75-0.9": 0.3333333333333333,
+      "0.9-1.0": 0.22474747474747475
+     },
+     "survival_by_dc_over_d_bin": {
+      "0-0.25": null,
+      "0.25-0.5": null,
+      "0.5-0.75": 0.15625,
+      "0.75-0.9": 0.15625,
+      "0.9-1.0": 0.125
+     }
+    },
+    "10.0": {
+     "n_systems": 21002,
+     "median_survival_fraction": 0.96875,
+     "median_stability_survival_fraction": 1.0,
+     "median_turing_given_still_stable": 1.0,
+     "turing_given_stable_by_dc_over_d_bin": {
+      "0-0.25": 1.0,
+      "0.25-0.5": 1.0,
+      "0.5-0.75": 1.0,
+      "0.75-0.9": 0.96875,
+      "0.9-1.0": 0.65625
+     },
+     "survival_by_dc_over_d_bin": {
+      "0-0.25": 0.75,
+      "0.25-0.5": 1.0,
+      "0.5-0.75": 1.0,
+      "0.75-0.9": 0.96875,
+      "0.9-1.0": 0.65625
+     }
+    }
+   }
+  }
+ },
+ "wall_s": 5.9,
+ "notes": [
+  "linear continuum criterion only (infinite domain); finite-domain mode admissibility needs L and is Lean's job",
+  "ensembles and parameter box are MY arbitrary choices; fractions describe the ensemble, not biology",
+  "Gray-Scott omitted: its standard patterns do not come from a Turing-unstable uniform state"
+ ],
+ "checks": {
+  "shared_minimum_jacobian_dc": "NaN by design: J=[[1,1],[-2,-1]] has trace 0 (marginal / Hopf boundary), so d_crit is undefined there; 3+2*sqrt(2)=5.828 is the infimum approached as trace->0-, which is why Schnakenberg and Gierer-Meinhardt share the same minimum (5.916 at a=0.01) at my box edge",
+  "three_plus_two_sqrt2": 5.82842712474619,
+  "schnakenberg_and_gm_minimum_is_at_box_edge": true,
+  "brusselator_dc_vs_distance_to_hopf": [
+   {
+    "A": 3.0,
+    "1-B/(1+A^2)": 0.1,
+    "stable": true,
+    "d_c_numeric": 2.25,
+    "d_c_closed_form": 2.25
+   },
+   {
+    "A": 3.0,
+    "1-B/(1+A^2)": 0.01,
+    "stable": true,
+    "d_c_numeric": 1.9534866532153539,
+    "d_c_closed_form": 1.9534866532153536
+   },
+   {
+    "A": 3.0,
+    "1-B/(1+A^2)": 0.001,
+    "stable": true,
+    "d_c_numeric": 1.9277695804064183,
+    "d_c_closed_form": 1.9277695804064188
+   },
+   {
+    "A": 10.0,
+    "1-B/(1+A^2)": 0.1,
+    "stable": true,
+    "d_c_numeric": 1.3730284706216007,
+    "d_c_closed_form": 1.373028470621601
+   },
+   {
+    "A": 10.0,
+    "1-B/(1+A^2)": 0.01,
+    "stable": true,
+    "d_c_numeric": 1.2347050903079457,
+    "d_c_closed_form": 1.2347050903079457
+   },
+   {
+    "A": 10.0,
+    "1-B/(1+A^2)": 0.001,
+    "stable": true,
+    "d_c_numeric": 1.2223548984996848,
+    "d_c_closed_form": 1.2223548984996846
+   },
+   {
+    "A": 100.0,
+    "1-B/(1+A^2)": 0.1,
+    "stable": true,
+    "d_c_numeric": 1.134796346717721,
+    "d_c_closed_form": 1.1347963467177207
+   },
+   {
+    "A": 100.0,
+    "1-B/(1+A^2)": 0.01,
+    "stable": true,
+    "d_c_numeric": 1.0306109420603313,
+    "d_c_closed_form": 1.0306109420603313
+   },
+   {
+    "A": 100.0,
+    "1-B/(1+A^2)": 0.001,
+    "stable": true,
+    "d_c_numeric": 1.0212325448730915,
+    "d_c_closed_form": 1.0212325448730915
+   }
+  ],
+  "codex_counterexample_exact": "det(J-qD)=-21/25000 reproduced with fractions (turing_ratio.core.codex_counterexample)"
+ }
+}
