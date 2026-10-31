@@ -231,3 +231,34 @@ def test_render_template_uses_fallback_for_missing():
 def test_now_seattle_zone_labels():
     s = ev.now_seattle()
     assert s.endswith(("PDT", "PST")) or "UTC" in s
+
+
+# ---- rendered docs --------------------------------------------------------------------
+
+def test_docs_render_from_artifacts_without_unresolved_placeholders():
+    outs = ev.render_docs()
+    assert len(outs) == 3
+    route = json.loads((ev.EVIDENCE_DIR / "route_summary.json").read_text())
+    meta = json.loads((ev.SITE_DATA / "landscape.meta.json").read_text())
+    blog = (ROOT / "docs" / "blog.md").read_text()
+    pitch = (ROOT / "docs" / "pitch.md").read_text()
+    story = (ROOT / "docs" / "video-storyboard.md").read_text()
+    for txt in (blog, pitch, story):
+        assert "{{" not in txt and "}}" not in txt
+    assert f"{meta['counts']['measured_non_stop']:,}" in blog and f"{meta['counts']['measured_non_stop']:,}" in pitch
+    assert f"{route['break_points']['readnoise_kappa']:.4g}" in blog
+    assert f"{route['break_points']['readnoise_kappa']:.4g}" in story
+    # absent artifacts must read as absent, never as success
+    if not (ROOT / "tasks" / "results" / "proof.json").exists():
+        assert "not integrated into this checkout" in blog
+    if not (ROOT / "site" / "data" / "demo.json").exists():
+        assert "no demo.json integrated" in blog
+        assert "do not quote results" in pitch
+
+
+def test_docs_do_not_overclaim():
+    for name in ("blog", "pitch", "novelty", "video-storyboard"):
+        txt = (ROOT / "docs" / f"{name}.md").read_text().lower()
+        for bad in ("we beat alde", "outperforms alde", "proves darwin", "published to the nanopub network",
+                    "validated market", "customers include", "market size of"):
+            assert bad not in txt, (name, bad)

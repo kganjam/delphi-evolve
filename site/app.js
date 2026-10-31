@@ -163,8 +163,9 @@
 
   function coreRoute() {
     const d = state.demo;
-    if (!d || !Array.isArray(d.routes) || !d.routes.length || !Array.isArray(d.nodes)) return null;
-    const byId = new Map(d.nodes.map((n) => [n.id, n.genotype]));
+    if (!d || !Array.isArray(d.routes) || !d.routes.length) return null;
+    if (state.coreRouteIdx === undefined) return null;
+    const byId = new Map((d.nodes || []).map((n) => [n.id, n.genotype]));
     const r = d.routes[state.coreRouteIdx || 0];
     const ids = (r.nodes || []).map((n) => L.idxOf(byId.get(n) || (typeof n === "string" ? n : "")));
     return ids.every((i) => i >= 0) && ids.length > 1 ? ids : null;
@@ -201,6 +202,16 @@
     if (a2 >= 0 && a2 < 20 && a4 >= 0 && a4 < 20) selectNode(g.a1 * 8000 + a2 * 400 + g.a3 * 20 + a4);
   });
 
+  tcv.setAttribute("tabindex", "0");
+  tcv.setAttribute("aria-description", "Arrow keys move the selected genotype within this tile; Enter sets it as the evidence subject.");
+  tcv.addEventListener("keydown", (e) => {
+    const k = { ArrowUp: [-1, 0], ArrowDown: [1, 0], ArrowLeft: [0, -1], ArrowRight: [0, 1] }[e.key];
+    if (!k) return;
+    e.preventDefault();
+    const n = state.sel.node, a2 = Math.floor(n / 400) % 20, a4 = n % 20;
+    const b2 = Math.max(0, Math.min(19, a2 + k[0])), b4 = Math.max(0, Math.min(19, a4 + k[1]));
+    selectNode(n - a2 * 400 - a4 + b2 * 400 + b4); tcv.focus();
+  });
   /* ---------------- interaction on map ---------------- */
   function cellAt(e) {
     const r = cv.getBoundingClientRect(), x = Math.floor((e.clientX - r.left - M) / geo.scale), y = Math.floor((e.clientY - r.top - M) / geo.scale);
@@ -217,7 +228,7 @@
   cv.addEventListener("mouseleave", () => { tip.hidden = true; });
   cv.addEventListener("click", (e) => { const i = cellAt(e); if (i >= 0) selectNode(i); });
 
-  function selectNode(i) { state.sel = { node: i, step: null }; renderEvidence(); redraw(false); setTab("evidence"); }
+  function selectNode(i) { state.sel = { node: i, step: null }; renderEvidence(); redraw(false); if (state.tab === "decision") setTab("evidence"); }
   function selectStep(k) {
     const r = state.decision && state.decision.route; if (!r) return;
     state.sel = { node: r[k], step: k };
@@ -301,7 +312,7 @@
         <table class="mini"><tr><th>Order of substitutions</th><th>worst margin</th><th></th></tr>
         ${direct.map((x) => `<tr><td>${x.nodes.slice(1).map((n, k) => mutLabel(x.nodes[k], n)).join(" ")}</td><td class="${x.accepted ? "" : "bad"}">${x.worst === null ? "unknown" : fmt(x.worst, 4)}</td><td>${x.accepted ? "admitted" : x.unknown ? "unknown" : "✕ rejected"}</td></tr>`).join("")}</table>
         <p class="hint">Margin = lower bound of the next genotype − upper bound of the current one. Negative means the route passes through a genotype measurably worse than where it came from.</p></details>`;
-    if (!$("#dec-ctl") || force) { el.innerHTML = `<div id="dec-ctl">${ctl}</div><div id="dec-dyn"></div>`; bindDecision(); }
+    if (!$("#dec-ctl") || force) { el.innerHTML = `<div id="dec-ctl">${ctl}</div><div id="dec-dyn" aria-live="polite"></div>`; bindDecision(); }
     $("#dec-dyn").innerHTML = dyn;
     $("#eps-out").textContent = pfmt(eps);
     if (document.activeElement !== $("#eps")) $("#eps").value = eps;
@@ -451,7 +462,7 @@
   }
   function renderProof() {
     const el = $("#p-proof"), p = state.demo && state.demo.proof;
-    if (!p) { el.innerHTML = `<div class="na"><b>No proof receipt loaded.</b><p>The site shows proof status only from a compiled receipt in <code>demo.json → proof</code> (theorem, command, kernel exit code, mutant exit code). None is present, so nothing is claimed — in particular, the in-browser route test on the Decision tab is <em>not</em> the Lean-checked certificate.</p></div>`; return; }
+    if (!p || (p.exit_code == null && p.mutation_exit_code == null)) { el.innerHTML = `<div class="na"><b>No proof receipt loaded.</b>${p && p.note ? `<p>demo.json says: ${esc(p.note)}</p>` : ""}<p>The site shows proof status only from a compiled receipt in <code>demo.json → proof</code> (theorem, command, kernel exit code, mutant exit code). None is present, so nothing is claimed — in particular, the in-browser route test on the Decision tab is <em>not</em> the Lean-checked certificate.</p></div>`; return; }
     const compiled = p.exit_code === 0 && typeof p.mutation_exit_code === "number" && p.mutation_exit_code !== 0;
     const partial = p.exit_code === 0 && !compiled;
     el.innerHTML = `<div class="verdict ${compiled ? "open" : "undetermined"}"><span class="tag">${compiled ? "Receipt: compiled, mutant rejected" : partial ? "Receipt incomplete" : "Not compiled / unverified"}</span>
@@ -460,14 +471,59 @@
       <h3>Receipt</h3>${kvTable(p)}
       <p class="hint">Correspondence between the Lean statement and the edge rule used here is documented by the proof worker; check it before relying on the receipt.</p>`;
   }
+  /* Core output (demo.json): every route and sweep row is re-derived here from the packed measurements. */
+  function coreHtml(d) {
+    let h = "";
+    const kappa = d.interval_model && typeof d.interval_model.kappa === "number" ? d.interval_model.kappa : 2;
+    if (Array.isArray(d.routes) && d.routes.length) {
+      h += `<h3>Routes in demo.json, re-checked in this browser</h3><p class="hint">The browser applies the same edge rule with κ=${kappa} (core’s declared default) to the packed measurements. Agreement is a cross-check of two implementations, not an independent measurement.</p>`;
+      d.routes.forEach((r, k) => {
+        const idx = (r.nodes || []).map((g) => L.idxOf(g));
+        let verdict = "route has fewer than 2 nodes or an unparsable genotype";
+        if (idx.length === 2 && idx.every((i) => i >= 0) && L.hamming(idx[0], idx[1]) > 1) {
+          const dec = L.decide(D, idx[0], idx[1], kappa, "readnoise"); // endpoints of a start/target pair, not a path
+          verdict = `endpoint pair, not a path → browser decision: <b>${dec.status}</b>${dec.status === "blocked" ? ` (closed set of ${dec.closedSetSize.toLocaleString()})` : dec.route ? ` (${dec.route.length - 1} steps)` : ""}`;
+        } else if (idx.length > 1 && idx.every((i) => i >= 0) && idx.some((v, s) => s > 0 && L.hamming(idx[s - 1], v) !== 1)) {
+          verdict = "contains a step that is not a single substitution";
+        } else if (idx.length > 1 && idx.every((i) => i >= 0)) {
+          let fail = null, unk = null;
+          for (let s = 0; s + 1 < idx.length; s++) {
+            const m = L.margin(D, idx[s], idx[s + 1], kappa, "readnoise");
+            if (m === null) { unk = unk ?? s + 1; } else if (m < 0 && fail === null) fail = { step: s + 1, m };
+          }
+          verdict = fail ? `✕ step ${fail.step} fails (margin ${fmt(fail.m, 4)})` : unk ? `step ${unk} touches an unmeasured genotype` : `✓ all ${idx.length - 1} steps admitted`;
+        }
+        h += `<div class="card"><p><b>${esc(r.id)}</b> · <code>${(r.nodes || []).map(esc).join(" → ")}</code></p><p class="hint">core status: ${esc(r.status)}</p><p>Browser re-check at κ=${kappa}: <b>${verdict}</b></p>
+          ${r.breaks_at_kappa != null ? `<p class="hint">core: route breaks at κ ≈ ${esc(r.breaks_at_kappa)}</p>` : ""}${r.weakest_step_index != null ? `<p class="hint">core weakest step index: ${esc(r.weakest_step_index)}</p>` : ""}
+          <button class="btn" data-core="${k}">Overlay on map</button></div>`;
+      });
+    }
+    if (Array.isArray(d.kappa_sweep) && d.pair) {
+      const s = L.idxOf(d.pair.start), tt = L.idxOf(d.pair.target);
+      h += `<h3>κ sweep: core vs browser (${esc(d.pair.start)} → ${esc(d.pair.target)})</h3><table class="mini"><tr><th>κ</th><th>core</th><th>browser</th><th></th></tr>` + d.kappa_sweep.map((row) => {
+        const dec = L.decide(D, s, tt, row.kappa, "readnoise"), sr = L.search(D, s, -1, row.kappa, "readnoise", false);
+        const bOpen = dec.status === "open", bLen = bOpen ? dec.route.length - 1 : null, ok = bOpen === row.open && bLen === row.shortest_route_edges && sr.reached === row.reachable_from_start;
+        return `<tr><td>${row.kappa}</td><td>${row.open ? "open" : "blocked"}, ${row.shortest_route_edges ?? "–"} steps, ${row.reachable_from_start} reached</td><td>${bOpen ? "open" : dec.status}, ${bLen ?? "–"} steps, ${sr.reached} reached</td><td class="${ok ? "" : "bad"}">${ok ? "match" : "✕ differs"}</td></tr>`;
+      }).join("") + `</table>`;
+    }
+    const ex = d.replay_example;
+    if (ex && Array.isArray(ex.specialist_events_first_60)) {
+      const ev = ex.specialist_events_first_60;
+      const summ = (e) => e.type === "proposal" ? (e.hyp + (e.route ? ": " + e.route.join(">") : "") + (e.query ? " ask " + e.query : "")) : e.type === "challenge" ? (e.reason || "") : e.type === "decision" ? ("chose " + e.chose + (e.query ? ", assay " + e.query : "")) : "";
+      h += `<h3>Worked replay: ${esc(ex.policy)} · ${esc(ex.pair)} · seed ${esc(ex.seed)}</h3><p class="hint"><span class="chip sim">simulated selection replay</span> outcome: ${esc(ex.outcome && ex.outcome.status)} after ${esc(ex.outcome && ex.outcome.assays)} assays; hash-chain valid: ${esc(ex.event_chain_valid)}; ${esc(ex.n_specialist_events)} specialist events (first ${ev.length} stored). Software specialists exchanging evidence messages — scheduling is fixed code, not live LLM agents.</p>
+        <details><summary>Event log</summary><table class="mini"><tr><th>#</th><th>actor</th><th>type</th><th>content</th></tr>${ev.slice(0, 30).map((e) => `<tr><td>${esc(e.seq)}</td><td>${esc(e.actor)}</td><td>${esc(e.type)}</td><td>${esc(summ(e))}</td></tr>`).join("")}</table></details>`;
+    }
+    return h;
+  }
   function renderReplay() {
     const el = $("#p-replay"), d = state.demo;
     if (!d) { el.innerHTML = `<div class="na"><b>No replay results loaded.</b><p><code>data/demo.json</code> (core output) is not present, so no benchmark, abstention or false-certificate numbers are shown. The retrospective assay-budget replay is a planned/optional integration; nothing here is simulated by the site.</p></div>`; return; }
     const b = d.benchmark, c = d.compute;
-    el.innerHTML = `<h3>Assay-budget replay <span class="chip sim">simulated selection replay</span></h3>${b ? kvTable({ status: b.status, protocol: b.protocol }) + (b.metrics ? `<h3>Metrics</h3>${kvTable(b.metrics)}` : "") + (b.limitations ? `<h3>Limitations</h3>${kvTable(b.limitations)}` : "") : "<div class='na'>benchmark absent in demo.json</div>"}
+    el.innerHTML = coreHtml(d) + `<h3>Assay-budget replay <span class="chip sim">simulated selection replay</span></h3>${b ? kvTable({ status: b.status, protocol: b.protocol, kind: b.kind }) + (b.metrics ? `<h3>Metrics</h3>${kvTable(b.metrics)}` : "<div class='na'>No metrics recorded: replay not run, or not integrated.</div>") + (b.limitations ? `<h3>Replay limitations</h3><ul>${[].concat(b.limitations).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : "") : "<div class='na'>benchmark absent in demo.json</div>"}
       <h3>GPU / foundation-model prior <span class="chip predicted">predicted</span></h3>${c ? kvTable(c) : "<div class='na'>compute absent in demo.json</div>"}
       <p class="hint">Predictions never discharge a missing measurement; they may only guide which assay is requested.</p>
       <h3>Limitations (demo.json)</h3>${Array.isArray(d.limitations) && d.limitations.length ? "<ul>" + d.limitations.map((x) => `<li>${esc(x)}</li>`).join("") + "</ul>" : "<span class='hint'>none listed</span>"}`;
+    el.querySelectorAll("[data-core]").forEach((b2) => b2.addEventListener("click", () => { state.coreRouteIdx = +b2.dataset.core; drawMap(); }));
   }
 
   /* ---------------- ledger ---------------- */
@@ -508,7 +564,7 @@
   (async function boot() {
     compute(); renderLegend(); paintOffscreen(); drawMap(); drawTile(); renderDecision(true); renderEvidence();
     [state.ev, state.demo] = await Promise.all([getJSON("data/evidence.json"), getJSON("data/demo.json")]);
-    if (state.demo && Array.isArray(state.demo.routes) && state.demo.routes.length) state.coreRouteIdx = 0;
+    
     ledger(); renderClaims(); renderProof(); renderReplay(); drawMap(); renderEvidence(); scheduleMaxEps();
     const q = new URLSearchParams(location.search);
     if (q.get("eps")) setEps(+q.get("eps"));

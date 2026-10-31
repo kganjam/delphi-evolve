@@ -7,7 +7,7 @@ Subcommands (python -m evolve.evidence <cmd> --help):
   delphi     Query the hosted Delphi MCP live and store raw responses.
   nanopubs   Emit unsigned nanopublication TriG drafts and validate them.
   validate   Re-parse every draft TriG with rdflib and check structure.
-  blog       Render docs/blog.md from docs/blog.template.md and saved artifacts.
+  docs       Render docs/{blog,pitch,video-storyboard}.md from *.template.md and saved artifacts.
 
 Nothing here invents measurements. Every number the site, blog or nanopub
 drafts show is read from an artifact written by one of these commands or by
@@ -643,6 +643,19 @@ def site_evidence(out_dir: Path) -> dict:
           "nanopub_status": "UNSIGNED local drafts; not published to any nanopub network; no trusty URI",
           "limits": summary["interpretation_limits"]}
     (out_dir / "evidence.json").write_text(json.dumps(ev, indent=2) + "\n")
+    # contract-shaped claims block so the integrator can merge it into demo.json["claims"]
+    contract_claims = []
+    for c in claims:
+        for src, v in c["sources"].items():
+            contract_claims.append({
+                "id": f"{c['id']}@{src}", "source_uri": c["iri"],
+                "statement": c.get("statement"),
+                "relation_to_test": "motivation-by-analogy; not equivalentTo and not a test of this claim" if c["role"] == "motivation"
+                                    else "context only (partial-change theorem; Delphi notes it fails for total change under epistasis)",
+                "status": f"unresolved; Delphi {src} source" + (f"; nanopub {v['nanopubs'][0]}" if v["nanopubs"] else "")})
+    (EVIDENCE_DIR / "demo_claims.json").write_text(json.dumps(
+        {"note": "Merge into demo.json['claims']. IDs preserve Delphi claim IDs with the queried source appended after '@'.",
+         "claims": contract_claims}, indent=2) + "\n")
     return ev
 
 
@@ -671,33 +684,47 @@ def render_template(text: str, sources: dict[str, dict]) -> str:
         v = dig(sources.get(src, {}), path)
         if v is None:
             return fb
+        if isinstance(v, bool):
+            return "yes" if v else "no"
         if isinstance(v, float):
             return f"{v:.4g}"
+        if isinstance(v, int) and abs(v) >= 10000:
+            return f"{v:,}"
         return str(v)
     return re.sub(r"\{\{(\w+):([^|}]+)(?:\|([^}]*))?\}\}", sub, text)
 
 
-def render_blog() -> str:
-    tmpl = (ROOT / "docs" / "blog.template.md").read_text()
+DOC_TEMPLATES = ("blog", "pitch", "video-storyboard")
+
+
+def render_docs() -> list[str]:
+    """Render docs/<name>.template.md -> docs/<name>.md from saved artifacts only."""
     sources: dict[str, dict] = {}
     for key, rel in (("landscape", "site/data/landscape.meta.json"),
                      ("demo", "site/data/demo.json"),
                      ("delphi", "artifacts/evidence/delphi_queries.json"),
                      ("nano", "artifacts/evidence/nanopubs/validation.json"),
-                     ("route", "artifacts/evidence/route_summary.json")):
+                     ("route", "artifacts/evidence/route_summary.json"),
+                     ("evsite", "site/data/evidence.json")):
         p = ROOT / rel
         if p.exists():
             sources[key] = json.loads(p.read_text())
-    for role in ("core", "proof", "gpu", "experience"):
+    for role in ("core", "proof", "gpu", "experience", "integrator"):
         p = ROOT / "tasks" / "results" / f"{role}.json"
         if p.exists():
             sources[role] = json.loads(p.read_text())
-    body = render_template(tmpl, sources)
-    footer = (f"\n\n---\n*Rendered {now_seattle()} by `python -m evolve.evidence blog` from: "
-              f"{', '.join(sorted(sources)) or 'no artifacts'}.*\n")
-    out = ROOT / "docs" / "blog.md"
-    out.write_text(body + footer)
-    return str(out)
+    outs = []
+    for name in DOC_TEMPLATES:
+        tp = ROOT / "docs" / f"{name}.template.md"
+        if not tp.exists():
+            continue
+        body = render_template(tp.read_text(), sources)
+        footer = (f"\n\n---\n*Rendered {now_seattle()} by `python -m evolve.evidence docs` from: "
+                  f"{', '.join(sorted(sources)) or 'no artifacts'}. Edit `docs/{name}.template.md`, not this file.*\n")
+        out = ROOT / "docs" / f"{name}.md"
+        out.write_text(body + footer)
+        outs.append(str(out))
+    return outs
 
 
 # --------------------------------------------------------------------------
@@ -714,7 +741,37 @@ def route_summary(raw_dir: Path, out: Path) -> dict:
             rows.append({"mode": mode, "assumed_parameter": eps,
                          "parameter_meaning": "kappa" if mode == "readnoise" else "eps",
                          "measured_only_distance": pd_, "optimistic_distance": od})
+    def bisect_max(mode, hi, tol):
+        lo = 0.0
+        while hi - lo > tol:
+            mid = (lo + hi) / 2
+            if reachability(scores, start, target, mid, mode)[0][0] is not None:
+                lo = mid
+            else:
+                hi = mid
+        return lo
+
+    breaks = {
+        "readnoise_kappa": bisect_max("readnoise", 8.0, 0.005),
+        "envelope_eps": bisect_max("envelope", 0.03, 1e-5),
+        "point_eps": bisect_max("point", 0.03, 1e-5),
+        "method": "bisection over measured-only BFS reachability; value is the largest parameter with a route, to the stated tolerance",
+    }
+    direct = None
+    # direct 4-substitution orderings (shortest possible routes) at the lowest assumption
+    import itertools
+    subs = [(p, target[p]) for p in range(4) if start[p] != target[p]]
+    admitted = 0
+    for perm in itertools.permutations(subs):
+        g, ok = start, True
+        for p, a in perm:
+            n = g[:p] + a + g[p + 1:]
+            ok &= edge_status(scores, g, n, 0.0, "readnoise") == "accepted"
+            g = n
+        admitted += ok
+    direct = {"orderings": len(list(itertools.permutations(subs))), "admitted_at_parameter_0": admitted}
     res = {"kind": "descriptive full-data analysis; not a predictive benchmark",
+           "break_points": breaks, "direct_orderings": direct,
            "start": start, "target": target,
            "score_scale": "mu_k minus per-replicate stop-codon mean, averaged over 2 replicates (see landscape.meta.json)",
            "rows": rows, "built_utc": now_utc()}
@@ -731,7 +788,7 @@ def main(argv=None):
     sub.add_parser("nanopubs")
     p = sub.add_parser("validate"); p.add_argument("paths", nargs="*", type=Path)
     sub.add_parser("site-data")
-    sub.add_parser("blog")
+    sub.add_parser("docs")
     p = sub.add_parser("route-summary"); p.add_argument("--raw", type=Path, default=DEFAULT_RAW)
     a = ap.parse_args(argv)
     if a.cmd == "landscape":
@@ -753,8 +810,8 @@ def main(argv=None):
     elif a.cmd == "site-data":
         ev = site_evidence(SITE_DATA)
         print(json.dumps({"claims": len(ev["claims"]), "drafts": len(ev["nanopub_drafts"])}))
-    elif a.cmd == "blog":
-        print(render_blog())
+    elif a.cmd == "docs":
+        print("\n".join(render_docs()))
     elif a.cmd == "route-summary":
         print(json.dumps(route_summary(a.raw, EVIDENCE_DIR / "route_summary.json"), indent=2))
     return 0

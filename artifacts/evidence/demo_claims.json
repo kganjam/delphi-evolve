@@ -1,0 +1,61 @@
+{
+  "note": "Merge into demo.json['claims']. IDs preserve Delphi claim IDs with the queried source appended after '@'.",
+  "claims": [
+    {
+      "id": "darwin1859-ch06-08@local",
+      "source_uri": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-08",
+      "statement": "If any complex organ were shown to exist that could not possibly have been formed by numerous, successive, slight modifications, the theory of natural selection would break down; no such case is known.",
+      "relation_to_test": "motivation-by-analogy; not equivalentTo and not a test of this claim",
+      "status": "unresolved; Delphi local source; nanopub darwin-origin/nanopubs/unsigned/darwin1859-ch06-08.trig"
+    },
+    {
+      "id": "darwin1859-ch06-08@network",
+      "source_uri": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-08",
+      "statement": "If any complex organ were shown to exist that could not possibly have been formed by numerous, successive, slight modifications, the theory of natural selection would break down; no such case is known.",
+      "relation_to_test": "motivation-by-analogy; not equivalentTo and not a test of this claim",
+      "status": "unresolved; Delphi network source; nanopub https://w3id.org/np/RAJN9-vmRYhQZuloSCaF9rPE2_wnkcoTI4XxbYcVt_uS4"
+    },
+    {
+      "id": "darwin1859-ch06-16@local",
+      "source_uri": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-16",
+      "statement": "The rule that nature makes no leaps is not strictly true of living organisms alone, but if all past organisms are included it must be strictly true.",
+      "relation_to_test": "motivation-by-analogy; not equivalentTo and not a test of this claim",
+      "status": "unresolved; Delphi local source; nanopub darwin-origin/nanopubs/unsigned/darwin1859-ch06-16.trig"
+    },
+    {
+      "id": "darwin1859-ch06-16@network",
+      "source_uri": "https://w3id.org/delphi/resource/claim/darwin1859-ch06-16",
+      "statement": "The rule that nature makes no leaps is not strictly true of living organisms alone, but if all past organisms are included it must be strictly true.",
+      "relation_to_test": "motivation-by-analogy; not equivalentTo and not a test of this claim",
+      "status": "unresolved; Delphi network source; nanopub https://w3id.org/np/RAovYvW0y_yQKkjjMPr41Vjnzl81xI1rxAqMlF4ogNap4"
+    },
+    {
+      "id": "darwin1859-ch01-17@local",
+      "source_uri": "https://w3id.org/delphi/resource/claim/darwin1859-ch01-17",
+      "statement": "Among the causes of change in domestic races, including conditions of life, use and disuse, correlation and crossing, the accumulative action of selection, whether methodical or unconscious, is by far the predominant power.",
+      "relation_to_test": "motivation-by-analogy; not equivalentTo and not a test of this claim",
+      "status": "unresolved; Delphi local source; nanopub darwin-origin/nanopubs/unsigned/darwin1859-ch01-17.trig"
+    },
+    {
+      "id": "darwin1859-ch01-17@network",
+      "source_uri": "https://w3id.org/delphi/resource/claim/darwin1859-ch01-17",
+      "statement": "Among the causes of change in domestic races, including conditions of life, use and disuse, correlation and crossing, the accumulative action of selection, whether methodical or unconscious, is by far the predominant power.",
+      "relation_to_test": "motivation-by-analogy; not equivalentTo and not a test of this claim",
+      "status": "unresolved; Delphi network source; nanopub https://w3id.org/np/RAGG5Y2WGfHtfOj6nZhD18twOU3GNco-Q2EpYx_kavHcg"
+    },
+    {
+      "id": "fisher-ftns@local",
+      "source_uri": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+      "statement": "The rate of increase in mean fitness of a population due to natural selection equals its additive genetic variance in fitness at that time.",
+      "relation_to_test": "context only (partial-change theorem; Delphi notes it fails for total change under epistasis)",
+      "status": "unresolved; Delphi local source; nanopub math-bio-theorems/nanopubs/unsigned/fisher-ftns.trig"
+    },
+    {
+      "id": "fisher-ftns@network",
+      "source_uri": "https://w3id.org/delphi/resource/claim/fisher-ftns",
+      "statement": "The rate of increase in mean fitness of a population due to natural selection equals its additive genetic variance in fitness at that time.",
+      "relation_to_test": "context only (partial-change theorem; Delphi notes it fails for total change under epistasis)",
+      "status": "unresolved; Delphi network source; nanopub https://w3id.org/np/RAtLFqIIyu4r-GlMcBEfmDtbV-CHwWxQ49gVMtHIX6r48"
+    }
+  ]
+}
