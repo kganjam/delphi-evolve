@@ -133,7 +133,7 @@ def main():
     manifest = {
         "recorded_seattle": seattle(), "kind": "silent captioned screen recording of the built deck and the landing page's ledger section; no audio, no generated imagery",
         "source": {"git_head": git("rev-parse", "HEAD"), "git_branch": git("rev-parse", "--abbrev-ref", "HEAD"),
-                   "git_dirty_paths": status("presentation/delphi", "site/delphi"),
+                   "git_dirty_paths": [x for x in status("presentation/delphi", "site/delphi") if not x.startswith("presentation/delphi/video/") and x != "presentation/delphi/REHEARSAL.md"],
                    "deck_html_sha256": sha256(deck), "site_delphi_tree_sha256": tree_hash(site / "delphi"), "captions_sha256": sha256(HERE / "captions.json")},
         "video": {"file": mp4.name, "sha256": sha256(mp4), "bytes": size, "duration_s": round(dur, 2), "resolution": f"{W}x{H}", "audio": "none"},
         "scenes": log, "page_errors": errors, "ok": ok,

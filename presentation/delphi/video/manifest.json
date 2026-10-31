@@ -1,0 +1,60 @@
+{
+ "recorded_seattle": "2026-10-31 09:00:27 PDT",
+ "kind": "silent captioned screen recording of the built deck and the landing page's ledger section; no audio, no generated imagery",
+ "source": {
+  "git_head": "d002cf7cec44d45d527ceff047da3de7ba52bc00",
+  "git_branch": "work/submit",
+  "git_dirty_paths": [],
+  "deck_html_sha256": "afa93eba78ecb1fa9d118ed6f88b603f03c0d3e28b5c1b11735df979309d6a6e",
+  "site_delphi_tree_sha256": "1e7af3abd0c70f6dffd047e9a9a04d1cd4224bc758838894ab2f464681623a08",
+  "captions_sha256": "7f20262102c5dd03f1887a50ef0a23d54ff40dda7ee4409c97456c0c4541b3bc"
+ },
+ "video": {
+  "file": "delphi-90s-captioned.mp4",
+  "sha256": "05c3e983615ea99943e2ee9ff23f3c9aea64a2f3dac97b1e32e64290beb392a7",
+  "bytes": 2036051,
+  "duration_s": 90.56,
+  "resolution": "1280x840",
+  "audio": "none"
+ },
+ "scenes": [
+  {
+   "scene": "deck slide 1",
+   "hold_s": 11,
+   "caption": "Classical mathematics. A program checks it, with a witness."
+  },
+  {
+   "scene": "deck slide 2",
+   "hold_s": 16,
+   "caption": "Limitation first: the algorithm is trivial. The offer is the certificate, the refusal and the repair."
+  },
+  {
+   "scene": "deck slide 3",
+   "hold_s": 14,
+   "caption": "Frozen test set. Agreement with our own key is not external validation."
+  },
+  {
+   "scene": "deck slide 4",
+   "hold_s": 16,
+   "caption": "Audit versus self-audit, not collective intelligence. One team, one day."
+  },
+  {
+   "scene": "deck slide 5",
+   "hold_s": 14,
+   "caption": "More agents did not help. A ceiling and a missing arm, stated as such."
+  },
+  {
+   "scene": "deck slide 6",
+   "hold_s": 9,
+   "caption": "Outside use: none observed yet. Nothing deployed."
+  },
+  {
+   "scene": "site ledger section",
+   "hold_s": 8,
+   "caption": "The ledger on the landing page: every row with its witness, kind, and printed timing caveats."
+  }
+ ],
+ "page_errors": [],
+ "ok": true,
+ "note": "Re-record after every rebuild: the manifest pins the source HEAD, and the deck/site hashes change when numbers change."
+}
