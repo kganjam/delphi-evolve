@@ -187,9 +187,7 @@
   "unverified": "no literature value for Nodal/Lefty or other real diffusivities was checked; Stokes-Einstein is stated as bare-diffusion scaling only"
  },
  "timestamp_correction": "Earlier 'updated_seattle' values of 07:25 and 07:50 PDT in this file were wrong (the clock was about 06:30-06:50 PDT at those edits); corrected here.",
- "input_hardening_commit": [
-  "ef422c3d9e046d1610eb13c9de2c3d61799b7ad2: exponent/over-long strings refused before Fraction; model name/params type-checked; huge JSON ints -> 400; catch-all typed 500. 61 tests pass. The huge-exponent case was NOT run against the old code."
- ],
+ "input_hardening_commit": "ef422c3d9e046d1610eb13c9de2c3d61799b7ad2: exponent/over-long strings refused before Fraction; model name/params type-checked; huge JSON ints -> 400; catch-all typed 500. 61 tests pass. The huge-exponent case was NOT run against the old code.",
  "larger_frame": {
   "my_slice": "Turing worked example in the 21-claim scorecard: artifacts/claims_spec/turing_scorecard.json (3 claims: 0 hold as stated, 1 scope-condition, 1 empirical, 1 unresolved)",
   "not_my_slice": "18 population-genetics claims, Thompson and Fisher instances, layers 2-3 compute"

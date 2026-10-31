@@ -8,7 +8,7 @@
    "claim_id": "turing-ddi",
    "network_nanopub": "https://w3id.org/np/RAaQ-9SCjYC7GBJ0ZtrPcVNxZBB7z-VNAdWa8ImGAi610",
    "bucket": "holds only with a scope condition we had to supply",
-   "scope_condition_supplied": "the unstable wavenumber must be ADMISSIBLE on the finite domain (Laplacian eigenmodes of the stated boundary condition). The record states the continuum condition and 'fixed domain' but no finite-size condition: for J=[[1,-2],[2,-3]], Du=1, Dv=10, Neumann, the textbook band is non-empty yet length pi has no unstable mode while 2 pi has exactly mode 1 (trace -19/4, det -1/8). Minimum length to pattern: between 1.41421356 pi and 1.41421357 pi (verified bracket).",
+   "scope_condition_supplied": "the unstable wavenumber must be ADMISSIBLE on the finite domain (Laplacian eigenmodes of the stated boundary condition). The record states the continuum condition and 'fixed domain' but no finite-size condition: for J=[[1,-2],[2,-3]], Du=1, Dv=10, Neumann, the textbook band is non-empty yet length pi has no unstable mode while 2 pi has exactly mode 1 (trace -19/4, det -1/8). Minimum length to pattern: sqrt(2) pi (service returns the verified rational bracket 1414213562373/1000000000000 .. 707106781187/500000000000 in units of pi).",
    "evidence": {
     "compiled_proof": "turing_scope/lean (TuringScope.Basic/Instance), Lean 4.35.0, lake build exit 0; generic tail theorem neumann_tail_hurwitz + instance short_all_modes_stable / long_unstable_iff / domain_changes_answer",
     "mutation_tests_that_fail_as_required": "4 numeric mutants (control compiles exit 0; M1 g_v -3->-2, M2 Dv 10->1, M3 L=pi each exit 1) and 2 generic-law mutants (reaction cross term sign, Neumann spectrum) that break Basic.lean",
