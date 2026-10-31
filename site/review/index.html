@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Delphi · Where a claim applies</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="shell masthead"><a class="wordmark" href="../index.html">Delphi<span> / review</span></a><span class="edition">A scientific review walkthrough</span></header>
+  <main class="shell">
+    <section class="intro">
+      <p class="eyebrow">From candidate laws to checked theorems</p>
+      <h1>A claim needs<br><em>conditions.</em></h1>
+      <p class="lede">A domain gets smaller. A conserved quantity is forgotten. The conclusion changes. Explore three errors caught in our own work, and inspect the evidence behind each correction.</p>
+      <div class="evidence-key"><span><i class="dot browser"></i>Exact browser calculation</span><span><i class="dot proof"></i>Recorded Lean compilation</span><span><i class="dot review"></i>Source and statement review</span></div>
+    </section>
+
+    <section class="lab" aria-labelledby="lab-title">
+      <div class="lab-top"><div><p class="eyebrow">An assumption you can change</p><h2 id="lab-title">Explore the calculation</h2></div><span class="small-tag">Declared mathematical models</span></div>
+      <div class="tabs" role="group" aria-label="Worked example">
+        <button type="button" data-case="domain" aria-pressed="true">01 · A finite domain</button>
+        <button type="button" data-case="ratio" aria-pressed="false">02 · A diffusion ratio</button>
+        <button type="button" data-case="volume" aria-pressed="false">03 · A missing constraint</button>
+      </div>
+      <div class="lab-grid">
+        <div class="controls">
+          <p class="eyebrow" id="case-kicker"></p><h3 id="case-title"></h3><p id="case-description"></p>
+          <div id="domain-controls"><label for="length">Domain length</label><select id="length"><option value="1">π</option><option value="2">2π</option><option value="3">3π</option><option value="4">4π</option></select>
+            <label for="boundary">Boundary condition</label><select id="boundary"><option value="neumann">Neumann · no flux</option><option value="periodic">Periodic · a ring</option></select>
+          </div>
+          <div id="volume-controls" hidden><label for="mode">Proposed perturbation</label><select id="mode"><option value="1">n = 1 · one half-wave</option><option value="2">n = 2 · two half-waves</option></select><p class="fine">Length fixed at L = 3πr/2. Contact lines pinned to the two disks; liquid volume fixed.</p></div>
+          <div class="model" id="model"></div>
+        </div>
+        <div class="visual">
+          <div class="plot-heading"><span id="plot-title"></span><span class="fine">Computed from the controls</span></div>
+          <svg id="plot" viewBox="0 0 720 280" role="img" aria-labelledby="plot-accessible-title plot-accessible-description"><title id="plot-accessible-title"></title><desc id="plot-accessible-description"></desc></svg>
+          <p class="plot-note" id="plot-note"></p>
+          <div class="verdict" aria-live="polite"><span class="eyebrow">Exact browser calculation · no Lean execution</span><h3 id="verdict-title"></h3><p id="verdict-detail"></p></div>
+        </div>
+      </div>
+      <details class="calculation"><summary>Inspect the exact fractions</summary><div class="table-wrap"><table><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div><p class="fine" id="calculation-note"></p></details>
+      <div class="receipt-panel"><span class="receipt-mark" id="receipt-kind"></span><div><h3 id="receipt-title"></h3><p id="receipt-description"></p><a id="receipt-link" href="#">Open the recorded evidence ↗</a></div></div>
+    </section>
+
+    <section class="story" aria-labelledby="story-title">
+      <p class="eyebrow">One project, four parts</p><h2 id="story-title">Build a result people can inspect.</h2>
+      <div class="story-grid">
+        <article><span class="chapter">01 / Finding</span><h3>A scorecard with honest gaps</h3><p>21 candidate records from Delphi. Buckets and formal targets are under review. That inventory is not a count of proved biological laws.</p><a href="https://github.com/kganjam/delphi-evolve/blob/b4e60db91050ccaec8cd16f8f57373690c5efa7b/planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md">Read the target review ↗</a></article>
+        <article><span class="chapter">02 / Tool</span><h3>Check, explain, repair</h3><p>Under a declared model, check admissible linear modes. A change in length can admit one. This is a model-level repair; a stable tissue pattern is a separate question.</p><a href="../turing/index.html">Explore the earlier Turing check →</a></article>
+        <article><span class="chapter">03 / Measurement</span><h3>The benchmark is reviewed too</h3><p>Our v1.1 numerical review reproduced 136 conditional verdicts, then found answer cues in public item IDs. Evaluation remains on hold. This is a review result, not an agent score.</p><a href="https://github.com/kganjam/delphi-evolve/blob/d23663a814ff184d1681ca5601dedb0bd34af9f1/planning/rethink/CODEX-BENCH-V1-1-REVIEW.md">Read the audit and limitations ↗</a></article>
+        <article><span class="chapter">04 / Demonstration</span><h3>Correct our own claims</h3><p>Independent review caught errors in our assumptions and statements. Exact witnesses make the corrections inspectable. The deployed service did not discover all these errors autonomously.</p><a href="https://github.com/kganjam/delphi-evolve/blob/d141f0ac9a0cb9f2a379ee88a9be5765cb1e85b6/planning/rethink/CLAIM-LEDGER.md">Follow the claim ledger ↗</a></article>
+      </div>
+    </section>
+
+    <details class="appendix"><summary>Appendix · a real proof dependency: Price → Hamilton</summary><div class="appendix-inner"><p>The finite Price identity and a conditional regression-form Hamilton corollary compiled in Lean. The relationship is established mathematics; we make its assumptions inspectable.</p><div class="proof-path"><span>Price identity</span><b aria-hidden="true">→</b><span>Selection-only lemma</span><b aria-hidden="true">→</b><span>Hamilton regression</span></div><p class="fine">Perfect transmission; normalized population weights; residual orthogonal to the focal trait; positive focal variance and mean fitness. Regression coefficients do not establish causal intervention effects. This does not prove additive-genetic Fisher FTNS.</p><p><strong>Recorded compilation:</strong> original and four witness controls passed; two changed-sign targets rejected. Successful audited theorems use only propext, Classical.choice and Quot.sound. No theorem prover runs in this page.</p><a href="https://github.com/kganjam/delphi-evolve/blob/b4e60db91050ccaec8cd16f8f57373690c5efa7b/artifacts/integration/codex-api/price-probe.json">Compilation receipt ↗</a><a href="https://github.com/kganjam/delphi-evolve/blob/b4e60db91050ccaec8cd16f8f57373690c5efa7b/experiments/price_probe/Price.lean">Lean source ↗</a></div></details>
+  </main>
+  <footer class="shell"><p>These are mathematical examples and review artifacts. The drawings are computed mode diagrams, not GPU simulations or measurements of biology.</p><p><a href="https://github.com/kganjam/delphi-evolve/blob/d141f0ac9a0cb9f2a379ee88a9be5765cb1e85b6/planning/rethink/CLAIM-LEDGER.md">Evidence and permitted claims ↗</a> · <a href="../index.html">Released baseline and its null results →</a></p></footer>
+</body>
+</html>
