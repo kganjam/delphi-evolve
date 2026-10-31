@@ -2,7 +2,7 @@
 
 Library plus validators. **No persistence, no endpoint, no identity, no federation.** Everything is a pure function over
 plain dicts; the transactional layer (Foundation worker, `kganjam/delphi-frontier`) owns storage, atomic leases and
-authentication, and can test itself against the invariants fixed here. Status: local, read-only pilot + unit tests; nothing
+authentication, and can test itself against the invariants fixed here. Review status: **single-reader, not Codex-reviewed, not independently reviewed**. Status: local, read-only pilot + unit tests; nothing
 has been scored on real Frontier data because no decision models, signals, forecasts or ledgers exist yet.
 
 **Premise.** An unguarded frontier model already scores ~95% on the frozen benchmark (Claude Sonnet 5.5 121/127, Gemini 3.8
