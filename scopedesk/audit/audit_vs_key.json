@@ -1,0 +1,77 @@
+{
+ "audit": "AT3 independent recomputation of Scope Desk bench v1 key",
+ "key_sha256": "747ddbae6a37dc00a4a9271b43075c752c203ae24a820d08d9fb0e9db37c4467 (critic commit c8623a6, key.jsonl)",
+ "auditor": "separate bounded Claude Sonnet 5.5 subagent spawned by the director; saw request_text + structured params with target/benign/template stripped; never saw the key, generator or verifier code; wrote its own code (scopedesk/audit/audit_*.py)",
+ "independence_limits": "Same model family as the key's author (correlated error possible); the director supplied family model definitions derived from the critic's README, so semantics are shared and only code/derivation is independent; auditor was told to follow structured params over request text.",
+ "agreement_by_family": {
+  "turing_finite_domain": {
+   "agree": 24,
+   "n": 24
+  },
+  "fisher_kpp_speed": {
+   "agree": 16,
+   "n": 16
+  },
+  "kimura_regime": {
+   "agree": 16,
+   "n": 16
+  },
+  "hamilton_rule_form": {
+   "agree": 16,
+   "n": 16
+  },
+  "greenhill_buckling": {
+   "agree": 13,
+   "n": 16
+  },
+  "rayleigh_plateau": {
+   "agree": 16,
+   "n": 16
+  },
+  "hawk_dove_ess": {
+   "agree": 16,
+   "n": 16
+  },
+  "wavelength_formula_licence": {
+   "agree": 15,
+   "n": 16
+  }
+ },
+ "agree_total": 132,
+ "n": 136,
+ "disagreements": [
+  {
+   "id": "gh-0005",
+   "family": "greenhill_buckling",
+   "key": "applies",
+   "audit": "out_of_scope",
+   "audit_confidence": "high",
+   "audit_rule": "taper t=0.5!=1: Greenhill uniform-column formula not licensed (uniform-formula Hcr=141.09 vs H=112.9, ratio 0.800; would be misleading since taper changes critical height)"
+  },
+  {
+   "id": "gh-0008",
+   "family": "greenhill_buckling",
+   "key": "underdetermined",
+   "audit": "out_of_scope",
+   "audit_confidence": "medium",
+   "audit_rule": "taper t=0.5!=1: Greenhill uniform-column formula not licensed"
+  },
+  {
+   "id": "gh-0013",
+   "family": "greenhill_buckling",
+   "key": "applies",
+   "audit": "out_of_scope",
+   "audit_confidence": "high",
+   "audit_rule": "taper t=0.4!=1: Greenhill uniform-column formula not licensed (uniform-formula Hcr=36.33 vs H=58.1, ratio 1.599; would be misleading since taper changes critical height)"
+  },
+  {
+   "id": "wl-0009",
+   "family": "wavelength_formula_licence",
+   "key": "out_of_scope",
+   "audit": "applies",
+   "audit_confidence": "low",
+   "audit_rule": "wl_pred=15.5813; fastest admissible Neumann mode n=7 wl=14.3616; rel err=0.0849; criterion ratio B/(2sqrt(Dv det))=1.863; unstable n=[4, 5, 6, 7, 8]..(8 modes)"
+  }
+ ],
+ "interpretation": "3 Greenhill items (tapered column t!=1) are a semantic dispute: the auditor treats the uniform-column formula as out of scope whenever t!=1; the key labels some of them 'applies' or 'underdetermined' presumably when the conclusion is robust. 1 wavelength item is a threshold case (relative error 8.5% vs the 10% operationalisation). Key unchanged; adjudication by the critic; report scores with and without these 4 ids."
+}
