@@ -69,6 +69,21 @@
       "cmd": "python3 scripts/bridge_core_cert.py artifacts/core/certificates/route_VFVS_AIKG_kappa2.json data/raw/summary_AA.csv /tmp/integ/bridgework artifacts/integration/core_kappa2_route_lean.json",
       "exit": 0,
       "result": "core kappa=2 route VFVS>VFMS>SFMS>SIMS>SIMG>SIKG>AIKG: 7/7 intervals recomputed exactly from raw CSV; Lean original builds (exit 0); swapped-route mutant rejected by kernel decide (exit 1)"
+    },
+    {
+      "cmd": "/tmp/integ/venv/bin/python -m pytest -q tests on merged work/integration (proof 3960198 + experience ff67b32 + core bcc0729), capped, PATH incl. elan",
+      "exit": 0,
+      "result": "91 passed, 14 rdflib deprecation warnings, 0 skipped (browser test found system python with playwright and ran)"
+    },
+    {
+      "cmd": "python3 scripts/browser_smoke.py site /tmp/integ/shots2 on merged site",
+      "exit": 1,
+      "result": "only remaining failure: GET data/demo.json 404 (expected until demo.json is shipped); mobile overflow now 0 px, desktop 0 px, 0 page errors, 12 distinct focus stops in 12 Tab presses"
+    },
+    {
+      "cmd": "verification of artifacts/evidence/demo_claims.json vs delphi_queries.json",
+      "exit": 0,
+      "result": "4/4 distinct claim IDs and statements present in saved raw MCP responses; 20 queries ok, 0 errors; relation is motivation-by-analogy/context only, no equivalentTo"
     }
   ],
   "findings": [
@@ -88,7 +103,9 @@
     "Open integration defects: site requests data/demo.json (404 until core's demo exists; final deploy must ship it); mobile overflow 21 px (section.map-card) in experience-owned site/style.css - not edited while that worker is active.",
     "F1 (see planning/INTEGRATION-FINDINGS.md): core 'blocked' = no certifiable route (edges with overlapping intervals dropped); its shipped cut HTGR>GTVN is closed set {HTGR} with only 6/76 neighbours certified lower and 70 overlapping/higher, so Lean's blocked_cut_sound would reject it. Core blocked results must be worded 'no certified route in the measured subgraph', never 'certified impossible'.",
     "F2: core (mean +/- kappa*sd_bin/2, kappa=2) and proof (replicate envelope +/- uniform delta) use different interval models. Bridged: core's kappa=2 VFVS>AIKG route is now Lean-kernel-checked via a delta=0 table (scripts/bridge_core_cert.py).",
-    "F3: pyproject.toml lacked rdflib and scipy; fixed in integration (clean-venv test run 40 passed)."
+    "F3: pyproject.toml lacked rdflib and scipy; fixed in integration (clean-venv test run 40 passed).",
+    "gpu worker local commit 220c80c: real Nebius H100 80GB probe job aijob-e00gqrf19pjdrbyat3 (plain fp32/bf16 vs Transformer-Engine bf16 ESM2 parity on 64 variants; throughput 229/430/587 seq/s). Committed log contains no credential values. Spend/stop bound and whether the code path is actually BioNeMo are not yet established; wait for gpu receipt. Reference FASTA verified by the worker against TARGET_b0.3.fa and the PDB (V183 F184 V227 S228).",
+    "experience docs (novelty.md, outreach drafts, pitch/storyboard templates) are disciplined: ALDE credited with TrpB simulations, Johnston credited with route accessibility, no market numbers, outreach unsent. Required wording fix F6 for blocked semantics."
   ],
   "artifacts": [
     "scripts/audit_data.py",
@@ -99,7 +116,8 @@
     "artifacts/integration/core_kappa2_route_lean.json",
     "artifacts/integration/core_kappa2_route_lean.certificate.json",
     "artifacts/integration/core_kappa2_route.input.json",
-    "planning/INTEGRATION-FINDINGS.md"
+    "planning/INTEGRATION-FINDINGS.md",
+    "scripts/reproduce.sh"
   ],
   "limitations": [
     "experience nanopub validation is rdflib structural only (worker-reported, not rerun by me).",
