@@ -1,0 +1,61 @@
+{
+  "evidence_kind": "exact_rational_analysis",
+  "status": "constructed target-fidelity counterexample; no Lean compilation",
+  "source_sha256": "08fc586877d69380a6279d8b07c2bd1fc33486c0009f95efe3e1300165a82580",
+  "definitions": {
+    "additive": "A_i = 2*g_i - 1, a fixed one-locus allele effect",
+    "fitness": "w_i = 3 + A_i + e_i",
+    "selection_change": "E_p[w*x]/E_p[w] - E_p[x], fixed assigned x"
+  },
+  "population": {
+    "p": [
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4"
+    ],
+    "g": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "A": [
+      "-1",
+      "-1",
+      "1",
+      "1"
+    ],
+    "e": [
+      "-1",
+      "1",
+      "-1",
+      "1"
+    ],
+    "w": [
+      "1",
+      "3",
+      "3",
+      "5"
+    ]
+  },
+  "values": {
+    "sum_p": "1",
+    "mean_fitness": "3",
+    "mean_additive": "0",
+    "mean_residual": "0",
+    "cov_additive_residual": "0",
+    "variance_additive": "1",
+    "variance_residual": "1",
+    "variance_fitness": "2",
+    "cov_fitness_additive": "1",
+    "selection_change_fixed_fitness": "2/3",
+    "selection_change_additive": "1/3"
+  },
+  "conclusion": "Setting z=w gives total variance/mean (2/3), not additive variance/mean (1/3), even with an orthogonal residual.",
+  "limits": [
+    "Constructed finite population, not biological measurements.",
+    "The fixed-effect projection is a selection component, not total intergenerational change.",
+    "This arithmetic witness is not an additional compiled Fisher theorem or evaluation attempt."
+  ]
+}

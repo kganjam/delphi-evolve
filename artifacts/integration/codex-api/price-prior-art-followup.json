@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-31",
+  "timezone": "America/Los_Angeles",
+  "evidence_kind": "bounded_prior_art_review",
+  "scope": "Biological Price identity and Fisher/Hamilton Price-partition implementations in Lean, Coq/Rocq and Isabelle",
+  "verdict": "No prior proof-assistant implementation located in inspected results; worldwide priority unestablished. Mathematical relationship is established prior work.",
+  "queries_executed": [
+    "site:isa-afp.org \"Price equation\"",
+    "\"Price equation\" (\"Lean\" OR \"Isabelle\" OR \"Rocq\")",
+    "\"Fisher\" \"fundamental theorem\" (\"Coq\" OR \"Lean\" OR \"Isabelle\")",
+    "\"Hamilton rule\" (\"Lean\" OR \"Coq\" OR \"Isabelle\")",
+    "\"Price equation\" formalization Lean Coq Isabelle biology",
+    "\"Price_equation\" Lean Coq Isabelle",
+    "\"Hamilton's rule\" proof assistant",
+    "\"Fisher’s fundamental theorem\" \"Lean\"",
+    "\"Price equation\" \"Coq\"",
+    "\"Price equation\" \"Lean4\"",
+    "\"Price equation\" \"Isabelle/HOL\"",
+    "\"Hamilton\" \"kin selection\" \"formal verification\"",
+    "site:isa-afp.org biology evolution selection",
+    "site:rocq-prover.org/packages \"Price\"",
+    "site:github.com \"price_equation\" Lean",
+    "site:github.com \"Price equation\" Coq Isabelle Lean",
+    "Frank 1997 Price Equation Fisher Fundamental Theorem Kin Selection Causal Analysis site:stevefrank.org",
+    "\"Henry Blanchette\" \"Price\"",
+    "\"Price equation\" \"proof assistant\""
+  ],
+  "direct_source_checks": [
+    {
+      "url": "https://isa-afp.org/",
+      "method": "Open catalogue; find Price, Fisher, Hamilton, Biology in rendered text",
+      "observed": "No Price or Biology match; Fisher matches combinatorial inequality and shuffle; Hamilton match Cayley-Hamilton",
+      "limit": "Catalogue text only, not all theory bodies"
+    },
+    {
+      "url": "https://rocq-prover.org/packages",
+      "method": "Open official package landing page",
+      "observed": "Rendered page describes package search and displays a small selection of packages",
+      "limit": "Not a complete package-content search; no source-wide absence claim"
+    },
+    {
+      "url": "https://stevefrank.org/reprints-pdf/97Evol-Causal.pdf",
+      "method": "Read primary author-hosted paper text returned by search, including abstract and introduction",
+      "observed": "Price, Fisher and Hamilton connected through explicit regression/predictor partitions in 1997",
+      "limit": "Historical mathematics, not a proof-assistant compilation receipt"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3354028/",
+      "method": "Open primary author paper and inspect partial-selection/Fisher passages",
+      "observed": "Partial selection is a covariance component; total change also includes transmission",
+      "limit": "Does not establish a new implementation's source-to-theorem correspondence"
+    },
+    {
+      "url": "https://www.rybl.net/page/about.html",
+      "method": "Open page and find Generalized Price",
+      "observed": "Page identifies author as Henry Blanchette; lists Generalized Price Equation with Mark Bedau in 2020 separately from Separation Logic in Agda",
+      "limit": "Relationship of Price project to proof assistants unresolved; earlier memo's Ryan B. Lewis attribution corrected"
+    }
+  ],
+  "access_failures": [
+    "https://www.isa-afp.org/ timed out; https://isa-afp.org/ succeeded",
+    "https://www.isa-afp.org/topics.html returned 404; not counted as evidence of absence",
+    "https://doi.org/10.1111/j.1558-5646.1997.tb05096.x inaccessible through browser tool; author-hosted abstract/paper available"
+  ],
+  "limits": [
+    "Search results are incomplete and contain economic-price and unrelated name matches.",
+    "No exhaustive GitHub code search or full Coq/Isabelle theory-body audit.",
+    "Earlier Mathlib text and Lean-Bio filename checks retain their original limited scope in PRICE-PRIOR-ART-AND-PROBE.md.",
+    "Neither no prior implementation nor first-ever implementation is established.",
+    "No new Lean/prover run or benchmark score is recorded by this review."
+  ]
+}
