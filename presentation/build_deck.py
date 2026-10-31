@@ -37,13 +37,22 @@ POLICY_LABEL = {
     "random": "random frontier", "greedy": "greedy walk", "uncertainty": "GP uncertainty",
     "directed": "directed best-first", "q2c": "query-to-certify (single)",
     "collective_shared": "specialists, shared", "collective_isolated": "specialists, isolated*",
-    "collective_shared_rr": "specialists, shared + round-robin*",
+    "collective_shared_rr": "specialists, shared, round-robin",
+    "q2c_nomodel": "single planner, no GP (post hoc)",
+    "lazysp_alternate": "LazySP-style, alternate",
+    "lazysp_forward": "LazySP-style, forward",
+    "lazysp_reverse": "LazySP-style, reverse",
+    "collective_shared_c": "specialists shared, no GP",
+    "collective_isolated_c": "specialists isolated*, no GP",
 }
 POLICY_COLOR = {
     "random": "#9aa0a6", "greedy": "#7d8790", "uncertainty": "#b39ddb", "directed": "#1864ab", "q2c": "#d9480f",
     "collective_shared": "#15202b", "collective_isolated": "#5f3dc4", "collective_shared_rr": "#2b6e3f",
+    "lazysp_alternate": "#2b6e3f", "lazysp_forward": "#2b6e3f", "lazysp_reverse": "#8fbf9f",
+    "q2c_nomodel": "#d9480f", "collective_shared_c": "#15202b", "collective_isolated_c": "#5f3dc4",
 }
-POLICY_DASH = {"random": "2 4", "greedy": "6 4", "uncertainty": "1 3", "directed": "8 4", "q2c": "", "collective_shared": "", "collective_isolated": "10 3 2 3", "collective_shared_rr": "4 2"}
+POLICY_DASH = {"random": "2 4", "greedy": "6 4", "uncertainty": "1 3", "directed": "8 4", "q2c": "", "collective_shared": "", "collective_isolated": "10 3 2 3", "collective_shared_rr": "4 2",
+              "lazysp_alternate": "", "lazysp_forward": "9 3", "lazysp_reverse": "3 3", "q2c_nomodel": "6 3"}
 
 
 def sha256(p: Path) -> str:
@@ -70,6 +79,10 @@ def git_info(root: Path, rel_paths: list[str]) -> dict:
 
 
 # --------------------------------------------------------------------------------------- charts
+def short(h):
+    return h[:8]
+
+
 def f3(x):
     return f"{x:.3f}"
 
@@ -151,6 +164,11 @@ def kappa_svg(sweep: list[dict], w=560, h=300) -> str:
     return "".join(out)
 
 
+def swstyle(p: str) -> str:
+    d = POLICY_DASH.get(p, "")
+    return "solid" if not d else ("dotted" if float(d.split()[0]) <= 4 else "dashed")
+
+
 def curves_svg(ep_rows: list[dict], policies: list[str], seeds_n: int, w=640, h=340) -> str:
     ml, mr, mt, mb = 52, 14, 14, 48
     X = lambda x: ml + (w - ml - mr) * x / 1000
@@ -169,7 +187,7 @@ def curves_svg(ep_rows: list[dict], policies: list[str], seeds_n: int, w=640, h=
         for x in range(0, 1001, 5):
             pts.append(f"{X(x):.1f},{Y(sum(1 for v in t if v <= x) / n):.1f}")
         da = f' stroke-dasharray="{POLICY_DASH[p]}"' if POLICY_DASH[p] else ""
-        sw = 3.2 if p in ("q2c", "collective_shared") else 2.2
+        sw = 3.2 if p in ("q2c", "lazysp_alternate") else 2.2
         out.append(f'<polyline points="{" ".join(pts)}" fill="none" stroke="{POLICY_COLOR[p]}" stroke-width="{sw}"{da}/>')
     out.append("</svg>")
     return "".join(out)
@@ -212,6 +230,19 @@ def load_inputs(root: Path) -> dict:
     D["protocol"] = json.loads((root / "artifacts/core/protocol.json").read_text())
     rs = root / "artifacts/evidence/route_summary.json"
     D["route_summary"] = json.loads(rs.read_text()) if rs.exists() else None
+    cr = root / "artifacts/claim_reuse"
+    need = ["demo_receipt.json", "reuse_benchmark.json", "verification_receipt.json"]
+    if all((cr / n).exists() for n in need):
+        D["claims"] = {"receipt": json.loads((cr / "demo_receipt.json").read_text()), "reuse": json.loads((cr / "reuse_benchmark.json").read_text()),
+                       "verify": json.loads((cr / "verification_receipt.json").read_text())}
+    else:
+        D["claims"] = None
+    gr = any((root / "artifacts/scale").glob("**/prior_replay*/table_primary.csv")) if (root / "artifacts/scale").exists() else False
+    D["gpu_replay_present"] = gr
+    D["gpu_replay_text"] = ("result file present but not quoted here" if gr else "not available in this release")
+    D["gpu_replay_short"] = "result file present but not quoted" if gr else "not part of this release"
+    ts = root / "artifacts/turing_scope"
+    D["turing"] = {"results": json.loads((ts / "results.json").read_text()), "lean": json.loads((ts / "lean_receipt.json").read_text())} if (ts / "results.json").exists() and (ts / "lean_receipt.json").exists() else None
     t = (root / "site/data/landscape.js").read_text()
     L = json.loads(t[t.index("{"):t.rindex("}") + 1])
     r1 = np.frombuffer(base64.b64decode(L["r1"]), "<i2").astype(float)
@@ -241,7 +272,7 @@ def direct_orderings(score: np.ndarray, start="VFVS", target="AIKG"):
     return tot, good
 
 
-def replay_numbers(root: Path, D: dict, info: dict) -> dict:
+def replay_numbers(root: Path, D: dict, info: dict, L: dict) -> dict:
     rd = root / "artifacts/core/replay"
     tp = V.read_csv(rd / "table_primary.csv")
     tpp = V.read_csv(rd / "table_paired.csv")
@@ -263,7 +294,7 @@ def replay_numbers(root: Path, D: dict, info: dict) -> dict:
     P = {}
     for r in tpp:
         P[(r["a"], r["b"], r["family"], int(r["budget"]), r["metric"].split("(")[0])] = r
-    return {"T": T, "P": P, "ep": ep, "pols": pols, "main": main, "follow": follow, "seeds": seeds,
+    return {"L": L, "T": T, "P": P, "ep": ep, "pols": pols, "main": main, "follow": follow, "seeds": seeds,
             "n_ep": seeds * V.EPISODES_PER_SEED}
 
 
@@ -334,10 +365,9 @@ def build_slides(D: dict, R: dict | None, draft_reasons: list[str], prov: dict) 
  </div>
 </div>
 {fn(f'<b>Source</b> Johnston et al., PNAS 2024, doi 10.1073/pnas.2400439121; data CaltechDATA {E(src["doi"])} (CC0), {sha}', f'descriptive full-label figure: orderings recounted from site/data/landscape.js, cross-checked with artifacts/evidence/route_summary.json', commit)}"""
-    n1 = (f"A protein design is not a plan. Which mutation do you make first, and what evidence says the next step still works? "
-          f"TrpB enzyme: parent VFVS, best measured variant AIKG, four changes apart, {n_ord} possible orders. "
-          f"Taking the measurements at face value, {'every one of them steps down at least once' if n_ok == 0 else str(n_ok) + ' of them never step down'}. "
-          f"The orange detour is {len(cert['nodes']) - 1} steps and every step is certified under an assumption we state.")
+    n1 = (f"A protein design is not a plan. Parent VFVS, best measured variant AIKG: four changes, {n_ord} possible orders. "
+          f"At face value, {'every direct order steps down at least once' if n_ok == 0 else str(n_ok) + ' orders never step down'}. "
+          f"The orange detour takes {len(cert['nodes']) - 1} steps, each certified under an assumption we state.")
 
     # ---- S2
     png = heatmap_png_b64(D["score"], D["unknown"])
@@ -389,136 +419,203 @@ def build_slides(D: dict, R: dict | None, draft_reasons: list[str], prov: dict) 
  </div>
 </div>
 {fn('<b>Source</b> artifacts/demo.json kappa_sweep (core worker; frozen noise model artifacts/core/protocol.json), independently recomputed at all 8 κ by scripts/independent_truth.py', 'descriptive, uses all measured labels (not a replay result); graph scope: measured 4-site subgraph, 871 unmeasured genotypes outside', commit)}"""
-    n3 = (f"Now challenge the assumption. kappa is how much we distrust each measurement. At zero the shortest route has {k0['shortest_route_edges']} steps; at the default, {k2['shortest_route_edges']}; at three, {k3['shortest_route_edges']}. "
-          f"By kappa {first_closed:g} no route can be certified. That does not mean none exists, only that this evidence cannot certify one at this bound. "
-          f"The weakest step, {wk['from']} to {wk['to']}, clears by {wk['margin']:.4f}; that is where the tool would ask for a measurement.")
+    n3 = (f"Challenge the assumption. Kappa is how much we distrust each measurement. The shortest route has {k0['shortest_route_edges']} steps at zero, {k2['shortest_route_edges']} at the default, {k3['shortest_route_edges']} at three; "
+          f"by kappa {first_closed:g}, none can be certified. That does not mean none exists. "
+          f"The weakest step, {wk['from']} to {wk['to']}, clears by {wk['margin']:.4f}: that is where the tool asks for a measurement.")
 
     # ---- S4
+    wordnotes = {}
     if R is None:
         reasons = "".join(f"<li>{E(r)}</li>" for r in draft_reasons[:5])
         body4 = f"""<div class="ghost" style="height:340px;flex-direction:column"><div style="font-size:30px">REPLAY RESULT NOT FINAL</div>
-          <div style="font-size:16px;margin-top:10px;font-weight:600;max-width:520px">No replay numbers are shown: the integrated 20-seed run failed validation. This slot refreshes automatically when `build_deck.py` passes.</div></div>
+          <div style="font-size:16px;margin-top:10px;font-weight:600;max-width:520px">No replay numbers are shown: the integrated 20-seed run failed validation.</div></div>
           <ul class="small" style="margin:8px 0 0;padding-left:18px">{reasons}</ul>"""
         head4 = "DRAFT — matched-budget replay result pending the integrated 20-seed run."
         fn4 = fn('<b>Source</b> replay not validated (see list above)', commit)
         n4 = "DRAFT: replay is not final; do not present this slide until the deck is rebuilt in final mode."
     else:
         T, P, pols = R["T"], R["P"], R["pols"]
+        Lz = R["L"]
         B = 1000
-        rate = lambda p: float(T[("all", p, B)]["cert_rate"])
-        best_single = max(("directed", "q2c", "uncertainty", "greedy", "random"), key=rate)
-        need = ("collective_shared", "q2c", "all", B, "cert_rate_diff")
-        if need not in P:
-            raise SystemExit(f"table_paired.csv lacks {need}; cannot state specialists vs single policy")
-        wc, mc, lc, hc = verdict(P[need])
+        post = R["follow"]
+        rate = lambda p, b=B: float(T[("all", p, b)]["cert_rate"])
+        cnt_ = lambda p, b=B: int(T[("all", p, b)]["certified"])
+        for need in (("collective_shared", "q2c", "all", B, "cert_rate_diff"),):
+            if need not in P:
+                raise SystemExit(f"table_paired.csv lacks {need}; cannot state specialists vs single policy")
+        wc, mc, lc, hc = verdict(P[("collective_shared", "q2c", "all", B, "cert_rate_diff")])
         nep = R["n_ep"]
-        false_tot = sum(int(T[("all", p, B)]["false_certificates"]) for p in pols)
-        cert_tot = sum(int(T[("all", p, B)]["certified"]) for p in pols)
-        fv = sum(int(T[("all", p, B)]["full_data_verification_failures"]) for p in pols)
-        ctxt = {"higher": "higher than", "lower": "lower than", "not distinguishable from": "not distinguishable from"}[wc]
-        head4 = (f"Matched budget: the single query-to-certify policy certifies {pct(rate('q2c'))} of {nep} episodes at {B} assays vs {pct(rate('random'))} for random; "
-                 f"specialists vs that single policy are <em>{ctxt}</em> it.")
-        rows = []
-        for p in pols:
-            r = T[("all", p, B)]
-            cls = ' class="follow"' if p in R["follow"] else ""
-            if p in R["follow"] and not any('class="sep"' in x for x in rows):
-                rows.append('<tr class="sep"><td colspan="5" style="text-align:left;font-size:12px;color:var(--muted)">EXPLORATORY FOLLOW-UP — added after the main results</td></tr>')
-            rows.append(f'<tr{cls}><td><span class="sw" style="border-color:{POLICY_COLOR[p]}"></span>{POLICY_LABEL[p]}</td><td>{pct(float(r["cert_rate"]))}</td><td>{float(r["rmst_assays"]):.0f}</td><td>{r["abstain_censored"]}</td><td>{r["false_certificates"]}</td></tr>')
-        pair_rows = []
-        for a_, b_, lab in (("q2c", "random", "single policy − random"), ("directed", "random", "directed − random"), ("collective_shared", "q2c", "specialists shared − single policy"),
-                            ("collective_shared", "collective_isolated", "shared − isolated*")):
-            k = (a_, b_, "all", B, "cert_rate_diff")
-            if k in P:
-                w, m, lo, hi = verdict(P[k])
-                pair_rows.append(f'<tr><td>{lab}</td><td>{m * 100:+.1f} pts</td><td>[{lo * 100:+.1f}, {hi * 100:+.1f}]</td><td style="text-align:left;font-size:13px;white-space:nowrap">{SHORT[w]}</td></tr>')
+        st = Lz["info"]["stats"]
+        alt, fwd, rev = st["alternate"], st["forward"], st["reverse"]
+        n_alt, n_fwd, n_rev = (round(x["resolved_at"][B] * x["n"]) for x in (alt, fwd, rev))
+        n_alt250, n_fwd250, n_rev250 = (round(x["resolved_at"][250] * x["n"]) for x in (alt, fwd, rev))
+        q2c_n, q2c_250 = cnt_("q2c"), cnt_("q2c", 250)
+        pair = Lz["summ"]["variants"]["alternate"]["paired"]["q2c"]
+        rd_ = pair["resolved_diff_1000"]
+        rm_ = pair["rmst_diff"]
+        ph = Lz["post"]["variants"]["alternate"]["problem_cluster_bootstrap_resolved_at_1000_diff"]
+        phr = Lz["post"]["variants"]["alternate"]["problem_cluster_bootstrap_rmst_diff"]
+        by_pair = Lz["info"]["only_lazysp_by_pair"]
+        top_pair, top_n = max(by_pair.items(), key=lambda kv: kv[1])
+        n_only = Lz["info"]["only_lazysp"]
+        if n_alt < q2c_n:
+            raise SystemExit("LazySP-alternate certifies fewer episodes than q2c: the slide-4 narrative must be rewritten by hand")
+        head4 = (f"Against a strong, established baseline our planner does not win: lazy path search certifies {n_alt} of {nep} episodes at {B} assays; model-assisted query-to-certify {q2c_n}.")
+        def row(p, basis, cls="", lz=None):
+            if lz is None:
+                r250, r = T[("all", p, 250)], T[("all", p, B)]
+                a250, a1000, rm = float(r250["cert_rate"]), float(r["cert_rate"]), float(r["rmst_assays"])
+            else:
+                a250, a1000, rm = lz["resolved_at"][250], lz["resolved_at"][B], lz["rmst"]
+            return (f'<tr{cls}><td><span class="sw" style="border-color:{POLICY_COLOR.get(p, "#555")};border-top-style:{swstyle(p)}"></span>{POLICY_LABEL[p]}</td><td style="text-align:left;font-size:12.5px;color:var(--ink2)">{basis}</td>'
+                    f'<td>{pct(a250)}</td><td><b>{pct(a1000)}</b></td><td>{rm:.0f}</td></tr>')
+        rows = [row("lazysp_alternate", "established search · follow-up primary", lz=alt),
+                row("lazysp_forward", "follow-up secondary", lz=fwd),
+                row("lazysp_reverse", "follow-up secondary", lz=rev),
+                row("q2c", "model-assisted · original"),
+                row("collective_shared", "shared specialists · original"),
+                row("q2c_nomodel", "POST HOC, chosen after seeing the original run", ' class="follow"'),
+                row("directed", "original"), row("random", "original")]
+        curve_rows = list(R["ep"]) + [dict(r, policy=f"lazysp_{v}") for v in ("alternate", "forward") for r in Lz["ep"] if r["policy"] == f"lazysp_{v}"]
+        curve_pols = ["lazysp_alternate", "lazysp_forward", "q2c", "collective_shared", "q2c_nomodel", "directed", "random"]
+        pp = lambda x: f"{x * 100:+.0f}"
+        av = lambda x, d=0: f"{x:+.{d}f}"
+        pair_rows = (
+            f'<tr><td>certified @{B}, preregistered seed bootstrap</td><td><b>{pp(rd_["diff"])} [{pp(rd_["lo95"])}, {pp(rd_["hi95"])}]</b></td></tr>'
+            f'<tr><td>same, post hoc, {Lz["info"]["post_hoc_clusters"]} problem clusters</td><td><b>{pp(ph["diff"])} [{pp(ph["lo95"])}, {pp(ph["hi95"])}]</b></td></tr>'
+            f'<tr><td>mean assays to certificate (restricted)</td><td><b>{av(rm_["diff"], 1)} [{av(rm_["lo95"])}, {av(rm_["hi95"])}]</b></td></tr>'
+            f'<tr><td>certified only by LazySP / only by Q2C</td><td><b>{pair["resolved_only_by_lazysp"]} / {pair["resolved_only_by_comparator"]}</b>, {top_n} of {n_only} at {E(top_pair)}</td></tr>')
+        false_tot = sum(int(T[("all", p, B)]["false_certificates"]) for p in pols) + sum(int(r["false_certificates"]) for r in Lz["tp"])
+        cert_tot = sum(int(T[("all", p, B)]["certified"]) for p in pols) + sum(r["resolved"] for r in st.values())
+        fv = sum(int(T[("all", p, B)]["full_data_verification_failures"]) for p in pols) + sum(int(r["full_data_verification_failures"]) for r in Lz["tp"])
         body4 = f"""
-<div class="row" style="gap:22px">
- <div class="col" style="flex:none;width:600px"><div class="card" style="padding:8px 4px 0">{curves_svg(R['ep'], pols, R['seeds'], w=600, h=270)}</div>
-  <table style="margin-top:8px;font-size:14px"><tr><th>paired by seed</th><th>Δ cert.</th><th>bootstrap 95%</th><th></th></tr>{"".join(pair_rows)}</table></div>
+<div class="row" style="gap:18px">
+ <div class="col" style="flex:none;width:520px"><div class="card" style="padding:6px 2px 0">{curves_svg(curve_rows, curve_pols, R['seeds'], w=516, h=270)}</div>
+  <p class="small" style="margin:3px 0 3px;font-size:13.5px">LazySP-style alternate minus query-to-certify, paired by episode (percentage points; 95% interval; descriptive):</p>
+  <table style="font-size:13.5px"><tr><th style="text-align:left">measure</th><th>difference</th></tr>{pair_rows}</table></div>
  <div class="col">
-  <table style="font-size:14px"><tr><th>policy @ {B} assays</th><th>cert.</th><th>mean assays†</th><th>none</th><th>false</th></tr>{"".join(rows)}</table>
-  <div class="scope" style="margin-top:10px;font-size:14px;line-height:1.35"><b>Reads as:</b> {false_tot} false certificates among {cert_tot} issued; {fv} failed full-data verification. *Shared and isolated arms differ in evidence visibility <i>and</i> arbitration, so that gap is not attributable to sharing. Specialists are deterministic software objects in one process, not live LLM agents. † unresolved counted at the budget.</div>
+  <table style="font-size:14px"><tr><th>policy</th><th style="text-align:left">basis</th><th>@250</th><th>@{B}</th><th>assays†</th></tr>{"".join(rows)}</table>
+  <div class="scope" style="margin-top:8px;font-size:14px;line-height:1.32"><b>Read carefully.</b> Established search {n_alt}, model-assisted {q2c_n}, post hoc no-GP {cnt_('q2c_nomodel')}, shared specialists {cnt_('collective_shared')} (no agent uplift). The gain is concentrated in one repeated endpoint pair; the assays-to-certificate interval includes 0. <b>No superiority claim for Q2C, none for LazySP in general.</b> Our LazySP is an existing node-query adaptation, not an invention; the follow-up was preregistered before its new episodes but after the original study. One enzyme, assumed intervals, retrospective; about 24 effective problems, not 100. {false_tot} false certificates among {cert_tot} issued (structural consistency, not biology). † unresolved counted at budget.</div>
  </div>
 </div>"""
-        fn4 = fn(f'<b>Source</b> artifacts/core/replay/ table_primary.csv, table_paired.csv, episodes.csv ({R["seeds"]} seeds × 5 pairs × {len(R["main"])} policies; no empty shards); truth = reachability in the measured graph under the declared rule',
-                 '<b>Not new:</b> query-efficient path evaluation (LazySP 2016; BAEE 2018) and active learning on this landscape (ALDE 2025, not run here)', commit)
-        n4 = (f"Does asking for the assay that settles the decision save measurements? Retrospectively, every policy starts from the same {D['protocol']['n_initial_random_observations']} observed variants, pays an oracle for each new one, and gets the same budget. "
-              f"At {B} assays, the single query-to-certify policy certifies {pct(rate('q2c'))}, random {pct(rate('random'))}. Specialists sharing evidence versus the single policy: {mc * 100:+.1f} points, interval {lc * 100:+.1f} to {hc * 100:+.1f}, so {wc} it. "
-              f"We report the isolated arm and the false-certificate count too; the shared-versus-isolated gap has an arbitration confound, so we do not attribute it to sharing. ALDE ran active learning on this landscape; we did not run it. Query-efficient path evaluation itself is prior art, LazySP and Bayesian active edge evaluation.")
+        fn4 = fn(f'<b>Source</b> artifacts/lazysp/results/ (3 variants × {nep} episodes; {Lz["audit_shards"]} shards audited, 0 errors) · artifacts/core/replay/ ({R["seeds"]} seeds × 5 pairs × {len(pols)} arms)',
+                 '<b>Prior art</b> LazySP, BAEE, ALDE (not run here)', commit)
+        n4 = (f"Does asking for the decisive assay save measurements? We added a stronger baseline from the literature: lazy path search, adapted to assay queries. At {B} assays it certifies {n_alt} of 100; our model-assisted planner {q2c_n}; "
+              f"specialists sharing evidence {cnt_('collective_shared')}, so no collective uplift. A post hoc arm without the learned model also reaches {cnt_('q2c_nomodel')}, but only {cnt_('q2c_nomodel', 250)} versus {q2c_250} at 250 assays. "
+              f"The gain over our planner sits mostly in one repeated endpoint pair, so we claim no superiority. One enzyme, assumed intervals, retrospective.")
     s4 = f"""
 <div class="brand"><i></i>Darwin’s Bridge / Delphi Evolve</div><div class="num">4 / 6</div>
-<h2 style="font-size:30px;margin:24px 0 10px">{head4}</h2>
+<h2 style="font-size:27px;margin:24px 0 8px;line-height:1.14">{head4}</h2>
 {body4}
 {fn4}"""
 
-    # ---- S5
+    # ---- S5: Delphi claims as bounded, assumption-aware knowledge execution
+    cr = D["claims"]
+    if cr is None:
+        s5 = f"""<div class="brand"><i></i>Darwin’s Bridge / Delphi Evolve</div><div class="num">5 / 6</div>
+<h2>Claim-runtime artifacts unavailable in this root.</h2>{fn('claim_runtime receipts missing', commit)}"""
+        n5 = "Claim runtime receipts are unavailable in this build."
+    else:
+        sc = {s["scenario"]: s["response"] for s in cr["receipt"]["claim_scenarios"]}
+        dc = {c["scenario"]: c for c in cr["receipt"]["decision_changes"]}
+        LAB = [("kimura_valid_calculation", "Kimura: diploid, genic, constant Ne (declared s)"),
+               ("kimura_refused_haploid_model_transfer", "Kimura on haploid E. coli"),
+               ("kimura_refused_trpb_assay_score_as_s", "Kimura with a TrpB growth score as s"),
+               ("fisher_valid_partial_change", "Fisher: partial change, declared V<sub>A</sub>"),
+               ("fisher_refused_total_change", "Fisher: total fitness change"),
+               ("fisher_refused_every_step_improves", "Fisher: “every step improves”")]
+        for k, _ in LAB:
+            if k not in sc:
+                raise SystemExit(f"demo_receipt.json lacks scenario {k}")
+        def dec(r):
+            return ('<span class="tag ok">COMPUTE</span>' if r["decision"] == "compute" else '<span class="tag no">REFUSE</span>')
+        scen_rows = "".join(f'<tr><td style="text-align:left">{lab}</td><td>{dec(sc[k])}</td><td class="mono" style="font-size:12.5px;text-align:left">{E(sc[k]["reason_code"])}</td></tr>' for k, lab in LAB)
+        CH = [("kimura_claim_withdrawn", "source withdrawn"), ("kimura_claim_deleted", "source deleted"),
+              ("kimura_claim_unavailable", "source unreachable"), ("kimura_claim_context_edited", "assumption text edited")]
+        for k, _ in CH:
+            if k not in dc or not dc[k]["decision_changed"] or dc[k]["after"]["decision"] != "refuse":
+                raise SystemExit(f"decision_changes lacks refuse-flip for {k}")
+        tur = D["turing"]
+        tur_html, tur_note, tur_div = "", "", ""
+        if tur:
+            sdm, ldm = tur["results"]["short_domain"], tur["results"]["long_domain"]
+            m1 = next(m for m in ldm["modes"] if m["n"] == 1)
+            if sdm["verdict"] == "stable" and not sdm["unstable_modes"] and ldm["verdict"] == "linearly_unstable" and m1["class"] == "unstable" and tur["lean"].get("ok"):
+                tur_html = (f"<b>Third example, model-derived:</b> an existing Delphi Turing record on a finite Neumann domain has no admissible unstable mode at L=π but one (n=1, determinant {E(m1['determinant'])}) at L=2π. "
+                            f"Lean checks the dispersion algebra, not the PDE or any biology. ")
+                tur_div = f'<div class="card" style="margin-top:8px;padding:7px 12px;font-size:14px;line-height:1.3">{tur_html}</div>'
+                tur_note = "A Turing example is model-derived: the domain decides whether an unstable mode is admissible."
+        ch_rows = "".join(f'<tr><td style="text-align:left">{lab}</td><td>compute → <span class="tag no">REFUSE</span></td><td class="mono" style="font-size:12.5px;text-align:left">{E(dc[k]["after"]["reason_code"])}</td></tr>' for k, lab in CH)
+        kc = sc["kimura_valid_calculation"]["claim_use"]
+        ad_k = sc["kimura_valid_calculation"]["adapter"]
+        rb = cr["reuse"]
+        pooled, perpol = rb["baseline"]["pooled"], rb["baseline"]["per_policy"]
+        reqs = sum(v["requests"] for v in pooled["by_policy"].values())
+        fi = rb["fault_injection"]["pooled"]
+        if not (pooled["cache_equals_claim"] and pooled["claim_gain_over_cache"] == 0):
+            raise SystemExit("reuse benchmark no longer shows cache == claim reuse; slide text would be wrong")
+        ver = cr["verify"]
+        s5 = f"""
+<div class="brand"><i></i>Darwin’s Bridge / Delphi Evolve</div><div class="num">5 / 6</div>
+<h2 style="font-size:30px;margin:24px 0 10px">An existing Delphi claim now <em>changes a decision</em>: it runs when its assumptions hold and refuses when they don’t.</h2>
+<div class="row" style="gap:20px">
+ <div class="col" style="flex:1.12">
+  <div class="card" style="padding:8px 12px"><div style="display:flex;gap:6px;align-items:stretch;font-size:14px;line-height:1.3">
+   <div style="flex:1;border:1px solid var(--rule);padding:5px 7px;border-radius:5px"><b>Delphi claim</b><br>kimura-fixation-probability · Fisher FTNS<br><span class="mono" style="font-size:12px">content sha {short(kc["pinned_content_sha256"])}…</span></div>
+   <div style="align-self:center;color:var(--orange);font-weight:800">→</div>
+   <div style="flex:1;border:1px solid var(--rule);padding:5px 7px;border-radius:5px"><b>hand-authored adapter</b><br>v{E(ad_k["version"])}, pinned to the record<br><span class="mono" style="font-size:12px">src sha {short(ad_k["source_sha256"])}…</span></div>
+   <div style="align-self:center;color:var(--orange);font-weight:800">→</div>
+   <div style="flex:1;border:1px solid var(--rule);padding:5px 7px;border-radius:5px"><b>applicability guard</b><br>model, ploidy, quantity, inference<br>computes or refuses</div></div>
+   <div class="small" style="font-size:14px;margin:6px 0 0">Provenance kept in four layers: source record · adapter mapping · new operationalization · result kind (<b>SIMULATED</b>, never observed).</div></div>
+  <table style="margin-top:10px;font-size:15px"><tr><th>request</th><th>decision</th><th style="text-align:left">reason</th></tr>{scen_rows}</table>
+  {tur_div}
+ </div>
+ <div class="col" style="flex:1">
+  <div class="card" style="padding:8px 12px"><h3 style="margin-bottom:4px">Same request, different source state</h3>
+   <table style="font-size:15px">{ch_rows}</table></div>
+  <div class="card" style="padding:8px 12px;margin-top:8px"><h3 style="margin-bottom:4px">Observed TrpB evidence, typed reuse</h3>
+   <p class="small" style="margin:0 0 4px;font-size:15px;line-height:1.35"><b>Same context = ordinary cache.</b> Of {reqs:,} recorded paid requests, {pct(pooled["avoided_fraction"], 1)} repeat an earlier one: typed reuse and a plain cache avoid exactly the same {pooled["cache_avoided"]:,}. Typed reuse gains nothing there.</p>
+   <p class="small" style="margin:0;font-size:15px;line-height:1.35"><b>Fault tests are not savings.</b> In synthetic fixtures (4 injected fault types) a context-blind cache reused {fi["cache"]["distinct_invalid_facts_reused"]:,} invalid facts; typed reuse {fi["typed_claim_reuse"]["invalid_reuse_events"]} and re-assayed them.</p></div>
+  <div class="scope" style="margin-top:10px;font-size:14.5px;line-height:1.35"><b>Bounded knowledge execution,</b> not theorem extraction. Two existing claims, hand-authored adapters, recorded demo — not a live service. Adapters do <b>not</b> improve the TrpB route benchmark: a TrpB score is refused as a selection coefficient. Checks: {E(ver["tests"]["tail"])}; guard mutants {ver["mutation"]["guard_mutants_killed"]}/{ver["mutation"]["guard_mutants_total"]}, source mutants {ver["mutation"]["source_mutants_killed"]}/{ver["mutation"]["source_mutants_total"]} killed.</div>
+ </div>
+</div>
+{fn('<b>Source</b> artifacts/claim_reuse/{demo_receipt,reuse_benchmark,verification_receipt}.json; interactive: site/claims/', 'adapters reviewed by the authoring model, not a population geneticist (appendix)', commit)}"""
+        n5 = (f"Delphi claims become executable. Kimura and Fisher run through hand-authored, hash-pinned adapters with an applicability guard. A valid diploid calculation computes; a haploid E. coli transfer, or a TrpB score used as a selection coefficient, is refused. "
+              f"Withdraw or edit the source and the answer flips to refuse. Ordinary caching already captures same-context reuse. "
+              f"{tur_note} Bounded knowledge execution, not theorem extraction; it does not improve the TrpB route benchmark.")
+
+    # ---- S6: checks, predictions, ask
     bridge_ok = bool(br and br.get("ok"))
     import re
-    if bridge_ok:
-        bridge_rows = (f'<tr><td>original route builds in Lean</td><td><span class="tag ok">exit {br["lean_original_build_exit"]}</span></td></tr>'
-                       f'<tr><td>swapped-route mutant</td><td><span class="tag ok">rejected, exit {br["lean_mutant_swap_build_exit"]}</span></td></tr>'
-                       f'<tr><td>intervals recomputed from raw CSV</td><td>{br["recompute_exact_matches"]} / {br["nodes"]}</td></tr>')
-    else:
-        bridge_rows = '<tr><td colspan="2" style="text-align:left"><span class="tag no">bridge receipt unavailable — benchmark route not Lean-checked</span></td></tr>'
-    h5 = (f"The {len(cert['nodes']) - 1}-step route is <em>checked by the Lean kernel</em> — conditional on the intervals we assumed." if bridge_ok
-          else "The theorems are <em>checked by the Lean kernel</em>; the benchmark route is not yet bridged.")
+    cp = dm.get("compute") or {}
+    sp = (re.search(r"Spearman ([0-9.]+-[0-9.]+)", cp.get("headline", "")) or [None, None])[1]
+    gpu_ok = bool(cp.get("status") == "completed" and sp)
     lean_v = (re.search(r"version ([0-9.]+)", rc["lean_version"]) or [None, rc["lean_version"]])[1]
-    s5 = f"""
-<div class="brand"><i></i>Darwin’s Bridge / Delphi Evolve</div><div class="num">5 / 6</div>
-<h2>{h5}</h2>
-<div class="row" style="gap:26px">
- <div class="col" style="flex:1.05">
-  <div class="card"><h3>What the theorem says</h3>
-   <p style="margin:0 0 6px;font-size:19px">If every true value lies inside its interval, and each step satisfies <span class="mono" style="background:#efe9d8;padding:1px 6px;border-radius:3px">lower(next) ≥ upper(current)</span>, then the route never goes down.</p>
-   <p class="small" style="margin:0;font-size:15px">A second theorem: a closed set whose every exit is certified lower rules out any non-decreasing path. Both are generic over any graph.</p></div>
-  <table style="margin-top:8px;font-size:14px"><tr><th>Receipt</th><th>result</th></tr>
-   <tr class="sub"><td colspan="2" style="text-align:left;font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.06em">THIS ROUTE — core κ=2 bridge receipt</td></tr>
-   {bridge_rows}
-   <tr class="sub"><td colspan="2" style="text-align:left;font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.06em">THE THEOREMS — proof receipt</td></tr>
-   <tr><td>kernel compile of the original</td><td><span class="tag ok">exit {rc['compile_exit_code']}</span></td></tr>
-   <tr><td>dominance-flip and open-cut mutants</td><td><span class="tag ok">rejected</span> exits {rc['dominance_mutant_exit_code']}, {rc['open_cut_edge_mutant_exit_code']}</td></tr>
-   <tr><td>instance mutants as expected · source mutants rejected</td><td>{n_inst_ok}/{n_inst} · {n_src_rej}/{n_src}</td></tr>
-   <tr><td>axioms used</td><td class="mono" style="font-size:12px">{E(", ".join(axioms))}</td></tr></table>
- </div>
- <div class="col" style="flex:.95">
-  <div class="card"><h3 style="text-transform:none;letter-spacing:0;font-size:15px">Route VFVS → AIKG at assumed κ={k2['kappa']:g}</h3>
-   <table><tr><th>step</th><th>margin</th><th>reads</th></tr>
-    {"".join(f'<tr><td class="mono">{E(s["from"])} → {E(s["to"])}</td><td>{s["margin"]:.4f}</td><td>{s["to_min_input_count"]}</td></tr>' for s in steps)}</table>
-   <p class="small" style="margin:6px 0 0">margin = lower(next) − upper(current), growth units; reads = lower of the two replicates’ input counts.</p></div>
-  <div class="scope" style="margin-top:12px"><b>Covered:</b> this route’s seven intervals, in Lean. <b>Assumed:</b> that those intervals contain the truth; two replicates give no confidence bands. <b>Not covered:</b> the replay’s decisions — a replay “blocked” means “nothing certifiable”, not the Lean no-path theorem. Four sites only; nothing here says anything about sequence space.</div>
- </div>
-</div>
-{fn(f'<b>Source</b> artifacts/proof/receipt.json (Lean {E(lean_v)}, check_proofs wall {rc["wall_seconds"]:.0f} s) and artifacts/integration/core_kappa2_route_lean.json', 'a static receipt shows a compiled check, not a proof that the live slider is right', commit)}"""
-    n5 = (f"A decision should be checkable. The theorem: if every true value is inside its interval, and each step's lower bound clears the previous upper bound, the route never goes down. "
-          f"The Lean kernel compiled the original, exit {rc['compile_exit_code']}, and rejected the flipped-dominance and open-cut mutants. Axioms are only {', '.join(axioms)}. "
-          f"The intervals are assumptions; two replicates are not a confidence theorem. The replay's decisions are not Lean-checked; only the routes are.")
-
-    # ---- S6
+    bridge_txt = (f"one {br['nodes']}-node VFVS → AIKG route recomputed exactly from raw CSV intervals ({br['recompute_exact_matches']}/{br['nodes']}); swapped-route mutant rejected (exit {br['lean_mutant_swap_build_exit']})"
+                  if bridge_ok else "the benchmark route is not Lean-bridged in this build")
+    gpu_txt = (f"BioNeMo ESM2-650M prior for {cp['variants']:,} variants on one Nebius H100 ({cp['runtime_seconds'] // 60} min). Zero-shot Spearman <b>{sp}</b> with the measured score; near-zero gain over one-hot site identity in a random-split ridge check. The OpenResearch analysis ran locally on CPU: no hosted service, no biological experiment."
+               if gpu_ok else "GPU prior receipt unavailable in this build.")
     s6 = f"""
 <div class="brand"><i></i>Darwin’s Bridge / Delphi Evolve</div><div class="num">6 / 6</div>
-<h2>The wedge: a decision layer that says <em>which assay, and why it is justified</em> — tested next on a real enzyme campaign.</h2>
-<div class="row" style="gap:22px">
- <div class="col"><div class="card" style="height:100%"><h3>Buyer (hypothesis)</h3>
-  <p class="small" style="margin:0 0 8px"><b>Economic buyer:</b> head of protein engineering at an industrial-enzyme or biocatalysis group, or a CRO running variant campaigns.</p>
-  <p class="small" style="margin:0 0 8px"><b>Pays for:</b> fewer wasted assays and an auditable reason for each one, above the protein models they already use.</p>
-  <p class="small" style="margin:0"><b>Today:</b> a retrospective tool on one public landscape. <b>Future, unproven:</b> a wet-lab cost or time advantage.</p></div></div>
- <div class="col" style="flex:1.35"><div class="card" style="height:100%"><h3>Next real experiment: one-lab prospective pilot</h3>
-  <p class="small" style="margin:0 0 6px">Lab supplies a prior campaign and a new target; we pre-register the decision rule, then both arms spend the same assay budget.</p>
-  <table style="font-size:15px"><tr><th>days</th><th>milestone</th></tr>
-   <tr><td style="white-space:nowrap">0–30</td><td style="text-align:left">data agreement; pre-registered protocol and endpoint</td></tr>
-   <tr><td style="white-space:nowrap">31–60</td><td style="text-align:left">blind retrospective replay on the lab’s own history</td></tr>
-   <tr><td style="white-space:nowrap">61–100</td><td style="text-align:left">two prospective rounds: tool-guided vs lab-usual</td></tr>
-   <tr><td style="white-space:nowrap">101–120</td><td style="text-align:left">readout: cost and days to a defensible decision</td></tr></table></div></div>
- <div class="col"><div class="card" style="height:100%;background:var(--ink);color:var(--paper);border-color:var(--ink)"><h3 style="color:#c8c2ae">The ask</h3>
-  <p style="margin:0 0 10px;font:500 25px/1.2 var(--serif)">One enzyme lab. One prior campaign. One prospective round.</p>
-  <p class="small" style="margin:0;color:#d8d3c2">No customer, LOI or market size exists yet; the moat, if any, is prospective evidence and workflow adoption, not Lean alone.</p></div></div>
+<h2 style="font-size:31px;margin:24px 0 12px">The contribution is compact: <em>assay decisions with machine-checkable, conditional certificates and typed, reusable evidence.</em></h2>
+<div class="row" style="gap:18px">
+ <div class="col"><div class="card" style="height:100%"><h3>Checked — conditionally</h3>
+  <p class="small" style="margin:0 0 6px;font-size:16.5px">Lean {E(lean_v)} compiled the generic route-soundness theorem, a weak “no certifiable route” cut and a strong cut; plus {bridge_txt}.</p>
+  <p class="small" style="margin:0;font-size:16.5px"><span class="tag as">ASSUMED</span> interval containment. Noise bins were fit on all replicates, so κ is a <b>transductive sensitivity</b>, not held-out validation. Not every one of the {D["protocol"]["seeds"] * 5 * 11 + D["protocol"]["seeds"] * 5 * 3:,} replay-episode certificates (core arms plus LazySP) is kernel-checked.</p></div></div>
+ <div class="col"><div class="card" style="height:100%"><h3>Predicted — not measured</h3>
+  <p class="small" style="margin:0 0 6px;font-size:16.5px">{gpu_txt}</p>
+  <p class="small" style="margin:0;font-size:16.5px">Replay using this prior: <b>{D["gpu_replay_text"]}</b>. Nothing here says it helps.</p></div></div>
+ <div class="col"><div class="card" style="height:100%;background:var(--ink);color:var(--paper);border-color:var(--ink)"><h3 style="color:#c8c2ae">Next real experiment</h3>
+  <p style="margin:0 0 8px;font:500 24px/1.18 var(--serif)">One lab. One prior campaign. One prospective round.</p>
+  <p class="small" style="margin:0;color:#d8d3c2;font-size:16px">Pre-register the rule, equal assay budgets, read out cost and days to a defensible decision (120 days). No customer, LOI or market size exists.</p></div></div>
 </div>
-<p style="font:500 30px/1.2 var(--serif);margin:22px 0 0;max-width:1100px">Biologic design starts with <em style="font-style:normal;border-bottom:4px solid var(--orange)">justified enzyme experiments</em> — one measured decision at a time, not text-to-organism.</p>
-{fn('<b>Source</b> docs/company-hypothesis.md (hypotheses, not findings); prior art and scope: docs/novelty.md', 'ALDE: pmc.ncbi.nlm.nih.gov/articles/PMC11739421', commit)}"""
-    n6 = ("The wedge is a decision and evidence layer above existing protein models, for enzyme engineering teams. Today it is a retrospective engineering tool on public data. "
-          "The next real experiment is a prospective pilot with one enzyme lab: pre-register the rule, spend equal assay budgets, and measure cost and days to a defensible decision over 120 days. "
-          "We have no customers or market size. The ambition: biologic design starts with justified enzyme experiments, not text-to-organism.")
+<div class="scope" style="margin-top:18px;font-size:17px"><b>Not new:</b> query-efficient path evaluation (LazySP, BAEE, which we ran as the strong baseline), ML-guided directed evolution (ALDE, not run). <b>Not shown:</b> that Q2C beats LazySP, a wet-lab advantage, collective-agent uplift, or biological truth of any certificate.</div>
+<p style="font:500 30px/1.2 var(--serif);margin:22px 0 0;max-width:1120px">Biologic design starts with <em style="font-style:normal;border-bottom:4px solid var(--orange)">justified enzyme experiments</em> — one measured decision at a time.</p>
+{fn(f'<b>Source</b> artifacts/proof/receipt.json, artifacts/integration/core_kappa2_route_lean.json, artifacts/gpu/, tasks/results/gpu.json; docs/company-hypothesis.md (hypotheses)', 'prior art: docs/novelty.md', commit)}"""
+    n6 = (f"Lean checks the generic route and cut theorems, plus one seven-node route recomputed exactly from raw data, conditional on assumed intervals. "
+          f"The ESM2 prior is predicted, weakly correlated, not measured, and its use in policy replay is {D['gpu_replay_short']}. "
+          f"The contribution is compact: assay decisions with machine-checkable conditional certificates and typed reusable evidence. Not the first query-efficient pathfinding. "
+          f"Next: one lab, one prior campaign, one prospective round.")
     return [s1, s2, s3, s4, s5, s6], [n1, n2, n3, n4, n5, n6]
 
 
@@ -540,10 +637,93 @@ def assemble(slides, notes, draft: bool, reasons: list[str], prov: dict) -> str:
 <script>{js}</script></body></html>"""
 
 
+def word_count(notes: list[str]) -> int:
+    import re
+    return sum(len(re.sub(r"<[^>]+>", " ", n).split()) for n in notes)
+
+
+def turing_appendix(D: dict) -> list[str]:
+    t = D.get("turing")
+    if not t:
+        return ["* Turing-domain example: artifacts not present in this root; nothing is claimed."]
+    r, ln = t["results"], t["lean"]
+    sd, ld = r["short_domain"], r["long_domain"]
+    J, Dd = sd["inputs"]["jacobian"], sd["inputs"]["diffusivities"]
+    m1 = next(m for m in ld["modes"] if m["n"] == 1)
+    gm = ln.get("generic_law_mutants", [])
+    return [f"* Turing-domain example (`artifacts/turing_scope/`): two existing Delphi records (turing-ddi, turing-wavelength), source-pinned by content hash, with a requester-declared Jacobian J = {J}, D_u = {Dd[0]}, D_v = {Dd[1]}, 1-D zero-flux (Neumann) domain. L = pi: {sd['verdict']}, no admissible unstable mode although a continuum instability band exists; L = 2 pi: {ld['verdict']} at n = 1 (q = {m1['q']}, determinant {m1['determinant']}, negative). Exact rational check; 2001 modes cross-checked in floating point, modes beyond that covered by the analytic tail rule. Lean {ln['lean_version'].split(',')[0]} compiled the parameterised dispersion algebra, the infinite-mode tail and the instantiation; {sum(1 for m in ln['mutants'] if m['as_expected'])}/{len(ln['mutants'])} witness mutants behaved as expected and {sum(1 for m in gm if m.get('killed_in_model_file'))}/{len(gm)} generic-law mutants were rejected. Lean does not show eigenvalue/Routh-Hurwitz equivalence, the PDE, or any biological pattern; the fixed point is declared, not measured. Evidence type: model-derived."]
+
+
+def lazysp_appendix(D: dict, R: dict | None) -> list[str]:
+    if R is None:
+        return ["* Not rendered in a draft."]
+    Lz = R["L"]
+    st = Lz["info"]["stats"]
+    sm = Lz["summ"]["variants"]["alternate"]["paired"]["q2c"]
+    ph = Lz["post"]
+    out = [
+        f"* Result files (read from `artifacts/lazysp/results/`): summary.json, table_primary.csv, episodes.csv, exploratory_post_hoc.json, audit.json. 3 variants x {R['n_ep']} episodes, none missing. Audit: {Lz['audit_shards']} shards replayed from their saved assay logs against the source data and a fresh core ledger, 0 errors. This deck re-derived resolved@B, restricted-mean assays, status counts and the paired only-LazySP / only-Q2C / both counts from `episodes.csv` and the core replay before rendering; any mismatch rejects the build.",
+        "* Provenance of the idea: LazySP (Dellin & Srinivasa, ICAPS 2016) and Bayesian active edge evaluation (Choudhury et al., IJCAI 2018). The node-query adaptation (assaying a vertex instead of evaluating an edge) is an existing adaptation of that prior art, not our algorithmic invention. The original directed-Hamming frontier policy was a weak comparator to LazySP.",
+        "* Timing of the protocol: the follow-up was preregistered before its new baseline episodes ran, but after the original study (so the original panel's outcomes were known). Primary selector: alternate; forward and reverse were declared secondary. Post hoc rows are labelled as such.",
+        f"* Paired alternate minus saved Q2C (100 episodes): resolved@1000 {sm['resolved_diff_1000']['diff'] * 100:+.0f} pp [{sm['resolved_diff_1000']['lo95'] * 100:+.0f}, {sm['resolved_diff_1000']['hi95'] * 100:+.0f}] (preregistered seed-cluster bootstrap, 20 clusters); {sm['resolved_only_by_lazysp']} episodes only LazySP, {sm['resolved_only_by_comparator']} only Q2C, {sm['both_resolved']} both, {sm['neither_resolved']} neither. Restricted-mean assays {sm['rmst_diff']['diff']:+.1f} [{sm['rmst_diff']['lo95']:+.0f}, {sm['rmst_diff']['hi95']:+.0f}]: includes 0.",
+        f"* Where the gain sits: the {Lz['info']['only_lazysp']} LazySP-only episodes by endpoint pair are " + ", ".join(f"{k}: {v}" for k, v in sorted(Lz['info']['only_lazysp_by_pair'].items())) + f". Four fixed published-parent targets recur across 20 seeds, so the panel behaves like about {ph['problem_clusters']} independent problems. A POST HOC problem-cluster bootstrap ({ph['problem_clusters']} clusters; exploratory, not preregistered) gives resolved@1000 {ph['variants']['alternate']['problem_cluster_bootstrap_resolved_at_1000_diff']['diff'] * 100:+.0f} pp [{ph['variants']['alternate']['problem_cluster_bootstrap_resolved_at_1000_diff']['lo95'] * 100:+.0f}, {ph['variants']['alternate']['problem_cluster_bootstrap_resolved_at_1000_diff']['hi95'] * 100:+.0f}] and restricted-mean assays {ph['variants']['alternate']['problem_cluster_bootstrap_rmst_diff']['diff']:+.1f} [{ph['variants']['alternate']['problem_cluster_bootstrap_rmst_diff']['lo95']:+.0f}, {ph['variants']['alternate']['problem_cluster_bootstrap_rmst_diff']['hi95']:+.0f}]. The completion advantage is not established at the problem level. Budget sensitivity: at 750 assays Q2C is ahead of the alternate selector, so quote any figure with its budget.",
+        "* Conclusion kept: the original Q2C planner is not demonstrated to beat a lazy path-search baseline; the old 78-versus-32 headline (Q2C versus our own directed frontier) lacked this baseline. No claim that LazySP is generally better, no calibrated confidence, no other landscape, no biological impossibility from a `blocked` result.",
+        "", "| follow-up arm | status | @100 | @250 | @500 | @750 | @1000 | restricted-mean assays | open / blocked / unresolved |", "|---|---|---|---|---|---|---|---|---|"]
+    for v in ("alternate", "forward", "reverse"):
+        x = st[v]
+        out.append(f"| lazysp_{v} | " + ("preregistered primary" if v == "alternate" else "preregistered secondary") + " | " + " | ".join(f"{x['resolved_at'][b] * 100:.0f}%" for b in (100, 250, 500, 750, 1000)) +
+                   f" | {x['rmst']:.1f} | {x['open']} / {x['blocked']} / {x['n'] - x['resolved']} |")
+    out.append("")
+    return out
+
+
+def appendix_md(D: dict, R: dict | None, prov: dict) -> str:
+    dm = D["demo"]
+    L = ["# Appendix — limitations, all arms and the LazySP follow-up (not slide material)", "",
+         f"Built {prov['built']} from artifacts commit `{prov['git']['head']}`. Every number below is read from the files named in `deck.provenance.json`.", "",
+         "## Strong LazySP-style follow-up (complete, independently audited)", "",
+         *lazysp_appendix(D, R),
+         "## Not part of this release (no benefit claimed)", "",
+         f"* **GPU-prior policy ablation** (replay with the ESM2 prior as input): {D['gpu_replay_text']}. The prior's agreement with the measured data was computed (weak Spearman) but its effect on assay decisions is untested; a model-size ablation is in progress on another branch and nothing from it is claimed here.",
+         "* **ALDE** (active-learning-assisted directed evolution) was not run; it is the closest prior art on this landscape.", ""]
+    if R is not None:
+        T, pols = R["T"], R["pols"]
+        L += ["## All arms, certified fraction of 100 episodes (family: all)", "",
+              "| arm | status | @100 | @250 | @500 | @1000 | mean assays (restricted) @1000 | false certificates |", "|---|---|---|---|---|---|---|---|"]
+        for p in pols:
+            st = "original (pre-declared)" if p in V.ORIGINAL_POLICIES else "POST HOC"
+            L.append(f"| {p} | {st} | " + " | ".join(f"{float(T[('all', p, b)]['cert_rate']) * 100:.0f}%" for b in (100, 250, 500, 1000)) +
+                     f" | {float(T[('all', p, 1000)]['rmst_assays']):.0f} | {T[('all', p, 1000)]['false_certificates']} |")
+        L += ["", "Arm names: `collective_shared_c` = shared specialists without the GP; `collective_isolated_c` = isolated specialists without the GP; `q2c_nomodel` = single planner without the GP; `collective_shared_rr` = shared evidence with round-robin proposals. The no-GP arms were selected after observing the original run and are not pre-registered winners.", ""]
+    L += ["## Replay limitations", "",
+          "* 20 seed clusters; 100 episodes per policy = 4 published-parent targets (AIKG, CLKG, VLKG, ALKG) repeated across 20 seeds (80 cases) + 20 seed-chosen family-A pairs. Not 100 independent biological targets. Bootstrap intervals resample seeds and are descriptive, not coverage claims.",
+          "* 0 false certificates is guaranteed by construction (certificates are computed only from revealed labels) and was re-checked against full data: structural consistency, not biological accuracy.",
+          "* Specialists are deterministic software objects in one process, not independent agents. Isolated arms are not fully isolated: a duplicate request is answered from the data specialist's ledger at zero cost. Shared vs isolated also differs in arbitration. No collective uplift over a single planner was found.",
+          "* Truth is reachability in the measured graph under the declared interval rule (benchmark truth), not biological truth. `blocked`/`no route certifiable` is not the Lean no-path theorem.",
+          "* Of the original 700 episodes, 175 intact rows were kept and 525 missing rows were recovered from saved assay histories without re-running policies (recovered rows have unknown wall time); the core worker separately re-ran the panel after a bug fix. The 400 post hoc episodes were run afterwards. Query traces are committed under `artifacts/core/replay/queries/`; each arm's per-episode paid-query count equals `assays` in `episodes.csv` (checked by `validate.py`).",
+          "* The noise-bin standard deviations are fit on all replicates: κ is a transductive sensitivity, not held-out validation.", "",
+          "## Lean scope", "",
+          "* Kernel-checked: generic route-soundness and cut theorems (conditional on assumed interval containment); one VFVS→AIKG κ=2 seven-node route with an exact raw-CSV recompute (7/7); a swapped-route mutant is rejected.",
+          "* Not kernel-checked: the individual decisions of the 1,100 core replay episodes and the 300 LazySP follow-up episodes (the latter are audited by replay against a fresh ledger, which is not a Lean proof); source/nanopub claims do not become verified biology because Lean compiled.",
+          *turing_appendix(D), ""]
+    L += [
+          "## Claim runtime limits", "",
+          "* Two existing Delphi claims (Kimura, Fisher) with hand-authored, hash-pinned adapters; authored and reviewed by the same model, not by a population geneticist. The Kimura 1962 PDF could not be retrieved; the diploid reading was checked against an exact Wright–Fisher chain.",
+          "* Same-context reuse equals an ordinary cache (identical avoided requests). Fault-injection counts are synthetic software fixtures, not savings and not biology. The diffusion formula is up to 139% off for small deleterious mutants (s=-0.05) in the exact-chain benchmark.",
+          "* A recorded execution, not a live browser service. No claim that these adapters improve the TrpB route benchmark.", "",
+          "## GPU / compute", "",
+          f"* {dm.get('compute', {}).get('headline', 'unavailable')}", f"* Job {dm.get('compute', {}).get('job_id')} on {dm.get('compute', {}).get('provider')}; wall {dm.get('compute', {}).get('wall_seattle')}. Predictions never discharge an empirical premise.",
+          "* OpenResearch: a local CPU analysis actually ran (`artifacts/gpu/orx/receipt.json`); no hosted OpenResearch service and no biological experiment.", "",
+          "## Spend and model", "",
+          "* Deck authored with Claude Sonnet 5.5 on an existing subscription; metered API charge, if any, is unknown (CLI cost estimates are not subscription spend). No GPU used by this worker.", ""]
+    return "\n".join(L)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--root", required=True, help="integrated checkout holding artifacts/ and site/")
     ap.add_argument("--out-dir", default=str(HERE))
+    ap.add_argument("--shards-dir", default=None, help="explicit path to run_shard JSONs (git-ignored in release); else queries/ traces are the check")
     ap.add_argument("--allow-draft", action="store_true", help="if replay validation fails, write deck.DRAFT.html with no replay numbers")
     a = ap.parse_args()
     root = Path(a.root).resolve()
@@ -553,29 +733,54 @@ def main():
         print("REJECTED (non-replay inputs missing):", *merrs, sep="\n  ", file=sys.stderr)
         return 2
     D = load_inputs(root)
-    errs, info = V.validate_replay(root)
+    errs, info = V.validate_replay(root, a.shards_dir)
     draft = bool(errs)
     if draft and not a.allow_draft:
         print("REJECTED: replay is not final; refusing to render numbers.", *errs[:12], sep="\n  ", file=sys.stderr)
         print("  (use --allow-draft to write a clearly marked deck.DRAFT.html)", file=sys.stderr)
         return 2
-    R = None if draft else replay_numbers(root, D, info)
-    rels = ["artifacts/demo.json", "site/data/demo.json", "artifacts/proof/receipt.json", "artifacts/integration/core_kappa2_route_lean.json",
-            "artifacts/core/protocol.json", "site/data/landscape.js", "artifacts/evidence/route_summary.json"]
+    L = None
     if not draft:
+        core_ep = V.read_csv(root / "artifacts/core/replay/episodes.csv")
+        lerrs, linfo = V.validate_lazysp(root, core_ep, int(info["protocol_seeds"]))
+        if lerrs:
+            print("REJECTED: the LazySP follow-up is not complete and audited:", *lerrs[:12], sep="\n  ", file=sys.stderr)
+            return 2
+        ld = root / "artifacts/lazysp/results"
+        L = {"info": linfo, "summ": json.loads((ld / "summary.json").read_text()), "post": json.loads((ld / "exploratory_post_hoc.json").read_text()),
+             "audit": json.loads((ld / "audit.json").read_text()), "tp": V.read_csv(ld / "table_primary.csv"), "ep": V.read_csv(ld / "episodes.csv")}
+        L["audit_shards"] = sum(v["shards_audited"] for v in L["audit"].values())
+        info["lazysp"] = {"stats": linfo["stats"], "only_lazysp_by_pair": linfo["only_lazysp_by_pair"], "audit_shards": L["audit_shards"]}
+    R = None if draft else replay_numbers(root, D, info, L)
+    rels = ["artifacts/demo.json", "site/data/demo.json", "artifacts/proof/receipt.json", "artifacts/integration/core_kappa2_route_lean.json",
+            "artifacts/core/protocol.json", "site/data/landscape.js", "artifacts/evidence/route_summary.json",
+            "artifacts/claim_reuse/demo_receipt.json", "artifacts/claim_reuse/reuse_benchmark.json", "artifacts/claim_reuse/verification_receipt.json",
+            "artifacts/gpu/compute_block.json", "tasks/results/gpu.json", "artifacts/gpu/orx/receipt.json",
+            "artifacts/turing_scope/results.json", "artifacts/turing_scope/lean_receipt.json", "site/data/lazysp.json", "docs/lazysp.md", "docs/pitch.md"]
+    if not draft:
+        rels += [f"artifacts/lazysp/results/{f}" for f in V.LAZY_FILES + ["episodes_with_original.csv", "table_paired.csv", "crosschecks.json"]]
         rels += [f"artifacts/core/replay/{f}" for f in V.REQUIRED_REPLAY]
+        rels += [f"artifacts/core/replay/queries/queries__{p}.tsv.gz" for p in (R or {}).get("pols", [])]
     hashes = {r: sha256(root / r) for r in rels if (root / r).exists()}
     prov = {"built": seattle_now(), "root": str(root), "git": git_info(root, rels + ["artifacts/core/replay"]), "sha256": hashes,
             "mode": "DRAFT" if draft else "FINAL", "validation_errors": errs, "replay_info": info,
-            "followup_arms_shown": (R or {}).get("follow", [])}
+            "posthoc_arms_shown": (R or {}).get("follow", []), "lazysp": ("complete and audited: " + json.dumps(info.get("lazysp"), default=str) if L else "not rendered (draft)"),
+            "gpu_prior_replay": D["gpu_replay_text"]}
     slides, notes = build_slides(D, R, errs, prov)
+    wc = word_count(notes)
+    prov["spoken_words"] = wc
+    if not draft and wc > 420:
+        print(f"REJECTED: speaker notes are {wc} words (> 420); per slide {[word_count([n]) for n in notes]}; trim before rendering", file=sys.stderr)
+        return 2
     page = assemble(slides, notes, draft, errs, prov)
     name = "deck.DRAFT.html" if draft else "deck.html"
     (out / name).write_text(page)
     (out / (name.replace(".html", ".provenance.json"))).write_text(json.dumps(prov, indent=1))
     (out / ("speaker-notes.DRAFT.md" if draft else "speaker-notes.md")).write_text(
         "# Speaker notes" + (" (DRAFT)" if draft else "") + f"\n\nBuilt {prov['built']} from {prov['git']['head']}.\n\n" +
-        "\n\n".join(f"**Slide {i + 1}** ({'0:00-0:25 0:25-0:55 0:55-1:25 1:25-2:05 2:05-2:30 2:30-3:00'.split()[i]})\n\n{n}" for i, n in enumerate(notes)) + "\n")
+        "\n\n".join(f"**Slide {i + 1}** ({'0:00-0:20 0:20-0:40 0:40-1:05 1:05-1:50 1:50-2:30 2:30-3:00'.split()[i]})\n\n{n}" for i, n in enumerate(notes)) + "\n")
+    (out / ("appendix.DRAFT.md" if draft else "appendix.md")).write_text(appendix_md(D, R, prov))
+    print(f"spoken words: {wc} per slide {[word_count([n]) for n in notes]} (target <=380, hard cap 420)")
     print(f"{prov['mode']}: wrote {out / name} ({len(page) // 1024} KiB); provenance {name.replace('.html', '.provenance.json')}")
     if draft:
         print("validation errors:", *errs[:8], sep="\n  ")
