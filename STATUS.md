@@ -31,4 +31,4 @@ ChatGPT Site registered (not deployed yet): delphi-evolve. Hosting checkout /dat
 
 ## Integration log
 - 2026-10-31 00:08 PDT: independent recount reproduces 193,170 / 159,129 / 871 / overlap 0 (scripts/audit_data.py, exit 0). ALDE read: it already benchmarks on TrpB and GB1 in simulation; our claim is limited to query-to-certify. Workers have not committed yet.
-- 2026-10-31 ~00:15 PDT: merged work/proof and work/experience into work/integration. lake build exit 0; axioms only propext/Quot.sound; 4/4 integrator mutants rejected; route table matches source CSV. Open: check_proofs.py missing, core/gpu not pushed. See tasks/results/integrator.json.
+- 2026-10-31 00:10 PDT: merged work/proof and work/experience into work/integration. lake build exit 0; axioms only propext/Quot.sound; 4/4 integrator mutants rejected; route table matches source CSV. Open: check_proofs.py missing, core/gpu not pushed. See tasks/results/integrator.json.
