@@ -1,0 +1,167 @@
+{
+ "repair": {
+  "repairs_checked": 21,
+  "invalid_by_independent_check": [],
+  "items_with_no_repair": 0,
+  "relative_change_mismatches": [],
+  "not_sorted_by_relative_change": 0,
+  "closer_valid_scale_missed_on_k/4_grid": [],
+  "semantics_note": "value = scale factor on all sides; an earlier run of this audit misread it as a new length (my error, corrected here)"
+ },
+ "gate_ablations_1d_with_bc": {
+  "n": 20,
+  "default_agree": 20,
+  "default_disagree": [],
+  "hash_changed_refused": 20,
+  "removed_equals_textbook": 20,
+  "continuum_only_equals_textbook": 20
+ },
+ "pde_vs_exact_linear": {
+  "cases": 12,
+  "categories": {
+   "no_pattern": 5,
+   "nonconverged": 2,
+   "not_settled": 1,
+   "pattern": 4
+  },
+  "settled_agree_with_exact": 9,
+  "settled_n": 9,
+  "disagreements": [],
+  "seconds": 105.6,
+  "rows": [
+   {
+    "model": "schnakenberg",
+    "gamma": "4",
+    "Dv": "16",
+    "r": "6",
+    "exact_unstable": true,
+    "pde_category": "pattern",
+    "pde_pattern": true,
+    "converged": true,
+    "settled": true
+   },
+   {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "20",
+    "r": "2",
+    "exact_unstable": true,
+    "pde_category": "pattern",
+    "pde_pattern": true,
+    "converged": true,
+    "settled": true
+   },
+   {
+    "model": "schnakenberg",
+    "gamma": "1",
+    "Dv": "10",
+    "r": "2",
+    "exact_unstable": true,
+    "pde_category": "not_settled",
+    "pde_pattern": true,
+    "converged": true,
+    "settled": true
+   },
+   {
+    "model": "schnakenberg",
+    "gamma": "4",
+    "Dv": "20",
+    "r": "2",
+    "exact_unstable": true,
+    "pde_category": "pattern",
+    "pde_pattern": true,
+    "converged": true,
+    "settled": true
+   },
+   {
+    "model": "schnakenberg",
+    "gamma": "8",
+    "Dv": "40",
+    "r": "2",
+    "exact_unstable": true,
+    "pde_category": "nonconverged",
+    "pde_pattern": true,
+    "converged": false,
+    "settled": true
+   },
+   {
+    "model": "schnakenberg",
+    "gamma": "2",
+    "Dv": "5",
+    "r": "6",
+    "exact_unstable": false,
+    "pde_category": "no_pattern",
+    "pde_pattern": false,
+    "converged": true,
+    "settled": true
+   },
+   {
+    "model": "brusselator",
+    "gamma": "2",
+    "Dv": "20",
+    "r": "4",
+    "exact_unstable": true,
+    "pde_category": "nonconverged",
+    "pde_pattern": true,
+    "converged": false,
+    "settled": true
+   },
+   {
+    "model": "brusselator",
+    "gamma": "2",
+    "Dv": "20",
+    "r": "2",
+    "exact_unstable": true,
+    "pde_category": "pattern",
+    "pde_pattern": true,
+    "converged": true,
+    "settled": true
+   },
+   {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "10",
+    "r": "6",
+    "exact_unstable": false,
+    "pde_category": "no_pattern",
+    "pde_pattern": false,
+    "converged": true,
+    "settled": true
+   },
+   {
+    "model": "brusselator",
+    "gamma": "8",
+    "Dv": "10",
+    "r": "2",
+    "exact_unstable": false,
+    "pde_category": "no_pattern",
+    "pde_pattern": false,
+    "converged": true,
+    "settled": true
+   },
+   {
+    "model": "brusselator",
+    "gamma": "1",
+    "Dv": "5",
+    "r": "2",
+    "exact_unstable": false,
+    "pde_category": "no_pattern",
+    "pde_pattern": false,
+    "converged": true,
+    "settled": true
+   },
+   {
+    "model": "brusselator",
+    "gamma": "2",
+    "Dv": "10",
+    "r": "2",
+    "exact_unstable": false,
+    "pde_category": "no_pattern",
+    "pde_pattern": false,
+    "converged": true,
+    "settled": true
+   }
+  ],
+  "caveat": "cases limited to the two declared kinetics; the exact key is LINEAR; nonlinear subcritical behaviour of linearly stable states is not probed (oracle declares this)"
+ }
+}

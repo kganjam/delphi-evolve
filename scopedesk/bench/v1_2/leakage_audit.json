@@ -1,0 +1,256 @@
+{
+ "n": 131,
+ "full_text|word_1-2gram": {
+  "leave_one_family_out_correct": 65,
+  "n": 131,
+  "acc": 0.4962,
+  "cp95": [
+   0.408,
+   0.585
+  ],
+  "majority_within_family_acc": 0.5496,
+  "per_family": {
+   "fisher_kpp_speed": {
+    "acc": 0.438,
+    "n": 16,
+    "majority": 0.5
+   },
+   "greenhill_buckling": {
+    "acc": 0.562,
+    "n": 16,
+    "majority": 0.562
+   },
+   "hamilton_rule_form": {
+    "acc": 0.5,
+    "n": 16,
+    "majority": 0.5
+   },
+   "hawk_dove_ess": {
+    "acc": 0.5,
+    "n": 16,
+    "majority": 0.5
+   },
+   "kimura_regime": {
+    "acc": 0.438,
+    "n": 16,
+    "majority": 0.562
+   },
+   "turing_2d_rectangle": {
+    "acc": 0.6,
+    "n": 15,
+    "majority": 0.6
+   },
+   "turing_finite_domain": {
+    "acc": 0.545,
+    "n": 22,
+    "majority": 0.545
+   },
+   "wavelength_formula_licence": {
+    "acc": 0.357,
+    "n": 14,
+    "majority": 0.643
+   }
+  }
+ },
+ "full_text|char_3-5gram": {
+  "leave_one_family_out_correct": 65,
+  "n": 131,
+  "acc": 0.4962,
+  "cp95": [
+   0.408,
+   0.585
+  ],
+  "majority_within_family_acc": 0.5496,
+  "per_family": {
+   "fisher_kpp_speed": {
+    "acc": 0.438,
+    "n": 16,
+    "majority": 0.5
+   },
+   "greenhill_buckling": {
+    "acc": 0.562,
+    "n": 16,
+    "majority": 0.562
+   },
+   "hamilton_rule_form": {
+    "acc": 0.5,
+    "n": 16,
+    "majority": 0.5
+   },
+   "hawk_dove_ess": {
+    "acc": 0.5,
+    "n": 16,
+    "majority": 0.5
+   },
+   "kimura_regime": {
+    "acc": 0.438,
+    "n": 16,
+    "majority": 0.562
+   },
+   "turing_2d_rectangle": {
+    "acc": 0.6,
+    "n": 15,
+    "majority": 0.6
+   },
+   "turing_finite_domain": {
+    "acc": 0.545,
+    "n": 22,
+    "majority": 0.545
+   },
+   "wavelength_formula_licence": {
+    "acc": 0.357,
+    "n": 14,
+    "majority": 0.643
+   }
+  }
+ },
+ "stem_only_no_conventions|word_1-2gram": {
+  "leave_one_family_out_correct": 66,
+  "n": 131,
+  "acc": 0.5038,
+  "cp95": [
+   0.415,
+   0.592
+  ],
+  "majority_within_family_acc": 0.5496,
+  "per_family": {
+   "fisher_kpp_speed": {
+    "acc": 0.438,
+    "n": 16,
+    "majority": 0.5
+   },
+   "greenhill_buckling": {
+    "acc": 0.562,
+    "n": 16,
+    "majority": 0.562
+   },
+   "hamilton_rule_form": {
+    "acc": 0.562,
+    "n": 16,
+    "majority": 0.5
+   },
+   "hawk_dove_ess": {
+    "acc": 0.5,
+    "n": 16,
+    "majority": 0.5
+   },
+   "kimura_regime": {
+    "acc": 0.438,
+    "n": 16,
+    "majority": 0.562
+   },
+   "turing_2d_rectangle": {
+    "acc": 0.6,
+    "n": 15,
+    "majority": 0.6
+   },
+   "turing_finite_domain": {
+    "acc": 0.545,
+    "n": 22,
+    "majority": 0.545
+   },
+   "wavelength_formula_licence": {
+    "acc": 0.357,
+    "n": 14,
+    "majority": 0.643
+   }
+  }
+ },
+ "stem_only_no_conventions|char_3-5gram": {
+  "leave_one_family_out_correct": 60,
+  "n": 131,
+  "acc": 0.458,
+  "cp95": [
+   0.371,
+   0.547
+  ],
+  "majority_within_family_acc": 0.5496,
+  "per_family": {
+   "fisher_kpp_speed": {
+    "acc": 0.438,
+    "n": 16,
+    "majority": 0.5
+   },
+   "greenhill_buckling": {
+    "acc": 0.562,
+    "n": 16,
+    "majority": 0.562
+   },
+   "hamilton_rule_form": {
+    "acc": 0.375,
+    "n": 16,
+    "majority": 0.5
+   },
+   "hawk_dove_ess": {
+    "acc": 0.375,
+    "n": 16,
+    "majority": 0.5
+   },
+   "kimura_regime": {
+    "acc": 0.438,
+    "n": 16,
+    "majority": 0.562
+   },
+   "turing_2d_rectangle": {
+    "acc": 0.6,
+    "n": 15,
+    "majority": 0.6
+   },
+   "turing_finite_domain": {
+    "acc": 0.5,
+    "n": 22,
+    "majority": 0.545
+   },
+   "wavelength_formula_licence": {
+    "acc": 0.357,
+    "n": 14,
+    "majority": 0.643
+   }
+  }
+ },
+ "top_tokens_full_fit_stem_only": {
+  "applies": [
+   "logistic",
+   "logistic growth",
+   "and logistic",
+   "2ns",
+   "uniform solid",
+   "column base",
+   "is its",
+   "exp",
+   "exp 2ns",
+   "consider uniform",
+   "ends the",
+   "reaction"
+  ],
+  "out_of_scope": [
+   "and bistable",
+   "bistable",
+   "bistable kinetics",
+   "of",
+   "of its",
+   "kinetics",
+   "its",
+   "10",
+   "value",
+   "use",
+   "neutral value",
+   "use kimura"
+  ],
+  "underdetermined": [
+   "what",
+   "pi the",
+   "hawk",
+   "using",
+   "for the",
+   "for",
+   "evolutionarily",
+   "two animals",
+   "evolutionarily stable",
+   "worth",
+   "animals",
+   "resource worth"
+  ]
+ },
+ "reading": "Accuracy near or below the within-family majority rate means wording does not transfer across families as a label cue; high within-family cues are possible and are listed for human review (top tokens)."
+}

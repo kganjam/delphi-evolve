@@ -1,0 +1,23 @@
+{
+ "dev_families": [
+  "turing_finite_domain",
+  "hawk_dove_ess"
+ ],
+ "heldout_families": [
+  "fisher_kpp_speed",
+  "greenhill_buckling",
+  "hamilton_rule_form",
+  "kimura_regime",
+  "turing_2d_rectangle",
+  "wavelength_formula_licence"
+ ],
+ "rule": "prompt/harness tuning only on dev families; report held-out families separately; headline numbers are family-clustered",
+ "mechanism_groups": {
+  "linear_reaction_diffusion_stability": [
+   "turing_finite_domain",
+   "turing_2d_rectangle",
+   "wavelength_formula_licence"
+  ]
+ },
+ "grouping_note": "The 1-D Turing, 2-D Turing and wavelength families share the same Jacobian/mode mathematics. Report the 8-family analysis AND the 6-group analysis (these three merged); dev=turing_finite_domain, hawk_dove_ess means the other two reaction-diffusion families are within-mechanism transfer, not unseen-mechanism generalisation."
+}

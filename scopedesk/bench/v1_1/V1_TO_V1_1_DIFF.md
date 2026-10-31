@@ -23,5 +23,8 @@ An independent Codex semantic audit (`planning/rethink/CODEX-BENCHMARK-SEMANTICS
 ## Other items whose labels depend on a convention (listed per director action c)
 Now declared in the request: wavelength tolerance and target; Kimura tolerance/chain; Hamilton kernel/payoff semantics; KPP initial data; Turing target and mode sets; Greenhill target and missing-input rule; Hawk–Dove payoffs. **Still convention-dependent:** the Greenhill outcome-vs-condition choice (a reader preferring condition-based scope labels will disagree on gh tapered 'applies' items — diagnosis field provided); the Greenhill linear-taper idealisation; the wavelength 10% threshold and linear (not nonlinear) selection; the Kimura 10% threshold; Hawk–Dove ESS vs the simple p*=V/C statement; the haploid pairing model for Hamilton; uniform-density idealisations. None of these is a measured fact.
 
+## Pre-freeze amendments after two blinded audits
+See `V1_1_ADJUDICATION.md`: conventions pinned (strictly stable base state; false premises; KPP adequacy; wavelength no-growth and denominator; Greenhill base diameter and g), wl-0010 excluded, gh-0004/0012/0016 relabelled applies. Final size 135.
+
 ## Status
 Independent-method verifier (`verify_key.py`, same author as generator): 136/136 agree on v1.1. Codex audit of v1.1: **not done**. Different-session blinded audit of v1.1: **not done**. v1.1 is not frozen until both are done; its hashes are in `v1_1/KEY.sha256` and will change if either finds a defect.

@@ -1,4 +1,4 @@
-# Scope Desk bench v1.1 (critic) — NOT FROZEN until the audits in V1_TO_V1_1_DIFF.md are done
+# Scope Desk bench v1.1 (critic) — FROZEN 2026-10-31 (see FROZEN.md for what that does and does not mean)
 
 Supersedes v1 (on freeze-hold). Differences, reasons and remaining convention dependence: `V1_TO_V1_1_DIFF.md`. Everything below is the v1 README text, kept for context; where it conflicts with `V1_TO_V1_1_DIFF.md` (rayleigh_plateau dropped; turing_2d_rectangle added; targets and conventions now stated in every request; wavelength rule changed), the diff file governs. Baseline scores for v1.1 are in `baseline_scores.json` (B0 template A 68/68 and template B 14/68; always-applies 63/136; format-only 28/96 vs majority 0.448).
 
