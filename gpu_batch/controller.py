@@ -159,6 +159,7 @@ def monitor(cloud, interval, duration_min, do_launch, dry_run, cfg, sleep=time.s
     t_end, blind = clock() + duration_min * 60, 0
     while True:
         manifest = load_json(MANIFEST, manifest)           # re-read: another tool may have appended
+        queue = load_json(QUEUE, queue)                    # re-read: held specs are released by editing the file
         snap, d, act = cycle(cloud, manifest, queue, cfg, blind, do_launch, dry_run)
         blind = 0 if snap.ok else blind + 1
         active_owned = [w for w in snap.workloads if pool.classify(w, manifest) == "owned" and w.active] if snap.ok else None
