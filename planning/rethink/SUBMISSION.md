@@ -6,6 +6,12 @@ Owner: `submit` worker (Claude Sonnet 5.5, existing subscription). Written Sat O
 
 **No upload location has been found and no submission receipt exists.** Nothing has been uploaded, sent or submitted by this worker or, as far as the repository shows, by anyone. The deck is ready; where it goes is unknown. That is the single highest-risk item, and it is a human action (below) because it needs inboxes, the ScienceClaw Discord or a person at the Media Lab, none of which this worker can reach.
 
+## Update 07:40 PDT: the spine changed; the deck is now Delphi
+
+The TrpB deck described below (`presentation/deck.*`, `rebuild.sh`, `trace_numbers.py`) is the **preserved baseline**. The pitch deck is now `presentation/delphi/` ("Delphi: from candidate laws to checked theorems"); site `site/delphi/`; see `presentation/delphi/README.md`. Rebuild and gate: `bash presentation/delphi/rebuild.sh`. Submission-channel findings, the countdown, the deadline and the go/no-go checklist below are unchanged and still govern. **Still no upload location and no receipt.**
+
+- Delphi checklist additions: [x] deck, PDF, speaker notes, blog, storyboard, landing page built from committed artifacts and the claim ledger; [x] 23 slide numbers re-derived by `presentation/delphi/trace.py`, every benchmark/scorecard metric reads "pending"; [x] script measured aloud (synthetic voice) at 2:33 to 2:36 including assumed gaps, about 25 s under 3:00 (`presentation/delphi/timing.json`); [ ] human stopwatch rehearsal; [ ] PPTX export of the Delphi deck (only the TrpB deck has one); [ ] scorecard / agent-evaluation numbers (pending, owned by others); [ ] director's proposal to open with compiled artifacts and make the kill ledger the second beat (not adopted; needs committed artifacts and ledger rows for each row shown).
+
 ## Countdown
 
 `python3 scripts/submission_countdown.py` computes this live from the tz database. Snapshot at 06:23 PDT Sat Oct 31:

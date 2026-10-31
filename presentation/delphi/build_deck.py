@@ -30,7 +30,7 @@ INPUTS = [
     "artifacts/rethink_director/MathlibProbe_host.lean", "tasks/results/rethink-director.json",
     "artifacts/integration/codex-api/admissible-review/Admissible.lean", "artifacts/integration/codex-api/admissible-review/committed-freeze.json",
     "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md", "artifacts/integration/codex-api/benchmark-semantic-audit.json",
-    "artifacts/integration/codex-api/benchmark-v1-1-review.json", "artifacts/integration/codex-api/service-fixed-review.json",
+    "artifacts/integration/codex-api/benchmark-v1-1-review.json", "artifacts/integration/codex-api/admissible-review/469874b/compile-review.json", "artifacts/integration/codex-api/admissible-review/469874b/Admissible.lean", "artifacts/integration/codex-api/service-fixed-review.json",
     "artifacts/rethink_director/thompson_tallo_probe.json", "artifacts/gpuops/robustness_tax_check.json",
     "artifacts/core/replay/table_primary.csv", "artifacts/lazysp/results/table_primary.csv", "artifacts/demo.json",
 ]
@@ -101,7 +101,7 @@ def build_slides(f, led_ids, prov_head):
 </div>
 <div class="scope" style="margin-top:10px;font-size:14.5px"><b>Scope.</b> This is a linear-mode statement for this declared model, not a claim about whether a pattern forms. The continuum condition is a large-domain result; we are not saying Turing was wrong.</div>
 {fn('<b>Ledger</b> F01 F02 (Mathlib probe: no ledger row yet, director receipt) · artifacts/turing_scope/results.json, lean_receipt.json · artifacts/rethink_director/MathlibProbe_host.lean', stamp)}"""
-    notes.append("First check. Take a declared two-species model where the textbook continuum condition holds. On a finite domain only certain wavenumbers exist. At length pi none falls in the unstable band, so it is stable. At three halves pi and two pi a mode grows. At five halves pi it is stable again. Only pi and two pi are compiled in Lean; the rest is exact arithmetic. This is a linear statement. Nonlinear simulation is pending.")
+    notes.append("First check. Take a declared two-species model where the textbook continuum condition holds. On a finite domain only certain wavenumbers exist. At length pi none falls in the unstable band, so it is stable. At three halves pi and two pi a mode grows; at five halves pi it is stable again. Only pi and two pi are compiled in Lean. This is a linear statement; nonlinear simulation is pending.")
 
     # ---------------------------------------------------------------- slide 3
     W = P["witnesses"]
@@ -127,7 +127,7 @@ def build_slides(f, led_ids, prov_head):
  </div>
 </div>
 <div class="scope" style="margin-top:10px;font-size:14.5px"><b>Established mathematics.</b> Price 1970; the Price–Fisher–Hamilton link is in Frank 1997. In a bounded search we did not find a prior machine-checked Price formalization. This is a statistical regression statement, not a causal cost–benefit rule.</div>
-{fn('<b>Ledger</b> F07 · artifacts/integration/codex-api/price-probe.json (source sha ' + P['source_sha256'][:8] + '…) · experiments/price_probe/', stamp)}"""
+{fn('<b>Ledger</b> F07 · artifacts/integration/codex-api/price-probe.json (source sha ' + P['source_sha256'][:8] + '…) · experiments/price_probe/ · interactive walkthrough: site/review/ (F09)', stamp)}"""
     notes.append("Second check. The Price identity, a selection-only lemma, and a conditional Hamilton regression theorem depend on each other in the Lean source. Each assumption has an exact compiled witness showing what breaks without it, and two changed-sign versions are rejected by the compiler. Fisher's additive genetic theorem is not proved; it is pending. This is established mathematics, a regression statement, not a causal rule.")
 
     # ---------------------------------------------------------------- slide 4
@@ -142,14 +142,14 @@ def build_slides(f, led_ids, prov_head):
   <div class="card" style="padding:9px 14px"><h3>{E(V['name'])}, in our Admissible file</h3>
   <p class="small" style="margin:0 0 5px;font-size:15px"><b>Assumed:</b> {E(V['assumed'])}.<br><b>Concluded:</b> {E(V['concluded'])}.<br>A restatement. The length hypothesis is unused. It is <b>not</b> linear asymptotic stability.</p>
   <p class="small" style="margin:0;font-size:14.5px">A clean axiom audit certifies proof dependencies, not whether the statement says what its name claims. The reviewer's check did.</p>
-  <p class="small" style="margin:6px 0 0;font-size:14.5px"><b>Replacement stability theorem:</b> {pend} no committed theorem and receipt yet.</p></div>
+  <p class="small" style="margin:6px 0 0;font-size:14.5px"><b>Replacement:</b> a revised module compiles <i>every admissible mode has trace &lt; 0 and det &gt; 0</i> (exit {V['replacement']['compile_exit']}, standard axioms). Trace is derived; determinant positivity is assumed. No new mutants yet; eigenvalue and PDE correspondence not established.</p></div>
   <div class="scope" style="margin-top:8px;font-size:14px"><b>This is the system working.</b> Caught by independent review with exact witnesses, not by a machine detecting autonomously.</div>
  </div>
  <div class="col" style="flex:1.1"><div class="card" style="padding:8px 10px"><h3>Five more validity errors this team made</h3>
   <table style="font-size:13.5px"><tr><th style="text-align:left">error</th><th style="text-align:left">caught by</th><th style="text-align:left">ledger</th></tr>{rows}</table></div></div>
 </div>
-{fn('<b>Ledger</b> P01 F04 F05 F08 P05 · artifacts/integration/codex-api/admissible-review/Admissible.lean · planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md', stamp)}"""
-    notes.append("Our own failure. We wrote a theorem that assumed no mode has negative determinant and concluded every mode has non-negative determinant. A tautology. It compiled and passed the axiom audit. An independent reviewer caught it, not us. The replacement stability theorem is pending. Five more errors from this team are listed, each caught by independent review with an exact witness. That is the check working, not a machine detecting alone.")
+{fn('<b>Ledger</b> P01 F04 F05 F08 F10 P05 · artifacts/integration/codex-api/admissible-review/Admissible.lean · artifacts/integration/codex-api/admissible-review/469874b/compile-review.json · planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md', stamp)}"""
+    notes.append("Our own failure. We wrote a theorem assuming no mode has negative determinant and concluding every mode has non-negative determinant. A tautology. It compiled and passed the axiom audit. An independent reviewer caught it, not us. A revised version now compiles, with the determinant assumed and no mutants yet. Five more errors from this team were each caught by independent review. That is the check working, not a machine detecting alone.")
 
     # ---------------------------------------------------------------- slide 5
     s5 = f"""{brand(5)}
@@ -178,12 +178,12 @@ def build_slides(f, led_ids, prov_head):
  <div class="col"><div class="card" style="padding:9px 14px;height:100%"><h3>We do not claim</h3><p class="small" style="margin:0;font-size:14.5px">
   Any experiment, a first library, a universal threshold, that any named law is wrong (a scope condition refers to the extracted record), or that agents beat a plain check.</p></div></div>
  <div class="col"><div class="card" style="padding:9px 14px;height:100%"><h3>Still pending</h3><p class="small" style="margin:0;font-size:14.5px">
-  The 21-record scorecard · the agent evaluation · Fisher additive-genetic · second-reader review of the Price statements · the replacement stability theorem · public use of the tool.</p></div></div>
+  The 21-record scorecard · the agent evaluation · Fisher additive-genetic · second-reader review of the Price statements · mutants for the replacement theorem · public use of the tool.</p></div></div>
 </div>
 <div class="scope" style="margin-top:12px;font-size:15px"><b>Preserved baseline.</b> The earlier enzyme work stays in the appendix with its nulls: {Bl['measured_nonstop']:,} measured variants; specialists {Bl['shared_1000']}/100 equal the single planner {Bl['q2c_1000']}/100; a plain lazy search reaches {Bl['lazysp_1000']}/100.</div>
 <p style="font:500 26px/1.2 var(--serif);margin:16px 0 0;max-width:1120px">Make the assumptions behind a biological-model decision <em style="font-style:normal;border-bottom:4px solid var(--orange)">executable and auditable</em>.</p>
 {fn('<b>Ledger</b> A01 A02 B01 B02 B03 P07 P08 · planning/rethink/PRIOR-ART-VERDICT.md · artifacts/core/replay/table_primary.csv', stamp)}"""
-    notes.append("The collaborative formalization architecture comes from Prove2Me. Prior formal biology includes Rashid 2017, lean-bio, crnt-lean and Ripple. We claim no experiment, no first library, no universal threshold, and not that any named law is wrong. Pending: the scorecard, the agent evaluation, Fisher, a second-reader review, and the replacement theorem. The enzyme baseline stays in the appendix. Make the assumptions behind a biological model decision executable and auditable.")
+    notes.append("The collaborative formalization architecture comes from Prove2Me. Prior formal biology includes Rashid 2017, lean-bio, crnt-lean and Ripple. We claim no experiment, no first library, no universal threshold, and not that any named law is wrong. Pending: the scorecard, the agent evaluation, Fisher, a second-reader review, and mutants for the replacement theorem. The enzyme baseline stays in the appendix. Make the assumptions behind a biological model decision executable and auditable.")
     return [s1, s2, s3, s4, s5, s6], notes
 
 

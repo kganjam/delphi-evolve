@@ -1,0 +1,284 @@
+{
+ "deck": "presentation/delphi/deck.html",
+ "claims_checked": 23,
+ "inputs_hash_checked": 21,
+ "pdf_pages_checked": 6,
+ "provenance_head": "e897b65c4be27f80ca88c8979942ce9afc5dee5b",
+ "ok": true,
+ "errors": [],
+ "trace": [
+  {
+   "slide": 1,
+   "shown": "compiled in Lean 4",
+   "where": "html",
+   "files": [
+    "artifacts/turing_scope/lean_receipt.json"
+   ],
+   "sha256": {
+    "artifacts/turing_scope/lean_receipt.json": "d9961d8662748c3eb347accf9c103ffe5db1f988e7d74cf8183564f0b743d021"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "J = [[1, -2], [2, -3]], diffusivities D = (1, 10)",
+   "where": "html",
+   "files": [
+    "artifacts/turing_scope/results.json"
+   ],
+   "sha256": {
+    "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "1-D Neumann boundaries",
+   "where": "html",
+   "files": [
+    "artifacts/turing_scope/results.json"
+   ],
+   "sha256": {
+    "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "det(J − qD) = (5q-1)(2q-1), so the continuum band is 1/5 < q < 1/2",
+   "where": "html",
+   "files": [
+    "artifacts/turing_scope/results.json"
+   ],
+   "sha256": {
+    "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "length L / π 1/2 3/4 1 3/2 2 5/2 3 4 5 6 linear verdict stable stable stable grows grows stable grows grows grows grows",
+   "where": "html",
+   "files": [
+    "artifacts/turing_scope/results.json"
+   ],
+   "sha256": {
+    "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50"
+   }
+  },
+  {
+   "slide": 2,
+   "shown": "Lean 4.35.0: L = π admits no unstable mode; L = 2π admits one (n = 1, det = -1/8). Build exit 0; 3 law and domain mutants rejected. Only these two lengths are compiled.",
+   "where": "html",
+   "files": [
+    "artifacts/turing_scope/lean_receipt.json",
+    "artifacts/turing_scope/results.json",
+    "turing_scope/lean/TuringScope/Instance.lean"
+   ],
+   "sha256": {
+    "artifacts/turing_scope/lean_receipt.json": "d9961d8662748c3eb347accf9c103ffe5db1f988e7d74cf8183564f0b743d021",
+    "artifacts/turing_scope/results.json": "140bbc509a0dcbbbc360b0c6a5c2c8d801c60d850867682bc30cf0b7b0493b50",
+    "turing_scope/lean/TuringScope/Instance.lean": "cd41565a3a8c5cde681b8605611268c047cbec5e66f3a12c3c90f989dd198780"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "mean fitness × trait change = 1 while selection covariance = 0",
+   "where": "html",
+   "files": [
+    "artifacts/integration/codex-api/price-probe.json",
+    "experiments/price_probe/Witnesses.lean.inc"
+   ],
+   "sha256": {
+    "artifacts/integration/codex-api/price-probe.json": "513bc9173014f4effdbd76e9b30f52c7dcdc8924d69e1d9692974b2d826eb5da",
+    "experiments/price_probe/Witnesses.lean.inc": "7e29341d65ea9968d192c7c0ead754984126ad288926eb547ca228c3d43d1715"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "trait mean rises although r·b − c = -1",
+   "where": "html",
+   "files": [
+    "artifacts/integration/codex-api/price-probe.json",
+    "experiments/price_probe/Witnesses.lean.inc"
+   ],
+   "sha256": {
+    "artifacts/integration/codex-api/price-probe.json": "513bc9173014f4effdbd76e9b30f52c7dcdc8924d69e1d9692974b2d826eb5da",
+    "experiments/price_probe/Witnesses.lean.inc": "7e29341d65ea9968d192c7c0ead754984126ad288926eb547ca228c3d43d1715"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "yes: change = -1/6, variance 1/4",
+   "where": "html",
+   "files": [
+    "artifacts/integration/codex-api/price-probe.json",
+    "experiments/price_probe/Witnesses.lean.inc"
+   ],
+   "sha256": {
+    "artifacts/integration/codex-api/price-probe.json": "513bc9173014f4effdbd76e9b30f52c7dcdc8924d69e1d9692974b2d826eb5da",
+    "experiments/price_probe/Witnesses.lean.inc": "7e29341d65ea9968d192c7c0ead754984126ad288926eb547ca228c3d43d1715"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "Lean exit 0; axioms: propext, Classical.choice, Quot.sound only. 4 witness controls exit 0. 2 changed-target mutants rejected (exit 1).",
+   "where": "html",
+   "files": [
+    "artifacts/integration/codex-api/price-probe.json"
+   ],
+   "sha256": {
+    "artifacts/integration/codex-api/price-probe.json": "513bc9173014f4effdbd76e9b30f52c7dcdc8924d69e1d9692974b2d826eb5da"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "(source sha a5d38f13…)",
+   "where": "fn",
+   "files": [
+    "artifacts/integration/codex-api/price-probe.json"
+   ],
+   "sha256": {
+    "artifacts/integration/codex-api/price-probe.json": "513bc9173014f4effdbd76e9b30f52c7dcdc8924d69e1d9692974b2d826eb5da"
+   }
+  },
+  {
+   "slide": 3,
+   "shown": "Price 1970; the Price–Fisher–Hamilton link is in Frank 1997.",
+   "where": "html",
+   "files": [
+    "planning/rethink/DECISION.md",
+    "planning/rethink/PRICE-PRIOR-ART-AND-PROBE.md"
+   ],
+   "sha256": {
+    "planning/rethink/DECISION.md": "6a9ac643205ec4524a9c3d5282a001cd1b4e06bb6a6a5aaacc9c7192fbb7e424",
+    "planning/rethink/PRICE-PRIOR-ART-AND-PROBE.md": "76a727e4a3f6374297f26a89f05c292561d7890528630af4b2e1dd5ad684f852"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "Assumed: for every admissible mode n, NOT(det(J - qD) < 0). Concluded: for every n, det(J - qD) >= 0.",
+   "where": "html",
+   "files": [
+    "artifacts/integration/codex-api/admissible-review/Admissible.lean",
+    "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md"
+   ],
+   "sha256": {
+    "artifacts/integration/codex-api/admissible-review/Admissible.lean": "c51b98a8c4218c5e272223c5d710de0d765804d78beace544850f9749cf07236",
+    "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md": "1f74952718505d1e5dcae1ac898ab2c0f1cbfc5684ee6469853b479fc413e2f7"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "a revised module compiles every admissible mode has trace < 0 and det > 0 (exit 0, standard axioms). Trace is derived; determinant positivity is assumed.",
+   "where": "html",
+   "files": [
+    "artifacts/integration/codex-api/admissible-review/469874b/compile-review.json",
+    "artifacts/integration/codex-api/admissible-review/469874b/Admissible.lean"
+   ],
+   "sha256": {
+    "artifacts/integration/codex-api/admissible-review/469874b/compile-review.json": "5cb952befeba82b45b0d46f463cbc8e6712c6080704b0f5b104d8fdb7ae0a8fb",
+    "artifacts/integration/codex-api/admissible-review/469874b/Admissible.lean": "d63c4d60e63e81d45bec7bd68d70caee6e0a83f4f4a51566eb6983d29c42fbce"
+   }
+  },
+  {
+   "slide": 4,
+   "shown": "the requirement that det(J - qD) < 0 at an actual admissible q",
+   "where": "html",
+   "files": [
+    "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md"
+   ],
+   "sha256": {
+    "planning/rethink/CODEX-21-CLAIM-FREEZE-REVIEW.md": "1f74952718505d1e5dcae1ac898ab2c0f1cbfc5684ee6469853b479fc413e2f7"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "The scorecard of 21 candidate laws",
+   "where": "html",
+   "files": [
+    "artifacts/integration/codex-api/admissible-review/committed-freeze.json"
+   ],
+   "sha256": {
+    "artifacts/integration/codex-api/admissible-review/committed-freeze.json": "dbf233d1ebe7156576e8e24bb4f7b7f3f6c3c75d4552efde198798eeb482ba0e"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "records in the frozen list 21",
+   "where": "html",
+   "files": [
+    "artifacts/integration/codex-api/admissible-review/committed-freeze.json"
+   ],
+   "sha256": {
+    "artifacts/integration/codex-api/admissible-review/committed-freeze.json": "dbf233d1ebe7156576e8e24bb4f7b7f3f6c3c75d4552efde198798eeb482ba0e"
+   }
+  },
+  {
+   "slide": 5,
+   "shown": "(sha dbf233d1…)",
+   "where": "fn",
+   "files": [
+    "artifacts/integration/codex-api/admissible-review/committed-freeze.json"
+   ],
+   "sha256": {
+    "artifacts/integration/codex-api/admissible-review/committed-freeze.json": "dbf233d1ebe7156576e8e24bb4f7b7f3f6c3c75d4552efde198798eeb482ba0e"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "Prove2Me (arXiv 2608.28433)",
+   "where": "html",
+   "files": [
+    "planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md"
+   ],
+   "sha256": {
+    "planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md": "85f1a26a466b3b31ce766d92250deb90b80032e038111c3bccd0aa63baa90efb"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "Rashid et al. 2017 (HOL Light)",
+   "where": "html",
+   "files": [
+    "planning/rethink/PRIOR-ART-VERDICT.md"
+   ],
+   "sha256": {
+    "planning/rethink/PRIOR-ART-VERDICT.md": "a7dc351be0fdfecc5ce2067e7dcbee7b62860a235588015aec80cddd9d0ce327"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "Ripple (arXiv 2607.13531)",
+   "where": "html",
+   "files": [
+    "planning/rethink/PRIOR-ART-VERDICT.md"
+   ],
+   "sha256": {
+    "planning/rethink/PRIOR-ART-VERDICT.md": "a7dc351be0fdfecc5ce2067e7dcbee7b62860a235588015aec80cddd9d0ce327"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "The 21-record scorecard",
+   "where": "html",
+   "files": [
+    "artifacts/integration/codex-api/admissible-review/committed-freeze.json"
+   ],
+   "sha256": {
+    "artifacts/integration/codex-api/admissible-review/committed-freeze.json": "dbf233d1ebe7156576e8e24bb4f7b7f3f6c3c75d4552efde198798eeb482ba0e"
+   }
+  },
+  {
+   "slide": 6,
+   "shown": "159,129 measured variants; specialists 78/100 equal the single planner 78/100; a plain lazy search reaches 96/100.",
+   "where": "html",
+   "files": [
+    "artifacts/demo.json",
+    "artifacts/core/replay/table_primary.csv",
+    "artifacts/lazysp/results/table_primary.csv"
+   ],
+   "sha256": {
+    "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8",
+    "artifacts/core/replay/table_primary.csv": "530aca14ec7503a6b58c19b2b6ead9eda12db22a956325921849452ea19d41e6",
+    "artifacts/lazysp/results/table_primary.csv": "2e1cd0ac54af789755c23aa2b75aa6ed145d9e6eb6bf638f826c6c3138ebd94f"
+   }
+  }
+ ]
+}

@@ -35,6 +35,7 @@ def main():
     ap.add_argument("--notes", default=str(HERE / "speaker-notes.md"))
     ap.add_argument("--out", default=str(HERE / "timing.json"))
     ap.add_argument("--transition-s", type=float, default=1.5, help="assumed silent gap per slide change (an assumption, reported as such)")
+    ap.add_argument("--cut", action="append", default=[], help="name=1,2,3 : slides kept in a shorter version (repeatable)")
     ap.add_argument("--limit-s", type=float, default=180.0, help="the team's own budget; the organizers publish no limit")
     a = ap.parse_args()
     notes = Path(a.notes).read_text()
@@ -58,8 +59,11 @@ def main():
         r["starts_at_s"] = round(t, 1)
         t += r["seconds"] + a.transition_s
     cuts = {}
-    for name, keep in {"all six slides": [1, 2, 3, 4, 5, 6], "drop slide 2 (landscape)": [1, 3, 4, 5, 6],
-                       "drop slides 2 and 5": [1, 3, 4, 6], "slides 1, 4, 6 only": [1, 4, 6]}.items():
+    cutdef = {"all six slides": [1, 2, 3, 4, 5, 6], "drop slide 2 (landscape)": [1, 3, 4, 5, 6],
+              "drop slides 2 and 5": [1, 3, 4, 6], "slides 1, 4, 6 only": [1, 4, 6]}
+    if a.cut:
+        cutdef = {c.split("=")[0]: [int(x) for x in c.split("=")[1].split(",")] for c in a.cut}
+    for name, keep in cutdef.items():
         s = sum(r["seconds"] for r in rows if r["slide"] in keep) + a.transition_s * (len(keep) - 1)
         cuts[name] = {"slides": keep, "seconds": round(s, 1), "mm_ss": f"{int(s // 60)}:{int(s % 60):02d}"}
     out = {

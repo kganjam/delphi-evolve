@@ -102,5 +102,73 @@
   "Presenter: stopwatch rehearsal; use cuts in timing.json if the real limit is shorter.",
   "Director: tell submit worker if the entry changes; rebuild deck and claim registry.",
   "Before upload: rerun bash presentation/rebuild.sh and confirm exit 0 on the final commit."
- ]
+ ],
+ "delphi_phase": {
+  "written_pdt": "2026-10-31 ~07:45",
+  "spine": "Delphi: from candidate laws to checked theorems (director FINAL SHAPE)",
+  "owns": [
+   "site/delphi/",
+   "presentation/delphi/"
+  ],
+  "does_not_touch": [
+   "site/review/ (Codex API worker)",
+   "presentation/deck.* baseline",
+   "site/index.html baseline"
+  ],
+  "inputs_merged": [
+   "origin/main",
+   "origin/work/codex-api @21c7fd8 (CLAIM-LEDGER F01-F10, P01-P10)",
+   "origin/work/rethink-director"
+  ],
+  "pulled_single_file": "artifacts/gpuops/robustness_tax_check.json from origin/work/gpuops (appendix only, unledgered)",
+  "commands_run": [
+   {
+    "cmd": "bash presentation/delphi/rebuild.sh (systemd-run 4G/swap0/128/600s)",
+    "exit": 0,
+    "result": "deck.html/pdf (6 pages, layout ok, no console errors), site/delphi built, trace 23/23 claims 0 errors, 9 tests passed"
+   },
+   {
+    "cmd": "python3 -m pytest -q presentation/delphi/tests",
+    "exit": 0,
+    "result": "9 passed: gate fails on changed number, pending-replaced-by-number, unclaimed number, fake ledger ID, changed artifact; forbidden-phrase scan; links; assets equal sources; every site number accounted for"
+   },
+   {
+    "cmd": "python3 presentation/time_script.py ... --notes presentation/delphi/speaker-notes.md (4 runs)",
+    "exit": 0,
+    "result": "2:33-2:36 total, synthetic voice"
+   },
+   {
+    "cmd": "playwright desktop 1280 and mobile 390 of site/delphi/index.html",
+    "exit": 0,
+    "result": "scrollWidth equals viewport, 0 console errors, 0 failed requests"
+   }
+  ],
+  "ledger_status_of_what_is_shown": {
+   "Turing strip, Lean instance": "F01 F02",
+   "Mathlib-over-reals probe": "unledgered, director receipt only",
+   "Price/Hamilton": "F07",
+   "own errors": "F04 F05 F08 P01 P05; replacement theorem F10",
+   "scorecard and agent evaluation": "P01 P02 P03 pending (no numbers)",
+   "robustness sweep": "unledgered, appendix only, four ensemble x noise rows shown, no universal-cliff claim, Nodal/Lefty ratio not plotted",
+   "baseline": "B01 B02 B03"
+  },
+  "not_done": [
+   "no tooling/claim added for the 'ten dead headlines' ledger or 'median about an hour' (no committed artifact or ledger row)",
+   "no benchmark/scorecard numbers",
+   "no human rehearsal",
+   "no video recorded",
+   "Delphi PPTX not exported",
+   "no submission receipt"
+  ],
+  "artifacts": {
+   "presentation/delphi/deck.pdf": "054cfb42c2fbe9e937ef9d907f3fb44409205a6872c369fb251b01455739fe48",
+   "presentation/delphi/deck.html": "69b9a0747d846ce946d1bf378f961eaa06d29e929711bc6789cc14eaddac656c",
+   "presentation/delphi/speaker-notes.md": "d8740a16f93af3889801a8d7db1eabdd504dc88dc35704dbdf08a8363db8a6b9",
+   "presentation/delphi/timing.json": "3e36a312c61506b7ea7ae03421d7791242c4092c928b3a32af03d03d1272ab18",
+   "presentation/delphi/number_trace.json": "2e350a85c41fe3c1a941aa2f3c89ef438e3f3edee29bbda0ec95dafb10cf43a6",
+   "site/delphi/index.html": "c05d72a5539ede81424a2fe4765098ab85a2089a223b8aefd3e128f1e90423a3",
+   "site/delphi/appendix.html": "19b4b5b56fdfb2d69dba823476feaa3dbdf3ab00fb6f11ab9b3fd365245c0978",
+   "site/delphi/blog.html": "cfa21204636f161d907143c2410756e47b63ba7060aa3ec12acba2d119487091"
+  }
+ }
 }

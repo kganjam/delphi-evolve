@@ -165,6 +165,24 @@ def error_facts():
     sem = J("artifacts/integration/codex-api/benchmark-semantic-audit.json")
     affected = sem["rayleigh_affected_key_ids"]
     svc = J("artifacts/integration/codex-api/service-fixed-review.json")
+    cr_p = "artifacts/integration/codex-api/admissible-review/469874b/compile-review.json"
+    cr = J(cr_p)
+    new = T("artifacts/integration/codex-api/admissible-review/469874b/Admissible.lean")
+    assert sha("artifacts/integration/codex-api/admissible-review/469874b/Admissible.lean") == cr["source_sha256"]
+    assert re.search(r"def ModeStable \(q : ℝ\) : Prop := T S q < 0 ∧ 0 < D S q", new)
+    thm = re.search(r"theorem finite_domain_linearly_stable.*?:= by", new, flags=re.S).group(0)
+    assert "hwm : WellMixedStable S" in thm and "0 < D S (neumannMode L n)" in thm and "ModeStable S" in thm
+    ax = {}
+    for line in cr["output"].splitlines():
+        m2 = re.match(r"'Admissible\.(\w+)' depends on axioms: \[(.*)\]", line)
+        if m2:
+            ax[m2.group(1)] = sorted(x.strip() for x in m2.group(2).split(","))
+    assert cr["exit"] == 0 and "finite_domain_linearly_stable" in ax
+    repl = {"ledger": "F10", "artifact": cr_p, "source_commit": cr["source_commit"], "compile_exit": cr["exit"],
+            "theorem": "finite_domain_linearly_stable", "predicate": "ModeStable: trace < 0 and determinant > 0",
+            "assumes": "well-mixed stability and strictly positive determinant at every admissible mode", "derives": "trace negativity at every mode",
+            "axioms": ax["finite_domain_linearly_stable"], "audited_declarations": len(ax),
+            "limits": "does not establish the full eigenvalue or PDE correspondence; no new mutants run; compile review is not a target-fidelity approval"}
     return {
         "vacuous_theorem": {
             "ledger": "P01 (note: existing stability theorem names overstate some statements)",
@@ -174,13 +192,13 @@ def error_facts():
             "reviewer": "independent review by the Codex API worker (CODEX-21-CLAIM-FREEZE-REVIEW.md, 'Existing Lean file: specific fidelity failures')",
             "reviewer_text": "a logical restatement; the conclusion is not linear asymptotic stability",
             "compiled_and_axiom_audited": "the review states a clean axiom audit certifies dependencies, not statement fidelity",
-            "replacement": "PENDING: no committed replacement theorem and receipt found in this tree",
+            "replacement": repl,
         },
         "five": [
             {"n": 1, "what": "Thompson: pooled regression read against a buckling envelope", "caught_by": "independent critic review",
              "witness": "descriptive Tallo probe: OLS 0.588 vs SMA 0.780 vs q99-bin 0.632 on the same rows",
              "ledger": "P05 (pending)", "artifact": "artifacts/rethink_director/thompson_tallo_probe.json"},
-            {"n": 2, "what": "Diffusion-ratio threshold taught as universal", "caught_by": "independent review; Lean-checked classification and exact determinant",
+            {"n": 2, "what": "A diffusion-ratio threshold generalized beyond the model it came from", "caught_by": "independent review; Lean-checked classification and exact determinant",
              "witness": "a linear counterexample at diffusion ratio 1.1", "ledger": "F04",
              "artifact": "artifacts/integration/codex-api/service-fixed-review.json"},
             {"n": 3, "what": "Pinned liquid-bridge key used an inadmissible volume-changing mode", "caught_by": "independent Codex API review (not blinded)",
@@ -231,6 +249,7 @@ def baseline_facts():
     return {"ledger": "B01/B02/B03", "measured_nonstop": cnt["measured_nonstop_genotypes"], "imputed_excluded": cnt["unmeasured_nonstop_genotypes"],
             "q2c_1000": int(tp[("q2c", 1000)]["certified"]), "shared_1000": int(tp[("collective_shared", 1000)]["certified"]),
             "lazysp_1000": round(float(lt["alternate"]["resolved@1000"]) * int(lt["alternate"]["episodes"])),
+            "budget": J("artifacts/lazysp/results/summary.json")["tau"],
             "scale": "five ESM2 sizes, 1,100 follow-up episodes: no clear assay-saving benefit (B03)"}
 
 

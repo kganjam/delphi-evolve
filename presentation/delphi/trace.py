@@ -131,6 +131,22 @@ def register():
         return "Assumed: for every admissible mode n, NOT(det(J - qD) < 0). Concluded: for every n, det(J - qD) >= 0."
     claim(4, "Assumed: for every admissible mode n, NOT(det(J - qD) < 0). Concluded: for every n, det(J - qD) >= 0.", [ADM, REV], vac)
 
+    CR = "artifacts/integration/codex-api/admissible-review/469874b/compile-review.json"
+    NEW = "artifacts/integration/codex-api/admissible-review/469874b/Admissible.lean"
+
+    def repl():
+        cr = T.J(CR)
+        new = (R / NEW).read_text()
+        assert T.sha(NEW) == cr["source_sha256"] and cr["exit"] == 0
+        assert re.search(r"def ModeStable \(q : ℝ\) : Prop := T S q < 0 ∧ 0 < D S q", new)
+        thm = re.search(r"theorem finite_domain_linearly_stable.*?:= by", new, flags=re.S).group(0)
+        assert "hwm : WellMixedStable S" in thm and "0 < D S (neumannMode L n)" in thm  # trace derived from hwm, det positivity assumed
+        line = [l for l in cr["output"].splitlines() if "finite_domain_linearly_stable" in l][0]
+        std = set(re.findall(r"\[(.*)\]", line)[0].split(", ")) <= {"propext", "Classical.choice", "Quot.sound"}
+        assert std
+        return f"a revised module compiles every admissible mode has trace < 0 and det > 0 (exit {cr['exit']}, standard axioms). Trace is derived; determinant positivity is assumed."
+    claim(4, "a revised module compiles every admissible mode has trace < 0 and det > 0 (exit 0, standard axioms). Trace is derived; determinant positivity is assumed.", [CR, NEW], repl)
+
     def dd():
         assert re.search(r"det\(J-qD\)<0", rev) and "actual" in rev
         return "the requirement that det(J - qD) < 0 at an actual admissible q"

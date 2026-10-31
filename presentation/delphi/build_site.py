@@ -105,7 +105,7 @@ def landing(f, commit, review_exists):
 <div class="scope"><b>Established mathematics.</b> Price 1970; Frank 1997 links Price, Fisher and Hamilton. In a bounded search we did not find a prior machine-checked Price formalization. This is a statistical regression statement, not a causal cost–benefit rule. A fixed-fitness variance corollary also compiles; it is not Fisher's theorem.</div>
 
 <h2 id="errors">Our own validity errors, caught</h2>
-<div class="card"><h3>The near-vacuous theorem</h3><p><span class="mono">{E(V['name'])}</span> in our Admissible file assumed {E(V['assumed'])} and concluded {E(V['concluded'])}. A restatement: the length hypothesis is unused and it is not linear asymptotic stability. It compiled and passed the axiom audit. An independent reviewer caught it, not us. Replacement stability theorem: {PEND} (no committed theorem and receipt in this tree).</p></div>
+<div class="card"><h3>The near-vacuous theorem</h3><p><span class="mono">{E(V['name'])}</span> in our Admissible file assumed {E(V['assumed'])} and concluded {E(V['concluded'])}. A restatement: the length hypothesis is unused and it is not linear asymptotic stability. It compiled and passed the axiom audit. An independent reviewer caught it, not us. A revised module (Admissible {E(V['replacement']['source_commit'][:7])}) compiles a stronger statement, <span class="mono">{E(V['replacement']['theorem'])}</span>: every admissible mode has trace &lt; 0 and determinant &gt; 0. Trace negativity is derived; determinant positivity is assumed. Lean exit {V['replacement']['compile_exit']}, standard axioms. No new mutants have been run, and the full eigenvalue and PDE correspondence is not established (ledger F10). Mutants for it: {PEND}.</p></div>
 <div class="scroll"><table><tr><th>#</th><th>error</th><th>caught by</th><th>exact witness</th><th>ledger</th></tr>{errs}</table></div>
 <div class="scope">This is the check working, caught by independent review with exact witnesses. It is not a machine detecting its own errors autonomously.</div>
 
@@ -141,7 +141,7 @@ def appendix(f, commit):
 <p>All four rows rise monotonically with the required ratio. The absolute values move by about 10 to 20 points with the noise definition and sampling box, so no single figure is the answer.</p>
 <div class="scope"><b>Scope.</b> {E(R['scope'])}. This is not a universal robustness cliff and not a property of any organism. It has not been through the claim ledger and its prior art is unchecked. A literature ratio for Nodal and Lefty is <b>not plotted</b>: the source numbers have not been read directly in this tree, and a literature point could only be descriptive context. A diffusion-ratio threshold of 10 as a universal rule is false: a linear counterexample uses 1.1.</div>
 <h2>Released enzyme baseline (preserved, with its nulls)</h2>
-<p>{Bl['measured_nonstop']:,} measured non-stop TrpB variants from the authors' CC0 table; {Bl['imputed_excluded']} imputed-only variants excluded. On the retrospective panel, shared specialists {Bl['shared_1000']}/100 equal the single planner {Bl['q2c_1000']}/100 at 1,000 extra assays; a plain lazy search reaches {Bl['lazysp_1000']}/100. Five protein-model sizes did not establish assay savings. No general superiority claim. Full release: the earlier deck and site in this repository.</p>
+<p>{Bl['measured_nonstop']:,} measured non-stop TrpB variants from the authors' CC0 table; {Bl['imputed_excluded']} imputed-only variants excluded. On the retrospective panel, shared specialists {Bl['shared_1000']}/100 equal the single planner {Bl['q2c_1000']}/100 at {Bl['budget']:,} extra assays; a plain lazy search reaches {Bl['lazysp_1000']}/100. Five protein-model sizes did not establish assay savings. No general superiority claim. Full release: the earlier deck and site in this repository.</p>
 <p><a href="index.html">Back to the Delphi page</a></p>
 """
 
@@ -159,7 +159,7 @@ def blog_parts(f):
         ("h2", "Check two: Price to Hamilton, with the assumptions attached"),
         ("p", f"We compiled the finite Price identity, a selection-only lemma that depends on it, and a conditional Hamilton regression theorem that depends on that lemma. Lean exits {P['original_exit']}, the axioms are propext, Classical.choice and Quot.sound only, {len(P['witnesses'])} witness controls exit {P['witness_exit']}, and {len(P['mutants'])} changed-target mutants are rejected. Each assumption (perfect transmission, residual orthogonality, the sign of the cost term) has an exact witness showing what fails without it. This is established mathematics; Price and Frank did the science. It is a regression statement, not a causal cost-benefit rule. Fisher's additive-genetic theorem is not proved (pending), and a second reader has not yet reviewed the statements (pending)."),
         ("h2", "Our own near-vacuous theorem"),
-        ("p", f"One of our theorems, {V['name']}, assumed that no admissible mode has negative determinant and concluded that every mode has non-negative determinant. That is a restatement. It compiled and passed the axiom audit, which certifies proof dependencies and not what a statement says. An independent reviewer caught it, not us. A replacement stability theorem is pending: there is no committed theorem and receipt yet. We list five more validity errors from this team in the page, each caught by independent review with an exact witness. We read this as the check working, with humans and agents reviewing independently. It is not a machine detecting its own errors."),
+        ("p", f"One of our theorems, {V['name']}, assumed that no admissible mode has negative determinant and concluded that every mode has non-negative determinant. That is a restatement. It compiled and passed the axiom audit, which certifies proof dependencies and not what a statement says. An independent reviewer caught it, not us. A revised module now compiles trace negative and determinant positive at every admissible mode; the determinant is assumed, no new mutants have run, and the eigenvalue and PDE correspondence is not established (ledger F10). We list five more validity errors from this team in the page, each caught by independent review with an exact witness. We read this as the check working, with humans and agents reviewing independently. It is not a machine detecting its own errors."),
         ("h2", "What is pending"),
         ("p", f"The scorecard of {Sc['records']} candidate laws checked as theorems has no compiled count yet. The agent evaluation needs a corrected benchmark freeze, an always-refuse baseline, the same checker without a model, and the unguarded agent. A refusal is not a correct answer, and a null will be shown. We do not claim that more agents beat fewer."),
         ("h2", "Appendix material"),
@@ -173,6 +173,34 @@ def render_blog_html(parts):
 
 def render_blog_md(parts):
     return "\n\n".join(("# " if t == "h1" else "## " if t == "h2" else "") + x for t, x in parts) + "\n"
+
+
+def storyboard(f, timing):
+    ps = {r["slide"]: r for r in timing["per_slide"]}
+    mm = lambda t: f"{int(t // 60)}:{int(t % 60):02d}"
+    T, P = f["turing"], f["price"]
+    shots = [
+        (1, "Title and the three columns: Proved, Simulated, Observed", "Hold on the three cards. Cursor rests on 'Observed: None'.",
+         "Caption: 'We ran no experiment. Pending means not yet measured.'", "deck slide 1"),
+        (2, "Turing strip: stable at pi, grows at 3pi/2 and 2pi, stable at 5pi/2", "Highlight the stable cell at pi, then the two growing cells, then 5pi/2.",
+         "Caption: 'Linear-mode statement for one declared model. Only pi and 2pi are Lean-compiled.'", "deck slide 2; then site/review walkthrough, Neumann pi to 2pi control (record after final integration)"),
+        (3, "Price, selection-only lemma, Hamilton regression: the dependency chain", "Trace the two arrows, then open one witness (residual orthogonality dropped).",
+         "Caption: 'Established mathematics. Statement review by a second reader: pending.'", "deck slide 3; site/delphi#price"),
+        (4, "Our own near-vacuous theorem and the five errors", "Zoom on 'Assumed / Concluded', then the replacement line, then the table.",
+         "Caption: 'Caught by independent review with exact witnesses, not by a machine on its own.'", "deck slide 4; site/delphi#errors"),
+        (5, "Scorecard: every result pending", "Slow pan over the pending tags; no numbers other than the record count.",
+         "Caption: 'No scores shown. A null will be shown.'", "deck slide 5; site/delphi#scorecard"),
+        (6, "Credit, what we do not claim, what is pending", "Hold on the credit card, then the closing line.",
+         "Caption: 'Make the assumptions behind a biological-model decision executable and auditable.'", "deck slide 6"),
+    ]
+    out = ["# Video storyboard: Delphi, three-minute walkthrough", "",
+           f"Timings are the measured per-slide start times of a synthetic-voice read-through (`timing.json`, total {timing['total_mm_ss']}); a human presenter will differ. No narration audio has been recorded and no video has been produced; this is a shot list.", "",
+           "| Start | Slide | Shot | Action | Caption | Source |", "|---|---|---|---|---|---|"]
+    for n, shot, act, cap, src in shots:
+        out.append(f"| {mm(ps[n]['starts_at_s'])} | {n} | {shot} | {act} | {cap} | {src} |")
+    out += ["", "Rules for the recording: show the pending tags; never show a benchmark number; do not display any claim not in `planning/rethink/CLAIM-LEDGER.md`; no first-ever, universal-threshold or solved-biology language, and no statement that a named law is wrong.",
+            "Interactive segment (optional, only if time allows): the audited walkthrough at `site/review/` (ledger F09). Recording it is pending until the integration commit is final.", ""]
+    return "\n".join(out)
 
 
 def main():
@@ -193,6 +221,8 @@ def main():
     parts = blog_parts(f)
     (out / "blog.html").write_text(page("Delphi blog", render_blog_html(parts)))
     (HERE / "blog.md").write_text(render_blog_md(parts))
+    if (HERE / "timing.json").exists():
+        (HERE / "storyboard.md").write_text(storyboard(f, json.loads((HERE / "timing.json").read_text())))
     for src, dst in (("deck.pdf", "deck.pdf"), ("deck.html", "deck.html"), ("speaker-notes.md", "speaker-notes.md")):
         shutil.copyfile(HERE / src, out / "assets" / dst)
     print("site written:", sorted(p.name for p in out.iterdir()), "review linked" if review else "review pending")
