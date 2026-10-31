@@ -1,0 +1,54 @@
+{
+  "frozen_before_scored_output": true,
+  "purpose": "Decide whether an NCA is a better inverse-design tool than direct mechanistic or black-box design for a target-wavelength task, and whether existing Delphi Turing records change decisions. MODEL-ONLY: no biological measurement is used or claimed.",
+  "system": {
+    "model": "Schnakenberg reaction-diffusion, a=1/10, b=9/10, Du=1, Dv=d, reaction scale gamma; u*=1, v*=9/10; 1-D Neumann interval length r*pi; dx=pi/4; N=4r cells",
+    "evidence_kind": "simulated (declared model); not observed",
+    "units": "length in units where Du=1; time in 1/gamma units (tau=gamma*t); wavelength lam=2L/m for dominant cosine mode m"
+  },
+  "requests": {
+    "d_values": [10, 20],
+    "r_values": [10, 20, 30, 40],
+    "lambda_targets": [8, 11, 15, 22],
+    "control_d": 1,
+    "note": "32 treatment requests + 16 equal-diffusivity controls (d=1: turing-ddi inequality fails, linearly stable, no pattern expected). Strata: near-onset = d=10 (excess 0.225 <= 1/2); far-from-onset = d=20 (excess 1.81). Domain held-out for NCA training: r in {30,40}. NCA train gamma range [0.7,2.0]; design range [0.5,3.0] so both ends are extrapolation."
+  },
+  "success_definition": {
+    "evaluator": "spectral_strang (exact cosine-mode diffusion + RK4 reaction, dt_tau=0.02), horizon tau=400, noise eps=1e-2, seeds [11,12,13]",
+    "pattern": "std(u) >= 0.1 at horizon",
+    "wavelength": "|2L/m_dom - lambda*|/lambda* <= 0.15 with m_dom the dominant nonzero DCT-II mode of u",
+    "stability": "the same m_dom at tau=360 and tau=400",
+    "per_request": "fraction of 3 seeds that succeed; arm success = mean over requests"
+  },
+  "design_world": {"horizon_tau": 200, "seed": 0, "solver": "euler_fd explicit Euler dt_tau=0.005", "gamma_range": [0.5, 3.0]},
+  "arms": {
+    "C0_formula_no_gate": "gamma = sqrt(d) (2 pi/lam)^2 from the turing-wavelength record formula, applied everywhere, never refuses (claim scope removed)",
+    "D_blackbox": "12 log-spaced gamma in [0.5,3] simulated in design world; choose closest |lam-lam*| among patterned finals (std>=0.1); no claim use",
+    "G_gated": "turing_scope.analyze exact-rational band + finite-domain admissible modes within 15% tolerance; refuse if none (or if pinned Delphi source hash fails); if the wavelength formula is licensed (near onset AND domain >= 5 lambda) use the analytic gamma for the admissible mode nearest lam* with no simulation; otherwise 12 log-spaced gamma inside the union of per-mode instability intervals, simulated in the design world, same selection rule as D",
+    "Gmis_continuum_only": "claim misapplied: candidate interval from the continuum band only, q_target=(2 pi/lam*)^2 ignoring admissible modes; 12 log-spaced gamma, simulated, same selection rule",
+    "N_nca": "NCA (see nca.py) trained on Euler windows; scan 48 log-spaced gamma in [0.5,3] by rolling the NCA to tau=200 from the same noise state; same selection rule",
+    "Nshuf_control": "identical NCA training with the (log gamma, log d) conditioning shuffled across windows; same scan and selection rule"
+  },
+  "nca_training": {"hidden_channels": 6, "mlp_hidden": 128, "dt_nca_tau": 0.005, "window_K": 16, "iters": 3000, "batch": 192, "lr": 0.002, "train_r": [10, 20], "train_gamma": [0.7, 2.0], "train_d": [10, 20], "trajectories_per_r": 48, "seeds": [0, 1, 2]},
+  "claim_ablations": {
+    "removed": "C0 and D arms use no Delphi record",
+    "misapplied": "Gmis arm (continuum band without admissible-mode check)",
+    "record_changed": "pinned content hash of turing-ddi altered in a copy of the pins; gate must refuse every request (compute -> refuse)",
+    "measure": "accept/refuse decision, chosen gamma, simulation budget, and independent-solver success"
+  },
+  "decision_rules": {
+    "NCA_GO_as_inverse_design_tool_requires_ALL": [
+      "N success >= D success - 0.05 on all 32 treatment requests (mean over 3 NCA training seeds)",
+      "N success >= D success - 0.05 on the held-out subset (r in {30,40} or lambda target whose analytic gamma lies outside [0.7,2])",
+      "self-consistent success (judged on the NCA's own final state) minus independent success <= 0.10",
+      "Nshuf success <= N success - 0.20"
+    ],
+    "GATED_CLAIM_GO_requires_ALL": [
+      "on the control requests (d=1) G refuses all and C0 accepts all, and C0 independent success on controls is 0",
+      "G among ACCEPTED treatment requests: independent success >= D success among the same requests - 0.05 with at most half of D's simulation budget",
+      "record_changed ablation refuses 100% of requests"
+    ],
+    "note": "These thresholds are this probe's own choices, set before any scored run; they are not field standards and carry no statistical guarantee. Three IC seeds and three NCA training seeds only; paired per-request differences and raw counts are reported, no confidence interval is invented."
+  },
+  "time_limits": {"probe_wall_target_minutes": 30, "cpu_threads": 2}
+}
