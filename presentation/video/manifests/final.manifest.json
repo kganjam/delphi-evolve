@@ -1,0 +1,178 @@
+{
+ "recorded_seattle": "2026-10-31 01:47:24 PDT",
+ "source": {
+  "mode": "site",
+  "source_dir": "/data/worktrees/delphi-evolve/release/site",
+  "source_tree_sha256": "f8942e9567cf2f0598b1682b851905f571e0e2547f930d0ad0410e90a419d8b3",
+  "source_files": 17,
+  "git_toplevel": "/data/worktrees/delphi-evolve/release",
+  "git_head": "317203a04d597b141a5769cc866fa8489e5af9fe",
+  "git_branch": "work/release",
+  "git_dirty_paths": [],
+  "has_data_demo_json": true
+ },
+ "video": {
+  "path": "presentation/video/darwins-bridge-walkthrough.mp4",
+  "sha256": "194aa80a5a458caf0cdd68d632cce75ed7e2ce789a704c59d0bad4fa5ce0e37e",
+  "bytes": 1706150,
+  "duration_s": 78.08,
+  "resolution": "1280x720",
+  "audio": "none (silent)"
+ },
+ "status": "recorded from a site with data/demo.json",
+ "url_served": "ephemeral 127.0.0.1 port (in-process server, shut down)",
+ "interaction_log": [
+  {
+   "t": 3.3,
+   "step": "hover-map",
+   "ok": true
+  },
+  {
+   "t": 5.9,
+   "step": "click-map",
+   "ok": true
+  },
+  {
+   "t": 8.4,
+   "step": "tab-decision",
+   "ok": true
+  },
+  {
+   "t": 8.5,
+   "step": "scroll-panel",
+   "ok": true
+  },
+  {
+   "t": 11.5,
+   "step": "slider-0",
+   "ok": true
+  },
+  {
+   "t": 12.5,
+   "step": "verdict-at-0",
+   "ok": true,
+   "result": "OPEN \u00b7 MEASURED SUBGRAPH 5-step route, every step admitted Under the assumptions below, each step has a lower bound at or above the previous genotype\u2019s upper bo"
+  },
+  {
+   "t": 15.1,
+   "step": "slider-2",
+   "ok": true
+  },
+  {
+   "t": 16.1,
+   "step": "verdict-at-2",
+   "ok": true,
+   "result": "OPEN \u00b7 MEASURED SUBGRAPH 6-step route, every step admitted Under the assumptions below, each step has a lower bound at or above the previous genotype\u2019s upper bo"
+  },
+  {
+   "t": 18.7,
+   "step": "slider-3",
+   "ok": true
+  },
+  {
+   "t": 19.7,
+   "step": "verdict-at-3",
+   "ok": true,
+   "result": "OPEN \u00b7 MEASURED SUBGRAPH 7-step route, every step admitted Under the assumptions below, each step has a lower bound at or above the previous genotype\u2019s upper bo"
+  },
+  {
+   "t": 22.2,
+   "step": "slider-6",
+   "ok": true
+  },
+  {
+   "t": 23.2,
+   "step": "verdict-at-6",
+   "ok": true,
+   "result": "NO ROUTE CERTIFIABLE \u00b7 AT THIS ASSUMED BOUND No guaranteed-ascending route \u2014 even if every unmeasured genotype were perfect Everything reachable from VFVS under"
+  },
+  {
+   "t": 26.8,
+   "step": "reset",
+   "ok": true
+  },
+  {
+   "t": 26.9,
+   "step": "tab-evidence",
+   "ok": true
+  },
+  {
+   "t": 30.9,
+   "step": "tab-proof",
+   "ok": true
+  },
+  {
+   "t": 31.5,
+   "step": "proof-pane-text",
+   "ok": true,
+   "result": "RECEIPT: COMPILED, MUTANT REJECTED\nDarwinBridge.routeCert_sound; DarwinBridge.blockedCert_sound (conditional on assumed interval containment)\n\nstatus field: completed \u00b7 kernel exit 0 \u00b7 mutant exit 1\n\nBoth exit codes are read from the receipt: the original compiled and the scientific-condition mutant"
+  },
+  {
+   "t": 37.0,
+   "step": "scroll-results",
+   "ok": true
+  },
+  {
+   "t": 37.0,
+   "step": "results-text",
+   "ok": true,
+   "result": "Does asking the right assay save experiments? retrospective replay, not a prospective result\n\nEach policy starts from the same 96 observed genotypes plus the start and target, then pays an oracle for every further measurement. A certificate is issued only from revealed labels; runs without one by the budget stay in the denominator. The single-policy baselines are this repository's own, not ALDE.\n\n"
+  },
+  {
+   "t": 44.5,
+   "step": "open-claims",
+   "ok": true,
+   "result": true
+  },
+  {
+   "t": 44.6,
+   "step": "claims-top",
+   "ok": true
+  },
+  {
+   "t": 45.0,
+   "step": "scenario-valid",
+   "ok": true,
+   "result": {
+    "scenario": "kimura_valid_calculation \u2014 existing Delphi math claim drives a SIMULATED calculation",
+    "guard": "ion s is a per-copy selection coefficient in the evolving population's own environment, NOT an assay score guards passed",
+    "calc": "CALCULATION / REFUSAL {  \"Ne\": 500,  \"fixation_probability\": 0.019801326734058274,  \"neutral_expectation\": 0.001,  \"p\": 0.001,  \"ratio_to_ne"
+   }
+  },
+  {
+   "t": 50.8,
+   "step": "scenario-haploid",
+   "ok": true,
+   "result": {
+    "scenario": "kimura_refused_haploid_model_transfer \u2014 invalid model transfer: haploid population",
+    "guard": "ection coefficient in the evolving population's own environment, NOT an assay score guard failed: model_transfer_refused",
+    "calc": "CALCULATION / REFUSAL ploidy='haploid': the claim is a diploid Wright-Fisher diffusion (4Ne s p). Haploid populations (e.g. E. coli) have a "
+   }
+  },
+  {
+   "t": 56.2,
+   "step": "scenario-trpb-score",
+   "ok": true,
+   "result": {
+    "scenario": "kimura_refused_trpb_assay_score_as_s \u2014 default TrpB request: growth score is not s; names ",
+    "guard": "efficient in the evolving population's own environment, NOT an assay score guard failed: unsupported_quantity_conversion",
+    "calc": "CALCULATION / REFUSAL s_source.kind='trpb_assay_growth_score' is not a selection coefficient. Assay growth scores are not s; refusing. Missi"
+   }
+  },
+  {
+   "t": 61.2,
+   "step": "scroll-changes",
+   "ok": true
+  },
+  {
+   "t": 68.2,
+   "step": "scroll-evidence",
+   "ok": true
+  }
+ ],
+ "console_errors": [],
+ "page_errors": [],
+ "problems": [],
+ "ffmpeg": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+ "captions_policy": "persistent bottom line labels MEASURED vs ASSUMED and states a static Lean receipt is not proof for every slider position; no fabricated lab imagery"
+}

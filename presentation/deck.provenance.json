@@ -1,0 +1,92 @@
+{
+ "built": "2026-10-31 01:49 PDT",
+ "root": "/data/worktrees/delphi-evolve/release",
+ "git": {
+  "head": "fdf01b5efce38a327fadb078c4f8744c15363e82",
+  "branch": "work/release",
+  "inputs_untracked_or_modified": []
+ },
+ "sha256": {
+  "artifacts/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8",
+  "site/data/demo.json": "a6a7484c5a79835247fbbb5d02e91dfdc5383a83afc09ba234179b92cbaf1aa8",
+  "artifacts/proof/receipt.json": "92af8686bf84dbc03f1c0143e08b3fa85cf786118318750be71dbc903b9c9347",
+  "artifacts/integration/core_kappa2_route_lean.json": "3186e2821f313cc4ab473a9daf8537a276f732ec823a4dcf0c0c9ff95b23c510",
+  "artifacts/core/protocol.json": "cc40ddfbcc327d0f547cae3a62016572350a613d9d0a411be64f6b9c22e6ef4f",
+  "site/data/landscape.js": "49252fc834bb547d092ff208f54f9cf534bd05024f0a1db15d2d16d8e0c081bc",
+  "artifacts/evidence/route_summary.json": "d4fc21d06dc4c4e7571b7e1b71465013de11905f636971a499bf29994e15fe34",
+  "artifacts/claim_reuse/demo_receipt.json": "61e2404ae0f028a074de57c000a20b989a9b85ddbf2127684a18f516ce360073",
+  "artifacts/claim_reuse/reuse_benchmark.json": "7f846be79c97113a708b2caf994707912df70365b683fed8a9b908f1c7ec2711",
+  "artifacts/claim_reuse/verification_receipt.json": "2c9bfb1c54de68aba43a6bb68a988b136acc77bbb7769a7f0361e3ef1a2a411d",
+  "artifacts/gpu/compute_block.json": "4fced9f17ee83909e99a62162c9532e9da2755d44a3dbbe819ded30e79b07f5b",
+  "tasks/results/gpu.json": "5ee568e4951200a5540d595b45107f427718dc0399c362c47bc3e08e01b9c302",
+  "artifacts/gpu/orx/receipt.json": "4c26361cf7855a836c4393a339fb616fda7c6cd7d34e4d6bff784e5c3f361279",
+  "artifacts/core/replay/summary.json": "2c8552dc07b870af89560f413ecc7dcb9229c786f8321a6cc1bb5c1f355a8b13",
+  "artifacts/core/replay/table_primary.csv": "530aca14ec7503a6b58c19b2b6ead9eda12db22a956325921849452ea19d41e6",
+  "artifacts/core/replay/table_paired.csv": "e2069c442a1c490eda99154d79b86d585085dfd8a98ba8dbf101cbd8d7056036",
+  "artifacts/core/replay/episodes.csv": "cea6294ec2c14425f693c72d7cfe2d8f0019023504e6a5438149b6ddf1db899b",
+  "artifacts/core/replay/queries/queries__random.tsv.gz": "3ab3344027fc2ec1043ba60890d7388c009ab2bb9dd05f0e18b470ca16f187e0",
+  "artifacts/core/replay/queries/queries__greedy.tsv.gz": "f1c1e34ddc578d1edbe9b9132fc100c5a31b90dab490f83ae5412522d5be7a6b",
+  "artifacts/core/replay/queries/queries__uncertainty.tsv.gz": "72f87dc331008e841d5437475a954cedc28c6aa2e20e1951d674f9c4c074a80d",
+  "artifacts/core/replay/queries/queries__directed.tsv.gz": "c7e95223a77c8301c9b0da89b66eedf5f45f1ec6b111c247ac4de60c1ad3479d",
+  "artifacts/core/replay/queries/queries__q2c.tsv.gz": "5ed13a3a85ae970969a067d9a4040b952e8d0841921714c694d74b6110aa798f",
+  "artifacts/core/replay/queries/queries__collective_shared.tsv.gz": "fb920cb1647ff1622a5614d51712446511b64b820c148278248821d0d7514a67",
+  "artifacts/core/replay/queries/queries__collective_isolated.tsv.gz": "c0c61d3b8a52159f7f9561050ba084c7fd535e742619fb3d16dcfe952a236523",
+  "artifacts/core/replay/queries/queries__q2c_nomodel.tsv.gz": "e5f53b9e954a13d576d0f801142da99563b7318d111a28c6985e47638989fd55",
+  "artifacts/core/replay/queries/queries__collective_shared_c.tsv.gz": "13abfd5804326d8563db706fc127a5c5d69c620d1ca3d3a8cfdcc7052ab877b2",
+  "artifacts/core/replay/queries/queries__collective_isolated_c.tsv.gz": "939cf2cd7daa07ce4616485c569d80a510afe79f95a464b856dee0b1d14af622",
+  "artifacts/core/replay/queries/queries__collective_shared_rr.tsv.gz": "d755d3f4bc13f61ae82a96f989e229acd345d0ae333425e4d3b653de28a866e7"
+ },
+ "mode": "FINAL",
+ "validation_errors": [],
+ "replay_info": {
+  "protocol_seeds": 20,
+  "shards_dir": "/data/worktrees/delphi-evolve/core/artifacts/core/replay/shards",
+  "shards": 220,
+  "empty_shards": 0,
+  "episodes_csv_rows": 1100,
+  "policies_present": [
+   "collective_isolated",
+   "collective_isolated_c",
+   "collective_shared",
+   "collective_shared_c",
+   "collective_shared_rr",
+   "directed",
+   "greedy",
+   "q2c",
+   "q2c_nomodel",
+   "random",
+   "uncertainty"
+  ],
+  "query_trace_verified_policies": [
+   "collective_isolated",
+   "collective_isolated_c",
+   "collective_shared",
+   "collective_shared_c",
+   "collective_shared_rr",
+   "directed",
+   "greedy",
+   "q2c",
+   "q2c_nomodel",
+   "random",
+   "uncertainty"
+  ],
+  "followup_policies_complete": [
+   "q2c_nomodel",
+   "collective_shared_c",
+   "collective_isolated_c",
+   "collective_shared_rr"
+  ],
+  "panel_complete_11": true
+ },
+ "posthoc_arms_shown": [
+  "q2c_nomodel",
+  "collective_shared_c",
+  "collective_isolated_c",
+  "collective_shared_rr"
+ ],
+ "pending": {
+  "lazysp": "pending, not complete at render time (see appendix); no benefit is claimed.",
+  "gpu_prior_replay": "pending, not complete at render time"
+ },
+ "spoken_words": 378
+}

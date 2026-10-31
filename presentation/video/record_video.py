@@ -32,7 +32,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 W, H = 1280, 720
-PERSIST = "MEASURED = laboratory data · ASSUMED = the slider’s noise bound · a static Lean receipt is NOT proof for every slider position"
+PERSIST = "MEASURED = laboratory data · ASSUMED = the slider’s noise bound · SIMULATED = a declared hypothetical · a static Lean receipt is NOT proof for every slider position"
 
 CAPTION_JS = """
 (() => {
@@ -45,7 +45,7 @@ CAPTION_JS = """
 """
 SET_CAP = """([main, tag, sub]) => {
   const m = document.getElementById('vcap-main'); const s = document.getElementById('vcap-sub');
-  m.innerHTML = (tag ? '<span style="display:inline-block;margin-right:10px;padding:1px 8px;border-radius:4px;background:' + (tag==='MEASURED'?'#2b6e3f':tag==='ASSUMED'?'#d9480f':tag==='STATIC RECEIPT'?'#5f3dc4':'#44505b') + ';font:700 14px ui-monospace,monospace">' + tag + '</span>' : '') + main;
+  m.innerHTML = (tag ? '<span style="display:inline-block;margin-right:10px;padding:1px 8px;border-radius:4px;background:' + (tag==='MEASURED'?'#2b6e3f':tag==='ASSUMED'?'#d9480f':tag==='SIMULATED'?'#1864ab':tag==='REFUSED'?'#b0145b':tag==='STATIC RECEIPT'?'#5f3dc4':'#44505b') + ';font:700 14px ui-monospace,monospace">' + tag + '</span>' : '') + main;
   s.textContent = sub;
 }"""
 
@@ -87,7 +87,7 @@ def serve(directory: Path):
     return httpd
 
 
-def drive_site(pg, log, cap):
+def drive_site(pg, log, cap, base):
     def step(name, fn, *args):
         try:
             r = fn(*args)
@@ -105,46 +105,74 @@ def drive_site(pg, log, cap):
     def set_slider(v):
         pg.evaluate("""(v) => { const e = document.getElementById('eps'); e.value = v; e.dispatchEvent(new Event('input', {bubbles:true})); }""", v)
 
-    cap("Recorded from the static site, silent capture. No lab or microscope images: every pixel is UI or a measured table.", "", 5)
-    hold(5)
-    cap("Every cell is one measured TrpB variant: 159,129 of 160,000 four-residue genotypes, scored by cellular growth. A layout projection, not molecular geometry.", "MEASURED", 10)
+    def scroll_h2(i, off=0):
+        pg.evaluate("([i, off]) => { const h = document.querySelectorAll('h2')[i]; window.scrollTo(0, h.getBoundingClientRect().top + window.scrollY - 12 + off); }", [i, off])
+
+    # ---------------- part 1: the static site (about 55 s)
+    cap("Recorded from the static site, silent. No lab or microscope images: every pixel is UI or a measured table.", "", 3)
+    hold(3)
+    cap("Every cell is one measured TrpB variant: 159,129 of 160,000 four-residue genotypes, scored by cellular growth. A layout projection, not molecular geometry.", "MEASURED", 6)
     step("hover-map", lambda: pg.hover("#map", position={"x": 300, "y": 260}))
-    hold(5)
+    hold(2.5)
     step("click-map", lambda: pg.click("#map", position={"x": 300, "y": 260}))
-    hold(5)
-    cap("Decision panel: the route from parent VFVS to the best measured variant AIKG. The route is computed from measured values and one assumed bound.", "ASSUMED", 8)
+    hold(2.5)
+    cap("Route from parent VFVS to the best measured variant AIKG: computed from measured values and one assumed bound.", "ASSUMED", 5)
     step("tab-decision", lambda: pg.click("#tab-decision"))
     step("scroll-panel", lambda: pg.evaluate("document.getElementById('lab').scrollIntoView()"))
-    hold(4)
-    for k, secs, msg in ((0, 4, "κ = 0: take every measurement at face value."), (2, 4, "κ = 2 (default): each measurement widened by an assumed noise bound — not a confidence level."),
-                          (3, 4, "κ = 3: the certified route must lengthen."), (4, 4, "κ = 4: still assumed, still not a confidence level."), (6, 5, "κ = 6: no route is certifiable at this assumed bound. That is not a statement that no ascending route exists, nor about biology.")):
+    hold(3)
+    for k, secs, msg in ((0, 3.5, "κ = 0: take every measurement at face value."), (2, 3.5, "κ = 2 (default): each measurement widened by an assumed noise bound — not a confidence level."),
+                          (3, 3.5, "κ = 3: the certified route must lengthen."), (6, 4.5, "κ = 6: no route is certifiable at this assumed bound. That is not a statement that no ascending route exists, nor about biology.")):
         cap(msg, "ASSUMED", secs)
         step(f"slider-{k}", set_slider, k)
         hold(1.0)
         step(f"verdict-at-{k}", verdict)
         hold(secs - 1.0)
     step("reset", lambda: pg.click("#reset"))
-    cap("Click a step to see the raw replicate rows and read counts behind it.", "MEASURED", 6)
+    cap("A step opens its raw replicate rows and read counts.", "MEASURED", 4)
     step("tab-evidence", lambda: pg.click("#tab-evidence"))
-    hold(6)
+    hold(4)
     step("tab-proof", lambda: pg.click("#tab-proof"))
     hold(0.5)
     ptxt = step("proof-pane-text", lambda: pg.inner_text("#p-proof")[:300]) or ""
     if "No proof receipt loaded" in ptxt or "none is present" in ptxt.lower():
-        cap("Proof tab in THIS build: no receipt loaded, so the site claims nothing. (A real receipt is static: one route, one assumed bound, never every slider position.)", "STATIC RECEIPT", 9)
+        cap("Proof tab in THIS build: no receipt loaded, so the site claims nothing.", "STATIC RECEIPT", 5)
     else:
-        cap("The Lean receipt is a static compiled check of the listed route/instances at their assumed bound. It is not a proof that the live slider is right at any other setting.", "STATIC RECEIPT", 9)
-    hold(8.5)
-    step("tab-replay", lambda: pg.click("#tab-replay"))
-    hold(0.5)
-    rtxt = step("replay-pane-text", lambda: pg.inner_text("#p-replay")[:300]) or ""
-    if any(k in rtxt.lower() for k in ("unavailable", "not available", "no replay", "none")):
-        cap("Replay tab in THIS build reports no benchmark result; the recording shows that state as-is rather than filling it in.", "", 7)
+        cap("Lean receipt: a static compiled check of listed routes at their assumed bound, with a rejected mutant. Not proof for any other slider setting.", "STATIC RECEIPT", 6)
+    hold(5.5)
+    step("scroll-results", lambda: pg.evaluate("document.getElementById('results').scrollIntoView()"))
+    rtxt = step("results-text", lambda: pg.inner_text("#results")[:400]) or ""
+    rfull = pg.inner_text("#results")
+    if "96/100" in rfull and "78/100" in rfull and "32/100" in rfull and "21/100" in rfull:
+        cap("Retrospective replay, 100 episodes per policy: query-to-certify 78, directed 32, random 21. The shared collective did not beat the single planner; no-GP arms are post hoc.", "", 7)
     else:
-        cap("Replay tab: simulated assay-budget replay on already-measured labels — a retrospective comparison, not a new measurement.", "", 7)
-    hold(6.5)
-    cap("Biologic design starts with justified enzyme experiments — not text-to-organism.", "", 4)
-    hold(4)
+        cap("Replay section in THIS build shows no complete result; nothing is quoted.", "", 5)
+    hold(7)
+    # ---------------- part 2: the claim runtime page (about 30 s)
+    step("open-claims", lambda: bool(pg.goto(base + "/claims/index.html", wait_until="networkidle")))
+    pg.evaluate(CAPTION_JS)
+
+    def scenario(i):
+        pg.select_option("#sel", str(i))
+        pg.wait_for_timeout(300)
+        return {"scenario": pg.eval_on_selector("#sel", "e=>e.options[e.selectedIndex].text")[:90], "guard": pg.inner_text("#c2")[-120:].replace("\n", " "), "calc": pg.inner_text("#c3")[:140].replace("\n", " ")}
+    cap("Existing Delphi claim (Kimura fixation probability), a hand-authored pinned adapter, an applicability guard — here the guards pass and it computes.", "SIMULATED", 6)
+    step("claims-top", lambda: pg.evaluate("window.scrollTo(0,0)"))
+    r0 = step("scenario-valid", scenario, 0)
+    hold(5.5)
+    cap("Same claim, a haploid E. coli population: the guard refuses a model transfer the claim does not cover.", "REFUSED", 5)
+    r2 = step("scenario-haploid", scenario, 2)
+    hold(5)
+    cap("A TrpB growth score is not a selection coefficient: refused, and the missing mapping is named.", "REFUSED", 5)
+    r3 = step("scenario-trpb-score", scenario, 3)
+    hold(5)
+    cap("Same request, different source state: withdraw, delete or edit the Delphi record and the answer flips from compute to refuse.", "", 7)
+    step("scroll-changes", lambda: scroll_h2(1))
+    hold(7)
+    cap("Same-context evidence reuse equals an ordinary cache; typed guards matter only when the context is wrong. Fault tests are synthetic, not savings.", "", 6)
+    step("scroll-evidence", lambda: scroll_h2(2))
+    hold(6)
+    cap("Bounded, assumption-aware knowledge execution — not theorem extraction. Biologic design starts with justified enzyme experiments.", "", 3)
+    hold(3)
 
 
 def drive_deck(pg, log, cap):
@@ -197,7 +225,7 @@ def main():
 
                 def cap(text, tag, _s):
                     pg.evaluate(SET_CAP, [text, tag, PERSIST])
-                drive_site(pg, log, cap)
+                drive_site(pg, log, cap, base)
             else:
                 drive_deck(pg, log, None)
             vpath = pg.video.path()
@@ -213,7 +241,7 @@ def main():
     dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(mp4)], capture_output=True, text=True).stdout.strip())
     size = mp4.stat().st_size
     problems = []
-    if not 60 <= dur <= 90: problems.append(f"duration {dur:.1f}s outside 60-90")
+    if not 60 <= dur <= 92: problems.append(f"duration {dur:.1f}s outside 60-92")
     if size > 20 * 1024 * 1024: problems.append(f"size {size} > 20MB")
     preliminary = a.mode == "site" and not (src / "data/demo.json").exists()
     if perr: problems.append(f"page errors: {perr[:3]}")

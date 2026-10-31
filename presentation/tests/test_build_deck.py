@@ -50,7 +50,7 @@ def test_five_seed_run_rejected_against_twenty_seed_protocol(tmp_path):
     p2 = root2 / "artifacts/core/protocol.json"
     d = json.loads(p2.read_text()); d["seeds"] = 20; p2.write_text(json.dumps(d))
     e, _ = V.validate_replay(root2)
-    assert any("seeds=5" in x for x in e) and any("!= 0..19" in x for x in e)
+    assert any("seeds=5" in x for x in e) and any("25 episodes != 20 seeds x 5 = 100" in x for x in e)
 
 
 def test_final_mode_refuses_bad_data_and_draft_mode_has_no_replay_numbers(tmp_path):
@@ -70,11 +70,38 @@ def test_final_render_from_complete_fixture(tmp_path):
     r = run(root, out)
     assert r.returncode == 0, r.stderr
     h = (out / "deck.html").read_text()
-    assert 'class="draft"' not in h and "false certificates among" in h and "EXPLORATORY FOLLOW-UP" in h
+    assert 'class="draft"' not in h and "false certificates among" in h and "POST HOC arms" in h
     assert h.count('class="slide"') == 6
+    assert "spoken words:" in r.stdout and int(r.stdout.split("spoken words:")[1].split()[0]) <= 420
+
+
+def test_eleven_arm_panel_accepted_only_when_complete_and_verified(tmp_path):
+    root = mk(tmp_path / "r", with_followup=True, shards=False, queries=True) if (tmp_path / "r").mkdir() is None else None
+    e, info = V.validate_replay(root)
+    assert e == [] and info["panel_complete_11"] and info["shards"] == 0 and len(info["query_trace_verified_policies"]) == 11
+
+
+def test_query_trace_tamper_rejected_when_shards_absent(tmp_path):
+    root = mk(tmp_path / "r", with_followup=True, shards=False, queries=True, drop_query_row=True) if (tmp_path / "r").mkdir() is None else None
+    e, _ = V.validate_replay(root)
+    assert any("q2c" in x and "query trace disagrees" in x for x in e)
+
+
+def test_no_shards_and_no_traces_is_rejected(tmp_path):
+    root = mk(tmp_path / "r", shards=False, queries=False) if (tmp_path / "r").mkdir() is None else None
+    e, _ = V.validate_replay(root)
+    assert e and any("neither shards nor committed query trace" in x or "cannot be verified" in x for x in e)
+
+
+def test_empty_shard_in_posthoc_arm_rejected(tmp_path):
+    root = mk(tmp_path / "r", with_followup=True) if (tmp_path / "r").mkdir() is None else None
+    (root / "artifacts/core/replay/shards/q2c_nomodel__seed03.json").write_text('{"rows": [], "qlogs": {}}')
+    e, _ = V.validate_replay(root)
+    assert any("zero rows" in x for x in e)
 
 
 def test_incomplete_followup_arm_is_not_shown(tmp_path):
     root = mk(tmp_path / "r", with_followup=True, followup_partial=True) if (tmp_path / "r").mkdir() is None else None
     e, info = V.validate_replay(root)
-    assert e == [] and any("follow-up arm" in x for x in info["warnings"]) and info["followup_policies_complete"] == []
+    assert e == [] and any("post-hoc arm collective_shared_rr incomplete" in x for x in info["warnings"])
+    assert "collective_shared_rr" not in info["followup_policies_complete"] and not info["panel_complete_11"]
