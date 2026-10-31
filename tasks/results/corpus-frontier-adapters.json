@@ -1,0 +1,55 @@
+{
+  "role": "corpus-frontier-adapters",
+  "status": "completed (awaiting Codex-03 review)",
+  "completed_utc": "2026-10-31T18:30:00Z",
+  "model": "Claude Sonnet 5.5, managed subscription; no metered spend known",
+  "branch": "work/corpus",
+  "commit": "4c51ad81dc085c64cfed508e3fba7f83eb39773e (adapters); this record committed on top",
+  "labels": "single-reader, not Codex-reviewed; nothing accepted, submitted or published",
+  "summary": "Delphi Claim adapter, OpenResearch Evidence adapter, explicit replay script, unsigned nanopub draft exporter and bundle assembler; one real orx run imported as a proposed Evidence record pinned to a proposed turing-ddi Claim.",
+  "commands_run": [
+    {
+      "cmd": "git clone alphaXiv/OpenResearch; checkout 703fd4bba66311625cf7e0b0776a0f949d3f4c73",
+      "exit": 0
+    },
+    {
+      "cmd": "orx 0.2.23 up/create-experiment/exp run in a throwaway HOME, telemetry off, systemd-run scope (4G, TasksMax 128)",
+      "exit": "runs done; exit_code file 0; DB exit_code NULL"
+    },
+    {
+      "cmd": "replay of the exported run under python3.12 and python3.13 plus a mutation control",
+      "exit": "byte-identical x2; control changed output"
+    },
+    {
+      "cmd": "python3 -m unittest frontier_adapters.tests.test_adapters (FRONTIER_PATH set)",
+      "exit": "26 tests OK"
+    },
+    {
+      "cmd": "same suite with FRONTIER_PATH unset",
+      "exit": "OK (skipped=3), skips reported"
+    },
+    {
+      "cmd": "rdflib 7.6.0 (MorphoSwarm studio venv) parse of both drafts",
+      "exit": "exactly 4 named graphs each; a draft with provenance removed parses as 3 and is caught by validate_trig"
+    }
+  ],
+  "artifacts": [
+    "frontier_adapters/",
+    "frontier_adapters/examples/turing_bundle/",
+    "/data/artifacts/delphi-evolve-rethink/messages/corpus-to-codex03.md",
+    "/data/artifacts/delphi-evolve-rethink/messages/openresearch-integration.md"
+  ],
+  "limitations": [
+    "OpenResearch checked on the local backend only",
+    "Wolfram source not re-fetched (copyright); Darwin/Thompson verified for the demo claims only",
+    "namespace node-a / issuer importer are placeholders",
+    "Frontier validation used main@52a773c; later foundation changes not re-validated",
+    "no independent party has re-executed the run"
+  ],
+  "next_steps": [
+    "Codex-03 review and decision on where adapters live",
+    "go/no-go on bulk 880-claim draft generation",
+    "typed-evidence-claim adapter (not built)"
+  ],
+  "communication": "files only; no tmux to codex-03 or the user pane"
+}
