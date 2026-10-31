@@ -1,0 +1,386 @@
+{
+ "role": "guilds",
+ "branch": "work/guilds",
+ "status": "completed_with_nulls_and_open_holds",
+ "commit": "7b4d2b6fe8f2fa6ad8385654207dce33b6052199",
+ "wall_times_pdt": "2026-10-31 06:30-08:40 PDT (Seattle)",
+ "scope_history": "Assigned guilds (information-asymmetry forecasting) -> killed by primary's pooled-evidence objection -> repointed to shared verified commons + multi-model adapter + with/without arm -> four-arm Lean runner (director reassignment). Information-asymmetry design was not built.",
+ "deliverables": {
+  "multi_family_adapter": {
+   "status": "done",
+   "path": "lean_commons/adapters.py",
+   "live_verified": {
+    "claude": "claude-sonnet-5-5 via CLI on managed Max accounts (account recorded per call: max_allen/max_gmail/max_outlook/max_outlook1 observed)",
+    "gpt": "gpt-5.6-sol read from codex rollout file, isolated CODEX_HOME (probe only; codex allocation later unavailable)",
+    "gemini": "gemini-3.8-flash served-model from response, event key, thinking tokens counted",
+    "glm": "glm-4.5 probe OK (1 tiny call); real-prompt calls timed out 3/3 (240 s, 0 tokens)",
+    "minimax": "MiniMax-M3.1-Flash OK on real prompts (served-model label is the CLI's echo, not independent attestation)",
+    "grok": "not exercised: only managed account rate-limited until 2026-11-03 03:15"
+   },
+   "traps": [
+    "orchestra acquire_credentials(preferred=glm|minimax|gemini|max_allen) returns a Claude Max account, not the requested one",
+    "codex home AGENTS.md/memories would reach model without isolated CODEX_HOME",
+    "gemini thinking tokens consume maxOutputTokens (MAX_TOKENS truncation) unless headroom added"
+   ]
+  },
+  "token_accounting": {
+   "status": "done",
+   "path": "lean_commons/accounting.py",
+   "note": "per-call JSONL with provider-reported uncached/cache-read/cache-creation/output tokens, atomic reservations after Codex finding, cost_basis per call; CLI list-price figures are estimates not spend"
+  },
+  "context_firewall_for_forecasting_guilds": {
+   "status": "abandoned_by_redirect",
+   "note": "built and tested briefly then removed when the design was killed; not part of the final tree"
+  },
+  "frozen_prompt_contract": {
+   "status": "done",
+   "path": "lean_commons/CONTRACT.md",
+   "sha256": "f788e88ed2a20030d4686c79721b51b1c16aee8cf5b8e9b4d3969c7ce3548272"
+  },
+  "forecasts_in_market_store": {
+   "status": "not_done",
+   "reason": "evidence-market design rejected by director; no market store was integrated"
+  }
+ },
+ "lean_verified_library_experiment": {
+  "statements": "19 integer-arithmetic SURROGATES (Turing finite-domain algebra, quadratic discriminant, Hamilton r*B-C, Hawk-Dove payoff inequalities), core Lean 4.35.0, written by the experimenter; Codex fidelity review pending/in progress; NOT the 21-record Mathlib scorecard",
+  "hashes": {
+   "targets": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce",
+   "defs": "0201bbe3a2c022a5ab647b43e9804355a34c6795ba8a78836c9938a88e50ef30",
+   "manifest": "lean_commons/FREEZE.sha256 (original) and FREEZE-AMENDED.sha256 (post-repair)"
+  },
+  "validation": "19/19 reference proofs compile (axioms propext/Classical.choice/Quot.sound), 19/19 paired false mutants rejected, under the repaired checker",
+  "design": "same model (Claude Sonnet 5.5), 3 replicates, 30 model calls per run (call-matched, tokens/time not matched), arms S shared / P private / Q sequential / N none / D deterministic tactics",
+  "primary_result": {
+   "certified_per_run": {
+    "N": [
+     19,
+     19,
+     19
+    ],
+    "P": [
+     19,
+     19,
+     19
+    ],
+    "Q": [
+     19,
+     19,
+     19
+    ],
+    "S": [
+     19,
+     19,
+     19
+    ]
+   },
+   "note": "ceiling null: every arm certified 19/19 in every run; deterministic tactics 4/19 (T01,T02,D01,D02)"
+  },
+  "calls_to_complete": {
+   "N": [
+    24,
+    21,
+    21
+   ],
+   "P": [
+    22,
+    22,
+    22
+   ],
+   "Q": [
+    19,
+    21,
+    20
+   ],
+   "S": [
+    21,
+    22,
+    21
+   ]
+  },
+  "tokens": {
+   "N": [
+    85998,
+    71349,
+    72122
+   ],
+   "P": [
+    79678,
+    82133,
+    80149
+   ],
+   "Q": [
+    71861,
+    81411,
+    78108
+   ],
+   "S": [
+    75858,
+    84090,
+    79784
+   ]
+  },
+  "wall_s": {
+   "N": [
+    117.7,
+    92.9,
+    93.5
+   ],
+   "P": [
+    77.1,
+    95.8,
+    115.3
+   ],
+   "Q": [
+    141.5,
+    220.1,
+    187.7
+   ],
+   "S": [
+    58.6,
+    71.9,
+    93.2
+   ]
+  },
+  "reuse_proof_term_library_deps": {
+   "N": [
+    0,
+    0,
+    0
+   ],
+   "P": [
+    9,
+    7,
+    9
+   ],
+   "Q": [
+    14,
+    14,
+    14
+   ],
+   "S": [
+    13,
+    13,
+    14
+   ]
+  },
+  "cross_agent_deps": {
+   "N": [
+    0,
+    0,
+    0
+   ],
+   "P": [
+    0,
+    0,
+    0
+   ],
+   "Q": [
+    0,
+    0,
+    0
+   ],
+   "S": [
+    8,
+    7,
+    6
+   ]
+  },
+  "interpretation": "No gap by the preregistered rule (intervals overlap on every outcome). Reuse is real (proof-term deps: N 0, P 7-9, Q 14, S 13-14 of which 6-8 cross-agent) but did not lower calls or tokens; library prompts cost roughly what reuse saves. Wall time is lower for S (parallel) than Q (sequential) - a parallelism effect, not evidence about sharing (S vs P overlap). Consistent with Berlot-Attwell 2504.03048; not a new mechanism.",
+  "rescore_after_codex_finding": {
+   "proofs": 228,
+   "strict": 228,
+   "reconstruction_failures": 0,
+   "mutants_accepted": 0,
+   "helper_structure_violations": 0,
+   "loophole_used_by_any_recorded_response": false,
+   "basis": "text scan of 357 parsed responses + reconstruction/fidelity/mutant replay of all 228 accepted proofs"
+  },
+  "heterogeneous_arms": "NOT COMPLETED/UNSCORED: first attempt hit GPT allocation failure (codex_outlook unavailable), second Gemini truncation (adapter handicap, fixed), third GLM endpoint unresponsive; fourth stopped by director hold. Partial files kept in artifacts/commons/aborted/. See PREREG Addenda A-C."
+ },
+ "bench_v12_headroom_check": {
+  "prereg": "bench_headroom/PREREG.md (committed before the run)",
+  "key_sha256": "28645a12f2f4c77fc1acedb10b23b4070832eefa381b88ca65a12b9e4ecdaa2f",
+  "payload_sha256": "6c571db13a63d5dc8e8b5e5fadda601471f9a0a4fad6053f798395a48f78ee42",
+  "arms_run": "U unguarded single model, prompt text only, 127 calls per family, fixed system prompt, no tuning; R always-refuse and B0/constant policies from critic's baseline_scores.json (not recomputed)",
+  "arm_not_run": "same model with the exact checker tool (no MCP/tool path or oracle layer on this branch)",
+  "claude_sonnet_5_5": {
+   "N": 127,
+   "answered": 127,
+   "coverage": 1.0,
+   "errors_among_answered": 6,
+   "selective_risk": 0.0472,
+   "accuracy_abstain_as_wrong": 0.9528,
+   "accuracy_cp95": [
+    0.9,
+    0.9825
+   ],
+   "false_acceptance": {
+    "count": 0,
+    "denominator": 65
+   },
+   "false_refusal": {
+    "count": 5,
+    "denominator": 62
+   },
+   "confusion_truth_x_pred": {
+    "applies|underdetermined": 1,
+    "applies|applies": 57,
+    "underdetermined|underdetermined": 14,
+    "out_of_scope|out_of_scope": 50,
+    "applies|out_of_scope": 4,
+    "out_of_scope|underdetermined": 1
+   },
+   "tokens": 206230
+  },
+  "claude_errors_by_family": {
+   "fisher_kpp_speed": {
+    "errors": 1,
+    "N": 16
+   },
+   "greenhill_buckling": {
+    "errors": 1,
+    "N": 13
+   },
+   "hamilton_rule_form": {
+    "errors": 0,
+    "N": 16
+   },
+   "hawk_dove_ess": {
+    "errors": 0,
+    "N": 16
+   },
+   "kimura_regime": {
+    "errors": 2,
+    "N": 16
+   },
+   "turing_2d_rectangle": {
+    "errors": 1,
+    "N": 15
+   },
+   "turing_finite_domain": {
+    "errors": 0,
+    "N": 21
+   },
+   "wavelength_formula_licence": {
+    "errors": 1,
+    "N": 14
+   }
+  },
+  "gemini_3_8_flash": {
+   "N": 127,
+   "answered": 127,
+   "coverage": 1.0,
+   "errors_among_answered": 17,
+   "selective_risk": 0.1339,
+   "accuracy_abstain_as_wrong": 0.8661,
+   "accuracy_cp95": [
+    0.7944,
+    0.92
+   ],
+   "false_acceptance": {
+    "count": 1,
+    "denominator": 65
+   },
+   "false_refusal": {
+    "count": 11,
+    "denominator": 62
+   },
+   "confusion_truth_x_pred": {
+    "applies|underdetermined": 9,
+    "underdetermined|underdetermined": 14,
+    "out_of_scope|out_of_scope": 45,
+    "applies|applies": 51,
+    "out_of_scope|underdetermined": 5,
+    "applies|out_of_scope": 2,
+    "out_of_scope|applies": 1
+   },
+   "tokens": 180433
+  },
+  "gemini_errors_by_family": {
+   "fisher_kpp_speed": {
+    "errors": 0,
+    "N": 16
+   },
+   "greenhill_buckling": {
+    "errors": 6,
+    "N": 13
+   },
+   "hamilton_rule_form": {
+    "errors": 0,
+    "N": 16
+   },
+   "hawk_dove_ess": {
+    "errors": 0,
+    "N": 16
+   },
+   "kimura_regime": {
+    "errors": 1,
+    "N": 16
+   },
+   "turing_2d_rectangle": {
+    "errors": 3,
+    "N": 15
+   },
+   "turing_finite_domain": {
+    "errors": 0,
+    "N": 21
+   },
+   "wavelength_formula_licence": {
+    "errors": 7,
+    "N": 14
+   }
+  },
+  "dev_families_errors": {
+   "claude": 0,
+   "gemini": 0
+  },
+  "interpretation": "Claude 121/127 (95.3%) meets the preregistered >=95% 'no headroom' rule only barely; its 6 errors are all on held-out families and 5 of 6 are false refusals; Gemini 110/127 (86.6%) has headroom concentrated in wavelength_formula_licence (7/14 wrong) and greenhill_buckling (6/13 wrong), i.e. exactly the families with convention dependence. Item-level intervals are descriptive; effective n is 8 families. Not a model ranking. Says nothing about tissues; declared-model checks only."
+ },
+ "independent_review_findings_applied": [
+  "target-weakening False->False loophole (Codex): fixed, tested, no recorded response used it",
+  "non-atomic budget (Codex): fixed, tested",
+  "regex reuse (Codex): proof-term deps, with a positive control that caught my own first extractor returning empty",
+  "publish-before-replay ordering (Codex): fixed, tested"
+ ],
+ "commands": [
+  {
+   "cmd": "python -m lean_commons.validate_targets",
+   "exit": 0
+  },
+  {
+   "cmd": "python -m lean_commons.run_registered (12 runs, systemd scopes)",
+   "exit": "12/12 exit 0 (artifacts/commons/runs/*.exit)"
+  },
+  {
+   "cmd": "python -m lean_commons.deterministic",
+   "exit": 0
+  },
+  {
+   "cmd": "python -m lean_commons.audit artifacts/commons/runs '<arm>_r*/' (x4, rescoring)",
+   "exit": "4/4 exit 0"
+  },
+  {
+   "cmd": "python -m pytest tests/test_lean_commons.py -k 'not deterministic'",
+   "exit": 0,
+   "result": "27 passed, 1 deselected (the slow deterministic-arm test, which passed in an earlier run before the checker repair)"
+  },
+  {
+   "cmd": "python -m bench_headroom.run claude|gemini + score",
+   "exit": 0
+  }
+ ],
+ "limitations": [
+  "statements are experimenter-written integer surrogates; Codex fidelity review of all 19 is advisory text only, no sign-off recorded",
+  "3 replicates per arm; call-matched not compute-matched; single task panel; ceiling reached so the primary outcome is uninformative",
+  "one reference proof per target written by the experimenter; mutants hand-chosen",
+  "Mathlib/21-record tier not started (hold); heterogeneous arms unscored; GPT, GLM, Grok effectively unavailable",
+  "bench headroom: no checker-tool arm; same-family scoring key authorship; item non-independence",
+  "subscription accounts only; actual metered charge: none incurred by this role (Gemini event key unmetered/unverified)"
+ ],
+ "next_steps": [
+  "await Codex sign-off on checker repair; then optionally a Mathlib tier ONLY after a reviewed freeze of the 21-record statements",
+  "build the checker-tool arm (MCP) if the director wants the third bench arm",
+  "rerun multi-family arms under the repaired checker once GPT/GLM allocations are healthy"
+ ]
+}
