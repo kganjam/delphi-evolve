@@ -599,6 +599,40 @@
      "5586efc"
     ]
    }
+  },
+  {
+   "id": "R21",
+   "claim": "Our Frontier seed questions and the morphoswarm open-problems register are actionable research content",
+   "stated_by": "codex-api (the seeds); host (the register framing)",
+   "kind": "design defect (measured against our own schema; single-reader, NOT Codex-reviewed)",
+   "claim_ref": [
+    "commit",
+    "5165177",
+    "rethink-critic"
+   ],
+   "kill_ref": [
+    "commit",
+    "4e10ce0",
+    "../delphi-frontier/foundation"
+   ],
+   "witness": "repo kganjam/delphi-frontier (local /data/worktrees/delphi-frontier/foundation), commit 4e10ce0: seeds/frontier-problems.json, git blob eeb8ccb033c4322a9a10e777363421c49f416c54, sha256 3bf14a9cfafcf44b348508914f00ff932254d3825be8c2f6a809cc26cc4e12ee (critic re-hashed both from the commit); ledger/README.md row 16 carries the reproduction command (dx-market validator, work/market). Reported by the host, not re-run by the critic: validator returns 0 of 7 bounded, 0 ready, 0 with a consequence estimate, 105 issues (missing 49, bad_enum 14, untyped_edge 14, bad_ref 14, unpinned 7, bad_estimate 7); at 4e10ce0, 0 of 250 morphoswarm register problems could enter the Problem model (it required acceptance_criteria, falsifiers, next_action, cost_stop_bounds, none of which the register has; extra=forbid; no unlocks field). Host correction (the earlier relay said every one of the 250 carried a pmcid, locator and verbatim quote: FALSE): register sha256 a0155552a2bcda40688d38e95c4069828922d21042c87c9c6cf96311de94f7d7; 34 carry why_source with locator/quote, 68 only a references list, 148 no source (critic re-counted from the YAML: 34/68/148); after kganjam/delphi-frontier 42cd967 (09:41:15) 250 of 250 import as 'recorded' and 0 are 'actionable'; that commit's message says '250 sourced', which the counts contradict. The 148 unsourced are curator statements, not sourced open problems. Claim time = seeds authored 5165177 (work/codex-api, 08:20:56); kill time = commit 4e10ce0 (row recorded 09:30:48), i.e. when the finding was recorded, not when the validator first ran.",
+   "caught_by": "independent worker's validator (dx-market), re-run by host",
+   "allowed": "Says nothing about whether the 250 problems are good problems and nothing about any model's accuracy; a schema/curation defect in our own artifact, not a scientific finding.",
+   "claim_stated_pdt": "2026-10-31T08:20:56-07:00",
+   "kill_recorded_pdt": "2026-10-31T09:30:48-07:00",
+   "duration_min": 69.9,
+   "time_source": {
+    "claim": [
+     "commit",
+     "5165177",
+     "rethink-critic"
+    ],
+    "kill": [
+     "commit",
+     "4e10ce0",
+     "../delphi-frontier/foundation"
+    ]
+   }
   }
  ],
  "measured_matched_control": [
@@ -628,8 +662,8 @@
   }
  ],
  "summary": {
-  "n_rows": 20,
-  "n_with_both_times": 18,
+  "n_rows": 21,
+  "n_with_both_times": 19,
   "method": "kill_recorded - claim_stated in minutes, only where both times are derivable and ordered; times are file mtimes (messages) or git commit times; mtime = last modification, commit time = commit not utterance, so durations are rough, may be inflated or deflated, and rows differ in kind (prior-art lookups, audits, measurements)",
   "durations_min_by_row": {
    "R01": 10.7,
@@ -649,11 +683,12 @@
    "R16": 30.9,
    "R18": 13.7,
    "R19": 2.4,
-   "R20": 3.2
+   "R20": 3.2,
+   "R21": 69.9
   },
-  "median_min": 11.899999999999999,
+  "median_min": 13.1,
   "min_min": 2.4,
-  "max_min": 33.2,
+  "max_min": 69.9,
   "reading": "descriptive of THIS team on THIS day; not a rate, not generalisable; do not put the median on a slide without n and method and without the not-derivable rows",
   "kind_counts": {
    "prior art": 7,
@@ -661,12 +696,22 @@
    "measured": 4,
    "mis-operationalised": 3,
    "convention defect": 4,
-   "process defect": 1
+   "process defect": 1,
+   "design defect": 1
   },
-  "caught_by_independent_vs_author": {
-   "independent": 17,
-   "author_only": 3
-  }
+  "caught_by_class": {
+   "independent": 16,
+   "mixed": 2,
+   "author": 3
+  },
+  "caught_by_class_rows": {
+   "R09": "mixed",
+   "R15": "mixed",
+   "R17": "author",
+   "R18": "author",
+   "R20": "author"
+  },
+  "caught_by_class_note": "explicit per-row classification (v2): substring matching on caught_by text was wrong (R18 'not independently confirmed' matched 'independent'). author = caught only by the author's own measurement or rule (all three are measurements/rules, not reviews); mixed = author found it and an independent hold/review also applied"
  },
  "notes": [
   "Message files have only mtimes; THE-REFRAME's own text labels itself '09:05 PDT' but its mtime is 07:27; use mtimes/commit times, not labels inside files.",

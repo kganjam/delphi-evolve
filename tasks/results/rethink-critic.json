@@ -277,6 +277,18 @@
       "time_pdt": "2026-10-31 09:30",
       "note": "Replied to host: scorecard counts match scorecard.json (6/1/2/12 of 21); dx-submit 51fda58 wording equivalent, not byte-identical to SCORECARD.md line 3; ledger committed at ed6f478 (R01-R20, R09 = mismatched 24/24 run, exploratory only); branch head 3b1fcdf. Message appended to critic-to-director.md.",
       "status": "benchmark frozen (127, key 28645a12...); oracle audit still lacks coverage of Kimura/Hawk-Dove/Greenhill/Hamilton/Fisher-KPP"
+    },
+    {
+      "time_pdt": "2026-10-31 09:44 (git 471d571)",
+      "note": "Director follow-up 10 done: ledger R21 (Frontier seeds vs own schema; witness delphi-frontier 4e10ce0, blob/sha re-hashed by critic; register source counts 34/68/148 re-counted from the YAML after host correction), explicit caught_by classes (16 independent / 2 mixed / 3 author; the earlier 17/3 was a substring-match error), red-team memo scopedesk/redteam/REDTEAM-DX-SUBMIT.md (6 wrong-or-stale items, 6 tighten, single-reader), scorecard 'Codex-approved' softened. Numeric audit of the five oracle-less families: 76/77 agree, one disclosed disagreement gh-0008 (key unchanged).",
+      "artifacts": [
+        "scopedesk/bench/audit/audit_five_families_numeric.py",
+        "scopedesk/bench/audit/five_families_numeric_audit.json",
+        "scopedesk/bench/audit/five_families_numeric_audit.md",
+        "scopedesk/redteam/REDTEAM-DX-SUBMIT.md",
+        "scopedesk/ledger/"
+      ],
+      "limitations": "same author as generator; conventions, subcritical behaviour and phrasing still not independently reviewed; no human review"
     }
   ]
 }
