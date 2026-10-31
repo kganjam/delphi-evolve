@@ -87,7 +87,7 @@ The homogeneous state is stable. The continuum instability interval is `1/5 < q 
 
 With the same chemistry on a domain of length `2 pi`, the first nonconstant mode has `q = 1/4` and determinant `-1/8`, giving a positive eigenvalue. The decision changes solely because the domain changes. Python exact rational arithmetic checked the displayed modes; the analytic tail argument covers all higher modes. See `artifacts/research/turing-domain-counterexample.json`.
 
-This is an established mathematical phenomenon demonstrating a transfer condition, not a refutation of Turing, a biological discovery, a Lean proof, or a guarantee of nonlinear pattern stability. [Finite-domain prior art](https://pmc.ncbi.nlm.nih.gov/articles/PMC9884266/).
+This is an established mathematical phenomenon demonstrating a transfer condition, not a refutation of Turing, a biological discovery, a Lean proof, or a guarantee of nonlinear pattern stability. [Finite-domain prior art: J. Math. Biol. 2023](https://link.springer.com/article/10.1007/s00285-023-01870-3) (corrected 2026-10-31: the earlier PMC9884266 link is, per a later scout, only a passing remark; Arcuri and Murray 1986 is not a source for this point).
 
 ## Proposed bounded experiment
 

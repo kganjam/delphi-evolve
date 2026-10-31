@@ -13,7 +13,7 @@ Take two existing Delphi claims, `turing-ddi` and `turing-wavelength`. A request
 | simulated | none (there is no time integration) |
 | unknown / not established | nonlinear pattern formation, any real tissue or fabricated material, that the declared J and D describe anything real, growth/mechanics/other boundaries/higher dimensions |
 
-This is established linear mathematics. Turing 1952 already states that on a finite ring the wavelengths must divide the circumference and that the "chemical wave-length" is only approximated; the finite-domain phenomenon is in the literature (PMC9884266, cited in `docs/research/inverse-design-synthesis.md`). No novelty, wet-lab, prospective or nanofabrication claim is made.
+This is established linear mathematics. Turing 1952 already states that on a finite ring the wavelengths must divide the circumference and that the "chemical wave-length" is only approximated; the finite-domain phenomenon is in the literature (e.g. the 2023 J. Math. Biol. treatment of general Turing and wave instability conditions, doi 10.1007/s00285-023-01870-3, which distinguishes the discretized finite-domain dispersion relation from its infinite-domain limit; read by the primary reviewer; PMC9884266, cited earlier, is described by a later scout as only a passing remark and is not relied on). No novelty, wet-lab, prospective or nanofabrication claim is made.
 
 ## The example (exact)
 `J = [[1,-2],[2,-3]]`, `Du=1`, `Dv=10`; `tr J = -2`, `det J = 1`. For squared wavenumber `q`: `trace = -2 - 11q`, `det = 10q² - 7q + 1 = (5q-1)(2q-1)`; the continuum instability band is `1/5 < q < 1/2` (`S = Dv·a + Du·d = 7`, discriminant 9).
