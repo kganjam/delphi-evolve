@@ -179,3 +179,97 @@ def test_adapter_factory_covers_six_families():
     for f in fams:
         a = make_adapter(f)
         assert a.family == f
+
+
+# ---- Codex-reported soundness holes (feb5dbd) and their repairs -----------------------------------------
+FALSE_TARGET_DEFS = L.load_defs()
+
+
+def _false_target_source(helpers, proof):
+    return L.assemble(FALSE_TARGET_DEFS, [], helpers, "Tfalse", "False", proof)
+
+
+def test_variable_include_false_loophole_is_closed():
+    helpers = "variable (h : False)\ninclude h\ntheorem aux : True := trivial"
+    proof = "by exact h"
+    # The attack as Codex reproduced it: without the repair this compiled with no axioms (False elaborated as False -> False).
+    assert L.helper_structure_error(helpers)                                    # structural filter rejects it
+    r = L.check_source(_false_target_source(helpers, proof), ["Tfalse"], scan_text=helpers + "\n" + proof,
+                       fidelity=("Tfalse", "False"))
+    assert not r.ok and r.forbidden
+
+
+def test_elaborated_type_comparison_catches_a_changed_target_even_without_the_token_scan():
+    # bypass the scan on purpose: the trusted elaborated-type comparison must still reject the changed target
+    src = L.assemble(FALSE_TARGET_DEFS, [], "variable (h : False)\ninclude h", "Tfalse", "False", "by exact h")
+    r = L.check_source(src, ["Tfalse"], scan_text="", fidelity=("Tfalse", "False"))
+    assert not r.ok and "fidelity" in r.errors
+
+
+def test_legit_target_passes_fidelity_and_conditional_false_is_not_accepted_as_false():
+    T = {t["id"]: t for t in L.load_targets()}
+    ok = L.check_source(L.assemble(FALSE_TARGET_DEFS, [], "", "T01", T["T01"]["statement"], REF["T01"]), ["T01"], scan_text="",
+                        fidelity=("T01", T["T01"]["statement"]))
+    assert ok.ok
+
+
+@pytest.mark.parametrize("helpers", ["theorem a : True := trivial\nvariable (x : Nat)", "def f := 1", "section\ntheorem a : True := trivial\nend",
+                                     "namespace Foo\ntheorem a : True := trivial\nend Foo", "open Scope in\ntheorem a : True := trivial"])
+def test_helper_structure_rejects_non_theorem_top_level(helpers):
+    assert L.helper_structure_error(helpers) or L.check_source("theorem z : True := trivial", ["z"], scan_text=helpers).forbidden
+
+
+def test_ledger_reservations_are_atomic_under_concurrency(tmp_path):
+    led = TokenLedger(tmp_path / "l.jsonl", {"k": 100})
+    results, lock = [], threading.Lock()
+    barrier = threading.Barrier(2)
+
+    def go():
+        barrier.wait()
+        try:
+            led.reserve_tokens("k", 60)
+            ok = True
+        except BudgetExceeded:
+            ok = False
+        with lock:
+            results.append(ok)
+    ths = [threading.Thread(target=go) for _ in range(2)]
+    [t.start() for t in ths]; [t.join() for t in ths]
+    assert sorted(results) == [False, True]                         # exactly one in-flight reservation of 60 fits in 100
+
+
+def test_adapter_holds_and_releases_reservation(tmp_path):
+    led = TokenLedger(tmp_path / "l.jsonl", {"k": 400})
+    f = Fake(lambda u, i: "x")
+    f.complete("s", "u", tag="t", ledger=led, budget_key="k", reserve_tokens=300)   # spends 150, releases 300 hold
+    assert led.spent("k") == 150 and led._pending.get("k", 0) == 0
+    f.complete("s", "u", tag="t", ledger=led, budget_key="k", reserve_tokens=250)   # 150+250 <= 400 ok
+    with pytest.raises(BudgetExceeded):
+        f.complete("s", "u", tag="t", ledger=led, budget_key="k", reserve_tokens=200)  # 300+200 > 400
+
+
+def test_failed_replay_leaves_no_helpers_behind(tmp_path):
+    """Codex finding: validate the candidate closure BEFORE mutating the store; publish atomically."""
+    c = mk(tmp_path, "shared", lambda u, i: "", ["T02"])
+    bad_helper = "theorem aux_ok : True := trivial"
+    out = {"ok": True, "tries": 1, "helpers": bad_helper, "proof": "by sorry", "used_commons": [], "axioms": {"T02": []},
+           "check_sha256": "x", "library_size": 0}
+    publish(c, "a0", "T02", out)                     # proof contains sorry -> replay must fail
+    assert c.store("a0").entries() == []              # nothing published, not even the valid helper
+    assert [r for r in c.board.read() if r["kind"] == "failed"][0]["why"] == "publish_replay_failed"
+    assert not [r for r in c.board.read() if r["kind"] == "proved"]
+
+
+def test_publish_is_atomic_and_dedups_helper_names(tmp_path):
+    c = mk(tmp_path, "shared", lambda u, i: "", ["T02"])
+    helper = "theorem aux_two : True := trivial"
+    out = {"ok": True, "tries": 1, "helpers": helper, "proof": REF["T02"], "used_commons": [], "axioms": {"T02": []},
+           "check_sha256": "x", "library_size": 0}
+    publish(c, "a0", "T02", out)
+    assert [e["name"] for e in c.store("a0").entries()] == ["aux_two", "T02"]
+    ok, st = c.store("a0").add_many([{"name": "aux_two", "statement": "True", "source": helper, "author": "z", "task": None},
+                                      {"name": "new", "statement": "True", "source": "theorem new : True := trivial", "author": "z", "task": None}])
+    assert ok and dict(st) == {"aux_two": "duplicate", "new": "added"}
+    ok2, st2 = c.store("a0").add_many([{"name": "fresh", "statement": "True", "source": "x", "author": "z", "task": None},
+                                       {"name": "T02", "statement": "DIFFERENT", "source": "x", "author": "z", "task": None}])
+    assert not ok2 and "fresh" not in [e["name"] for e in c.store("a0").entries()]

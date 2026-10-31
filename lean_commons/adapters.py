@@ -109,7 +109,7 @@ class ModelAdapter(ABC):
                  max_output_tokens: int = 1200, reserve_tokens: int | None = None,
                  forbidden: "list[str] | None" = None) -> CallResult:
         assert_clean(forbidden or [], system, user)       # fail closed on the exact bytes sent
-        ledger.check(budget_key, reserve_tokens if reserve_tokens is not None else 0)
+        held = ledger.reserve_tokens(budget_key, reserve_tokens if reserve_tokens is not None else 0)   # atomic hold
         t0 = time.time()
         try:
             res = self._call(system, user, max_output_tokens)
@@ -124,7 +124,7 @@ class ModelAdapter(ABC):
         res.prompt_sha256 = sha256_text(user)
         rec = res.to_record()
         rec["tag"] = tag
-        ledger.record(budget_key, rec, res.usage)
+        ledger.record(budget_key, rec, res.usage, held=held)
         return res
 
     @staticmethod
@@ -344,6 +344,7 @@ class GeminiAdapter(ModelAdapter):
     harness = "gemini-api"
     default_model = "gemini-3.8-flash"
     BASE = "https://generativelanguage.googleapis.com/v1beta"
+    THINKING_ALLOWANCE = 8000   # Gemini counts hidden thinking against maxOutputTokens; without headroom answers are truncated (MAX_TOKENS)
 
     def _key(self) -> str:
         from scientific_services.common import load_env_value
@@ -353,7 +354,7 @@ class GeminiAdapter(ModelAdapter):
         t0 = time.time()
         body = {"systemInstruction": {"parts": [{"text": system}]},
                 "contents": [{"role": "user", "parts": [{"text": user}]}],
-                "generationConfig": {"maxOutputTokens": max_output_tokens, "temperature": 0.0}}
+                "generationConfig": {"maxOutputTokens": max_output_tokens + self.THINKING_ALLOWANCE, "temperature": 0.0}}
         req = urllib.request.Request(f"{self.BASE}/models/{self.model}:generateContent", data=json.dumps(body).encode(),
                                      method="POST", headers={"x-goog-api-key": self._key(), "Content-Type": "application/json"})
         try:
