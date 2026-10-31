@@ -84,6 +84,16 @@
       "cmd": "verification of artifacts/evidence/demo_claims.json vs delphi_queries.json",
       "exit": 0,
       "result": "4/4 distinct claim IDs and statements present in saved raw MCP responses; 20 queries ok, 0 errors; relation is motivation-by-analogy/context only, no equivalentTo"
+    },
+    {
+      "cmd": "python -m evolve demo --output artifacts/demo.json (venv, capped); python3 -I scripts/assemble_demo.py; python3 -I scripts/check_demo.py site/data/demo.json",
+      "exit": "0,0,0",
+      "result": "dry run before replay summary existed: demo 151 nodes/2878 edges/3 routes/8 claims; proof completed (receipt consistency checks pass); compute and benchmark remain 'unavailable'; check_demo 0 hard failures, 1 soft finding (blocked endpoint pair not in displayed subgraph, labelled lean_checked=false)"
+    },
+    {
+      "cmd": "python3 scripts/browser_smoke.py site /tmp/integ/shots3 with site/data/demo.json present",
+      "exit": 0,
+      "result": "0 console errors, 0 page errors, 0 failed requests, 0 px overflow on desktop and mobile; Proof tab shows 'Receipt: compiled, mutant rejected' with kernel exit 0 / mutant exit 1; Replay tab core-vs-browser kappa sweep rows match"
     }
   ],
   "findings": [
@@ -105,7 +115,8 @@
     "F2: core (mean +/- kappa*sd_bin/2, kappa=2) and proof (replicate envelope +/- uniform delta) use different interval models. Bridged: core's kappa=2 VFVS>AIKG route is now Lean-kernel-checked via a delta=0 table (scripts/bridge_core_cert.py).",
     "F3: pyproject.toml lacked rdflib and scipy; fixed in integration (clean-venv test run 40 passed).",
     "gpu worker local commit 220c80c: real Nebius H100 80GB probe job aijob-e00gqrf19pjdrbyat3 (plain fp32/bf16 vs Transformer-Engine bf16 ESM2 parity on 64 variants; throughput 229/430/587 seq/s). Committed log contains no credential values. Spend/stop bound and whether the code path is actually BioNeMo are not yet established; wait for gpu receipt. Reference FASTA verified by the worker against TARGET_b0.3.fa and the PDB (V183 F184 V227 S228).",
-    "experience docs (novelty.md, outreach drafts, pitch/storyboard templates) are disciplined: ALDE credited with TrpB simulations, Johnston credited with route accessibility, no market numbers, outreach unsent. Required wording fix F6 for blocked semantics."
+    "experience docs (novelty.md, outreach drafts, pitch/storyboard templates) are disciplined: ALDE credited with TrpB simulations, Johnston credited with route accessibility, no market numbers, outreach unsent. Required wording fix F6 for blocked semantics.",
+    "experience worker completed (receipt status completed). Its handoff items are done by scripts/assemble_demo.py except re-rendering docs and the final replay/GPU numbers."
   ],
   "artifacts": [
     "scripts/audit_data.py",
@@ -117,7 +128,8 @@
     "artifacts/integration/core_kappa2_route_lean.certificate.json",
     "artifacts/integration/core_kappa2_route.input.json",
     "planning/INTEGRATION-FINDINGS.md",
-    "scripts/reproduce.sh"
+    "scripts/reproduce.sh",
+    "scripts/assemble_demo.py"
   ],
   "limitations": [
     "experience nanopub validation is rdflib structural only (worker-reported, not rerun by me).",
