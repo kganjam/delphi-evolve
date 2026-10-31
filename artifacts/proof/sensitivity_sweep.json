@@ -1,0 +1,211 @@
+{
+  "kind": "darwin-bridge-sensitivity-sweep/1",
+  "note": "delta values are ASSUMED sensitivity bounds in growth-rate units (mu-bg), not confidence bounds. Descriptive full-data certificates, not a prediction benchmark. cannot_certify means the finder found nothing at that delta, not that the pair is biologically unconnected.",
+  "rows": [
+    {
+      "certificate_sha256": "86a8475fa81de57795229cf54040229113aa0748e2a6b2eb6fc03ce2b8eeeafd",
+      "closed_set": null,
+      "delta": "0",
+      "delta_status": "assumed",
+      "kind": "route",
+      "lean_exit_code": 0,
+      "route": [
+        "VFVS",
+        "VFMS",
+        "VFMG",
+        "VIMG",
+        "VIKG",
+        "AIKG"
+      ],
+      "route_length": 5,
+      "start": "VFVS",
+      "status": "certified",
+      "target": "AIKG"
+    },
+    {
+      "certificate_sha256": "58a8954573f93d625bdd1352a8306838177f05f08c049789665e4ad51f3c164b",
+      "closed_set": [
+        "GCLS"
+      ],
+      "delta": "0",
+      "delta_status": "assumed",
+      "kind": "blocked",
+      "lean_exit_code": 0,
+      "route": null,
+      "route_length": null,
+      "start": "GCLS",
+      "status": "certified",
+      "target": "AIKG"
+    },
+    {
+      "certificate_sha256": "d284a1b4115a12fadb7e22a3a9cb21c6eb9bd39ed50a9afe03899fe69d0f20f2",
+      "closed_set": null,
+      "delta": "0.001",
+      "delta_status": "assumed",
+      "kind": "route",
+      "lean_exit_code": 0,
+      "route": [
+        "VFVS",
+        "VFMS",
+        "VFMG",
+        "VIMG",
+        "VIKG",
+        "AIKG"
+      ],
+      "route_length": 5,
+      "start": "VFVS",
+      "status": "certified",
+      "target": "AIKG"
+    },
+    {
+      "certificate_sha256": "769862765fd1a7ed6b86bbb56bb58a6233d5ff2067a497a85ee0c30fb032207f",
+      "closed_set": [
+        "GCLS"
+      ],
+      "delta": "0.001",
+      "delta_status": "assumed",
+      "kind": "blocked",
+      "lean_exit_code": 0,
+      "route": null,
+      "route_length": null,
+      "start": "GCLS",
+      "status": "certified",
+      "target": "AIKG"
+    },
+    {
+      "certificate_sha256": "aba5b2f3683a9bd83b32d4250e8cfbd1a90968ee298f36cef3216dbcf2fdcaac",
+      "closed_set": null,
+      "delta": "0.0025",
+      "delta_status": "assumed",
+      "kind": "route",
+      "lean_exit_code": 0,
+      "route": [
+        "VFVS",
+        "VFLS",
+        "VLLS",
+        "VLLG",
+        "VLSG",
+        "VISG",
+        "VIKG",
+        "AIKG"
+      ],
+      "route_length": 7,
+      "start": "VFVS",
+      "status": "certified",
+      "target": "AIKG"
+    },
+    {
+      "certificate_sha256": "3c64503e14fcb63d7f4463f6e9a2135d8fb59fab80a3b3a449461e312400325d",
+      "closed_set": [
+        "GCLS"
+      ],
+      "delta": "0.0025",
+      "delta_status": "assumed",
+      "kind": "blocked",
+      "lean_exit_code": 0,
+      "route": null,
+      "route_length": null,
+      "start": "GCLS",
+      "status": "certified",
+      "target": "AIKG"
+    },
+    {
+      "certificate_sha256": "164b5da0f014e668b2846f72e46f87f96d4e11fd2535d84368afd3d55a9215b4",
+      "closed_set": null,
+      "delta": "0.005",
+      "delta_status": "assumed",
+      "kind": "route",
+      "lean_exit_code": 0,
+      "route": [
+        "VFVS",
+        "VFLS",
+        "VLLS",
+        "VLLG",
+        "VLSG",
+        "VISG",
+        "VIKG",
+        "AIKG"
+      ],
+      "route_length": 7,
+      "start": "VFVS",
+      "status": "certified",
+      "target": "AIKG"
+    },
+    {
+      "certificate_sha256": "1caea5cf19a0caf5fedf12a830b0b568b60ad70a244e3f5768772fda08eca2db",
+      "closed_set": [
+        "GCLS"
+      ],
+      "delta": "0.005",
+      "delta_status": "assumed",
+      "kind": "blocked",
+      "lean_exit_code": 0,
+      "route": null,
+      "route_length": null,
+      "start": "GCLS",
+      "status": "certified",
+      "target": "AIKG"
+    },
+    {
+      "delta": "0.0075",
+      "delta_status": "assumed",
+      "kind": "route",
+      "reason": "no certified route from VFVS to AIKG at delta=0.0075 (explored 31 vertices)",
+      "start": "VFVS",
+      "status": "cannot_certify",
+      "target": "AIKG"
+    },
+    {
+      "certificate_sha256": "063e3c41a51878d110405dbfbcc06efda939439e1ce8d7bb9cb2af14e2e6a1a8",
+      "closed_set": [
+        "GCLS"
+      ],
+      "delta": "0.0075",
+      "delta_status": "assumed",
+      "kind": "blocked",
+      "lean_exit_code": 0,
+      "route": null,
+      "route_length": null,
+      "start": "GCLS",
+      "status": "certified",
+      "target": "AIKG"
+    },
+    {
+      "delta": "0.01",
+      "delta_status": "assumed",
+      "kind": "route",
+      "reason": "no certified route from VFVS to AIKG at delta=0.01 (explored 23 vertices)",
+      "start": "VFVS",
+      "status": "cannot_certify",
+      "target": "AIKG"
+    },
+    {
+      "delta": "0.01",
+      "delta_status": "assumed",
+      "kind": "blocked",
+      "reason": "target AIKG is possibly reachable from GCLS (edge AIGG->AIKG not certified descending)",
+      "start": "GCLS",
+      "status": "cannot_certify",
+      "target": "AIKG"
+    },
+    {
+      "delta": "0.015",
+      "delta_status": "assumed",
+      "kind": "route",
+      "reason": "no certified route from VFVS to AIKG at delta=0.015 (explored 14 vertices)",
+      "start": "VFVS",
+      "status": "cannot_certify",
+      "target": "AIKG"
+    },
+    {
+      "delta": "0.015",
+      "delta_status": "assumed",
+      "kind": "blocked",
+      "reason": "closure exceeds cap=400",
+      "start": "GCLS",
+      "status": "cannot_certify",
+      "target": "AIKG"
+    }
+  ],
+  "source_sha256": "a631d8cf6c5b188a801555cc4117547a1bf8e294240e1757c2d2d78dcb25ee82"
+}
