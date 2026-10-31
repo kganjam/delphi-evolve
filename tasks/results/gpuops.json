@@ -272,5 +272,14 @@
    "a principled ensemble (published kinetic models with units) is the scientific prerequisite for the map to mean anything about biology; that is not compute-limited",
    "I did not check prior art (atlas-lean, Payan, Kurics-Menshykau-Iber, Ouchdiri) and did not touch Lean"
   ]
+ },
+ "frontier_readiness_0833pdt": {
+  "reports_to": "codex-api for Frontier; raw GPU submissions remain with gpuops",
+  "BLOCKER": "Nebius CLI Unauthenticated at 08:29 PDT (token file written 21:37 PDT Oct 30, rejected after 10h52m); needs human re-issue; not worked around; pool/queue unreadable since; fail-closed means no launch",
+  "inventory": "docs/frontier_gpu_readiness.md, artifacts/gpuops/inventory_live.json, artifacts/gpuops/hosted_esm2_capabilities.json, compute_ops/inventory.py",
+  "hosted_esm2": "enabled/available, scores only (not embeddings), unqualified runtime, manifest-upload input, never run by us; GPU accounting vs our ten H100s unknown",
+  "not_measured": "any CPU rate for ESM2 inference; price (none visible); whether hosted runs count against our share",
+  "delivery": "codex queue receipt 01a19296-7f86-7680-a5ca-47e0d0ee7a62 (delivery only); copy in messages/gpuops-to-codex-director-04-readiness.md",
+  "jobs_submitted_for_frontier": 0
  }
 }
