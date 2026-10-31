@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-10-31T06:55:15.238226-07:00",
+  "recorded_at": "2026-10-31T07:14:34.120574-07:00",
   "description": "Evidence blob hashes plus independent CSV recount. No experiment/Lean rerun.",
   "claims": {
     "F01": {
@@ -49,6 +49,25 @@
       "artifacts": {
         "planning/rethink/CODEX-SCIENTIFIC-ADDENDUM.md": "85f1a26a466b3b31ce766d92250deb90b80032e038111c3bccd0aa63baa90efb",
         "planning/rethink/CODEX-BENCHMARK-SEMANTICS.md": "4d6a6855024e46c2e09bb52eff865d9cbb1d3ce326e91b9671a1959e83d4f27d"
+      }
+    },
+    "F07": {
+      "source_commit": "b4e60db91050ccaec8cd16f8f57373690c5efa7b",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "experiments/price_probe/Price.lean": "a5d38f136fb214367203dfe5974155ab894dbf3a861412c084d39c389cf8fd0a",
+        "experiments/price_probe/Witnesses.lean.inc": "7e29341d65ea9968d192c7c0ead754984126ad288926eb547ca228c3d43d1715",
+        "artifacts/integration/codex-api/price-probe.json": "513bc9173014f4effdbd76e9b30f52c7dcdc8924d69e1d9692974b2d826eb5da",
+        "planning/rethink/PRICE-PRIOR-ART-AND-PROBE.md": "76a727e4a3f6374297f26a89f05c292561d7890528630af4b2e1dd5ad684f852"
+      }
+    },
+    "F08": {
+      "source_commit": "d23663a814ff184d1681ca5601dedb0bd34af9f1",
+      "inspection": "read artifact/receipt; no fresh experiment rerun",
+      "artifacts": {
+        "planning/rethink/CODEX-BENCH-V1-1-REVIEW.md": "08d06ef29c0f6531e47674ce76d6132e294863e4cf66b5cdb539e300311e5417",
+        "artifacts/integration/codex-api/audit_benchmark_v1_1.py": "9ac49f397ef17c9d1abda18c038aa76040481788a781f3495ddc808b15a643a7",
+        "artifacts/integration/codex-api/benchmark-v1-1-review.json": "840755b0c36a50164321ab2a2d9a229f758d73d8b05188b71d5f0f190d0134ae"
       }
     },
     "B01": {

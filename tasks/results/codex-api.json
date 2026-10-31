@@ -1,10 +1,10 @@
 {
   "role": "codex-api",
-  "status": "requested Price feasibility and21-record freeze review completed; broader native goal remains paused",
-  "updated_at": "2026-10-31T07:05:18.368320-07:00",
+  "status": "targeted v1.1 audit completed; numerical agreement; freeze withheld for ID leakage and scoring contract; hosting bridge recorded",
+  "updated_at": "2026-10-31T07:14:49.955692-07:00",
   "branch": "work/codex-api",
-  "commit": "f41a8ac (last pushed broad-goal increment); requested follow-up commit recorded in git history",
-  "goal": "Native persistent goal paused by user; requested targeted Price feasibility and21-record freeze review completed.",
+  "commit": "d23663a814ff184d1681ca5601dedb0bd34af9f1",
+  "goal": "Broader native goal remains paused. Explicitly assigned v1.1 review and operational publication handoff completed; final benchmark freeze and site publication remain with their owners.",
   "checklist": [
     {
       "item": "Read complete handoff and governing files; establish persistent goal; notify coordinators",
@@ -28,6 +28,26 @@
     },
     {
       "item": "Commit and push validated increments; deliver exact receipts and resumable handoff",
+      "done": false
+    },
+    {
+      "item": "Audit critic e776030 v1.1 without editing its tree; record all verdicts, exclusions, ID leakage and freeze conditions",
+      "done": true
+    },
+    {
+      "item": "Read HOSTING-HANDOFF and MESSAGING; record exact queue route and primary-only publication bridge",
+      "done": true
+    },
+    {
+      "item": "Update presentation claim ledger with compiled Price/Hamilton scope and v1.1 review at exact commits",
+      "done": true
+    },
+    {
+      "item": "Receive revised benchmark/payload and inspect changes before final freeze approval",
+      "done": false
+    },
+    {
+      "item": "Receive validated revised static site and prepare exact-SHA site-publish-request.json for primary",
       "done": false
     }
   ],
@@ -89,6 +109,42 @@
       "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 experiments/price_probe/run_probe.py",
       "exit": 0,
       "result": "Lean -j2 original0; two scientific-sign mutants1 each; four concrete witness/control theorems0; original/witness axiom audits clean. Exact outputs inprice-probe.json."
+    },
+    {
+      "command": "Read HOSTING-HANDOFF.md, MESSAGING.md, current director priorities and critic notices; git fetch origin work/rethink-critic work/rethink-director",
+      "exit": 0
+    },
+    {
+      "command": "Capped ID-only baseline pilot: DecisionTreeClassifier(max_depth=3, random_state=0) trained on declared dev families, numeric ID suffix only",
+      "exit": 0,
+      "result": "58/96 held-out versus majority 43/96; unrestricted tree57/96. No science/text features."
+    },
+    {
+      "command": "Capped audit_benchmark_v1_1.py initial implementation runs",
+      "exit": [
+        1,
+        1
+      ],
+      "result": "Audit endpoint rounding at absorbing probability and NumPy JSON scalar serialization corrected; no benchmark changes."
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /home/ubuntu/miniconda3/bin/python3 artifacts/integration/codex-api/audit_benchmark_v1_1.py",
+      "exit": 0,
+      "result": "136/136 conditional numerical verdicts agree;25/25 exclusion reasons;17 manifest hashes;all public contracts visible;freeze withheld for metadata leak and scoring contract."
+    },
+    {
+      "command": "Read 30 public stems selected with random.Random(20261031); inspect 10 nearest retained numerical thresholds; read Crooks-Grinfeld2020 p4 from primary author-hosted PDF",
+      "exit": 0,
+      "result": "No additional numerical label discrepancy; cubic front minimal-speed switch source checked; not reproved."
+    },
+    {
+      "command": "Inspect explicit staged diff; verify staged audit-script hash matches receipt; git commit and push work/codex-api d23663a",
+      "exit": 0
+    },
+    {
+      "command": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 artifacts/integration/codex-api/index_claim_evidence.py",
+      "exit": 0,
+      "result": "17 claim entries pinned; original baseline counts remain78/78/96 and24uniqueendpointpairs."
     }
   ],
   "artifacts": [
@@ -112,16 +168,26 @@
     "experiments/price_probe/Witnesses.lean.inc",
     "artifacts/integration/codex-api/price-probe.json",
     "artifacts/integration/codex-api/admissible-review/committed-freeze.json",
-    "artifacts/integration/codex-api/admissible-review/Admissible.lean"
+    "artifacts/integration/codex-api/admissible-review/Admissible.lean",
+    "planning/rethink/CODEX-BENCH-V1-1-REVIEW.md",
+    "planning/rethink/CODEX-DELIVERY-AND-PUBLICATION.md",
+    "artifacts/integration/codex-api/audit_benchmark_v1_1.py",
+    "artifacts/integration/codex-api/benchmark-v1-1-review.json",
+    "planning/rethink/COMMUNITY-PLATFORM-PITCH-DRAFT.md"
   ],
   "limitations": [
     "Fresh Price/Hamilton Lean compile and witness controls exit0 with standard axioms; no additive-genetic Fisher FTNS or independent biological correspondence review.",
     "API provider usage is not actual billing; remaining dollars unknown.",
-    "No deployment/submission/external reuse receipt."
+    "No deployment/submission/external reuse receipt.",
+    "v1.1 review is nonblinded and does not substitute for a blinded audit. Numerical agreement does not approve its public-ID leakage or complete diagnosis contract.",
+    "No reviewed revised site output exists in this branch; no publish request or deployment was fabricated. Primary owns existing Site and hosting checkout."
   ],
   "next_steps": [
     "Keep broader native goal paused.",
-    "Await revised full target freeze; original21-file not approved.",
-    "Independent reader to review Price/Hamilton statements and biological correspondence before integration/headline."
+    "Critic removes public-ID leakage, completes diagnosis semantics and current docs; director/electric declare grouping and actual prompt payload. Review only changed artifacts at new pinned revision.",
+    "Separate blinded-reader gate remains required before agent evaluation.",
+    "Await corrected full21-target freeze; original remains not approved.",
+    "Independent reader reviews Price/Hamilton correspondence before headline integration.",
+    "When reviewed revised static content and receipts are ready, leave exact pushed SHA/output/ledger/validation in site-publish-request.json for primary; preserve owner-private audience."
   ]
 }
