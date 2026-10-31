@@ -35,7 +35,7 @@ def main(tag, genotype, op_id, artifact_id, expect_sha):
     res = json.loads(data)
     (OUT / f"{tag}_raw_result_summary_keys.txt").write_text("\n".join(f"{k}: {type(v).__name__}" for k, v in res.items()) + "\n")
     print("top-level keys:", list(res)[:20])
-    json.dump(res, open("/tmp/_of2_result.json", "w"))     # scratch outside repo for parsing
+    json.dump(res, open(f"/tmp/_of2_result_{genotype}.json", "w"))     # scratch outside repo for parsing
     write_json(OUT / f"{tag}_download_receipt.json", {
         "t_utc": now_utc(), "t_seattle": now_seattle(), "operation_id": op_id, "artifact_id": artifact_id,
         "downloaded_sha256": got, "downloaded_size_bytes": len(data), "url_query_stripped": url_clean,

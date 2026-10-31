@@ -68,7 +68,7 @@ def find_key(obj, key):
     return None
 
 
-def run(genotype="VFVS", budget_s=1200, tag="parent"):
+def run(genotype="VFVS", budget_s=1200, tag="parent", resume_op=None):
     header, parent = load_parent()
     seq = genotype_sequence(parent, genotype)
     h = sha256_text(seq)
@@ -84,11 +84,21 @@ def run(genotype="VFVS", budget_s=1200, tag="parent"):
     t_start = time.time()
     c.initialize()
     op_id = None
+    if resume_op:      # poll an already-accepted operation; never resubmit
+        op_id = resume_op
+        rec["resumed_existing_operation"] = resume_op
+        rec["resume_reason"] = "submit response had operation.id (not operation_id); first poller skipped polling. Same id polled, no resubmission."
+        rec["submit_response"] = json.loads(Path(OUT / f"structure_{tag}_{genotype}.json").read_text()).get("submit_response")
     try:
+        if resume_op:
+            raise StopIteration
+
         res = c.call_tool("infer_openfold2_native", args)
         pay = c.tool_payload(res)
         rec["submit_response"] = {"isError": res.get("isError"), "payload": pay}
-        op_id = find_key(pay, "operation_id")
+        op_id = find_key(pay, "operation_id") or (find_key(pay, "operation") or {}).get("id")
+    except StopIteration:
+        pass
     except Exception as e:  # network timeout etc.: the idempotency key lets us resubmit the SAME work safely
         rec["submit_exception"] = f"{type(e).__name__}: {e}"
         if isinstance(e, MCPError) and e.payload:
@@ -126,6 +136,7 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--genotype", default="VFVS")
     ap.add_argument("--budget-s", type=int, default=1200)
+    ap.add_argument("--resume-op", default=None)
     a = ap.parse_args()
-    r = run(a.genotype, a.budget_s)
+    r = run(a.genotype, a.budget_s, resume_op=a.resume_op)
     print(json.dumps({k: r.get(k) for k in ("operation_id", "final_status", "wall_s", "idempotency_key")}))

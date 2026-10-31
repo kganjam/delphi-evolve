@@ -4,9 +4,9 @@
   "max_input_tokens": 150000,
   "max_output_tokens": 30000
  },
- "calls": 3,
- "input_tokens": 78429,
- "output_tokens": 18776,
+ "calls": 4,
+ "input_tokens": 82481,
+ "output_tokens": 19108,
  "entries": [
   {
    "label": "review_flash_independent",
@@ -67,6 +67,26 @@
      }
     ],
     "thoughtsTokenCount": 1767,
+    "serviceTier": "standard"
+   }
+  },
+  {
+   "label": "shortlist_choice_flash",
+   "model": "gemini-3.8-flash",
+   "http_status": 200,
+   "t_utc": "2026-10-31T07:42:30Z",
+   "input_tokens": 4052,
+   "output_tokens_incl_thinking": 332,
+   "usage_metadata": {
+    "promptTokenCount": 4052,
+    "candidatesTokenCount": 332,
+    "totalTokenCount": 4384,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 4052
+     }
+    ],
     "serviceTier": "standard"
    }
   }

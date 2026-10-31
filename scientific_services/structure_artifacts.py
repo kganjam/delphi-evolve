@@ -30,13 +30,13 @@ def kabsch(P, Q):
 def rmsd(A, B):
     return float(np.sqrt(((A - B) ** 2).sum(1).mean()))
 
-def main():
-    res = json.load(open("/tmp/_of2_result.json"))
+def main(G="VFVS"):
+    res = json.load(open(f"/tmp/_of2_result_{G}.json"))
     s = res["structures_in_ranked_order"][0]
     pdb = s["structure"]
     pdb_bytes = pdb.encode()
-    (OUT / "trpb_VFVS_openfold2.pdb").write_bytes(pdb_bytes)
-    seq = json.load(open(OUT / "structure_parent_VFVS.json"))["sequence"]
+    (OUT / f"trpb_{G}_openfold2.pdb").write_bytes(pdb_bytes)
+    seq = json.load(open(OUT / f"structure_parent_{G}.json"))["sequence"]
     pred = ca_atoms(pdb)
     pred_seq = "".join(pred[i][0] for i in sorted(pred))
     assert pred_seq == seq, "predicted residue sequence != submitted sequence"
@@ -77,16 +77,16 @@ def main():
         "provider": "Nebius Scientific AI (MCP https://forge.nebius.cloud/mcp)", "tool": "infer_openfold2_native",
         "model": "OpenFold2 model_3_ptm / finetuning_no_templ_ptm_1 (selected_models=[1]), relax_prediction=false",
         "runtime_origin_reported": s.get("runtime_origin"),
-        "operation_id": json.load(open(OUT / "structure_parent_VFVS.json"))["operation_id"],
-        "idempotency_key": json.load(open(OUT / "structure_parent_VFVS.json"))["idempotency_key"],
+        "operation_id": json.load(open(OUT / f"structure_parent_{G}.json"))["operation_id"],
+        "idempotency_key": json.load(open(OUT / f"structure_parent_{G}.json"))["idempotency_key"],
         "seed": "not exposed by this tool; deterministic seed unknown/unspecified (no seed field in schema)",
         "msa": "single-sequence DUMMY MSA only: no external MSA, no templates, no relaxation (tool description). Not an alphafold-style MSA prediction.",
-        "sequence_name": "Tm9D8s* TrpB parent construct, genotype VFVS at sites 183/184/227/228",
+        "sequence_name": f"Tm9D8s* TrpB construct, genotype {G} at sites 183/184/227/228 (parent is VFVS)",
         "sequence": seq, "sequence_sha256": hashlib.sha256(seq.encode()).hexdigest(), "length": len(seq),
         "source_fasta": "CaltechDATA h5rah-5z170 data/ftmlde_data/tm9d8s_AAs.fasta, sha256 d56ebe8d8c556d80bf97329ec34c872b737fb84953f0d83dfe015894e54bbc6c (verified by gpu worker; header Tm9D8*; includes C-terminal LEHHHHHH tag)",
         "residue_numbering": "PDB residue number == 1-based index into the FASTA string (Met1 = 1); also identical to the crystal structure numbering at the four sites. Not wild-type T. maritima numbering.",
-        "mutable_sites": {str(p): {"parent_residue": seq[p - 1], "predicted_plddt": round(float(pl[p - 1]), 1)} for p in SITES},
-        "pdb_file": "trpb_VFVS_openfold2.pdb", "pdb_sha256": sha256_bytes(pdb_bytes), "pdb_size_bytes": len(pdb_bytes),
+        "mutable_sites": {str(p): {"residue_in_this_model": seq[p - 1], "predicted_plddt": round(float(pl[p - 1]), 1)} for p in SITES},
+        "pdb_file": f"trpb_{G}_openfold2.pdb", "pdb_sha256": sha256_bytes(pdb_bytes), "pdb_size_bytes": len(pdb_bytes),
         "pdb_b_factor_column_is": "pLDDT (0-100) as written by OpenFold2",
         "ranking_confidence": s["confidence"], "ptm": s["ptm_score"], "inference_seconds": s["inference_seconds"],
         "plddt": {"mean": round(float(pl.mean()), 2), "min": round(float(pl.min()), 1), "max": round(float(pl.max()), 1),
@@ -101,11 +101,16 @@ def main():
                               "caveat": "descriptive geometry only; the crystal is the parent-sequence structure, not each variant"},
         "limits": ["pLDDT/pTM are model self-confidence, NOT functional confidence or fitness",
                    "a structure prediction cannot tell which variants are active; no variant-vs-variant structural difference is claimed",
-                   "only the parent VFVS was predicted; AIKG not predicted in this file"]}
-    write_json(OUT / "trpb_VFVS_openfold2_metrics.json", metrics)
+                   f"this file is for genotype {G} only"]}
+    if G != "VFVS" and (OUT / "trpb_VFVS_openfold2.pdb").exists():
+        a = ca_atoms((OUT / "trpb_VFVS_openfold2.pdb").read_text()); b = pred
+        com = sorted(set(a) & set(b)); A = np.array([a[i][1] for i in com]); B = np.array([b[i][1] for i in com])
+        R, pc, qc = kabsch(A, B); metrics["predicted_vs_predicted_VFVS"] = {"ca_rmsd_all_A": round(rmsd((A - pc) @ R + qc, B), 2),
+            "note": "difference between two single-sequence low-confidence models; it is not evidence of a structural effect of the mutations"}
+    write_json(OUT / f"trpb_{G}_openfold2_metrics.json", metrics)
     print(json.dumps({k: metrics[k] for k in ("ranking_confidence", "ptm")}), metrics["plddt"]["mean"], metrics["plddt"]["frac_ge_70"])
     print(json.dumps(comp["A"]["sites"]), comp["A"]["ca_rmsd_all_A"], comp["A"]["ca_rmsd_plddt_ge_70_A"], comp["A"]["n_plddt_ge_70_in_common"], comp["A"]["frac_ca_within_4A"], comp["A"]["residue_identity_mismatches"])
     print(comp["B"]["ca_rmsd_all_A"], comp["A"]["site_site_ca_distance_crystal_A"], comp["A"]["site_site_ca_distance_predicted_A"])
 
 if __name__ == "__main__":
-    main()
+    main(*sys.argv[1:2])

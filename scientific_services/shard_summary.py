@@ -26,12 +26,14 @@ def main(shards_dir, out):
                      "stuck": sum(bool(r.get("stuck")) for r in rows),
                      "false_certificates": sum(r["correct"] is False for r in cert),
                      "median_assays_among_certified": statistics.median(a) if a else None,
+                     "rmst_assays_censored_at_bmax": round(sum(min(r["assays"], r["bmax"]) if r["status"] != "unresolved" else r["bmax"] for r in rows) / len(rows), 1),
+                     "cert_fraction": round(len(cert) / len(rows), 3),
                      "max_assays": max((r["assays"] for r in rows), default=None),
                      "truth_open_and_censored": sum(r["truth_open"] and r["status"] == "unresolved" for r in rows)})
     Path(out).write_text(json.dumps({"source_dir": str(shards_dir), "n_shard_files": len(hashes),
                                      "summary": summ, "shard_sha256": hashes}, indent=1) + "\n")
     for s in summ:
-        print({k: s[k] for k in ("policy","family","episodes","truth_open","cert_open","cert_blocked","censored_at_budget","false_certificates","median_assays_among_certified")})
+        print({k: s[k] for k in ("policy","family","episodes","truth_open","cert_open","cert_blocked","censored_at_budget","false_certificates","median_assays_among_certified","cert_fraction","rmst_assays_censored_at_bmax")})
 
 if __name__ == "__main__":
     main(*sys.argv[1:3])

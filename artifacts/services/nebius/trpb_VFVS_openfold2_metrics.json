@@ -1,6 +1,6 @@
 {
- "generated_t_utc": "2026-10-31T07:37:17Z",
- "generated_t_seattle": "2026-10-31 00:37:17 PDT",
+ "generated_t_utc": "2026-10-31T07:41:33Z",
+ "generated_t_seattle": "2026-10-31 00:41:33 PDT",
  "epistemic_status": "PREDICTED structure (model output). Not an observation; not a fitness or function measurement.",
  "provider": "Nebius Scientific AI (MCP https://forge.nebius.cloud/mcp)",
  "tool": "infer_openfold2_native",
@@ -10,7 +10,7 @@
  "idempotency_key": "delphi-evolve-structure-c0964e6dbcd43854",
  "seed": "not exposed by this tool; deterministic seed unknown/unspecified (no seed field in schema)",
  "msa": "single-sequence DUMMY MSA only: no external MSA, no templates, no relaxation (tool description). Not an alphafold-style MSA prediction.",
- "sequence_name": "Tm9D8s* TrpB parent construct, genotype VFVS at sites 183/184/227/228",
+ "sequence_name": "Tm9D8s* TrpB construct, genotype VFVS at sites 183/184/227/228 (parent is VFVS)",
  "sequence": "MKGYFGPYGGQYVPEILMGALEELEAAYEGIMKDESFWKEFNDLLRDYAGRPTPLYFARRLSEKYGARVYLKREDLLHTGAHKINNAIGQVLLAKLMGKTRIIAETGAGQHGVATATAAALFGMECVIYMGEEDTIRQKLNVERMKLLGAKVVPVKSGSRTLKDAIDEALRDWITNLQTTYYVFGSVVGPHPYPIIVRNFQKVIGEETKKQIPEKEGRLPDYIVACVSGGSNAAGIFYPFIDSGVKLIGVEAGGEGLETGKHAASLLKGKIGYLHGSKTFVLQDDWGQVQVSHSVSAGLDYSGVGPEHAYWRETGKVLYDAVTDEEALDAFIELSRLEGIIPALESSHALAYLKKINIKGKVVVVNLSGRGDKDLESVLNHPYVRERIRLEHHHHHH",
  "sequence_sha256": "c0964e6dbcd438545d5a28cf9bf743806e119e334bd5e21df3a5ba759a1af4cb",
  "length": 397,
@@ -18,19 +18,19 @@
  "residue_numbering": "PDB residue number == 1-based index into the FASTA string (Met1 = 1); also identical to the crystal structure numbering at the four sites. Not wild-type T. maritima numbering.",
  "mutable_sites": {
   "183": {
-   "parent_residue": "V",
+   "residue_in_this_model": "V",
    "predicted_plddt": 25.9
   },
   "184": {
-   "parent_residue": "F",
+   "residue_in_this_model": "F",
    "predicted_plddt": 23.8
   },
   "227": {
-   "parent_residue": "V",
+   "residue_in_this_model": "V",
    "predicted_plddt": 44.8
   },
   "228": {
-   "parent_residue": "S",
+   "residue_in_this_model": "S",
    "predicted_plddt": 49.5
   }
  },
@@ -562,6 +562,6 @@
  "limits": [
   "pLDDT/pTM are model self-confidence, NOT functional confidence or fitness",
   "a structure prediction cannot tell which variants are active; no variant-vs-variant structural difference is claimed",
-  "only the parent VFVS was predicted; AIKG not predicted in this file"
+  "this file is for genotype VFVS only"
  ]
 }

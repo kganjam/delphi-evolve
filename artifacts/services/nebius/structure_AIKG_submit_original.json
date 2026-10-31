@@ -1,0 +1,43 @@
+{
+ "tool": "infer_openfold2_native",
+ "genotype": "AIKG",
+ "sequence": "MKGYFGPYGGQYVPEILMGALEELEAAYEGIMKDESFWKEFNDLLRDYAGRPTPLYFARRLSEKYGARVYLKREDLLHTGAHKINNAIGQVLLAKLMGKTRIIAETGAGQHGVATATAAALFGMECVIYMGEEDTIRQKLNVERMKLLGAKVVPVKSGSRTLKDAIDEALRDWITNLQTTYYAIGSVVGPHPYPIIVRNFQKVIGEETKKQIPEKEGRLPDYIVACKGGGSNAAGIFYPFIDSGVKLIGVEAGGEGLETGKHAASLLKGKIGYLHGSKTFVLQDDWGQVQVSHSVSAGLDYSGVGPEHAYWRETGKVLYDAVTDEEALDAFIELSRLEGIIPALESSHALAYLKKINIKGKVVVVNLSGRGDKDLESVLNHPYVRERIRLEHHHHHH",
+ "sequence_sha256": "f4055b5868027bbfbaec40ccc8d49759ed75bd9592f8d085401999affb0f2406",
+ "parent_fasta_header": "Tm9D8*",
+ "parent_fasta_sha256": "d56ebe8d8c556d80bf97329ec34c872b737fb84953f0d83dfe015894e54bbc6c",
+ "idempotency_key": "delphi-evolve-structure-f4055b5868027bbf",
+ "request_arguments": {
+  "input_id": "trpb-AIKG-f4055b58",
+  "sequence": "MKGYFGPYGGQYVPEILMGALEELEAAYEGIMKDESFWKEFNDLLRDYAGRPTPLYFARRLSEKYGARVYLKREDLLHTGAHKINNAIGQVLLAKLMGKTRIIAETGAGQHGVATATAAALFGMECVIYMGEEDTIRQKLNVERMKLLGAKVVPVKSGSRTLKDAIDEALRDWITNLQTTYYAIGSVVGPHPYPIIVRNFQKVIGEETKKQIPEKEGRLPDYIVACKGGGSNAAGIFYPFIDSGVKLIGVEAGGEGLETGKHAASLLKGKIGYLHGSKTFVLQDDWGQVQVSHSVSAGLDYSGVGPEHAYWRETGKVLYDAVTDEEALDAFIELSRLEGIIPALESSHALAYLKKINIKGKVVVVNLSGRGDKDLESVLNHPYVRERIRLEHHHHHH",
+  "selected_models": [
+   1
+  ],
+  "relax_prediction": false,
+  "idempotency_key": "delphi-evolve-structure-f4055b5868027bbf",
+  "wait_seconds": 30,
+  "output_prefix": "runs/delphi-evolve/structure/f4055b5868027bbf"
+ },
+ "submitted_t_utc": "2026-10-31T07:38:31Z",
+ "submitted_t_seattle": "2026-10-31 00:38:31 PDT",
+ "polls": [],
+ "submit_response": {
+  "isError": false,
+  "payload": {
+   "model_id": "openfold2",
+   "execution": "async",
+   "operation": {
+    "id": "op-c03164a04e76c310",
+    "status": "RUNNING"
+   },
+   "result_available": false,
+   "delivery": {
+    "export_state": null,
+    "finalizing_by": null,
+    "exported_by": null
+   },
+   "idempotency_key": "delphi-evolve-structure-f4055b5868027bbf"
+  }
+ },
+ "operation_id": null,
+ "note": "no operation id returned; see submit_response"
+}
