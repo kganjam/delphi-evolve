@@ -1,0 +1,66 @@
+{
+ "label": "shortlist_choice_flash",
+ "model_requested": "gemini-3.8-flash",
+ "model_version_returned": "gemini-3.8-flash",
+ "http_status": 200,
+ "t_utc": "2026-10-31T07:42:30Z",
+ "t_seattle": "2026-10-31 00:42:30 PDT",
+ "elapsed_s": 3.7,
+ "system_instruction": "Be calibrated; say when the revealed labels are insufficient.",
+ "prompt": "You are advising an enzyme-engineering team. Landscape: four mutable sites (183,184,227,228) of tryptophan synthase beta (TrpB); genotypes are 4-letter strings. Each measured genotype has a growth-assay score in integer micro-units and an ASSUMED interval [lower, upper] (kappa=2 sensitivity band from two replicates; NOT a confidence interval). An edge u->v between genotypes differing at one site is \"admissible\" only if lower[v] >= upper[u].\nGoal: decide whether a chain of admissible single-substitution steps exists from start VFVS to target AIKG; choose ONE next assay (a single genotype to measure) from the SHORTLIST that best helps settle that decision. You may only use the labels below. Unmeasured genotypes have unknown scores.\nREVEALED LABELS (98 genotypes; the first two are the start and target):\n[{\"genotype\": \"VFVS\", \"score_micro\": 144751, \"lower\": 141759, \"upper\": 147743}, {\"genotype\": \"AIKG\", \"score_micro\": 357764, \"lower\": 347769, \"upper\": 367759}, {\"genotype\": \"SPPY\", \"score_micro\": 836, \"lower\": -2156, \"upper\": 3828}, {\"genotype\": \"EWGG\", \"score_micro\": 5136, \"lower\": -715, \"upper\": 10987}, {\"genotype\": \"CVWI\", \"score_micro\": 19218, \"lower\": 13367, \"upper\": 25069}, {\"genotype\": \"PMIM\", \"score_micro\": 6581, \"lower\": -3414, \"upper\": 16576}, {\"genotype\": \"SQVI\", \"score_micro\": 2548, \"lower\": -3303, \"upper\": 8399}, {\"genotype\": \"VRCQ\", \"score_micro\": 3326, \"lower\": 334, \"upper\": 6318}, {\"genotype\": \"SSQP\", \"score_micro\": 4067, \"lower\": 1075, \"upper\": 7059}, {\"genotype\": \"DGQG\", \"score_micro\": 34444, \"lower\": 31452, \"upper\": 37436}, {\"genotype\": \"MWHM\", \"score_micro\": 6978, \"lower\": 1127, \"upper\": 12829}, {\"genotype\": \"FVDC\", \"score_micro\": 1542, \"lower\": -8453, \"upper\": 11537}, {\"genotype\": \"PITM\", \"score_micro\": 1950, \"lower\": -3901, \"upper\": 7801}, {\"genotype\": \"IRSG\", \"score_micro\": 10630, \"lower\": 7638, \"upper\": 13622}, {\"genotype\": \"WHRN\", \"score_micro\": 10444, \"lower\": 4593, \"upper\": 16295}, {\"genotype\": \"ELEQ\", \"score_micro\": -12324, \"lower\": -18175, \"upper\": -6473}, {\"genotype\": \"FMVW\", \"score_micro\": 7934, \"lower\": 2083, \"upper\": 13785}, {\"genotype\": \"RSTP\", \"score_micro\": 4054, \"lower\": 1062, \"upper\": 7046}, {\"genotype\": \"VYTD\", \"score_micro\": 11308, \"lower\": 8316, \"upper\": 14300}, {\"genotype\": \"SVPM\", \"score_micro\": 6862, \"lower\": 3870, \"upper\": 9854}, {\"genotype\": \"AHEG\", \"score_micro\": 9772, \"lower\": -223, \"upper\": 19767}, {\"genotype\": \"KPEY\", \"score_micro\": 3208, \"lower\": -6787, \"upper\": 13203}, {\"genotype\": \"VCGP\", \"score_micro\": 9180, \"lower\": 6188, \"upper\": 12172}, {\"genotype\": \"NYNH\", \"score_micro\": 5409, \"lower\": -442, \"upper\": 11260}, {\"genotype\": \"MGWN\", \"score_micro\": 1968, \"lower\": -3883, \"upper\": 7819}, {\"genotype\": \"LKEW\", \"score_micro\": 11436, \"lower\": -3517, \"upper\": 26389}, {\"genotype\": \"KCHT\", \"score_micro\": 1267, \"lower\": -1725, \"upper\": 4259}, {\"genotype\": \"SSTV\", \"score_micro\": 3718, \"lower\": 726, \"upper\": 6710}, {\"genotype\": \"VVRK\", \"score_micro\": 2017, \"lower\": -975, \"upper\": 5009}, {\"genotype\": \"WERN\", \"score_micro\": 2148, \"lower\": -844, \"upper\": 5140}, {\"genotype\": \"AKAD\", \"score_micro\": -656, \"lower\": -6507, \"upper\": 5195}, {\"genotype\": \"HTTL\", \"score_micro\": 7632, \"lower\": 4640, \"upper\": 10624}, {\"genotype\": \"RNHV\", \"score_micro\": 5223, \"lower\": 2231, \"upper\": 8215}, {\"genotype\": \"VQPK\", \"score_micro\": -21, \"lower\": -3013, \"upper\": 2971}, {\"genotype\": \"WPWS\", \"score_micro\": 5742, \"lower\": -109, \"upper\": 11593}, {\"genotype\": \"RTLI\", \"score_micro\": 6306, \"lower\": 3314, \"upper\": 9298}, {\"genotype\": \"RWHR\", \"score_micro\": 2052, \"lower\": -940, \"upper\": 5044}, {\"genotype\": \"GEAK\", \"score_micro\": -496, \"lower\": -3488, \"upper\": 2496}, {\"genotype\": \"SRQN\", \"score_micro\": 674, \"lower\": -2318, \"upper\": 3666}, {\"genotype\": \"IEVP\", \"score_micro\": 5848, \"lower\": -3, \"upper\": 11699}, {\"genotype\": \"LFEP\", \"score_micro\": -6454, \"lower\": -9446, \"upper\": -3462}, {\"genotype\": \"AAIW\", \"score_micro\": -3853, \"lower\": -9704, \"upper\": 1998}, {\"genotype\": \"RVQK\", \"score_micro\": 3654, \"lower\": 662, \"upper\": 6646}, {\"genotype\": \"TADF\", \"score_micro\": 7996, \"lower\": 2145, \"upper\": 13847}, {\"genotype\": \"FTKS\", \"score_micro\": 212, \"lower\": -5639, \"upper\": 6063}, {\"genotype\": \"WQCL\", \"score_micro\": -706, \"lower\": -6557, \"upper\": 5145}, {\"genotype\": \"AAHV\", \"score_micro\": 7050, \"lower\": 4058, \"upper\": 10042}, {\"genotype\": \"DIQA\", \"score_micro\": 18452, \"lower\": 12601, \"upper\": 24303}, {\"genotype\": \"WAGH\", \"score_micro\": 2195, \"lower\": -797, \"upper\": 5187}, {\"genotype\": \"QIYH\", \"score_micro\": 7892, \"lower\": -2103, \"upper\": 17887}, {\"genotype\": \"IRPP\", \"score_micro\": 1440, \"lower\": -1552, \"upper\": 4432}, {\"genotype\": \"HPIH\", \"score_micro\": 15755, \"lower\": 5760, \"upper\": 25750}, {\"genotype\": \"WSGG\", \"score_micro\": 3498, \"lower\": -2353, \"upper\": 9349}, {\"genotype\": \"GKGI\", \"score_micro\": -146, \"lower\": -3138, \"upper\": 2846}, {\"genotype\": \"PYWW\", \"score_micro\": -9009, \"lower\": -23962, \"upper\": 5944}, {\"genotype\": \"ARFR\", \"score_micro\": -1832, \"lower\": -4824, \"upper\": 1160}, {\"genotype\": \"FNKN\", \"score_micro\": -18712, \"lower\": -24563, \"upper\": -12861}, {\"genotype\": \"LNRI\", \"score_micro\": 5850, \"lower\": 2858, \"upper\": 8842}, {\"genotype\": \"PVRT\", \"score_micro\": 1476, \"lower\": -1516, \"upper\": 4468}, {\"genotype\": \"QWRK\", \"score_micro\": -4386, \"lower\": -10237, \"upper\": 1465}, {\"genotype\": \"CHGK\", \"score_micro\": 16948, \"lower\": 1995, \"upper\": 31901}, {\"genotype\": \"TYVH\", \"score_micro\": 13076, \"lower\": 7225, \"upper\": 18927}, {\"genotype\": \"ENCA\", \"score_micro\": 4628, \"lower\": -1223, \"upper\": 10479}, {\"genotype\": \"DKYM\", \"score_micro\": -5770, \"lower\": -11621, \"upper\": 81}, {\"genotype\": \"MWFC\", \"score_micro\": 2406, \"lower\": -3445, \"upper\": 8257}, {\"genotype\": \"RHAW\", \"score_micro\": 4938, \"lower\": -913, \"upper\": 10789}, {\"genotype\": \"LNWD\", \"score_micro\": -4206, \"lower\": -14201, \"upper\": 5789}, {\"genotype\": \"SCCA\", \"score_micro\": 88656, \"lower\": 82805, \"upper\": 94507}, {\"genotype\": \"KPEA\", \"score_micro\": 6064, \"lower\": -8889, \"upper\": 21017}, {\"genotype\": \"CAQP\", \"score_micro\": 2341, \"lower\": -651, \"upper\": 5333}, {\"genotype\": \"FHLV\", \"score_micro\": 9874, \"lower\": 6882, \"upper\": 12866}, {\"genotype\": \"WHIR\", \"score_micro\": 7343, \"lower\": 1492, \"upper\": 13194}, {\"genotype\": \"AWAA\", \"score_micro\": 4952, \"lower\": 1960, \"upper\": 7944}, {\"genotype\": \"AGCN\", \"score_micro\": 148648, \"lower\": 145656, \"upper\": 151640}, {\"genotype\": \"APQI\", \"score_micro\": 17722, \"lower\": 11871, \"upper\": 23573}, {\"genotype\": \"MANR\", \"score_micro\": 1450, \"lower\": -4401, \"upper\": 7301}, {\"genotype\": \"HAFD\", \"score_micro\": 9842, \"lower\": -153, \"upper\": 19837}, {\"genotype\": \"CAIK\", \"score_micro\": 11004, \"lower\": 5153, \"upper\": 16855}, {\"genotype\": \"WKPC\", \"score_micro\": 2810, \"lower\": -182, \"upper\": 5802}, {\"genotype\": \"SFMA\", \"score_micro\": 25763, \"lower\": 19912, \"upper\": 31614}, {\"genotype\": \"WDQM\", \"score_micro\": 27151, \"lower\": 21300, \"upper\": 33002}, {\"genotype\": \"WCDW\", \"score_micro\": -8443, \"lower\": -18438, \"upper\": 1552}, {\"genotype\": \"CKGK\", \"score_micro\": 16005, \"lower\": 10154, \"upper\": 21856}, {\"genotype\": \"FDKQ\", \"score_micro\": -1864, \"lower\": -11859, \"upper\": 8131}, {\"genotype\": \"HRSW\", \"score_micro\": 758, \"lower\": -2234, \"upper\": 3750}, {\"genotype\": \"PPMD\", \"score_micro\": 18768, \"lower\": 3815, \"upper\": 33721}, {\"genotype\": \"EPWY\", \"score_micro\": 3418, \"lower\": -2433, \"upper\": 9269}, {\"genotype\": \"WAWE\", \"score_micro\": 12030, \"lower\": 2035, \"upper\": 22025}, {\"genotype\": \"PNGW\", \"score_micro\": 6250, \"lower\": -3745, \"upper\": 16245}, {\"genotype\": \"NVKP\", \"score_micro\": 454, \"lower\": -2538, \"upper\": 3446}, {\"genotype\": \"SILW\", \"score_micro\": 5415, \"lower\": 2423, \"upper\": 8407}, {\"genotype\": \"QLLC\", \"score_micro\": 26400, \"lower\": 23408, \"upper\": 29392}, {\"genotype\": \"VMSS\", \"score_micro\": 42126, \"lower\": 39134, \"upper\": 45118}, {\"genotype\": \"FEWQ\", \"score_micro\": 10348, \"lower\": -4605, \"upper\": 25301}, {\"genotype\": \"RWVP\", \"score_micro\": 2447, \"lower\": -545, \"upper\": 5439}, {\"genotype\": \"KRQN\", \"score_micro\": 5015, \"lower\": 2023, \"upper\": 8007}, {\"genotype\": \"RMIP\", \"score_micro\": 1178, \"lower\": -1814, \"upper\": 4170}, {\"genotype\": \"PPPS\", \"score_micro\": 4716, \"lower\": 1724, \"upper\": 7708}]\nSHORTLIST (unlabeled, each is a single substitution away from VFVS): [\"VFVG\", \"VIVS\", \"VFNS\", \"VFGS\", \"VFVK\", \"VFKS\", \"AFVS\", \"VFVI\"]\nReturn strict JSON: {\"choice\": \"<genotype from shortlist>\", \"ranking\": [\"<all shortlist genotypes best-first>\"], \"rationale\": \"<<=120 words, cite only the revealed labels>\", \"what_would_change_my_mind\": \"<<=40 words>\", \"confidence\": \"low|medium|high\"}",
+ "prompt_sha256": "d33eab01f27f8c80c79d0c52969cdfd82a13ae4783da45524127f0d91a62be76",
+ "generation_config": {
+  "temperature": 0.2,
+  "maxOutputTokens": 2500,
+  "responseMimeType": "application/json",
+  "thinkingConfig": {
+   "thinkingLevel": "low"
+  }
+ },
+ "usage_metadata": {
+  "promptTokenCount": 4052,
+  "candidatesTokenCount": 332,
+  "totalTokenCount": 4384,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4052
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "finish_reason": "STOP",
+ "response_text": "{\n  \"choice\": \"AFVS\",\n  \"ranking\": [\n    \"AFVS\",\n    \"VFVG\",\n    \"VFKS\",\n    \"VIVS\",\n    \"VFNS\",\n    \"VFGS\",\n    \"VFVK\",\n    \"VFVI\"\n  ],\n  \"rationale\": \"To reach target AIKG from VFVS via single substitutions, an admissible first step requires lower[v] >= upper[VFVS] = 147743. Target AIKG has lower = 347769. The four target amino acids at positions 183, 184, 227, 228 are A, I, K, G. Only genotypes introducing target residues (A at 183, I at 184, K at 227, or G at 228) make direct progress along minimal paths. Among candidates in the shortlist, AFVS initiates mutation toward A*** (seen in highly active AGCN with lower 145656), while VFVG targets ***G. AFVS directly probes the A183 pathway where high-scoring TrpB variants reside, making it the most informative first step to test reachability.\",\n  \"what_would_change_my_mind\": \"Measuring AFVS and finding its upper bound below 147743 would eliminate it as an admissible first step, shifting priority to VFVG or VFKS.\",\n  \"confidence\": \"medium\"\n}",
+ "response_raw": {
+  "candidates": [
+   {
+    "content": {
+     "parts": [
+      {
+       "text": "{\n  \"choice\": \"AFVS\",\n  \"ranking\": [\n    \"AFVS\",\n    \"VFVG\",\n    \"VFKS\",\n    \"VIVS\",\n    \"VFNS\",\n    \"VFGS\",\n    \"VFVK\",\n    \"VFVI\"\n  ],\n  \"rationale\": \"To reach target AIKG from VFVS via single substitutions, an admissible first step requires lower[v] >= upper[VFVS] = 147743. Target AIKG has lower = 347769. The four target amino acids at positions 183, 184, 227, 228 are A, I, K, G. Only genotypes introducing target residues (A at 183, I at 184, K at 227, or G at 228) make direct progress along minimal paths. Among candidates in the shortlist, AFVS initiates mutation toward A*** (seen in highly active AGCN with lower 145656), while VFVG targets ***G. AFVS directly probes the A183 pathway where high-scoring TrpB variants reside, making it the most informative first step to test reachability.\",\n  \"what_would_change_my_mind\": \"Measuring AFVS and finding its upper bound below 147743 would eliminate it as an admissible first step, shifting priority to VFVG or VFKS.\",\n  \"confidence\": \"medium\"\n}",
+       "thoughtSignature": "EmkKZwFpFH0THOpyvnlLJIDsum9Encrw+Qmb/h5ro7KHr0efQYFezrI0Ta1J5uDlp1xjPtJi5fpfcgxvrJPfpim13pv57bxxK6JQPvGdfef/Ti10Fr0ERY3OokhgD+9cPZonA7dCCzBDJQc="
+      }
+     ],
+     "role": "model"
+    },
+    "finishReason": "STOP",
+    "index": 0
+   }
+  ],
+  "usageMetadata": {
+   "promptTokenCount": 4052,
+   "candidatesTokenCount": 332,
+   "totalTokenCount": 4384,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4052
+    }
+   ],
+   "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "responseId": "5pvlapSeDefRz7IPgaiE0Ao"
+ },
+ "epistemic_status": "model-opinion; not verified truth"
+}

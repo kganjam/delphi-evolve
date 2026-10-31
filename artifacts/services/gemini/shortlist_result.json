@@ -1,0 +1,90 @@
+{
+ "epistemic_status": "UNVALIDATED model suggestion; one sample; not an agency/performance result",
+ "episode": "Family B seed 0 VFVS->AIKG",
+ "initial_observations_sha256": "32592d5ffd18a6ff1f7b16ea303dc6a89ec8297c421a6a3c0cf647c7f3e6e862",
+ "protocol_expected_initial_sha256": "32592d5ffd18a6ff1f7b16ea303dc6a89ec8297c421a6a3c0cf647c7f3e6e862",
+ "shortlist_rule": "label-free: 4 one-step moves toward target + 4 seeded-random neighbours (rng seed 7), shuffled (seed 11)",
+ "shortlist": [
+  "VFVG",
+  "VIVS",
+  "VFNS",
+  "VFGS",
+  "VFVK",
+  "VFKS",
+  "AFVS",
+  "VFVI"
+ ],
+ "gemini_answer": {
+  "choice": "AFVS",
+  "ranking": [
+   "AFVS",
+   "VFVG",
+   "VFKS",
+   "VIVS",
+   "VFNS",
+   "VFGS",
+   "VFVK",
+   "VFVI"
+  ],
+  "rationale": "To reach target AIKG from VFVS via single substitutions, an admissible first step requires lower[v] >= upper[VFVS] = 147743. Target AIKG has lower = 347769. The four target amino acids at positions 183, 184, 227, 228 are A, I, K, G. Only genotypes introducing target residues (A at 183, I at 184, K at 227, or G at 228) make direct progress along minimal paths. Among candidates in the shortlist, AFVS initiates mutation toward A*** (seen in highly active AGCN with lower 145656), while VFVG targets ***G. AFVS directly probes the A183 pathway where high-scoring TrpB variants reside, making it the most informative first step to test reachability.",
+  "what_would_change_my_mind": "Measuring AFVS and finding its upper bound below 147743 would eliminate it as an admissible first step, shifting priority to VFVG or VFKS.",
+  "confidence": "medium"
+ },
+ "after_the_fact_lookup_not_shown_to_model": {
+  "VFVG": {
+   "measured": true,
+   "admissible_from_VFVS": false
+  },
+  "VIVS": {
+   "measured": true,
+   "admissible_from_VFVS": true
+  },
+  "VFNS": {
+   "measured": true,
+   "admissible_from_VFVS": false
+  },
+  "VFGS": {
+   "measured": true,
+   "admissible_from_VFVS": false
+  },
+  "VFVK": {
+   "measured": true,
+   "admissible_from_VFVS": false
+  },
+  "VFKS": {
+   "measured": true,
+   "admissible_from_VFVS": false
+  },
+  "AFVS": {
+   "measured": true,
+   "admissible_from_VFVS": false
+  },
+  "VFVI": {
+   "measured": true,
+   "admissible_from_VFVS": false
+  }
+ },
+ "known_full_data_route_for_context": [
+  "VFVS",
+  "VFMS",
+  "SFMS",
+  "SIMS",
+  "SIMG",
+  "SIKG",
+  "AIKG"
+ ],
+ "model_version_returned": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4052,
+  "candidatesTokenCount": 332,
+  "totalTokenCount": 4384,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4052
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "t_seattle": "2026-10-31 00:42:30 PDT"
+}

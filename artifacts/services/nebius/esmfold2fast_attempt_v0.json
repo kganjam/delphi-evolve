@@ -1,0 +1,95 @@
+{
+ "model": "esmfold2-fast",
+ "sequence_sha256": "c0964e6dbcd438545d5a28cf9bf743806e119e334bd5e21df3a5ba759a1af4cb",
+ "manifest_variant": 0,
+ "manifest_json": {
+  "schema": "fs2-serve.nebius.ai/scientific-artifact-manifest/v1",
+  "artifacts": []
+ },
+ "t_utc": "2026-10-31T07:38:14Z",
+ "t_seattle": "2026-10-31 00:38:14 PDT",
+ "steps": [
+  {
+   "begin_upload": {
+    "upload_id": "a5433cc0-140d-555a-bdb0-aa2357c2a281",
+    "artifact": {
+     "artifact_id": "a5433cc0-140d-555a-bdb0-aa2357c2a281",
+     "sha256": "01c64e66fa0737589ba6f58d6a3536fc8eeb281c1fca416d00050be1d2ed09a0",
+     "size_bytes": 82,
+     "media_type": "application/vnd.fs2.scientific-manifest+json",
+     "compression": "none"
+    },
+    "upload_url": "https://89.169.99.188/v1/scientific-artifacts/uploads/a5433cc0-140d-555a-bdb0-aa2357c2a281/content",
+    "multipart_path": "/v1/scientific-artifacts/uploads/a5433cc0-140d-555a-bdb0-aa2357c2a281/multipart",
+    "direct_upload_url": "https://storage.eu-north1.nebius.cloud/[team-bucket-name-omitted]/scientific-ai2/35b6cb950a2403512d2a548cbe1c3b514f4b1d111d6ce92c8827748c02f3c743/uploads/01c64e66fa0737589ba6f58d6a3536fc8eeb281c1fca416d00050be1d2ed09a0?[QUERY-STRIPPED]",
+    "direct_upload_expires_in": 60,
+    "content_path": "/v1/scientific-artifacts/uploads/a5433cc0-140d-555a-bdb0-aa2357c2a281/content",
+    "max_content_bytes": 16777216,
+    "handle": {
+     "method": "PUT",
+     "url": "https://storage.eu-north1.nebius.cloud/[team-bucket-name-omitted]/scientific-ai2/35b6cb950a2403512d2a548cbe1c3b514f4b1d111d6ce92c8827748c02f3c743/uploads/01c64e66fa0737589ba6f58d6a3536fc8eeb281c1fca416d00050be1d2ed09a0?[QUERY-STRIPPED]",
+     "expires_at": "2026-10-31T07:39:16+00:00",
+     "write_once": true,
+     "headers": {
+      "If-None-Match": "*"
+     }
+    }
+   }
+  },
+  {
+   "put_status": 200,
+   "url_query_stripped": "https://storage.eu-north1.nebius.cloud/[team-bucket-name-omitted]/scientific-ai2/35b6cb950a2403512d2a548cbe1c3b514f4b1d111d6ce92c8827748c02f3c743/uploads/01c64e66fa0737589ba6f58d6a3536fc8eeb281c1fca416d00050be1d2ed09a0"
+  },
+  {
+   "finalize": {
+    "artifact": {
+     "artifact_id": "a5433cc0-140d-555a-bdb0-aa2357c2a281",
+     "sha256": "01c64e66fa0737589ba6f58d6a3536fc8eeb281c1fca416d00050be1d2ed09a0",
+     "size_bytes": 82,
+     "media_type": "application/vnd.fs2.scientific-manifest+json",
+     "compression": "none"
+    },
+    "state": "finalized"
+   }
+  }
+ ],
+ "submit_arguments": {
+  "schema": "fs2-serve.nebius.ai/scientific-run-request/v1",
+  "operation": "predict-protein-structure",
+  "service_class": "interactive",
+  "input_manifest": {
+   "artifact_id": "a5433cc0-140d-555a-bdb0-aa2357c2a281",
+   "sha256": "01c64e66fa0737589ba6f58d6a3536fc8eeb281c1fca416d00050be1d2ed09a0",
+   "size_bytes": 82,
+   "media_type": "application/vnd.fs2.scientific-manifest+json",
+   "compression": "none"
+  },
+  "parameters": {
+   "sequence": "MKGYFGPYGGQYVPEILMGALEELEAAYEGIMKDESFWKEFNDLLRDYAGRPTPLYFARRLSEKYGARVYLKREDLLHTGAHKINNAIGQVLLAKLMGKTRIIAETGAGQHGVATATAAALFGMECVIYMGEEDTIRQKLNVERMKLLGAKVVPVKSGSRTLKDAIDEALRDWITNLQTTYYVFGSVVGPHPYPIIVRNFQKVIGEETKKQIPEKEGRLPDYIVACVSGGSNAAGIFYPFIDSGVKLIGVEAGGEGLETGKHAASLLKGKIGYLHGSKTFVLQDDWGQVQVSHSVSAGLDYSGVGPEHAYWRETGKVLYDAVTDEEALDAFIELSRLEGIIPALESSHALAYLKKINIKGKVVVVNLSGRGDKDLESVLNHPYVRERIRLEHHHHHH",
+   "mode": "single-sequence",
+   "seed": 0
+  },
+  "client_context": {
+   "display_name": "delphi-evolve TrpB VFVS parent"
+  },
+  "output_prefix": "runs/delphi-evolve/structure-esmfold2fast/c0964e6dbcd43854",
+  "idempotency_key": "delphi-evolve-structure-c0964e6dbcd43854-esmfold2fast"
+ },
+ "submit_response": {
+  "isError": false,
+  "payload": {
+   "error": {
+    "code": "INVALID_REQUEST",
+    "retryable": false,
+    "admission": "not-submitted",
+    "model_id": "esmfold2-fast",
+    "message": "the scientific manifest requires verified inner artifacts",
+    "next_action": "Correct the reported input or artifact issue, then submit again.",
+    "request_id": "a0e01489-ad81-40f7-90bf-a2a004a65d15"
+   }
+  }
+ },
+ "operation_id": null,
+ "final_status": null,
+ "wall_s": 4.1
+}

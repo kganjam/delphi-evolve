@@ -1,0 +1,373 @@
+{
+ "tool": "infer_openfold2_native",
+ "genotype": "VFVS",
+ "sequence": "MKGYFGPYGGQYVPEILMGALEELEAAYEGIMKDESFWKEFNDLLRDYAGRPTPLYFARRLSEKYGARVYLKREDLLHTGAHKINNAIGQVLLAKLMGKTRIIAETGAGQHGVATATAAALFGMECVIYMGEEDTIRQKLNVERMKLLGAKVVPVKSGSRTLKDAIDEALRDWITNLQTTYYVFGSVVGPHPYPIIVRNFQKVIGEETKKQIPEKEGRLPDYIVACVSGGSNAAGIFYPFIDSGVKLIGVEAGGEGLETGKHAASLLKGKIGYLHGSKTFVLQDDWGQVQVSHSVSAGLDYSGVGPEHAYWRETGKVLYDAVTDEEALDAFIELSRLEGIIPALESSHALAYLKKINIKGKVVVVNLSGRGDKDLESVLNHPYVRERIRLEHHHHHH",
+ "sequence_sha256": "c0964e6dbcd438545d5a28cf9bf743806e119e334bd5e21df3a5ba759a1af4cb",
+ "parent_fasta_header": "Tm9D8*",
+ "parent_fasta_sha256": "d56ebe8d8c556d80bf97329ec34c872b737fb84953f0d83dfe015894e54bbc6c",
+ "idempotency_key": "delphi-evolve-structure-c0964e6dbcd43854",
+ "request_arguments": {
+  "input_id": "trpb-VFVS-c0964e6d",
+  "sequence": "MKGYFGPYGGQYVPEILMGALEELEAAYEGIMKDESFWKEFNDLLRDYAGRPTPLYFARRLSEKYGARVYLKREDLLHTGAHKINNAIGQVLLAKLMGKTRIIAETGAGQHGVATATAAALFGMECVIYMGEEDTIRQKLNVERMKLLGAKVVPVKSGSRTLKDAIDEALRDWITNLQTTYYVFGSVVGPHPYPIIVRNFQKVIGEETKKQIPEKEGRLPDYIVACVSGGSNAAGIFYPFIDSGVKLIGVEAGGEGLETGKHAASLLKGKIGYLHGSKTFVLQDDWGQVQVSHSVSAGLDYSGVGPEHAYWRETGKVLYDAVTDEEALDAFIELSRLEGIIPALESSHALAYLKKINIKGKVVVVNLSGRGDKDLESVLNHPYVRERIRLEHHHHHH",
+  "selected_models": [
+   1
+  ],
+  "relax_prediction": false,
+  "idempotency_key": "delphi-evolve-structure-c0964e6dbcd43854",
+  "wait_seconds": 30,
+  "output_prefix": "runs/delphi-evolve/structure/c0964e6dbcd43854"
+ },
+ "submitted_t_utc": "2026-10-31T07:29:59Z",
+ "submitted_t_seattle": "2026-10-31 00:29:59 PDT",
+ "polls": [
+  {
+   "t_utc": "2026-10-31T07:30:45Z",
+   "elapsed_s": 45.7,
+   "status": "QUEUED"
+  },
+  {
+   "t_utc": "2026-10-31T07:31:01Z",
+   "elapsed_s": 61.9,
+   "status": "QUEUED"
+  },
+  {
+   "t_utc": "2026-10-31T07:31:17Z",
+   "elapsed_s": 77.9,
+   "status": "QUEUED"
+  },
+  {
+   "t_utc": "2026-10-31T07:31:33Z",
+   "elapsed_s": 93.9,
+   "status": "QUEUED"
+  },
+  {
+   "t_utc": "2026-10-31T07:31:49Z",
+   "elapsed_s": 110.0,
+   "status": "QUEUED"
+  },
+  {
+   "t_utc": "2026-10-31T07:32:05Z",
+   "elapsed_s": 126.1,
+   "status": "QUEUED"
+  },
+  {
+   "t_utc": "2026-10-31T07:32:21Z",
+   "elapsed_s": 142.1,
+   "status": "QUEUED"
+  },
+  {
+   "t_utc": "2026-10-31T07:32:37Z",
+   "elapsed_s": 158.1,
+   "status": "QUEUED"
+  },
+  {
+   "t_utc": "2026-10-31T07:32:53Z",
+   "elapsed_s": 174.1,
+   "status": "QUEUED"
+  },
+  {
+   "t_utc": "2026-10-31T07:33:09Z",
+   "elapsed_s": 190.0,
+   "status": "RUNNING"
+  },
+  {
+   "t_utc": "2026-10-31T07:33:26Z",
+   "elapsed_s": 206.7,
+   "status": "RUNNING"
+  },
+  {
+   "t_utc": "2026-10-31T07:33:42Z",
+   "elapsed_s": 222.6,
+   "status": "RUNNING"
+  },
+  {
+   "t_utc": "2026-10-31T07:33:58Z",
+   "elapsed_s": 239.2,
+   "status": "RUNNING"
+  },
+  {
+   "t_utc": "2026-10-31T07:34:14Z",
+   "elapsed_s": 255.3,
+   "status": "RUNNING"
+  },
+  {
+   "t_utc": "2026-10-31T07:34:30Z",
+   "elapsed_s": 271.3,
+   "status": "RUNNING"
+  },
+  {
+   "t_utc": "2026-10-31T07:34:46Z",
+   "elapsed_s": 287.3,
+   "status": "RUNNING"
+  },
+  {
+   "t_utc": "2026-10-31T07:35:02Z",
+   "elapsed_s": 303.2,
+   "status": "RUNNING"
+  },
+  {
+   "t_utc": "2026-10-31T07:35:18Z",
+   "elapsed_s": 319.3,
+   "status": "RUNNING"
+  },
+  {
+   "t_utc": "2026-10-31T07:35:36Z",
+   "elapsed_s": 336.8,
+   "status": "SUCCEEDED"
+  }
+ ],
+ "submit_response": {
+  "isError": false,
+  "payload": {
+   "error": {
+    "status_code": 503,
+    "code": "SERVERLESS_REQUEST_FAILED",
+    "retryable": true,
+    "admission": "accepted",
+    "model_id": "openfold2",
+    "operation_id": "op-5e3d2111a651d8dd",
+    "phase": "observation",
+    "message": "The accepted operation's current state is temporarily unavailable. Its execution outcome has not been observed.",
+    "next_action": "Poll this same operation ID; do not submit the inference again.",
+    "request_id": "5ec16813-0f8f-41e1-be3c-289489f2b482"
+   }
+  }
+ },
+ "operation_id": "op-5e3d2111a651d8dd",
+ "last_operation": {
+  "model_id": "openfold2",
+  "execution": "async",
+  "result_available": true,
+  "progress": {
+   "schema": "scientific-ai/progress/v1",
+   "updated_at": null,
+   "current_step_id": null,
+   "steps": [
+    {
+     "step_id": "delivered_calls",
+     "command": null,
+     "state": "completed",
+     "unit": "call",
+     "initial_step": null,
+     "target_step": null,
+     "observed_step": null,
+     "durable_step": null,
+     "timestep_ps": null,
+     "completed_ns": null,
+     "durable_completed_ns": null,
+     "target_ns": null,
+     "ns_per_day": null,
+     "ns_per_day_source": null,
+     "completed_units": 1.0,
+     "durable_completed_units": 1.0,
+     "target_units": null,
+     "rate": null,
+     "rate_unit": null,
+     "rate_source": null,
+     "rate_window_seconds": null,
+     "observed_at": null,
+     "durable_at": null,
+     "rate_updated_at": null
+    },
+    {
+     "step_id": "structures",
+     "command": null,
+     "state": "completed",
+     "unit": "structure",
+     "initial_step": null,
+     "target_step": null,
+     "observed_step": null,
+     "durable_step": null,
+     "timestep_ps": null,
+     "completed_ns": null,
+     "durable_completed_ns": null,
+     "target_ns": null,
+     "ns_per_day": null,
+     "ns_per_day_source": null,
+     "completed_units": null,
+     "durable_completed_units": null,
+     "target_units": null,
+     "rate": null,
+     "rate_unit": null,
+     "rate_source": null,
+     "rate_window_seconds": null,
+     "observed_at": null,
+     "durable_at": null,
+     "rate_updated_at": null
+    }
+   ],
+   "available": true,
+   "stale": false,
+   "stale_after_seconds": null,
+   "source": "verified-delivery"
+  },
+  "operation": {
+   "id": "op-5e3d2111a651d8dd",
+   "status": "SUCCEEDED"
+  },
+  "delivery": {
+   "export_state": "succeeded"
+  },
+  "customer_storage": {
+   "available": true,
+   "bucket": "[team-bucket-name-omitted]",
+   "prefix": "runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/",
+   "manifest_key": "runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/manifest.json",
+   "files": [
+    {
+     "path": "artifacts/f59b074a-1e62-5769-b106-5aa6120cdb86.json",
+     "sha256": "d13b57bb41880b69a2ea12f6eca27801e6ddcfcbe0869b158fcc32a41f09764c",
+     "size_bytes": 3346366,
+     "key": "runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/artifacts/f59b074a-1e62-5769-b106-5aa6120cdb86.json"
+    },
+    {
+     "path": "artifacts/47f574da-6863-5c02-966c-27cde397f28a.json",
+     "sha256": "4bf0c6eaad9c00d088357190b09060b527fd5396e04c762f46579fca56599403",
+     "size_bytes": 3188340,
+     "key": "runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/artifacts/47f574da-6863-5c02-966c-27cde397f28a.json"
+    },
+    {
+     "path": "result.json",
+     "sha256": "bdcb7d78e4bf3062095f85dfd5d3e673961644de5c0ee56c73a4992a88bb42da",
+     "size_bytes": 1057,
+     "key": "runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/result.json"
+    }
+   ]
+  }
+ },
+ "final_status": "SUCCEEDED",
+ "result": {
+  "model_id": "openfold2",
+  "operation": {
+   "id": "op-5e3d2111a651d8dd",
+   "status": "SUCCEEDED"
+  },
+  "result": {
+   "schema": "fs2-serve.nebius.ai/operation-artifact-result/v1",
+   "artifact": {
+    "artifact_id": "47f574da-6863-5c02-966c-27cde397f28a",
+    "sha256": "4bf0c6eaad9c00d088357190b09060b527fd5396e04c762f46579fca56599403",
+    "size_bytes": 3188340,
+    "media_type": "application/json",
+    "compression": "none"
+   },
+   "content_type": "application/json"
+  },
+  "response": {
+   "operation_id": "op-5e3d2111a651d8dd",
+   "attempt_id": "op-5e3d2111a651d8dd-rpm4r",
+   "http_status": 200,
+   "content_type": "application/json",
+   "size_bytes": 3346366,
+   "sha256": "d13b57bb41880b69a2ea12f6eca27801e6ddcfcbe0869b158fcc32a41f09764c",
+   "timings": {
+    "posted_at": "2026-10-31T07:34:38Z",
+    "first_byte_at": "2026-10-31T07:34:59Z",
+    "completed_at": "2026-10-31T07:35:01Z",
+    "duration_s": 22.340461
+   },
+   "capture_complete": true,
+   "artifact": {
+    "artifact_id": "f59b074a-1e62-5769-b106-5aa6120cdb86",
+    "sha256": "d13b57bb41880b69a2ea12f6eca27801e6ddcfcbe0869b158fcc32a41f09764c",
+    "size_bytes": 3346366,
+    "media_type": "application/json",
+    "compression": "none"
+   }
+  },
+  "upstream_success": true,
+  "customer_storage": {
+   "available": true,
+   "bucket": "[team-bucket-name-omitted]",
+   "prefix": "runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/",
+   "manifest_key": "runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/manifest.json",
+   "files": [
+    {
+     "path": "artifacts/f59b074a-1e62-5769-b106-5aa6120cdb86.json",
+     "sha256": "d13b57bb41880b69a2ea12f6eca27801e6ddcfcbe0869b158fcc32a41f09764c",
+     "size_bytes": 3346366,
+     "key": "runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/artifacts/f59b074a-1e62-5769-b106-5aa6120cdb86.json"
+    },
+    {
+     "path": "artifacts/47f574da-6863-5c02-966c-27cde397f28a.json",
+     "sha256": "4bf0c6eaad9c00d088357190b09060b527fd5396e04c762f46579fca56599403",
+     "size_bytes": 3188340,
+     "key": "runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/artifacts/47f574da-6863-5c02-966c-27cde397f28a.json"
+    },
+    {
+     "path": "result.json",
+     "sha256": "bdcb7d78e4bf3062095f85dfd5d3e673961644de5c0ee56c73a4992a88bb42da",
+     "size_bytes": 1057,
+     "key": "runs/delphi-evolve/structure/c0964e6dbcd43854/op-5e3d2111a651d8dd/result.json"
+    }
+   ]
+  },
+  "progress": {
+   "schema": "scientific-ai/progress/v1",
+   "updated_at": null,
+   "current_step_id": null,
+   "steps": [
+    {
+     "step_id": "delivered_calls",
+     "command": null,
+     "state": "completed",
+     "unit": "call",
+     "initial_step": null,
+     "target_step": null,
+     "observed_step": null,
+     "durable_step": null,
+     "timestep_ps": null,
+     "completed_ns": null,
+     "durable_completed_ns": null,
+     "target_ns": null,
+     "ns_per_day": null,
+     "ns_per_day_source": null,
+     "completed_units": 1.0,
+     "durable_completed_units": 1.0,
+     "target_units": null,
+     "rate": null,
+     "rate_unit": null,
+     "rate_source": null,
+     "rate_window_seconds": null,
+     "observed_at": null,
+     "durable_at": null,
+     "rate_updated_at": null
+    },
+    {
+     "step_id": "structures",
+     "command": null,
+     "state": "completed",
+     "unit": "structure",
+     "initial_step": null,
+     "target_step": null,
+     "observed_step": null,
+     "durable_step": null,
+     "timestep_ps": null,
+     "completed_ns": null,
+     "durable_completed_ns": null,
+     "target_ns": null,
+     "ns_per_day": null,
+     "ns_per_day_source": null,
+     "completed_units": null,
+     "durable_completed_units": null,
+     "target_units": null,
+     "rate": null,
+     "rate_unit": null,
+     "rate_source": null,
+     "rate_window_seconds": null,
+     "observed_at": null,
+     "durable_at": null,
+     "rate_updated_at": null
+    }
+   ],
+   "available": true,
+   "stale": false,
+   "stale_after_seconds": null,
+   "source": "verified-delivery"
+  },
+  "execution": "async"
+ },
+ "finished_t_utc": "2026-10-31T07:35:38Z",
+ "finished_t_seattle": "2026-10-31 00:35:38 PDT",
+ "wall_s": 338.6
+}

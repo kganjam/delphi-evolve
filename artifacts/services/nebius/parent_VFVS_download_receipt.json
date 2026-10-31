@@ -1,0 +1,10 @@
+{
+ "t_utc": "2026-10-31T07:36:27Z",
+ "t_seattle": "2026-10-31 00:36:27 PDT",
+ "operation_id": "op-5e3d2111a651d8dd",
+ "artifact_id": "47f574da-6863-5c02-966c-27cde397f28a",
+ "downloaded_sha256": "4bf0c6eaad9c00d088357190b09060b527fd5396e04c762f46579fca56599403",
+ "downloaded_size_bytes": 3188340,
+ "url_query_stripped": "https://storage.eu-north1.nebius.cloud/[team-bucket-name-omitted]/scientific-ai2/35b6cb950a2403512d2a548cbe1c3b514f4b1d111d6ce92c8827748c02f3c743/runs/c15ae39e-1faf-549e-b4aa-03c721902838/blobs/4bf0c6eaad9c00d088357190b09060b527fd5396e04c762f46579fca56599403",
+ "note": "short-lived signed URL used in memory only; query string deliberately not retained"
+}

@@ -1,0 +1,258 @@
+[
+ {
+  "t_utc": "2026-10-31T07:39:44Z",
+  "elapsed_s": 0.7,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "initialize",
+   "params": {
+    "protocolVersion": "2025-03-26",
+    "capabilities": {},
+    "clientInfo": {
+     "name": "delphi-evolve-resources",
+     "version": "0.1"
+    }
+   },
+   "id": 1
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 1,
+   "result": {
+    "capabilities": {
+     "experimental": {},
+     "prompts": {
+      "listChanged": false
+     },
+     "resources": {
+      "listChanged": false,
+      "subscribe": false
+     },
+     "tools": {
+      "listChanged": false
+     }
+    },
+    "instructions": "Nebius Scientific AI. GROMACS: upload immutable inputs, submit once with an idempotency key, poll the returned operation ID, then retrieve validated artifacts. Never put large file contents into tool arguments. Status is not a scientific result. Each native App advertises its execution mode. Durable tools return an operation ID; poll it, and reuse the identical idempotency key after a lost admission response. Synchronous tools have no durable retry guarantee. Never retry inference with a new key after a timeout. Tools are filtered by current S2 availability.",
+    "protocolVersion": "2025-03-26",
+    "serverInfo": {
+     "name": "Nebius Scientific AI",
+     "version": "0.1.0"
+    }
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:39:44Z",
+  "elapsed_s": 0.67,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "notifications/initialized"
+  },
+  "http_status": 202,
+  "response": null
+ },
+ {
+  "t_utc": "2026-10-31T07:39:45Z",
+  "elapsed_s": 0.98,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-c03164a04e76c310"
+    }
+   },
+   "id": 2
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 2,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-c03164a04e76c310\",\n    \"status\": \"RUNNING\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:40:01Z",
+  "elapsed_s": 1.0,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-c03164a04e76c310"
+    }
+   },
+   "id": 3
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 3,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-c03164a04e76c310\",\n    \"status\": \"RUNNING\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:40:17Z",
+  "elapsed_s": 0.95,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-c03164a04e76c310"
+    }
+   },
+   "id": 4
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 4,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-c03164a04e76c310\",\n    \"status\": \"RUNNING\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:40:33Z",
+  "elapsed_s": 0.95,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-c03164a04e76c310"
+    }
+   },
+   "id": 5
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 5,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-c03164a04e76c310\",\n    \"status\": \"RUNNING\"\n  },\n  \"delivery\": {\n    \"export_state\": null\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:40:49Z",
+  "elapsed_s": 1.01,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-c03164a04e76c310"
+    }
+   },
+   "id": 6
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 6,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": false,\n  \"operation\": {\n    \"id\": \"op-c03164a04e76c310\",\n    \"status\": \"RUNNING\"\n  },\n  \"delivery\": {\n    \"export_state\": \"succeeded\"\n  },\n  \"customer_storage\": {\n    \"available\": true,\n    \"bucket\": \"[team-bucket-name-omitted]\",\n    \"prefix\": \"runs/delphi-evolve/structure/f4055b5868027bbf/op-c03164a04e76c310/\",\n    \"manifest_key\": \"runs/delphi-evolve/structure/f4055b5868027bbf/op-c03164a04e76c310/manifest.json\",\n    \"files\": [\n      {\n        \"path\": \"artifacts/d82be118-ea7e-5d6d-92ef-8a2264ea2cce.json\",\n        \"sha256\": \"8e6cff33b69d78e9c0affb64673811aba6fbeabe7cf8912f46b73434c286e850\",\n        \"size_bytes\": 3345683,\n        \"key\": \"runs/delphi-evolve/structure/f4055b5868027bbf/op-c03164a04e76c310/artifacts/d82be118-ea7e-5d6d-92ef-8a2264ea2cce.json\"\n      },\n      {\n        \"path\": \"artifacts/7751c03c-25dc-5392-a7b4-409a25bf8ba6.json\",\n        \"sha256\": \"d20e240da9a28d67fb3451c6b33b2bfa467355cf7a19122ee152dd64b1be800a\",\n        \"size_bytes\": 3187657,\n        \"key\": \"runs/delphi-evolve/structure/f4055b5868027bbf/op-c03164a04e76c310/artifacts/7751c03c-25dc-5392-a7b4-409a25bf8ba6.json\"\n      },\n      {\n        \"path\": \"result.json\",\n        \"sha256\": \"f415876aaa356df92681a3df5e88bc9f221a7668857e2cfc4482f1125ab5f207\",\n        \"size_bytes\": 1057,\n        \"key\": \"runs/delphi-evolve/structure/f4055b5868027bbf/op-c03164a04e76c310/result.json\"\n      }\n    ]\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:41:08Z",
+  "elapsed_s": 3.57,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation",
+    "arguments": {
+     "operation_id": "op-c03164a04e76c310"
+    }
+   },
+   "id": 7
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 7,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"execution\": \"async\",\n  \"result_available\": true,\n  \"progress\": {\n    \"schema\": \"scientific-ai/progress/v1\",\n    \"updated_at\": null,\n    \"current_step_id\": null,\n    \"steps\": [\n      {\n        \"step_id\": \"delivered_calls\",\n        \"command\": null,\n        \"state\": \"completed\",\n        \"unit\": \"call\",\n        \"initial_step\": null,\n        \"target_step\": null,\n        \"observed_step\": null,\n        \"durable_step\": null,\n        \"timestep_ps\": null,\n        \"completed_ns\": null,\n        \"durable_completed_ns\": null,\n        \"target_ns\": null,\n        \"ns_per_day\": null,\n        \"ns_per_day_source\": null,\n        \"completed_units\": 1.0,\n        \"durable_completed_units\": 1.0,\n        \"target_units\": null,\n        \"rate\": null,\n        \"rate_unit\": null,\n        \"rate_source\": null,\n        \"rate_window_seconds\": null,\n        \"observed_at\": null,\n        \"durable_at\": null,\n        \"rate_updated_at\": null\n      },\n      {\n        \"step_id\": \"structures\",\n        \"command\": null,\n        \"state\": \"completed\",\n        \"unit\": \"structure\",\n        \"initial_step\": null,\n        \"target_step\": null,\n        \"observed_step\": null,\n        \"durable_step\": null,\n        \"timestep_ps\": null,\n        \"completed_ns\": null,\n        \"durable_completed_ns\": null,\n        \"target_ns\": null,\n        \"ns_per_day\": null,\n        \"ns_per_day_source\": null,\n        \"completed_units\": null,\n        \"durable_completed_units\": null,\n        \"target_units\": null,\n        \"rate\": null,\n        \"rate_unit\": null,\n        \"rate_source\": null,\n        \"rate_window_seconds\": null,\n        \"observed_at\": null,\n        \"durable_at\": null,\n        \"rate_updated_at\": null\n      }\n    ],\n    \"available\": true,\n    \"stale\": false,\n    \"stale_after_seconds\": null,\n    \"source\": \"verified-delivery\"\n  },\n  \"operation\": {\n    \"id\": \"op-c03164a04e76c310\",\n    \"status\": \"SUCCEEDED\"\n  },\n  \"delivery\": {\n    \"export_state\": \"succeeded\"\n  },\n  \"customer_storage\": {\n    \"available\": true,\n    \"bucket\": \"[team-bucket-name-omitted]\",\n    \"prefix\": \"runs/delphi-evolve/structure/f4055b5868027bbf/op-c03164a04e76c310/\",\n    \"manifest_key\": \"runs/delphi-evolve/structure/f4055b5868027bbf/op-c03164a04e76c310/manifest.json\",\n    \"files\": [\n      {\n        \"path\": \"artifacts/d82be118-ea7e-5d6d-92ef-8a2264ea2cce.json\",\n        \"sha256\": \"8e6cff33b69d78e9c0affb64673811aba6fbeabe7cf8912f46b73434c286e850\",\n        \"size_bytes\": 3345683,\n        \"key\": \"runs/delphi-evolve/structure/f4055b5868027bbf/op-c03164a04e76c310/artifacts/d82be118-ea7e-5d6d-92ef-8a2264ea2cce.json\"\n      },\n      {\n        \"path\": \"artifacts/7751c03c-25dc-5392-a7b4-409a25bf8ba6.json\",\n        \"sha256\": \"d20e240da9a28d67fb3451c6b33b2bfa467355cf7a19122ee152dd64b1be800a\",\n        \"size_bytes\": 3187657,\n        \"key\": \"runs/delphi-evolve/structure/f4055b5868027bbf/op-c03164a04e76c310/artifacts/7751c03c-25dc-5392-a7b4-409a25bf8ba6.json\"\n      },\n      {\n        \"path\": \"result.json\",\n        \"sha256\": \"f415876aaa356df92681a3df5e88bc9f221a7668857e2cfc4482f1125ab5f207\",\n        \"size_bytes\": 1057,\n        \"key\": \"runs/delphi-evolve/structure/f4055b5868027bbf/op-c03164a04e76c310/result.json\"\n      }\n    ]\n  }\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ },
+ {
+  "t_utc": "2026-10-31T07:41:09Z",
+  "elapsed_s": 1.41,
+  "request": {
+   "jsonrpc": "2.0",
+   "method": "tools/call",
+   "params": {
+    "name": "get_operation_result",
+    "arguments": {
+     "operation_id": "op-c03164a04e76c310"
+    }
+   },
+   "id": 8
+  },
+  "http_status": 200,
+  "response": {
+   "jsonrpc": "2.0",
+   "id": 8,
+   "result": {
+    "content": [
+     {
+      "text": "{\n  \"model_id\": \"openfold2\",\n  \"operation\": {\n    \"id\": \"op-c03164a04e76c310\",\n    \"status\": \"SUCCEEDED\"\n  },\n  \"result\": {\n    \"schema\": \"fs2-serve.nebius.ai/operation-artifact-result/v1\",\n    \"artifact\": {\n      \"artifact_id\": \"7751c03c-25dc-5392-a7b4-409a25bf8ba6\",\n      \"sha256\": \"d20e240da9a28d67fb3451c6b33b2bfa467355cf7a19122ee152dd64b1be800a\",\n      \"size_bytes\": 3187657,\n      \"media_type\": \"application/json\",\n      \"compression\": \"none\"\n    },\n    \"content_type\": \"application/json\"\n  },\n  \"response\": {\n    \"operation_id\": \"op-c03164a04e76c310\",\n    \"attempt_id\": \"op-c03164a04e76c310-7c8mz\",\n    \"http_status\": 200,\n    \"content_type\": \"application/json\",\n    \"size_bytes\": 3345683,\n    \"sha256\": \"8e6cff33b69d78e9c0affb64673811aba6fbeabe7cf8912f46b73434c286e850\",\n    \"timings\": {\n      \"posted_at\": \"2026-10-31T07:40:17Z\",\n      \"first_byte_at\": \"2026-10-31T07:40:36Z\",\n      \"completed_at\": \"2026-10-31T07:40:37Z\",\n      \"duration_s\": 19.523004\n    },\n    \"capture_complete\": true,\n    \"artifact\": {\n      \"artifact_id\": \"d82be118-ea7e-5d6d-92ef-8a2264ea2cce\",\n      \"sha256\": \"8e6cff33b69d78e9c0affb64673811aba6fbeabe7cf8912f46b73434c286e850\",\n      \"size_bytes\": 3345683,\n      \"media_type\": \"application/json\",\n      \"compression\": \"none\"\n    }\n  },\n  \"upstream_success\": true,\n  \"customer_storage\": {\n    \"available\": true,\n    \"bucket\": \"[team-bucket-name-omitted]\",\n    \"prefix\": \"runs/delphi-evolve/structure/f4055b5868027bbf/op-c03164a04e76c310/\",\n    \"manifest_key\": \"runs/delphi-evolve/structure/f4055b5868027bbf/op-c03164a04e76c310/manifest.json\",\n    \"files\": [\n      {\n        \"path\": \"artifacts/d82be118-ea7e-5d6d-92ef-8a2264ea2cce.json\",\n        \"sha256\": \"8e6cff33b69d78e9c0affb64673811aba6fbeabe7cf8912f46b73434c286e850\",\n        \"size_bytes\": 3345683,\n        \"key\": \"runs/delphi-evolve/structure/f4055b5868027bbf/op-c03164a04e76c310/artifacts/d82be118-ea7e-5d6d-92ef-8a2264ea2cce.json\"\n      },\n      {\n        \"path\": \"artifacts/7751c03c-25dc-5392-a7b4-409a25bf8ba6.json\",\n        \"sha256\": \"d20e240da9a28d67fb3451c6b33b2bfa467355cf7a19122ee152dd64b1be800a\",\n        \"size_bytes\": 3187657,\n        \"key\": \"runs/delphi-evolve/structure/f4055b5868027bbf/op-c03164a04e76c310/artifacts/7751c03c-25dc-5392-a7b4-409a25bf8ba6.json\"\n      },\n      {\n        \"path\": \"result.json\",\n        \"sha256\": \"f415876aaa356df92681a3df5e88bc9f221a7668857e2cfc4482f1125ab5f207\",\n        \"size_bytes\": 1057,\n        \"key\": \"runs/delphi-evolve/structure/f4055b5868027bbf/op-c03164a04e76c310/result.json\"\n      }\n    ]\n  },\n  \"progress\": {\n    \"schema\": \"scientific-ai/progress/v1\",\n    \"updated_at\": null,\n    \"current_step_id\": null,\n    \"steps\": [\n      {\n        \"step_id\": \"delivered_calls\",\n        \"command\": null,\n        \"state\": \"completed\",\n        \"unit\": \"call\",\n        \"initial_step\": null,\n        \"target_step\": null,\n        \"observed_step\": null,\n        \"durable_step\": null,\n        \"timestep_ps\": null,\n        \"completed_ns\": null,\n        \"durable_completed_ns\": null,\n        \"target_ns\": null,\n        \"ns_per_day\": null,\n        \"ns_per_day_source\": null,\n        \"completed_units\": 1.0,\n        \"durable_completed_units\": 1.0,\n        \"target_units\": null,\n        \"rate\": null,\n        \"rate_unit\": null,\n        \"rate_source\": null,\n        \"rate_window_seconds\": null,\n        \"observed_at\": null,\n        \"durable_at\": null,\n        \"rate_updated_at\": null\n      },\n      {\n        \"step_id\": \"structures\",\n        \"command\": null,\n        \"state\": \"completed\",\n        \"unit\": \"structure\",\n        \"initial_step\": null,\n        \"target_step\": null,\n        \"observed_step\": null,\n        \"durable_step\": null,\n        \"timestep_ps\": null,\n        \"completed_ns\": null,\n        \"durable_completed_ns\": null,\n        \"target_ns\": null,\n        \"ns_per_day\": null,\n        \"ns_per_day_source\": null,\n        \"completed_units\": null,\n        \"durable_completed_units\": null,\n        \"target_units\": null,\n        \"rate\": null,\n        \"rate_unit\": null,\n        \"rate_source\": null,\n        \"rate_window_seconds\": null,\n        \"observed_at\": null,\n        \"durable_at\": null,\n        \"rate_updated_at\": null\n      }\n    ],\n    \"available\": true,\n    \"stale\": false,\n    \"stale_after_seconds\": null,\n    \"source\": \"verified-delivery\"\n  },\n  \"execution\": \"async\"\n}",
+      "type": "text"
+     }
+    ],
+    "isError": false
+   }
+  }
+ }
+]

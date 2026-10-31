@@ -1,0 +1,94 @@
+{
+ "caps": {
+  "max_calls": 6,
+  "max_input_tokens": 150000,
+  "max_output_tokens": 30000
+ },
+ "calls": 4,
+ "input_tokens": 82481,
+ "output_tokens": 19108,
+ "entries": [
+  {
+   "label": "review_flash_independent",
+   "model": "gemini-3.8-flash",
+   "http_status": 200,
+   "t_utc": "2026-10-31T07:32:12Z",
+   "input_tokens": 26236,
+   "output_tokens_incl_thinking": 11996,
+   "usage_metadata": {
+    "promptTokenCount": 26236,
+    "candidatesTokenCount": 1593,
+    "totalTokenCount": 38232,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 26236
+     }
+    ],
+    "thoughtsTokenCount": 10403,
+    "serviceTier": "standard"
+   }
+  },
+  {
+   "label": "review_flash_independent_run2",
+   "model": "gemini-3.8-flash",
+   "http_status": 200,
+   "t_utc": "2026-10-31T07:34:12Z",
+   "input_tokens": 26253,
+   "output_tokens_incl_thinking": 3633,
+   "usage_metadata": {
+    "promptTokenCount": 26253,
+    "candidatesTokenCount": 3633,
+    "totalTokenCount": 29886,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 26253
+     }
+    ],
+    "serviceTier": "standard"
+   }
+  },
+  {
+   "label": "review_pro_serious_claim",
+   "model": "gemini-3.1-pro-preview",
+   "http_status": 200,
+   "t_utc": "2026-10-31T07:34:48Z",
+   "input_tokens": 25940,
+   "output_tokens_incl_thinking": 3147,
+   "usage_metadata": {
+    "promptTokenCount": 25940,
+    "candidatesTokenCount": 1380,
+    "totalTokenCount": 29087,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 25940
+     }
+    ],
+    "thoughtsTokenCount": 1767,
+    "serviceTier": "standard"
+   }
+  },
+  {
+   "label": "shortlist_choice_flash",
+   "model": "gemini-3.8-flash",
+   "http_status": 200,
+   "t_utc": "2026-10-31T07:42:30Z",
+   "input_tokens": 4052,
+   "output_tokens_incl_thinking": 332,
+   "usage_metadata": {
+    "promptTokenCount": 4052,
+    "candidatesTokenCount": 332,
+    "totalTokenCount": 4384,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 4052
+     }
+    ],
+    "serviceTier": "standard"
+   }
+  }
+ ]
+}
