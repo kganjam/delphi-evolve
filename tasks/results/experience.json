@@ -1,0 +1,94 @@
+{
+  "role": "experience",
+  "status": "completed",
+  "model": "claude-sonnet-5-5 via Claude Code (managed subscription; no metered API charge established; CLI cost estimates are not subscription spend)",
+  "branch": "work/experience",
+  "started_pdt": "2026-10-31 00:00",
+  "wall_time_note": "Seattle PDT; DST ends 2026-11-01 02:00 (PDT->PST)",
+  "commit": "see git log of work/experience (final commit recorded in the follow-up commit message)",
+  "deliverables": {
+    "site": "site/ (index.html, style.css, app.js, lib.js, README.md, data/landscape.js, data/landscape.meta.json, data/evidence.json, data/nanopubs/*.trig). Static, no npm.",
+    "evidence_tool": "evolve/evidence.py (commands: landscape, delphi, nanopubs, validate, route-summary, site-data, docs)",
+    "artifacts": [
+      "artifacts/evidence/delphi_queries.json",
+      "artifacts/evidence/nanopubs/*.trig",
+      "artifacts/evidence/nanopubs/validation.json",
+      "artifacts/evidence/route_summary.json",
+      "artifacts/evidence/demo_claims.json"
+    ],
+    "docs": [
+      "docs/novelty.md",
+      "docs/blog.template.md -> docs/blog.md",
+      "docs/pitch.template.md -> docs/pitch.md",
+      "docs/video-storyboard.template.md -> docs/video-storyboard.md",
+      "docs/outreach-draft.md (unsent)"
+    ],
+    "tests": [
+      "tests/test_evidence.py",
+      "tests/test_evidence_browser.py",
+      "tests/browser_smoke.py"
+    ]
+  },
+  "commands_run": [
+    {
+      "cmd": "systemd-run --user --scope -p TasksMax=128 -p MemoryMax=4G -p MemorySwapMax=0 -p RuntimeMaxSec=600 env OMP_NUM_THREADS=2 .venv/bin/python -m evolve.evidence landscape",
+      "exit": 0,
+      "result": "160000 library; 159129 measured non-stop; 871 unmeasured; 193170 source rows; 34041 stop rows; overlap with KNN file 0; 9783 active flags. Matches coordinator and integrator counts."
+    },
+    {
+      "cmd": ".venv/bin/python -m evolve.evidence delphi",
+      "exit": 0,
+      "result": "20 live MCP calls to https://delphisci-mcp.fly.dev/mcp, 20 ok, 0 error; overview local 880 claims, network 375 claims; epistasis / fitness landscape text search 0 hits in both sources"
+    },
+    {
+      "cmd": ".venv/bin/python -m evolve.evidence nanopubs && .venv/bin/python -m evolve.evidence validate",
+      "exit": "0,0",
+      "result": "3 unsigned TriG drafts, each 4 named graphs, parsed by rdflib 7.6.0; structural checks pass; temp URIs only"
+    },
+    {
+      "cmd": ".venv/bin/python -m evolve.evidence route-summary",
+      "exit": 0,
+      "result": "VFVS->AIKG: 0 of 24 direct orderings admitted at kappa=0; shortest admitted route 5/6/7 steps at kappa 0/2/3; breaks near kappa 4.07 (read-noise model), eps 0.0060 (replicate range), eps 0.0075 (mean)"
+    },
+    {
+      "cmd": ".venv/bin/python -m evolve.evidence site-data && .venv/bin/python -m evolve.evidence docs",
+      "exit": "0,0",
+      "result": "evidence.json, demo_claims.json, nanopub copies; blog/pitch/storyboard rendered from artifacts"
+    },
+    {
+      "cmd": ".venv/bin/python -m pytest tests/test_evidence.py tests/test_evidence_browser.py -q (capped scope, OMP_NUM_THREADS=2)",
+      "exit": 0,
+      "result": "19 passed"
+    },
+    {
+      "cmd": "python3 tests/browser_smoke.py (headless Chromium via Playwright, capped scope)",
+      "exit": 0,
+      "result": "no page errors; real counts shown; empty states without demo.json; slider flips decision; proof tab green only with kernel exit 0 and non-zero mutant exit (3 fixtures)"
+    },
+    {
+      "cmd": "cross-check: core worker demo built from git archive of origin/work/core@bcc0729 in /tmp (not committed) and loaded into a /tmp copy of the site",
+      "exit": 0,
+      "result": "site's browser recomputation matched core's kappa sweep on all 8 rows (route existence, shortest route edges, reachable-from-start counts, e.g. 577/381/278/230/137/77/56/25) and agreed on the certified route (6 steps at kappa=2) and on core's broken 'tempting-direct' route (step 2 fails)"
+    }
+  ],
+  "key_findings_descriptive_not_benchmark": [
+    "Every one of the 24 direct orderings of the four VFVS->AIKG substitutions contains a step rejected at kappa=0 (artifacts/evidence/route_summary.json).",
+    "Browser JS (site/lib.js), Python mirror (evolve/evidence.py), core's graph.py (via demo.json sweep) and the proof worker's route agree on VFVS>VFMS>VFMG>VIMG>VIKG>AIKG at the lowest assumption."
+  ],
+  "limitations": [
+    "Site shows no replay benchmark numbers, Lean receipt or GPU result unless demo.json carries them; none of those were available on this branch. They render as unavailable.",
+    "Full-data route analysis is descriptive (labels from the whole table), not a predictive benchmark.",
+    "Interval parameter kappa/epsilon is an ASSUMED sensitivity; two replicates do not give simultaneous confidence bands.",
+    "Browser blocked-status is stricter than core's (unmeasured genotypes allowed to be perfect); on pairs tested the closed-set sizes agree (25 at kappa=6) but this is not proved in general.",
+    "Packed scores are int16 at 2e-5 resolution; borderline margins below ~2e-5 may differ from core's exact micro-unit integers.",
+    "Nanopub drafts are unsigned and unpublished; no trusty URI, no network submission, no observed external reuse.",
+    "ALDE was read (PMC11739421, via fetch summary of first 100k chars); FLIP2 and arXiv:2604.22611 only via fetched page/abstract summaries; PELLM not inspected. Comparison is qualitative; no head-to-head run.",
+    "No dark-theme or screen-reader audit beyond keyboard access to the tile inspector, route-step buttons and controls; mobile checked at 390 px width only.",
+    "Company wedge is a hypothesis; no market size, customer or willingness-to-pay data exists in the repo."
+  ],
+  "next_steps": [
+    "Integrator: copy core's artifacts/demo.json to site/data/demo.json and merge artifacts/evidence/demo_claims.json into its claims; proof receipt into demo.proof; then run python -m evolve.evidence docs and re-run tests.",
+    "Re-render docs after replay/proof/gpu results land; delete 'not integrated' wording only if the rendered text changed accordingly.",
+    "Presenter should read replay table values from artifacts/core/replay/table_primary.csv, including negative outcomes; record the video per docs/video-storyboard.md."
+  ]
+}

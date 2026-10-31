@@ -2,8 +2,8 @@
   "aa_order": "ACDEFGHIKLMNPQRSTVWY",
   "act_array": "uint8, source 'active' flag (above stop-codon mean + 1.96 SD)",
   "builder": "python -m evolve.evidence landscape",
-  "built_seattle": "2026-10-31 00:13:42 PDT",
-  "built_utc": "2026-10-31T07:13:42Z",
+  "built_seattle": "2026-10-31 00:22:21 PDT",
+  "built_utc": "2026-10-31T07:22:21Z",
   "cnt_array": "uint16 little-endian min(InputCount_1, InputCount_2), capped at 65535",
   "counts": {
     "active_flag_true_among_measured": 9783,
