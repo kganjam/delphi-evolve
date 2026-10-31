@@ -1,0 +1,228 @@
+{
+ "core_commit": "8883518",
+ "n_measured": 159129,
+ "y": "bg-subtracted mean of two raw replicates",
+ "parent_score": 0.144751,
+ "rows": [
+  {
+   "model": "te8m",
+   "repo": "nvidia/esm2_t6_8M_UR50D",
+   "revision": "3674a6acb6c217bbeff709d182a11b196125dfc3",
+   "protocol": "mm_wt",
+   "spearman": 0.19432654374414876,
+   "boot_lo": 0.18903221453957475,
+   "boot_hi": 0.19949856535984642,
+   "top1pct_overlap": 0.10866834170854271,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te8m",
+   "repo": "nvidia/esm2_t6_8M_UR50D",
+   "revision": "3674a6acb6c217bbeff709d182a11b196125dfc3",
+   "protocol": "mm_ctx",
+   "spearman": 0.18247572036036103,
+   "boot_lo": 0.17693096628679356,
+   "boot_hi": 0.18756770343110063,
+   "top1pct_overlap": 0.12123115577889447,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te8m",
+   "repo": "nvidia/esm2_t6_8M_UR50D",
+   "revision": "3674a6acb6c217bbeff709d182a11b196125dfc3",
+   "protocol": "unmasked",
+   "spearman": 0.15833565572677694,
+   "boot_lo": 0.152951721171389,
+   "boot_hi": 0.16336486725745178,
+   "top1pct_overlap": 0.11871859296482412,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te8m",
+   "repo": "nvidia/esm2_t6_8M_UR50D",
+   "revision": "3674a6acb6c217bbeff709d182a11b196125dfc3",
+   "protocol": "allmask",
+   "spearman": 0.1915879965598081,
+   "boot_lo": 0.18599957779125048,
+   "boot_hi": 0.1966054567509515,
+   "top1pct_overlap": 0.11683417085427136,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te35m",
+   "repo": "nvidia/esm2_t12_35M_UR50D",
+   "revision": "ca13c2d411d8aad9ea8dfa1f24a80a36a8946b5e",
+   "protocol": "mm_wt",
+   "spearman": 0.18654442072724953,
+   "boot_lo": 0.1809125269347569,
+   "boot_hi": 0.19160517190907828,
+   "top1pct_overlap": 0.23178391959798994,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te35m",
+   "repo": "nvidia/esm2_t12_35M_UR50D",
+   "revision": "ca13c2d411d8aad9ea8dfa1f24a80a36a8946b5e",
+   "protocol": "mm_ctx",
+   "spearman": 0.1759510074402109,
+   "boot_lo": 0.16991462686363107,
+   "boot_hi": 0.1813638713646171,
+   "top1pct_overlap": 0.21733668341708542,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te35m",
+   "repo": "nvidia/esm2_t12_35M_UR50D",
+   "revision": "ca13c2d411d8aad9ea8dfa1f24a80a36a8946b5e",
+   "protocol": "unmasked",
+   "spearman": 0.1289469815945882,
+   "boot_lo": 0.12402003240416952,
+   "boot_hi": 0.13386042219865385,
+   "top1pct_overlap": 0.16896984924623115,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te35m",
+   "repo": "nvidia/esm2_t12_35M_UR50D",
+   "revision": "ca13c2d411d8aad9ea8dfa1f24a80a36a8946b5e",
+   "protocol": "allmask",
+   "spearman": 0.1823994547148914,
+   "boot_lo": 0.17671346066711724,
+   "boot_hi": 0.18744411149603246,
+   "top1pct_overlap": 0.2185929648241206,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te150m",
+   "repo": "nvidia/esm2_t30_150M_UR50D",
+   "revision": "a2e82bef92128da1852464b0864651b1a11337d0",
+   "protocol": "mm_wt",
+   "spearman": 0.20186535970947408,
+   "boot_lo": 0.1968660635497225,
+   "boot_hi": 0.20620391636714608,
+   "top1pct_overlap": 0.32663316582914576,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te150m",
+   "repo": "nvidia/esm2_t30_150M_UR50D",
+   "revision": "a2e82bef92128da1852464b0864651b1a11337d0",
+   "protocol": "mm_ctx",
+   "spearman": 0.1956729025760811,
+   "boot_lo": 0.19034012008205206,
+   "boot_hi": 0.2006936537824606,
+   "top1pct_overlap": 0.2757537688442211,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te150m",
+   "repo": "nvidia/esm2_t30_150M_UR50D",
+   "revision": "a2e82bef92128da1852464b0864651b1a11337d0",
+   "protocol": "unmasked",
+   "spearman": 0.17188726571354163,
+   "boot_lo": 0.16650229171809214,
+   "boot_hi": 0.17693693606700764,
+   "top1pct_overlap": 0.20100502512562815,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te150m",
+   "repo": "nvidia/esm2_t30_150M_UR50D",
+   "revision": "a2e82bef92128da1852464b0864651b1a11337d0",
+   "protocol": "allmask",
+   "spearman": 0.2069705245662714,
+   "boot_lo": 0.2021025710862875,
+   "boot_hi": 0.21145281741193298,
+   "top1pct_overlap": 0.3391959798994975,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te650m",
+   "repo": "nvidia/esm2_t33_650M_UR50D",
+   "revision": "118f470e7e96ba8741227ab898e54758850e9563",
+   "protocol": "mm_wt",
+   "spearman": 0.16972438803554263,
+   "boot_lo": 0.16364172226109935,
+   "boot_hi": 0.17486154376760002,
+   "top1pct_overlap": 0.34610552763819097,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te650m",
+   "repo": "nvidia/esm2_t33_650M_UR50D",
+   "revision": "118f470e7e96ba8741227ab898e54758850e9563",
+   "protocol": "mm_ctx",
+   "spearman": 0.17297150072052797,
+   "boot_lo": 0.16670804588753438,
+   "boot_hi": 0.17827947842161732,
+   "top1pct_overlap": 0.3454773869346734,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te650m",
+   "repo": "nvidia/esm2_t33_650M_UR50D",
+   "revision": "118f470e7e96ba8741227ab898e54758850e9563",
+   "protocol": "unmasked",
+   "spearman": 0.18294404228383193,
+   "boot_lo": 0.17718343502073297,
+   "boot_hi": 0.18751369579992622,
+   "top1pct_overlap": 0.33668341708542715,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te650m",
+   "repo": "nvidia/esm2_t33_650M_UR50D",
+   "revision": "118f470e7e96ba8741227ab898e54758850e9563",
+   "protocol": "allmask",
+   "spearman": 0.17495679013407614,
+   "boot_lo": 0.16893471237681554,
+   "boot_hi": 0.1798278560689638,
+   "top1pct_overlap": 0.3385678391959799,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te3b",
+   "repo": "nvidia/esm2_t36_3B_UR50D",
+   "revision": "0850cbdf0494675c6db7a5d0d7390ceed3b3504c",
+   "protocol": "mm_wt",
+   "spearman": 0.17100419001876477,
+   "boot_lo": 0.16561841276718378,
+   "boot_hi": 0.1759675625943641,
+   "top1pct_overlap": 0.3479899497487437,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te3b",
+   "repo": "nvidia/esm2_t36_3B_UR50D",
+   "revision": "0850cbdf0494675c6db7a5d0d7390ceed3b3504c",
+   "protocol": "mm_ctx",
+   "spearman": 0.1695636871300143,
+   "boot_lo": 0.16387983362640257,
+   "boot_hi": 0.17483062806247715,
+   "top1pct_overlap": 0.34233668341708545,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te3b",
+   "repo": "nvidia/esm2_t36_3B_UR50D",
+   "revision": "0850cbdf0494675c6db7a5d0d7390ceed3b3504c",
+   "protocol": "unmasked",
+   "spearman": 0.1816103896329297,
+   "boot_lo": 0.1761600702563599,
+   "boot_hi": 0.18666155678742724,
+   "top1pct_overlap": 0.34296482412060303,
+   "chance_overlap": 0.01
+  },
+  {
+   "model": "te3b",
+   "repo": "nvidia/esm2_t36_3B_UR50D",
+   "revision": "0850cbdf0494675c6db7a5d0d7390ceed3b3504c",
+   "protocol": "allmask",
+   "spearman": 0.17076096306324007,
+   "boot_lo": 0.16528414689640042,
+   "boot_hi": 0.1758409897223642,
+   "top1pct_overlap": 0.34108040201005024,
+   "chance_overlap": 0.01
+  }
+ ]
+}

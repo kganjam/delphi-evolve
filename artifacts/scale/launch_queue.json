@@ -1,0 +1,92 @@
+[
+ {
+  "seq": 1,
+  "priority": 1,
+  "model_key": "te3b",
+  "units": "0-5",
+  "status": "launched",
+  "purpose": "pilot+first shard of 3B model-size ablation; validates runner on H100",
+  "job_id": "aijob-e00kejm199cp3hq1nt"
+ },
+ {
+  "seq": 2,
+  "priority": 1,
+  "model_key": "te150m",
+  "units": "0-31",
+  "status": "launched",
+  "purpose": "150M TE full-library (model-size ablation, small end); second runner validation",
+  "job_id": "aijob-e00db00w7bzzp973r0"
+ },
+ {
+  "seq": 3,
+  "priority": 2,
+  "model_key": "te3b",
+  "units": "6-11",
+  "status": "launched",
+  "purpose": "3B remaining shards (released after pilot unit_done is recovered and checked)",
+  "job_id": "aijob-e00hsqc8eyxhaps2rw"
+ },
+ {
+  "seq": 4,
+  "priority": 2,
+  "model_key": "te3b",
+  "units": "12-16",
+  "status": "launched",
+  "purpose": "3B remaining shards (released after pilot unit_done is recovered and checked)",
+  "job_id": "aijob-e00nga5q6vjqbbee30"
+ },
+ {
+  "seq": 5,
+  "priority": 2,
+  "model_key": "te3b",
+  "units": "17-21",
+  "status": "launched",
+  "purpose": "3B remaining shards (released after pilot unit_done is recovered and checked)",
+  "job_id": "aijob-e00y49t1xsfxm7cmqf"
+ },
+ {
+  "seq": 6,
+  "priority": 2,
+  "model_key": "te3b",
+  "units": "22-26",
+  "status": "launched",
+  "purpose": "3B remaining shards (released after pilot unit_done is recovered and checked)",
+  "job_id": "aijob-e00zv8gre71k3mxt1s"
+ },
+ {
+  "seq": 7,
+  "priority": 2,
+  "model_key": "te3b",
+  "units": "27-31",
+  "status": "launched",
+  "purpose": "3B remaining shards (released after pilot unit_done is recovered and checked)",
+  "job_id": "aijob-e00msfjf9v25bjzb2w"
+ },
+ {
+  "seq": 8,
+  "priority": 2,
+  "model_key": "te650m",
+  "units": "0-31",
+  "status": "launched",
+  "purpose": "650M TE through the SAME protocol as the other sizes (adds lp_all + random-projected embeddings; cross-checks the gpu worker's lp_mask/lp_un numerics)",
+  "job_id": "aijob-e00bz2z168xhb8sqj0"
+ },
+ {
+  "seq": 9,
+  "priority": 3,
+  "model_key": "te35m",
+  "units": "0-31",
+  "status": "launched",
+  "purpose": "35M TE, small end of size ablation",
+  "job_id": "aijob-e00cgjqnrbdeeybnj5"
+ },
+ {
+  "seq": 10,
+  "priority": 3,
+  "model_key": "te8m",
+  "units": "0-31",
+  "status": "launched",
+  "purpose": "8M TE, smallest point of size ablation",
+  "job_id": "aijob-e00j9xfkkz9rpeakz6"
+ }
+]
