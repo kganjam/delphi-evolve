@@ -1,0 +1,78 @@
+{
+  "committed_revision": "feb5dbd3b6b5613f47c73bbed6ff1a95ecc76e87",
+  "working_tree_read_only": true,
+  "files": {
+    "targets/targets.json": {
+      "working_sha256": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce",
+      "committed_sha256": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce",
+      "unchanged": true
+    },
+    "targets/Defs.lean": {
+      "working_sha256": "0201bbe3a2c022a5ab647b43e9804355a34c6795ba8a78836c9938a88e50ef30",
+      "committed_sha256": "0201bbe3a2c022a5ab647b43e9804355a34c6795ba8a78836c9938a88e50ef30",
+      "unchanged": true
+    },
+    "CONTRACT.md": {
+      "working_sha256": "f788e88ed2a20030d4686c79721b51b1c16aee8cf5b8e9b4d3969c7ce3548272",
+      "committed_sha256": "f788e88ed2a20030d4686c79721b51b1c16aee8cf5b8e9b4d3969c7ce3548272",
+      "unchanged": true
+    },
+    "FREEZE.sha256": {
+      "working_sha256": "6ca0037d15c92c10cf83377f65b671ebc70293e1ef1b36d7e409df296f5b0368",
+      "committed_sha256": "6ca0037d15c92c10cf83377f65b671ebc70293e1ef1b36d7e409df296f5b0368",
+      "unchanged": true
+    },
+    "PREREG.md": {
+      "working_sha256": "f38aba1f2dde6fd842402f51cfb07c7d156d917d5c8f469a35bbe3bfc367d1c2",
+      "committed_sha256": "a070eb7e13eee4311712318e4954a012452ab646be4d32e42943e0ae583a8974",
+      "unchanged": false
+    },
+    "agent.py": {
+      "working_sha256": "a1e6386285f87384deebf590e5109f51d868412d4ffd58529cd0f424a2bc5274",
+      "committed_sha256": "6fd6645e1f28074797b7af15a8f4775b141eeea234cda432da7c7f64fec9b4b2",
+      "unchanged": false
+    },
+    "lean_check.py": {
+      "working_sha256": "627bbfe04838e774dc7a28ba7f3a994a124b508b79b3e3504ecfe1a8616d959f",
+      "committed_sha256": "fc503bbe18ead0a8653734e8c5f11b78452f719121c548d57e1b800f0eff83f3",
+      "unchanged": false
+    },
+    "accounting.py": {
+      "working_sha256": "d03a6576ddbb51c60348594f30ee0a22d5f457ed1db32abf164d9bc8f8a054e4",
+      "committed_sha256": "f0ab7c30eea27d1220b29cd02d0cf934fd8f2254ff3e805b30988381268b47bf",
+      "unchanged": false
+    }
+  },
+  "freeze": [
+    {
+      "path": "targets/targets.json",
+      "expected": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce",
+      "actual": "36d637d71e8def6b376451834b4415bd81cf8877f315ef948aeabd500f68f1ce",
+      "matches": true
+    },
+    {
+      "path": "targets/Defs.lean",
+      "expected": "0201bbe3a2c022a5ab647b43e9804355a34c6795ba8a78836c9938a88e50ef30",
+      "actual": "0201bbe3a2c022a5ab647b43e9804355a34c6795ba8a78836c9938a88e50ef30",
+      "matches": true
+    },
+    {
+      "path": "CONTRACT.md",
+      "expected": "f788e88ed2a20030d4686c79721b51b1c16aee8cf5b8e9b4d3969c7ce3548272",
+      "actual": "f788e88ed2a20030d4686c79721b51b1c16aee8cf5b8e9b4d3969c7ce3548272",
+      "matches": true
+    },
+    {
+      "path": "PREREG.md",
+      "expected": "464729f555b87f8410b0cc6694939102ff432ee4559f72d1a455ffc9e7db3b54",
+      "actual": "f38aba1f2dde6fd842402f51cfb07c7d156d917d5c8f469a35bbe3bfc367d1c2",
+      "matches": false
+    },
+    {
+      "path": "reference/proofs.json",
+      "expected": "c7757ae9de2670c1a6e66c8e141fc7dadbab65b979f4b6043429bf6718c7f0f7",
+      "actual": "c7757ae9de2670c1a6e66c8e141fc7dadbab65b979f4b6043429bf6718c7f0f7",
+      "matches": true
+    }
+  ]
+}

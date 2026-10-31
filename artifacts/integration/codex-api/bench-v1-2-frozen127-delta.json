@@ -1,0 +1,43 @@
+{
+  "revision": "70c12544a952fbdcfa370e8249c980092b522785",
+  "previous_revision": "ffcd3151ea4dc4ac9a7c4bf304c11a402eced056",
+  "scope": "metadata and row identity only; prior exact recheck remains applicable to retained 1-D rows",
+  "files": {
+    "instances_public.jsonl": {
+      "count": 127,
+      "retained_rows_unchanged": true,
+      "removed": [
+        "qd643fbe2"
+      ],
+      "added": [],
+      "sha256": "70b5e0fcb8a31a1d13abfdf1202e92afe988ae5e05ccf86bab95cbc3771b4f61"
+    },
+    "instances_full.jsonl": {
+      "count": 127,
+      "retained_rows_unchanged": true,
+      "removed": [
+        "qd643fbe2"
+      ],
+      "added": [],
+      "sha256": "2409c3b4c9fb9a85f374abfc9629691e6a9b6046a01f669c7672ad9fd5bac28e"
+    },
+    "key.jsonl": {
+      "count": 127,
+      "retained_rows_unchanged": true,
+      "removed": [
+        "qd643fbe2"
+      ],
+      "added": [],
+      "sha256": "28645a12f2f4c77fc1acedb10b23b4070832eefa381b88ca65a12b9e4ecdaa2f"
+    },
+    "model_payload.jsonl": {
+      "count": 127,
+      "retained_rows_unchanged": true,
+      "removed": [
+        "qd643fbe2"
+      ],
+      "added": [],
+      "sha256": "6c571db13a63d5dc8e8b5e5fadda601471f9a0a4fad6053f798395a48f78ee42"
+    }
+  }
+}
